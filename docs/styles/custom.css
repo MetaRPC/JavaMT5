@@ -1,0 +1,181 @@
+/* ===========================
+   JavaMT5 — custom.css (calm aurora)
+   =========================== */
+
+/* 1) Material Symbols (Rounded) — icon font */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL,GRAD@400..700,0..1,0..200');
+
+.material-symbols-rounded{
+  font-family: 'Material Symbols Rounded';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 1;
+  display: inline-block;
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: normal;
+  white-space: nowrap;
+}
+
+/* 2) Background: Calm Aurora - soft purple lights, very slow motion */
+body { background-color:#0d0f13; }
+
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(60% 60% at 20% 20%, rgba(99,102,241,.10), transparent 60%),
+    radial-gradient(70% 70% at 80% 30%, rgba(147,51,234,.10), transparent 65%),
+    radial-gradient(55% 55% at 40% 80%, rgba(88,28,135,.08), transparent 60%);
+  filter: blur(30px);
+  animation: auroraDrift 80s ease-in-out infinite;
+  opacity:.9;
+}
+@keyframes auroraDrift{
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(2%,1%,0) scale(1.02); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+.md-container, .md-main, .md-content { position: relative; z-index: 1; }
+
+@media (prefers-reduced-motion: reduce){
+  body::before{ animation: none !important; }
+}
+
+/* 3) Pyramid Grid: 1-2-3 layout */
+.home-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin: 1.2rem 0 2.2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* First card - centered, spans 2 columns, offset by 2 */
+.home-grid .card:nth-child(1) {
+  grid-column: 3 / 5;
+}
+
+/* Second row - 2 cards, each spans 2 columns */
+.home-grid .card:nth-child(2) {
+  grid-column: 2 / 4;
+}
+.home-grid .card:nth-child(3) {
+  grid-column: 4 / 6;
+}
+
+/* Third row - 3 cards, each spans 2 columns */
+.home-grid .card:nth-child(4) {
+  grid-column: 1 / 3;
+}
+.home-grid .card:nth-child(5) {
+  grid-column: 3 / 5;
+}
+.home-grid .card:nth-child(6) {
+  grid-column: 5 / 7;
+}
+
+/* Responsive: tablet */
+@media (max-width: 960px){
+  .home-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .home-grid .card:nth-child(1),
+  .home-grid .card:nth-child(2),
+  .home-grid .card:nth-child(3),
+  .home-grid .card:nth-child(4),
+  .home-grid .card:nth-child(5),
+  .home-grid .card:nth-child(6) {
+    grid-column: span 1;
+  }
+}
+
+/* Responsive: mobile */
+@media (max-width: 620px){
+  .home-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4) Cards: glass + gradient frame */
+.card{
+  position:relative; display:block;
+  padding:1.25rem 1.2rem; min-height:200px;
+  border-radius:16px; text-decoration:none; color:inherit;
+  background:
+    linear-gradient(180deg, rgba(13,17,23,.86), rgba(13,17,23,.82)) padding-box,
+    linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
+  border:1px solid transparent;
+  box-shadow:0 10px 24px rgba(0,0,0,.22);
+  backdrop-filter: blur(4px);
+  transform-style: preserve-3d;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.card h3{ margin:0 0 .35rem; font-weight:800; letter-spacing:.2px; }
+.card p{ margin:0; font-size:.95rem; line-height:1.35rem; opacity:.9; }
+
+/* 5) Centered icon with gradient fill */
+.card .material-symbols-rounded{
+  font-size: clamp(2.6rem, 4vw, 3.6rem);
+  margin: .25rem 0 .6rem;
+  background: linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2)));
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 10px 24px rgba(var(--g1), .26));
+}
+
+/* 6) Hover Cards: Easy Lift and Inner Shade */
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0,0,0,.36);
+  background:
+    linear-gradient(180deg, rgba(13,17,23,.9), rgba(13,17,23,.86)) padding-box,
+    linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
+}
+
+/* 7) Side color glow (soft, color = card gradient) */
+.card::after{
+  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+  background:
+    radial-gradient(60% 90% at -12% 50%, rgba(var(--g1), .18), transparent 60%),
+    radial-gradient(60% 90% at 112% 50%, rgba(var(--g2), .18), transparent 60%);
+  opacity:0; transition: opacity .22s ease;
+}
+.card:hover::after{ opacity:.7; }
+
+/* 8) Orange Gradient Palette (Bright to Dark) */
+.card.orange-1{
+  --g1: 255,159,28;   /* bright-orange */
+  --g2: 255,115,0;    /* vivid-orange */
+}
+.card.orange-2{
+  --g1: 255,115,0;    /* vivid-orange */
+  --g2: 230,81,0;     /* medium-orange */
+}
+.card.orange-3{
+  --g1: 230,81,0;     /* medium-orange */
+  --g2: 191,54,12;    /* dark-orange */
+}
+
+/* 9) Accessibility */
+@media (prefers-reduced-motion: reduce){
+  .card{ transition: none !important; }
+}
+
+/* 10) Code blocks enhancement */
+.md-typeset code {
+  background-color: rgba(99,102,241,.08);
+  border: 1px solid rgba(99,102,241,.12);
+}
+
+.md-typeset pre {
+  background-color: rgba(13,17,23,.92);
+  border: 1px solid rgba(99,102,241,.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
