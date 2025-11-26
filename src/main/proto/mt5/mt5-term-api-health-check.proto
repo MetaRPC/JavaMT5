@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+option csharp_namespace = "mt5_term_api";
+package mt5_term_api;
+option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
+
+service Health
+{
+  rpc Check (HealthCheckRequest) returns (HealthCheckReply);
+  rpc StopListening(StopListeningRequest) returns (StopListeningReply);
+}
+
+message StopListeningRequest {
+}
+
+message StopListeningReply {
+}
+
+message HealthCheckRequest {
+}
+
+message HealthCheckReply {
+  bool is_connected_to_server = 1;
+  int64 server_time_seconds = 2;
+}

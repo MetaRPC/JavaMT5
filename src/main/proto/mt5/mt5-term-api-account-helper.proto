@@ -1,0 +1,793 @@
+﻿syntax = "proto3";
+option csharp_namespace = "mt5_term_api";
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+import "mt5/mrpc-mt5-error.proto";
+
+package mt5_term_api;    
+option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
+
+service AccountHelper {
+  // Some information about account
+  rpc AccountSummary (AccountSummaryRequest) returns (AccountSummaryReply)
+  {
+    option (google.api.http) = {
+      get: "/AccountSummary"
+    };
+  }
+  // Orders History
+  // [DefaultValues]
+  // {
+  //   "pageNumber": "0",
+  //   "itemsPerPage": "0",
+  // }  
+  rpc OrderHistory (OrderHistoryRequest) returns (OrderHistoryReply)
+  {
+    option (google.api.http) = {
+      get: "/OrderHistory"
+    };    
+  }
+  // Pending orders and opened positions
+  rpc OpenedOrders (OpenedOrdersRequest) returns (OpenedOrdersReply) {
+    option (google.api.http) = {
+      get: "/OpenedOrders"
+    };
+  }
+  // Just opened order tickets
+  rpc OpenedOrdersTickets (OpenedOrdersTicketsRequest) returns (OpenedOrdersTicketsReply) {
+    option (google.api.http) = {
+      get: "/OpenedOrdersTickets"
+    };    
+  }
+  // Full information about symbol and his group for several symbols
+  rpc SymbolParamsMany (SymbolParamsManyRequest) returns (SymbolParamsManyReply) {
+    option (google.api.http) = {
+      get: "/SymbolParamsMany"
+    };
+  }
+  // Tick value as array
+  rpc TickValueWithSize (TickValueWithSizeRequest) returns (TickValueWithSizeReply) {
+    option (google.api.http) = {
+      get: "/TickValueWithSize"
+    };    
+  }
+  // History positions
+  rpc PositionsHistory (PositionsHistoryRequest) returns (PositionsHistoryReply) {
+    option (google.api.http) = {
+      get: "/PositionsHistory"
+    };
+  }
+}
+message PositionsHistoryRequest {
+  AH_ENUM_POSITIONS_HISTORY_SORT_TYPE sort_type = 1;
+  optional google.protobuf.Timestamp position_open_time_from = 2;
+  optional google.protobuf.Timestamp position_open_time_to = 3;
+  optional int32 page_number = 4;
+  optional int32 items_per_page = 5;
+}
+message PositionsHistoryReply {
+  oneof response {
+    PositionsHistoryData data = 1;
+    Error error = 2;
+  }
+}
+message PositionsHistoryData {
+  repeated PositionHistoryInfo history_positions = 1;
+}
+message PositionHistoryInfo {
+  int32 index = 1;
+  uint64 position_ticket = 2;
+  AH_ENUM_POSITIONS_HISTORY_ORDER_TYPE order_type = 3;
+  google.protobuf.Timestamp open_time = 4;
+  google.protobuf.Timestamp close_time = 5;
+  double volume = 6;
+  double open_price = 7;
+  double close_price = 8;
+  double stop_loss = 9;
+  double take_profit = 10;
+  double market_value = 11;
+  double commission = 12;
+  double fee = 13;
+  double profit = 14;
+  double swap = 15;
+  string comment = 16;
+  string symbol = 17;
+  int64 magic = 18;  
+}
+enum AH_ENUM_POSITIONS_HISTORY_SORT_TYPE {
+  AH_POSITION_OPEN_TIME_ASC = 0;
+  AH_POSITION_OPEN_TIME_DESC = 1;
+  AH_POSITION_TICKET_ASC = 2;
+  AH_POSITION_TICKET_DESC = 3;
+}
+enum AH_ENUM_POSITIONS_HISTORY_ORDER_TYPE {
+  AH_ORDER_TYPE_BUY = 0;  // Market Buy order
+  AH_ORDER_TYPE_SELL = 1;  // Market Sell order
+  AH_ORDER_TYPE_BUY_LIMIT = 2;  // Buy Limit pending order
+  AH_ORDER_TYPE_SELL_LIMIT = 3;  // Sell Limit pending order
+  AH_ORDER_TYPE_BUY_STOP = 4;  // Buy Stop pending order
+  AH_ORDER_TYPE_SELL_STOP = 5;  // Sell Stop pending order
+  AH_ORDER_TYPE_BUY_STOP_LIMIT = 6;  // Upon reaching the order price, a pending Buy Limit order is placed at the StopLimit price
+  AH_ORDER_TYPE_SELL_STOP_LIMIT = 7;  // Upon reaching the order price, a pending Sell Limit order is placed at the StopLimit price
+  AH_ORDER_TYPE_CLOSE_BY = 8;  // Order to close a position by an opposite one
+}
+
+
+message TickValueWithSizeRequest {
+  repeated string symbol_names = 1;
+}
+message TickValueWithSizeReply {
+  TickValueWithSizeData data = 1;
+  Error error = 2;
+}
+message TickValueWithSizeData {
+  repeated TickSizeSymbol symbol_tick_size_infos = 1;
+}
+message TickSizeSymbol {
+  int32 Index = 1;
+  string Name = 2;
+  double TradeTickValue = 3;
+  double TradeTickValueProfit = 4;
+  double TradeTickValueLoss = 5;
+  double TradeTickSize = 6;
+  double TradeContractSize = 7;
+}
+
+message OpenedOrdersTicketsRequest {
+}
+message OpenedOrdersTicketsReply {
+  oneof response {
+    OpenedOrdersTicketsData data = 1;
+    Error error = 2;
+  }
+}
+message OpenedOrdersTicketsData {
+  repeated int64 opened_orders_tickets = 1;
+  repeated int64 opened_position_tickets = 2;
+}
+
+message OpenedOrdersRequest {
+  BMT5_ENUM_OPENED_ORDER_SORT_TYPE inputSortMode = 1;  // 0 - by open time, 1 - by close time, 2 - ticketid
+}
+message OpenedOrdersReply {
+  oneof response {
+    OpenedOrdersData data = 1;
+    Error error = 2;
+  }
+}
+message OpenedOrdersData {
+  repeated OpenedOrderInfo opened_orders = 1;
+  repeated PositionInfo position_infos = 2;
+}
+message PositionInfo {
+  uint32 index = 1;
+  uint64 ticket = 2;
+  google.protobuf.Timestamp open_time = 3;
+  double volume = 4;
+  double price_open = 5;
+  double stop_loss = 6;
+  double take_profit = 7;
+  double price_current = 8;
+  double swap = 9;
+  double profit = 10;
+  google.protobuf.Timestamp last_update_time = 11;
+  BMT5_ENUM_POSITION_TYPE type = 12;
+  int64 magic_number = 13;
+  int64 identifier = 14;
+  BMT5_ENUM_POSITION_REASON reason = 15;
+  string symbol = 16;
+  string comment = 17;
+  string external_id = 18;
+  double position_commission = 19;
+  int64 account_login = 20;
+}
+message OpenedOrderInfo {
+  uint32 index = 1;
+  uint64 ticket = 2;
+  double price_current = 3;
+  double price_open = 4;
+  double stop_limit = 5;
+  double stop_loss = 6;
+  double take_profit = 7;
+  double volume_current = 8;
+  double volume_initial = 9;
+  int64 magic_number = 10;
+  int32 reason = 11;
+  BMT5_ENUM_ORDER_TYPE type = 12;
+  BMT5_ENUM_ORDER_STATE state = 13;
+  google.protobuf.Timestamp time_expiration = 14;
+  google.protobuf.Timestamp time_setup = 15;
+  google.protobuf.Timestamp time_done = 16;
+  BMT5_ENUM_ORDER_TYPE_FILLING type_filling = 17;
+  BMT5_ENUM_ORDER_TYPE_TIME type_time = 18;
+  int64 position_id = 19;
+  int64 position_by_id = 20;
+  string symbol = 21;
+  string external_id = 22;
+  string comment = 23;
+  int64 account_login = 24;
+}
+enum BMT5_ENUM_OPENED_ORDER_SORT_TYPE
+{
+  BMT5_OPENED_ORDER_SORT_BY_OPEN_TIME_ASC = 0;
+  BMT5_OPENED_ORDER_SORT_BY_OPEN_TIME_DESC = 1;
+  BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC = 2;
+  BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_DESC= 3;
+};
+enum BMT5_ENUM_POSITION_TYPE
+{
+  BMT5_POSITION_TYPE_BUY = 0;
+  BMT5_POSITION_TYPE_SELL = 1;
+};
+enum BMT5_ENUM_POSITION_REASON
+{
+  BMT5_POSITION_REASON_CLIENT = 0;
+  BMT5_POSITION_REASON_MOBILE = 1;
+  BMT5_POSITION_REASON_WEB = 2;
+  BMT5_POSITION_REASON_EXPERT = 3;
+  ORDER_REASON_SL = 4;
+  ORDER_REASON_TP = 5;
+  ORDER_REASON_SO = 6;
+}
+
+message OrderHistoryRequest {
+  google.protobuf.Timestamp inputFrom = 1; // required (server time)
+  google.protobuf.Timestamp inputTo = 2;   // required (server time)
+  BMT5_ENUM_ORDER_HISTORY_SORT_TYPE inputSortMode = 3;  // 0 - by open time, 1 - by close time, 2 - ticketid
+  int32 pageNumber = 4;  // default 0
+  int32 itemsPerPage = 5; // default 0
+}
+message OrderHistoryReply {
+  oneof response {
+    OrdersHistoryData data = 1;
+    Error error = 2;
+  }
+}
+message OrdersHistoryData {
+  int32 arrayTotal = 1;
+  int32 pageNumber = 2;
+  int32 itemsPerPage = 3;
+  repeated HistoryData history_data = 4;
+}
+message HistoryData {
+  uint32 index = 1;
+  OrderHistoryData history_order = 2;
+  DealHistoryData history_deal = 3;
+}
+message DealHistoryData {
+  uint64 ticket = 1;
+  double profit = 2;
+  double commission = 3;
+  double fee = 4;
+  double price = 5;
+  double stop_loss = 6;
+  double take_profit = 7;
+  double swap = 8;
+  double volume = 9;
+  BMT5_ENUM_DEAL_ENTRY_TYPE entry_type = 10;
+  google.protobuf.Timestamp  time = 11;
+  BMT5_ENUM_DEAL_TYPE type = 12;
+  BMT5_ENUM_DEAL_REASON reason = 13;
+  uint64  position_id = 14;
+  string comment = 15;
+  string  symbol = 16;
+  string  external_id = 17;
+  int64 account_login = 18;
+}
+message OrderHistoryData {
+  uint64 ticket = 1;
+  google.protobuf.Timestamp setup_time = 2;
+  google.protobuf.Timestamp done_time = 3;
+  BMT5_ENUM_ORDER_STATE state = 4;
+  double price_current = 5;
+  double price_open = 6;
+  double stop_limit = 7;
+  double stop_loss = 8;
+  double take_profit = 9;
+  double volume_current = 10;
+  double volume_initial = 11;
+  int64 magic_number = 12;
+  BMT5_ENUM_ORDER_TYPE type = 13;
+  google.protobuf.Timestamp time_expiration = 14;
+  BMT5_ENUM_ORDER_TYPE_FILLING type_filling = 15;
+  BMT5_ENUM_ORDER_TYPE_TIME type_time = 16;
+  uint64 position_id = 17;
+  string symbol= 18;
+  string external_id= 19;
+  string comment = 20;
+  int64 account_login = 21;
+}
+enum BMT5_ENUM_ORDER_TYPE_TIME {
+  // Good till cancel order
+  BMT5_ORDER_TIME_GTC = 0;
+  // Good till current trade day order
+  BMT5_ORDER_TIME_DAY = 1;
+  // Good till expired order
+  BMT5_ORDER_TIME_SPECIFIED = 2;
+  // The order will be effective till 23:59:59 of the specified day. If this time is outside a trading session, the order expires in the nearest trading time.
+  BMT5_ORDER_TIME_SPECIFIED_DAY = 3;
+}
+enum BMT5_ENUM_ORDER_TYPE_FILLING {
+  // An order can be executed in the specified volume only. If the necessary amount of a financial instrument is currently unavailable in the market, the order will not be executed. The desired volume can be made up of several available offers. The possibility of using FOK orders is determined at the trade server.
+  BMT5_ORDER_FILLING_FOK = 0;
+  // A trader agrees to execute a deal with the volume maximally available in the market within that indicated in the order. If the request cannot be filled completely, an order with the available volume will be executed, and the remaining volume will be canceled. The possibility of using IOC orders is determined at the trade server.
+  BMT5_ORDER_FILLING_IOC = 1;
+  // The BoC order assumes that the order can only be placed in the Depth of Market and cannot be immediately executed. If the order can be executed immediately when placed, then it is canceled. In fact, the BOC policy guarantees that the price of the placed order will be worse than the current market. BoC orders are used to implement passive trading, so that the order is not executed immediately when placed and does not affect current liquidity. Only limit and stop limit orders are supported (ORDER_TYPE_BUY_LIMIT, ORDER_TYPE_SELL_LIMIT, ORDER_TYPE_BUY_STOP_LIMIT, ORDER_TYPE_SELL_STOP_LIMIT).
+  BMT5_ORDER_FILLING_BOC = 3;
+  // In case of partial filling, an order with remaining volume is not canceled but processed further. Return orders are not allowed in the Market Execution mode (market execution — SYMBOL_TRADE_EXECUTION_MARKET).
+  BMT5_ORDER_FILLING_RETURN = 2;
+}
+enum BMT5_ENUM_ORDER_TYPE {
+  BMT5_ORDER_TYPE_BUY = 0;  // Market Buy order
+  BMT5_ORDER_TYPE_SELL = 1;  // Market Sell order
+  BMT5_ORDER_TYPE_BUY_LIMIT = 2;  // Buy Limit pending order
+  BMT5_ORDER_TYPE_SELL_LIMIT = 3;  // Sell Limit pending order
+  BMT5_ORDER_TYPE_BUY_STOP = 4;  // Buy Stop pending order
+  BMT5_ORDER_TYPE_SELL_STOP = 5;  // Sell Stop pending order
+  BMT5_ORDER_TYPE_BUY_STOP_LIMIT = 6;  // Upon reaching the order price, a pending Buy Limit order is placed at the StopLimit price
+  BMT5_ORDER_TYPE_SELL_STOP_LIMIT = 7;  // Upon reaching the order price, a pending Sell Limit order is placed at the StopLimit price
+  BMT5_ORDER_TYPE_CLOSE_BY = 8;  // Order to close a position by an opposite one
+}
+enum BMT5_ENUM_DEAL_REASON {
+  BMT5_DEAL_REASON_CLIENT = 0;             // The deal was executed as a result of activation of an order placed from a desktop terminal
+  BMT5_DEAL_REASON_MOBILE = 1;             // The deal was executed as a result of activation of an order placed from a mobile application
+  BMT5_DEAL_REASON_WEB = 2;                // The deal was executed as a result of activation of an order placed from the web platform
+  BMT5_DEAL_REASON_EXPERT = 3;             // The deal was executed as a result of activation of an order placed from an MQL5 program, i.e. an Expert Advisor or a script
+  BMT5_DEAL_REASON_SL = 4;                 // The deal was executed as a result of Stop Loss activation
+  BMT5_DEAL_REASON_TP = 5;                 // The deal was executed as a result of Take Profit activation
+  BMT5_DEAL_REASON_SO = 6;                 // The deal was executed as a result of the Stop Out event
+  BMT5_DEAL_REASON_ROLLOVER = 7;           // The deal was executed due to a rollover
+  BMT5_DEAL_REASON_VMARGIN = 8;            // The deal was executed after charging the variation margin
+  BMT5_DEAL_REASON_SPLIT = 9;              // The deal was executed after the split (price reduction) of an instrument, which had an open position during split announcement
+  BMT5_DEAL_REASON_CORPORATE_ACTION = 10;  // The deal was executed as a result of a corporate action: merging or renaming a security, transferring a client to another account, etc.
+}
+enum BMT5_ENUM_DEAL_TYPE {
+  BMT5_DEAL_TYPE_BUY = 0;                 // Buy
+  BMT5_DEAL_TYPE_SELL = 1;                // Sell
+  BMT5_DEAL_TYPE_BALANCE = 2;             // Balance
+  BMT5_DEAL_TYPE_CREDIT = 3;              // Credit
+  BMT5_DEAL_TYPE_CHARGE = 4;              // Additional charge
+  BMT5_DEAL_TYPE_CORRECTION = 5;          // Correction
+  BMT5_DEAL_TYPE_BONUS = 6;               // Bonus
+  BMT5_DEAL_TYPE_COMMISSION = 7;          // Additional commission
+  BMT5_DEAL_TYPE_COMMISSION_DAILY = 8;    // Daily commission
+  BMT5_DEAL_TYPE_COMMISSION_MONTHLY = 9;  // Monthly commission
+  BMT5_DEAL_TYPE_COMMISSION_AGENT_DAILY = 10;  // Daily agent commission
+  BMT5_DEAL_TYPE_COMMISSION_AGENT_MONTHLY = 11; // Monthly agent commission
+  BMT5_DEAL_TYPE_INTEREST = 12;           // Interest rate
+  BMT5_DEAL_TYPE_BUY_CANCELED = 13;       // Canceled buy deal
+  BMT5_DEAL_TYPE_SELL_CANCELED = 14;      // Canceled sell deal
+  BMT5_DEAL_DIVIDEND = 15;                // Dividend operations
+  BMT5_DEAL_DIVIDEND_FRANKED = 16;        // Franked (non-taxable) dividend operations
+  BMT5_DEAL_TAX = 17;                     // Tax charges
+}
+enum BMT5_ENUM_DEAL_ENTRY_TYPE {
+  BMT5_DEAL_ENTRY_IN = 0;
+  BMT5_DEAL_ENTRY_OUT = 1;
+  BMT5_DEAL_ENTRY_INOUT = 2;
+  BMT5_DEAL_ENTRY_OUT_BY = 3;
+}
+enum BMT5_ENUM_ORDER_HISTORY_SORT_TYPE
+{
+  BMT5_SORT_BY_OPEN_TIME_ASC = 0;
+  BMT5_SORT_BY_OPEN_TIME_DESC = 1;
+  BMT5_SORT_BY_CLOSE_TIME_ASC = 2;
+  BMT5_SORT_BY_CLOSE_TIME_DESC = 3;
+  BMT5_SORT_BY_ORDER_TICKET_ID_ASC = 4;
+  BMT5_SORT_BY_ORDER_TICKET_ID_DESC= 5;
+};
+enum BMT5_ENUM_ORDER_STATE {
+  BMT5_ORDER_STATE_STARTED = 0;       // Order checked, but not yet accepted by broker
+  BMT5_ORDER_STATE_PLACED = 1;        // Order accepted
+  BMT5_ORDER_STATE_CANCELED = 2;      // Order canceled by client
+  BMT5_ORDER_STATE_PARTIAL = 3;       // Order partially executed
+  BMT5_ORDER_STATE_FILLED = 4;        // Order fully executed
+  BMT5_ORDER_STATE_REJECTED = 5;      // Order rejected
+  BMT5_ORDER_STATE_EXPIRED = 6;       // Order expired
+  BMT5_ORDER_STATE_REQUEST_ADD = 7;   // Order is being registered (placing to the trading system)
+  BMT5_ORDER_STATE_REQUEST_MODIFY = 8;// Order is being modified (changing its parameters)
+  BMT5_ORDER_STATE_REQUEST_CANCEL = 9;// Order is being deleted (deleting from the trading system)
+}
+message AccountSummaryRequest {
+}
+message AccountSummaryReply {
+  oneof response {
+    AccountSummaryData data = 1;
+    Error error = 2;
+  }
+}
+message AccountSummaryData {
+  int64 account_login = 1;
+  double account_balance = 2;
+  double account_equity = 3;
+  string account_user_name = 4;
+  int64 account_leverage = 5;
+  MrpcEnumAccountTradeMode account_trade_mode = 6;
+  string account_company_name = 7;
+  string account_currency = 8;
+  google.protobuf.Timestamp server_time = 9;
+  int64 utc_timezone_server_time_shift_minutes = 10;
+  double account_credit = 11;
+}
+
+enum MrpcEnumAccountTradeMode {
+  MRPC_ACCOUNT_TRADE_MODE_DEMO = 0;
+  MRPC_ACCOUNT_TRADE_MODE_CONTEST = 1;
+  MRPC_ACCOUNT_TRADE_MODE_REAL = 2;
+}
+
+message SymbolParamsManyRequest {
+  optional string symbol_name = 1;
+  optional AH_SYMBOL_PARAMS_MANY_SORT_TYPE sort_type = 2;
+  optional int32 page_number = 3;
+  optional int32 items_per_page = 4;
+}
+enum AH_SYMBOL_PARAMS_MANY_SORT_TYPE {
+  AH_PARAMS_MANY_SORT_TYPE_SYMBOL_NAME_ASC = 0;
+  AH_PARAMS_MANY_SORT_TYPE_SYMBOL_NAME_DESC = 1;
+  AH_PARAMS_MANY_SORT_TYPE_MQL_INDEX_ASC = 2;
+  AH_PARAMS_MANY_SORT_TYPE_MQL_INDEX_DESC = 3;
+}
+message SymbolParamsManyReply {
+  oneof response {
+    SymbolParamsManyData data = 1;
+    Error error = 2;
+  }
+}
+message SymbolParamsManyData {
+  repeated SymbolParameters symbol_infos = 1;
+  int32 symbols_total = 2;
+  optional int32 page_number = 3;
+  optional int32 items_per_page = 4;
+}
+message SymbolParameters {
+  string name = 1;
+  double bid = 2;
+  double bid_high = 3;
+  double bid_low = 4;
+  double ask = 5;
+  double ask_high = 6;
+  double ask_low = 7;
+  double last = 8;
+  double last_high = 9;
+  double last_low = 10;
+  double volume_real = 11;
+  double volume_high_real = 12;
+  double volume_low_real = 13;
+  double option_strike = 14;
+  double point = 15;
+  double trade_tick_value = 16;
+  double trade_tick_value_profit = 17;
+  double trade_tick_value_loss = 18;
+  double trade_tick_size = 19;
+  double trade_contract_size = 20;
+  double trade_accrued_interest = 21;
+  double trade_face_value = 22;
+  double trade_liquidity_rate = 23;
+  double volume_min = 24;
+  double volume_max = 25;
+  double volume_step = 26;
+  double volume_limit = 27;
+  double swap_long = 28;
+  double swap_short = 29;
+  double swap_sunday = 30;
+  double swap_monday = 31;
+  double swap_tuesday = 32;
+  double swap_wednesday = 33;
+  double swap_thursday = 34;
+  double swap_friday = 35;
+  double swap_saturday = 36;
+  double margin_initial = 37;
+  double margin_maintenance = 38;
+  double session_volume = 39;
+  double session_turnover = 40;
+  double session_interest = 41;
+  double session_buy_orders_volume = 42;
+  double session_sell_orders_volume = 43;
+  double session_open = 44;
+  double session_close = 45;
+  double session_aw = 46;
+  double session_price_settlement = 47;
+  double session_price_limit_min = 48;
+  double session_price_limit_max = 49;
+  double margin_hedged = 50;
+  double price_change = 51;
+  double price_volatility = 52;
+  double price_theoretical = 53;
+  double price_delta = 54;
+  double price_theta = 55;
+  double price_gamma = 56;
+  double price_vega = 57;
+  double price_rho = 58;
+  double price_omega = 59;
+  double price_sensitivity = 60;
+  BMT5_ENUM_SYMBOL_SECTOR sector = 61;
+  BMT5_ENUM_SYMBOL_INDUSTRY industry = 62;
+  bool custom = 63;
+  string background_color = 64;
+  BMT5_ENUM_SYMBOL_CHART_MODE chart_mode = 65;
+  bool exist = 66;
+  bool select = 67;
+  int32 subscription_delay = 68;
+  bool visible = 69;
+  int64 session_deals = 70;
+  int64 session_buy_orders = 71;
+  int64 session_sell_orders = 72;
+  int64 volume = 73;
+  int64 volume_high = 74;
+  int64 volume_low = 75;
+  google.protobuf.Timestamp time = 76;
+  int64 time_msc = 77;
+  int32 digits = 78;
+  bool spread_float = 79;
+  int32 spread = 80;
+  int32 ticks_book_depth = 81;
+  BMT5_ENUM_SYMBOL_CALC_MODE trade_calc_mode = 82;
+  BMT5_ENUM_SYMBOL_TRADE_MODE trade_mode = 83;
+  google.protobuf.Timestamp start_time = 84;
+  google.protobuf.Timestamp expiration_time = 85;
+  int32 trade_stops_level = 86;
+  int32 trade_freeze_level = 87;
+  BMT5_ENUM_SYMBOL_TRADE_EXECUTION trade_exe_mode = 88;
+  BMT5_ENUM_SYMBOL_SWAP_MODE swap_mode = 89;
+  BMT5_ENUM_DAY_OF_WEEK swap_rollover_3days = 90;
+  bool margin_hedged_use_leg = 91;
+  int32 expiration_mode = 92;
+  repeated BMT5_ENUM_ORDER_TYPE_FILLING filling_mode = 93;
+  BMT5_ENUM_ORDER_TYPE order_mode = 94;
+  BMT5_ENUM_SYMBOL_ORDER_GTC_MODE order_gtc_mode = 95;
+  BMT5_ENUM_SYMBOL_OPTION_MODE option_mode = 96;
+  BMT5_ENUM_SYMBOL_OPTION_RIGHT option_right = 97;
+  string basis = 98;
+  string category = 99;
+  string country = 100;
+  string sector_name = 101;
+  string industry_name = 102;
+  string currency_base = 103;
+  string currency_profit = 104;
+  string currency_margin = 105;
+  string bank = 106;
+  string sym_description = 107;
+  string exchange = 108;
+  string formula = 109;
+  string isin = 110;
+  string page = 111;
+  string path = 112;
+}
+enum BMT5_ENUM_SYMBOL_OPTION_RIGHT {
+  BMT5_SYMBOL_OPTION_RIGHT_CALL = 0; // A call option gives you the right to buy an asset at a specified price
+  BMT5_SYMBOL_OPTION_RIGHT_PUT = 1 ; // A put option gives you the right to sell an asset at a specified price
+}
+enum BMT5_ENUM_SYMBOL_OPTION_MODE {
+  BMT5_SYMBOL_OPTION_MODE_EUROPEAN = 0; // European option may only be exercised on a specified date (expiration, execution date, delivery date)
+  BMT5_SYMBOL_OPTION_MODE_AMERICAN = 1; // American option may be exercised on any trading day or before expiry. The period within which a buyer can exercise the option is specified for it
+}
+enum BMT5_ENUM_SYMBOL_ORDER_GTC_MODE {
+  BMT5_SYMBOL_ORDERS_GTC = 0; //Pending orders and Stop Loss/Take Profit levels are valid for an unlimited period until their explicit cancellation
+  BMT5_SYMBOL_ORDERS_DAILY = 1; // Orders are valid during one trading day. At the end of the day, all Stop Loss and Take Profit levels, as well as pending orders are deleted.
+  BMT5_SYMBOL_ORDERS_DAILY_EXCLUDING_STOPS = 2; // When a trade day changes, only pending orders are deleted, while Stop Loss and Take Profit levels are preserved.
+}
+enum BMT5_ENUM_DAY_OF_WEEK {
+  BMT5_SUNDAY = 0;  // Sunday
+  BMT5_MONDAY = 1;  // Monday
+  BMT5_TUESDAY = 2;  // Tuesday
+  BMT5_WEDNESDAY = 3;  // Wednesday
+  BMT5_THURSDAY = 4;  // Thursday
+  BMT5_FRIDAY = 5;  // Friday
+  BMT5_SATURDAY = 6;  // Saturday
+}
+enum BMT5_ENUM_SYMBOL_SWAP_MODE {
+  BMT5_SYMBOL_SWAP_MODE_DISABLED = 0;               // Swaps disabled (no swaps)
+  BMT5_SYMBOL_SWAP_MODE_POINTS = 1;                 // Swaps are charged in points
+  BMT5_SYMBOL_SWAP_MODE_CURRENCY_SYMBOL = 2;        // Swaps are charged in money in base currency of the symbol
+  BMT5_SYMBOL_SWAP_MODE_CURRENCY_MARGIN = 3;        // Swaps are charged in money in margin currency of the symbol
+  BMT5_SYMBOL_SWAP_MODE_CURRENCY_DEPOSIT = 4;       // Swaps are charged in money, in client deposit currency
+  BMT5_SYMBOL_SWAP_MODE_CURRENCY_PROFIT = 5;        // Swaps are charged in money in profit calculation currency
+  BMT5_SYMBOL_SWAP_MODE_INTEREST_CURRENT = 6;       // Swaps are charged as the specified annual interest from the instrument price at calculation of swap (standard bank year is 360 days)
+  BMT5_SYMBOL_SWAP_MODE_INTEREST_OPEN = 7;          // Swaps are charged as the specified annual interest from the open price of position (standard bank year is 360 days)
+  BMT5_SYMBOL_SWAP_MODE_REOPEN_CURRENT = 8;         // Swaps are charged by reopening positions. At the end of a trading day the position is closed. Next day it is reopened by the close price +/- specified number of points (parameters SYMBOL_SWAP_LONG and SYMBOL_SWAP_SHORT)
+  BMT5_SYMBOL_SWAP_MODE_REOPEN_BID = 9;             // Swaps are charged by reopening positions. At the end of a trading day the position is closed. Next day it is reopened by the current Bid price +/- specified number of points (parameters SYMBOL_SWAP_LONG and SYMBOL_SWAP_SHORT)
+}
+
+enum BMT5_ENUM_SYMBOL_TRADE_EXECUTION {
+  BMT5_SYMBOL_TRADE_EXECUTION_REQUEST = 0;  // Execution by request
+  BMT5_SYMBOL_TRADE_EXECUTION_INSTANT = 1;  // Instant execution
+  BMT5_SYMBOL_TRADE_EXECUTION_MARKET = 2;   // Market execution
+  BMT5_SYMBOL_TRADE_EXECUTION_EXCHANGE = 3; // Exchange execution
+}
+enum BMT5_ENUM_SYMBOL_TRADE_MODE {
+  BMT5_SYMBOL_TRADE_MODE_DISABLED = 0;    // Trade is disabled for the symbol
+  BMT5_SYMBOL_TRADE_MODE_LONGONLY = 1;    // Allowed only long positions
+  BMT5_SYMBOL_TRADE_MODE_SHORTONLY = 2;   // Allowed only short positions
+  BMT5_SYMBOL_TRADE_MODE_CLOSEONLY = 3;   // Allowed only position close operations
+  BMT5_SYMBOL_TRADE_MODE_FULL = 4;        // No trade restrictions
+}
+enum BMT5_ENUM_SYMBOL_CALC_MODE {
+  BMT5_SYMBOL_CALC_MODE_FOREX = 0;                      // Forex mode - calculation of profit and margin for Forex // Margin:  Lots * Contract_Size / Leverage * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots
+  BMT5_SYMBOL_CALC_MODE_FOREX_NO_LEVERAGE = 1;          // Forex No Leverage mode – calculation of profit and margin for Forex symbols without taking into account the leverage // Margin:  Lots * Contract_Size * Margin_Rate // Profit:  (close_price - open_price) * Contract_Size * Lots
+  BMT5_SYMBOL_CALC_MODE_FUTURES = 2;                    // Futures mode - calculation of margin and profit for futures   // Margin: Lots * InitialMargin * Margin_Rate  // Profit:  (close_price - open_price) * TickPrice / TickSize * Lots
+  BMT5_SYMBOL_CALC_MODE_CFD = 3;                        // CFD mode - calculation of margin and profit for CFD    // Margin: Lots * ContractSize * MarketPrice * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots
+  BMT5_SYMBOL_CALC_MODE_CFDINDEX = 4;                   // CFD index mode - calculation of margin and profit for CFD by indexes    // Margin: (Lots * ContractSize * MarketPrice) * TickPrice / TickSize * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots
+  BMT5_SYMBOL_CALC_MODE_CFDLEVERAGE = 5;                // CFD Leverage mode - calculation of margin and profit for CFD at leverage trading   // Margin: (Lots * ContractSize * MarketPrice) / Leverage * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots
+  BMT5_SYMBOL_CALC_MODE_EXCH_STOCKS = 6;                // Exchange mode – calculation of margin and profit for trading securities on a stock exchange  // Margin: Lots * ContractSize * LastPrice * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots
+  BMT5_SYMBOL_CALC_MODE_EXCH_FUTURES = 7;               // Futures mode – calculation of margin and profit for trading futures contracts on a stock exchange // Margin: Lots * InitialMargin * Margin_Rate or Lots * MaintenanceMargin * Margin_Rate // Profit:  (close_price - open_price) * Lots * TickPrice / TickSize
+  BMT5_SYMBOL_CALC_MODE_EXCH_FUTURES_FORTS = 8;         // FORTS Futures mode – calculation of margin and profit for trading futures contracts on FORTS. The margin may be reduced by the amount of MarginDiscount deviation according to the following rules:  // 1. If the price of a long position (buy order) is less than the estimated price, MarginDiscount = Lots * ((PriceSettle - PriceOrder) * TickPrice / TickSize) // 2. If the price of a short position (sell order) exceeds the estimated price, MarginDiscount = Lots * ((PriceOrder - PriceSettle) * TickPrice / TickSize) // where: // PriceSettle – estimated (clearing) price of the previous session; // PriceOrder – average weighted position price or open price set in the order (request); // TickPrice – tick price (cost of the price change by one point) // TickSize – tick size (minimum price change step) // Margin: Lots * InitialMargin * Margin_Rate or Lots * MaintenanceMargin * Margin_Rate // Profit:  (close_price - open_price) * Lots * TickPrice / TickSize
+  BMT5_SYMBOL_CALC_MODE_EXCH_BONDS = 9;                 // Exchange Bonds mode – calculation of margin and profit for trading bonds on a stock exchange  // Margin: Lots * ContractSize * FaceValue * open_price / 100  // Profit:  Lots * close_price * FaceValue * Contract_Size + AccruedInterest * Lots * ContractSize
+  BMT5_SYMBOL_CALC_MODE_EXCH_STOCKS_MOEX = 10;          // Exchange MOEX Stocks mode – calculation of margin and profit for trading securities on MOEX  // Margin: Lots * ContractSize * LastPrice * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots
+  BMT5_SYMBOL_CALC_MODE_EXCH_BONDS_MOEX = 11;           // Exchange MOEX Bonds mode – calculation of margin and profit for trading bonds on MOEX  // Margin: Lots * ContractSize * FaceValue * open_price / 100 // Profit:  Lots * close_price * FaceValue * Contract_Size + AccruedInterest * Lots * ContractSize
+  BMT5_SYMBOL_CALC_MODE_SERV_COLLATERAL = 12;           // Collateral mode - a symbol is used as a non-tradable asset on a trading account. The market value of an open position is calculated based on the volume, current market price, contract size and liquidity ratio. The value is included into Assets, which are added to Equity. Open positions of such symbols increase the Free Margin amount and are used as additional margin (collateral) for open positions of tradable instruments. // Margin: no  // Profit: no  // Market Value: Lots * ContractSize * MarketPrice * LiquidityRate
+}
+enum BMT5_ENUM_SYMBOL_SECTOR {
+  BMT5_SECTOR_UNDEFINED = 0;              // Undefined
+  BMT5_SECTOR_BASIC_MATERIALS = 1;        // Basic materials
+  BMT5_SECTOR_COMMUNICATION_SERVICES = 2; // Communication services
+  BMT5_SECTOR_CONSUMER_CYCLICAL = 3;      // Consumer cyclical
+  BMT5_SECTOR_CONSUMER_DEFENSIVE = 4;     // Consumer defensive
+  BMT5_SECTOR_CURRENCY = 5;               // Currencies
+  BMT5_SECTOR_CURRENCY_CRYPTO = 6;        // Cryptocurrencies
+  BMT5_SECTOR_ENERGY = 7;                 // Energy
+  BMT5_SECTOR_FINANCIAL = 8;              // Finance
+  BMT5_SECTOR_HEALTHCARE = 9;             // Healthcare
+  BMT5_SECTOR_INDUSTRIALS = 10;           // Industrials
+  BMT5_SECTOR_REAL_ESTATE = 11;           // Real estate
+  BMT5_SECTOR_TECHNOLOGY = 12;            // Technology
+  BMT5_SECTOR_UTILITIES = 13;             // Utilities
+}
+enum BMT5_ENUM_SYMBOL_CHART_MODE {
+  BMT5_SYMBOL_CHART_MODE_BID = 0;
+  BMT5_SYMBOL_CHART_MODE_LAST = 1;
+}
+enum BMT5_ENUM_SYMBOL_INDUSTRY {
+  BMT5_INDUSTRY_UNDEFINED = 0;                      // Undefined
+  BMT5_INDUSTRY_AGRICULTURAL_INPUTS = 1;            // Agricultural inputs
+  BMT5_INDUSTRY_ALUMINIUM = 2;                      // Aluminium
+  BMT5_INDUSTRY_BUILDING_MATERIALS = 3;             // Building materials
+  BMT5_INDUSTRY_CHEMICALS = 4;                      // Chemicals
+  BMT5_INDUSTRY_COKING_COAL = 5;                    // Coking coal
+  BMT5_INDUSTRY_COPPER = 6;                         // Copper
+  BMT5_INDUSTRY_GOLD = 7;                           // Gold
+  BMT5_INDUSTRY_LUMBER_WOOD = 8;                    // Lumber and wood production
+  BMT5_INDUSTRY_INDUSTRIAL_METALS = 9;              // Other industrial metals and mining
+  BMT5_INDUSTRY_PRECIOUS_METALS = 10;               // Other precious metals and mining
+  BMT5_INDUSTRY_PAPER = 11;                         // Paper and paper products
+  BMT5_INDUSTRY_SILVER = 12;                        // Silver
+  BMT5_INDUSTRY_SPECIALTY_CHEMICALS = 13;           // Specialty chemicals
+  BMT5_INDUSTRY_STEEL = 14;                         // Steel
+  BMT5_INDUSTRY_ADVERTISING = 15;                   // Advertising agencies
+  BMT5_INDUSTRY_BROADCASTING = 16;                  // Broadcasting
+  BMT5_INDUSTRY_GAMING_MULTIMEDIA = 17;             // Electronic gaming and multimedia
+  BMT5_INDUSTRY_ENTERTAINMENT = 18;                 // Entertainment
+  BMT5_INDUSTRY_INTERNET_CONTENT = 19;              // Internet content and information
+  BMT5_INDUSTRY_PUBLISHING = 20;                    // Publishing
+  BMT5_INDUSTRY_TELECOM = 21;                       // Telecom services
+  BMT5_INDUSTRY_APPAREL_MANUFACTURING = 22;         // Apparel manufacturing
+  BMT5_INDUSTRY_APPAREL_RETAIL = 23;                // Apparel retail
+  BMT5_INDUSTRY_AUTO_MANUFACTURERS = 24;            // Auto manufacturers
+  BMT5_INDUSTRY_AUTO_PARTS = 25;                    // Auto parts
+  BMT5_INDUSTRY_AUTO_DEALERSHIP = 26;               // Auto and truck dealerships
+  BMT5_INDUSTRY_DEPARTMENT_STORES = 27;             // Department stores
+  BMT5_INDUSTRY_FOOTWEAR_ACCESSORIES = 28;          // Footwear and accessories
+  BMT5_INDUSTRY_FURNISHINGS = 29;                   // Furnishing, fixtures and appliances
+  BMT5_INDUSTRY_GAMBLING = 30;                      // Gambling
+  BMT5_INDUSTRY_HOME_IMPROV_RETAIL = 31;            // Home improvement retail
+  BMT5_INDUSTRY_INTERNET_RETAIL = 32;               // Internet retail
+  BMT5_INDUSTRY_LEISURE = 33;                       // Leisure
+  BMT5_INDUSTRY_LODGING = 34;                       // Lodging
+  BMT5_INDUSTRY_LUXURY_GOODS = 35;                  // Luxury goods
+  BMT5_INDUSTRY_PACKAGING_CONTAINERS = 36;          // Packaging and containers
+  BMT5_INDUSTRY_PERSONAL_SERVICES = 37;             // Personal services
+  BMT5_INDUSTRY_RECREATIONAL_VEHICLES = 38;         // Recreational vehicles
+  BMT5_INDUSTRY_RESIDENT_CONSTRUCTION = 39;         // Residential construction
+  BMT5_INDUSTRY_RESORTS_CASINOS = 40;               // Resorts and casinos
+  BMT5_INDUSTRY_RESTAURANTS = 41;                   // Restaurants
+  BMT5_INDUSTRY_SPECIALTY_RETAIL = 42;              // Specialty retail
+  BMT5_INDUSTRY_TEXTILE_MANUFACTURING = 43;         // Textile manufacturing
+  BMT5_INDUSTRY_TRAVEL_SERVICES = 44;               // Travel services
+  BMT5_INDUSTRY_BEVERAGES_BREWERS = 45;             // Beverages - Brewers
+  BMT5_INDUSTRY_BEVERAGES_NON_ALCO = 46;            // Beverages - Non-alcoholic
+  BMT5_INDUSTRY_BEVERAGES_WINERIES = 47;            // Beverages - Wineries and distilleries
+  BMT5_INDUSTRY_CONFECTIONERS = 48;                 // Confectioners
+  BMT5_INDUSTRY_DISCOUNT_STORES = 49;               // Discount stores
+  BMT5_INDUSTRY_EDUCATION_TRAINIG = 50;             // Education and training services
+  BMT5_INDUSTRY_FARM_PRODUCTS = 51;                 // Farm products
+  BMT5_INDUSTRY_FOOD_DISTRIBUTION = 52;             // Food distribution
+  BMT5_INDUSTRY_GROCERY_STORES = 53;                // Grocery stores
+  BMT5_INDUSTRY_HOUSEHOLD_PRODUCTS = 54;            // Household and personal products
+  BMT5_INDUSTRY_PACKAGED_FOODS = 55;                // Packaged foods
+  BMT5_INDUSTRY_TOBACCO = 56;                       // Tobacco
+  BMT5_INDUSTRY_OIL_GAS_DRILLING = 57;              // Oil and gas drilling
+  BMT5_INDUSTRY_OIL_GAS_EP = 58;                    // Oil and gas extraction and processing
+  BMT5_INDUSTRY_OIL_GAS_EQUIPMENT = 59;             // Oil and gas equipment and services
+  BMT5_INDUSTRY_OIL_GAS_INTEGRATED = 60;            // Oil and gas integrated
+  BMT5_INDUSTRY_OIL_GAS_MIDSTREAM = 61;             // Oil and gas midstream
+  BMT5_INDUSTRY_OIL_GAS_REFINING = 62;              // Oil and gas refining and marketing
+  BMT5_INDUSTRY_THERMAL_COAL = 63;                  // Thermal coal
+  BMT5_INDUSTRY_URANIUM = 64;                       // Uranium
+  BMT5_INDUSTRY_EXCHANGE_TRADED_FUND = 65;          // Exchange traded fund
+  BMT5_INDUSTRY_ASSETS_MANAGEMENT = 66;             // Assets management
+  BMT5_INDUSTRY_BANKS_DIVERSIFIED = 67;             // Banks - Diversified
+  BMT5_INDUSTRY_BANKS_REGIONAL = 68;                // Banks - Regional
+  BMT5_INDUSTRY_CAPITAL_MARKETS = 69;               // Capital markets
+  BMT5_INDUSTRY_CLOSE_END_FUND_DEBT = 70;           // Closed-End fund - Debt
+  BMT5_INDUSTRY_CLOSE_END_FUND_EQUITY = 71;         // Closed-end fund - Equity
+  BMT5_INDUSTRY_CLOSE_END_FUND_FOREIGN = 72;        // Closed-end fund - Foreign
+  BMT5_INDUSTRY_CREDIT_SERVICES = 73;               // Credit services
+  BMT5_INDUSTRY_FINANCIAL_CONGLOMERATE = 74;        // Financial conglomerates
+  BMT5_INDUSTRY_FINANCIAL_DATA_EXCHANGE = 75;       // Financial data and stock exchange
+  BMT5_INDUSTRY_INSURANCE_BROKERS = 76;             // Insurance brokers
+  BMT5_INDUSTRY_INSURANCE_DIVERSIFIED = 77;         // Insurance - Diversified
+  BMT5_INDUSTRY_INSURANCE_LIFE = 78;                // Insurance - Life
+  BMT5_INDUSTRY_INSURANCE_PROPERTY = 79;            // Insurance - Property and casualty
+  BMT5_INDUSTRY_INSURANCE_REINSURANCE = 80;         // Insurance - Reinsurance
+  BMT5_INDUSTRY_INSURANCE_SPECIALTY = 81;           // Insurance - Specialty
+  BMT5_INDUSTRY_MORTGAGE_FINANCE = 82;              // Mortgage finance
+  BMT5_INDUSTRY_SHELL_COMPANIES = 83;               // Shell companies
+  BMT5_INDUSTRY_BIOTECHNOLOGY = 84;                 // Biotechnology
+  BMT5_INDUSTRY_DIAGNOSTICS_RESEARCH = 85;          // Diagnostics and research
+  BMT5_INDUSTRY_DRUGS_MANUFACTURERS = 86;           // Drugs manufacturers - general
+  BMT5_INDUSTRY_DRUGS_MANUFACTURERS_SPEC = 87;      // Drugs manufacturers - Specialty and generic
+  BMT5_INDUSTRY_HEALTHCARE_PLANS = 88;              // Healthcare plans
+  BMT5_INDUSTRY_HEALTH_INFORMATION = 89;            // Health information services
+  BMT5_INDUSTRY_MEDICAL_FACILITIES = 90;            // Medical care facilities
+  BMT5_INDUSTRY_MEDICAL_DEVICES = 91;               // Medical devices
+  BMT5_INDUSTRY_MEDICAL_DISTRIBUTION = 92;          // Medical distribution
+  BMT5_INDUSTRY_MEDICAL_INSTRUMENTS = 93;           // Medical instruments and supplies
+  BMT5_INDUSTRY_PHARM_RETAILERS = 94;               // Pharmaceutical retailers
+  BMT5_INDUSTRY_AEROSPACE_DEFENSE = 95;             // Aerospace and defense
+  BMT5_INDUSTRY_AIRLINES = 96;                      // Airlines
+  BMT5_INDUSTRY_AIRPORTS_SERVICES = 97;             // Airports and air services
+  BMT5_INDUSTRY_BUILDING_PRODUCTS = 98;             // Building products and equipment
+  BMT5_INDUSTRY_BUSINESS_EQUIPMENT = 99;            // Business equipment and supplies
+  BMT5_INDUSTRY_CONGLOMERATES = 100;                // Conglomerates
+  BMT5_INDUSTRY_CONSULTING_SERVICES = 101;          // Consulting services
+  BMT5_INDUSTRY_ELECTRICAL_EQUIPMENT = 102;         // Electrical equipment and parts
+  BMT5_INDUSTRY_ENGINEERING_CONSTRUCTION = 103;     // Engineering and construction
+  BMT5_INDUSTRY_FARM_HEAVY_MACHINERY = 104;         // Farm and heavy construction machinery
+  BMT5_INDUSTRY_INDUSTRIAL_DISTRIBUTION = 105;      // Industrial distribution
+  BMT5_INDUSTRY_INFRASTRUCTURE_OPERATIONS = 106;    // Infrastructure operations
+  BMT5_INDUSTRY_FREIGHT_LOGISTICS = 107;            // Integrated freight and logistics
+  BMT5_INDUSTRY_MARINE_SHIPPING = 108;              // Marine shipping
+  BMT5_INDUSTRY_METAL_FABRICATION = 109;            // Metal fabrication
+  BMT5_INDUSTRY_POLLUTION_CONTROL = 110;            // Pollution and treatment controls
+  BMT5_INDUSTRY_RAILROADS = 111;                    // Railroads
+  BMT5_INDUSTRY_RENTAL_LEASING = 112;               // Rental and leasing services
+  BMT5_INDUSTRY_SECURITY_PROTECTION = 113;          // Security and protection services
+  BMT5_INDUSTRY_SPEALITY_BUSINESS_SERVICES = 114;   // Specialty business services
+  BMT5_INDUSTRY_SPEALITY_MACHINERY = 115;           // Specialty industrial machinery
+  BMT5_INDUSTRY_STUFFING_EMPLOYMENT = 116;          // Staffing and employment services
+  BMT5_INDUSTRY_TOOLS_ACCESSORIES = 117;            // Tools and accessories
+  BMT5_INDUSTRY_TRUCKING = 118;                     // Trucking
+  BMT5_INDUSTRY_WASTE_MANAGEMENT = 119;             // Waste management
+  BMT5_INDUSTRY_REAL_ESTATE_DEVELOPMENT = 120;      // Real estate - Development
+  BMT5_INDUSTRY_REAL_ESTATE_DIVERSIFIED = 121;      // Real estate - Diversified
+  BMT5_INDUSTRY_REAL_ESTATE_SERVICES = 122;         // Real estate services
+  BMT5_INDUSTRY_REIT_DIVERSIFIED = 123;             // REIT - Diversified
+  BMT5_INDUSTRY_REIT_HEALTCARE = 124;               // REIT - Healthcare facilities
+  BMT5_INDUSTRY_REIT_HOTEL_MOTEL = 125;             // REIT - Hotel and motel
+  BMT5_INDUSTRY_REIT_INDUSTRIAL = 126;              // REIT - Industrial
+  BMT5_INDUSTRY_REIT_MORTAGE = 127;                 // REIT - Mortgage
+  BMT5_INDUSTRY_REIT_OFFICE = 128;                  // REIT - Office
+  BMT5_INDUSTRY_REIT_RESIDENTAL = 129;              // REIT - Residential
+  BMT5_INDUSTRY_REIT_RETAIL = 130;                  // REIT - Retail
+  BMT5_INDUSTRY_REIT_SPECIALITY = 131;              // REIT - Specialty
+  BMT5_INDUSTRY_COMMUNICATION_EQUIPMENT = 132;      // Communication equipment
+  BMT5_INDUSTRY_COMPUTER_HARDWARE = 133;            // Computer hardware
+  BMT5_INDUSTRY_CONSUMER_ELECTRONICS = 134;         // Consumer electronics
+  BMT5_INDUSTRY_ELECTRONIC_COMPONENTS = 135;        // Electronic components
+  BMT5_INDUSTRY_ELECTRONIC_DISTRIBUTION = 136;      // Electronics and computer distribution
+  BMT5_INDUSTRY_IT_SERVICES = 137;                  // Information technology services
+  BMT5_INDUSTRY_SCIENTIFIC_INSTRUMENTS = 138;       // Scientific and technical instruments
+  BMT5_INDUSTRY_SEMICONDUCTOR_EQUIPMENT = 139;      // Semiconductor equipment and materials
+  BMT5_INDUSTRY_SEMICONDUCTORS = 140;               // Semiconductors
+  BMT5_INDUSTRY_SOFTWARE_APPLICATION = 141;         // Software - Application
+  BMT5_INDUSTRY_SOFTWARE_INFRASTRUCTURE = 142;      // Software - Infrastructure
+  BMT5_INDUSTRY_SOLAR = 143;                        // Solar
+  BMT5_INDUSTRY_UTILITIES_DIVERSIFIED = 144;        // Utilities - Diversified
+  BMT5_INDUSTRY_UTILITIES_POWERPRODUCERS = 145;     // Utilities - Independent power producers
+  BMT5_INDUSTRY_UTILITIES_RENEWABLE = 146;          // Utilities - Renewable
+  BMT5_INDUSTRY_UTILITIES_REGULATED_ELECTRIC = 147; // Utilities - Regulated electric
+  BMT5_INDUSTRY_UTILITIES_REGULATED_GAS = 148;      // Utilities - Regulated gas
+  BMT5_INDUSTRY_UTILITIES_REGULATED_WATER = 149;    // Utilities - Regulated water
+  BMT5_INDUSTRY_UTILITIES_FIRST = 150;              // Start of the utilities services types enumeration. Corresponds to INDUSTRY_UTILITIES_DIVERSIFIED.
+  BMT5_INDUSTRY_UTILITIES_LAST = 151;               // End of the utilities services types enumeration. Corresponds to INDUSTRY_UTILITIES_REGULATED_WATER.
+}

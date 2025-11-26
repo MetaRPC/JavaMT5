@@ -1,0 +1,417 @@
+﻿syntax = "proto3";
+option csharp_namespace = "mt5_term_api";
+import "google/protobuf/timestamp.proto";
+import "mt5/mrpc-mt5-error.proto";
+
+package mt5_term_api;
+option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
+
+service SubscriptionService {
+  rpc OnSymbolTick(OnSymbolTickRequest) returns (stream OnSymbolTickReply);
+  rpc OnTrade(OnTradeRequest) returns (stream OnTradeReply);
+  rpc OnPositionProfit(OnPositionProfitRequest) returns (stream OnPositionProfitReply);
+  rpc OnPositionsAndPendingOrdersTickets(OnPositionsAndPendingOrdersTicketsRequest) returns (stream OnPositionsAndPendingOrdersTicketsReply);
+  rpc OnTradeTransaction(OnTradeTransactionRequest) returns (stream OnTradeTransactionReply);
+}
+message OnTradeTransactionRequest {
+}
+message OnTradeTransactionReply {
+  oneof response {
+    OnTradeTransactionData data = 1;
+    Error error = 2;
+  }
+}
+message OnTradeTransactionData {
+  MT5_SUB_ENUM_EVENT_GROUP_TYPE type = 1;
+  MqlTradeTransaction trade_transaction = 2;
+  MqlTradeRequest trade_request = 3;
+  MqlTradeResult trade_result = 4;
+  string terminal_instance_guid_id = 5;
+  OnEventAccountInfo account_info = 6;
+}
+message MqlTradeTransaction {
+  uint64 deal_ticket = 1;
+  uint64 order_ticket = 2;
+  string symbol = 3;
+  SUB_ENUM_TRADE_TRANSACTION_TYPE type = 4;
+  SUB_ENUM_ORDER_TYPE order_type = 5;
+  SUB_ENUM_ORDER_STATE order_state = 6;
+  SUB_ENUM_DEAL_TYPE deal_type = 7;
+  SUB_ENUM_ORDER_TYPE_TIME order_time_type = 8;
+  google.protobuf.Timestamp order_expiration_time = 9;
+  double price = 10; 
+  double price_trigger_stop_limit = 11 ;      // Stop limit order activation price
+  double price_stop_loss = 12;                // Stop Loss level
+  double price_take_profit = 13;              // Take Profit level
+  double volume = 14;                         // Volume in lots
+  uint64 position_ticket = 15;                // Position ticket
+  uint64 position_by_opposite_position = 16;  // Ticket of an opposite position
+}
+enum SUB_ENUM_TRADE_TRANSACTION_TYPE {
+  SUB_TRADE_TRANSACTION_ORDER_ADD = 0;      // Adding a new open order.
+  SUB_TRADE_TRANSACTION_ORDER_UPDATE = 1;   // Updating an open order. The updates include not only evident changes from the client terminal or a trade server sides but also changes of an order state when setting it (for example, transition from ORDER_STATE_STARTED to ORDER_STATE_PLACED or from ORDER_STATE_PLACED to ORDER_STATE_PARTIAL, etc.).
+  SUB_TRADE_TRANSACTION_ORDER_DELETE = 2;   // Removing an order from the list of the open ones. An order can be deleted from the open ones as a result of setting an appropriate request or execution (filling) and moving to the history.
+  SUB_TRADE_TRANSACTION_DEAL_ADD = 3;       // Adding a deal to the history. The action is performed as a result of an order execution or performing operations with an account balance.
+  SUB_TRADE_TRANSACTION_DEAL_UPDATE = 4;    // Updating a deal in the history. There may be cases when a previously executed deal is changed on a server. For example, a deal has been changed in an external trading system (exchange) where it was previously transferred by a broker.
+  SUB_TRADE_TRANSACTION_DEAL_DELETE = 5;    // Deleting a deal from the history. There may be cases when a previously executed deal is deleted from a server. For example, a deal has been deleted in an external trading system (exchange) where it was previously transferred by a broker.
+  SUB_TRADE_TRANSACTION_HISTORY_ADD = 6;    // Adding an order to the history as a result of execution or cancellation.
+  SUB_TRADE_TRANSACTION_HISTORY_UPDATE = 7; // Changing an order located in the orders history. This type is provided for enhancing functionality on a trade server side.
+  SUB_TRADE_TRANSACTION_HISTORY_DELETE = 8; // Deleting an order from the orders history. This type is provided for enhancing functionality on a trade server side.
+  SUB_TRADE_TRANSACTION_POSITION = 9;       // Changing a position not related to a deal execution. This type of transaction shows that a position has been changed on a trade server side. Position volume, open price, Stop Loss and Take Profit levels can be changed. Data on changes are submitted in MqlTradeTransaction structure via OnTradeTransaction handler. Position change (adding, changing or closing), as a result of a deal execution, does not lead to the occurrence of TRADE_TRANSACTION_POSITION transaction.
+  SUB_TRADE_TRANSACTION_REQUEST = 10;       // Notification of the fact that a trade request has been processed by a server and processing result has been received. Only type field (trade transaction type) must be analyzed for such transactions in MqlTradeTransaction structure. The second and third parameters of OnTradeTransaction (request and result) must be analyzed for additional data.
+}
+message MqlTradeRequest {
+  SUB_ENUM_TRADE_REQUEST_ACTIONS trade_operation_type = 1; // Trade operation type
+  uint64 magic = 2;             // Expert Advisor ID (magic number)
+  uint64 order_ticket = 3;      // Order ticket
+  string symbol = 4;            // Trade symbol
+  double requested_deal_volume_lots = 5;           // Requested volume for a deal in lots
+  double price = 6;             // Price
+  double stopl_imit = 7 ;       // StopLimit level of the order
+  double stop_loss = 8;         // Stop Loss level of the order
+  double take_profit = 9;       // Take Profit level of the order
+  uint64 deviation = 10;        // Maximal possible deviation from the requested price
+  SUB_ENUM_ORDER_TYPE order_type = 11;             // Order type
+  SUB_ENUM_ORDER_TYPE_FILLING order_type_filling = 12;     // Order execution type
+  SUB_ENUM_ORDER_TYPE_TIME  type_time = 13;        // Order expiration type
+  google.protobuf.Timestamp order_expiration_time = 14;       // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
+  string  order_comment = 15;          // Order comment
+  uint64  position_ticket = 16;         // Position ticket
+  uint64  position_by_opposite_position = 17;      // The ticket of an opposite position  
+  
+}
+enum SUB_ENUM_TRADE_REQUEST_ACTIONS {
+  SUB_TRADE_ACTION_UNDEFINED = 0;
+  SUB_TRADE_ACTION_DEAL = 1;      // Place a trade order for an immediate execution with the specified parameters (market order)
+  SUB_TRADE_ACTION_PENDING = 2;   // Place a trade order for the execution under specified conditions (pending order)
+  SUB_TRADE_ACTION_SLTP = 3;      // Modify Stop Loss and Take Profit values of an opened position
+  SUB_TRADE_ACTION_MODIFY = 4;    // Modify the parameters of the order placed previously
+  SUB_TRADE_ACTION_REMOVE = 5;    // Delete the pending order placed previously
+  SUB_TRADE_ACTION_CLOSE_BY = 6;  // Close a position by an opposite one  
+}
+message MqlTradeResult {
+  uint32  trade_return_int_code = 1;   // Operation return code
+  MqlErrorTradeCode trade_return_code = 2;  
+  uint64 deal_ticket = 3;              // Deal ticket, if it is performed
+  uint64 order_ticket = 4;             // Order ticket, if it is placed
+  double deal_volume = 5;              // Deal volume, confirmed by broker
+  double deal_price = 6;               // Deal price, confirmed by broker
+  double current_bid = 7;              // Current Bid price
+  double current_ask = 8;              // Current Ask price
+  string broker_comment_to_operation = 9;    // Broker comment to operation (by default it is filled by description of trade server return code)
+  uint32 terminal_dispatch_request_id = 10;   // Request ID set by the terminal during the dispatch 
+  int32 return_code_external = 11;     // Return code of an external trading system  
+}
+
+message OnPositionsAndPendingOrdersTicketsRequest {
+  int32 timer_period_milliseconds = 1;
+}
+message OnPositionsAndPendingOrdersTicketsReply {
+  oneof response {
+      OnPositionsAndPendingOrdersTicketsData data = 1;
+      Error error = 2;
+  }
+}
+message OnPositionsAndPendingOrdersTicketsData {
+  repeated uint64 position_tickets = 1;
+  repeated uint64 pending_order_tickets = 2;
+  google.protobuf.Timestamp server_time = 3;
+  string terminal_instance_guid_id = 4;
+}
+message OnPositionProfitReply {
+  oneof response {
+      OnPositionProfitData data = 1;
+      Error error = 2;
+  }
+}
+message OnPositionProfitData {
+  MT5_SUB_ENUM_EVENT_GROUP_TYPE type = 1; 
+  repeated OnPositionProfitPositionInfo new_positions = 2;
+  repeated OnPositionProfitPositionInfo updated_positions = 3;
+  repeated OnPositionProfitPositionInfo deleted_positions = 4;
+  OnEventAccountInfo account_info = 5;
+  string terminal_instance_guid_id = 6;
+}
+message OnPositionProfitRequest {
+  int32 timer_period_milliseconds = 1;
+  bool ignore_empty_data = 2; 
+}
+message OnPositionProfitPositionInfo {
+  int32 index = 1;
+  int64 ticket = 2;
+  double profit = 3;
+  string position_symbol = 4;
+}
+message OnEventAccountInfo {
+  double balance = 1;
+  double credit = 2;
+  double equity = 3;
+  double margin = 4;
+  double free_margin = 5;
+  double profit = 6;
+  double margin_level = 7;
+  int64 login = 8;
+}
+
+message OnTradeRequest {
+}
+message OnTradeReply {
+  oneof response {
+    OnTradeData data = 1;
+    Error error = 2;
+  }
+}
+message OnTradeData {
+  MT5_SUB_ENUM_EVENT_GROUP_TYPE type = 1;
+  OnTadeEventData event_data = 2;
+  OnEventAccountInfo account_info = 3;
+  string terminal_instance_guid_id = 4;
+}
+message OnTradeOrderInfo {
+  int32 index = 1;
+  int64 ticket = 2;
+  SUB_ENUM_ORDER_STATE state = 3;
+  int64 setup_time_msc = 4;
+  double stop_loss = 5;
+  double take_profit = 6;
+  double stop_limit = 7;
+  double price_current = 8;
+  google.protobuf.Timestamp time_expiration = 9;
+  SUB_ENUM_ORDER_TYPE_TIME time_type = 10;
+  string comment = 11;
+  string symbol = 12;
+  int64 magic = 13;
+  double price_open = 14;
+  google.protobuf.Timestamp setup_time = 15;
+  int64 time_expiration_seconds = 16;
+  double volume_current = 17;
+  double volume_initial = 18;
+  int64 account_login = 19;
+  SUB_ENUM_ORDER_TYPE order_type = 20;
+  SUB_ENUM_ORDER_TYPE_FILLING order_type_filling = 21;
+  SUB_ENUM_ORDER_REASON order_reason = 22;
+  int64 position_id = 23;
+  int64 position_by_id = 24;
+}
+enum SUB_ENUM_ORDER_REASON {
+  SUB_ORDER_REASON_CLIENT = 0;
+  SUB_ORDER_REASON_MOBILE = 2;
+  SUB_ORDER_REASON_WEB = 3;
+  SUB_ORDER_REASON_EXPERT = 4;
+  SUB_ORDER_REASON_SL = 5;
+  SUB_ORDER_REASON_TP = 6;
+  SUB_ORDER_REASON_SO = 7;
+}
+enum SUB_ENUM_ORDER_TYPE_FILLING {
+  SUB_ORDER_FILLING_FOK = 0;
+  SUB_ORDER_FILLING_IOC = 1;
+  SUB_ORDER_FILLING_BOC = 2;
+  SUB_ORDER_FILLING_RETURN = 3;
+}
+enum SUB_ENUM_ORDER_TYPE{
+  SUB_ORDER_TYPE_BUY = 0;
+  SUB_ORDER_TYPE_SELL = 1;
+  SUB_ORDER_TYPE_BUY_LIMIT = 2;
+  SUB_ORDER_TYPE_SELL_LIMIT = 3;
+  SUB_ORDER_TYPE_BUY_STOP = 4;
+  SUB_ORDER_TYPE_SELL_STOP = 5;
+  SUB_ORDER_TYPE_BUY_STOP_LIMIT = 6;
+  SUB_ORDER_TYPE_SELL_STOP_LIMIT = 7;
+  SUB_ORDER_TYPE_CLOSE_BY = 8;
+}
+enum SUB_ENUM_ORDER_TYPE_TIME {
+  SUB_ORDER_TIME_GTC = 0;                // Good till cancel order
+  SUB_ORDER_TIME_DAY = 1;                // Good till current trade day order
+  SUB_ORDER_TIME_SPECIFIED = 2;          // Good till expired order
+  SUB_ORDER_TIME_SPECIFIED_DAY = 3;      // The order will be effective till 23:59:59 of the specified day.
+}
+enum SUB_ENUM_ORDER_STATE {
+  SUB_ORDER_STATE_STARTED = 0;          // Order checked, but not yet accepted by broker
+  SUB_ORDER_STATE_PLACED = 1;           // Order accepted
+  SUB_ORDER_STATE_CANCELED = 2;         // Order canceled by client
+  SUB_ORDER_STATE_PARTIAL = 3;          // Order partially executed
+  SUB_ORDER_STATE_FILLED = 4;           // Order fully executed
+  SUB_ORDER_STATE_REJECTED = 5;         // Order rejected
+  SUB_ORDER_STATE_EXPIRED = 6;          // Order expired
+  SUB_ORDER_STATE_REQUEST_ADD = 7;      // Order is being registered (placing to the trading system)
+  SUB_ORDER_STATE_REQUEST_MODIFY = 8;   // Order is being modified (changing its parameters)
+  SUB_ORDER_STATE_REQUEST_CANCEL = 9;   // Order is being deleted (deleting from the trading system)
+}
+message OnTradePositionInfo {
+  int32 index = 1;
+  int64 ticket = 2;
+  SUB_ENUM_POSITION_TYPE type = 3;
+  google.protobuf.Timestamp position_time = 4;
+  google.protobuf.Timestamp last_update_time = 5;
+  double price_open = 6;
+  double profit = 7;
+  double sl = 8;
+  double tp = 9;
+  double volume = 10;
+  double swap = 11;
+  string comment = 12;
+  string symbol = 13;
+  int64 magic = 14;
+  double price_current = 15;
+  int64 account_login = 16;
+  SUB_ENUM_POSITION_REASON reason = 17;
+  bool from_pending_order = 18;
+}
+enum SUB_ENUM_POSITION_REASON {
+  SUB_POSITION_REASON_CLIENT = 0;
+  SUB_POSITION_REASON_MOBILE = 2;
+  SUB_POSITION_REASON_WEB = 3;
+  SUB_POSITION_REASON_EXPERT = 4;
+}
+enum SUB_ENUM_POSITION_TYPE {
+  SUB_POSITION_TYPE_BUY = 0;   // Buy
+  SUB_POSITION_TYPE_SELL = 1;  // Sell
+}
+message OnTradeHistoryDealInfo {
+  int32 index = 1;
+  uint64 ticket = 2;
+  int64 order_ticket = 3;
+  SUB_ENUM_DEAL_TYPE type = 4;
+  google.protobuf.Timestamp deal_time = 5;
+  SUB_ENUM_DEAL_ENTRY entry = 6;
+  int64 deal_position_id = 7;
+  double commission = 8;
+  double fee = 9;
+  double price = 10;
+  double profit = 11;
+  double sl = 12;
+  double tp = 13;
+  double volume = 14;
+  string comment = 15;
+  string symbol = 16;
+  double swap = 17;
+  SUB_ENUM_DEAL_REASON reason = 18;
+  int64 magic = 19;
+  int64 account_login = 20;
+}
+enum SUB_ENUM_DEAL_REASON {
+  SUB_DEAL_REASON_CLIENT = 0;
+  SUB_DEAL_REASON_MOBILE = 1;
+  SUB_DEAL_REASON_WEB = 2;
+  SUB_DEAL_REASON_EXPERT = 3;
+  SUB_DEAL_REASON_SL = 4;
+  SUB_DEAL_REASON_TP = 5;
+  SUB_DEAL_REASON_SO = 6;
+  SUB_DEAL_REASON_ROLLOVER = 7;
+  SUB_DEAL_REASON_VMARGIN = 8;
+  SUB_DEAL_REASON_SPLIT = 9;
+  SUB_DEAL_REASON_CORPORATE_ACTION = 10;
+}
+enum SUB_ENUM_DEAL_TYPE {
+  SUB_DEAL_TYPE_BUY = 0;                      // Buy
+  SUB_DEAL_TYPE_SELL = 1;                     // Sell
+  SUB_DEAL_TYPE_BALANCE = 2;                  // Balance
+  SUB_DEAL_TYPE_CREDIT = 3;                   // Credit
+  SUB_DEAL_TYPE_CHARGE = 4;                   // Additional charge
+  SUB_DEAL_TYPE_CORRECTION = 5;               // Correction
+  SUB_DEAL_TYPE_BONUS = 6;                    // Bonus
+  SUB_DEAL_TYPE_COMMISSION = 7;               // Additional commission
+  SUB_DEAL_TYPE_COMMISSION_DAILY = 8;         // Daily commission
+  SUB_DEAL_TYPE_COMMISSION_MONTHLY = 9;       // Monthly commission
+  SUB_DEAL_TYPE_COMMISSION_AGENT_DAILY = 10;  // Daily agent commission
+  SUB_DEAL_TYPE_COMMISSION_AGENT_MONTHLY = 11;// Monthly agent commission
+  SUB_DEAL_TYPE_INTEREST = 12;                // Interest rate
+  SUB_DEAL_TYPE_BUY_CANCELED = 13;            // Canceled buy deal
+  SUB_DEAL_TYPE_SELL_CANCELED = 14;           // Canceled sell deal
+  SUB_DEAL_DIVIDEND = 15;                     // Dividend operations
+  SUB_DEAL_DIVIDEND_FRANKED = 16;             // Franked (non-taxable) dividend operations
+  SUB_DEAL_TAX = 17;                          // Tax charges
+}
+enum SUB_ENUM_DEAL_ENTRY {
+  SUB_DEAL_ENTRY_IN = 0;      // Entry in
+  SUB_DEAL_ENTRY_OUT = 1;     // Entry out
+  SUB_DEAL_ENTRY_INOUT = 2;   // Reverse
+  SUB_DEAL_ENTRY_OUT_BY = 3;  // Close a position by an opposite one
+}
+message OnTradeHistoryOrderInfo {
+  int32 index = 1;
+  int64 ticket = 2;
+  SUB_ENUM_ORDER_STATE state = 3;
+  google.protobuf.Timestamp setup_time = 4;
+  google.protobuf.Timestamp done_time = 5;
+  google.protobuf.Timestamp time_expiration = 6;
+  uint64 position_id = 7;
+  SUB_ENUM_ORDER_TYPE_TIME type_time = 8;
+  double stop_loss = 9;
+  double take_profit = 10;
+  double stop_limit = 11;
+  double price_current = 12;
+  double price_open = 13;
+  double volume_current = 14;
+  double volume_initial = 15;
+  int64 magic = 19;
+  int64 position_by = 20;
+  SUB_ENUM_DEAL_REASON reason = 21;
+  string comment = 22;
+  string symbol = 23;
+  int64 time_expiration_seconds = 24;
+  int64 account_login = 25;
+  SUB_ENUM_ORDER_TYPE order_type = 26;
+  SUB_ENUM_ORDER_TYPE_FILLING order_type_filling = 27;
+}
+message OnTradeOrderStateChange {
+  OnTradeOrderInfo previous_order = 1;
+  OnTradeOrderInfo current_order = 2;
+}
+message OnTradePositionUpdate {
+  OnTradePositionInfo previous_position = 1;
+  OnTradePositionInfo current_position = 2;
+}
+message OnTradeHistoryDealUpdate {
+  OnTradeHistoryDealInfo previous_history_deal = 1;
+  OnTradeHistoryDealInfo current_history_deal = 2;
+}
+message OnTradeHistoryOrderUpdate {
+  OnTradeHistoryOrderInfo previous_history_order = 1;
+  OnTradeHistoryOrderInfo current_history_order = 2;
+}
+message OnTadeEventData {
+  repeated OnTradeOrderInfo new_orders = 1;
+  repeated OnTradeOrderInfo disappeared_orders = 2;
+  repeated OnTradeOrderStateChange state_changed_orders = 3;
+  repeated OnTradeHistoryOrderInfo new_history_orders = 4;
+  repeated OnTradeHistoryOrderInfo disappeared_history_orders = 5;
+  repeated OnTradeHistoryOrderUpdate updated_history_orders = 6;
+  repeated OnTradeHistoryDealInfo new_history_deals = 7;
+  repeated OnTradeHistoryDealInfo disappeared_history_deals = 8;
+  repeated OnTradeHistoryDealUpdate updated_history_deals = 9;
+  repeated OnTradePositionInfo new_positions = 10;
+  repeated OnTradePositionInfo disappeared_positions = 11;
+  repeated OnTradePositionUpdate updated_positions = 12;
+}
+
+message OnSymbolTickRequest {
+  repeated string symbol_names = 1;
+}
+message OnSymbolTickReply {
+  oneof response {
+      OnSymbolTickData data = 1;
+      Error error = 2;
+  }
+}
+message OnSymbolTickData {
+  MrpcSubscriptionMqlTick symbol_tick = 1;
+  string terminal_instance_guid_id = 2;
+}
+
+message MrpcSubscriptionMqlTick {
+  google.protobuf.Timestamp time = 1;            // Time of the last prices update (Unix timestamp)
+  double bid = 2;          // Current Bid price
+  double ask = 3;          // Current Ask price
+  double last = 4;         // Price of the last deal (Last)
+  uint64 volume = 5;       // Volume for the current Last price
+  int64 time_msc = 6;      // Time of a price last update in milliseconds
+  uint32 flags = 7;        // Tick flags
+  double volume_real = 8;  // Volume for the current Last price with greater accuracy
+  string symbol = 9;
+}
+
+enum MT5_SUB_ENUM_EVENT_GROUP_TYPE {
+    OrderProfit = 0;
+    OrderUpdate = 1;
+}
