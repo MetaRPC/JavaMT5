@@ -54,18 +54,20 @@
 ```java
 // Count open positions
 var total = account.positionsTotal();
-int count = total.getData().getValue();
+int count = total.getData().getTotal();
 System.out.printf("Open positions: %d%n", count);
 ```
 
 ```java
 // Get all open positions and orders
-var reply = account.openedOrders(false);
+var reply = account.openedOrders(
+    Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+);
 var data = reply.getData();
 
-System.out.printf("Open Positions: %d%n", data.getPositionsCount());
-for (int i = 0; i < data.getPositionsCount(); i++) {
-    var pos = data.getPositions(i);
+System.out.printf("Open Positions: %d%n", data.getPositionInfosCount());
+for (int i = 0; i < data.getPositionInfosCount(); i++) {
+    var pos = data.getPositionInfos(i);
     System.out.printf("  #%d %s %.2f lots: $%.2f%n",
         pos.getTicket(),
         pos.getSymbol(),
@@ -73,9 +75,9 @@ for (int i = 0; i < data.getPositionsCount(); i++) {
         pos.getProfit());
 }
 
-System.out.printf("Pending Orders: %d%n", data.getOrdersCount());
-for (int i = 0; i < data.getOrdersCount(); i++) {
-    var order = data.getOrders(i);
+System.out.printf("Pending Orders: %d%n", data.getOpenedOrdersCount());
+for (int i = 0; i < data.getOpenedOrdersCount(); i++) {
+    var order = data.getOpenedOrders(i);
     System.out.printf("  #%d %s %s @ %.5f%n",
         order.getTicket(),
         order.getSymbol(),
@@ -90,13 +92,13 @@ var reply = account.openedOrdersTickets();
 var data = reply.getData();
 
 System.out.println("Position tickets:");
-for (int i = 0; i < data.getPositionTicketsCount(); i++) {
-    System.out.printf("  #%d%n", data.getPositionTickets(i));
+for (long ticket : data.getOpenedPositionTicketsList()) {
+    System.out.printf("  #%d%n", ticket);
 }
 
 System.out.println("Order tickets:");
-for (int i = 0; i < data.getOrderTicketsCount(); i++) {
-    System.out.printf("  #%d%n", data.getOrderTickets(i));
+for (long ticket : data.getOpenedOrdersTicketsList()) {
+    System.out.printf("  #%d%n", ticket);
 }
 ```
 

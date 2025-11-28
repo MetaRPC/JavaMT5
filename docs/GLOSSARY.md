@@ -361,15 +361,22 @@ double stepVolume = limits.getStepVolume(); // e.g., 0.01
 Runnable demonstration code showing API usage patterns.
 
 **Structure:**
-- `examples/lowlevel/` - MT5Account examples (proto level)
-- `examples/services/` - MT5Service examples (wrapper level)
-- `examples/sugar/` - MT5Sugar examples (convenience level)
-- `examples/orchestrators/` - Orchestrator demos
-- `examples/presets/` - Preset demos
+- `examples/lowlevel/` - MT5Account examples (proto level) - run.bat 1-3
+- `examples/services/` - MT5Service examples (wrapper level) - run.bat 4-6
+- `examples/sugar/` - MT5Sugar examples (convenience level) - run.bat 7-9
 
-**How to run:** `run.bat <number>`
+**How to run:**
+```bash
+run.bat 1-9    # Examples (various API levels)
+run.bat 10     # Orchestrator menu
+run.bat 10 1-5 # Specific orchestrator
+run.bat 11     # Preset menu
+run.bat 11 1-2 # Specific preset
+```
 
 **Location:** `src/main/java/examples/`
+
+**See:** [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for complete command list.
 
 ---
 
@@ -377,28 +384,40 @@ Runnable demonstration code showing API usage patterns.
 Complex usage example demonstrating real-world workflow.
 
 **Examples:**
-- `SimpleTradingScenario.java` - Basic trading workflow
-- `RiskManagementScenario.java` - Risk-based position sizing
-- `GridTradingScenario.java` - Grid trading strategy
+- `SimpleTradingScenario.java` - Basic trading workflow (run.bat 7)
+- `RiskManagementScenario.java` - Risk-based position sizing (run.bat 8)
+- `GridTradingScenario.java` - Grid trading strategy (run.bat 9)
 
 **Location:** `src/main/java/examples/sugar/`
 
 ---
 
-### Demo
-Interactive menu-driven example for user selection.
+### Program.java
+Main entry point that routes run.bat commands to examples/orchestrators/presets.
 
-**Examples:**
-- `OrchestratorDemo.java` - Run orchestrators from menu
-- `PresetDemo.java` - Run presets from menu
+**Key characteristics:**
+- Single entry point for all examples (1-11)
+- Uses reflection to find and launch example classes
+- Provides interactive menus for orchestrators (10) and presets (11)
+- Manages resource cleanup for orchestrators/presets
+- Contains complete command reference in file header
 
-**Launch:**
-```bash
-run.bat 10  # Orchestrator demo
-run.bat 11  # Preset demo
+**How it works:**
+```
+run.bat 7
+    ↓
+Program.java main(args)
+    ↓
+runDemo(7)
+    ↓
+Reflection finds: examples.sugar.SimpleTradingScenario
+    ↓
+Calls: SimpleTradingScenario.main()
 ```
 
-**Location:** `src/main/java/examples/orchestrators/` and `examples/presets/`
+**Location:** `src/main/java/Program.java`
+
+**See:** [PROJECT_MAP.md](./PROJECT_MAP.md#programjava-srcmainjavaprogramjava) for details.
 
 ---
 
@@ -423,24 +442,31 @@ Central configuration file for MT5 connection settings.
 ---
 
 ### run.bat
-Quick launcher script for running examples.
+Quick launcher script for running all JavaMT5 examples.
 
 **Usage:**
 ```bash
-run.bat <example_number>
+run.bat <number> [sub-number]
 
 # Examples:
-run.bat 3   # SimpleTradingScenario
-run.bat 10  # OrchestratorDemo
-run.bat 11  # PresetDemo
+run.bat 7      # SimpleTradingScenario
+run.bat 10     # Orchestrator menu
+run.bat 10 1   # Scalping orchestrator
+run.bat 11 2   # Defensive preset
+run.bat stop   # Stop Maven daemon
 ```
 
 **What it does:**
+- Compiles project: `mvnd compile`
+- Runs Program.java: `mvnd exec:java -Dexec.args="<numbers>"`
 - Uses Maven Daemon (mvnd) for fast execution
-- Passes correct main class to exec:java
 - Handles Java environment setup
 
 **Location:** `./run.bat`
+
+**Note:** If `run.bat` doesn't work, try `.\run.bat` (PowerShell/Git Bash).
+
+**See:** [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for troubleshooting.
 
 ---
 
@@ -454,11 +480,47 @@ Fast Maven build tool that reuses JVM between builds.
 
 **Usage in JavaMT5:**
 ```bash
-mvnd clean compile           # Build project
-mvnd exec:java -Dexec.mainClass="..."  # Run class
+mvnd compile                        # Build project
+mvnd exec:java -Dexec.args="7"     # Run example 7
+mvnd --stop                         # Stop daemon
 ```
 
 **Configuration:** `pom.xml`
+
+**Troubleshooting:** If build hangs, stop daemon with `run.bat stop` or `mvnd --stop`.
+
+---
+
+### target/ Folder
+Build output directory containing all compiled files and generated code.
+
+**Contents:**
+```
+target/
+├── classes/                    # Compiled .class files
+└── maven-status/              # Build metadata
+```
+
+**Purpose:**
+- Maven puts all compiled classes here
+- Auto-generated during `mvnd compile`
+- Can be safely deleted for clean rebuild
+- MetaRPC library classes come from JAR dependency (not generated locally)
+
+**Troubleshooting:**
+```bash
+# If you get "Unresolved compilation problem" errors:
+rmdir /s /q target         # Windows CMD
+Remove-Item -Recurse -Force target  # PowerShell
+rm -rf target              # Git Bash/Linux
+
+# Then run any command - target/ will be regenerated:
+run.bat 7
+```
+
+**⚠️ Java is finicky!** Deleting `target/` fixes 99% of weird compilation errors.
+
+**See:** [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md#problem-2-compilation-errors-unresolved-compilation-problem) for details.
 
 ---
 
@@ -558,9 +620,11 @@ JavaMT5 orchestrators and presets are learning materials, not production systems
 
 ## 📚 See Also
 
+- **[RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md)** - How to run examples + troubleshooting
 - **[PROJECT_MAP.md](./PROJECT_MAP.md)** - Complete project structure guide
 - **[MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md)** - All 50+ convenience methods
 - **[Orchestrators.Overview.md](./Orchestrators.Overview.md)** - Strategy implementations
+- **[Program.java](../src/main/java/Program.java)** - Complete command reference
 - **API Documentation** - `docs/MT5Account/` and `docs/MT5Sugar/` folders
 
 ---
@@ -572,6 +636,7 @@ JavaMT5 orchestrators and presets are learning materials, not production systems
 | MT5Account | Architecture | Layer 1 - Low-level proto/gRPC API |
 | MT5Service | Architecture | Layer 2 - Wrapper methods |
 | MT5Sugar | Architecture | Layer 3 - Convenience API ⭐ |
+| Program.java | Architecture | Main entry point, routes all commands |
 | Orchestrator | Strategy | Single-strategy implementation |
 | Preset | Strategy | Multi-orchestrator combination |
 | Auto-normalization | Technical | Automatic parameter adjustment |
@@ -585,8 +650,14 @@ JavaMT5 orchestrators and presets are learning materials, not production systems
 | gRPC | Technical | RPC framework for communication |
 | Snapshot | Technical | Complete state capture |
 | Batch operation | Technical | Action on multiple items |
+| target/ folder | Build | Compiled output, delete for clean rebuild |
+| run.bat | Tool | Quick launcher for examples |
+| mvnd | Tool | Fast Maven daemon build tool |
 | Progressive complexity | Philosophy | Start simple, access complexity as needed |
 
 ---
 
-> 💡 **New to JavaMT5?** Start with [PROJECT_MAP.md](./PROJECT_MAP.md) to understand the project structure, then explore [MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md) for the convenience API.
+> 💡 **New to JavaMT5?**
+> 1. Read [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) to learn how to run examples and troubleshoot issues
+> 2. Check [PROJECT_MAP.md](./PROJECT_MAP.md) to understand the project structure
+> 3. Explore [MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md) for the convenience API

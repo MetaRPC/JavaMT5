@@ -73,10 +73,10 @@ System.out.printf("EURUSD: Bid=%.5f, Ask=%.5f, Spread=%.5f%n",
 ```java
 // List all available symbols
 var total = account.symbolsTotal(false);
-int count = total.getData().getValue();
+int count = total.getData().getTotal();
 for (int i = 0; i < count; i++) {
     var name = account.symbolName(i, false);
-    System.out.println(name.getData().getValue());
+    System.out.println(name.getData().getName());
 }
 ```
 
@@ -89,7 +89,7 @@ account.symbolSelect("GBPUSD", true);
 // Get symbol digits (decimal places)
 var reply = account.symbolInfoInteger(
     "EURUSD",
-    Mt5TermApiMarketInfo.TMT5_ENUM_SYMBOL_INFO_INTEGER.TMT5_SYMBOL_DIGITS
+    Mt5TermApiMarketInfo.SymbolInfoIntegerProperty.SYMBOL_DIGITS
 );
 long digits = reply.getData().getValue();
 System.out.printf("EURUSD digits: %d%n", digits);
@@ -99,7 +99,7 @@ System.out.printf("EURUSD digits: %d%n", digits);
 // Get minimum volume for symbol
 var reply = account.symbolInfoDouble(
     "XAUUSD",
-    Mt5TermApiMarketInfo.TMT5_ENUM_SYMBOL_INFO_DOUBLE.TMT5_SYMBOL_VOLUME_MIN
+    Mt5TermApiMarketInfo.SymbolInfoDoubleProperty.SYMBOL_VOLUME_MIN
 );
 double minVolume = reply.getData().getValue();
 System.out.printf("Min volume: %.2f lots%n", minVolume);

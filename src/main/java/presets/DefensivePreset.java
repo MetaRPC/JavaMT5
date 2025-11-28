@@ -62,6 +62,22 @@
    DefensivePreset preset = new DefensivePreset(sugar);
    preset.setSymbol("EURUSD");  // optional, defaults to EURUSD
    preset.execute();
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                               HOW TO RUN                                 ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  From run.bat:
+    run.bat 11 2                           # Direct launch (or .\run.bat 11 2)
+    mvnd exec:java -Dexec.args="11 2"      # Via Maven
+
+  From Maven:
+    mvnd compile exec:java -Dexec.mainClass="presets.PresetDemo"
+
+  Or directly in your code:
+    MT5Sugar sugar = new MT5Sugar(account);
+    DefensivePreset preset = new DefensivePreset(sugar);
+    preset.execute();   
 ══════════════════════════════════════════════════════════════════════════════*/
 
 package presets;
@@ -672,22 +688,5 @@ public class DefensivePreset {
      • Wait 120 seconds
      • Breakout: $25 risk (if +$20)
      • Total max risk: $60
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                               HOW TO RUN                                 ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
-  From run.bat:
-    run.bat 11
-    Then choose "Defensive Preset"
-
-  From Maven:
-    mvnd compile exec:java -Dexec.mainClass="presets.PresetDemo"
-
-  Or directly in your code:
-    MT5Sugar sugar = new MT5Sugar(account);
-    DefensivePreset preset = new DefensivePreset(sugar);
-    preset.execute();
-
 
 ══════════════════════════════════════════════════════════════════════════════*/

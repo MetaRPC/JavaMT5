@@ -50,43 +50,45 @@
 // Get complete account snapshot
 var summary = account.accountSummary();
 var data = summary.getData();
-System.out.printf("Balance: $%.2f, Equity: $%.2f, Margin Level: %.2f%%%n",
-    data.getBalance(), data.getEquity(), data.getMarginLevel());
+System.out.printf("Balance: $%.2f, Equity: $%.2f, Leverage: 1:%d%n",
+    data.getAccountBalance(), data.getAccountEquity(), data.getAccountLeverage());
 ```
 
 ```java
 // Get single property - account balance
 var reply = account.accountInfoDouble(
-    Mt5TermApiAccountInformation.TMT5_ENUM_ACCOUNT_INFO_DOUBLE.TMT5_ACCOUNT_BALANCE
+    Mt5TermApiAccountInformation.AccountInfoDoublePropertyType.ACCOUNT_BALANCE
 );
-double balance = reply.getData().getValue();
+double balance = reply.getData().getRequestedValue();
 System.out.printf("Balance: $%.2f%n", balance);
 ```
 
 ```java
 // Get account leverage
 var reply = account.accountInfoInteger(
-    Mt5TermApiAccountInformation.TMT5_ENUM_ACCOUNT_INFO_INTEGER.TMT5_ACCOUNT_LEVERAGE
+    Mt5TermApiAccountInformation.AccountInfoIntegerPropertyType.ACCOUNT_LEVERAGE
 );
-long leverage = reply.getData().getValue();
+long leverage = reply.getData().getRequestedValue();
 System.out.printf("Leverage: 1:%d%n", leverage);
 ```
 
 ```java
 // Get account currency
 var reply = account.accountInfoString(
-    Mt5TermApiAccountInformation.TMT5_ENUM_ACCOUNT_INFO_STRING.TMT5_ACCOUNT_CURRENCY
+    Mt5TermApiAccountInformation.AccountInfoStringPropertyType.ACCOUNT_CURRENCY
 );
-String currency = reply.getData().getValue();
+String currency = reply.getData().getRequestedValue();
 System.out.printf("Currency: %s%n", currency);
 ```
 
 ```java
-// Check if account has enough free margin
+// Check account balance and equity
 var summary = account.accountSummary();
-double freeMargin = summary.getData().getFreeMargin();
-if (freeMargin < 1000) {
-    System.out.println("⚠️ Low free margin!");
+var data = summary.getData();
+double balance = data.getAccountBalance();
+double equity = data.getAccountEquity();
+if (equity < balance * 0.8) {
+    System.out.println("⚠️ Warning: Equity below 80% of balance!");
 }
 ```
 

@@ -4,6 +4,205 @@
 
 ---
 
+## 🚀 Prerequisites and Setup
+
+Before you start working with JavaMT5, you need to set up your development environment.
+
+### Step 1: Install Java (JDK 11 or higher)
+
+JavaMT5 requires Java Development Kit (JDK) version 11 or higher.
+
+**Download and Install:**
+- **Recommended:** [Eclipse Adoptium JDK](https://adoptium.net/) (formerly AdoptOpenJDK)
+- **Alternative:** [Oracle JDK](https://www.oracle.com/java/technologies/downloads/)
+
+**Verify installation:**
+```bash
+java -version
+# Should show: java version "11" or higher
+```
+
+**Set JAVA_HOME environment variable:**
+- Windows: Add to System Environment Variables
+  ```
+  JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-11.0.x-hotspot
+  ```
+- Add `%JAVA_HOME%\bin` to PATH
+
+---
+
+### Step 2: Install Maven Daemon (mvnd)
+
+JavaMT5 uses Maven Daemon for fast builds and execution.
+
+**Download:**
+- Visit [Maven Daemon releases](https://github.com/apache/maven-mvnd/releases)
+- Download the latest version for Windows (e.g., `maven-mvnd-1.0.3-windows-amd64.zip`)
+
+**Install:**
+1. Extract to a permanent location (e.g., `C:\Users\<your-username>\maven-mvnd-1.0.3-windows-amd64`)
+2. Add to PATH or update `run.bat` with your path
+3. Verify installation:
+   ```bash
+   mvnd --version
+   # Should show Maven Daemon version
+   ```
+
+**Configure run.bat:**
+
+Edit `run.bat` and update the MVND path if needed:
+```batch
+set "MVND=C:\Users\<your-username>\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd"
+```
+
+---
+
+### Step 3: Configure MetaRPC Gateway Connection
+
+JavaMT5 connects to MT5 terminal via the **MetaRPC gRPC gateway** - a Java library that provides MT5 terminal integration.
+
+**What is MetaRPC?**
+- GitHub package: `com.github.MetaRPC.metarpcmt5`
+- Provides gRPC communication with MT5 terminal
+- Already included in `pom.xml` dependencies
+- See: [MetaRPC on GitHub Packages](https://github.com/MetaRPC/JavaMT5/packages/2470968)
+
+**Two ways to connect:**
+
+#### Option A: Connect to Your Own MT5 Terminal (Local)
+
+If you have MT5 installed locally with MetaRPC server running:
+
+1. Ensure MT5 terminal is running
+2. MetaRPC gRPC server must be running in MT5
+3. Configure `appsettings.json`:
+
+```json
+{
+  "MT5": {
+    "Host": "localhost",
+    "Port": 5555,
+    "Login": 12345678,
+    "Password": "your_password",
+    "Symbol": "EURUSD",
+    "UseSSL": false,
+    "TimeoutSeconds": 30
+  }
+}
+```
+
+#### Option B: Connect to Remote MetaRPC Gateway (Provided by MetaRPC)
+
+If MetaRPC team provides access to their gateway:
+
+1. Obtain connection credentials from MetaRPC
+2. Configure `appsettings.json` with provided settings:
+
+```json
+{
+  "MT5": {
+    "Host": "gateway.metarpc.com",     // Provided by MetaRPC
+    "Port": 5555,                      // Provided by MetaRPC
+    "Login": 123456,                   // Your MT5 account number
+    "Password": "your_password",       // Your MT5 password
+    "Symbol": "EURUSD",
+    "UseSSL": true,                    // Usually true for remote
+    "TimeoutSeconds": 30
+  }
+}
+```
+
+### Step 4: Clone and Build the Project
+
+**Clone repository:**
+```bash
+git clone https://github.com/MetaRPC/JavaMT5.git
+cd JavaMT5
+```
+
+**Understanding run.bat - Your Project Lifecycle Manager:**
+
+The `run.bat` script is the central command that manages the entire JavaMT5 project lifecycle:
+
+- **Runs examples** from the `examples/` folder (commands 1-9)
+- **Runs orchestrators** - trading strategies (commands 10 1-5)
+- **Runs presets** - multi-strategy systems (commands 11 1-2)
+- **Auto-checks generated files** on every execution
+- **Uses pre-compiled MetaRPC library** (no protobuf generation needed)
+- **Compiles the project** before running
+
+**What happens when you run `.\run.bat 7`:**
+```
+1. Maven downloads MetaRPC library (if not cached)
+2. Compiles all Java source files
+3. Launches SimpleTradingScenario example
+```
+
+This ensures every run starts with a fresh, complete build.
+
+**For complete command reference and troubleshooting:**
+See [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for:
+- All available commands (1-11)
+- How to fix compilation errors
+- How to handle hanging processes
+- Build process details
+
+---
+
+**First build:**
+```bash
+# Windows CMD or PowerShell
+.\run.bat 7
+
+# This will:
+# 1. Download all Maven dependencies (including MetaRPC library)
+# 2. Compile the project
+# 3. Run SimpleTradingScenario example
+```
+
+**If you get errors:**
+- See [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for troubleshooting
+- Common fix: Delete `target/` folder and try again
+  ```bash
+  rmdir /s /q target
+  .\run.bat 7
+  ```
+
+---
+
+### Step 5: Verify Everything Works
+
+**Test the setup:**
+```bash
+# Run a simple example
+.\run.bat 7    # SimpleTradingScenario
+
+# If it connects and runs - you're ready!
+# If you see errors - check RUNNING_EXAMPLES.md
+```
+
+**Expected output:**
+```
+[INFO] BUILD SUCCESS
+Configuration loaded: user=123456
+► Connecting to MT5...
+✓ Connected
+...
+```
+
+---
+
+### What's Next?
+
+Now that your environment is set up, continue below to learn about JavaMT5 architecture and start your learning journey!
+
+**Quick links:**
+- [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) - All commands and troubleshooting
+- [PROJECT_MAP.md](./PROJECT_MAP.md) - Project structure overview
+- [GLOSSARY.md](./GLOSSARY.md) - Terms and definitions
+
+---
+
 ## 🎯 What is JavaMT5?
 
 JavaMT5 is an **educational project** designed specifically to teach you how to work with MetaTrader 5 terminal at all levels - from low-level protocol communication to high-level trading strategies.
@@ -130,7 +329,7 @@ MT5 Terminal ←→ gRPC ←→ Proto Messages ←→ MT5Account.java
 
 **What you'll do:**
 1. Read [docs/MT5Account/](./MT5Account/) documentation
-2. Study proto files in `src/main/proto/`
+2. Study MetaRPC library structure (proto-generated classes in JAR)
 3. Run examples in `src/main/java/examples/lowlevel/`
 4. Explore `MT5Account.java` source code
 
@@ -214,7 +413,7 @@ MT5Sugar → Orchestrator → Complete trading strategy workflow
 
 **What you'll do:**
 1. Read [docs/Orchestrators.Overview.md](./Orchestrators.Overview.md)
-2. Run `run.bat 10` (OrchestratorDemo) - interactive menu
+2. Run `run.bat 10` - interactive orchestrator menu
 3. Study orchestrator source code in `src/main/java/orchestrators/`
 4. Copy and modify for your own strategies
 
@@ -245,7 +444,7 @@ Orchestrators → Preset → Multi-strategy adaptive system
 
 **What you'll do:**
 1. Read presets section in [Orchestrators.Overview.md](./Orchestrators.Overview.md#-multi-orchestrator-presets)
-2. Run `run.bat 11` (PresetDemo) - interactive menu
+2. Run `run.bat 11` - interactive preset menu
 3. Study preset source code in `src/main/java/presets/`
 4. Design your own multi-strategy systems
 
@@ -299,17 +498,6 @@ Orchestrators → Preset → Multi-strategy adaptive system
 
 **Career value:** Algorithmic trading, quantitative development, trading system architecture.
 
----
-
-### 4. Production-Ready Patterns
-
-**You'll understand:**
-- Error handling in trading systems
-- Auto-normalization and edge case handling
-- Batch operations and cleanup patterns
-- Performance tracking and logging
-
-**Career value:** Production trading systems, fintech development, high-reliability software.
 
 ---
 
@@ -333,168 +521,11 @@ examples/
 │   ├── StreamingServiceExample.java
 │   └── TradingServiceExample.java
 │
-├── sugar/              ← MT5Sugar examples (convenience level)
-│   ├── SimpleTradingScenario.java
-│   ├── RiskManagementScenario.java
-│   └── GridTradingScenario.java
-│
-├── orchestrators/
-│   └── OrchestratorDemo.java    ← Interactive orchestrator menu
-│
-└── presets/
-    └── PresetDemo.java           ← Interactive preset menu
+└── sugar/              ← MT5Sugar examples (convenience level)
+    ├── SimpleTradingScenario.java
+    ├── RiskManagementScenario.java
+    └── GridTradingScenario.java
 ```
-
-### How to Use Examples
-
-**1. Configure connection:**
-```json
-// Edit appsettings.json
-{
-  "MT5": {
-    "Host": "localhost",
-    "Port": 5555,
-    "Login": YOUR_LOGIN,
-    "Password": "YOUR_PASSWORD",
-    "Symbol": "EURUSD"
-  }
-}
-```
-
-**2. Run examples:**
-```bash
-run.bat <example_number>
-
-# Examples:
-run.bat 1   # MarketDataExample (low-level)
-run.bat 3   # SimpleTradingScenario (sugar)
-run.bat 10  # OrchestratorDemo (strategies)
-run.bat 11  # PresetDemo (multi-strategy)
-```
-
-**3. Study the code:**
-- Each example demonstrates specific methods
-- Read code comments for explanations
-- Modify examples to experiment
-- Copy patterns for your own code
-
-**Purpose:** The examples folder is your **hands-on learning lab** - every method is demonstrated with working code you can run, study, and adapt.
-
----
-
-## 🎯 Recommended Learning Paths
-
-### Path A: Foundation-First (Deep Learning)
-
-**For:** Developers who want deep understanding before building.
-
-```
-1. MT5Account (low-level)     → 2-3 days
-2. MT5Service (wrappers)       → 1 day
-3. MT5Sugar (convenience)      → 1-2 days
-4. Orchestrators (strategies)  → 2-3 days
-5. Presets (multi-strategy)    → 1-2 days
-───────────────────────────────────────
-Total: ~1.5-2 weeks for complete mastery
-```
-
-**Start with:** `examples/lowlevel/` and [MT5Account documentation](./MT5Account/)
-
----
-
-### Path B: Quick-Start (Build First, Learn Later)
-
-**For:** Traders who want to automate strategies quickly.
-
-```
-1. MT5Sugar (convenience)      → 1-2 days
-2. Orchestrators (strategies)  → 2-3 days
-3. Presets (multi-strategy)    → 1-2 days
-4. MT5Service (wrappers)       → 1 day (when needed)
-5. MT5Account (low-level)      → 2-3 days (when needed)
-───────────────────────────────────────
-Total: ~1 week to start trading, deepen as needed
-```
-
-**Start with:** `examples/sugar/` and [MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md)
-
----
-
-### Path C: Strategy-Focused (Copy & Modify)
-
-**For:** Traders with specific strategy ideas to implement.
-
-```
-1. MT5Sugar basics            → 1 day
-2. Choose orchestrator        → Study 1 day
-3. Copy & modify              → 1-2 days
-4. Test on demo               → Ongoing
-5. Learn foundations as needed → As required
-───────────────────────────────────────
-Total: ~3-4 days to first custom strategy
-```
-
-**Start with:** [Orchestrators.Overview.md](./Orchestrators.Overview.md) and `run.bat 10`
-
----
-
-## 📚 Documentation Structure
-
-All documentation is organized for easy navigation:
-
-```
-docs/
-├── GETTING_STARTED.md          ← You are here! 👈
-├── PROJECT_MAP.md              ← Complete project structure guide
-├── GLOSSARY.md                 ← Project-specific terms
-│
-├── MT5Account/                 ← Low-level proto API docs
-│   ├── 1. Account_information/
-│   ├── 2. Symbol_information/
-│   ├── 3. Positions_and_orders/
-│   ├── 4. Market_depth_DOM/
-│   ├── 5. Trading/
-│   └── 6. Subscriptions/
-│
-├── MT5Sugar/                   ← Convenience API docs
-│   ├── MT5Sugar.Overview.md    ← Start here for Sugar
-│   ├── 1. Symbol_helpers/
-│   ├── 2. Market_orders/
-│   └── ... (11 groups, 50+ methods)
-│
-└── Orchestrators.Overview.md   ← Strategies & presets
-```
-
-**Navigation tips:**
-- Start with overview files (`.Overview.md`)
-- Each method has its own detailed documentation
-- Use [GLOSSARY.md](./GLOSSARY.md) to understand project terms
-- Refer to [PROJECT_MAP.md](./PROJECT_MAP.md) for file locations
-
----
-
-## ⚙️ Setup Requirements
-
-**1. Java Development Kit (JDK)**
-- Java 11 or higher required
-- Recommended: Java 17+ (LTS)
-
-**2. Maven / Maven Daemon**
-- Maven for building project
-- Maven Daemon (mvnd) recommended for faster builds
-- Configured in `pom.xml`
-
-**3. MetaTrader 5 Terminal**
-- MT5 terminal with gRPC server enabled
-- Demo or live account
-- Configure connection in `appsettings.json`
-
-**4. IDE (Recommended)**
-- IntelliJ IDEA, Eclipse, or VS Code
-- Java language support
-- Git for version control
-
----
 
 ## 🎓 Learning Resources
 
@@ -534,68 +565,6 @@ docs/
 - Never risk more than you can afford to lose
 - Understand every line of code before trading real money
 
-### Development Philosophy
-
-**Progressive complexity:**
-- Start at your comfort level (Sugar → Service → Account)
-- Access complexity only when needed
-- Build understanding gradually
-- Focus on patterns, not memorization
-
-**Educational focus:**
-- Code is heavily commented for learning
-- Examples demonstrate patterns, not production systems
-- Orchestrators show strategy implementation, not guaranteed profits
-- Goal is understanding, not black-box automation
-
----
-
-## 🚀 Your Next Steps
-
-### 1. Choose Your Path
-
-Pick a learning path based on your goals:
-- **Foundation-First:** Start with MT5Account for deep learning
-- **Quick-Start:** Jump to MT5Sugar for fast results
-- **Strategy-Focused:** Go to Orchestrators to implement your ideas
-
-### 2. Setup Environment
-
-```bash
-# 1. Configure MT5 connection
-edit appsettings.json
-
-# 2. Build project
-mvnd clean compile
-
-# 3. Run your first example
-run.bat 3  # SimpleTradingScenario
-```
-
-### 3. Study Documentation
-
-```
-Read: docs/PROJECT_MAP.md         (project structure)
-Read: docs/GLOSSARY.md            (terminology)
-Read: docs/MT5Sugar/MT5Sugar.Overview.md  (quick start)
-```
-
-### 4. Run Examples
-
-```bash
-# Try different levels
-run.bat 1   # Low-level (MarketDataExample)
-run.bat 3   # Sugar (SimpleTradingScenario)
-run.bat 10  # Orchestrators (interactive menu)
-```
-
-### 5. Experiment & Build
-
-- Modify examples to understand behavior
-- Copy orchestrators as templates for your strategies
-- Build your own trading automation
-- Test everything on demo accounts!
-
 ---
 
 ## 📞 Need Help?
@@ -610,7 +579,7 @@ run.bat 10  # Orchestrators (interactive menu)
 - **Low-level:** `examples/lowlevel/`
 - **Wrappers:** `examples/services/`
 - **Convenience:** `examples/sugar/`
-- **Strategies:** `examples/orchestrators/` and `examples/presets/`
+- **Strategies:** `orchestrators/` and `presets/`
 
 ---
 

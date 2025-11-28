@@ -630,7 +630,7 @@ public class SmartStopModifier {
             symbol,
             Mt5TermApiMarketInfo.SymbolInfoDoubleProperty.SYMBOL_TRADE_STOPS_LEVEL
         );
-        double stopLevel = symbolInfo.getData().getValue() * 0.00001;  // Convert to price
+        double stopLevel = symbolInfo.getData().getRequestedValue() * 0.00001;  // Convert to price
 
         System.out.printf("Modifying position #%d (%s %s)%n",
             ticket, isBuy ? "BUY" : "SELL", symbol);

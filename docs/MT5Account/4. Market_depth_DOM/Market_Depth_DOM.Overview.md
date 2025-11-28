@@ -56,33 +56,31 @@ account.marketBookAdd("EURUSD");
 var reply = account.marketBookGet("EURUSD");
 var data = reply.getData();
 
-System.out.printf("Market Depth for EURUSD:%n");
-System.out.printf("BID SIDE (demand):%n");
-for (int i = 0; i < data.getBookListBidCount(); i++) {
-    var entry = data.getBookListBid(i);
-    System.out.printf("  %.5f: %.2f lots%n", entry.getPrice(), entry.getVolume());
-}
-
-System.out.printf("ASK SIDE (supply):%n");
-for (int i = 0; i < data.getBookListAskCount(); i++) {
-    var entry = data.getBookListAsk(i);
-    System.out.printf("  %.5f: %.2f lots%n", entry.getPrice(), entry.getVolume());
+System.out.printf("Market Depth for EURUSD (%d levels):%n", data.getMqlBookInfosCount());
+for (int i = 0; i < data.getMqlBookInfosCount(); i++) {
+    var entry = data.getMqlBookInfos(i);
+    String type = entry.getType().getNumber() == 1 ? "SELL" : "BUY ";
+    System.out.printf("  %s %.5f: %.2f lots%n",
+        type, entry.getPrice(), entry.getVolumeReal());
 }
 ```
 
 ```java
-// Calculate total liquidity
+// Calculate total liquidity by side
 var reply = account.marketBookGet("GBPUSD");
 var data = reply.getData();
 
 double totalBidVolume = 0;
-for (int i = 0; i < data.getBookListBidCount(); i++) {
-    totalBidVolume += data.getBookListBid(i).getVolume();
-}
-
 double totalAskVolume = 0;
-for (int i = 0; i < data.getBookListAskCount(); i++) {
-    totalAskVolume += data.getBookListAsk(i).getVolume();
+
+for (int i = 0; i < data.getMqlBookInfosCount(); i++) {
+    var entry = data.getMqlBookInfos(i);
+    // Type: 0 = SELL (ask side), 1 = BUY (bid side)
+    if (entry.getType().getNumber() == 1) {
+        totalBidVolume += entry.getVolumeReal();
+    } else {
+        totalAskVolume += entry.getVolumeReal();
+    }
 }
 
 System.out.printf("Total bid liquidity: %.2f lots%n", totalBidVolume);

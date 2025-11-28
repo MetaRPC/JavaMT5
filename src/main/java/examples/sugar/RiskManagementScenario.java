@@ -39,7 +39,7 @@
    → Result: consistent risk regardless of SL placement
 
  USAGE:
-   run.bat 8                                # Via run.bat
+   run.bat 8  (or .\run.bat 8)              # Via run.bat
    mvnd exec:java -Dexec.args="8"           # Via Maven
 ══════════════════════════════════════════════════════════════════════════════*/
 
@@ -63,7 +63,7 @@ public class RiskManagementScenario {
         }
 
         System.out.println("\n+============================================================+");
-        System.out.println("|  SCENARIO 2: RISK MANAGEMENT TRADING                     |");
+        System.out.println("  SCENARIO 2: RISK MANAGEMENT TRADING                     ");
         System.out.println("+============================================================+\n");
 
         try {
@@ -249,10 +249,10 @@ public class RiskManagementScenario {
             account.disconnect();
 
             System.out.println("+============================================================+");
-            System.out.println("|  >> SCENARIO COMPLETED SUCCESSFULLY                      |");
+            System.out.println("|  >> SCENARIO COMPLETED SUCCESSFULLY                        |");
             System.out.println("|                                                            |");
-            System.out.println("|  Key Takeaway: Fixed risk per trade = consistent          |");
-            System.out.println("|  position sizing regardless of SL distance                |");
+            System.out.println("|  Key Takeaway: Fixed risk per trade = consistent           |");
+            System.out.println("|  position sizing regardless of SL distance                 |");
             System.out.println("+============================================================+\n");
 
         } catch (ApiExceptionMT5 e) {
@@ -262,6 +262,12 @@ public class RiskManagementScenario {
         } catch (Exception e) {
             System.err.println("\n✗ Error: " + e.getMessage());
             e.printStackTrace();
+        }
+
+        System.out.println("\nPress Enter to exit...");
+        try {
+            System.in.read();
+        } catch (Exception ignored) {
         }
     }
 
@@ -338,6 +344,7 @@ WHEN TO USE:
 ══════════════════════════════════════════════════════════════════════════════
 
 1. Via run.bat (Recommended - fast):
+
    run.bat 8  or  .\run.bat 8
 
 2. Via run-clean.bat (If run.bat fails with compilation errors):

@@ -54,8 +54,8 @@
    orchestrator.execute();
 
    Or from OrchestratorDemo:
-   run.bat 10 4                           # Via run.bat
-   mvnd exec:java -Dexec.args="10" (select 4)  # Via Maven
+   run.bat 10 4                           # Direct launch (or .\run.bat 10 4)
+   mvnd exec:java -Dexec.args="10 4"      # Via Maven
 ══════════════════════════════════════════════════════════════════════════════*/
 
 package orchestrators;
@@ -296,7 +296,7 @@ public class BreakoutOrchestrator {
 
     private void printHeader() {
         System.out.println("+============================================================+");
-        System.out.println("|  BREAKOUT ORCHESTRATOR                                   |");
+        System.out.println("  BREAKOUT ORCHESTRATOR                                   ");
         System.out.println("+============================================================+");
         System.out.println("  Symbol: " + symbol);
         System.out.println("  Risk: $" + String.format("%.2f", riskAmount));
@@ -308,9 +308,9 @@ public class BreakoutOrchestrator {
     private void printFooter(boolean breakoutDetected) {
         System.out.println("+============================================================+");
         if (breakoutDetected) {
-            System.out.println("|  >> BREAKOUT TRADE COMPLETED                             |");
+            System.out.println("  >> BREAKOUT TRADE COMPLETED                             ");
         } else {
-            System.out.println("|  >> BREAKOUT SETUP EXPIRED (NO TRIGGER)                  |");
+            System.out.println("  >> BREAKOUT SETUP EXPIRED (NO TRIGGER)                  ");
         }
         System.out.println("+============================================================+\n");
     }
@@ -413,17 +413,6 @@ ADVANTAGES OVER MANUAL TRADING:
   ✓ Consistent risk management
   ✓ No emotional decisions
   ✓ Repeatable strategy
-
-
-══════════════════════════════════════════════════════════════════════════════
-
-                               HOW TO RUN
-
-══════════════════════════════════════════════════════════════════════════════
-
-run.bat 10                                   # Interactive menu, select [4]
-mvnd exec:java -Dexec.args="10"              # Via Maven, select [4]
-
 
 ══════════════════════════════════════════════════════════════════════════════
 

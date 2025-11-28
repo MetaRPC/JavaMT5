@@ -76,7 +76,18 @@
    // OR: Execute trading session (5 trades, 10s delay)
    scalper.executeMultiple(5, 10000);
 
-══════════════════════════════════════════════════════════════════════════════*/
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                               HOW TO RUN                                 ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  From run.bat:
+    run.bat 10 1                           # Direct launch (or .\run.bat 10 1)
+    mvnd exec:java -Dexec.args="10 1"      # Via Maven
+
+  From Maven:
+    mvnd compile exec:java -Dexec.mainClass="examples.orchestrators.OrchestratorDemo" -Dexec.args="4"  
+    
+════════════════════════════════════════════════════════════════════════════════════════════════════════════*/
 
 package orchestrators;
 
@@ -302,7 +313,7 @@ public class ScalpingOrchestrator {
      */
     public void executeMultiple(int count, long delayBetweenTrades) throws ApiExceptionMT5, InterruptedException {
         System.out.println("\n+============================================================+");
-        System.out.println("|  SCALPING ORCHESTRATOR - MULTIPLE TRADES                 |");
+        System.out.println("  SCALPING ORCHESTRATOR - MULTIPLE TRADES                 ");
         System.out.println("+============================================================+");
         System.out.println("  Target trades: " + count);
         System.out.println("  Delay between trades: " + (delayBetweenTrades / 1000) + "s");
@@ -333,7 +344,7 @@ public class ScalpingOrchestrator {
 
         // Summary
         System.out.println("\n+============================================================+");
-        System.out.println("|  >> SCALPING SESSION COMPLETED                           |");
+        System.out.println("  >> SCALPING SESSION COMPLETED                           ");
         System.out.println("+============================================================+");
         System.out.println("  Total trades attempted: " + count);
         System.out.println("  Successful: " + successCount);
@@ -373,7 +384,7 @@ public class ScalpingOrchestrator {
 
     private void printHeader() {
         System.out.println("+============================================================+");
-        System.out.println("|  SCALPING ORCHESTRATOR - SINGLE TRADE                    |");
+        System.out.println("  SCALPING ORCHESTRATOR - SINGLE TRADE                    ");
         System.out.println("+============================================================+");
         System.out.println("  Symbol: " + symbol);
         System.out.println("  Risk: $" + String.format("%.2f", riskAmount));
@@ -383,7 +394,7 @@ public class ScalpingOrchestrator {
 
     private void printFooter() {
         System.out.println("+============================================================+");
-        System.out.println("|  >> SCALPING TRADE COMPLETED                             |");
+        System.out.println("  >> SCALPING TRADE COMPLETED                             ");
         System.out.println("+============================================================+\n");
     }
 }
@@ -604,17 +615,6 @@ public class ScalpingOrchestrator {
     Losses: 1 (20%)
     Total profit: +$62 (+6.2% in one session!)
     Time: ~2 minutes
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                               HOW TO RUN                                 ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
-  From run.bat:
-    run.bat 10
-    Then choose option "4" (Scalping Strategy)
-
-  From Maven:
-    mvnd compile exec:java -Dexec.mainClass="examples.orchestrators.OrchestratorDemo" -Dexec.args="4"
 
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                NEXT STEPS                                ┃

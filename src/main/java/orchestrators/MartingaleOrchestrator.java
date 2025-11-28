@@ -65,8 +65,8 @@
    orchestrator.execute();
 
    Or from OrchestratorDemo:
-   run.bat 10 5                           # Via run.bat
-   mvnd exec:java -Dexec.args="10" (select 5)  # Via Maven
+   run.bat 10 5                           # Direct launch (or .\run.bat 10 5)
+   mvnd exec:java -Dexec.args="10 5"      # Via Maven
 ══════════════════════════════════════════════════════════════════════════════*/
 
 package orchestrators;
@@ -311,7 +311,7 @@ public class MartingaleOrchestrator {
 
     private void printHeader() {
         System.out.println("+============================================================+");
-        System.out.println("|  MARTINGALE ORCHESTRATOR                                 |");
+        System.out.println("  MARTINGALE ORCHESTRATOR                                 ");
         System.out.println("+============================================================+");
         System.out.println("  Symbol: " + symbol);
         System.out.println("  Base volume: " + String.format("%.2f", baseVolume) + " lots");
@@ -332,7 +332,7 @@ public class MartingaleOrchestrator {
         }
 
         System.out.println("+============================================================+");
-        System.out.println("|  >> MARTINGALE SESSION COMPLETED                         |");
+        System.out.println("  >> MARTINGALE SESSION COMPLETED                         ");
         System.out.println("+============================================================+");
         System.out.println();
         System.out.println("  SESSION SUMMARY:");
@@ -477,18 +477,6 @@ ALTERNATIVES TO MARTINGALE:
   ✓ Anti-Martingale (increase size on wins, not losses)
   ✓ Flat betting (same size always)
   ✓ ANY strategy that doesn't double after loss!
-
-══════════════════════════════════════════════════════════════════════════════
-
-                               HOW TO RUN
-
-══════════════════════════════════════════════════════════════════════════════
-
-⚠️ DEMO ACCOUNTS ONLY! ⚠️
-
-run.bat 10                                   # Interactive menu, select [5]
-mvnd exec:java -Dexec.args="10"              # Via Maven, select [5]
-
 
 ══════════════════════════════════════════════════════════════════════════════
 

@@ -546,7 +546,41 @@ try {
 
 ---
 
+---
+
+## Resource Cleanup in JavaMT5 Examples
+
+### Program.java Implements This Pattern
+
+All orchestrators and presets in JavaMT5 follow the correct cleanup pattern through `Program.java`:
+
+**How it works:**
+- `run.bat 10 1-5` → Runs orchestrators via `Program.runOrchestrator()`
+- `run.bat 11 1-2` → Runs presets via `Program.runPreset()`
+- Both methods handle resource cleanup automatically
+
+**Implementation in Program.java:**
+```java
+// In runOrchestrator() and runPreset() methods:
+} finally {
+    account.disconnect();  // ✓ Cancel subscriptions
+    account.close();       // ✓ Free gRPC resources
+}
+```
+
+**This means:**
+- ✅ Orchestrators (1-5) automatically clean up resources
+- ✅ Presets (1-2) automatically clean up resources
+- ✅ You don't need to manually handle cleanup when using `run.bat`
+
+**See:** [Program.java](../src/main/java/Program.java) lines 188-190, 220-223, 300-302, 323-326
+
+---
+
 ## See Also
 
-- [MT5Account.java](../src/main/java/io/metarpc/mt5/MT5Account.java) - lines 1901-1908 (close() method)
-- [StreamingExample.java](../src/main/java/examples/lowlevel/StreamingExample.java) - stream usage examples
+- **[RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md)** - How to run examples + troubleshooting
+- **[Program.java](../src/main/java/Program.java)** - Resource cleanup implementation for orchestrators/presets
+- **[MT5Account.java](../src/main/java/io/metarpc/mt5/MT5Account.java)** - lines 1901-1908 (close() method)
+- **[StreamingExample.java](../src/main/java/examples/lowlevel/StreamingExample.java)** - stream usage examples
+- **[GLOSSARY.md](./GLOSSARY.md)** - See "target/ Folder" for build troubleshooting

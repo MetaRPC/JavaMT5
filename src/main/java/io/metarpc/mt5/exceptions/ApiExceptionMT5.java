@@ -4,7 +4,6 @@ import mt5_term_api.MrpcMt5Error;
 
 /**
  * Exception for MT5 API errors
- * Исключение для ошибок MT5 API
  */
 public class ApiExceptionMT5 extends Exception {
     private final MrpcMt5Error.Error error;

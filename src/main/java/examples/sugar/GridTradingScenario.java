@@ -39,7 +39,7 @@
    Result: catches price movement in both directions
 
  USAGE:
-   run.bat 9                                # Via run.bat
+   run.bat 9  (or .\run.bat 9)                # Via run.bat
    mvnd exec:java -Dexec.args="9"           # Via Maven
 ══════════════════════════════════════════════════════════════════════════════*/
 
@@ -65,7 +65,7 @@ public class GridTradingScenario {
         }
 
         System.out.println("\n+============================================================+");
-        System.out.println("|  SCENARIO 3: GRID TRADING (PENDING ORDERS)              |");
+        System.out.println("  SCENARIO 3: GRID TRADING (PENDING ORDERS)              ");
         System.out.println("+============================================================+\n");
 
         try {
@@ -129,11 +129,11 @@ public class GridTradingScenario {
 
             section("STEP 2: Place BUY LIMIT Grid");
 
-            int gridLevels = 3;
-            double gridStepPoints = 100; // 100 points between levels
+            int gridLevels = 2;  // Smaller grid for demo
+            double gridStepPoints = 30; // 30 points between levels (tighter)
             double volume = 0.01;
-            double stopLossPoints = 50;
-            double takeProfitPoints = 100;
+            double stopLossPoints = 20;
+            double takeProfitPoints = 40;
 
             List<Long> buyOrders = new ArrayList<>();
 
@@ -216,9 +216,38 @@ public class GridTradingScenario {
             System.out.println("    Highest SELL: " + String.format("%.5f", highestSellPrice));
             System.out.println();
 
-            // Wait a moment
-            System.out.println("  Waiting 2 seconds...");
-            Thread.sleep(2000);
+            // ══════════════════════════════════════════════════════════════
+            // NEW STEP: MONITOR GRID FOR 15 SECONDS
+            // ══════════════════════════════════════════════════════════════
+
+            section("MONITORING GRID (15 seconds)");
+
+            System.out.println("  Grid is now ACTIVE and monitoring price movement...");
+            System.out.println("  Orders will trigger when price reaches their levels");
+            System.out.println();
+
+            int monitorDuration = 15; // seconds
+            for (int sec = 1; sec <= monitorDuration; sec++) {
+                Thread.sleep(1000);
+
+                currentBid = sugar.getBid(symbol);
+                currentAsk = sugar.getAsk(symbol);
+                int positions = sugar.getPositionCount();
+                double balance = sugar.getBalance();
+                double equity = sugar.getEquity();
+
+                System.out.println(String.format("  [%02d/%02ds] Bid: %.5f | Ask: %.5f | Positions: %d | Balance: $%.2f | Equity: $%.2f",
+                    sec, monitorDuration, currentBid, currentAsk, positions, balance, equity));
+
+                // Show if any orders triggered
+                if (positions > currentPositions) {
+                    System.out.println("         ⚡ NEW POSITION OPENED! Grid order triggered!");
+                    currentPositions = positions;
+                }
+            }
+
+            System.out.println();
+            System.out.println("  ✓ Monitoring completed");
             System.out.println();
 
             // ══════════════════════════════════════════════════════════════
@@ -228,7 +257,7 @@ public class GridTradingScenario {
             //                orders for symbol in one call!
             // ══════════════════════════════════════════════════════════════
 
-            section("STEP 5: Cancel All Pending Orders");
+            section("STEP 5: Cleanup - Cancel Pending Orders");
 
             System.out.println("  Cancelling all pending orders for " + symbol + "...");
             System.out.println();
@@ -245,7 +274,7 @@ public class GridTradingScenario {
             //                symbol in one call! No loops, no ticket tracking.
             // ══════════════════════════════════════════════════════════════
 
-            section("STEP 6: Close Any Opened Positions");
+            section("STEP 6: Cleanup - Close All Positions");
 
             int remainingPositions = sugar.getPositionCount();
 
@@ -279,10 +308,15 @@ public class GridTradingScenario {
             account.disconnect();
 
             System.out.println("+============================================================+");
-            System.out.println("|  >> SCENARIO COMPLETED SUCCESSFULLY                      |");
+            System.out.println("|  >> GRID TRADING DEMO COMPLETED                            |");
             System.out.println("|                                                            |");
-            System.out.println("|  Key Takeaway: Grid trading places multiple pending       |");
-            System.out.println("|  orders at different price levels for automated entry     |");
+            System.out.println("|  What happened:                                            |");
+            System.out.println("|  1. Created " + (gridLevels * 2) + " pending orders (" + gridLevels + " BUY + " + gridLevels + " SELL)              |");
+            System.out.println("|  2. Monitored grid for " + monitorDuration + " seconds (watch for triggers)      |");
+            System.out.println("|  3. Cleaned up: cancelled orders + closed positions        |");
+            System.out.println("|                                                            |");
+            System.out.println("|  Key Takeaway: Grid trading automates entries at           |");
+            System.out.println("|  multiple price levels to catch market movement            |");
             System.out.println("+============================================================+\n");
 
         } catch (ApiExceptionMT5 e) {
@@ -292,6 +326,12 @@ public class GridTradingScenario {
         } catch (Exception e) {
             System.err.println("\n✗ Error: " + e.getMessage());
             e.printStackTrace();
+        }
+
+        System.out.println("\nPress Enter to exit...");
+        try {
+            System.in.read();
+        } catch (Exception ignored) {
         }
     }
 

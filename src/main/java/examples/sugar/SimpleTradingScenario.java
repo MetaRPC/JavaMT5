@@ -41,7 +41,7 @@
    5. Close position
 
  USAGE:
-   run.bat 7                                # Via run.bat
+   run.bat 7  (or .\run.bat 7)                             # Via run.bat
    mvnd exec:java -Dexec.args="7"           # Via Maven
 ══════════════════════════════════════════════════════════════════════════════*/
 
@@ -235,6 +235,12 @@ public class SimpleTradingScenario {
         } catch (Exception e) {
             System.err.println("\n✗ Error: " + e.getMessage());
             e.printStackTrace();
+        }
+
+        System.out.println("\nPress Enter to exit...");
+        try {
+            System.in.read();
+        } catch (Exception ignored) {
         }
     }
 

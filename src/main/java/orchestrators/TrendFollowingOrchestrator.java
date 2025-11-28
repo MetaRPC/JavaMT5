@@ -81,8 +81,8 @@
    trend.execute();
 
    Or from OrchestratorDemo:
-   run.bat 10                              # Interactive menu, select [1]
-   mvnd exec:java -Dexec.args="10"         # Via Maven, select [1]
+   run.bat 10 2                            # Direct launch (or .\run.bat 10 2)
+   mvnd exec:java -Dexec.args="10 2"       # Via Maven
 
 ══════════════════════════════════════════════════════════════════════════════*/
 
@@ -570,17 +570,6 @@ public class TrendFollowingOrchestrator {
     Loss: -$50.00 (exactly as planned)
 
   KEY BENEFIT: Once trailing activates, you can't lose on the trade!
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                               HOW TO RUN                                 ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
-  From run.bat:
-    run.bat 10
-    Then choose option "1" (Trend Following Strategy)
-
-  From Maven:
-    mvnd compile exec:java -Dexec.mainClass="examples.orchestrators.OrchestratorDemo" -Dexec.args="1"
 
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                NEXT STEPS                                ┃

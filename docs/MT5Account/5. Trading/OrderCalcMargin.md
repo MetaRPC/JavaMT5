@@ -160,7 +160,7 @@ public class MarginChecker {
             Mt5TermApiAccountInformation.AccountInfoDoublePropertyType.ACCOUNT_MARGIN_FREE
         );
 
-        double freeMargin = accountInfo.getData().getValue();
+        double freeMargin = accountInfo.getData().getRequestedValue();
 
         System.out.printf("Trade analysis for %s %.2f lots:%n", symbol, lots);
         System.out.printf("  Required margin: $%.2f%n", requiredMargin);
@@ -202,7 +202,7 @@ public class MaxLotCalculator {
         var accountInfo = account.accountInfoDouble(
             Mt5TermApiAccountInformation.AccountInfoDoublePropertyType.ACCOUNT_MARGIN_FREE
         );
-        double freeMargin = accountInfo.getData().getValue();
+        double freeMargin = accountInfo.getData().getRequestedValue();
 
         // Calculate margin for 1 lot
         var orderType = isBuy
@@ -359,7 +359,7 @@ public class PortfolioMarginCalculator {
         var accountInfo = account.accountInfoDouble(
             Mt5TermApiAccountInformation.AccountInfoDoublePropertyType.ACCOUNT_MARGIN_FREE
         );
-        double freeMargin = accountInfo.getData().getValue();
+        double freeMargin = accountInfo.getData().getRequestedValue();
 
         System.out.printf("Available Free Margin: $%.2f%n", freeMargin);
 

@@ -55,8 +55,8 @@
    orchestrator.execute(true);                 // true = BUY first
 
    Or from OrchestratorDemo:
-   run.bat 10 3                           # Via run.bat
-   mvnd exec:java -Dexec.args="10" (select 3)  # Via Maven
+   run.bat 10 3                           # Direct launch (or .\run.bat 10 3)
+   mvnd exec:java -Dexec.args="10 3"      # Via Maven
 ══════════════════════════════════════════════════════════════════════════════*/
 
 package orchestrators;
@@ -323,7 +323,7 @@ public class HedgingOrchestrator {
 
     private void printHeader(boolean buyFirst) {
         System.out.println("+============================================================+");
-        System.out.println("|  HEDGING ORCHESTRATOR                                    |");
+        System.out.println("  HEDGING ORCHESTRATOR                                    ");
         System.out.println("+============================================================+");
         System.out.println("  Symbol: " + symbol);
         System.out.println("  Primary direction: " + (buyFirst ? "BUY" : "SELL"));
@@ -334,7 +334,7 @@ public class HedgingOrchestrator {
 
     private void printFooter() {
         System.out.println("+============================================================+");
-        System.out.println("|  >> HEDGING STRATEGY COMPLETED                           |");
+        System.out.println("  >> HEDGING STRATEGY COMPLETED                           ");
         System.out.println("+============================================================+\n");
     }
 }
@@ -444,17 +444,6 @@ DISADVANTAGES (BE AWARE):
   ⚠ Some brokers net positions (hedge may not work)
   ⚠ Locked losses don't recover unless you unwind
   ⚠ More complex to manage than simple SL
-
-
-══════════════════════════════════════════════════════════════════════════════
-
-                               HOW TO RUN
-
-══════════════════════════════════════════════════════════════════════════════
-
-run.bat 10                                   # Interactive menu, select [3]
-mvnd exec:java -Dexec.args="10"              # Via Maven, select [3]
-
 
 ══════════════════════════════════════════════════════════════════════════════
 

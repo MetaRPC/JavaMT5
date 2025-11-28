@@ -45,6 +45,22 @@
    3. HedgingOrchestrator - Protect capital (if scalping unprofitable)
    4. BreakoutOrchestrator - Final opportunity entry
 
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                               HOW TO RUN                                 ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  From run.bat:
+    run.bat 11 1                           # Direct launch (or .\run.bat 11 1)
+    mvnd exec:java -Dexec.args="11 1"      # Via Maven
+
+  From Maven:
+    mvnd compile exec:java -Dexec.mainClass="presets.PresetDemo"
+
+  Or directly in your code:
+    MT5Sugar sugar = new MT5Sugar(account);
+    AggressiveGrowthPreset preset = new AggressiveGrowthPreset(sugar);
+    preset.execute();   
+
 ══════════════════════════════════════════════════════════════════════════════*/
 
 package presets;
@@ -259,7 +275,7 @@ public class AggressiveGrowthPreset {
         //   Works in both trending and ranging markets
         // ═══════════════════════════════════════════════════════════════
         System.out.println("+============================================================+");
-        System.out.println("|  PHASE 3: BREAKOUT ORCHESTRATOR (Final Entry)              |");
+        System.out.println("  PHASE 3: BREAKOUT ORCHESTRATOR (Final Entry)              ");
         System.out.println("+============================================================+");
         System.out.println();
 
@@ -296,7 +312,7 @@ public class AggressiveGrowthPreset {
 
     private void printHeader() {
         System.out.println("\n+============================================================+");
-        System.out.println("|  AGGRESSIVE GROWTH PRESET - Multi-Orchestrator              |");
+        System.out.println("  AGGRESSIVE GROWTH PRESET - Multi-Orchestrator              ");
         System.out.println("+============================================================+");
         System.out.println();
         System.out.println("  ORCHESTRATORS IN THIS PRESET:");
@@ -313,7 +329,7 @@ public class AggressiveGrowthPreset {
         double totalProfit = finalBalance - initialBalance;
 
         System.out.println("+============================================================+");
-        System.out.println("|  >> AGGRESSIVE GROWTH SESSION COMPLETED                    |");
+        System.out.println("  >> AGGRESSIVE GROWTH SESSION COMPLETED                    ");
         System.out.println("+============================================================+");
         System.out.println();
         System.out.println("  ORCHESTRATORS PERFORMANCE:");
@@ -656,22 +672,6 @@ public class AggressiveGrowthPreset {
   ✓ Note market conditions during session
   ✓ Adjust orchestrator parameters based on results
   ✓ Consider removing consistently unprofitable orchestrators
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                               HOW TO RUN                                 ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
-  From run.bat:
-    run.bat 11
-    Then choose "Aggressive Growth Preset"
-
-  From Maven:
-    mvnd compile exec:java -Dexec.mainClass="presets.PresetDemo"
-
-  Or directly in your code:
-    MT5Sugar sugar = new MT5Sugar(account);
-    AggressiveGrowthPreset preset = new AggressiveGrowthPreset(sugar);
-    preset.execute();
 
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                NEXT STEPS                                ┃

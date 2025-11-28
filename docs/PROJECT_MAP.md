@@ -123,37 +123,70 @@ presets/
 ```
 examples/
 ├── lowlevel/                          ← MT5Account examples (proto level)
-│   ├── MarketDataExample.java
-│   ├── StreamingExample.java
-│   └── TradingCalculationsExample.java
+│   ├── MarketDataExample.java         ← run.bat 1
+│   ├── TradingCalculationsExample.java ← run.bat 2
+│   └── StreamingExample.java          ← run.bat 3
 │
 ├── services/                          ← MT5Service examples (wrapper level)
-│   ├── MarketDataServiceExample.java
-│   ├── StreamingServiceExample.java
-│   └── TradingServiceExample.java
+│   ├── MarketDataServiceExample.java  ← run.bat 4
+│   ├── TradingServiceExample.java     ← run.bat 5
+│   └── StreamingServiceExample.java   ← run.bat 6
 │
-├── sugar/                             ← MT5Sugar examples (convenience level)
-│   ├── SimpleTradingScenario.java
-│   ├── RiskManagementScenario.java
-│   └── GridTradingScenario.java
-│
-├── orchestrators/
-│   └── OrchestratorDemo.java         ← Interactive menu to run orchestrators
-│
-└── presets/
-    └── PresetDemo.java                ← Interactive menu to run presets
+└── sugar/                             ← MT5Sugar examples (convenience level)
+    ├── SimpleTradingScenario.java     ← run.bat 7
+    ├── RiskManagementScenario.java    ← run.bat 8
+    └── GridTradingScenario.java       ← run.bat 9
 ```
+
+### Program.java (src/main/java/Program.java)
+
+**What:** Main entry point that routes run.bat commands to examples/orchestrators/presets.
+
+**User interaction:** 📋 **Runner + Documentation** - launches everything.
+
+```
+Program.java
+├── main()                              ← Entry point, parses arguments
+├── runDemo()                           ← Launches examples 1-9 via reflection
+├── runOrchestrator()                   ← Menu + runs orchestrators (10)
+├── runPreset()                         ← Menu + runs presets (11)
+└── Header documentation                ← Complete guide to all commands
+```
+
+**How it works:**
+```
+run.bat 7
+    ↓
+Program.java main(args)  // args[0] = "7"
+    ↓
+runDemo(7)
+    ↓
+Reflection finds: examples.sugar.SimpleTradingScenario
+    ↓
+Calls: SimpleTradingScenario.main()
+```
+
+**Purpose:**
+- Single entry point for all examples (1-11)
+- Automatic class discovery via reflection
+- Interactive menus for orchestrators/presets
+- Complete command reference in file header
+- Resource cleanup for orchestrators/presets
 
 **How to run:**
 ```bash
-run.bat <example_number>
+run.bat 1-9    # Examples (low-level, service, sugar)
+run.bat 10     # Orchestrator menu
+run.bat 10 1-5 # Specific orchestrator
+run.bat 11     # Preset menu
+run.bat 11 1-2 # Specific preset
 ```
 
 **Purpose:**
 - Learn API usage patterns
 - See working code examples
-- Interactive demos for orchestrators/presets
 - Copy-paste starting points
+- Understand orchestrator/preset architecture
 
 ---
 
@@ -165,6 +198,15 @@ run.bat <example_number>
 
 ```
 docs/
+├── RUNNING_EXAMPLES.md                ← ⭐ How to run examples + troubleshooting
+│   └── Commands, troubleshooting, build process
+│
+├── PROJECT_MAP.md                     ← ⭐ This file - complete project structure
+│
+├── GETTING_STARTED.md                 ← Initial setup guide
+│
+├── GLOSSARY.md                        ← Terms and definitions
+│
 ├── MT5Sugar/                          ← 50+ convenience methods
 │   ├── MT5Sugar.Overview.md           ← ⭐ START HERE
 │   ├── 1. Symbol_helpers/             ← 12 methods (getPoint, getBid, etc.)
@@ -279,44 +321,48 @@ src/main/proto/
 ### Path 1: Learn the API (Beginner)
 
 ```
-1. Read: docs/MT5Sugar/MT5Sugar.Overview.md
-2. Configure: appsettings.json
-3. Run: run.bat 3 (SimpleTradingScenario)
-4. Study: src/main/java/examples/sugar/
-5. Try: Modify SimpleTradingScenario.java
+1. Read: docs/RUNNING_EXAMPLES.md
+2. Read: docs/MT5Sugar/MT5Sugar.Overview.md
+3. Configure: appsettings.json
+4. Run: run.bat 7 (SimpleTradingScenario)
+5. Study: src/main/java/examples/sugar/
+6. Try: Modify SimpleTradingScenario.java
 ```
 
 ### Path 2: Build a Strategy (Intermediate)
 
 ```
 1. Read: docs/Orchestrators.Overview.md
-2. Run: run.bat 10 (OrchestratorDemo)
-3. Study: src/main/java/orchestrators/ScalpingOrchestrator.java
-4. Copy: Create MyOrchestrator.java based on Scalping
-5. Customize: Add your entry/exit logic
-6. Test: On demo account
+2. Run: run.bat 10 (Interactive orchestrator menu)
+3. Run: run.bat 10 1 (Scalping strategy)
+4. Study: src/main/java/orchestrators/ScalpingOrchestrator.java
+5. Copy: Create MyOrchestrator.java based on Scalping
+6. Customize: Add your entry/exit logic
+7. Test: On demo account
 ```
 
 ### Path 3: Multi-Strategy System (Advanced)
 
 ```
-1. Study: All single orchestrators first
+1. Study: All single orchestrators first (run.bat 10 1-5)
 2. Read: docs/Orchestrators.Overview.md (Presets section)
-3. Run: run.bat 11 (PresetDemo)
-4. Study: src/main/java/presets/DefensivePreset.java
-5. Design: Your multi-phase strategy
-6. Build: Combine orchestrators with logic
-7. Test: Extensively on demo
+3. Run: run.bat 11 (Interactive preset menu)
+4. Run: run.bat 11 2 (Defensive preset)
+5. Study: src/main/java/presets/DefensivePreset.java
+6. Design: Your multi-phase strategy
+7. Build: Combine orchestrators with logic
+8. Test: Extensively on demo
 ```
 
 ### Path 4: Low-Level Integration (Expert)
 
 ```
 1. Read: docs/MT5Account/ documentation
-2. Study: src/main/proto/ proto definitions
-3. Study: src/main/java/io/metarpc/mt5/MT5Account.java
-4. Use: When MT5Sugar doesn't fit your needs
-5. Build: Custom proto-level integrations
+2. Study: MetaRPC library (proto-generated classes in JAR)
+3. Run: run.bat 1-3 (Low-level examples)
+4. Study: src/main/java/io/metarpc/mt5/MT5Account.java
+5. Use: When MT5Sugar doesn't fit your needs
+6. Build: Custom proto-level integrations
 ```
 
 ---
@@ -416,10 +462,12 @@ target/                 ← Compiled classes (auto-generated)
 
 ## 📞 Need Help?
 
+- **Running examples:** Check `docs/RUNNING_EXAMPLES.md` for commands and troubleshooting
 - **API documentation:** Check `docs/MT5Sugar/` or `docs/MT5Account/`
 - **Strategy examples:** Check `orchestrators/` source code
 - **Usage examples:** Check `examples/` directory
-- **Quick reference:** This PROJECT_MAP.md file
+- **Project structure:** This PROJECT_MAP.md file
+- **Complete command list:** See `src/main/java/Program.java` header
 
 ---
 
