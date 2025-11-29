@@ -324,7 +324,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 
 **Location:** `src/main/java/presets/`
 
-**Documentation:** [docs/Orchestrators.Overview.md](./Orchestrators.Overview.md#-multi-orchestrator-presets)
+**Documentation:** [docs/Orchestrators.Overview.md](./Orchestrators.Overview.md)
 
 **Why this matters:** Advanced strategy composition - how to build complex trading systems from simple building blocks.
 
@@ -466,7 +466,7 @@ Orchestrators → Preset → Multi-strategy adaptive system
 
 **What you'll do:**
 
-1. Read presets section in [Orchestrators.Overview.md](./Orchestrators.Overview.md#-multi-orchestrator-presets)
+1. Read presets section in [Orchestrators.Overview.md](./Orchestrators.Overview.md)
 2. Run `run.bat 11` - interactive preset menu
 3. Study preset source code in `src/main/java/presets/`
 4. Design your own multi-strategy systems

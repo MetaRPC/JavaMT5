@@ -391,6 +391,6 @@ This way you don't interfere with running examples.
 
 ## Need More Help?
 
-- See [Program.java](../src/main/java/Program.java) header for all commands
+- See `Program.java` header for all commands (located in `src/main/java/Program.java`)
 - Check [GETTING_STARTED.md](GETTING_STARTED.md) for initial setup
 - Review [PROJECT_MAP.md](PROJECT_MAP.md) for codebase structure

@@ -6,7 +6,7 @@
 
 * **Sugar method:** `MT5Sugar.calculateVolume(String symbol, double stopLossPoints, double riskAmount)`
 * **Underlying methods:**
-  - [`tickValueWithSize()`](../../MT5Account/4.%20Helper_functions/TickValueWithSize.md) - get tick value
+  - `tickValueWithSize()` - get tick value
   - [`getPoint()`](../1.%20Symbol_helpers/getPoint.md) - get point size
   - [`normalizeVolume()`](../1.%20Symbol_helpers/normalizeVolume.md) - normalize result
 * **Source:** MT5Sugar convenience layer

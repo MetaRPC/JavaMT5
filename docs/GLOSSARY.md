@@ -614,7 +614,7 @@ JavaMT5 orchestrators and presets are learning materials, not production systems
 - Proto definitions
 - Generated classes
 
-**See:** [PROJECT_MAP.md](./PROJECT_MAP.md#-what-to-modify-vs-what-to-leave-alone)
+**See:** [PROJECT_MAP.md](./PROJECT_MAP.md#what-to-modify-vs-what-to-leave-alone)
 
 ---
 
