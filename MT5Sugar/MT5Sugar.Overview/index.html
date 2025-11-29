@@ -1,0 +1,2176 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete Java SDK for MetaTrader 5 trading automation">
+      
+      
+      
+        <link rel="canonical" href="https://metarpc.github.io/JavaMT5/MT5Sugar/MT5Sugar.Overview/">
+      
+      
+        <link rel="prev" href="../../MT5Account/MT5Account.Master.Overview/">
+      
+      
+        <link rel="next" href="../../GLOSSARY/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>MT5Sugar — Overview - JavaMT5 SDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mt5sugar-convenience-layer-complete-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaMT5 SDK Documentation" class="md-header__button md-logo" aria-label="JavaMT5 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.5 18.5 6-6 4 4L22 6.92 20.59 5.5l-7.09 8-4-4L2 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaMT5 SDK Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MT5Sugar — Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MetaRPC/JavaMT5" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/JavaMT5
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaMT5 SDK Documentation" class="md-nav__button md-logo" aria-label="JavaMT5 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.5 18.5 6-6 4 4L22 6.92 20.59 5.5l-7.09 8-4-4L2 17z"/></svg>
+
+    </a>
+    JavaMT5 SDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MetaRPC/JavaMT5" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/JavaMT5
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Access
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quick Access
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MT5Account/1.%20Account_information/Account_Information.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Account Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MT5Account/2.%20Symbol_information/Symbol_Information.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symbol Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MT5Account/3.%20Positions_and_orders/Positions_And_Orders.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Positions & Orders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MT5Account/4.%20Market_depth_DOM/Market_Depth_DOM.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Depth (DOM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MT5Account/5.%20Trading/Trading.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MT5Account/6.%20Subscriptions/Subscriptions.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subscriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GETTING_STARTED/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RUNNING_EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PROJECT_MAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MT5Account/MT5Account.Master.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Account — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Sugar — Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Sugar — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-lives-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📁 What lives here
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📁 What lives here">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-symbol-helpers-12-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Symbol Helpers (12 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-market-orders-2-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Market Orders (2 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pending-orders-4-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Pending Orders (4 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pending-orders-with-points-4-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pending Orders with Points (4 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-position-management-5-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Position Management (5 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-advanced-batch-operations-3-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Advanced Batch Operations (3 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-risk-management-3-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Risk Management (3 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-advanced-helpers-4-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Advanced Helpers (4 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-account-position-helpers-10-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Account &amp; Position Helpers (10 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-snapshot-helpers-2-methods-2-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Snapshot Helpers (2 methods + 2 classes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-history-helpers-2-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. History Helpers (2 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plain-english" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Plain English
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick choose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick choose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol-account-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symbol &amp; Account Info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-refs-gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Cross-refs &amp; gotchas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="❌ Cross-refs &amp; gotchas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sltp-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SL/TP rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-prices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution prices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-management_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-vs-pips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points vs Pips
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#null-vs-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        null vs 0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 Minimal snippets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GLOSSARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Orchestrators.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrators — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Channel Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/MT5Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/MT5Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/MT5Sugar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Sugar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-lives-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📁 What lives here
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📁 What lives here">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-symbol-helpers-12-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Symbol Helpers (12 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-market-orders-2-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Market Orders (2 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pending-orders-4-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Pending Orders (4 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pending-orders-with-points-4-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pending Orders with Points (4 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-position-management-5-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Position Management (5 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-advanced-batch-operations-3-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Advanced Batch Operations (3 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-risk-management-3-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Risk Management (3 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-advanced-helpers-4-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Advanced Helpers (4 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-account-position-helpers-10-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Account &amp; Position Helpers (10 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-snapshot-helpers-2-methods-2-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Snapshot Helpers (2 methods + 2 classes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-history-helpers-2-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. History Helpers (2 methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plain-english" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Plain English
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick choose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick choose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol-account-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symbol &amp; Account Info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-refs-gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Cross-refs &amp; gotchas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="❌ Cross-refs &amp; gotchas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sltp-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SL/TP rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-prices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution prices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-management_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-vs-pips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points vs Pips
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#null-vs-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        null vs 0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 Minimal snippets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="mt5sugar-convenience-layer-complete-overview">MT5Sugar · Convenience Layer - Complete Overview<a class="headerlink" href="#mt5sugar-convenience-layer-complete-overview" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>High-level convenience methods for common trading operations. Simplified API with auto-normalization, risk management, and batch operations. <strong>~50 methods</strong> organized in 11 functional groups.</p>
+</blockquote>
+<hr />
+<h2 id="what-lives-here">📁 What lives here<a class="headerlink" href="#what-lives-here" title="Permanent link">¶</a></h2>
+<h3 id="1-symbol-helpers-12-methods">1. Symbol Helpers (12 methods)<a class="headerlink" href="#1-symbol-helpers-12-methods" title="Permanent link">¶</a></h3>
+<p>Essential symbol information and normalization utilities.</p>
+<ul>
+<li><strong><a href="../1.%20Symbol_helpers/ensureSymbolSelected/">ensureSymbolSelected</a></strong> - enable symbol in Market Watch</li>
+<li><strong><a href="../1.%20Symbol_helpers/getPoint/">getPoint</a></strong> - point size (e.g., 0.00001)</li>
+<li><strong><a href="../1.%20Symbol_helpers/getDigits/">getDigits</a></strong> - decimal places (e.g., 5)</li>
+<li><strong><a href="../1.%20Symbol_helpers/getSpread/">getSpread</a></strong> - spread in points</li>
+<li><strong><a href="../1.%20Symbol_helpers/normalizePrice/">normalizePrice</a></strong> - round price to symbol digits</li>
+<li><strong><a href="../1.%20Symbol_helpers/normalizeVolume/">normalizeVolume</a></strong> - normalize to min/max/step</li>
+<li><strong><a href="../1.%20Symbol_helpers/pointsToPrice/">pointsToPrice</a></strong> - convert points → price</li>
+<li><strong><a href="../1.%20Symbol_helpers/getBid/">getBid</a></strong> - current Bid</li>
+<li><strong><a href="../1.%20Symbol_helpers/getAsk/">getAsk</a></strong> - current Ask</li>
+<li><strong><a href="../1.%20Symbol_helpers/getSpreadPrice/">getSpreadPrice</a></strong> - spread in price units</li>
+<li><strong><a href="../1.%20Symbol_helpers/pointsToPips/">pointsToPips</a></strong> - points → pips conversion</li>
+<li><strong><a href="../1.%20Symbol_helpers/priceFromOffsetPoints/">priceFromOffsetPoints</a></strong> - price + offset</li>
+</ul>
+<h3 id="2-market-orders-2-methods">2. Market Orders (2 methods)<a class="headerlink" href="#2-market-orders-2-methods" title="Permanent link">¶</a></h3>
+<p>Instant execution at market price.</p>
+<ul>
+<li><strong><a href="../2.%20Market_orders/buyMarket/">buyMarket</a></strong> - BUY at Ask (instant)</li>
+<li><strong><a href="../2.%20Market_orders/sellMarket/">sellMarket</a></strong> - SELL at Bid (instant)</li>
+</ul>
+<h3 id="3-pending-orders-4-methods">3. Pending Orders (4 methods)<a class="headerlink" href="#3-pending-orders-4-methods" title="Permanent link">¶</a></h3>
+<p>Entry orders with exact price.</p>
+<ul>
+<li><strong><a href="../3.%20Pending_orders/buyLimit/">buyLimit</a></strong> - BUY LIMIT (below price)</li>
+<li><strong><a href="../3.%20Pending_orders/sellLimit/">sellLimit</a></strong> - SELL LIMIT (above price)</li>
+<li><strong><a href="../3.%20Pending_orders/buyStop/">buyStop</a></strong> - BUY STOP (breakout up)</li>
+<li><strong><a href="../3.%20Pending_orders/sellStop/">sellStop</a></strong> - SELL STOP (breakdown)</li>
+</ul>
+<h3 id="4-pending-orders-with-points-4-methods">4. Pending Orders with Points (4 methods)<a class="headerlink" href="#4-pending-orders-with-points-4-methods" title="Permanent link">¶</a></h3>
+<p>Simplified pending orders via offset.</p>
+<ul>
+<li><strong><a href="../4.%20Pending_orders_points/buyLimitPoints/">buyLimitPoints</a></strong> - BUY LIMIT via offset</li>
+<li><strong><a href="../4.%20Pending_orders_points/sellLimitPoints/">sellLimitPoints</a></strong> - SELL LIMIT via offset</li>
+<li><strong><a href="../4.%20Pending_orders_points/buyStopPoints/">buyStopPoints</a></strong> - BUY STOP via offset</li>
+<li><strong><a href="../4.%20Pending_orders_points/sellStopPoints/">sellStopPoints</a></strong> - SELL STOP via offset</li>
+</ul>
+<h3 id="5-position-management-5-methods">5. Position Management (5 methods)<a class="headerlink" href="#5-position-management-5-methods" title="Permanent link">¶</a></h3>
+<p>Modify and close positions.</p>
+<ul>
+<li><strong><a href="../5.%20Position_management/modifyPosition/">modifyPosition</a></strong> - change SL/TP</li>
+<li><strong><a href="../5.%20Position_management/closePosition/">closePosition</a></strong> - close (full/partial)</li>
+<li><strong><a href="../5.%20Position_management/closeAll/">closeAll</a></strong> - close with filters</li>
+<li><strong><a href="../5.%20Position_management/closeAllBuy/">closeAllBuy</a></strong> - close all BUY</li>
+<li><strong><a href="../5.%20Position_management/closeAllSell/">closeAllSell</a></strong> - close all SELL</li>
+</ul>
+<h3 id="6-advanced-batch-operations-3-methods">6. Advanced Batch Operations (3 methods)<a class="headerlink" href="#6-advanced-batch-operations-3-methods" title="Permanent link">¶</a></h3>
+<p>Separate positions vs orders control.</p>
+<ul>
+<li><strong><a href="../6.%20Advanced_batch_operations/closeAllPositions/">closeAllPositions</a></strong> - close only positions</li>
+<li><strong><a href="../6.%20Advanced_batch_operations/closeAllPending/">closeAllPending</a></strong> - cancel only orders</li>
+<li><strong><a href="../6.%20Advanced_batch_operations/cancelAll/">cancelAll</a></strong> - alias for closeAllPending</li>
+</ul>
+<h3 id="7-risk-management-3-methods">7. Risk Management (3 methods)<a class="headerlink" href="#7-risk-management-3-methods" title="Permanent link">¶</a></h3>
+<p>Position sizing from $ risk.</p>
+<ul>
+<li><strong><a href="../7.%20Risk_management/calculateVolume/">calculateVolume</a></strong> - lot size from $risk + SL</li>
+<li><strong><a href="../7.%20Risk_management/buyByRisk/">buyByRisk</a></strong> - BUY with auto volume</li>
+<li><strong><a href="../7.%20Risk_management/sellByRisk/">sellByRisk</a></strong> - SELL with auto volume</li>
+</ul>
+<h3 id="8-advanced-helpers-4-methods">8. Advanced Helpers (4 methods)<a class="headerlink" href="#8-advanced-helpers-4-methods" title="Permanent link">¶</a></h3>
+<p>Additional utilities.</p>
+<ul>
+<li><strong><a href="../8.%20Advanced_helpers/getVolumeLimits/">getVolumeLimits</a></strong> - [min, max, step]</li>
+<li><strong><a href="../8.%20Advanced_helpers/pointsToPips/">pointsToPips</a></strong> - broker-aware conversion</li>
+<li><strong><a href="../8.%20Advanced_helpers/priceFromOffsetPoints/">priceFromOffsetPoints</a></strong> - price + offset</li>
+<li><strong><a href="../8.%20Advanced_helpers/getTickValueAndSize/">getTickValueAndSize</a></strong> - [value, size]</li>
+</ul>
+<h3 id="9-account-position-helpers-10-methods">9. Account &amp; Position Helpers (10 methods)<a class="headerlink" href="#9-account-position-helpers-10-methods" title="Permanent link">¶</a></h3>
+<p>Quick account state access.</p>
+<ul>
+<li><strong><a href="../9.%20Account_and_position_helpers/getBalance/">getBalance</a></strong> - account balance</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/getEquity/">getEquity</a></strong> - account equity</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/getMargin/">getMargin</a></strong> - used margin</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/getFreeMargin/">getFreeMargin</a></strong> - free margin</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/getProfit/">getProfit</a></strong> - floating P/L</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/hasOpenPositions/">hasOpenPositions</a></strong> - bool check</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/getPositionCount/">getPositionCount</a></strong> - count</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/normalizePriceDigits/">normalizePriceDigits</a></strong> - alias</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/normalizeLots/">normalizeLots</a></strong> - alias</li>
+<li><strong><a href="../9.%20Account_and_position_helpers/createTimestamp/">createTimestamp</a></strong> - 3 variants</li>
+</ul>
+<h3 id="10-snapshot-helpers-2-methods-2-classes">10. Snapshot Helpers (2 methods + 2 classes)<a class="headerlink" href="#10-snapshot-helpers-2-methods-2-classes" title="Permanent link">¶</a></h3>
+<p>Complete state snapshots.</p>
+<ul>
+<li><strong><a href="../10.%20Snapshot_helpers/getAccountSnapshot/">getAccountSnapshot</a></strong> - full account state</li>
+<li><strong><a href="../10.%20Snapshot_helpers/getSymbolSnapshot/">getSymbolSnapshot</a></strong> - full symbol info</li>
+<li><strong>Classes:</strong> <code>AccountSnapshot</code>, <code>SymbolSnapshot</code></li>
+</ul>
+<h3 id="11-history-helpers-2-methods">11. History Helpers (2 methods)<a class="headerlink" href="#11-history-helpers-2-methods" title="Permanent link">¶</a></h3>
+<p>Historical data retrieval.</p>
+<ul>
+<li><strong><a href="../11.%20History_helpers/getOrdersHistoryLastDays/">getOrdersHistoryLastDays</a></strong> - orders history</li>
+<li><strong><a href="../11.%20History_helpers/getPositionsHistoryPaged/">getPositionsHistoryPaged</a></strong> - paginated history</li>
+</ul>
+<hr />
+<h2 id="plain-english">🧭 Plain English<a class="headerlink" href="#plain-english" title="Permanent link">¶</a></h2>
+<p><strong>What is MT5Sugar?</strong></p>
+<p>Convenience layer on top of MT5Service/MT5Account with:</p>
+<ul>
+<li>Auto-normalization (volumes, prices)</li>
+<li>Auto symbol selection</li>
+<li>Simplified APIs</li>
+<li>Built-in risk management</li>
+<li>Batch operations</li>
+</ul>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>✅ Production trading bots</li>
+<li>✅ Quick prototypes</li>
+<li>✅ Risk-managed trading</li>
+<li>✅ Beginners</li>
+</ul>
+<p><strong>When NOT to use:</strong></p>
+<ul>
+<li>❌ Need exact control over parameters</li>
+<li>❌ Custom normalization logic</li>
+<li>❌ Advanced order types (STOP_LIMIT)</li>
+</ul>
+<blockquote>
+<p>Rule of thumb: <strong>Start with MT5Sugar</strong> → drop down only when needed.</p>
+</blockquote>
+<hr />
+<h2 id="quick-choose">Quick choose<a class="headerlink" href="#quick-choose" title="Permanent link">¶</a></h2>
+<h3 id="trading">Trading<a class="headerlink" href="#trading" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Use</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open BUY at market</td>
+<td><code>buyMarket</code></td>
+<td>symbol, vol, SL, TP</td>
+</tr>
+<tr>
+<td>Open SELL at market</td>
+<td><code>sellMarket</code></td>
+<td>symbol, vol, SL, TP</td>
+</tr>
+<tr>
+<td>BUY at price (below)</td>
+<td><code>buyLimit</code></td>
+<td>symbol, vol, price, SL, TP</td>
+</tr>
+<tr>
+<td>SELL at price (above)</td>
+<td><code>sellLimit</code></td>
+<td>symbol, vol, price, SL, TP</td>
+</tr>
+<tr>
+<td>BUY on breakout (above)</td>
+<td><code>buyStop</code></td>
+<td>symbol, vol, price, SL, TP</td>
+</tr>
+<tr>
+<td>SELL on breakdown (below)</td>
+<td><code>sellStop</code></td>
+<td>symbol, vol, price, SL, TP</td>
+</tr>
+<tr>
+<td>BUY with points offset</td>
+<td><code>buyLimitPoints</code></td>
+<td>symbol, vol, offset, SL pts, TP pts</td>
+</tr>
+<tr>
+<td>BUY with auto volume ($risk)</td>
+<td><code>buyByRisk</code></td>
+<td>symbol, SL pts, $risk, TP pts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="position-management">Position Management<a class="headerlink" href="#position-management" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Use</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Change SL/TP</td>
+<td><code>modifyPosition</code></td>
+<td>ticket, SL, TP</td>
+</tr>
+<tr>
+<td>Close position</td>
+<td><code>closePosition</code></td>
+<td>ticket (+ vol)</td>
+</tr>
+<tr>
+<td>Close all for symbol</td>
+<td><code>closeAll</code></td>
+<td>symbol, isBuy filter</td>
+</tr>
+<tr>
+<td>Close all BUY</td>
+<td><code>closeAllBuy</code></td>
+<td>symbol</td>
+</tr>
+<tr>
+<td>Close all SELL</td>
+<td><code>closeAllSell</code></td>
+<td>symbol</td>
+</tr>
+<tr>
+<td>Close only positions</td>
+<td><code>closeAllPositions</code></td>
+<td>symbol, isBuy</td>
+</tr>
+<tr>
+<td>Cancel only pending orders</td>
+<td><code>closeAllPending</code></td>
+<td>symbol, isBuy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="symbol-account-info">Symbol &amp; Account Info<a class="headerlink" href="#symbol-account-info" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Use</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current Bid/Ask</td>
+<td><code>getBid</code> / <code>getAsk</code></td>
+<td>double</td>
+</tr>
+<tr>
+<td>Point size</td>
+<td><code>getPoint</code></td>
+<td>double</td>
+</tr>
+<tr>
+<td>Spread</td>
+<td><code>getSpread</code></td>
+<td>int (points)</td>
+</tr>
+<tr>
+<td>Normalize price/volume</td>
+<td><code>normalizePrice/Volume</code></td>
+<td>double</td>
+</tr>
+<tr>
+<td>Full symbol snapshot</td>
+<td><code>getSymbolSnapshot</code></td>
+<td>SymbolSnapshot</td>
+</tr>
+<tr>
+<td>Account balance/equity</td>
+<td><code>getBalance/Equity</code></td>
+<td>double</td>
+</tr>
+<tr>
+<td>Full account snapshot</td>
+<td><code>getAccountSnapshot</code></td>
+<td>AccountSnapshot</td>
+</tr>
+</tbody>
+</table>
+<h3 id="risk-management">Risk Management<a class="headerlink" href="#risk-management" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Use</th>
+<th>Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calculate lot size from $risk</td>
+<td><code>calculateVolume</code></td>
+<td>symbol, SL pts, $risk</td>
+</tr>
+<tr>
+<td>Open BUY with auto volume</td>
+<td><code>buyByRisk</code></td>
+<td>symbol, SL pts, $risk, TP</td>
+</tr>
+<tr>
+<td>Open SELL with auto volume</td>
+<td><code>sellByRisk</code></td>
+<td>symbol, SL pts, $risk, TP</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cross-refs-gotchas">❌ Cross-refs &amp; gotchas<a class="headerlink" href="#cross-refs-gotchas" title="Permanent link">¶</a></h2>
+<h3 id="auto-normalization">Auto-normalization<a class="headerlink" href="#auto-normalization" title="Permanent link">¶</a></h3>
+<ul>
+<li>Volumes/prices normalized automatically</li>
+<li>Symbols added to Market Watch automatically</li>
+<li>May change input values slightly</li>
+</ul>
+<h3 id="sltp-rules">SL/TP rules<a class="headerlink" href="#sltp-rules" title="Permanent link">¶</a></h3>
+<p><strong>BUY:</strong> SL below entry, TP above entry
+<strong>SELL:</strong> SL above entry, TP below entry</p>
+<p><strong>Pending:</strong>
+* BUY LIMIT: below Ask, triggers on drop
+* SELL LIMIT: above Bid, triggers on rise
+* BUY STOP: above Ask, triggers on rise (breakout)
+* SELL STOP: below Bid, triggers on drop (breakdown)</p>
+<h3 id="execution-prices">Execution prices<a class="headerlink" href="#execution-prices" title="Permanent link">¶</a></h3>
+<ul>
+<li>BUY executes at <strong>Ask</strong> (higher)</li>
+<li>SELL executes at <strong>Bid</strong> (lower)</li>
+<li>Spread = Ask - Bid (cost on entry)</li>
+</ul>
+<h3 id="risk-management_1">Risk management<a class="headerlink" href="#risk-management_1" title="Permanent link">¶</a></h3>
+<ul>
+<li>Uses <strong>points</strong>, not pips</li>
+<li>Check broker min/max volume limits</li>
+<li>2% rule: max 2% risk per trade</li>
+</ul>
+<h3 id="batch-operations">Batch operations<a class="headerlink" href="#batch-operations" title="Permanent link">¶</a></h3>
+<ul>
+<li>Continue on failures</li>
+<li>Return count of successful ops</li>
+<li>Failed ops logged to System.err</li>
+</ul>
+<h3 id="points-vs-pips">Points vs Pips<a class="headerlink" href="#points-vs-pips" title="Permanent link">¶</a></h3>
+<ul>
+<li>5-digit: 1 pip = 10 points</li>
+<li>3-digit: 1 pip = 1 point</li>
+<li>All methods use <strong>points</strong></li>
+</ul>
+<h3 id="null-vs-0">null vs 0<a class="headerlink" href="#null-vs-0" title="Permanent link">¶</a></h3>
+<ul>
+<li><code>null</code> = keep current / no SL-TP</li>
+<li><code>0</code> / <code>0.0</code> = no SL-TP / remove</li>
+</ul>
+<h3 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">¶</a></h3>
+<ul>
+<li>Throw <code>ApiExceptionMT5</code> on failure</li>
+<li>Code <strong>10009</strong> = success</li>
+<li>Common: invalid stops, market closed</li>
+</ul>
+<hr />
+<h2 id="minimal-snippets">🟢 Minimal snippets<a class="headerlink" href="#minimal-snippets" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Market orders</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">buyMarket</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.08000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.09000</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">long</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">sellMarket</span><span class="p">(</span><span class="s">&quot;GBPUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.27000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.26000</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">// Pending with price</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kt">double</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getAsk</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="mi">50</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getPoint</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">));</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kt">long</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">buyLimit</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">// Pending with points offset</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kt">long</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">buyLimitPoints</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">120</span><span class="p">);</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">// Risk-based</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kt">double</span><span class="w"> </span><span class="n">risk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getBalance</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.02</span><span class="p">;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="kt">long</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">buyByRisk</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">risk</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1">// Close positions</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">sugar</span><span class="p">.</span><span class="na">closePosition</span><span class="p">(</span><span class="mi">123456789</span><span class="p">);</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">closed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">closeAll</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="kt">int</span><span class="w"> </span><span class="n">closed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">closeAllBuy</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1">// Modify</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">sugar</span><span class="p">.</span><span class="na">modifyPosition</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span><span class="w"> </span><span class="n">newSL</span><span class="p">,</span><span class="w"> </span><span class="n">newTP</span><span class="p">);</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1">// Info</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="kt">double</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getBalance</span><span class="p">();</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="kt">double</span><span class="w"> </span><span class="n">bid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getBid</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="kd">var</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getAccountSnapshot</span><span class="p">();</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="kd">var</span><span class="w"> </span><span class="n">symSnap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getSymbolSnapshot</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1">// Calculate volume</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="kt">double</span><span class="w"> </span><span class="n">vol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">calculateVolume</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mf">100.0</span><span class="p">);</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1">// History</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="kd">var</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getOrdersHistoryLastDays</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="kd">var</span><span class="w"> </span><span class="n">posHistory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getPositionsHistoryPaged</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span>
+</code></pre></div>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../MT5Account/MT5Account.Master.Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MT5Account — Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                MT5Account — Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../GLOSSARY/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Glossary
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024–2025 MetaRPC. MT5 is a trademark of MetaQuotes Software Corp. This documentation is community-maintained and not affiliated with MetaQuotes.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/MetaRPC/JavaMT5" target="_blank" rel="noopener" title="JavaMT5 on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../javascripts/ux.js"></script>
+      
+    
+  </body>
+</html>

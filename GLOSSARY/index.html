@@ -1,0 +1,2749 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete Java SDK for MetaTrader 5 trading automation">
+      
+      
+      
+        <link rel="canonical" href="https://metarpc.github.io/JavaMT5/GLOSSARY/">
+      
+      
+        <link rel="prev" href="../MT5Sugar/MT5Sugar.Overview/">
+      
+      
+        <link rel="next" href="../Orchestrators.Overview/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Glossary - JavaMT5 SDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../styles/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javamt5-glossary" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="JavaMT5 SDK Documentation" class="md-header__button md-logo" aria-label="JavaMT5 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.5 18.5 6-6 4 4L22 6.92 20.59 5.5l-7.09 8-4-4L2 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaMT5 SDK Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Glossary
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MetaRPC/JavaMT5" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/JavaMT5
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="JavaMT5 SDK Documentation" class="md-nav__button md-logo" aria-label="JavaMT5 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.5 18.5 6-6 4 4L22 6.92 20.59 5.5l-7.09 8-4-4L2 17z"/></svg>
+
+    </a>
+    JavaMT5 SDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MetaRPC/JavaMT5" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/JavaMT5
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Access
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quick Access
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/1.%20Account_information/Account_Information.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Account Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/2.%20Symbol_information/Symbol_Information.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symbol Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/3.%20Positions_and_orders/Positions_And_Orders.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Positions & Orders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/4.%20Market_depth_DOM/Market_Depth_DOM.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Depth (DOM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/5.%20Trading/Trading.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/6.%20Subscriptions/Subscriptions.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subscriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GETTING_STARTED/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PROJECT_MAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/MT5Account.Master.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Account — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Sugar/MT5Sugar.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Sugar — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ Architecture Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Architecture Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-tier-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three-Tier Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt5account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MT5Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt5service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MT5Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt5sugar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MT5Sugar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Strategy Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Strategy Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Technical Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Technical Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-based-volume-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk-Based Volume Calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-vs-pips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points vs Pips
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trailing-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trailing Stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hedging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hedging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pending-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pending Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-buffer-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Protocol Buffer Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Protocol Buffer Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proto-protocol-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proto / Protocol Buffers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gRPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proto-requestresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proto Request/Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trading-terms-project-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 Trading Terms (Project Context)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 Trading Terms (Project Context)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#risk-amount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Amount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breakeven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breakeven
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#martingale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Martingale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volume-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volume Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-organization-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📁 File Organization Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📁 File Organization Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Program.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Configuration Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Configuration Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#appsettingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        appsettings.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runbat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run.bat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-daemon-mvnd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maven Daemon (mvnd)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        target/ Folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-component-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Cross-Component Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Cross-Component Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#history-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-philosophy-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Project Philosophy Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Project Philosophy Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#progressive-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Complexity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Educational Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-facing-vs-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User-Facing vs Internal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-term-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Quick Term Lookup
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Orchestrators.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrators — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Channel Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/MT5Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/MT5Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/MT5Sugar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Sugar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ Architecture Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Architecture Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-tier-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three-Tier Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt5account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MT5Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt5service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MT5Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt5sugar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MT5Sugar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Strategy Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Strategy Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Technical Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Technical Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-based-volume-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk-Based Volume Calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-vs-pips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points vs Pips
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trailing-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trailing Stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hedging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hedging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pending-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pending Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-buffer-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Protocol Buffer Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Protocol Buffer Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proto-protocol-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proto / Protocol Buffers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gRPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proto-requestresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proto Request/Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trading-terms-project-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 Trading Terms (Project Context)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 Trading Terms (Project Context)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#risk-amount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Amount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breakeven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breakeven
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#martingale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Martingale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volume-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volume Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-organization-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📁 File Organization Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📁 File Organization Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Program.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Configuration Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Configuration Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#appsettingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        appsettings.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runbat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run.bat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-daemon-mvnd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maven Daemon (mvnd)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        target/ Folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-component-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Cross-Component Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Cross-Component Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#history-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-philosophy-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Project Philosophy Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Project Philosophy Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#progressive-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Complexity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Educational Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-facing-vs-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User-Facing vs Internal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-term-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Quick Term Lookup
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="javamt5-glossary">JavaMT5 Glossary<a class="headerlink" href="#javamt5-glossary" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>Project-specific terms and concepts. This glossary covers JavaMT5 architecture, components, and trading automation terminology used throughout the codebase.</p>
+</blockquote>
+<hr />
+<h2 id="architecture-terms">🏗️ Architecture Terms<a class="headerlink" href="#architecture-terms" title="Permanent link">¶</a></h2>
+<h3 id="three-tier-architecture">Three-Tier Architecture<a class="headerlink" href="#three-tier-architecture" title="Permanent link">¶</a></h3>
+<p>The core design pattern of JavaMT5 with three abstraction layers:</p>
+<ul>
+<li><strong>Layer 1 (MT5Account):</strong> Low-level proto/gRPC communication</li>
+<li><strong>Layer 2 (MT5Service):</strong> Wrapper methods with type conversions</li>
+<li><strong>Layer 3 (MT5Sugar):</strong> High-level convenience methods</li>
+</ul>
+<p><strong>Usage:</strong> Start with Layer 3, drop down only when needed.</p>
+<hr />
+<h3 id="mt5account">MT5Account<a class="headerlink" href="#mt5account" title="Permanent link">¶</a></h3>
+<p><strong>Layer 1 - Low-level API</strong></p>
+<p>The foundational layer providing direct access to MT5 terminal via gRPC protocol.</p>
+<p><strong>Key characteristics:</strong>
+- Works with proto Request/Response objects
+- Raw gRPC calls to MT5 terminal
+- Connection management
+- Full control, maximum complexity</p>
+<p><strong>When to use:</strong> Custom integrations, proto-level control needed.</p>
+<p><strong>Location:</strong> <code>src/main/java/io/metarpc/mt5/MT5Account.java</code></p>
+<hr />
+<h3 id="mt5service">MT5Service<a class="headerlink" href="#mt5service" title="Permanent link">¶</a></h3>
+<p><strong>Layer 2 - Wrapper API</strong></p>
+<p>Middle layer providing simplified method signatures without proto wrapping.</p>
+<p><strong>Key characteristics:</strong>
+- Direct data returns (no proto objects in signatures)
+- Type conversions (proto → Java primitives/objects)
+- Simplified method names
+- No auto-normalization</p>
+<p><strong>When to use:</strong> Need wrappers but not auto-normalization.</p>
+<p><strong>Location:</strong> <code>src/main/java/io/metarpc/mt5/MT5Service.java</code></p>
+<hr />
+<h3 id="mt5sugar">MT5Sugar<a class="headerlink" href="#mt5sugar" title="Permanent link">¶</a></h3>
+<p><strong>Layer 3 - Convenience API</strong> ⭐</p>
+<p>Highest-level API with ~50 convenience methods for common trading operations.</p>
+<p><strong>Key characteristics:</strong>
+- Auto-normalization of volumes and prices
+- Risk management helpers
+- Batch operations (closeAll, cancelAll)
+- Smart helpers (snapshots, conversions)
+- Simplest API, handles edge cases</p>
+<p><strong>When to use:</strong> 95% of cases - easiest starting point.</p>
+<p><strong>Location:</strong> <code>src/main/java/io/metarpc/mt5/MT5Sugar.java</code></p>
+<p><strong>Documentation:</strong> <a href="../MT5Sugar/MT5Sugar.Overview/">MT5Sugar.Overview.md</a></p>
+<hr />
+<h2 id="strategy-components">🎯 Strategy Components<a class="headerlink" href="#strategy-components" title="Permanent link">¶</a></h2>
+<h3 id="orchestrator">Orchestrator<a class="headerlink" href="#orchestrator" title="Permanent link">¶</a></h3>
+<p>Pre-built trading strategy implementation that automates complete trading workflow.</p>
+<p><strong>Key characteristics:</strong>
+- Single strategy focus (trend following, scalping, etc.)
+- Risk-based position sizing
+- Position monitoring loops
+- Automatic exits and cleanup
+- Performance tracking</p>
+<p><strong>Examples:</strong>
+- <code>TrendFollowingOrchestrator</code> - Trend following with trailing stops
+- <code>ScalpingOrchestrator</code> - Quick in/out trades
+- <code>HedgingOrchestrator</code> - Defensive hedging strategy
+- <code>BreakoutOrchestrator</code> - Breakout trading with pending orders
+- <code>MartingaleOrchestrator</code> - Volume doubling (⚠️ HIGH RISK)</p>
+<p><strong>Location:</strong> <code>src/main/java/orchestrators/</code></p>
+<p><strong>Documentation:</strong> <a href="../Orchestrators.Overview/">Orchestrators.Overview.md</a></p>
+<hr />
+<h3 id="preset">Preset<a class="headerlink" href="#preset" title="Permanent link">¶</a></h3>
+<p>Multi-orchestrator combination with adaptive decision-making logic.</p>
+<p><strong>Key characteristics:</strong>
+- Combines 2-4 orchestrators
+- Adaptive logic (if profit &gt; X then...)
+- Multi-phase trading sessions
+- Performance tracking across phases
+- Advanced strategy composition</p>
+<p><strong>Examples:</strong>
+- <code>AggressiveGrowthPreset</code> - 3-4 orchestrators with adaptive phases
+- <code>DefensivePreset</code> - Conservative protection-first approach</p>
+<p><strong>Location:</strong> <code>src/main/java/presets/</code></p>
+<p><strong>Documentation:</strong> <a href="../Orchestrators.Overview/">Orchestrators.Overview.md</a></p>
+<hr />
+<h2 id="technical-concepts">🔧 Technical Concepts<a class="headerlink" href="#technical-concepts" title="Permanent link">¶</a></h2>
+<h3 id="auto-normalization">Auto-Normalization<a class="headerlink" href="#auto-normalization" title="Permanent link">¶</a></h3>
+<p>Automatic adjustment of trading parameters to broker requirements.</p>
+<p><strong>What gets normalized:</strong>
+- <strong>Volumes:</strong> Rounded to broker's volume step (e.g., 0.01 lots)
+- <strong>Prices:</strong> Rounded to symbol's tick size (e.g., 5 decimal places for EURUSD)
+- <strong>Stop Loss / Take Profit:</strong> Adjusted to minimum distance from current price</p>
+<p><strong>Where:</strong> MT5Sugar layer only (MT5Service doesn't auto-normalize)</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// You pass: volume=0.0234, SL=1.09876543</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">// Sugar normalizes to: volume=0.02, SL=1.09877</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">sugar</span><span class="p">.</span><span class="na">buyMarket</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0234</span><span class="p">,</span><span class="w"> </span><span class="mf">1.09876543</span><span class="p">,</span><span class="w"> </span><span class="mf">1.10000</span><span class="p">);</span>
+</code></pre></div></p>
+<hr />
+<h3 id="risk-based-volume-calculation">Risk-Based Volume Calculation<a class="headerlink" href="#risk-based-volume-calculation" title="Permanent link">¶</a></h3>
+<p>Position sizing based on dollar risk rather than fixed lot size.</p>
+<p><strong>Formula:</strong> <code>volume = riskAmount / (stopLossPoints × pointValue)</code></p>
+<p><strong>Parameters:</strong>
+- <code>riskAmount</code> - Dollar amount willing to risk (e.g., $50)
+- <code>stopLossPoints</code> - Distance to SL in points (e.g., 50 points)
+- Result: Lot size that risks exactly $50 if SL hit</p>
+<p><strong>Methods:</strong>
+- <code>calculateVolume(symbol, slPoints, riskAmount)</code> - Calculate volume
+- <code>buyByRisk(symbol, slPoints, riskAmount, tp)</code> - Buy with risk sizing
+- <code>sellByRisk(symbol, slPoints, riskAmount, tp)</code> - Sell with risk sizing</p>
+<p><strong>Documentation:</strong> <a href="../MT5Sugar/7.%20Risk_management/calculateVolume/">calculateVolume.md</a></p>
+<hr />
+<h3 id="points-vs-pips">Points vs Pips<a class="headerlink" href="#points-vs-pips" title="Permanent link">¶</a></h3>
+<p><strong>Point:</strong> Smallest price movement for a symbol (1 tick).</p>
+<p><strong>Pip:</strong> Traditional forex unit (0.0001 for most pairs).</p>
+<p><strong>Relationship:</strong>
+- <strong>5-digit brokers:</strong> 1 pip = 10 points (EURUSD: 1.10000 → 1.10010 = 1 pip)
+- <strong>3-digit brokers:</strong> 1 pip = 1 point (USDJPY: 110.00 → 110.01 = 1 pip)</p>
+<p><strong>In JavaMT5:</strong> All APIs use <strong>points</strong> for consistency.</p>
+<p><strong>Conversion:</strong> Use <code>pointsToPips(symbol, points)</code> helper.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getPoint</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0.00001</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">pips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">pointsToPips</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span><span class="w">  </span><span class="c1">// 5.0 pips</span>
+</code></pre></div></p>
+<hr />
+<h3 id="trailing-stop">Trailing Stop<a class="headerlink" href="#trailing-stop" title="Permanent link">¶</a></h3>
+<p>Dynamic Stop Loss that follows price in profit direction.</p>
+<p><strong>How it works:</strong>
+1. Position opens with initial SL
+2. When profit reaches threshold (e.g., +40 points)
+3. SL moves to breakeven or better
+4. SL continues to trail price at fixed distance
+5. Locks in profits as price moves favorably</p>
+<p><strong>Implementation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// In monitoring loop</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentProfit</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">trailingThreshold</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">newSL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentPrice</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">trailingDistance</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">newSL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">currentSL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="n">sugar</span><span class="p">.</span><span class="na">modifyPosition</span><span class="p">(</span><span class="n">ticket</span><span class="p">,</span><span class="w"> </span><span class="n">newSL</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Used in:</strong> <code>TrendFollowingOrchestrator</code></p>
+<hr />
+<h3 id="hedging">Hedging<a class="headerlink" href="#hedging" title="Permanent link">¶</a></h3>
+<p>Opening opposite position to lock in current profit/loss level.</p>
+<p><strong>How it works:</strong>
+1. Primary position opened (e.g., BUY EURUSD 0.1 lots)
+2. Price moves against you (-50 points)
+3. Hedge triggered: SELL EURUSD 0.1 lots
+4. Net position = 0 (locked loss at -50 points level)</p>
+<p><strong>Purpose:</strong>
+- Lock losses instead of closing at stop loss
+- Protect position during volatility/news
+- Wait for better exit opportunity</p>
+<p><strong>Used in:</strong> <code>HedgingOrchestrator</code></p>
+<p><strong>⚠️ Note:</strong> Not all brokers/regulations allow hedging.</p>
+<hr />
+<h3 id="pending-order">Pending Order<a class="headerlink" href="#pending-order" title="Permanent link">¶</a></h3>
+<p>Order that executes automatically when price reaches specified level.</p>
+<p><strong>Types:</strong>
+- <strong>BUY LIMIT:</strong> Buy at price BELOW current (expecting pullback then up)
+- <strong>SELL LIMIT:</strong> Sell at price ABOVE current (expecting rally then down)
+- <strong>BUY STOP:</strong> Buy at price ABOVE current (breakout up)
+- <strong>SELL STOP:</strong> Sell at price BELOW current (breakout down)</p>
+<p><strong>Methods:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Absolute price</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">sugar</span><span class="p">.</span><span class="na">buyLimit</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">// Offset in points from current price</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">sugar</span><span class="p">.</span><span class="na">buyLimitPoints</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="n">pointsOffset</span><span class="p">,</span><span class="w"> </span><span class="n">slPoints</span><span class="p">,</span><span class="w"> </span><span class="n">tpPoints</span><span class="p">);</span>
+</code></pre></div></p>
+<hr />
+<h2 id="protocol-buffer-terms">📦 Protocol Buffer Terms<a class="headerlink" href="#protocol-buffer-terms" title="Permanent link">¶</a></h2>
+<h3 id="proto-protocol-buffers">Proto / Protocol Buffers<a class="headerlink" href="#proto-protocol-buffers" title="Permanent link">¶</a></h3>
+<p>Google's language-neutral data serialization format used for gRPC communication.</p>
+<p><strong>In JavaMT5:</strong>
+- MT5 terminal communicates via gRPC protocol
+- Proto files define message structures (<code>.proto</code> files)
+- Compiled into Java classes by Maven
+- Used in MT5Account layer</p>
+<p><strong>Location:</strong> <code>src/main/proto/</code></p>
+<hr />
+<h3 id="grpc">gRPC<a class="headerlink" href="#grpc" title="Permanent link">¶</a></h3>
+<p>High-performance RPC (Remote Procedure Call) framework using HTTP/2.</p>
+<p><strong>In JavaMT5:</strong>
+- MT5Account layer sends gRPC requests to MT5 terminal
+- Terminal runs gRPC server (configured in appsettings.json)
+- Request/Response pattern for all operations</p>
+<p><strong>Connection setup:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">MT5Account</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MT5Account</span><span class="p">(</span><span class="n">login</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">account</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="n">symbol</span><span class="p">,</span><span class="w"> </span><span class="n">useSSL</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="p">);</span>
+</code></pre></div></p>
+<hr />
+<h3 id="proto-requestresponse">Proto Request/Response<a class="headerlink" href="#proto-requestresponse" title="Permanent link">¶</a></h3>
+<p>Structured message objects used in MT5Account layer.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Proto request object</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mt5TermApiTradeFunctions</span><span class="p">.</span><span class="na">OrderSendRequest</span><span class="p">.</span><span class="na">newBuilder</span><span class="p">()</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="p">.</span><span class="na">setSymbol</span><span class="p">(</span><span class="n">symbol</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">.</span><span class="na">setVolume</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p">.</span><span class="na">setType</span><span class="p">(</span><span class="n">orderType</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">// Proto response object</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kd">var</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="na">orderSend</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="kd">var</span><span class="w"> </span><span class="n">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">getOrder</span><span class="p">();</span>
+</code></pre></div></p>
+<p><strong>Note:</strong> MT5Service and MT5Sugar hide proto objects from user.</p>
+<hr />
+<h2 id="trading-terms-project-context">🎓 Trading Terms (Project Context)<a class="headerlink" href="#trading-terms-project-context" title="Permanent link">¶</a></h2>
+<h3 id="risk-amount">Risk Amount<a class="headerlink" href="#risk-amount" title="Permanent link">¶</a></h3>
+<p>Dollar amount willing to lose if Stop Loss hit.</p>
+<p><strong>Example:</strong> Risk $50 per trade means if SL triggered, you lose exactly $50.</p>
+<p><strong>Used in:</strong>
+- All orchestrators for position sizing
+- <code>calculateVolume()</code>, <code>buyByRisk()</code>, <code>sellByRisk()</code> methods</p>
+<hr />
+<h3 id="breakeven">Breakeven<a class="headerlink" href="#breakeven" title="Permanent link">¶</a></h3>
+<p>Moving Stop Loss to entry price to eliminate risk.</p>
+<p><strong>Example:</strong>
+- Entry: BUY at 1.10000
+- Price rises to 1.10050 (+50 points profit)
+- Move SL from 1.09950 to 1.10000 (breakeven)
+- Now risk-free: worst case = break even</p>
+<p><strong>Used in:</strong> <code>TrendFollowingOrchestrator</code></p>
+<hr />
+<h3 id="martingale">Martingale<a class="headerlink" href="#martingale" title="Permanent link">¶</a></h3>
+<p>High-risk betting system: double position size after each loss.</p>
+<p><strong>Progression:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Trade 1: 0.01 lots → Loss → -$10
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Trade 2: 0.02 lots → Loss → -$30 total
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Trade 3: 0.04 lots → Loss → -$70 total
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Trade 4: 0.08 lots → WIN  → +$10 total ✓
+</code></pre></div></p>
+<p><strong>⚠️ WARNING:</strong> Exponential capital requirement, can wipe account.</p>
+<p><strong>Used in:</strong> <code>MartingaleOrchestrator</code> (demo only!)</p>
+<p><strong>Documentation:</strong> <a href="../Orchestrators.Overview/">Orchestrators.Overview.md</a></p>
+<hr />
+<h3 id="volume-limits">Volume Limits<a class="headerlink" href="#volume-limits" title="Permanent link">¶</a></h3>
+<p>Broker-specific constraints on position sizing.</p>
+<p><strong>Retrieved via:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getVolumeLimits</span><span class="p">(</span><span class="n">symbol</span><span class="p">);</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">minVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">limits</span><span class="p">.</span><span class="na">getMinVolume</span><span class="p">();</span><span class="w">  </span><span class="c1">// e.g., 0.01</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">maxVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">limits</span><span class="p">.</span><span class="na">getMaxVolume</span><span class="p">();</span><span class="w">  </span><span class="c1">// e.g., 100.0</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kt">double</span><span class="w"> </span><span class="n">stepVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">limits</span><span class="p">.</span><span class="na">getStepVolume</span><span class="p">();</span><span class="w"> </span><span class="c1">// e.g., 0.01</span>
+</code></pre></div></p>
+<p><strong>Used for:</strong> Auto-normalization in MT5Sugar.</p>
+<hr />
+<h2 id="file-organization-terms">📁 File Organization Terms<a class="headerlink" href="#file-organization-terms" title="Permanent link">¶</a></h2>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h3>
+<p>Runnable demonstration code showing API usage patterns.</p>
+<p><strong>Structure:</strong>
+- <code>examples/lowlevel/</code> - MT5Account examples (proto level) - run.bat 1-3
+- <code>examples/services/</code> - MT5Service examples (wrapper level) - run.bat 4-6
+- <code>examples/sugar/</code> - MT5Sugar examples (convenience level) - run.bat 7-9</p>
+<p><strong>How to run:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>run.bat<span class="w"> </span><span class="m">1</span>-9<span class="w">    </span><span class="c1"># Examples (various API levels)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>run.bat<span class="w"> </span><span class="m">10</span><span class="w">     </span><span class="c1"># Orchestrator menu</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>run.bat<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">1</span>-5<span class="w"> </span><span class="c1"># Specific orchestrator</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>run.bat<span class="w"> </span><span class="m">11</span><span class="w">     </span><span class="c1"># Preset menu</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>run.bat<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">1</span>-2<span class="w"> </span><span class="c1"># Specific preset</span>
+</code></pre></div></p>
+<p><strong>Location:</strong> <code>src/main/java/examples/</code></p>
+<p><strong>See:</strong> <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for complete command list.</p>
+<hr />
+<h3 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h3>
+<p>Complex usage example demonstrating real-world workflow.</p>
+<p><strong>Examples:</strong>
+- <code>SimpleTradingScenario.java</code> - Basic trading workflow (run.bat 7)
+- <code>RiskManagementScenario.java</code> - Risk-based position sizing (run.bat 8)
+- <code>GridTradingScenario.java</code> - Grid trading strategy (run.bat 9)</p>
+<p><strong>Location:</strong> <code>src/main/java/examples/sugar/</code></p>
+<hr />
+<h3 id="programjava">Program.java<a class="headerlink" href="#programjava" title="Permanent link">¶</a></h3>
+<p>Main entry point that routes run.bat commands to examples/orchestrators/presets.</p>
+<p><strong>Key characteristics:</strong>
+- Single entry point for all examples (1-11)
+- Uses reflection to find and launch example classes
+- Provides interactive menus for orchestrators (10) and presets (11)
+- Manages resource cleanup for orchestrators/presets
+- Contains complete command reference in file header</p>
+<p><strong>How it works:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>run.bat 7
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    ↓
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Program.java main(args)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    ↓
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>runDemo(7)
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    ↓
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Reflection finds: examples.sugar.SimpleTradingScenario
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    ↓
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>Calls: SimpleTradingScenario.main()
+</code></pre></div></p>
+<p><strong>Location:</strong> <code>src/main/java/Program.java</code></p>
+<p><strong>See:</strong> <a href="../PROJECT_MAP/#programjava-srcmainjavaprogramjava">PROJECT_MAP.md</a> for details.</p>
+<hr />
+<h2 id="configuration-terms">⚙️ Configuration Terms<a class="headerlink" href="#configuration-terms" title="Permanent link">¶</a></h2>
+<h3 id="appsettingsjson">appsettings.json<a class="headerlink" href="#appsettingsjson" title="Permanent link">¶</a></h3>
+<p>Central configuration file for MT5 connection settings.</p>
+<p><strong>Key settings:</strong>
+- <code>Host</code> - MT5 terminal host (usually localhost)
+- <code>Port</code> - gRPC server port (default 5555)
+- <code>Login</code> - MT5 account number
+- <code>Password</code> - MT5 account password
+- <code>Symbol</code> - Default trading symbol (e.g., "EURUSD")
+- <code>UseSSL</code> - SSL/TLS encryption (true/false)
+- <code>TimeoutSeconds</code> - Request timeout (default 30)</p>
+<p><strong>Location:</strong> <code>./appsettings.json</code></p>
+<p><strong>⚠️ Security:</strong> Never commit real credentials to git (add to .gitignore).</p>
+<hr />
+<h3 id="runbat">run.bat<a class="headerlink" href="#runbat" title="Permanent link">¶</a></h3>
+<p>Quick launcher script for running all JavaMT5 examples.</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>run.bat<span class="w"> </span>&lt;number&gt;<span class="w"> </span><span class="o">[</span>sub-number<span class="o">]</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># Examples:</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>run.bat<span class="w"> </span><span class="m">7</span><span class="w">      </span><span class="c1"># SimpleTradingScenario</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>run.bat<span class="w"> </span><span class="m">10</span><span class="w">     </span><span class="c1"># Orchestrator menu</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>run.bat<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1"># Scalping orchestrator</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>run.bat<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">2</span><span class="w">   </span><span class="c1"># Defensive preset</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>run.bat<span class="w"> </span>stop<span class="w">   </span><span class="c1"># Stop Maven daemon</span>
+</code></pre></div></p>
+<p><strong>What it does:</strong>
+- Compiles project: <code>mvnd compile</code>
+- Runs Program.java: <code>mvnd exec:java -Dexec.args="&lt;numbers&gt;"</code>
+- Uses Maven Daemon (mvnd) for fast execution
+- Handles Java environment setup</p>
+<p><strong>Location:</strong> <code>./run.bat</code></p>
+<p><strong>Note:</strong> If <code>run.bat</code> doesn't work, try <code>.\run.bat</code> (PowerShell/Git Bash).</p>
+<p><strong>See:</strong> <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for troubleshooting.</p>
+<hr />
+<h3 id="maven-daemon-mvnd">Maven Daemon (mvnd)<a class="headerlink" href="#maven-daemon-mvnd" title="Permanent link">¶</a></h3>
+<p>Fast Maven build tool that reuses JVM between builds.</p>
+<p><strong>Benefits:</strong>
+- Much faster than standard <code>mvn</code>
+- Keeps JVM warm between builds
+- Parallel compilation</p>
+<p><strong>Usage in JavaMT5:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mvnd<span class="w"> </span>compile<span class="w">                        </span><span class="c1"># Build project</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>mvnd<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;7&quot;</span><span class="w">     </span><span class="c1"># Run example 7</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>mvnd<span class="w"> </span>--stop<span class="w">                         </span><span class="c1"># Stop daemon</span>
+</code></pre></div></p>
+<p><strong>Configuration:</strong> <code>pom.xml</code></p>
+<p><strong>Troubleshooting:</strong> If build hangs, stop daemon with <code>run.bat stop</code> or <code>mvnd --stop</code>.</p>
+<hr />
+<h3 id="target-folder">target/ Folder<a class="headerlink" href="#target-folder" title="Permanent link">¶</a></h3>
+<p>Build output directory containing all compiled files and generated code.</p>
+<p><strong>Contents:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>target/
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>├── classes/                    # Compiled .class files
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>└── maven-status/              # Build metadata
+</code></pre></div></p>
+<p><strong>Purpose:</strong>
+- Maven puts all compiled classes here
+- Auto-generated during <code>mvnd compile</code>
+- Can be safely deleted for clean rebuild
+- MetaRPC library classes come from JAR dependency (not generated locally)</p>
+<p><strong>Troubleshooting:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># If you get &quot;Unresolved compilation problem&quot; errors:</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>target<span class="w">         </span><span class="c1"># Windows CMD</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Remove-Item<span class="w"> </span>-Recurse<span class="w"> </span>-Force<span class="w"> </span>target<span class="w">  </span><span class="c1"># PowerShell</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>rm<span class="w"> </span>-rf<span class="w"> </span>target<span class="w">              </span><span class="c1"># Git Bash/Linux</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># Then run any command - target/ will be regenerated:</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>run.bat<span class="w"> </span><span class="m">7</span>
+</code></pre></div></p>
+<p><strong>⚠️ Java is finicky!</strong> Deleting <code>target/</code> fixes 99% of weird compilation errors.</p>
+<p><strong>See:</strong> <a href="../RUNNING_EXAMPLES/#problem-2-compilation-errors-unresolved-compilation-problem">RUNNING_EXAMPLES.md</a> for details.</p>
+<hr />
+<h2 id="cross-component-terms">🔗 Cross-Component Terms<a class="headerlink" href="#cross-component-terms" title="Permanent link">¶</a></h2>
+<h3 id="snapshot">Snapshot<a class="headerlink" href="#snapshot" title="Permanent link">¶</a></h3>
+<p>Complete state capture at a point in time.</p>
+<p><strong>Types:</strong>
+- <strong>Account Snapshot:</strong> Balance, equity, margin, profit, positions count
+- <strong>Symbol Snapshot:</strong> Bid, ask, spread, point size, volume limits</p>
+<p><strong>Methods:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">accountSnap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getAccountSnapshot</span><span class="p">();</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">var</span><span class="w"> </span><span class="n">symbolSnap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getSymbolSnapshot</span><span class="p">(</span><span class="n">symbol</span><span class="p">);</span>
+</code></pre></div></p>
+<p><strong>Use case:</strong> Dashboards, logging, performance tracking.</p>
+<hr />
+<h3 id="batch-operations">Batch Operations<a class="headerlink" href="#batch-operations" title="Permanent link">¶</a></h3>
+<p>Execute action on multiple positions/orders at once.</p>
+<p><strong>Methods:</strong></p>
+<ul>
+<li><code>closeAll()</code> - Close ALL positions (BUY and SELL)</li>
+<li><code>closeAllBuy()</code> - Close only BUY positions</li>
+<li><code>closeAllSell()</code> - Close only SELL positions</li>
+<li><code>closeAllPositions(symbol)</code> - Close all for specific symbol</li>
+<li><code>closeAllPending(symbol)</code> - Cancel all pending orders</li>
+<li><code>cancelAll()</code> - Cancel ALL pending orders</li>
+</ul>
+<p><strong>Use case:</strong> Emergency exits, end-of-day cleanup, strategy resets.</p>
+<hr />
+<h3 id="history-queries">History Queries<a class="headerlink" href="#history-queries" title="Permanent link">¶</a></h3>
+<p>Retrieve past orders and positions for analysis.</p>
+<p><strong>Methods:</strong></p>
+<ul>
+<li><code>getOrdersHistoryLastDays(days, symbol)</code> - Orders from last N days</li>
+<li><code>getPositionsHistoryPaged(page, itemsPerPage)</code> - Paginated position history</li>
+</ul>
+<p><strong>Use case:</strong> Performance analysis, trade logs, backtesting validation.</p>
+<hr />
+<h2 id="project-philosophy-terms">🎯 Project Philosophy Terms<a class="headerlink" href="#project-philosophy-terms" title="Permanent link">¶</a></h2>
+<h3 id="progressive-complexity">Progressive Complexity<a class="headerlink" href="#progressive-complexity" title="Permanent link">¶</a></h3>
+<p>Design principle: start simple, access complexity only when needed.</p>
+<p><strong>In JavaMT5:</strong>
+- Start with MT5Sugar (simplest)
+- Drop to MT5Service if need wrappers without auto-normalization
+- Drop to MT5Account for proto-level control</p>
+<p><strong>User journey:</strong> Sugar → Service → Account (as needed).</p>
+<hr />
+<h3 id="educational-project">Educational Project<a class="headerlink" href="#educational-project" title="Permanent link">¶</a></h3>
+<p>JavaMT5 orchestrators and presets are learning materials, not production systems.</p>
+<p><strong>Implications:</strong></p>
+<ul>
+<li>✅ Study code and patterns</li>
+<li>✅ Modify for your needs</li>
+<li>✅ Test on demo accounts</li>
+<li>❌ Don't use as-is with real money</li>
+<li>❌ Don't expect production-grade error handling</li>
+</ul>
+<hr />
+<h3 id="user-facing-vs-internal">User-Facing vs Internal<a class="headerlink" href="#user-facing-vs-internal" title="Permanent link">¶</a></h3>
+<p><strong>User-facing (modify freely):</strong>
+- Orchestrators
+- Presets
+- Examples
+- appsettings.json</p>
+<p><strong>Internal (use but don't modify):</strong>
+- MT5Account, MT5Service, MT5Sugar
+- Proto definitions
+- Generated classes</p>
+<p><strong>See:</strong> <a href="../PROJECT_MAP/#-what-to-modify-vs-what-to-leave-alone">PROJECT_MAP.md</a></p>
+<hr />
+<h2 id="see-also">📚 See Also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong><a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a></strong> - How to run examples + troubleshooting</li>
+<li><strong><a href="../PROJECT_MAP/">PROJECT_MAP.md</a></strong> - Complete project structure guide</li>
+<li><strong><a href="../MT5Sugar/MT5Sugar.Overview/">MT5Sugar.Overview.md</a></strong> - All 50+ convenience methods</li>
+<li><strong><a href="../Orchestrators.Overview/">Orchestrators.Overview.md</a></strong> - Strategy implementations</li>
+<li><strong>API Documentation</strong> - <a href="../MT5Account/MT5Account.Master.Overview/">MT5Account</a> and <a href="../MT5Sugar/MT5Sugar.Overview/">MT5Sugar</a></li>
+</ul>
+<hr />
+<h2 id="quick-term-lookup">💡 Quick Term Lookup<a class="headerlink" href="#quick-term-lookup" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Category</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MT5Account</td>
+<td>Architecture</td>
+<td>Layer 1 - Low-level proto/gRPC API</td>
+</tr>
+<tr>
+<td>MT5Service</td>
+<td>Architecture</td>
+<td>Layer 2 - Wrapper methods</td>
+</tr>
+<tr>
+<td>MT5Sugar</td>
+<td>Architecture</td>
+<td>Layer 3 - Convenience API ⭐</td>
+</tr>
+<tr>
+<td>Program.java</td>
+<td>Architecture</td>
+<td>Main entry point, routes all commands</td>
+</tr>
+<tr>
+<td>Orchestrator</td>
+<td>Strategy</td>
+<td>Single-strategy implementation</td>
+</tr>
+<tr>
+<td>Preset</td>
+<td>Strategy</td>
+<td>Multi-orchestrator combination</td>
+</tr>
+<tr>
+<td>Auto-normalization</td>
+<td>Technical</td>
+<td>Automatic parameter adjustment</td>
+</tr>
+<tr>
+<td>Risk-based sizing</td>
+<td>Trading</td>
+<td>Position size from dollar risk</td>
+</tr>
+<tr>
+<td>Point</td>
+<td>Trading</td>
+<td>Smallest price movement (1 tick)</td>
+</tr>
+<tr>
+<td>Pip</td>
+<td>Trading</td>
+<td>Traditional forex unit (0.0001)</td>
+</tr>
+<tr>
+<td>Trailing stop</td>
+<td>Trading</td>
+<td>SL that follows profit</td>
+</tr>
+<tr>
+<td>Hedging</td>
+<td>Trading</td>
+<td>Opposite position to lock P/L</td>
+</tr>
+<tr>
+<td>Pending order</td>
+<td>Trading</td>
+<td>Order at future price level</td>
+</tr>
+<tr>
+<td>Proto</td>
+<td>Technical</td>
+<td>Protocol Buffer message format</td>
+</tr>
+<tr>
+<td>gRPC</td>
+<td>Technical</td>
+<td>RPC framework for communication</td>
+</tr>
+<tr>
+<td>Snapshot</td>
+<td>Technical</td>
+<td>Complete state capture</td>
+</tr>
+<tr>
+<td>Batch operation</td>
+<td>Technical</td>
+<td>Action on multiple items</td>
+</tr>
+<tr>
+<td>target/ folder</td>
+<td>Build</td>
+<td>Compiled output, delete for clean rebuild</td>
+</tr>
+<tr>
+<td>run.bat</td>
+<td>Tool</td>
+<td>Quick launcher for examples</td>
+</tr>
+<tr>
+<td>mvnd</td>
+<td>Tool</td>
+<td>Fast Maven daemon build tool</td>
+</tr>
+<tr>
+<td>Progressive complexity</td>
+<td>Philosophy</td>
+<td>Start simple, access complexity as needed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>💡 <strong>New to JavaMT5?</strong>
+1. Read <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> to learn how to run examples and troubleshoot issues
+2. Check <a href="../PROJECT_MAP/">PROJECT_MAP.md</a> to understand the project structure
+3. Explore <a href="../MT5Sugar/MT5Sugar.Overview/">MT5Sugar.Overview.md</a> for the convenience API</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../MT5Sugar/MT5Sugar.Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MT5Sugar — Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                MT5Sugar — Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Orchestrators.Overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Orchestrators — Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Orchestrators — Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024–2025 MetaRPC. MT5 is a trademark of MetaQuotes Software Corp. This documentation is community-maintained and not affiliated with MetaQuotes.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/MetaRPC/JavaMT5" target="_blank" rel="noopener" title="JavaMT5 on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../javascripts/ux.js"></script>
+      
+    
+  </body>
+</html>

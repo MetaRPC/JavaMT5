@@ -1,0 +1,2568 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete Java SDK for MetaTrader 5 trading automation">
+      
+      
+      
+        <link rel="canonical" href="https://metarpc.github.io/JavaMT5/GETTING_STARTED/">
+      
+      
+        <link rel="prev" href="../MT5Account/6.%20Subscriptions/Subscriptions.Overview/">
+      
+      
+        <link rel="next" href="../RUNNING_EXAMPLES/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Getting Started - JavaMT5 SDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../styles/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-with-javamt5" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="JavaMT5 SDK Documentation" class="md-header__button md-logo" aria-label="JavaMT5 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.5 18.5 6-6 4 4L22 6.92 20.59 5.5l-7.09 8-4-4L2 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaMT5 SDK Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MetaRPC/JavaMT5" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/JavaMT5
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="JavaMT5 SDK Documentation" class="md-nav__button md-logo" aria-label="JavaMT5 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.5 18.5 6-6 4 4L22 6.92 20.59 5.5l-7.09 8-4-4L2 17z"/></svg>
+
+    </a>
+    JavaMT5 SDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MetaRPC/JavaMT5" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/JavaMT5
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Access
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quick Access
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/1.%20Account_information/Account_Information.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Account Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/2.%20Symbol_information/Symbol_Information.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symbol Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/3.%20Positions_and_orders/Positions_And_Orders.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Positions & Orders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/4.%20Market_depth_DOM/Market_Depth_DOM.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Depth (DOM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/5.%20Trading/Trading.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/6.%20Subscriptions/Subscriptions.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subscriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-and-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Prerequisites and Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Prerequisites and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-java-jdk-11-or-higher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Install Java (JDK 11 or higher)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-maven-daemon-mvnd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Maven Daemon (mvnd)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-metarpc-gateway-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Configure MetaRPC Gateway Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-clone-and-build-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Clone and Build the Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-everything-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Verify Everything Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-javamt5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 What is JavaMT5?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 What You'll Learn
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 What You&#39;ll Learn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-low-level-protocol-communication-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Low-Level Protocol Communication (Foundation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-wrapper-layer-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Wrapper Layer (Simplification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-convenience-layer-sugar-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Convenience Layer (Sugar Methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-trading-strategy-implementation-orchestrators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Trading Strategy Implementation (Orchestrators)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-multi-strategy-systems-presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Multi-Strategy Systems (Presets)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-learning-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ The Learning Path
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗺️ The Learning Path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foundation-mt5account-low-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foundation: MT5Account (Low-Level) 📦
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-up-mt5service-wrapper-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step Up: MT5Service (Wrapper Layer) 🔧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convenience-mt5sugar-high-level-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convenience: MT5Sugar (High-Level API) ⭐
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategies-orchestrators-trading-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategies: Orchestrators (Trading Automation) 🎯
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-presets-multi-strategy-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Presets (Multi-Strategy Systems) 🎼
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-opportunities-this-opens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 What Opportunities This Opens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 What Opportunities This Opens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-deep-understanding-of-mt5-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Deep Understanding of MT5 Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-api-design-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. API Design Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trading-automation-expertise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Trading Automation Expertise
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-folder-complete-method-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📂 Examples Folder - Complete Method Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📂 Examples Folder - Complete Method Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 Learning Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inside-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inside the project:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-starting-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key starting points:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Important Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Important Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this-is-an-educational-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        This is an Educational Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Warning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📞 Need Help?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 Need Help?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Final Thoughts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Final Thoughts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#youll-walk-away-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        You'll walk away with
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The journey
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PROJECT_MAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Account/MT5Account.Master.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Account — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MT5Sugar/MT5Sugar.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Sugar — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GLOSSARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Orchestrators.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrators — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Channel Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/MT5Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/MT5Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/MT5Sugar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Sugar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-and-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Prerequisites and Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Prerequisites and Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-java-jdk-11-or-higher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Install Java (JDK 11 or higher)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-maven-daemon-mvnd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Maven Daemon (mvnd)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-metarpc-gateway-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Configure MetaRPC Gateway Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-clone-and-build-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Clone and Build the Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-everything-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Verify Everything Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-javamt5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 What is JavaMT5?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 What You'll Learn
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 What You&#39;ll Learn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-low-level-protocol-communication-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Low-Level Protocol Communication (Foundation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-wrapper-layer-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Wrapper Layer (Simplification)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-convenience-layer-sugar-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Convenience Layer (Sugar Methods)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-trading-strategy-implementation-orchestrators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Trading Strategy Implementation (Orchestrators)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-multi-strategy-systems-presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Multi-Strategy Systems (Presets)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-learning-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ The Learning Path
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗺️ The Learning Path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foundation-mt5account-low-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foundation: MT5Account (Low-Level) 📦
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-up-mt5service-wrapper-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step Up: MT5Service (Wrapper Layer) 🔧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convenience-mt5sugar-high-level-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convenience: MT5Sugar (High-Level API) ⭐
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategies-orchestrators-trading-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategies: Orchestrators (Trading Automation) 🎯
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-presets-multi-strategy-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Presets (Multi-Strategy Systems) 🎼
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-opportunities-this-opens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 What Opportunities This Opens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 What Opportunities This Opens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-deep-understanding-of-mt5-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Deep Understanding of MT5 Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-api-design-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. API Design Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trading-automation-expertise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Trading Automation Expertise
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-folder-complete-method-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📂 Examples Folder - Complete Method Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📂 Examples Folder - Complete Method Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 Learning Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎓 Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inside-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inside the project:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-starting-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key starting points:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Important Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Important Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this-is-an-educational-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        This is an Educational Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Warning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📞 Need Help?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 Need Help?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Final Thoughts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Final Thoughts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#youll-walk-away-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        You'll walk away with
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The journey
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="getting-started-with-javamt5">Getting Started with JavaMT5<a class="headerlink" href="#getting-started-with-javamt5" title="Permanent link">¶</a></h1>
+<blockquote>
+<p><strong>Welcome to JavaMT5</strong> - a comprehensive educational project for learning MT5 trading automation from the ground up. This guide will show you the learning path and what opportunities this project opens for you.</p>
+</blockquote>
+<hr />
+<h2 id="prerequisites-and-setup">🚀 Prerequisites and Setup<a class="headerlink" href="#prerequisites-and-setup" title="Permanent link">¶</a></h2>
+<p>Before you start working with JavaMT5, you need to set up your development environment.</p>
+<h3 id="step-1-install-java-jdk-11-or-higher">Step 1: Install Java (JDK 11 or higher)<a class="headerlink" href="#step-1-install-java-jdk-11-or-higher" title="Permanent link">¶</a></h3>
+<p>JavaMT5 requires Java Development Kit (JDK) version 11 or higher.</p>
+<p><strong>Download and Install:</strong></p>
+<ul>
+<li><strong>Recommended:</strong> <a href="https://adoptium.net/">Eclipse Adoptium JDK</a> (formerly AdoptOpenJDK)</li>
+<li><strong>Alternative:</strong> <a href="https://www.oracle.com/java/technologies/downloads/">Oracle JDK</a></li>
+</ul>
+<p><strong>Verify installation:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java<span class="w"> </span>-version
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Should show: java version &quot;11&quot; or higher</span>
+</code></pre></div>
+<p><strong>Set JAVA_HOME environment variable:</strong></p>
+<ul>
+<li>Windows: Add to System Environment Variables
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-11.0.x-hotspot
+</code></pre></div></li>
+<li>Add <code>%JAVA_HOME%\bin</code> to PATH</li>
+</ul>
+<hr />
+<h3 id="step-2-install-maven-daemon-mvnd">Step 2: Install Maven Daemon (mvnd)<a class="headerlink" href="#step-2-install-maven-daemon-mvnd" title="Permanent link">¶</a></h3>
+<p>JavaMT5 uses Maven Daemon for fast builds and execution.</p>
+<p><strong>Download:</strong></p>
+<ul>
+<li>Visit <a href="https://github.com/apache/maven-mvnd/releases">Maven Daemon releases</a></li>
+<li>Download the latest version for Windows (e.g., <code>maven-mvnd-1.0.3-windows-amd64.zip</code>)</li>
+</ul>
+<p><strong>Install:</strong></p>
+<ol>
+<li>Extract to a permanent location (e.g., <code>C:\Users\&lt;your-username&gt;\maven-mvnd-1.0.3-windows-amd64</code>)</li>
+<li>Add to PATH or update <code>run.bat</code> with your path</li>
+<li>Verify installation:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mvnd<span class="w"> </span>--version
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Should show Maven Daemon version</span>
+</code></pre></div></li>
+</ol>
+<p><strong>Configure run.bat:</strong></p>
+<p>Edit <code>run.bat</code> and update the MVND path if needed:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">set</span> <span class="s2">&quot;MVND=C:\Users\&lt;your-username&gt;\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd&quot;</span>
+</code></pre></div></p>
+<hr />
+<h3 id="step-3-configure-metarpc-gateway-connection">Step 3: Configure MetaRPC Gateway Connection<a class="headerlink" href="#step-3-configure-metarpc-gateway-connection" title="Permanent link">¶</a></h3>
+<p>JavaMT5 connects to MT5 terminal via the <strong>MetaRPC gRPC gateway</strong> - a Java library that provides MT5 terminal integration.</p>
+<p><strong>What is MetaRPC?</strong></p>
+<ul>
+<li>GitHub package: <code>com.github.MetaRPC.metarpcmt5</code></li>
+<li>Provides gRPC communication with MT5 terminal</li>
+<li>Already included in <code>pom.xml</code> dependencies</li>
+<li>See: <a href="https://github.com/MetaRPC/JavaMT5/packages/2470968">MetaRPC on GitHub Packages</a></li>
+</ul>
+<p><strong>Two ways to connect:</strong></p>
+<h4 id="option-a-connect-to-your-own-mt5-terminal-local">Option A: Connect to Your Own MT5 Terminal (Local)<a class="headerlink" href="#option-a-connect-to-your-own-mt5-terminal-local" title="Permanent link">¶</a></h4>
+<p>If you have MT5 installed locally with MetaRPC server running:</p>
+<ol>
+<li>Ensure MT5 terminal is running</li>
+<li>MetaRPC gRPC server must be running in MT5</li>
+<li>Configure <code>appsettings.json</code>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;MT5&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;Host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">&quot;Port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5555</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">&quot;Login&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">&quot;Password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_password&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">&quot;Symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EURUSD&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nt">&quot;UseSSL&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="nt">&quot;TimeoutSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="option-b-connect-to-remote-metarpc-gateway-provided-by-metarpc">Option B: Connect to Remote MetaRPC Gateway (Provided by MetaRPC)<a class="headerlink" href="#option-b-connect-to-remote-metarpc-gateway-provided-by-metarpc" title="Permanent link">¶</a></h4>
+<p>If MetaRPC team provides access to their gateway:</p>
+<ol>
+<li>Obtain connection credentials from MetaRPC</li>
+<li>Configure <code>appsettings.json</code> with provided settings:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;MT5&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;Host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gateway.metarpc.com&quot;</span><span class="p">,</span><span class="w">     </span><span class="c1">// Provided by MetaRPC</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;Port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5555</span><span class="p">,</span><span class="w">                      </span><span class="c1">// Provided by MetaRPC</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&quot;Login&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">                   </span><span class="c1">// Your MT5 account number</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;Password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_password&quot;</span><span class="p">,</span><span class="w">       </span><span class="c1">// Your MT5 password</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&quot;Symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EURUSD&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">&quot;UseSSL&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">                    </span><span class="c1">// Usually true for remote</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">&quot;TimeoutSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="step-4-clone-and-build-the-project">Step 4: Clone and Build the Project<a class="headerlink" href="#step-4-clone-and-build-the-project" title="Permanent link">¶</a></h3>
+<p><strong>Clone repository:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MetaRPC/JavaMT5.git
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span>JavaMT5
+</code></pre></div></p>
+<p><strong>Understanding run.bat - Your Project Lifecycle Manager:</strong></p>
+<p>The <code>run.bat</code> script is the central command that manages the entire JavaMT5 project lifecycle:</p>
+<ul>
+<li><strong>Runs examples</strong> from the <code>examples/</code> folder (commands 1-9)</li>
+<li><strong>Runs orchestrators</strong> - trading strategies (commands 10 1-5)</li>
+<li><strong>Runs presets</strong> - multi-strategy systems (commands 11 1-2)</li>
+<li><strong>Auto-checks generated files</strong> on every execution</li>
+<li><strong>Uses pre-compiled MetaRPC library</strong> (no protobuf generation needed)</li>
+<li><strong>Compiles the project</strong> before running</li>
+</ul>
+<p><strong>What happens when you run <code>.\run.bat 7</code>:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>1. Maven downloads MetaRPC library (if not cached)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>2. Compiles all Java source files
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>3. Launches SimpleTradingScenario example
+</code></pre></div></p>
+<p>This ensures every run starts with a fresh, complete build.</p>
+<p><strong>For complete command reference and troubleshooting:</strong>
+See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
+- All available commands (1-11)
+- How to fix compilation errors
+- How to handle hanging processes
+- Build process details</p>
+<hr />
+<p><strong>First build:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Windows CMD or PowerShell</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># This will:</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># 1. Download all Maven dependencies (including MetaRPC library)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># 2. Compile the project</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># 3. Run SimpleTradingScenario example</span>
+</code></pre></div></p>
+<p><strong>If you get errors:</strong>
+- See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for troubleshooting
+- Common fix: Delete <code>target/</code> folder and try again
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>target
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span>
+</code></pre></div></p>
+<hr />
+<h3 id="step-5-verify-everything-works">Step 5: Verify Everything Works<a class="headerlink" href="#step-5-verify-everything-works" title="Permanent link">¶</a></h3>
+<p><strong>Test the setup:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Run a simple example</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span><span class="w">    </span><span class="c1"># SimpleTradingScenario</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># If it connects and runs - you&#39;re ready!</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># If you see errors - check RUNNING_EXAMPLES.md</span>
+</code></pre></div></p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[INFO] BUILD SUCCESS
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Configuration loaded: user=123456
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>► Connecting to MT5...
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>✓ Connected
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>...
+</code></pre></div></p>
+<hr />
+<h3 id="whats-next">What's Next?<a class="headerlink" href="#whats-next" title="Permanent link">¶</a></h3>
+<p>Now that your environment is set up, continue below to learn about JavaMT5 architecture and start your learning journey!</p>
+<p><strong>Quick links:</strong>
+- <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> - All commands and troubleshooting
+- <a href="../PROJECT_MAP/">PROJECT_MAP.md</a> - Project structure overview
+- <a href="../GLOSSARY/">GLOSSARY.md</a> - Terms and definitions</p>
+<hr />
+<h2 id="what-is-javamt5">🎯 What is JavaMT5?<a class="headerlink" href="#what-is-javamt5" title="Permanent link">¶</a></h2>
+<p>JavaMT5 is an <strong>educational project</strong> designed specifically to teach you how to work with MetaTrader 5 terminal at all levels - from low-level protocol communication to high-level trading strategies.</p>
+<p>This project was initially created to <strong>learn low-level methods</strong> of MT5 terminal communication. Everything else - convenience layers, orchestrators, presets - was built along the way to make this knowledge more accessible and practical.</p>
+<hr />
+<h2 id="what-youll-learn">🎓 What You'll Learn<a class="headerlink" href="#what-youll-learn" title="Permanent link">¶</a></h2>
+<h3 id="1-low-level-protocol-communication-foundation">1. Low-Level Protocol Communication (Foundation)<a class="headerlink" href="#1-low-level-protocol-communication-foundation" title="Permanent link">¶</a></h3>
+<p><strong>The core foundation of everything</strong> - direct communication with MT5 terminal via gRPC protocol.</p>
+<p><strong>You'll learn:</strong></p>
+<ul>
+<li>How MT5 terminal communicates via Protocol Buffers (protobuf)</li>
+<li>How to send/receive proto Request/Response objects</li>
+<li>Direct gRPC calls for all MT5 operations</li>
+<li>Connection management and error handling</li>
+<li>Raw access to every MT5 function</li>
+</ul>
+<p><strong>API:</strong> <code>MT5Account</code> (Layer 1)</p>
+<p><strong>Documentation:</strong> <a href="../MT5Account/MT5Account.Master.Overview/">MT5Account/</a></p>
+<p><strong>Why this matters:</strong> Understanding the low-level foundation gives you complete control and deep knowledge of how everything works under the hood.</p>
+<hr />
+<h3 id="2-wrapper-layer-simplification">2. Wrapper Layer (Simplification)<a class="headerlink" href="#2-wrapper-layer-simplification" title="Permanent link">¶</a></h3>
+<p><strong>Built on top of MT5Account</strong> - simplified method signatures without proto complexity.</p>
+<p><strong>You'll learn:</strong></p>
+<ul>
+<li>How to wrap proto objects into simple method calls</li>
+<li>Type conversions (proto → Java primitives)</li>
+<li>Simplified API design patterns</li>
+<li>Direct data returns without proto wrapping</li>
+</ul>
+<p><strong>API:</strong> <code>MT5Service</code> (Layer 2)</p>
+<p><strong>Why this matters:</strong> Shows how to build convenient APIs on top of complex protocols.</p>
+<hr />
+<h3 id="3-convenience-layer-sugar-methods">3. Convenience Layer (Sugar Methods)<a class="headerlink" href="#3-convenience-layer-sugar-methods" title="Permanent link">¶</a></h3>
+<p><strong>Built on top of MT5Service</strong> - ~50 ready-to-use methods with smart features.</p>
+<p><strong>You'll learn:</strong></p>
+<ul>
+<li>Auto-normalization of volumes and prices</li>
+<li>Risk-based position sizing (calculate volume from $ risk)</li>
+<li>Batch operations (close all positions, cancel all orders)</li>
+<li>Smart helpers (snapshots, conversions, limits)</li>
+<li>High-level API design for common use cases</li>
+</ul>
+<p><strong>API:</strong> <code>MT5Sugar</code> (Layer 3)</p>
+<p><strong>Documentation:</strong> <a href="../MT5Sugar/MT5Sugar.Overview/">MT5Sugar/MT5Sugar.Overview.md</a></p>
+<p><strong>Why this matters:</strong> Shows how to build production-ready convenience APIs that handle edge cases automatically.</p>
+<hr />
+<h3 id="4-trading-strategy-implementation-orchestrators">4. Trading Strategy Implementation (Orchestrators)<a class="headerlink" href="#4-trading-strategy-implementation-orchestrators" title="Permanent link">¶</a></h3>
+<p><strong>Built using MT5Sugar</strong> - complete trading strategy workflows.</p>
+<p><strong>You'll learn:</strong></p>
+<ul>
+<li>How to implement real trading strategies in code</li>
+<li>Risk management and position sizing</li>
+<li>Position monitoring and management</li>
+<li>Trailing stops and breakeven logic</li>
+<li>Entry/exit automation</li>
+<li>Performance tracking</li>
+</ul>
+<p><strong>Strategies included:</strong></p>
+<ul>
+<li><strong>Trend Following</strong> - capture trending moves with trailing stops</li>
+<li><strong>Scalping</strong> - quick in/out with tight SL/TP</li>
+<li><strong>Hedging</strong> - defensive position protection</li>
+<li><strong>Breakout</strong> - bi-directional pending orders</li>
+<li><strong>Martingale</strong> - volume doubling (⚠️ demo only)</li>
+</ul>
+<p><strong>Location:</strong> <code>src/main/java/orchestrators/</code></p>
+<p><strong>Documentation:</strong> <a href="../Orchestrators.Overview/">docs/Orchestrators.Overview.md</a></p>
+<p><strong>Why this matters:</strong> Real-world strategy implementation patterns you can adapt for your own trading ideas.</p>
+<hr />
+<h3 id="5-multi-strategy-systems-presets">5. Multi-Strategy Systems (Presets)<a class="headerlink" href="#5-multi-strategy-systems-presets" title="Permanent link">¶</a></h3>
+<p><strong>Combine multiple orchestrators</strong> - adaptive trading systems with conditional logic.</p>
+<p><strong>You'll learn:</strong></p>
+<ul>
+<li>How to combine multiple strategies</li>
+<li>Adaptive decision-making (if profit &gt; X then...)</li>
+<li>Multi-phase trading sessions</li>
+<li>Strategy orchestration patterns</li>
+<li>Performance tracking across phases</li>
+</ul>
+<p><strong>Presets included:</strong></p>
+<ul>
+<li><strong>Aggressive Growth</strong> - 3-4 orchestrators with adaptive logic</li>
+<li><strong>Defensive</strong> - conservative protection-first approach</li>
+</ul>
+<p><strong>Location:</strong> <code>src/main/java/presets/</code></p>
+<p><strong>Documentation:</strong> <a href="../Orchestrators.Overview/#-multi-orchestrator-presets">docs/Orchestrators.Overview.md</a></p>
+<p><strong>Why this matters:</strong> Advanced strategy composition - how to build complex trading systems from simple building blocks.</p>
+<hr />
+<h2 id="the-learning-path">🗺️ The Learning Path<a class="headerlink" href="#the-learning-path" title="Permanent link">¶</a></h2>
+<h3 id="foundation-mt5account-low-level">Foundation: MT5Account (Low-Level) 📦<a class="headerlink" href="#foundation-mt5account-low-level" title="Permanent link">¶</a></h3>
+<p><strong>START HERE if you want to understand how everything works.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>MT5 Terminal ←→ gRPC ←→ Proto Messages ←→ MT5Account.java
+</code></pre></div>
+<p><strong>What you'll do:</strong></p>
+<ol>
+<li>Read <a href="../MT5Account/MT5Account.Master.Overview/">MT5Account documentation</a></li>
+<li>Study MetaRPC library structure (proto-generated classes in JAR)</li>
+<li>Run examples in <code>src/main/java/examples/lowlevel/</code></li>
+<li>Explore <code>MT5Account.java</code> source code</li>
+</ol>
+<p><strong>Key examples:</strong></p>
+<ul>
+<li><code>MarketDataExample.java</code> - Get quotes, symbol info, account data</li>
+<li><code>StreamingExample.java</code> - Real-time price subscriptions</li>
+<li><code>TradingCalculationsExample.java</code> - Margin, profit calculations</li>
+</ul>
+<p><strong>You'll understand:</strong></p>
+<ul>
+<li>✅ How proto messages structure trading operations</li>
+<li>✅ How gRPC communicates with MT5 terminal</li>
+<li>✅ Every single MT5 function at protocol level</li>
+<li>✅ Request/Response patterns for trading operations</li>
+</ul>
+<p><strong>Time investment:</strong> 2-3 days for solid foundation</p>
+<hr />
+<h3 id="step-up-mt5service-wrapper-layer">Step Up: MT5Service (Wrapper Layer) 🔧<a class="headerlink" href="#step-up-mt5service-wrapper-layer" title="Permanent link">¶</a></h3>
+<p><strong>Continue here to see how to simplify the low-level API.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>MT5Account (proto) → MT5Service (wrappers) → Simple method calls
+</code></pre></div>
+<p><strong>What you'll do:</strong>
+1. Study how MT5Service wraps MT5Account methods
+2. Run examples in <code>src/main/java/examples/services/</code>
+3. Compare with low-level examples to see simplification</p>
+<p><strong>Key examples:</strong>
+- <code>MarketDataServiceExample.java</code> - Simplified market data access
+- <code>StreamingServiceExample.java</code> - Easier subscription handling
+- <code>TradingServiceExample.java</code> - Trading without proto objects</p>
+<p><strong>You'll understand:</strong>
+- ✅ API wrapper design patterns
+- ✅ Type conversions and simplification techniques
+- ✅ How to build convenient APIs on complex protocols</p>
+<p><strong>Time investment:</strong> 1 day to understand wrapper patterns</p>
+<hr />
+<h3 id="convenience-mt5sugar-high-level-api">Convenience: MT5Sugar (High-Level API) ⭐<a class="headerlink" href="#convenience-mt5sugar-high-level-api" title="Permanent link">¶</a></h3>
+<p><strong>Start here if you want to trade quickly and learn foundations later.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>MT5Service → MT5Sugar → Auto-everything convenience methods
+</code></pre></div>
+<p><strong>What you'll do:</strong></p>
+<ol>
+<li>Read <a href="../MT5Sugar/MT5Sugar.Overview/">MT5Sugar.Overview.md</a></li>
+<li>Run examples in <code>src/main/java/examples/sugar/</code></li>
+<li>Study individual method docs in <code>MT5Sugar/</code> folder</li>
+</ol>
+<p><strong>Key examples:</strong></p>
+<ul>
+<li><code>SimpleTradingScenario.java</code> - Basic trading workflow</li>
+<li><code>RiskManagementScenario.java</code> - Risk-based position sizing</li>
+<li><code>GridTradingScenario.java</code> - Grid trading strategy</li>
+</ul>
+<p><strong>You'll understand:</strong></p>
+<ul>
+<li>✅ Risk-based volume calculation ($ risk → lot size)</li>
+<li>✅ Auto-normalization of volumes and prices</li>
+<li>✅ Batch operations (close all, cancel all)</li>
+<li>✅ Smart helpers and convenience patterns</li>
+</ul>
+<p><strong>Time investment:</strong> 1-2 days to master all 50+ methods</p>
+<hr />
+<h3 id="strategies-orchestrators-trading-automation">Strategies: Orchestrators (Trading Automation) 🎯<a class="headerlink" href="#strategies-orchestrators-trading-automation" title="Permanent link">¶</a></h3>
+<p><strong>Learn complete strategy implementation patterns.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>MT5Sugar → Orchestrator → Complete trading strategy workflow
+</code></pre></div>
+<p><strong>What you'll do:</strong></p>
+<ol>
+<li>Read <a href="../Orchestrators.Overview/">docs/Orchestrators.Overview.md</a></li>
+<li>Run <code>run.bat 10</code> - interactive orchestrator menu</li>
+<li>Study orchestrator source code in <code>src/main/java/orchestrators/</code></li>
+<li>Copy and modify for your own strategies</li>
+</ol>
+<p><strong>Key orchestrators:</strong></p>
+<ul>
+<li><code>ScalpingOrchestrator.java</code> - Simplest, good starting point</li>
+<li><code>TrendFollowingOrchestrator.java</code> - Position modification, trailing stops</li>
+<li><code>BreakoutOrchestrator.java</code> - Pending orders, bi-directional entry</li>
+<li><code>HedgingOrchestrator.java</code> - Dual position management</li>
+</ul>
+<p><strong>You'll understand:</strong></p>
+<ul>
+<li>✅ Complete strategy workflow implementation</li>
+<li>✅ Position monitoring loops and state management</li>
+<li>✅ Risk management and position sizing in practice</li>
+<li>✅ Entry/exit logic automation</li>
+<li>✅ Performance tracking patterns</li>
+</ul>
+<p><strong>Time investment:</strong> 2-3 days to study and adapt</p>
+<hr />
+<h3 id="advanced-presets-multi-strategy-systems">Advanced: Presets (Multi-Strategy Systems) 🎼<a class="headerlink" href="#advanced-presets-multi-strategy-systems" title="Permanent link">¶</a></h3>
+<p><strong>Learn how to combine strategies with adaptive logic.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Orchestrators → Preset → Multi-strategy adaptive system
+</code></pre></div>
+<p><strong>What you'll do:</strong></p>
+<ol>
+<li>Read presets section in <a href="../Orchestrators.Overview/#-multi-orchestrator-presets">Orchestrators.Overview.md</a></li>
+<li>Run <code>run.bat 11</code> - interactive preset menu</li>
+<li>Study preset source code in <code>src/main/java/presets/</code></li>
+<li>Design your own multi-strategy systems</li>
+</ol>
+<p><strong>Key presets:</strong></p>
+<ul>
+<li><code>DefensivePreset.java</code> - Conservative, easier to understand</li>
+<li><code>AggressiveGrowthPreset.java</code> - Adaptive multi-phase system</li>
+</ul>
+<p><strong>You'll understand:</strong></p>
+<ul>
+<li>✅ Strategy composition patterns</li>
+<li>✅ Adaptive decision-making logic</li>
+<li>✅ Multi-phase trading sessions</li>
+<li>✅ Complex system orchestration</li>
+</ul>
+<p><strong>Time investment:</strong> 1-2 days to master composition patterns</p>
+<hr />
+<h2 id="what-opportunities-this-opens">🚀 What Opportunities This Opens<a class="headerlink" href="#what-opportunities-this-opens" title="Permanent link">¶</a></h2>
+<h3 id="1-deep-understanding-of-mt5-protocol">1. Deep Understanding of MT5 Protocol<a class="headerlink" href="#1-deep-understanding-of-mt5-protocol" title="Permanent link">¶</a></h3>
+<p><strong>You'll gain:</strong></p>
+<ul>
+<li>Complete knowledge of MT5 terminal communication</li>
+<li>Ability to implement any MT5 function from scratch</li>
+<li>Understanding of trading platform architecture</li>
+<li>Protocol-level debugging and troubleshooting skills</li>
+</ul>
+<p><strong>Career value:</strong> Work on trading platform integration, build custom MT5 tools, technical trading infrastructure roles.</p>
+<hr />
+<h3 id="2-api-design-skills">2. API Design Skills<a class="headerlink" href="#2-api-design-skills" title="Permanent link">¶</a></h3>
+<p><strong>You'll learn:</strong>
+- How to build layered architectures (3-tier design)
+- API wrapper patterns and simplification techniques
+- Convenience layer design for complex systems
+- Progressive complexity approach</p>
+<p><strong>Career value:</strong> Backend development, API design, SDK development, developer tools.</p>
+<hr />
+<h3 id="3-trading-automation-expertise">3. Trading Automation Expertise<a class="headerlink" href="#3-trading-automation-expertise" title="Permanent link">¶</a></h3>
+<p><strong>You'll master:</strong></p>
+<ul>
+<li>Automated trading strategy implementation</li>
+<li>Risk management and position sizing</li>
+<li>Real-time position monitoring and management</li>
+<li>Strategy orchestration and composition</li>
+</ul>
+<p><strong>Career value:</strong> Algorithmic trading, quantitative development, trading system architecture.</p>
+<hr />
+<h2 id="examples-folder-complete-method-reference">📂 Examples Folder - Complete Method Reference<a class="headerlink" href="#examples-folder-complete-method-reference" title="Permanent link">¶</a></h2>
+<p><strong>Location:</strong> <code>src/main/java/examples/</code></p>
+<p>The <code>examples/</code> folder contains <strong>runnable demonstrations of every method</strong> for full-fledged work with MT5.</p>
+<h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>examples/
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>├── lowlevel/           ← MT5Account examples (proto level)
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>│   ├── MarketDataExample.java
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>│   ├── StreamingExample.java
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>│   └── TradingCalculationsExample.java
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>│
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>├── services/           ← MT5Service examples (wrapper level)
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>│   ├── MarketDataServiceExample.java
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>│   ├── StreamingServiceExample.java
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>│   └── TradingServiceExample.java
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>│
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>└── sugar/              ← MT5Sugar examples (convenience level)
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>    ├── SimpleTradingScenario.java
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>    ├── RiskManagementScenario.java
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>    └── GridTradingScenario.java
+</code></pre></div>
+<h2 id="learning-resources">🎓 Learning Resources<a class="headerlink" href="#learning-resources" title="Permanent link">¶</a></h2>
+<h3 id="inside-the-project">Inside the project:<a class="headerlink" href="#inside-the-project" title="Permanent link">¶</a></h3>
+<ul>
+<li>📖 <strong>Documentation:</strong> <code>docs/</code> folder (complete API reference)</li>
+<li>💻 <strong>Examples:</strong> <code>src/main/java/examples/</code> (runnable demonstrations)</li>
+<li>🎯 <strong>Strategies:</strong> <code>src/main/java/orchestrators/</code> (complete implementations)</li>
+<li>🎼 <strong>Presets:</strong> <code>src/main/java/presets/</code> (multi-strategy systems)</li>
+</ul>
+<h3 id="key-starting-points">Key starting points:<a class="headerlink" href="#key-starting-points" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong><a href="../PROJECT_MAP/">PROJECT_MAP.md</a></strong> - Understand project structure</li>
+<li><strong><a href="../GLOSSARY/">GLOSSARY.md</a></strong> - Learn project terminology</li>
+<li><strong><a href="../MT5Sugar/MT5Sugar.Overview/">MT5Sugar.Overview.md</a></strong> - Quick start with trading</li>
+<li><strong><a href="../Orchestrators.Overview/">Orchestrators.Overview.md</a></strong> - Learn strategy patterns</li>
+</ol>
+<hr />
+<h2 id="important-notes">⚠️ Important Notes<a class="headerlink" href="#important-notes" title="Permanent link">¶</a></h2>
+<h3 id="this-is-an-educational-project">This is an Educational Project<a class="headerlink" href="#this-is-an-educational-project" title="Permanent link">¶</a></h3>
+<p><strong>What this means:</strong></p>
+<ul>
+<li>✅ <strong>DO</strong> use for learning and experimentation</li>
+<li>✅ <strong>DO</strong> study the code and patterns</li>
+<li>✅ <strong>DO</strong> test on demo accounts</li>
+<li>✅ <strong>DO</strong> adapt for your needs</li>
+<li>❌ <strong>DON'T</strong> use as-is with real money without thorough testing</li>
+<li>❌ <strong>DON'T</strong> expect production-grade error handling in examples</li>
+<li>❌ <strong>DON'T</strong> blindly trust strategies without understanding them</li>
+</ul>
+<h3 id="risk-warning">Risk Warning<a class="headerlink" href="#risk-warning" title="Permanent link">¶</a></h3>
+<p><strong>Trading involves risk:</strong></p>
+<ul>
+<li>Past performance doesn't guarantee future results</li>
+<li>Automated strategies can lose money</li>
+<li>Always test thoroughly on demo accounts first</li>
+<li>Never risk more than you can afford to lose</li>
+<li>Understand every line of code before trading real money</li>
+</ul>
+<hr />
+<h2 id="need-help">📞 Need Help?<a class="headerlink" href="#need-help" title="Permanent link">¶</a></h2>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Project structure:</strong> <a href="../PROJECT_MAP/">PROJECT_MAP.md</a></li>
+<li><strong>API reference:</strong> <code>docs/MT5Account/</code> and <code>docs/MT5Sugar/</code></li>
+<li><strong>Strategy guide:</strong> <a href="../Orchestrators.Overview/">Orchestrators.Overview.md</a></li>
+<li><strong>Terminology:</strong> <a href="../GLOSSARY/">GLOSSARY.md</a></li>
+</ul>
+<h3 id="code-examples">Code examples<a class="headerlink" href="#code-examples" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Low-level:</strong> <code>examples/lowlevel/</code></li>
+<li><strong>Wrappers:</strong> <code>examples/services/</code></li>
+<li><strong>Convenience:</strong> <code>examples/sugar/</code></li>
+<li><strong>Strategies:</strong> <code>orchestrators/</code> and <code>presets/</code></li>
+</ul>
+<hr />
+<h2 id="final-thoughts">🎯 Final Thoughts<a class="headerlink" href="#final-thoughts" title="Permanent link">¶</a></h2>
+<p>JavaMT5 is more than a trading library - it's a <strong>complete learning journey</strong> from protocol-level communication to production trading strategies.</p>
+<h3 id="youll-walk-away-with">You'll walk away with<a class="headerlink" href="#youll-walk-away-with" title="Permanent link">¶</a></h3>
+<ul>
+<li>Deep understanding of MT5 terminal architecture</li>
+<li>API design and layered architecture skills</li>
+<li>Trading automation implementation expertise</li>
+<li>Production-ready patterns and best practices</li>
+<li>Foundation for building your own trading systems</li>
+</ul>
+<h3 id="the-journey">The journey<a class="headerlink" href="#the-journey" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Proto/gRPC → Wrappers → Convenience → Strategies → Your Ideas
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>(Foundation)  (Simplification)  (Automation)   (Production)
+</code></pre></div>
+<p><strong>Start wherever makes sense for you, and enjoy the learning process!</strong></p>
+<hr />
+<blockquote>
+<p>💡 <strong>Ready to begin?</strong> Start with <a href="../PROJECT_MAP/">PROJECT_MAP.md</a> to understand the project structure, then choose your learning path above and dive in!</p>
+<p>🎓 <strong>Remember:</strong> This project was created to learn low-level methods - everything else is built on that foundation. Understanding the base gives you power to build anything on top.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../MT5Account/6.%20Subscriptions/Subscriptions.Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Subscriptions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Subscriptions
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../RUNNING_EXAMPLES/" class="md-footer__link md-footer__link--next" aria-label="Next: Running Examples">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Running Examples
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024–2025 MetaRPC. MT5 is a trademark of MetaQuotes Software Corp. This documentation is community-maintained and not affiliated with MetaQuotes.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/MetaRPC/JavaMT5" target="_blank" rel="noopener" title="JavaMT5 on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../javascripts/ux.js"></script>
+      
+    
+  </body>
+</html>
