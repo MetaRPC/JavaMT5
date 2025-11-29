@@ -6,7 +6,7 @@
 
 * **Sugar method:** `MT5Sugar.modifyPosition(long ticket, Double stopLoss, Double takeProfit)`
 * **Underlying methods:**
-  - [`MT5Service.orderModify()`](../../MT5Account/5.%20Trading/OrderModify.md) - low-level order modification
+  - `MT5Service.orderModify()` - low-level order modification
 * **Source:** MT5Sugar convenience layer
 
 ---

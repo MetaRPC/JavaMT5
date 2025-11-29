@@ -43,6 +43,7 @@ public class MT5Account {
 ```
 
 **Request message:** `SymbolInfoTickRequest { symbol: string }`
+
 **Reply message:** `SymbolInfoTickRequestReply { data: MrpcMqlTick }` or `{ error: Error }`
 
 ---
@@ -55,7 +56,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `MrpcMqlTick`
+## ⬆️ Output - `MrpcMqlTick`
 
 | Field         | Type     | Description                                                  |
 | ------------- | -------- | ------------------------------------------------------------ |
@@ -76,7 +77,7 @@ Access the tick data using `reply.getData()`.
 
 * **What it is.** Single RPC returning current market prices and tick information for a symbol.
 * **Why you need it.** Essential for getting real-time quotes before placing orders or analyzing market conditions.
-* **Performance.** Lightweight call — ideal for frequent price checks.
+* **Performance.** Lightweight call - ideal for frequent price checks.
 * **Spread calculation.** Spread = Ask - Bid (in price units, not points).
 * **Alternative.** Use `quoteMany()` to fetch quotes for multiple symbols in batch.
 

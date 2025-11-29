@@ -61,5 +61,9 @@ CSharpMT5/
 credentials.properties
 *.env
 
-# Claude Code
+# IDE configuration
 .claude/
+
+# MkDocs
+site/
+broken_links_report.txt

@@ -43,6 +43,7 @@ public class MT5Account {
 ```
 
 **Request message:** `OrderHistoryRequest { inputFrom, inputTo, inputSortMode, pageNumber, itemsPerPage }`
+
 **Reply message:** `OrderHistoryReply { data: OrdersHistoryData }` or `{ error: Error }`
 
 ---
@@ -70,7 +71,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OrdersHistoryData`
+## ⬆️ Output - `OrdersHistoryData`
 
 | Field           | Type                  | Description                                          |
 | --------------- | --------------------- | ---------------------------------------------------- |

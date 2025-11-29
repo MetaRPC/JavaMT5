@@ -55,7 +55,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OrderCalcProfitData`
+## ⬆️ Output - `OrderCalcProfitData`
 
 | Field    | Type     | Description                                          |
 | -------- | -------- | ---------------------------------------------------- |

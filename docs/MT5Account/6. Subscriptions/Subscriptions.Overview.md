@@ -1,14 +1,14 @@
-# MT5Account · Subscriptions (Streaming) — Overview
+# MT5Account · Subscriptions (Streaming) - Overview
 
 > Real-time event streams for prices, trades, positions, and transactions. Use this page to choose the right API for receiving live updates via gRPC streaming.
 
 ## 📁 What lives here
 
-* **[OnSymbolTick](./OnSymbolTick.md)** — **real-time price updates** (bid, ask, volume) as they occur.
-* **[OnTrade](./OnTrade.md)** — **trading events** (positions opened/closed, orders placed/modified/deleted).
-* **[OnPositionProfit](./OnPositionProfit.md)** — **periodic profit/loss updates** for all open positions.
-* **[OnPositionsAndPendingOrdersTickets](./OnPositionsAndPendingOrdersTickets.md)** — **periodic ticket lists** (lightweight position/order tracking).
-* **[OnTradeTransaction](./OnTradeTransaction.md)** — **detailed transaction log** (most comprehensive trading event stream).
+* **[OnSymbolTick](./OnSymbolTick.md)** - **real-time price updates** (bid, ask, volume) as they occur.
+* **[OnTrade](./OnTrade.md)** - **trading events** (positions opened/closed, orders placed/modified/deleted).
+* **[OnPositionProfit](./OnPositionProfit.md)** - **periodic profit/loss updates** for all open positions.
+* **[OnPositionsAndPendingOrdersTickets](./OnPositionsAndPendingOrdersTickets.md)** - **periodic ticket lists** (lightweight position/order tracking).
+* **[OnTradeTransaction](./OnTradeTransaction.md)** - **detailed transaction log** (most comprehensive trading event stream).
 
 ---
 
@@ -239,7 +239,7 @@ Thread.sleep(60000); // Run for 1 minute
 
 ## See also
 
-* **Positions:** [`OpenedOrders`](../3.%20Positions_and_orders/OpenedOrders.md) — query current state
-* **Trading:** [`OrderSend`](../5.%20Trading/OrderSend.md), [`OrderClose`](../5.%20Trading/OrderClose.md) — execute trades
-* **Symbol info:** [`SymbolInfoTick`](../2.%20Symbol_information/SymbolInfoTick.md) — pull single quote
-* **Account:** [`AccountSummary`](../1.%20Account_information/AccountSummary.md) — query account state
+* **Positions:** [`OpenedOrders`](../3.%20Positions_and_orders/OpenedOrders.md) - query current state
+* **Trading:** [`OrderSend`](../5.%20Trading/OrderSend.md), [`OrderClose`](../5.%20Trading/OrderClose.md) - execute trades
+* **Symbol info:** [`SymbolInfoTick`](../2.%20Symbol_information/SymbolInfoTick.md) - pull single quote
+* **Account:** [`AccountSummary`](../1.%20Account_information/AccountSummary.md) - query account state

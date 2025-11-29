@@ -35,6 +35,7 @@ public class MT5Account {
 ```
 
 **Request message:** `SymbolInfoStringRequest { symbol: string, type: SymbolInfoStringProperty }`
+
 **Reply message:** `SymbolInfoStringReply { data: SymbolInfoStringData }` or `{ error: Error }`
 
 ---
@@ -48,7 +49,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `SymbolInfoStringData`
+## ⬆️ Output - `SymbolInfoStringData`
 
 | Field   | Type     | Description                      |
 | ------- | -------- | -------------------------------- |
@@ -79,8 +80,6 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_ISIN` | 12 | ISIN code (International Securities Identification Number) |
 | `SYMBOL_PAGE` | 13 | Web page URL with symbol information |
 | `SYMBOL_PATH` | 14 | Path in symbol tree/hierarchy |
-
-[MQL5 Documentation](https://www.mql5.com/en/docs/marketinformation/symbolinfostring)
 
 ---
 

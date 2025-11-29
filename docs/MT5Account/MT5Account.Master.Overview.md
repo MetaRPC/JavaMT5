@@ -1,27 +1,27 @@
-# MT5Account — Master Overview
+# MT5Account - Master Overview
 
 > One page to **orient fast**: what lives where, how to choose the right API, and jump links to every **overview** and **method spec** in this docs set.
 
 ---
 
-## 🚦 Start here — Section Overviews
+## 🚦 Start here - Section Overviews
 
-* **[Account\_Information — Overview](./1.%20Account_information/Account_Information.Overview.md)**
+* **[Account\_Information - Overview](./1.%20Account_information/Account_Information.Overview.md)**
   Account balance/equity/margin/leverage, complete snapshot or single properties.
 
-* **[Symbol\_Information — Overview](./2.%20Symbol_information/Symbol_Information.Overview.md)**
+* **[Symbol\_Information - Overview](./2.%20Symbol_information/Symbol_Information.Overview.md)**
   Quotes, symbol properties, trading rules, tick values, Market Watch management.
 
-* **[Positions\_And\_Orders — Overview](./3.%20Positions_and_orders/Positions_And_Orders.Overview.md)**
+* **[Positions\_And\_Orders - Overview](./3.%20Positions_and_orders/Positions_And_Orders.Overview.md)**
   Open positions, pending orders, historical deals, order history.
 
-* **[Market\_Depth\_DOM — Overview](./4.%20Market_depth_DOM/Market_Depth_DOM.Overview.md)**
+* **[Market\_Depth\_DOM - Overview](./4.%20Market_depth_DOM/Market_Depth_DOM.Overview.md)**
   Level II quotes, order book data, market depth subscription.
 
-* **[Trading — Overview](./5.%20Trading/Trading.Overview.md)**
+* **[Trading - Overview](./5.%20Trading/Trading.Overview.md)**
   Order execution, position management, margin/profit calculations, trade validation.
 
-* **[Subscriptions — Overview](./6.%20Subscriptions/Subscriptions.Overview.md)**
+* **[Subscriptions - Overview](./6.%20Subscriptions/Subscriptions.Overview.md)**
   Real-time streams: ticks, trades, profit updates, transaction log.
 
 ---
@@ -64,13 +64,13 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 ### Complete Snapshot
 
-* [AccountSummary.md](./1.%20Account_information/AccountSummary.md) — All account info at once (balance, equity, margin, etc.)
+* [AccountSummary.md](./1.%20Account_information/AccountSummary.md) - All account info at once (balance, equity, margin, etc.)
 
 ### Individual Properties
 
-* [AccountInfoDouble.md](./1.%20Account_information/AccountInfoDouble.md) — Single double value (balance, equity, margin, profit, etc.)
-* [AccountInfoInteger.md](./1.%20Account_information/AccountInfoInteger.md) — Single integer value (login, leverage, limit orders, etc.)
-* [AccountInfoString.md](./1.%20Account_information/AccountInfoString.md) — Single string value (name, server, currency, company)
+* [AccountInfoDouble.md](./1.%20Account_information/AccountInfoDouble.md) - Single double value (balance, equity, margin, profit, etc.)
+* [AccountInfoInteger.md](./1.%20Account_information/AccountInfoInteger.md) - Single integer value (login, leverage, limit orders, etc.)
+* [AccountInfoString.md](./1.%20Account_information/AccountInfoString.md) - Single string value (name, server, currency, company)
 
 ---
 
@@ -80,25 +80,25 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 ### Current Quotes
 
-* [SymbolInfoTick.md](./2.%20Symbol_information/SymbolInfoTick.md) — Current quote for symbol (bid, ask, last, volume, time)
+* [SymbolInfoTick.md](./2.%20Symbol_information/SymbolInfoTick.md) - Current quote for symbol (bid, ask, last, volume, time)
 
 ### Symbol Inventory & Management
 
-* [SymbolsTotal.md](./2.%20Symbol_information/SymbolsTotal.md) — Count of available symbols
-* [SymbolName.md](./2.%20Symbol_information/SymbolName.md) — Get symbol name by index
-* [SymbolSelect.md](./2.%20Symbol_information/SymbolSelect.md) — Enable/disable symbol in Market Watch
-* [SymbolExist.md](./2.%20Symbol_information/SymbolExist.md) — Check if symbol exists
-* [SymbolIsSynchronized.md](./2.%20Symbol_information/SymbolIsSynchronized.md) — Check symbol data sync status
+* [SymbolsTotal.md](./2.%20Symbol_information/SymbolsTotal.md) - Count of available symbols
+* [SymbolName.md](./2.%20Symbol_information/SymbolName.md) - Get symbol name by index
+* [SymbolSelect.md](./2.%20Symbol_information/SymbolSelect.md) - Enable/disable symbol in Market Watch
+* [SymbolExist.md](./2.%20Symbol_information/SymbolExist.md) - Check if symbol exists
+* [SymbolIsSynchronized.md](./2.%20Symbol_information/SymbolIsSynchronized.md) - Check symbol data sync status
 
 ### Symbol Properties
 
-* [SymbolInfoDouble.md](./2.%20Symbol_information/SymbolInfoDouble.md) — Single double property (bid, ask, point, volume min/max, etc.)
-* [SymbolInfoInteger.md](./2.%20Symbol_information/SymbolInfoInteger.md) — Single integer property (digits, spread, stops level, etc.)
-* [SymbolInfoString.md](./2.%20Symbol_information/SymbolInfoString.md) — Single string property (description, currency, path)
+* [SymbolInfoDouble.md](./2.%20Symbol_information/SymbolInfoDouble.md) - Single double property (bid, ask, point, volume min/max, etc.)
+* [SymbolInfoInteger.md](./2.%20Symbol_information/SymbolInfoInteger.md) - Single integer property (digits, spread, stops level, etc.)
+* [SymbolInfoString.md](./2.%20Symbol_information/SymbolInfoString.md) - Single string property (description, currency, path)
 
 ### Trading Calculations
 
-* [TickValueWithSize.md](./2.%20Symbol_information/TickValueWithSize.md) — Batch tick values for multiple symbols
+* [TickValueWithSize.md](./2.%20Symbol_information/TickValueWithSize.md) - Batch tick values for multiple symbols
 
 ---
 
@@ -108,14 +108,14 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 ### Current State
 
-* [PositionsTotal.md](./3.%20Positions_and_orders/PositionsTotal.md) — Count of open positions
-* [OpenedOrders.md](./3.%20Positions_and_orders/OpenedOrders.md) — Full details of all open positions and pending orders
-* [OpenedOrdersTickets.md](./3.%20Positions_and_orders/OpenedOrdersTickets.md) — Ticket numbers only (lightweight)
+* [PositionsTotal.md](./3.%20Positions_and_orders/PositionsTotal.md) - Count of open positions
+* [OpenedOrders.md](./3.%20Positions_and_orders/OpenedOrders.md) - Full details of all open positions and pending orders
+* [OpenedOrdersTickets.md](./3.%20Positions_and_orders/OpenedOrdersTickets.md) - Ticket numbers only (lightweight)
 
 ### Historical Data
 
-* [OrderHistory.md](./3.%20Positions_and_orders/OrderHistory.md) — Historical orders within time range
-* [PositionsHistory.md](./3.%20Positions_and_orders/PositionsHistory.md) — Historical deals (executed trades) within time range
+* [OrderHistory.md](./3.%20Positions_and_orders/OrderHistory.md) - Historical orders within time range
+* [PositionsHistory.md](./3.%20Positions_and_orders/PositionsHistory.md) - Historical deals (executed trades) within time range
 
 ---
 
@@ -125,9 +125,9 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 ### Level II Quotes
 
-* [MarketBookAdd.md](./4.%20Market_depth_DOM/MarketBookAdd.md) — Subscribe to Market Depth for symbol
-* [MarketBookGet.md](./4.%20Market_depth_DOM/MarketBookGet.md) — Get current order book data
-* [MarketBookRelease.md](./4.%20Market_depth_DOM/MarketBookRelease.md) — Unsubscribe from Market Depth
+* [MarketBookAdd.md](./4.%20Market_depth_DOM/MarketBookAdd.md) - Subscribe to Market Depth for symbol
+* [MarketBookGet.md](./4.%20Market_depth_DOM/MarketBookGet.md) - Get current order book data
+* [MarketBookRelease.md](./4.%20Market_depth_DOM/MarketBookRelease.md) - Unsubscribe from Market Depth
 
 ---
 
@@ -137,15 +137,15 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 ### Order Execution & Management
 
-* [OrderSend.md](./5.%20Trading/OrderSend.md) — Place market or pending orders
-* [OrderModify.md](./5.%20Trading/OrderModify.md) — Modify SL/TP or order parameters
-* [OrderClose.md](./5.%20Trading/OrderClose.md) — Close positions or delete pending orders
+* [OrderSend.md](./5.%20Trading/OrderSend.md) - Place market or pending orders
+* [OrderModify.md](./5.%20Trading/OrderModify.md) - Modify SL/TP or order parameters
+* [OrderClose.md](./5.%20Trading/OrderClose.md) - Close positions or delete pending orders
 
 ### Pre-Trade Calculations
 
-* [OrderCalcMargin.md](./5.%20Trading/OrderCalcMargin.md) — Calculate margin required for trade
-* [OrderCalcProfit.md](./5.%20Trading/OrderCalcProfit.md) — Calculate profit/loss for trade scenario
-* [OrderCheck.md](./5.%20Trading/OrderCheck.md) — Validate trade request before execution
+* [OrderCalcMargin.md](./5.%20Trading/OrderCalcMargin.md) - Calculate margin required for trade
+* [OrderCalcProfit.md](./5.%20Trading/OrderCalcProfit.md) - Calculate profit/loss for trade scenario
+* [OrderCheck.md](./5.%20Trading/OrderCheck.md) - Validate trade request before execution
 
 ---
 
@@ -155,17 +155,17 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 ### Real-Time Price Updates
 
-* [OnSymbolTick.md](./6.%20Subscriptions/OnSymbolTick.md) — Real-time tick stream for symbols
+* [OnSymbolTick.md](./6.%20Subscriptions/OnSymbolTick.md) - Real-time tick stream for symbols
 
 ### Trading Events
 
-* [OnTrade.md](./6.%20Subscriptions/OnTrade.md) — Position/order changes (opened, closed, modified)
-* [OnTradeTransaction.md](./6.%20Subscriptions/OnTradeTransaction.md) — Detailed transaction log (complete audit trail)
+* [OnTrade.md](./6.%20Subscriptions/OnTrade.md) - Position/order changes (opened, closed, modified)
+* [OnTradeTransaction.md](./6.%20Subscriptions/OnTradeTransaction.md) - Detailed transaction log (complete audit trail)
 
 ### Position Monitoring
 
-* [OnPositionProfit.md](./6.%20Subscriptions/OnPositionProfit.md) — Periodic profit/loss updates
-* [OnPositionsAndPendingOrdersTickets.md](./6.%20Subscriptions/OnPositionsAndPendingOrdersTickets.md) — Periodic ticket lists (lightweight)
+* [OnPositionProfit.md](./6.%20Subscriptions/OnPositionProfit.md) - Periodic profit/loss updates
+* [OnPositionsAndPendingOrdersTickets.md](./6.%20Subscriptions/OnPositionsAndPendingOrdersTickets.md) - Periodic ticket lists (lightweight)
 
 ---
 
@@ -325,11 +325,11 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 ## 🔗 Related Documentation
 
-* **[PROJECT_MAP.md](../PROJECT_MAP.md)** — Complete project structure
-* **[MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)** — High-level convenience API (Layer 3)
-* **[Orchestrators.Overview.md](../Orchestrators.Overview.md)** — Trading strategy implementations
-* **[GLOSSARY.md](../GLOSSARY.md)** — Project terminology
-* **[GETTING_STARTED.md](../GETTING_STARTED.md)** — Complete learning guide
+* **[PROJECT_MAP.md](../PROJECT_MAP.md)** - Complete project structure
+* **[MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)** - High-level convenience API (Layer 3)
+* **[Orchestrators.Overview.md](../Orchestrators.Overview.md)** - Trading strategy implementations
+* **[GLOSSARY.md](../GLOSSARY.md)** - Project terminology
+* **[GETTING_STARTED.md](../GETTING_STARTED.md)** - Complete learning guide
 
 ---
 

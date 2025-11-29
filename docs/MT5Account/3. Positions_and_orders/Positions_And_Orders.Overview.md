@@ -1,14 +1,14 @@
-# MT5Account · Positions & Orders — Overview
+# MT5Account · Positions & Orders - Overview
 
 > Open positions, pending orders, historical deals, and order history. Use this page to choose the right API for querying trading state and history.
 
 ## 📁 What lives here
 
-* **[PositionsTotal](./PositionsTotal.md)** — **count** of currently open positions.
-* **[OpenedOrders](./OpenedOrders.md)** — **full details** of all open positions and pending orders.
-* **[OpenedOrdersTickets](./OpenedOrdersTickets.md)** — **ticket numbers only** for positions and orders (lightweight).
-* **[OrderHistory](./OrderHistory.md)** — **historical orders** within a time range.
-* **[PositionsHistory](./PositionsHistory.md)** — **historical deals** (executed positions) within a time range.
+* **[PositionsTotal](./PositionsTotal.md)** - **count** of currently open positions.
+* **[OpenedOrders](./OpenedOrders.md)** - **full details** of all open positions and pending orders.
+* **[OpenedOrdersTickets](./OpenedOrdersTickets.md)** - **ticket numbers only** for positions and orders (lightweight).
+* **[OrderHistory](./OrderHistory.md)** - **historical orders** within a time range.
+* **[PositionsHistory](./PositionsHistory.md)** - **historical deals** (executed positions) within a time range.
 
 ---
 
@@ -40,7 +40,7 @@
 
 * **Positions vs Orders**: Position = open trade; Pending Order = not yet executed.
 * **OpenedOrders** returns BOTH positions and pending orders in one call.
-* **OpenedOrdersTickets** is lightweight — use for change detection, then query full details if needed.
+* **OpenedOrdersTickets** is lightweight - use for change detection, then query full details if needed.
 * **OrderHistory** shows order lifecycle (placed, modified, filled, canceled).
 * **PositionsHistory** shows actual trade executions (deals) with profit/loss.
 * **Time range** for history queries must be within broker's history limit.
@@ -153,6 +153,6 @@ for (var order : orders) {
 
 ## See also
 
-* **Subscriptions:** [`OnTrade`](../6.%20Subscriptions/OnTrade.md) — real-time position/order changes
-* **Subscriptions:** [`OnPositionsAndPendingOrdersTickets`](../6.%20Subscriptions/OnPositionsAndPendingOrdersTickets.md) — real-time ticket tracking
+* **Subscriptions:** [`OnTrade`](../6.%20Subscriptions/OnTrade.md) - real-time position/order changes
+* **Subscriptions:** [`OnPositionsAndPendingOrdersTickets`](../6.%20Subscriptions/OnPositionsAndPendingOrdersTickets.md) - real-time ticket tracking
 * **Trading actions:** [`OrderSend`](../5.%20Trading/OrderSend.md), [`OrderClose`](../5.%20Trading/OrderClose.md)

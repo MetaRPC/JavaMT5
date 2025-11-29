@@ -3,6 +3,7 @@
 ## Problem: Channels and Streams Don't Close Automatically
 
 When working with gRPC streaming in JavaMT5, two main issues occur:
+
 1. **gRPC channels** remain open after the program finishes
 2. **Stream subscriptions** (onSymbolTick, onTrade, etc.) continue running even after exiting the method
 
@@ -573,14 +574,9 @@ All orchestrators and presets in JavaMT5 follow the correct cleanup pattern thro
 - ✅ Presets (1-2) automatically clean up resources
 - ✅ You don't need to manually handle cleanup when using `run.bat`
 
-**See:** [Program.java](../src/main/java/Program.java) lines 188-190, 220-223, 300-302, 323-326
-
 ---
 
 ## See Also
 
 - **[RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md)** - How to run examples + troubleshooting
-- **[Program.java](../src/main/java/Program.java)** - Resource cleanup implementation for orchestrators/presets
-- **[MT5Account.java](../src/main/java/io/metarpc/mt5/MT5Account.java)** - lines 1901-1908 (close() method)
-- **[StreamingExample.java](../src/main/java/examples/lowlevel/StreamingExample.java)** - stream usage examples
 - **[GLOSSARY.md](./GLOSSARY.md)** - See "target/ Folder" for build troubleshooting

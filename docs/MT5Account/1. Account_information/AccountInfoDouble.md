@@ -33,6 +33,7 @@ public class MT5Account {
 ```
 
 **Request message:** `AccountInfoDoubleRequest { property_id: AccountInfoDoublePropertyType }`
+
 **Reply message:** `AccountInfoDoubleReply { data: AccountInfoDoubleData }` or `{ error: Error }`
 
 ---
@@ -45,7 +46,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `AccountInfoDoubleData`
+## ⬆️ Output - `AccountInfoDoubleData`
 
 | Field            | Type     | Description                 |
 | ---------------- | -------- | --------------------------- |
@@ -59,22 +60,22 @@ Access the value using `reply.getData().getRequestedValue()`.
 
 ### `AccountInfoDoublePropertyType`
 
-| Enum Value                   | Value | Description                                                                                                                       | MQL5 Docs                                                     |
-| ---------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `ACCOUNT_BALANCE`            | 0     | Account balance in the deposit currency                                                                                           | [AccountInfoDouble](https://www.mql5.com/en/docs/account/accountinfodouble) |
-| `ACCOUNT_CREDIT`             | 1     | Account credit in the deposit currency                                                                                            |                                                               |
-| `ACCOUNT_PROFIT`             | 2     | Current profit of an account in the deposit currency                                                                              |                                                               |
-| `ACCOUNT_EQUITY`             | 3     | Account equity in the deposit currency (Balance + Profit)                                                                         |                                                               |
-| `ACCOUNT_MARGIN`             | 4     | Account margin used in the deposit currency                                                                                       |                                                               |
-| `ACCOUNT_MARGIN_FREE`        | 5     | Free margin of an account in the deposit currency                                                                                 |                                                               |
-| `ACCOUNT_MARGIN_LEVEL`       | 6     | Account margin level in percents                                                                                                  |                                                               |
-| `ACCOUNT_MARGIN_SO_CALL`     | 7     | Margin call level. Depending on the set ACCOUNT_MARGIN_SO_MODE is expressed in percents or in the deposit currency               |                                                               |
-| `ACCOUNT_MARGIN_SO_SO`       | 8     | Margin stop out level. Depending on the set ACCOUNT_MARGIN_SO_MODE is expressed in percents or in the deposit currency           |                                                               |
-| `ACCOUNT_MARGIN_INITIAL`     | 9     | Initial margin. The amount reserved on an account to cover the margin of all pending orders                                       |                                                               |
-| `ACCOUNT_MARGIN_MAINTENANCE` | 10    | Maintenance margin. The minimum equity reserved on an account to cover the minimum amount of all open positions                   |                                                               |
-| `ACCOUNT_ASSETS`             | 11    | The current assets of an account                                                                                                  |                                                               |
-| `ACCOUNT_LIABILITIES`        | 12    | The current liabilities on an account                                                                                             |                                                               |
-| `ACCOUNT_COMMISSION_BLOCKED` | 13    | The current blocked commission amount on an account                                                                               |                                                               |
+| Enum Value                   | Value | Description                                                                                                                       |
+| ---------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `ACCOUNT_BALANCE`            | 0     | Account balance in the deposit currency                                                                                           |
+| `ACCOUNT_CREDIT`             | 1     | Account credit in the deposit currency                                                                                            |
+| `ACCOUNT_PROFIT`             | 2     | Current profit of an account in the deposit currency                                                                              |
+| `ACCOUNT_EQUITY`             | 3     | Account equity in the deposit currency (Balance + Profit)                                                                         |
+| `ACCOUNT_MARGIN`             | 4     | Account margin used in the deposit currency                                                                                       |
+| `ACCOUNT_MARGIN_FREE`        | 5     | Free margin of an account in the deposit currency                                                                                 |
+| `ACCOUNT_MARGIN_LEVEL`       | 6     | Account margin level in percents                                                                                                  |
+| `ACCOUNT_MARGIN_SO_CALL`     | 7     | Margin call level. Depending on the set ACCOUNT_MARGIN_SO_MODE is expressed in percents or in the deposit currency               |
+| `ACCOUNT_MARGIN_SO_SO`       | 8     | Margin stop out level. Depending on the set ACCOUNT_MARGIN_SO_MODE is expressed in percents or in the deposit currency           |
+| `ACCOUNT_MARGIN_INITIAL`     | 9     | Initial margin. The amount reserved on an account to cover the margin of all pending orders                                       |
+| `ACCOUNT_MARGIN_MAINTENANCE` | 10    | Maintenance margin. The minimum equity reserved on an account to cover the minimum amount of all open positions                   |
+| `ACCOUNT_ASSETS`             | 11    | The current assets of an account                                                                                                  |
+| `ACCOUNT_LIABILITIES`        | 12    | The current liabilities on an account                                                                                             |
+| `ACCOUNT_COMMISSION_BLOCKED` | 13    | The current blocked commission amount on an account                                                                               |
 
 ---
 
@@ -82,7 +83,7 @@ Access the value using `reply.getData().getRequestedValue()`.
 
 * **What it is.** Single RPC returning one specific `double` property of the account.
 * **Why you need it.** When you only need one property (e.g., margin level before placing an order) instead of fetching the full account summary.
-* **Performance.** Lightweight call — ideal for frequent checks of specific properties.
+* **Performance.** Lightweight call - ideal for frequent checks of specific properties.
 * **Alternative.** Use `accountSummary()` if you need multiple properties at once.
 
 ---
@@ -100,7 +101,7 @@ Use this method when you need to:
 
 ## 🧩 Notes & Tips
 
-* Prefer `accountSummary()` if you need multiple properties — it's more efficient to fetch all data in one call.
+* Prefer `accountSummary()` if you need multiple properties - it's more efficient to fetch all data in one call.
 * The method uses automatic reconnection via `executeWithReconnect()` to handle transient gRPC errors.
 * All exceptions are wrapped in `ApiExceptionMT5` for consistent error handling.
 * For UI dashboards displaying multiple properties, use `accountSummary()` instead.

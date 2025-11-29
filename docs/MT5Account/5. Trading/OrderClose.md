@@ -37,6 +37,7 @@ public class MT5Account {
 ```
 
 **Request message:** `OrderCloseRequest { ticket, volume, slippage }`
+
 **Reply message:** `OrderCloseReply { data: OrderCloseData }` or `{ error: Error }`
 
 ---
@@ -56,7 +57,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OrderCloseData`
+## ⬆️ Output - `OrderCloseData`
 
 | Field                      | Type                      | Description                                          |
 | -------------------------- | ------------------------- | ---------------------------------------------------- |

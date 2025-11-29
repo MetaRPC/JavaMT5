@@ -7,7 +7,7 @@
 * **Sugar method:** `MT5Sugar.sellMarket(String symbol, double volume, Double stopLoss, Double takeProfit)`
 * **Sugar method (with comment):** `MT5Sugar.sellMarket(String symbol, double volume, Double stopLoss, Double takeProfit, String comment)`
 * **Underlying methods:**
-  - [`MT5Service.orderSend()`](../../MT5Account/5.%20Trading/OrderSend.md) - low-level order placement
+  - `MT5Service.orderSend()` - low-level order placement
   - [`ensureSymbolSelected()`](../1.%20Symbol_helpers/ensureSymbolSelected.md) - auto symbol selection
   - [`normalizeVolume()`](../1.%20Symbol_helpers/normalizeVolume.md) - auto volume normalization
 * **Source:** MT5Sugar convenience layer

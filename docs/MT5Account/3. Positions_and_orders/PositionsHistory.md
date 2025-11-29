@@ -43,6 +43,7 @@ public class MT5Account {
 ```
 
 **Request message:** `PositionsHistoryRequest { sort_type, position_open_time_from?, position_open_time_to?, page_number?, items_per_page? }`
+
 **Reply message:** `PositionsHistoryReply { data: PositionsHistoryData }` or `{ error: Error }`
 
 ---
@@ -68,7 +69,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `PositionsHistoryData`
+## ⬆️ Output - `PositionsHistoryData`
 
 | Field                | Type                           | Description                                          |
 | -------------------- | ------------------------------ | ---------------------------------------------------- |

@@ -1,21 +1,21 @@
-# MT5Sugar · Symbol Helpers — Overview
+# MT5Sugar · Symbol Helpers - Overview
 
 > Convenience methods for working with symbol properties, prices, and calculations. Simplifies common symbol operations that would otherwise require multiple low-level calls.
 
 ## 📁 What lives here
 
-* **[ensureSymbolSelected](./ensureSymbolSelected.md)** — ensure symbol is available for trading (auto-select if needed).
-* **[getPoint](./getPoint.md)** — get point size (smallest price increment).
-* **[getDigits](./getDigits.md)** — get decimal places for symbol.
-* **[getSpread](./getSpread.md)** — get current spread in **points**.
-* **[getSpreadPrice](./getSpreadPrice.md)** — get current spread in **price units** (Ask - Bid).
-* **[normalizePrice](./normalizePrice.md)** — round price to symbol's decimal precision.
-* **[normalizeVolume](./normalizeVolume.md)** — adjust volume to symbol's min/max/step constraints.
-* **[getBid](./getBid.md)** — get current Bid (SELL) price in one call.
-* **[getAsk](./getAsk.md)** — get current Ask (BUY) price in one call.
-* **[pointsToPrice](./pointsToPrice.md)** — convert points offset to price (direction-aware).
-* **[priceFromOffsetPoints](./priceFromOffsetPoints.md)** — calculate price from current with offset (simple addition).
-* **[pointsToPips](./pointsToPips.md)** — convert points to pips (handles 5-digit vs 3-digit brokers).
+* **[ensureSymbolSelected](./ensureSymbolSelected.md)** - ensure symbol is available for trading (auto-select if needed).
+* **[getPoint](./getPoint.md)** - get point size (smallest price increment).
+* **[getDigits](./getDigits.md)** - get decimal places for symbol.
+* **[getSpread](./getSpread.md)** - get current spread in **points**.
+* **[getSpreadPrice](./getSpreadPrice.md)** - get current spread in **price units** (Ask - Bid).
+* **[normalizePrice](./normalizePrice.md)** - round price to symbol's decimal precision.
+* **[normalizeVolume](./normalizeVolume.md)** - adjust volume to symbol's min/max/step constraints.
+* **[getBid](./getBid.md)** - get current Bid (SELL) price in one call.
+* **[getAsk](./getAsk.md)** - get current Ask (BUY) price in one call.
+* **[pointsToPrice](./pointsToPrice.md)** - convert points offset to price (direction-aware).
+* **[priceFromOffsetPoints](./priceFromOffsetPoints.md)** - calculate price from current with offset (simple addition).
+* **[pointsToPips](./pointsToPips.md)** - convert points to pips (handles 5-digit vs 3-digit brokers).
 
 ---
 

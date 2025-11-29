@@ -36,7 +36,7 @@ public class MT5Account {
 
 ---
 
-## 🔽 Input — `OnTradeTransactionRequest`
+## 🔽 Input - `OnTradeTransactionRequest`
 
 | Parameter | Type | Required | Description                              |
 | --------- | ---- | -------- | ---------------------------------------- |
@@ -44,7 +44,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OnTradeTransactionData` (stream)
+## ⬆️ Output - `OnTradeTransactionData` (stream)
 
 Each transaction event contains:
 

@@ -76,10 +76,15 @@ nav:
 
   - Guides:
     - Getting Started: GETTING_STARTED.md
+    - Running Examples: RUNNING_EXAMPLES.md
     - Project Map: PROJECT_MAP.md
     - MT5Account — Overview: MT5Account/MT5Account.Master.Overview.md
     - MT5Sugar — Overview: MT5Sugar/MT5Sugar.Overview.md
     - Glossary: GLOSSARY.md
     - Orchestrators — Overview: Orchestrators.Overview.md
     - gRPC Channel Management: GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN.md
-    - Troubleshooting (RU): TROUBLESHOOTING_RU.md
+
+  - API Reference:
+    - MT5Account: api/MT5Account.md
+    - MT5Service: api/MT5Service.md
+    - MT5Sugar: api/MT5Sugar.md

@@ -1,15 +1,15 @@
-# MT5Account · Trading — Overview
+# MT5Account · Trading - Overview
 
 > Order execution, position management, margin calculations, and trade validation. Use this page to choose the right API for trading operations and pre-trade calculations.
 
 ## 📁 What lives here
 
-* **[OrderSend](./OrderSend.md)** — **place orders** (market or pending) to open positions.
-* **[OrderModify](./OrderModify.md)** — **modify** existing positions or pending orders (SL/TP/price/expiration).
-* **[OrderClose](./OrderClose.md)** — **close positions** or delete pending orders (full or partial).
-* **[OrderCalcMargin](./OrderCalcMargin.md)** — **calculate margin** required for a trade (pre-trade check).
-* **[OrderCalcProfit](./OrderCalcProfit.md)** — **calculate profit/loss** for a trade scenario (risk/reward analysis).
-* **[OrderCheck](./OrderCheck.md)** — **validate trade request** before sending (check funds, margin, parameters).
+* **[OrderSend](./OrderSend.md)** - **place orders** (market or pending) to open positions.
+* **[OrderModify](./OrderModify.md)** - **modify** existing positions or pending orders (SL/TP/price/expiration).
+* **[OrderClose](./OrderClose.md)** - **close positions** or delete pending orders (full or partial).
+* **[OrderCalcMargin](./OrderCalcMargin.md)** - **calculate margin** required for a trade (pre-trade check).
+* **[OrderCalcProfit](./OrderCalcProfit.md)** - **calculate profit/loss** for a trade scenario (risk/reward analysis).
+* **[OrderCheck](./OrderCheck.md)** - **validate trade request** before sending (check funds, margin, parameters).
 
 ---
 
@@ -166,8 +166,8 @@ System.out.printf("Risk/Reward: 1:%.2f%n", riskReward);
 
 ## See also
 
-* **Subscriptions:** [`OnTrade`](../6.%20Subscriptions/OnTrade.md) — real-time trade execution events
-* **Subscriptions:** [`OnTradeTransaction`](../6.%20Subscriptions/OnTradeTransaction.md) — detailed transaction log
-* **Positions:** [`OpenedOrders`](../3.%20Positions_and_orders/OpenedOrders.md) — view current positions
-* **Account:** [`AccountSummary`](../1.%20Account_information/AccountSummary.md) — check available margin
-* **Symbol info:** [`SymbolInfoDouble`](../2.%20Symbol_information/SymbolInfoDouble.md) — get stops level, min volume
+* **Subscriptions:** [`OnTrade`](../6.%20Subscriptions/OnTrade.md) - real-time trade execution events
+* **Subscriptions:** [`OnTradeTransaction`](../6.%20Subscriptions/OnTradeTransaction.md) - detailed transaction log
+* **Positions:** [`OpenedOrders`](../3.%20Positions_and_orders/OpenedOrders.md) - view current positions
+* **Account:** [`AccountSummary`](../1.%20Account_information/AccountSummary.md) - check available margin
+* **Symbol info:** [`SymbolInfoDouble`](../2.%20Symbol_information/SymbolInfoDouble.md) - get stops level, min volume

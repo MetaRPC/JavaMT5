@@ -34,6 +34,7 @@ public class MT5Account {
 ```
 
 **Request message:** `OpenedOrdersRequest { inputSortMode: BMT5_ENUM_OPENED_ORDER_SORT_TYPE }`
+
 **Reply message:** `OpenedOrdersReply { data: OpenedOrdersData }` or `{ error: Error }`
 
 ---
@@ -46,7 +47,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OpenedOrdersData`
+## ⬆️ Output - `OpenedOrdersData`
 
 | Field            | Type                      | Description                                |
 | ---------------- | ------------------------- | ------------------------------------------ |

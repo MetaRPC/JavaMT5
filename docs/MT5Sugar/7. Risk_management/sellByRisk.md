@@ -8,7 +8,7 @@
 * **Underlying methods:**
   - [`calculateVolume()`](./calculateVolume.md) - calculate position size
   - [`sellMarket()`](../2.%20Market_orders/sellMarket.md) - place order
-  - [`getPoint()`](../1.%20Symbol_helpers/getPoint.md), [`symbolInfoTick()`](../../MT5Account/2.%20Market_information/SymbolInfoTick.md)
+  - [`getPoint()`](../1.%20Symbol_helpers/getPoint.md), `symbolInfoTick()` - get current prices
 * **Source:** MT5Sugar convenience layer
 
 ---

@@ -1,13 +1,13 @@
-# MT5Account · Account Information — Overview
+# MT5Account · Account Information - Overview
 
 > Account balance, equity, margin, leverage, currency, and other account properties. Use this page to choose the right API for accessing account state.
 
 ## 📁 What lives here
 
-* **[AccountSummary](./AccountSummary.md)** — **all account info** at once (balance, equity, margin, leverage, profit, etc.).
-* **[AccountInfoDouble](./AccountInfoDouble.md)** — **single double value** from account (balance, equity, margin, profit, credit, etc.).
-* **[AccountInfoInteger](./AccountInfoInteger.md)** — **single integer value** from account (login, leverage, limit orders, etc.).
-* **[AccountInfoString](./AccountInfoString.md)** — **single string value** from account (name, server, currency, company).
+* **[AccountSummary](./AccountSummary.md)** - **all account info** at once (balance, equity, margin, leverage, profit, etc.).
+* **[AccountInfoDouble](./AccountInfoDouble.md)** - **single double value** from account (balance, equity, margin, profit, credit, etc.).
+* **[AccountInfoInteger](./AccountInfoInteger.md)** - **single integer value** from account (login, leverage, limit orders, etc.).
+* **[AccountInfoString](./AccountInfoString.md)** - **single string value** from account (name, server, currency, company).
 
 ---
 
@@ -35,12 +35,12 @@
 
 ## ❌ Cross‑refs & gotchas
 
-* **Margin Level** = (Equity / Margin) × 100 — watch for stop-out level.
-* **Free Margin** = Equity - Margin — available for new positions.
+* **Margin Level** = (Equity / Margin) × 100 - watch for stop-out level.
+* **Free Margin** = Equity - Margin - available for new positions.
 * **AccountSummary** includes everything; use it for dashboards.
 * **AccountInfo*** methods are lighter if you only need one property.
-* **Currency** affects how profits are calculated — always check account currency.
-* **Leverage** determines margin requirements — higher leverage = less margin needed.
+* **Currency** affects how profits are calculated - always check account currency.
+* **Leverage** determines margin requirements - higher leverage = less margin needed.
 
 ---
 
@@ -96,6 +96,6 @@ if (equity < balance * 0.8) {
 
 ## See also
 
-* **Subscriptions:** [`OnPositionProfit`](../6.%20Subscriptions/OnPositionProfit.md) — real-time equity/profit updates
-* **Trading calculations:** [`OrderCalcMargin`](../5.%20Trading/OrderCalcMargin.md) — calculate required margin before trading
-* **Positions:** [`PositionsTotal`](../3.%20Positions_and_orders/PositionsTotal.md) — count open positions
+* **Subscriptions:** [`OnPositionProfit`](../6.%20Subscriptions/OnPositionProfit.md) - real-time equity/profit updates
+* **Trading calculations:** [`OrderCalcMargin`](../5.%20Trading/OrderCalcMargin.md) - calculate required margin before trading
+* **Positions:** [`PositionsTotal`](../3.%20Positions_and_orders/PositionsTotal.md) - count open positions

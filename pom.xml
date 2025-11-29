@@ -80,7 +80,7 @@
                 </executions>
             </plugin>
 
-            <!-- Javadoc JAR -->
+            <!-- Javadoc JAR and HTML generation -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -88,6 +88,19 @@
                 <configuration>
                     <source>11</source>
                     <doclint>none</doclint>
+                    <show>public</show>
+                    <doctitle>JavaMT5 API Documentation</doctitle>
+                    <windowtitle>JavaMT5 API</windowtitle>
+                    <author>true</author>
+                    <version>true</version>
+                    <use>true</use>
+                    <noqualifier>all</noqualifier>
+                    <sourceFileExcludes>
+                        <exclude>**/package-info.java</exclude>
+                        <exclude>**/examples/**</exclude>
+                        <exclude>**/orchestrators/**</exclude>
+                        <exclude>**/presets/**</exclude>
+                    </sourceFileExcludes>
                 </configuration>
                 <executions>
                     <execution>

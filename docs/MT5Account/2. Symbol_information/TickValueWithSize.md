@@ -32,6 +32,7 @@ public class MT5Account {
 ```
 
 **Request message:** `TickValueWithSizeRequest { symbol_names: repeated string }`
+
 **Reply message:** `TickValueWithSizeReply { data: TickValueWithSizeData }` or `{ error: Error }`
 
 ---
@@ -44,7 +45,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `TickValueWithSizeData`
+## ⬆️ Output - `TickValueWithSizeData`
 
 | Field                    | Type                       | Description                                          |
 | ------------------------ | -------------------------- | ---------------------------------------------------- |
@@ -640,27 +641,31 @@ List<Mt5TermApiAccountHelper.TickSizeSymbol> tickInfos =
 
 ## 📊 Understanding Tick Values
 
-**Tick Value:**
+### Tick Value:
+
 - Cost of one minimum price change (tick) in your account currency
 - Used to calculate profit/loss from price movements
 - Different for each symbol and account currency
 
-**Tick Size:**
+### Tick Size:
+
 - Minimum price change for the symbol
 - Example: EURUSD = 0.00001 (1 point)
 - Used to validate prices and count ticks
 
-**Contract Size:**
+### Contract Size:
+
 - Size of one standard lot
 - Forex: typically 100,000 units of base currency
 - CFDs/Futures: varies by instrument
 
-**Profit/Loss Tick Values:**
+### Profit/Loss Tick Values:
+
 - Some instruments have different tick values for profit vs loss direction
 - Usually same for forex, different for some CFDs/futures
 - Use appropriate value for accurate P/L calculations
 
-**Key Formulas:**
+### Key Formulas:
 
 ```java
 // Calculate profit/loss
@@ -675,7 +680,8 @@ pipValue = tickValue * ticksPerPip;
 lotSize = riskAmount / (stopLossPips * pipValue);
 ```
 
-**Common Pip Sizes:**
+### Common Pip Sizes:
+
 - Most forex pairs: 0.0001 (4 decimals)
 - JPY pairs: 0.01 (2 decimals)
 - Some brokers show 5 decimal places (pipettes)

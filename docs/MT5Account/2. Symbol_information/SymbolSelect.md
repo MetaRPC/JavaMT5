@@ -33,6 +33,7 @@ public class MT5Account {
 ```
 
 **Request message:** `SymbolSelectRequest { symbol: string, select: bool }`
+
 **Reply message:** `SymbolSelectReply { data: SymbolSelectData }` or `{ error: Error }`
 
 ---
@@ -46,7 +47,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `SymbolSelectData`
+## ⬆️ Output - `SymbolSelectData`
 
 | Field     | Type      | Description                                       |
 | --------- | --------- | ------------------------------------------------- |

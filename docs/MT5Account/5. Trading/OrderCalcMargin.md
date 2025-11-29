@@ -59,7 +59,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OrderCalcMarginData`
+## ⬆️ Output - `OrderCalcMarginData`
 
 | Field    | Type     | Description                                          |
 | -------- | -------- | ---------------------------------------------------- |

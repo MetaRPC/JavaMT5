@@ -32,6 +32,7 @@ public class MT5Account {
 ```
 
 **Request message:** `AccountSummaryRequest {}`
+
 **Reply message:** `AccountSummaryReply { data: AccountSummaryData }` or `{ error: Error }`
 
 ---
@@ -44,7 +45,7 @@ The method automatically uses connection metadata (instance ID) established duri
 
 ---
 
-## ⬆️ Output — `AccountSummaryData`
+## ⬆️ Output - `AccountSummaryData`
 
 | Field                                | Type                         | Description                                       |
 | ------------------------------------ | ---------------------------- | ------------------------------------------------- |
@@ -100,7 +101,7 @@ Use it to display real‑time account state and sanity‑check connectivity:
 * All gRPC exceptions are converted to `ApiExceptionMT5` for consistent error handling.
 * Use this method instead of multiple individual property calls when you need complete account state.
 * The method is thread-safe and can be called from multiple threads.
-* Server time is returned as protobuf `Timestamp` — convert using `timestamp.getSeconds()` for Unix timestamp.
+* Server time is returned as protobuf `Timestamp` - convert using `timestamp.getSeconds()` for Unix timestamp.
 
 ---
 

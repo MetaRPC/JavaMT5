@@ -32,6 +32,7 @@ public class MT5Account {
 ```
 
 **Request message:** `SymbolExistRequest { name: string }`
+
 **Reply message:** `SymbolExistReply { data: SymbolExistData }` or `{ error: Error }`
 
 ---
@@ -44,7 +45,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `SymbolExistData`
+## ⬆️ Output - `SymbolExistData`
 
 | Field       | Type      | Description                                                           |
 | ----------- | --------- | --------------------------------------------------------------------- |

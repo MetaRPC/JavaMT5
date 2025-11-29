@@ -134,11 +134,13 @@ Every `run.bat` command does:
 mvnd compile exec:java -Dexec.args="<your arguments>"
 ```
 
-This means:
+### This means:
+
 1. **`mvnd compile`** - Compile all Java files
    - Generate protobuf files (if needed)
    - Compile all `.java` files to `.class` files
    - Put everything in `target/classes/`
+
 2. **`exec:java`** - Execute `Program.java` main method
    - Pass your arguments (e.g., `"10 1"`)
    - Program.java routes to the correct example/orchestrator/preset
@@ -251,33 +253,52 @@ rm -rf target
 
 ### What is `target/` Folder?
 
-The `target/` folder is where Maven puts all compiled files:
+The `target/` folder is where Maven puts **your** compiled files:
 
 ```
 target/
-├── classes/                          # Your compiled .class files
+├── classes/                          # Only YOUR compiled code
 │   ├── Program.class
-│   ├── io/metarpc/mt5/
+│   ├── io/metarpc/mt5/              # YOUR wrappers (MT5Account, MT5Service, MT5Sugar)
 │   │   ├── MT5Account.class
 │   │   ├── MT5Service.class
 │   │   └── MT5Sugar.class
-│   ├── examples/
-│   ├── orchestrators/
-│   └── presets/
+│   ├── examples/                     # YOUR examples
+│   ├── orchestrators/                # YOUR orchestrators
+│   └── presets/                      # YOUR presets
 └── maven-status/                     # Maven build metadata
 ```
 
-**Important:** Proto classes (`mt5_term_api.*`) are **NOT** in `target/`. They come from the pre-compiled MetaRPC library downloaded from JitPack and stored in your Maven cache (`~/.m2/repository/`).
+**Important:** This shows ONLY your local code that gets compiled from `src/main/java/`.
+
+**Proto classes are NOT here!** The gRPC proto classes (`mt5_term_api.*`, `mrpc.*`) come from the pre-compiled MetaRPC JAR downloaded from JitPack and stored in your Maven cache:
+
+```
+~/.m2/repository/com/github/MetaRPC/JavaMT5/-SNAPSHOT/
+└── JavaMT5--SNAPSHOT.jar            # Contains all proto-generated classes
+    ├── mt5_term_api/                # Proto classes (NOT in your target/)
+    │   ├── AccountInformation$...class
+    │   ├── Connection$...class
+    │   ├── TradeFunctions$...class
+    │   └── ...
+    └── mrpc/
+        └── ...
+```
+
+Your code (`MT5Account`, `MT5Service`, `MT5Sugar`) imports these proto classes from the JAR, not from `target/`.
 
 ### Build Steps (What `mvnd compile` Does)
 
 1. **Download dependencies** (first run only)
-   - MetaRPC library from JitPack
-   - gRPC, Protobuf, Gson
-   - Cached in `~/.m2/repository/`
+   - MetaRPC JAR from JitPack (contains all proto classes)
+   - gRPC runtime, Protobuf runtime, Gson
+   - All cached in `~/.m2/repository/`
+   - **Your code does NOT compile proto files** - they're already compiled in the JAR!
 
-2. **Compile your code**
-   - `src/main/java/**/*.java` → `target/classes/*.class`
+2. **Compile only YOUR local code**
+   - `src/main/java/**/*.java` → `target/classes/**/*.class`
+   - This includes: MT5Account, MT5Service, MT5Sugar, examples, orchestrators, presets
+   - Proto classes are imported from the MetaRPC JAR, not compiled locally
 
 3. **Copy resources**
    - `appsettings.json` → `target/classes/`

@@ -37,7 +37,7 @@ public class MT5Account {
 
 ---
 
-## 🔽 Input — `OnSymbolTickRequest`
+## 🔽 Input - `OnSymbolTickRequest`
 
 | Parameter      | Type       | Required | Description                                          |
 | -------------- | ---------- | -------- | ---------------------------------------------------- |
@@ -45,7 +45,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `MrpcSubscriptionMqlTick` (stream)
+## ⬆️ Output - `MrpcSubscriptionMqlTick` (stream)
 
 Each tick event contains:
 

@@ -1,12 +1,12 @@
-# MT5Account · Market Depth (DOM) — Overview
+# MT5Account · Market Depth (DOM) - Overview
 
 > Level II quotes, order book data, market depth subscription. Use this page to choose the right API for accessing deep market liquidity information.
 
 ## 📁 What lives here
 
-* **[MarketBookAdd](./MarketBookAdd.md)** — **subscribe** to Market Depth (DOM/Level II) for a symbol.
-* **[MarketBookGet](./MarketBookGet.md)** — **retrieve** current order book data for a subscribed symbol.
-* **[MarketBookRelease](./MarketBookRelease.md)** — **unsubscribe** from Market Depth updates.
+* **[MarketBookAdd](./MarketBookAdd.md)** - **subscribe** to Market Depth (DOM/Level II) for a symbol.
+* **[MarketBookGet](./MarketBookGet.md)** - **retrieve** current order book data for a subscribed symbol.
+* **[MarketBookRelease](./MarketBookRelease.md)** - **unsubscribe** from Market Depth updates.
 
 ---
 
@@ -121,6 +121,6 @@ try {
 
 ## See also
 
-* **Symbol info:** [`SymbolInfoTick`](../2.%20Symbol_information/SymbolInfoTick.md) — Level I quotes (bid/ask only)
-* **Subscriptions:** [`OnSymbolTick`](../6.%20Subscriptions/OnSymbolTick.md) — real-time price stream
-* **Trading:** [`OrderSend`](../5.%20Trading/OrderSend.md) — place orders based on liquidity analysis
+* **Symbol info:** [`SymbolInfoTick`](../2.%20Symbol_information/SymbolInfoTick.md) - Level I quotes (bid/ask only)
+* **Subscriptions:** [`OnSymbolTick`](../6.%20Subscriptions/OnSymbolTick.md) - real-time price stream
+* **Trading:** [`OrderSend`](../5.%20Trading/OrderSend.md) - place orders based on liquidity analysis

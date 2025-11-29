@@ -34,11 +34,12 @@ public class MT5Account {
 ```
 
 **Request message:** `OrderSendRequest { symbol, operation, volume, price?, slippage?, stop_loss?, take_profit?, comment?, expert_id?, stop_limit_price?, expiration_time_type?, expiration_time? }`
+
 **Reply message:** `OrderSendReply { data: OrderSendData }` or `{ error: Error }`
 
 ---
 
-## 🔽 Input — `OrderSendRequest`
+## 🔽 Input - `OrderSendRequest`
 
 | Parameter              | Type                          | Required | Description                                          |
 | ---------------------- | ----------------------------- | -------- | ---------------------------------------------------- |
@@ -80,7 +81,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OrderSendData`
+## ⬆️ Output - `OrderSendData`
 
 | Field                | Type     | Description                                          |
 | -------------------- | -------- | ---------------------------------------------------- |
@@ -95,11 +96,13 @@ public class MT5Account {
 | `request_id`         | `int`    | Request ID set by terminal                           |
 | `ret_code_external`  | `int`    | External trading system return code                  |
 
-**Success Return Codes:**
+### Success Return Codes:
+
 - `10009` - TRADE_RETCODE_DONE - Request completed successfully
 - `10008` - TRADE_RETCODE_PLACED - Order placed successfully
 
-**Common Error Codes:**
+### Common Error Codes:
+
 - `10004` - TRADE_RETCODE_REJECT - Request rejected
 - `10006` - TRADE_RETCODE_REQUOTE - Requote
 - `10013` - TRADE_RETCODE_INVALID - Invalid request
@@ -707,23 +710,27 @@ if (data.getReturnedCode() == 10009) {
 
 ## 📊 Order Types Guide
 
-**Market Orders (Instant Execution):**
+### Market Orders (Instant Execution):
+
 - **BUY** - Buy at current Ask price
 - **SELL** - Sell at current Bid price
 
-**Pending Orders (Activated at Price):**
+### Pending Orders (Activated at Price):
+
 - **BUY LIMIT** - Buy when price drops to limit (below current)
 - **SELL LIMIT** - Sell when price rises to limit (above current)
 - **BUY STOP** - Buy when price breaks above stop (above current)
 - **SELL STOP** - Sell when price breaks below stop (below current)
 
-**Slippage:**
+### Slippage:
+
 - Measured in points (not pips)
 - For EURUSD: 10 points = 1 pip
 - 0 = no slippage allowed (may cause rejections)
 - 10-50 typical for market orders
 
-**Return Codes:**
+### Return Codes:
+
 - `10009` - DONE - Order executed
 - `10008` - PLACED - Pending order placed
 - `10004` - REJECT - Request rejected

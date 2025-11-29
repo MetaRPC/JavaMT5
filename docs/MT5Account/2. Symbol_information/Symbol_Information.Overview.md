@@ -1,19 +1,19 @@
-# MT5Account · Symbol Information — Overview
+# MT5Account · Symbol Information - Overview
 
 > Symbol properties, current quotes, trading rules, and symbol availability. Use this page to choose the right API for accessing market data and symbol parameters.
 
 ## 📁 What lives here
 
-* **[SymbolInfoTick](./SymbolInfoTick.md)** — **current quote** for a symbol (bid, ask, last, volume, time).
-* **[SymbolsTotal](./SymbolsTotal.md)** — **count** of available symbols (all or selected only).
-* **[SymbolName](./SymbolName.md)** — get **symbol name** by index position.
-* **[SymbolSelect](./SymbolSelect.md)** — **enable/disable** symbol in Market Watch.
-* **[SymbolExist](./SymbolExist.md)** — **check if symbol exists** on server.
-* **[SymbolIsSynchronized](./SymbolIsSynchronized.md)** — **check if symbol data** is synchronized.
-* **[SymbolInfoDouble](./SymbolInfoDouble.md)** — **single double property** (bid, ask, point, volume min/max, etc.).
-* **[SymbolInfoInteger](./SymbolInfoInteger.md)** — **single integer property** (digits, spread, stops level, etc.).
-* **[SymbolInfoString](./SymbolInfoString.md)** — **single string property** (description, base/profit currency, path).
-* **[TickValueWithSize](./TickValueWithSize.md)** — **batch tick values** for multiple symbols at once.
+* **[SymbolInfoTick](./SymbolInfoTick.md)** - **current quote** for a symbol (bid, ask, last, volume, time).
+* **[SymbolsTotal](./SymbolsTotal.md)** - **count** of available symbols (all or selected only).
+* **[SymbolName](./SymbolName.md)** - get **symbol name** by index position.
+* **[SymbolSelect](./SymbolSelect.md)** - **enable/disable** symbol in Market Watch.
+* **[SymbolExist](./SymbolExist.md)** - **check if symbol exists** on server.
+* **[SymbolIsSynchronized](./SymbolIsSynchronized.md)** - **check if symbol data** is synchronized.
+* **[SymbolInfoDouble](./SymbolInfoDouble.md)** - **single double property** (bid, ask, point, volume min/max, etc.).
+* **[SymbolInfoInteger](./SymbolInfoInteger.md)** - **single integer property** (digits, spread, stops level, etc.).
+* **[SymbolInfoString](./SymbolInfoString.md)** - **single string property** (description, base/profit currency, path).
+* **[TickValueWithSize](./TickValueWithSize.md)** - **batch tick values** for multiple symbols at once.
 
 ---
 
@@ -128,6 +128,6 @@ for (var tickValue : reply.getData().getTickValuesList()) {
 
 ## See also
 
-* **Subscriptions:** [`OnSymbolTick`](../6.%20Subscriptions/OnSymbolTick.md) — real-time price stream
+* **Subscriptions:** [`OnSymbolTick`](../6.%20Subscriptions/OnSymbolTick.md) - real-time price stream
 * **Trading calculations:** [`OrderCalcMargin`](../5.%20Trading/OrderCalcMargin.md), [`OrderCalcProfit`](../5.%20Trading/OrderCalcProfit.md)
-* **Market depth:** [`MarketBookAdd`](../4.%20Market_depth_DOM/MarketBookAdd.md) — Level II quotes
+* **Market depth:** [`MarketBookAdd`](../4.%20Market_depth_DOM/MarketBookAdd.md) - Level II quotes

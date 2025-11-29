@@ -33,6 +33,7 @@ public class MT5Account {
 ```
 
 **Request message:** `AccountInfoStringRequest { property_id: AccountInfoStringPropertyType }`
+
 **Reply message:** `AccountInfoStringReply { data: AccountInfoStringData }` or `{ error: Error }`
 
 ---
@@ -45,7 +46,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `AccountInfoStringData`
+## ⬆️ Output - `AccountInfoStringData`
 
 | Field            | Type     | Description                 |
 | ---------------- | -------- | --------------------------- |
@@ -59,12 +60,12 @@ Access the value using `reply.getData().getRequestedValue()`.
 
 ### `AccountInfoStringPropertyType`
 
-| Enum Value        | Value | Description                                      | MQL5 Docs                                                        |
-| ----------------- | ----- | ------------------------------------------------ | ---------------------------------------------------------------- |
-| `ACCOUNT_NAME`    | 0     | Client name (account holder name)                | [AccountInfoString](https://www.mql5.com/en/docs/account/accountinfostring) |
-| `ACCOUNT_SERVER`  | 1     | Trade server name (e.g., "CompanyName-Demo")     |                                                                  |
-| `ACCOUNT_CURRENCY`| 2     | Account currency (e.g., "USD", "EUR", "GBP")     |                                                                  |
-| `ACCOUNT_COMPANY` | 3     | Name of a company that serves the account        |                                                                  |
+| Enum Value        | Value | Description                                      |
+| ----------------- | ----- | ------------------------------------------------ |
+| `ACCOUNT_NAME`    | 0     | Client name (account holder name)                |
+| `ACCOUNT_SERVER`  | 1     | Trade server name (e.g., "CompanyName-Demo")     |
+| `ACCOUNT_CURRENCY`| 2     | Account currency (e.g., "USD", "EUR", "GBP")     |
+| `ACCOUNT_COMPANY` | 3     | Name of a company that serves the account        |
 
 ---
 
@@ -72,7 +73,7 @@ Access the value using `reply.getData().getRequestedValue()`.
 
 * **What it is.** Single RPC returning one specific `String` property of the account.
 * **Why you need it.** When you only need one string property (e.g., currency, server name) instead of fetching the full account summary.
-* **Performance.** Lightweight call — ideal for quick checks of specific text properties.
+* **Performance.** Lightweight call - ideal for quick checks of specific text properties.
 * **Alternative.** Use `accountSummary()` if you need multiple properties at once.
 
 ---
@@ -91,7 +92,7 @@ Use this method when you need to:
 
 ## 🧩 Notes & Tips
 
-* Prefer `accountSummary()` if you need multiple properties — it's more efficient to fetch all data in one call.
+* Prefer `accountSummary()` if you need multiple properties - it's more efficient to fetch all data in one call.
 * The method uses automatic reconnection via `executeWithReconnect()` to handle transient gRPC errors.
 * All exceptions are wrapped in `ApiExceptionMT5` for consistent error handling.
 * The method is thread-safe and can be called from multiple threads.

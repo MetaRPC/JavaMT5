@@ -32,6 +32,7 @@ public class MT5Account {
 ```
 
 **Request message:** `Empty {}` (no parameters)
+
 **Reply message:** `PositionsTotalReply { data: PositionsTotalData }` or `{ error: Error }`
 
 ---
@@ -42,7 +43,7 @@ No parameters required. The method automatically uses connection metadata (insta
 
 ---
 
-## ⬆️ Output — `PositionsTotalData`
+## ⬆️ Output - `PositionsTotalData`
 
 | Field   | Type  | Description                              |
 | ------- | ----- | ---------------------------------------- |

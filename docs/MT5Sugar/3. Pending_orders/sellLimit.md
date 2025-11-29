@@ -6,6 +6,7 @@
 
 * **Sugar method:** `MT5Sugar.sellLimit(String symbol, double volume, double price, Double stopLoss, Double takeProfit)`
 * **Underlying methods:**
+
   - [`MT5Service.orderSend()`](../../MT5Account/5.%20Trading/OrderSend.md) - low-level order placement
   - [`ensureSymbolSelected()`](../1.%20Symbol_helpers/ensureSymbolSelected.md) - auto symbol selection
   - [`normalizeVolume()`](../1.%20Symbol_helpers/normalizeVolume.md) - auto volume normalization
@@ -264,7 +265,7 @@ Current Bid: (1.12340)
    ↑
    | TP: below entry (1.12240)
    |
-Entry: (1.12390) — pending, waits for price to rise here
+Entry: (1.12390) - pending, waits for price to rise here
    |
    | SL: above entry (1.12440)
    ↓

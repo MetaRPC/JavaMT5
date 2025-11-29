@@ -35,7 +35,7 @@ public class MT5Account {
 
 ---
 
-## 🔽 Input — `MrpcMqlTradeRequest`
+## 🔽 Input - `MrpcMqlTradeRequest`
 
 | Parameter                     | Type                              | Required | Description                                          |
 | ----------------------------- | --------------------------------- | -------- | ---------------------------------------------------- |
@@ -102,7 +102,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `MrpcMqlTradeCheckResult`
+## ⬆️ Output - `MrpcMqlTradeCheckResult`
 
 | Field                 | Type     | Description                                          |
 | --------------------- | -------- | ---------------------------------------------------- |
@@ -581,13 +581,15 @@ boolean isValid = result.getReturnedCode() == 10009;
 
 ## 📌 Important Notes
 
-**Validation Results:**
+### Validation Results:
+
 - `returned_code = 10009` means order is valid
 - Other codes indicate errors (check `comment` field)
 - Validation does NOT place actual order
 - Results are estimates and may differ from actual execution
 
-**Financial Calculations:**
+### Financial Calculations:
+
 - `balance_after_deal` - estimated balance after trade
 - `equity_after_deal` - estimated equity after trade
 - `margin` - required margin for this trade
@@ -595,19 +597,22 @@ boolean isValid = result.getReturnedCode() == 10009;
 - `margin_level` - (equity / margin) × 100
 - `profit` - estimated floating profit
 
-**Use Cases:**
+### Use Cases:
+
 - Pre-trade validation before OrderSend
 - Position sizing calculators
 - Risk management checks
 - Margin requirement calculations
 - Portfolio analysis tools
 
-**Margin Level:**
+### Margin Level:
+
 - Above 100% = healthy account
 - Below 100% = approaching margin call
 - Below broker's stop-out level = positions may be closed
 
-**Best Practices:**
+### Best Practices:
+
 - Always validate before placing large orders
 - Check margin level stays above 200%
 - Factor in multiple open positions
@@ -615,14 +620,16 @@ boolean isValid = result.getReturnedCode() == 10009;
 - Combine with OrderCalcMargin for precise calculations
 - Validate all pending orders before placement
 
-**Limitations:**
+### Limitations:
+
 - Does not account for slippage
 - Does not include commission/swap
 - Estimates may differ from actual execution
 - Market conditions can change between check and order
 - Server-side validation may have additional rules
 
-**Common Return Codes:**
+### Common Return Codes:
+
 - `10009` - TRADE_RETCODE_DONE - Valid
 - `10019` - TRADE_RETCODE_NO_MONEY - Insufficient funds
 - `10004` - TRADE_RETCODE_REJECT - Request rejected

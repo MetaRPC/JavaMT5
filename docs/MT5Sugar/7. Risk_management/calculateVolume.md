@@ -237,5 +237,5 @@ Normalized to 0.10 lots (broker limits)
 
 * **Use calculated volume:** [`buyByRisk()`](./buyByRisk.md), [`sellByRisk()`](./sellByRisk.md)
 * **Volume helpers:** [`normalizeVolume()`](../1.%20Symbol_helpers/normalizeVolume.md), [`getVolumeLimits()`](../8.%20Advanced_helpers/getVolumeLimits.md)
-* **Tick data:** [`getTickValueAndSize()`](../8.%20Advanced_helpers/getTickValueAndSize.md)
+* **Tick data:** `getTickValueAndSize()` - get tick value and size
 * **Balance info:** [`getBalance()`](../9.%20Account_and_position_helpers/getBalance.md)

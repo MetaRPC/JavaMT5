@@ -33,6 +33,7 @@ public class MT5Account {
 ```
 
 **Request message:** `MarketBookReleaseRequest { symbol: string }`
+
 **Reply message:** `MarketBookReleaseReply { data: MarketBookReleaseData }` or `{ error: Error }`
 
 ---
@@ -45,7 +46,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `MarketBookReleaseData`
+## ⬆️ Output - `MarketBookReleaseData`
 
 | Field                   | Type      | Description                                                  |
 | ----------------------- | --------- | ------------------------------------------------------------ |

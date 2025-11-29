@@ -19,23 +19,26 @@
   white-space: nowrap;
 }
 
-/* 2) Background: Calm Aurora - soft purple lights, very slow motion */
-body { background-color:#0d0f13; }
+/* 2) Background: Dark gradient with subtle warmth */
+body {
+  background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 50%, #0f1419 100%);
+  background-attachment: fixed;
+}
 
 body::before{
   content:"";
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
-    radial-gradient(60% 60% at 20% 20%, rgba(99,102,241,.10), transparent 60%),
-    radial-gradient(70% 70% at 80% 30%, rgba(147,51,234,.10), transparent 65%),
-    radial-gradient(55% 55% at 40% 80%, rgba(88,28,135,.08), transparent 60%);
-  filter: blur(30px);
-  animation: auroraDrift 80s ease-in-out infinite;
-  opacity:.9;
+    radial-gradient(50% 50% at 30% 20%, rgba(255,193,7,.06), transparent 50%),
+    radial-gradient(60% 60% at 70% 60%, rgba(255,152,0,.08), transparent 55%),
+    radial-gradient(45% 45% at 50% 80%, rgba(255,111,0,.05), transparent 50%);
+  filter: blur(40px);
+  animation: warmGlow 60s ease-in-out infinite;
+  opacity:.8;
 }
-@keyframes auroraDrift{
+@keyframes warmGlow{
   0%   { transform: translate3d(0,0,0) scale(1); }
-  50%  { transform: translate3d(2%,1%,0) scale(1.02); }
+  50%  { transform: translate3d(3%,2%,0) scale(1.03); }
   100% { transform: translate3d(0,0,0) scale(1); }
 }
 .md-container, .md-main, .md-content { position: relative; z-index: 1; }
@@ -104,38 +107,41 @@ body::before{
 /* 4) Cards: glass + gradient frame */
 .card{
   position:relative; display:block;
-  padding:1.25rem 1.2rem; min-height:200px;
+  padding:1.5rem 1.2rem; min-height:180px;
   border-radius:16px; text-decoration:none; color:inherit;
+  text-align: center;
   background:
-    linear-gradient(180deg, rgba(13,17,23,.86), rgba(13,17,23,.82)) padding-box,
+    linear-gradient(180deg, rgba(15,20,30,.92), rgba(10,14,23,.88)) padding-box,
     linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
-  border:1px solid transparent;
-  box-shadow:0 10px 24px rgba(0,0,0,.22);
-  backdrop-filter: blur(4px);
+  border:2px solid transparent;
+  box-shadow:0 12px 28px rgba(0,0,0,.3);
+  backdrop-filter: blur(8px);
   transform-style: preserve-3d;
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-width .2s ease;
 }
 
-.card h3{ margin:0 0 .35rem; font-weight:800; letter-spacing:.2px; }
-.card p{ margin:0; font-size:.95rem; line-height:1.35rem; opacity:.9; }
+.card h3{ margin:.6rem 0 .3rem; font-weight:700; font-size:1.15rem; letter-spacing:.3px; }
+.card p{ margin:0; font-size:.88rem; line-height:1.3rem; opacity:.88; }
 
 /* 5) Centered icon with gradient fill */
 .card .material-symbols-rounded{
-  font-size: clamp(2.6rem, 4vw, 3.6rem);
-  margin: .25rem 0 .6rem;
+  display: block;
+  font-size: 2.8rem;
+  margin: 0 auto .5rem;
   background: linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2)));
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 10px 24px rgba(var(--g1), .26));
+  filter: drop-shadow(0 6px 18px rgba(var(--g1), .3));
 }
 
 /* 6) Hover Cards: Easy Lift and Inner Shade */
 .card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(0,0,0,.36);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  border-width: 3px;
   background:
-    linear-gradient(180deg, rgba(13,17,23,.9), rgba(13,17,23,.86)) padding-box,
+    linear-gradient(180deg, rgba(20,25,35,.95), rgba(15,20,30,.92)) padding-box,
     linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
 }
 
@@ -149,18 +155,18 @@ body::before{
 }
 .card:hover::after{ opacity:.7; }
 
-/* 8) Orange Gradient Palette (Bright to Dark) */
-.card.orange-1{
-  --g1: 255,159,28;   /* bright-orange */
-  --g2: 255,115,0;    /* vivid-orange */
+/* 8) Warm Gradient Palette (Golden to Amber) */
+.card.yellow-1{
+  --g1: 255,215,64;   /* golden yellow */
+  --g2: 255,179,0;    /* amber */
 }
-.card.orange-2{
-  --g1: 255,115,0;    /* vivid-orange */
-  --g2: 230,81,0;     /* medium-orange */
+.card.yellow-2{
+  --g1: 255,167,38;   /* warm amber */
+  --g2: 251,140,0;    /* deep amber */
 }
-.card.orange-3{
-  --g1: 230,81,0;     /* medium-orange */
-  --g2: 191,54,12;    /* dark-orange */
+.card.yellow-3{
+  --g1: 245,124,0;    /* burnt orange */
+  --g2: 230,81,0;     /* deep orange */
 }
 
 /* 9) Accessibility */
@@ -178,4 +184,22 @@ body::before{
   background-color: rgba(13,17,23,.92);
   border: 1px solid rgba(99,102,241,.15);
   box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+
+/* 11) Architecture diagram styling */
+.architecture-diagram {
+  background: linear-gradient(180deg, rgba(13,17,23,.86), rgba(13,17,23,.82));
+  border: 1px solid rgba(99,102,241,.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+  line-height: 2;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+
+.architecture-diagram strong {
+  color: #ffd740;
+  font-size: 1.05rem;
 }

@@ -37,7 +37,7 @@ public class MT5Account {
 
 ---
 
-## 🔽 Input — `OnPositionsAndPendingOrdersTicketsRequest`
+## 🔽 Input - `OnPositionsAndPendingOrdersTicketsRequest`
 
 | Parameter                   | Type    | Required | Description                                          |
 | --------------------------- | ------- | -------- | ---------------------------------------------------- |
@@ -45,7 +45,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OnPositionsAndPendingOrdersTicketsData` (stream)
+## ⬆️ Output - `OnPositionsAndPendingOrdersTicketsData` (stream)
 
 Each update contains:
 

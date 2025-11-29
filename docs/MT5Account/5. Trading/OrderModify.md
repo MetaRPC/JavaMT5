@@ -33,11 +33,12 @@ public class MT5Account {
 ```
 
 **Request message:** `OrderModifyRequest { ticket, stop_loss?, take_profit?, price?, expiration_time_type?, expiration_time?, stop_limit? }`
+
 **Reply message:** `OrderModifyReply { data: OrderModifyData }` or `{ error: Error }`
 
 ---
 
-## 🔽 Input — `OrderModifyRequest`
+## 🔽 Input - `OrderModifyRequest`
 
 | Parameter              | Type                          | Required | Description                                          |
 | ---------------------- | ----------------------------- | -------- | ---------------------------------------------------- |
@@ -66,7 +67,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OrderModifyData`
+## ⬆️ Output - `OrderModifyData`
 
 | Field           | Type     | Description                                          |
 | --------------- | -------- | ---------------------------------------------------- |
@@ -80,10 +81,12 @@ public class MT5Account {
 | `comment`       | `String` | Broker comment (error description if failed)         |
 | `request_id`    | `int`    | Request ID                                           |
 
-**Success Code:**
+### Success Code:
+
 - `10009` - TRADE_RETCODE_DONE - Modification successful
 
-**Common Error Codes:**
+### Common Error Codes:
+
 - `10004` - TRADE_RETCODE_REJECT - Request rejected
 - `10016` - TRADE_RETCODE_INVALID_STOPS - Invalid stop levels
 - `10025` - TRADE_RETCODE_INVALID_FILL - Invalid fill type
@@ -738,15 +741,17 @@ if (reply.getData().getReturnedCode() == 10009) {
 
 ## 📌 Important Notes
 
-**What Can Be Modified:**
+### What Can Be Modified:
 
-**Open Positions:**
+### Open Positions:
+
 - ✅ Stop Loss
 - ✅ Take Profit
 - ❌ Price (cannot change entry price)
 - ❌ Volume (use partial close instead)
 
-**Pending Orders:**
+### Pending Orders:
+
 - ✅ Stop Loss
 - ✅ Take Profit
 - ✅ Order Price
@@ -754,16 +759,19 @@ if (reply.getData().getReturnedCode() == 10009) {
 - ✅ Expiration Time
 - ❌ Order Type (delete and create new instead)
 
-**Stop Level Requirements:**
+### Stop Level Requirements:
+
 - Broker enforces minimum distance from current price
 - Check `SYMBOL_TRADE_STOPS_LEVEL` via `symbolInfoDouble()`
 - Too-close stops will be rejected with code 10016
 
-**Removing Stops:**
+### Removing Stops:
+
 - Set SL or TP to `0.0` to remove
 - Useful for manual management or special strategies
 
-**Best Practices:**
+### Best Practices:
+
 - Always validate stop distances before modification
 - Check return code for success (10009)
 - Handle errors gracefully (log and retry if needed)

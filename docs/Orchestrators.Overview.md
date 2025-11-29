@@ -1,4 +1,4 @@
-# Trading Orchestrators — Overview
+# Trading Orchestrators - Overview
 
 > **Strategy orchestrators** automate complete trading workflows. Each orchestrator implements a specific trading strategy using MT5Sugar API. Located in `src/main/java/orchestrators/`.
 
@@ -6,11 +6,11 @@
 
 ## 📁 What lives here
 
-* **[TrendFollowingOrchestrator.java](../src/main/java/orchestrators/TrendFollowingOrchestrator.java)** — trend following with trailing stops
-* **[ScalpingOrchestrator.java](../src/main/java/orchestrators/ScalpingOrchestrator.java)** — quick in/out trades with tight SL/TP
-* **[HedgingOrchestrator.java](../src/main/java/orchestrators/HedgingOrchestrator.java)** — defensive hedging on adverse moves
-* **[BreakoutOrchestrator.java](../src/main/java/orchestrators/BreakoutOrchestrator.java)** — breakout trading with pending orders
-* **[MartingaleOrchestrator.java](../src/main/java/orchestrators/MartingaleOrchestrator.java)** — doubling volume after losses ⚠️ HIGH RISK
+* **TrendFollowingOrchestrator.java** - trend following with trailing stops
+* **ScalpingOrchestrator.java** - quick in/out trades with tight SL/TP
+* **HedgingOrchestrator.java** - defensive hedging on adverse moves
+* **BreakoutOrchestrator.java** - breakout trading with pending orders
+* **MartingaleOrchestrator.java** - doubling volume after losses ⚠️ HIGH RISK
 
 ---
 
@@ -19,6 +19,7 @@
 **What are orchestrators?**
 
 Pre-built trading strategies that automate entire workflows:
+
 * Position entry with calculated volume
 * Stop Loss / Take Profit management
 * Position monitoring
@@ -26,17 +27,19 @@ Pre-built trading strategies that automate entire workflows:
 * Performance tracking
 
 **When to use:**
+
 * ✅ Learning trading strategy automation
 * ✅ Prototyping new strategies quickly
 * ✅ Demo/testing environments
 * ✅ Educational purposes
 
 **When NOT to use:**
+
 * ❌ Production without modification
 * ❌ Real money without thorough testing
 * ❌ As-is without understanding the code
 
-> **Rule of thumb:** Orchestrators are **educational examples** — adapt them to your needs, don't use blindly.
+> **Rule of thumb:** Orchestrators are **educational examples** - adapt them to your needs, don't use blindly.
 
 ---
 
@@ -257,22 +260,24 @@ Trade 4: 0.08 lots → WIN  → Total: +$10 ✓
 ### Common patterns
 
 All orchestrators follow similar structure:
-1. **Configuration** — set symbol, risk, SL/TP parameters
-2. **Entry** — open position(s) with calculated volume
-3. **Monitoring** — watch position state in loop
-4. **Management** — trailing stops, hedging, etc.
-5. **Exit** — close positions and cleanup
-6. **Reporting** — print statistics and results
+
+1. **Configuration** - set symbol, risk, SL/TP parameters
+2. **Entry** - open position(s) with calculated volume
+3. **Monitoring** - watch position state in loop
+4. **Management** - trailing stops, hedging, etc.
+5. **Exit** - close positions and cleanup
+6. **Reporting** - print statistics and results
 
 ### Integration with MT5Sugar
 
 All orchestrators use MT5Sugar API:
-* `buyMarket()` / `sellMarket()` — market orders
-* `buyStop()` / `sellStop()` — pending orders
-* `calculateVolume()` — risk-based sizing
-* `modifyPosition()` — trailing stops
-* `closePosition()` — exits
-* `getBalance()`, `getBid()`, `getAsk()` — info
+
+* `buyMarket()` / `sellMarket()` - market orders
+* `buyStop()` / `sellStop()` - pending orders
+* `calculateVolume()` - risk-based sizing
+* `modifyPosition()` - trailing stops
+* `closePosition()` - exits
+* `getBalance()`, `getBid()`, `getAsk()` - info
 
 ---
 
@@ -350,7 +355,7 @@ public class MyOrchestrator {
 
 ## See also
 
-* **MT5Sugar API:** [MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md) — underlying convenience layer
+* **MT5Sugar API:** [MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md) - underlying convenience layer
 * **MT5Service:** Wrapper methods used by orchestrators
 * **MT5Account:** Low-level proto API
 * **Example demos:** Check `src/main/java/examples/` for more usage patterns
@@ -362,11 +367,11 @@ public class MyOrchestrator {
 
 **Recommended order for studying orchestrators:**
 
-1. **ScalpingOrchestrator** — simplest, good starting point
-2. **BreakoutOrchestrator** — introduces pending orders
-3. **TrendFollowingOrchestrator** — adds position modification (trailing)
-4. **HedgingOrchestrator** — dual position management
-5. **MartingaleOrchestrator** — advanced (demo only!)
+1. **ScalpingOrchestrator** - simplest, good starting point
+2. **BreakoutOrchestrator** - introduces pending orders
+3. **TrendFollowingOrchestrator** - adds position modification (trailing)
+4. **HedgingOrchestrator** - dual position management
+5. **MartingaleOrchestrator** - advanced (demo only!)
 
 **Each orchestrator teaches:**
 * Different trading strategy implementation
@@ -375,4 +380,4 @@ public class MyOrchestrator {
 * MT5Sugar API usage in context
 * Real-world trading automation challenges
 
-> 💡 **Tip:** Read the detailed comments in each orchestrator's source code — they contain extensive explanations of strategy logic, parameters, and usage examples.
+> 💡 **Tip:** Read the detailed comments in each orchestrator's source code - they contain extensive explanations of strategy logic, parameters, and usage examples.

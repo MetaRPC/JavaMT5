@@ -21,6 +21,7 @@
 ## ⬆️ Output
 
 **Returns:** `SymbolSnapshot` object with fields:
+
 - `String name` - Symbol name
 - `double bid` - Current Bid price
 - `double ask` - Current Ask price

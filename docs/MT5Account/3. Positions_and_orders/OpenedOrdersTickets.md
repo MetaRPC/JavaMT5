@@ -32,6 +32,7 @@ public class MT5Account {
 ```
 
 **Request message:** `OpenedOrdersTicketsRequest { }` (empty - no parameters)
+
 **Reply message:** `OpenedOrdersTicketsReply { data: OpenedOrdersTicketsData }` or `{ error: Error }`
 
 ---
@@ -42,7 +43,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OpenedOrdersTicketsData`
+## ⬆️ Output - `OpenedOrdersTicketsData`
 
 | Field                      | Type          | Description                                          |
 | -------------------------- | ------------- | ---------------------------------------------------- |
@@ -790,7 +791,8 @@ List<Long> orderTickets = reply.getData().getOpenedOrdersTicketsList();
 | **Polling**        | Ideal for frequent polling            | Use sparingly for polling                |
 | **Information**    | Minimal (just ticket IDs)             | Complete (prices, volumes, times, etc.)  |
 
-**When to use which:**
+### When to use which:
+
 - Use `openedOrdersTickets()` for frequent monitoring loops
 - Use `openedOrders()` when you need detailed position information
 - Common pattern: Poll with `openedOrdersTickets()`, then call `openedOrders()` when changes detected

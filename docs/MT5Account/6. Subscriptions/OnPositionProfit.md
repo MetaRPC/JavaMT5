@@ -39,7 +39,7 @@ public class MT5Account {
 
 ---
 
-## 🔽 Input — `OnPositionProfitRequest`
+## 🔽 Input - `OnPositionProfitRequest`
 
 | Parameter                   | Type      | Required | Description                                          |
 | --------------------------- | --------- | -------- | ---------------------------------------------------- |
@@ -48,7 +48,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OnPositionProfitData` (stream)
+## ⬆️ Output - `OnPositionProfitData` (stream)
 
 Each update contains:
 

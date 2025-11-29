@@ -7,7 +7,7 @@
 * **Sugar method:** `MT5Sugar.sellLimitPoints(String symbol, double volume, double pointsOffset, double stopLossPoints, double takeProfitPoints)`
 * **Underlying methods:**
   - [`sellLimit()`](../3.%20Pending_orders/sellLimit.md) - underlying pending order method
-  - [`MT5Service.symbolInfoTick()`](../../MT5Account/2.%20Market_information/SymbolInfoTick.md) - get current prices
+  - `MT5Service.symbolInfoTick()` - get current prices
   - [`getPoint()`](../1.%20Symbol_helpers/getPoint.md) - get point size
 * **Source:** MT5Sugar convenience layer
 

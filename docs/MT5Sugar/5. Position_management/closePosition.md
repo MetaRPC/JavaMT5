@@ -7,7 +7,7 @@
 * **Sugar method (full close):** `MT5Sugar.closePosition(long ticket)`
 * **Sugar method (partial close):** `MT5Sugar.closePosition(long ticket, Double volume)`
 * **Underlying methods:**
-  - [`MT5Service.orderClose()`](../../MT5Account/5.%20Trading/OrderClose.md) - low-level order close
+  - `MT5Service.orderClose()` - low-level order close
 * **Source:** MT5Sugar convenience layer
 
 ---

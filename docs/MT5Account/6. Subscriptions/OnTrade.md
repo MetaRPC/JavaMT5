@@ -35,7 +35,7 @@ public class MT5Account {
 
 ---
 
-## 🔽 Input — `OnTradeRequest`
+## 🔽 Input - `OnTradeRequest`
 
 | Parameter | Type | Required | Description                              |
 | --------- | ---- | -------- | ---------------------------------------- |
@@ -43,7 +43,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `OnTadeEventData` (stream)
+## ⬆️ Output - `OnTadeEventData` (stream)
 
 Each trade event contains:
 

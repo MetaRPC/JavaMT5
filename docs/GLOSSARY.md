@@ -7,7 +7,9 @@
 ## 🏗️ Architecture Terms
 
 ### Three-Tier Architecture
+
 The core design pattern of JavaMT5 with three abstraction layers:
+
 - **Layer 1 (MT5Account):** Low-level proto/gRPC communication
 - **Layer 2 (MT5Service):** Wrapper methods with type conversions
 - **Layer 3 (MT5Sugar):** High-level convenience methods
@@ -66,7 +68,7 @@ Highest-level API with ~50 convenience methods for common trading operations.
 
 **Location:** `src/main/java/io/metarpc/mt5/MT5Sugar.java`
 
-**Documentation:** [MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md)
+**Documentation:** [MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)
 
 ---
 
@@ -91,7 +93,7 @@ Pre-built trading strategy implementation that automates complete trading workfl
 
 **Location:** `src/main/java/orchestrators/`
 
-**Documentation:** [Orchestrators.Overview.md](./Orchestrators.Overview.md)
+**Documentation:** [Orchestrators.Overview.md](Orchestrators.Overview.md)
 
 ---
 
@@ -111,7 +113,7 @@ Multi-orchestrator combination with adaptive decision-making logic.
 
 **Location:** `src/main/java/presets/`
 
-**Documentation:** [Orchestrators.Overview.md](./Orchestrators.Overview.md#-multi-orchestrator-presets)
+**Documentation:** [Orchestrators.Overview.md](Orchestrators.Overview.md)
 
 ---
 
@@ -151,7 +153,7 @@ Position sizing based on dollar risk rather than fixed lot size.
 - `buyByRisk(symbol, slPoints, riskAmount, tp)` - Buy with risk sizing
 - `sellByRisk(symbol, slPoints, riskAmount, tp)` - Sell with risk sizing
 
-**Documentation:** [calculateVolume.md](./MT5Sugar/7.%20Risk_management/calculateVolume.md)
+**Documentation:** [calculateVolume.md](MT5Sugar/7. Risk_management/calculateVolume.md)
 
 ---
 
@@ -238,8 +240,6 @@ sugar.buyLimit(symbol, volume, price, sl, tp);
 // Offset in points from current price
 sugar.buyLimitPoints(symbol, volume, pointsOffset, slPoints, tpPoints);
 ```
-
-**Documentation:** [Group 3](./MT5Sugar/3.%20Pending_orders/) and [Group 4](./MT5Sugar/4.%20Pending_orders_points/)
 
 ---
 
@@ -541,14 +541,14 @@ var symbolSnap = sugar.getSymbolSnapshot(symbol);
 
 **Use case:** Dashboards, logging, performance tracking.
 
-**Documentation:** [Group 10](./MT5Sugar/10.%20Snapshot_helpers/)
-
 ---
 
 ### Batch Operations
+
 Execute action on multiple positions/orders at once.
 
 **Methods:**
+
 - `closeAll()` - Close ALL positions (BUY and SELL)
 - `closeAllBuy()` - Close only BUY positions
 - `closeAllSell()` - Close only SELL positions
@@ -558,20 +558,18 @@ Execute action on multiple positions/orders at once.
 
 **Use case:** Emergency exits, end-of-day cleanup, strategy resets.
 
-**Documentation:** [Group 6](./MT5Sugar/6.%20Advanced_batch_operations/)
-
 ---
 
 ### History Queries
+
 Retrieve past orders and positions for analysis.
 
 **Methods:**
+
 - `getOrdersHistoryLastDays(days, symbol)` - Orders from last N days
 - `getPositionsHistoryPaged(page, itemsPerPage)` - Paginated position history
 
 **Use case:** Performance analysis, trade logs, backtesting validation.
-
-**Documentation:** [Group 11](./MT5Sugar/11.%20History_helpers/)
 
 ---
 
@@ -590,9 +588,11 @@ Design principle: start simple, access complexity only when needed.
 ---
 
 ### Educational Project
+
 JavaMT5 orchestrators and presets are learning materials, not production systems.
 
 **Implications:**
+
 - ✅ Study code and patterns
 - ✅ Modify for your needs
 - ✅ Test on demo accounts
@@ -620,12 +620,11 @@ JavaMT5 orchestrators and presets are learning materials, not production systems
 
 ## 📚 See Also
 
-- **[RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md)** - How to run examples + troubleshooting
-- **[PROJECT_MAP.md](./PROJECT_MAP.md)** - Complete project structure guide
-- **[MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md)** - All 50+ convenience methods
-- **[Orchestrators.Overview.md](./Orchestrators.Overview.md)** - Strategy implementations
-- **[Program.java](../src/main/java/Program.java)** - Complete command reference
-- **API Documentation** - `docs/MT5Account/` and `docs/MT5Sugar/` folders
+- **[RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md)** - How to run examples + troubleshooting
+- **[PROJECT_MAP.md](PROJECT_MAP.md)** - Complete project structure guide
+- **[MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)** - All 50+ convenience methods
+- **[Orchestrators.Overview.md](Orchestrators.Overview.md)** - Strategy implementations
+- **API Documentation** - [MT5Account](MT5Account/MT5Account.Master.Overview.md) and [MT5Sugar](MT5Sugar/MT5Sugar.Overview.md)
 
 ---
 

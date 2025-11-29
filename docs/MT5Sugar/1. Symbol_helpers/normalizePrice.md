@@ -164,12 +164,14 @@ return Math.round(price * multiplier) / multiplier;
 ```
 
 **When to use:**
+
 - ✅ Prices from calculations, indicators, algorithms
 - ✅ SL/TP from custom formulas
 - ✅ Entry prices for pending orders
 - ❌ Not needed for market orders (use 0 or current quote)
 
 **Common precision by symbol type:**
+
 - Major FX: 5 digits (0.00001)
 - JPY pairs: 3 digits (0.001)
 - Gold/Silver: 2 digits (0.01)

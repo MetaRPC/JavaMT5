@@ -33,6 +33,7 @@ public class MT5Account {
 ```
 
 **Request message:** `SymbolsTotalRequest { mode: bool }`
+
 **Reply message:** `SymbolsTotalReply { data: SymbolsTotalData }` or `{ error: Error }`
 
 ---
@@ -45,7 +46,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `SymbolsTotalData`
+## ⬆️ Output - `SymbolsTotalData`
 
 | Field   | Type  | Description                                                                |
 | ------- | ----- | -------------------------------------------------------------------------- |
@@ -59,7 +60,7 @@ Access the total using `reply.getData().getTotal()`.
 
 * **What it is.** Simple RPC returning the count of available symbols.
 * **Why you need it.** To determine how many symbols exist before iterating through them with `symbolName()`.
-* **Performance.** Very lightweight call — just returns a count, no symbol details.
+* **Performance.** Very lightweight call - just returns a count, no symbol details.
 * **Use case.** Typically used with `symbolName()` to iterate through all symbols.
 
 ---

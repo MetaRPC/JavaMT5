@@ -11,8 +11,10 @@ JavaMT5/
 ├── 📦 Core API (Internal - 3 layers)
 ├── 🎯 User Code (Orchestrators, Presets, Examples)
 ├── 📚 Documentation
-├── ⚙️ Configuration & Build
-└── 🔌 Proto Definitions
+└── ⚙️ Configuration & Build
+
+External Dependencies:
+└── 🔌 Proto Definitions (from JitPack JAR)
 ```
 
 ---
@@ -55,7 +57,7 @@ MT5Sugar → uses → MT5Service → uses → MT5Account → gRPC → MT5 Termin
 - **Need wrappers:** Drop to `MT5Service` (no auto-normalization)
 - **Need raw proto:** Drop to `MT5Account` (full control)
 
-**Documentation:** [docs/MT5Sugar/MT5Sugar.Overview.md](./docs/MT5Sugar/MT5Sugar.Overview.md)
+**Documentation:** [MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)
 
 ---
 
@@ -88,7 +90,7 @@ orchestrators/
 3. Modify for your strategy
 4. Test on demo account
 
-**Documentation:** [docs/Orchestrators.Overview.md](./docs/Orchestrators.Overview.md)
+**Documentation:** [Orchestrators.Overview.md](Orchestrators.Overview.md)
 
 ---
 
@@ -110,7 +112,7 @@ presets/
 - Multi-phase trading sessions
 - Performance tracking across phases
 
-**Documentation:** [docs/Orchestrators.Overview.md](./docs/Orchestrators.Overview.md#-multi-orchestrator-presets)
+**Documentation:** [Orchestrators.Overview.md](Orchestrators.Overview.md)
 
 ---
 
@@ -286,33 +288,37 @@ docs/
 
 ---
 
-## 🔌 Proto Definitions (src/main/proto/)
+## 🔌 Proto Definitions (External Dependency)
 
 **What:** Protocol Buffer definitions for MT5 terminal communication.
 
-**User interaction:** 📋 **Reference only** - typically don't modify.
+**User interaction:** 📋 **Reference only** - not in this repository.
 
-```
-src/main/proto/
-├── mt5-term-api-account-helper.proto         ← Account helpers
-├── mt5-term-api-account-information.proto    ← Account info
-├── mt5-term-api-charts.proto                 ← Chart data
-├── mt5-term-api-connection.proto             ← Connection management
-├── mt5-term-api-market-info.proto            ← Market information
-├── mt5-term-api-subscriptions.proto          ← Real-time subscriptions
-├── mt5-term-api-trade-functions.proto        ← Trading operations
-├── mt5-term-api-trading-helper.proto         ← Trading helpers
-└── mt5/
-    └── mrpc-mt5-error.proto                  ← Error definitions
-```
+**Location:** Downloaded automatically as part of MetaRPC library from JitPack.
+
+**How it works:**
+
+1. Maven downloads precompiled JAR from JitPack (com.github.MetaRPC:JavaMT5)
+2. JAR contains compiled Java classes generated from proto files
+3. Classes cached in `~/.m2/repository/com/github/MetaRPC/JavaMT5/`
+4. Your code imports these classes (e.g., `mt5_term_api.*`)
+
+**Proto files included in JAR:**
+- `mt5-term-api-account-helper.proto` → Account helpers
+- `mt5-term-api-account-information.proto` → Account info
+- `mt5-term-api-charts.proto` → Chart data
+- `mt5-term-api-connection.proto` → Connection management
+- `mt5-term-api-market-info.proto` → Market information
+- `mt5-term-api-subscriptions.proto` → Real-time subscriptions
+- `mt5-term-api-trade-functions.proto` → Trading operations
+- `mt5-term-api-trading-helper.proto` → Trading helpers
+- `mrpc-mt5-error.proto` → Error definitions
 
 **Purpose:**
 - Define gRPC service contracts
-- Compiled into Java classes (auto-generated)
+- Pre-compiled into Java classes by MetaRPC
 - Used by MT5Account layer
-- Checked into project for reference
-
-**Compilation:** Handled automatically by Maven during build.
+- No local proto compilation needed
 
 ---
 
@@ -358,11 +364,12 @@ src/main/proto/
 
 ```
 1. Read: docs/MT5Account/ documentation
-2. Study: MetaRPC library (proto-generated classes in JAR)
+2. Study: MetaRPC proto classes (from JitPack JAR in ~/.m2/repository/)
 3. Run: run.bat 1-3 (Low-level examples)
 4. Study: src/main/java/io/metarpc/mt5/MT5Account.java
-5. Use: When MT5Sugar doesn't fit your needs
-6. Build: Custom proto-level integrations
+5. Explore: Proto-generated classes (mt5_term_api.* packages)
+6. Use: When MT5Sugar/MT5Service don't fit your needs
+7. Build: Custom low-level gRPC integrations
 ```
 
 ---
@@ -370,42 +377,36 @@ src/main/proto/
 ## 📊 Component Interaction Diagram
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  YOUR CODE (User-facing)                            │
-│  ├─ Orchestrators (strategy implementations)        │
-│  ├─ Presets (multi-strategy combinations)           │
-│  └─ Examples (learning materials)                   │
-└─────────────────┬───────────────────────────────────┘
+YOUR CODE (User-facing)
+  ├─ Orchestrators (strategy implementations)
+  ├─ Presets (multi-strategy combinations)
+  └─ Examples (learning materials)
+                  │
                   │ uses
                   ↓
-┌─────────────────────────────────────────────────────┐
-│  MT5Sugar (Layer 3 - Convenience)                   │
-│  ├─ Auto-normalization                              │
-│  ├─ Risk management                                 │
-│  └─ Batch operations                                │
-└─────────────────┬───────────────────────────────────┘
+MT5Sugar (Layer 3 - Convenience)
+  ├─ Auto-normalization
+  ├─ Risk management
+  └─ Batch operations
+                  │
                   │ uses
                   ↓
-┌─────────────────────────────────────────────────────┐
-│  MT5Service (Layer 2 - Wrappers)                    │
-│  ├─ Direct data returns                             │
-│  ├─ Type conversions                                │
-│  └─ Simplified signatures                           │
-└─────────────────┬───────────────────────────────────┘
+MT5Service (Layer 2 - Wrappers)
+  ├─ Direct data returns
+  ├─ Type conversions
+  └─ Simplified signatures
+                  │
                   │ uses
                   ↓
-┌─────────────────────────────────────────────────────┐
-│  MT5Account (Layer 1 - Low-level)                   │
-│  ├─ Proto Request/Response                          │
-│  ├─ gRPC communication                              │
-│  └─ Connection management                           │
-└─────────────────┬───────────────────────────────────┘
+MT5Account (Layer 1 - Low-level)
+  ├─ Proto Request/Response
+  ├─ gRPC communication
+  └─ Connection management
+                  │
                   │ gRPC
                   ↓
-┌─────────────────────────────────────────────────────┐
-│  MT5 Terminal (External)                            │
-│  └─ MetaTrader 5 with gRPC server                   │
-└─────────────────────────────────────────────────────┘
+MT5 Terminal (External)
+  └─ MetaTrader 5 with gRPC server
 ```
 
 ---
@@ -413,22 +414,18 @@ src/main/proto/
 ## 🔍 File Naming Conventions
 
 ### Core API
-- `MT5*.java` — Core API classes (Account, Service, Sugar)
-- `*Exception.java` — Exception types
+- `MT5*.java` - Core API classes (Account, Service, Sugar)
+- `*Exception.java` - Exception types
 
 ### User Code
-- `*Orchestrator.java` — Single-strategy implementations
-- `*Preset.java` — Multi-strategy combinations
-- `*Example.java` / `*Demo.java` — Runnable examples
-- `*Scenario.java` — Complex usage scenarios
+- `*Orchestrator.java` - Single-strategy implementations
+- `*Preset.java` - Multi-strategy combinations
+- `*Example.java` / `*Demo.java` - Runnable examples
+- `*Scenario.java` - Complex usage scenarios
 
 ### Documentation
-- `*.Overview.md` — Category overview with all methods
-- `methodName.md` — Individual method documentation
-
-### Proto
-- `mt5-term-api-*.proto` — MT5 terminal API definitions
-- `mrpc-*.proto` — MetaRPC error definitions
+- `*.Overview.md` - Category overview with all methods
+- `methodName.md` - Individual method documentation
 
 ---
 
@@ -453,21 +450,10 @@ docs/                   ← Reference documentation
 ### 🔒 LEAVE ALONE (Generated/Internal)
 
 ```
-src/main/proto/         ← Proto definitions (reference only)
 target/                 ← Compiled classes (auto-generated)
 .git/                   ← Git internals
+~/.m2/repository/       ← Maven dependencies cache (proto classes here)
 ```
-
----
-
-## 📞 Need Help?
-
-- **Running examples:** Check `docs/RUNNING_EXAMPLES.md` for commands and troubleshooting
-- **API documentation:** Check `docs/MT5Sugar/` or `docs/MT5Account/`
-- **Strategy examples:** Check `orchestrators/` source code
-- **Usage examples:** Check `examples/` directory
-- **Project structure:** This PROJECT_MAP.md file
-- **Complete command list:** See `src/main/java/Program.java` header
 
 ---
 
@@ -476,11 +462,13 @@ target/                 ← Compiled classes (auto-generated)
 **Goal:** Make MT5 trading automation accessible through progressive complexity.
 
 **Three-tier design:**
+
 1. **Low-level (MT5Account):** Full control, proto/gRPC
 2. **Wrapper (MT5Service):** Simplified method calls
 3. **Convenience (MT5Sugar):** Auto-everything, batteries included
 
 **User code:**
+
 - **Orchestrators:** Pre-built strategy templates
 - **Presets:** Multi-strategy combinations
 - **Examples:** Learning materials

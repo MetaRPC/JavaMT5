@@ -13,16 +13,19 @@ Before you start working with JavaMT5, you need to set up your development envir
 JavaMT5 requires Java Development Kit (JDK) version 11 or higher.
 
 **Download and Install:**
+
 - **Recommended:** [Eclipse Adoptium JDK](https://adoptium.net/) (formerly AdoptOpenJDK)
 - **Alternative:** [Oracle JDK](https://www.oracle.com/java/technologies/downloads/)
 
 **Verify installation:**
+
 ```bash
 java -version
 # Should show: java version "11" or higher
 ```
 
 **Set JAVA_HOME environment variable:**
+
 - Windows: Add to System Environment Variables
   ```
   JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-11.0.x-hotspot
@@ -36,10 +39,12 @@ java -version
 JavaMT5 uses Maven Daemon for fast builds and execution.
 
 **Download:**
+
 - Visit [Maven Daemon releases](https://github.com/apache/maven-mvnd/releases)
 - Download the latest version for Windows (e.g., `maven-mvnd-1.0.3-windows-amd64.zip`)
 
 **Install:**
+
 1. Extract to a permanent location (e.g., `C:\Users\<your-username>\maven-mvnd-1.0.3-windows-amd64`)
 2. Add to PATH or update `run.bat` with your path
 3. Verify installation:
@@ -62,6 +67,7 @@ set "MVND=C:\Users\<your-username>\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd"
 JavaMT5 connects to MT5 terminal via the **MetaRPC gRPC gateway** - a Java library that provides MT5 terminal integration.
 
 **What is MetaRPC?**
+
 - GitHub package: `com.github.MetaRPC.metarpcmt5`
 - Provides gRPC communication with MT5 terminal
 - Already included in `pom.xml` dependencies
@@ -218,6 +224,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 **The core foundation of everything** - direct communication with MT5 terminal via gRPC protocol.
 
 **You'll learn:**
+
 - How MT5 terminal communicates via Protocol Buffers (protobuf)
 - How to send/receive proto Request/Response objects
 - Direct gRPC calls for all MT5 operations
@@ -226,7 +233,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 
 **API:** `MT5Account` (Layer 1)
 
-**Documentation:** [docs/MT5Account/](./MT5Account/)
+**Documentation:** [MT5Account/](MT5Account/MT5Account.Master.Overview.md)
 
 **Why this matters:** Understanding the low-level foundation gives you complete control and deep knowledge of how everything works under the hood.
 
@@ -237,6 +244,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 **Built on top of MT5Account** - simplified method signatures without proto complexity.
 
 **You'll learn:**
+
 - How to wrap proto objects into simple method calls
 - Type conversions (proto → Java primitives)
 - Simplified API design patterns
@@ -253,6 +261,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 **Built on top of MT5Service** - ~50 ready-to-use methods with smart features.
 
 **You'll learn:**
+
 - Auto-normalization of volumes and prices
 - Risk-based position sizing (calculate volume from $ risk)
 - Batch operations (close all positions, cancel all orders)
@@ -261,7 +270,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 
 **API:** `MT5Sugar` (Layer 3)
 
-**Documentation:** [docs/MT5Sugar/MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md)
+**Documentation:** [MT5Sugar/MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)
 
 **Why this matters:** Shows how to build production-ready convenience APIs that handle edge cases automatically.
 
@@ -272,6 +281,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 **Built using MT5Sugar** - complete trading strategy workflows.
 
 **You'll learn:**
+
 - How to implement real trading strategies in code
 - Risk management and position sizing
 - Position monitoring and management
@@ -280,6 +290,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 - Performance tracking
 
 **Strategies included:**
+
 - **Trend Following** - capture trending moves with trailing stops
 - **Scalping** - quick in/out with tight SL/TP
 - **Hedging** - defensive position protection
@@ -299,6 +310,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 **Combine multiple orchestrators** - adaptive trading systems with conditional logic.
 
 **You'll learn:**
+
 - How to combine multiple strategies
 - Adaptive decision-making (if profit > X then...)
 - Multi-phase trading sessions
@@ -306,6 +318,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 - Performance tracking across phases
 
 **Presets included:**
+
 - **Aggressive Growth** - 3-4 orchestrators with adaptive logic
 - **Defensive** - conservative protection-first approach
 
@@ -328,17 +341,20 @@ MT5 Terminal ←→ gRPC ←→ Proto Messages ←→ MT5Account.java
 ```
 
 **What you'll do:**
-1. Read [docs/MT5Account/](./MT5Account/) documentation
+
+1. Read [MT5Account documentation](MT5Account/MT5Account.Master.Overview.md)
 2. Study MetaRPC library structure (proto-generated classes in JAR)
 3. Run examples in `src/main/java/examples/lowlevel/`
 4. Explore `MT5Account.java` source code
 
 **Key examples:**
+
 - `MarketDataExample.java` - Get quotes, symbol info, account data
 - `StreamingExample.java` - Real-time price subscriptions
 - `TradingCalculationsExample.java` - Margin, profit calculations
 
 **You'll understand:**
+
 - ✅ How proto messages structure trading operations
 - ✅ How gRPC communicates with MT5 terminal
 - ✅ Every single MT5 function at protocol level
@@ -384,16 +400,19 @@ MT5Service → MT5Sugar → Auto-everything convenience methods
 ```
 
 **What you'll do:**
-1. Read [docs/MT5Sugar/MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md)
+
+1. Read [MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)
 2. Run examples in `src/main/java/examples/sugar/`
-3. Study individual method docs in `docs/MT5Sugar/`
+3. Study individual method docs in `MT5Sugar/` folder
 
 **Key examples:**
+
 - `SimpleTradingScenario.java` - Basic trading workflow
 - `RiskManagementScenario.java` - Risk-based position sizing
 - `GridTradingScenario.java` - Grid trading strategy
 
 **You'll understand:**
+
 - ✅ Risk-based volume calculation ($ risk → lot size)
 - ✅ Auto-normalization of volumes and prices
 - ✅ Batch operations (close all, cancel all)
@@ -412,18 +431,21 @@ MT5Sugar → Orchestrator → Complete trading strategy workflow
 ```
 
 **What you'll do:**
+
 1. Read [docs/Orchestrators.Overview.md](./Orchestrators.Overview.md)
 2. Run `run.bat 10` - interactive orchestrator menu
 3. Study orchestrator source code in `src/main/java/orchestrators/`
 4. Copy and modify for your own strategies
 
 **Key orchestrators:**
+
 - `ScalpingOrchestrator.java` - Simplest, good starting point
 - `TrendFollowingOrchestrator.java` - Position modification, trailing stops
 - `BreakoutOrchestrator.java` - Pending orders, bi-directional entry
 - `HedgingOrchestrator.java` - Dual position management
 
 **You'll understand:**
+
 - ✅ Complete strategy workflow implementation
 - ✅ Position monitoring loops and state management
 - ✅ Risk management and position sizing in practice
@@ -443,16 +465,19 @@ Orchestrators → Preset → Multi-strategy adaptive system
 ```
 
 **What you'll do:**
+
 1. Read presets section in [Orchestrators.Overview.md](./Orchestrators.Overview.md#-multi-orchestrator-presets)
 2. Run `run.bat 11` - interactive preset menu
 3. Study preset source code in `src/main/java/presets/`
 4. Design your own multi-strategy systems
 
 **Key presets:**
+
 - `DefensivePreset.java` - Conservative, easier to understand
 - `AggressiveGrowthPreset.java` - Adaptive multi-phase system
 
 **You'll understand:**
+
 - ✅ Strategy composition patterns
 - ✅ Adaptive decision-making logic
 - ✅ Multi-phase trading sessions
@@ -467,6 +492,7 @@ Orchestrators → Preset → Multi-strategy adaptive system
 ### 1. Deep Understanding of MT5 Protocol
 
 **You'll gain:**
+
 - Complete knowledge of MT5 terminal communication
 - Ability to implement any MT5 function from scratch
 - Understanding of trading platform architecture
@@ -491,6 +517,7 @@ Orchestrators → Preset → Multi-strategy adaptive system
 ### 3. Trading Automation Expertise
 
 **You'll master:**
+
 - Automated trading strategy implementation
 - Risk management and position sizing
 - Real-time position monitoring and management
@@ -529,17 +556,19 @@ examples/
 
 ## 🎓 Learning Resources
 
-**Inside the project:**
+### Inside the project:
+
 - 📖 **Documentation:** `docs/` folder (complete API reference)
 - 💻 **Examples:** `src/main/java/examples/` (runnable demonstrations)
 - 🎯 **Strategies:** `src/main/java/orchestrators/` (complete implementations)
 - 🎼 **Presets:** `src/main/java/presets/` (multi-strategy systems)
 
-**Key starting points:**
-1. **[PROJECT_MAP.md](./PROJECT_MAP.md)** - Understand project structure
-2. **[GLOSSARY.md](./GLOSSARY.md)** - Learn project terminology
-3. **[MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md)** - Quick start with trading
-4. **[Orchestrators.Overview.md](./Orchestrators.Overview.md)** - Learn strategy patterns
+### Key starting points:
+
+1. **[PROJECT_MAP.md](PROJECT_MAP.md)** - Understand project structure
+2. **[GLOSSARY.md](GLOSSARY.md)** - Learn project terminology
+3. **[MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)** - Quick start with trading
+4. **[Orchestrators.Overview.md](Orchestrators.Overview.md)** - Learn strategy patterns
 
 ---
 
@@ -548,6 +577,7 @@ examples/
 ### This is an Educational Project
 
 **What this means:**
+
 - ✅ **DO** use for learning and experimentation
 - ✅ **DO** study the code and patterns
 - ✅ **DO** test on demo accounts
@@ -559,6 +589,7 @@ examples/
 ### Risk Warning
 
 **Trading involves risk:**
+
 - Past performance doesn't guarantee future results
 - Automated strategies can lose money
 - Always test thoroughly on demo accounts first
@@ -569,13 +600,15 @@ examples/
 
 ## 📞 Need Help?
 
-**Documentation:**
+### Documentation
+
 - **Project structure:** [PROJECT_MAP.md](./PROJECT_MAP.md)
 - **API reference:** `docs/MT5Account/` and `docs/MT5Sugar/`
 - **Strategy guide:** [Orchestrators.Overview.md](./Orchestrators.Overview.md)
 - **Terminology:** [GLOSSARY.md](./GLOSSARY.md)
 
-**Code examples:**
+### Code examples
+
 - **Low-level:** `examples/lowlevel/`
 - **Wrappers:** `examples/services/`
 - **Convenience:** `examples/sugar/`
@@ -587,14 +620,16 @@ examples/
 
 JavaMT5 is more than a trading library - it's a **complete learning journey** from protocol-level communication to production trading strategies.
 
-**You'll walk away with:**
+### You'll walk away with
+
 - Deep understanding of MT5 terminal architecture
 - API design and layered architecture skills
 - Trading automation implementation expertise
 - Production-ready patterns and best practices
 - Foundation for building your own trading systems
 
-**The journey:**
+### The journey
+
 ```
 Proto/gRPC → Wrappers → Convenience → Strategies → Your Ideas
 (Foundation)  (Simplification)  (Automation)   (Production)

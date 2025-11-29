@@ -35,6 +35,7 @@ public class MT5Account {
 ```
 
 **Request message:** `SymbolInfoIntegerRequest { symbol: string, type: SymbolInfoIntegerProperty }`
+
 **Reply message:** `SymbolInfoIntegerReply { data: SymbolInfoIntegerData }` or `{ error: Error }`
 
 ---
@@ -48,7 +49,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `SymbolInfoIntegerData`
+## ⬆️ Output - `SymbolInfoIntegerData`
 
 | Field   | Type   | Description                      |
 | ------- | ------ | -------------------------------- |
@@ -103,8 +104,6 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_ORDER_GTC_MODE` | 34 | `enum` | SL/TP expiration mode |
 | `SYMBOL_OPTION_MODE` | 35 | `enum` | Option type |
 | `SYMBOL_OPTION_RIGHT` | 36 | `enum` | Option right (Call/Put) |
-
-[MQL5 Documentation](https://www.mql5.com/en/docs/marketinformation/symbolinfointeger)
 
 ---
 

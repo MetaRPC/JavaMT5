@@ -35,6 +35,7 @@ public class MT5Account {
 ```
 
 **Request message:** `SymbolInfoDoubleRequest { symbol: string, type: SymbolInfoDoubleProperty }`
+
 **Reply message:** `SymbolInfoDoubleReply { data: SymbolInfoDoubleData }` or `{ error: Error }`
 
 ---
@@ -48,7 +49,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `SymbolInfoDoubleData`
+## ⬆️ Output - `SymbolInfoDoubleData`
 
 | Field   | Type     | Description                      |
 | ------- | -------- | -------------------------------- |
@@ -63,6 +64,7 @@ Access using `reply.getData().getValue()`.
 ### `SymbolInfoDoubleProperty`
 
 **Price Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_BID` | 0 | Current Bid price (sell price) |
@@ -76,6 +78,7 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_LASTLOW` | 8 | Minimum Last price of the day |
 
 **Volume Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_VOLUME_MIN` | 22 | Minimum volume for a deal (lots) |
@@ -87,6 +90,7 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_VOLUMELOW_REAL` | 11 | Minimum volume of the day |
 
 **Trading Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_POINT` | 13 | Point value (e.g., 0.00001 for EURUSD) |
@@ -97,6 +101,7 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_TRADE_CONTRACT_SIZE` | 18 | Contract size (e.g., 100000 for 1 lot EURUSD) |
 
 **Swap Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_SWAP_LONG` | 26 | Swap for long positions |
@@ -110,6 +115,7 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_SWAP_SATURDAY` | 34 | Swap multiplier for Saturday rollover |
 
 **Margin Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_MARGIN_INITIAL` | 35 | Initial margin for 1 lot |
@@ -117,6 +123,7 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_MARGIN_HEDGED` | 48 | Margin for hedged positions |
 
 **Session Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_SESSION_VOLUME` | 37 | Session total volume |
@@ -132,12 +139,14 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_SESSION_PRICE_LIMIT_MAX` | 47 | Session maximum price limit |
 
 **Price Change Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_PRICE_CHANGE` | 49 | Price change % from previous day close |
 | `SYMBOL_PRICE_VOLATILITY` | 50 | Price volatility % |
 
 **Options Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_OPTION_STRIKE` | 12 | Option strike price |
@@ -151,13 +160,12 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_PRICE_SENSITIVITY` | 58 | Option sensitivity |
 
 **Other Properties:**
+
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_TRADE_ACCRUED_INTEREST` | 19 | Accrued interest (bonds) |
 | `SYMBOL_TRADE_FACE_VALUE` | 20 | Face value (bonds) |
 | `SYMBOL_TRADE_LIQUIDITY_RATE` | 21 | Liquidity rate for margin |
-
-[MQL5 Documentation](https://www.mql5.com/en/docs/marketinformation/symbolinfodouble)
 
 ---
 

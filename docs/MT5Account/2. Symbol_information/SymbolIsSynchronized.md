@@ -32,6 +32,7 @@ public class MT5Account {
 ```
 
 **Request message:** `SymbolIsSynchronizedRequest { symbol: string }`
+
 **Reply message:** `SymbolIsSynchronizedReply { data: SymbolIsSynchronizedData }` or `{ error: Error }`
 
 ---
@@ -44,7 +45,7 @@ public class MT5Account {
 
 ---
 
-## ⬆️ Output — `SymbolIsSynchronizedData`
+## ⬆️ Output - `SymbolIsSynchronizedData`
 
 | Field          | Type      | Description                                                  |
 | -------------- | --------- | ------------------------------------------------------------ |

@@ -6,6 +6,7 @@
 
 * **Sugar method:** `MT5Sugar.buyLimit(String symbol, double volume, double price, Double stopLoss, Double takeProfit)`
 * **Underlying methods:**
+
   - [`MT5Service.orderSend()`](../../MT5Account/5.%20Trading/OrderSend.md) - low-level order placement
   - [`ensureSymbolSelected()`](../1.%20Symbol_helpers/ensureSymbolSelected.md) - auto symbol selection
   - [`normalizeVolume()`](../1.%20Symbol_helpers/normalizeVolume.md) - auto volume normalization
@@ -263,7 +264,7 @@ if (desiredEntry >= currentAsk) {
    ↑
    | TP: above entry (1.12390)
    |
-Entry: (1.12290) — pending, waits for price to drop here
+Entry: (1.12290) - pending, waits for price to drop here
    |
    | SL: below entry (1.12240)
    ↓
