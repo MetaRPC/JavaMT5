@@ -80,7 +80,9 @@ public class RiskManagementScenario {
 
             long user = Long.parseLong(fxProDemoSection.split("\"user\":\\s*")[1].split(",")[0].trim());
             String password = fxProDemoSection.split("\"password\":\\s*\"")[1].split("\"")[0];
-            String grpcServer = fxProDemoSection.split("\"grpcServer\":\\s*\"")[1].split("\"")[0];
+            String grpcServer = fxProDemoSection.contains("\"grpcServer\"")
+                ? fxProDemoSection.split("\"grpcServer\":\\s*\"")[1].split("\"")[0]
+                : null;
 
             System.out.println("Configuration loaded: user=" + user);
             System.out.println();
