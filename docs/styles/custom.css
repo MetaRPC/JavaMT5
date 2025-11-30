@@ -19,13 +19,31 @@
   white-space: nowrap;
 }
 
-/* 2) Background: Dark gradient with subtle warmth */
-body {
+/* 2) Background: Light theme (default) */
+[data-md-color-scheme="default"] body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 50%, #f0f4f8 100%);
+  background-attachment: fixed;
+}
+
+[data-md-color-scheme="default"] body::before{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(50% 50% at 30% 20%, rgba(99,102,241,.04), transparent 50%),
+    radial-gradient(60% 60% at 70% 60%, rgba(79,70,229,.06), transparent 55%),
+    radial-gradient(45% 45% at 50% 80%, rgba(99,102,241,.03), transparent 50%);
+  filter: blur(40px);
+  animation: warmGlow 60s ease-in-out infinite;
+  opacity:.6;
+}
+
+/* Background: Dark theme (slate) */
+[data-md-color-scheme="slate"] body {
   background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 50%, #0f1419 100%);
   background-attachment: fixed;
 }
 
-body::before{
+[data-md-color-scheme="slate"] body::before{
   content:"";
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
@@ -110,14 +128,26 @@ body::before{
   padding:1.5rem 1.2rem; min-height:180px;
   border-radius:16px; text-decoration:none; color:inherit;
   text-align: center;
-  background:
-    linear-gradient(180deg, rgba(15,20,30,.92), rgba(10,14,23,.88)) padding-box,
-    linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
   border:2px solid transparent;
-  box-shadow:0 12px 28px rgba(0,0,0,.3);
   backdrop-filter: blur(8px);
   transform-style: preserve-3d;
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-width .2s ease;
+}
+
+/* Light theme cards */
+[data-md-color-scheme="default"] .card{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,250,252,.92)) padding-box,
+    linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+/* Dark theme cards */
+[data-md-color-scheme="slate"] .card{
+  background:
+    linear-gradient(180deg, rgba(15,20,30,.92), rgba(10,14,23,.88)) padding-box,
+    linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
+  box-shadow:0 12px 28px rgba(0,0,0,.3);
 }
 
 .card h3{ margin:.6rem 0 .3rem; font-weight:700; font-size:1.15rem; letter-spacing:.3px; }
@@ -138,8 +168,18 @@ body::before{
 /* 6) Hover Cards: Easy Lift and Inner Shade */
 .card:hover{
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.45);
   border-width: 3px;
+}
+
+[data-md-color-scheme="default"] .card:hover{
+  box-shadow: 0 12px 32px rgba(0,0,0,.15);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,250,252,.95)) padding-box,
+    linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
+}
+
+[data-md-color-scheme="slate"] .card:hover{
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
   background:
     linear-gradient(180deg, rgba(20,25,35,.95), rgba(15,20,30,.92)) padding-box,
     linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
@@ -174,20 +214,50 @@ body::before{
   .card{ transition: none !important; }
 }
 
-/* 10) Code blocks enhancement */
-.md-typeset code {
+/* 10) Code blocks enhancement - Light theme */
+[data-md-color-scheme="default"] .md-typeset code {
+  background-color: rgba(99,102,241,.06);
+  border: 1px solid rgba(99,102,241,.15);
+}
+
+[data-md-color-scheme="default"] .md-typeset pre {
+  background-color: rgba(248,250,252,.95);
+  border: 1px solid rgba(99,102,241,.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* Code blocks enhancement - Dark theme */
+[data-md-color-scheme="slate"] .md-typeset code {
   background-color: rgba(99,102,241,.08);
   border: 1px solid rgba(99,102,241,.12);
 }
 
-.md-typeset pre {
+[data-md-color-scheme="slate"] .md-typeset pre {
   background-color: rgba(13,17,23,.92);
   border: 1px solid rgba(99,102,241,.15);
   box-shadow: 0 4px 12px rgba(0,0,0,.3);
 }
 
-/* 11) Architecture diagram styling */
-.architecture-diagram {
+/* 11) Architecture diagram styling - Light theme */
+[data-md-color-scheme="default"] .architecture-diagram {
+  background: linear-gradient(180deg, rgba(248,250,252,.95), rgba(241,245,249,.92));
+  border: 1px solid rgba(99,102,241,.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+  line-height: 2;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+[data-md-color-scheme="default"] .architecture-diagram strong {
+  color: #5b21b6;
+  font-size: 1.05rem;
+}
+
+/* Architecture diagram styling - Dark theme */
+[data-md-color-scheme="slate"] .architecture-diagram {
   background: linear-gradient(180deg, rgba(13,17,23,.86), rgba(13,17,23,.82));
   border: 1px solid rgba(99,102,241,.15);
   border-radius: 12px;
@@ -199,7 +269,7 @@ body::before{
   box-shadow: 0 4px 12px rgba(0,0,0,.3);
 }
 
-.architecture-diagram strong {
+[data-md-color-scheme="slate"] .architecture-diagram strong {
   color: #ffd740;
   font-size: 1.05rem;
 }
