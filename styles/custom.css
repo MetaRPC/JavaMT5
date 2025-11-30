@@ -37,22 +37,13 @@
   opacity:.6;
 }
 
-/* Background: Dark theme (slate) */
+/* Background: Dark theme (slate) - remove custom background, use MkDocs default */
 [data-md-color-scheme="slate"] body {
-  background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 50%, #0f1419 100%);
-  background-attachment: fixed;
+  background: var(--md-default-bg-color);
 }
 
 [data-md-color-scheme="slate"] body::before{
-  content:"";
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  background:
-    radial-gradient(50% 50% at 30% 20%, rgba(255,193,7,.06), transparent 50%),
-    radial-gradient(60% 60% at 70% 60%, rgba(255,152,0,.08), transparent 55%),
-    radial-gradient(45% 45% at 50% 80%, rgba(255,111,0,.05), transparent 50%);
-  filter: blur(40px);
-  animation: warmGlow 60s ease-in-out infinite;
-  opacity:.8;
+  display: none;
 }
 @keyframes warmGlow{
   0%   { transform: translate3d(0,0,0) scale(1); }
@@ -145,9 +136,9 @@
 /* Dark theme cards */
 [data-md-color-scheme="slate"] .card{
   background:
-    linear-gradient(180deg, rgba(15,20,30,.92), rgba(10,14,23,.88)) padding-box,
+    linear-gradient(180deg, rgba(30,35,45,.65), rgba(25,30,40,.6)) padding-box,
     linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
-  box-shadow:0 12px 28px rgba(0,0,0,.3);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
 .card h3{ margin:.6rem 0 .3rem; font-weight:700; font-size:1.15rem; letter-spacing:.3px; }
@@ -179,9 +170,9 @@
 }
 
 [data-md-color-scheme="slate"] .card:hover{
-  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
   background:
-    linear-gradient(180deg, rgba(20,25,35,.95), rgba(15,20,30,.92)) padding-box,
+    linear-gradient(180deg, rgba(35,40,50,.75), rgba(30,35,45,.7)) padding-box,
     linear-gradient(135deg, rgb(var(--g1)), rgb(var(--g2))) border-box;
 }
 
@@ -226,16 +217,13 @@
   box-shadow: 0 2px 8px rgba(0,0,0,.06);
 }
 
-/* Code blocks enhancement - Dark theme */
+/* Code blocks enhancement - Dark theme - use MkDocs defaults */
 [data-md-color-scheme="slate"] .md-typeset code {
-  background-color: rgba(99,102,241,.08);
-  border: 1px solid rgba(99,102,241,.12);
+  /* Use default MkDocs styling */
 }
 
 [data-md-color-scheme="slate"] .md-typeset pre {
-  background-color: rgba(13,17,23,.92);
-  border: 1px solid rgba(99,102,241,.15);
-  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  /* Use default MkDocs styling */
 }
 
 /* 11) Architecture diagram styling - Light theme */
@@ -258,15 +246,15 @@
 
 /* Architecture diagram styling - Dark theme */
 [data-md-color-scheme="slate"] .architecture-diagram {
-  background: linear-gradient(180deg, rgba(13,17,23,.86), rgba(13,17,23,.82));
-  border: 1px solid rgba(99,102,241,.15);
+  background: rgba(30,35,45,.4);
+  border: 1px solid rgba(99,102,241,.2);
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1rem 0;
   text-align: center;
   line-height: 2;
   font-size: 0.95rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
 [data-md-color-scheme="slate"] .architecture-diagram strong {
