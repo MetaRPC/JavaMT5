@@ -64,13 +64,13 @@ public class MT5Account {
      *
      * @param user MT5 account number
      * @param password MT5 account password
-     * @param grpcServer gRPC server address (default: "grpc.mt5.mrpc.pro:443")
+     * @param grpcServer gRPC server address (default: "mt5.mrpc.pro:443")
      * @param id Optional instance ID (generated if null)
      */
     public MT5Account(long user, String password, String grpcServer, UUID id) {
         this.user = user;
         this.password = password;
-        this.grpcServer = grpcServer != null ? grpcServer : "grpc.mt5.mrpc.pro:443";
+        this.grpcServer = grpcServer != null ? grpcServer : "mt5.mrpc.pro:443";
         this.id = id != null ? id : UUID.randomUUID();
 
         // Create gRPC channel with SSL/TLS

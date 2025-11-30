@@ -73,7 +73,7 @@ public class MarketDataServiceExample {
             JsonObject config = loadConfig();
             long user = config.get("user").getAsLong();
             String password = config.get("password").getAsString();
-            String grpcServer = config.get("grpcServer").getAsString();
+            String grpcServer = config.has("grpcServer") ? config.get("grpcServer").getAsString() : null;
             String serverName = config.get("serverName").getAsString();
             String baseSymbol = config.get("baseSymbol").getAsString();
 
