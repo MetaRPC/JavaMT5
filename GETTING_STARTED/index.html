@@ -656,10 +656,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-configure-metarpc-gateway-connection" class="md-nav__link">
+  <a href="#step-3-configure-mt5-account-connection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3: Configure MetaRPC Gateway Connection
+        Step 3: Configure MT5 Account Connection
       
     </span>
   </a>
@@ -1506,10 +1506,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-configure-metarpc-gateway-connection" class="md-nav__link">
+  <a href="#step-3-configure-mt5-account-connection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3: Configure MetaRPC Gateway Connection
+        Step 3: Configure MT5 Account Connection
       
     </span>
   </a>
@@ -2010,57 +2010,42 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">set</span> <span class="s2">&quot;MVND=C:\Users\&lt;your-username&gt;\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd&quot;</span>
 </code></pre></div></p>
 <hr />
-<h3 id="step-3-configure-metarpc-gateway-connection">Step 3: Configure MetaRPC Gateway Connection<a class="headerlink" href="#step-3-configure-metarpc-gateway-connection" title="Permanent link">¶</a></h3>
-<p>JavaMT5 connects to MT5 terminal via the <strong>MetaRPC gRPC gateway</strong> - a Java library that provides MT5 terminal integration.</p>
+<h3 id="step-3-configure-mt5-account-connection">Step 3: Configure MT5 Account Connection<a class="headerlink" href="#step-3-configure-mt5-account-connection" title="Permanent link">¶</a></h3>
+<p>JavaMT5 connects to MT5 terminal via the <strong>MetaRPC gRPC gateway</strong> - a cloud service that routes your requests to your broker's MT5 server.</p>
 <p><strong>What is MetaRPC?</strong></p>
 <ul>
 <li>GitHub package: <code>com.github.MetaRPC.metarpcmt5</code></li>
 <li>Provides gRPC communication with MT5 terminal</li>
 <li>Already included in <code>pom.xml</code> dependencies</li>
+<li>Connects via default gateway: <code>mt5.mrpc.pro:443</code></li>
 <li>See: <a href="https://github.com/MetaRPC/JavaMT5/packages/2470968">MetaRPC on GitHub Packages</a></li>
 </ul>
-<p><strong>Two ways to connect:</strong></p>
-<h4 id="option-a-connect-to-your-own-mt5-terminal-local">Option A: Connect to Your Own MT5 Terminal (Local)<a class="headerlink" href="#option-a-connect-to-your-own-mt5-terminal-local" title="Permanent link">¶</a></h4>
-<p>If you have MT5 installed locally with MetaRPC server running:</p>
-<ol>
-<li>Ensure MT5 terminal is running</li>
-<li>MetaRPC gRPC server must be running in MT5</li>
-<li>Configure <code>appsettings.json</code>:</li>
-</ol>
+<p><strong>Configure your MT5 account:</strong></p>
+<p>Edit <code>appsettings.json</code> with your MT5 account credentials:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;MT5&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;Host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">&quot;Port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5555</span><span class="p">,</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">&quot;Login&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="p">,</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">&quot;Password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_password&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">&quot;Symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EURUSD&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nt">&quot;UseSSL&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="nt">&quot;TimeoutSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;MT5Connections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;FxProDemo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_password&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">&quot;serverName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YourBroker-MT5 Demo&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">&quot;baseSymbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EURUSD&quot;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nt">&quot;DefaultConnection&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FxProDemo&quot;</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
 </code></pre></div>
-<h4 id="option-b-connect-to-remote-metarpc-gateway-provided-by-metarpc">Option B: Connect to Remote MetaRPC Gateway (Provided by MetaRPC)<a class="headerlink" href="#option-b-connect-to-remote-metarpc-gateway-provided-by-metarpc" title="Permanent link">¶</a></h4>
-<p>If MetaRPC team provides access to their gateway:</p>
-<ol>
-<li>Obtain connection credentials from MetaRPC</li>
-<li>Configure <code>appsettings.json</code> with provided settings:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;MT5&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;Host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gateway.metarpc.com&quot;</span><span class="p">,</span><span class="w">     </span><span class="c1">// Provided by MetaRPC</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;Port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5555</span><span class="p">,</span><span class="w">                      </span><span class="c1">// Provided by MetaRPC</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&quot;Login&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">                   </span><span class="c1">// Your MT5 account number</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;Password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_password&quot;</span><span class="p">,</span><span class="w">       </span><span class="c1">// Your MT5 password</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&quot;Symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EURUSD&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">&quot;UseSSL&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">                    </span><span class="c1">// Usually true for remote</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">&quot;TimeoutSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
-</code></pre></div>
+<p><strong>Configuration parameters:</strong></p>
+<ul>
+<li><code>user</code> - Your MT5 account number</li>
+<li><code>password</code> - Your MT5 account password</li>
+<li><code>serverName</code> - Your broker's MT5 server name (e.g., "FxPro-MT5 Demo")</li>
+<li><code>baseSymbol</code> - Default trading symbol (e.g., "EURUSD")</li>
+</ul>
+<p>The library automatically connects through <code>mt5.mrpc.pro:443</code> gateway, which routes to your broker's server based on <code>serverName</code>.</p>
 <h3 id="step-4-clone-and-build-the-project">Step 4: Clone and Build the Project<a class="headerlink" href="#step-4-clone-and-build-the-project" title="Permanent link">¶</a></h3>
 <p><strong>Clone repository:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MetaRPC/JavaMT5.git
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span>JavaMT5
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MetaRPC/JavaMT5.git
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>JavaMT5
 </code></pre></div></p>
 <p><strong>Understanding run.bat - Your Project Lifecycle Manager:</strong></p>
 <p>The <code>run.bat</code> script is the central command that manages the entire JavaMT5 project lifecycle:</p>
@@ -2073,9 +2058,9 @@
 <li><strong>Compiles the project</strong> before running</li>
 </ul>
 <p><strong>What happens when you run <code>.\run.bat 7</code>:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>1. Maven downloads MetaRPC library (if not cached)
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>2. Compiles all Java source files
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>3. Launches SimpleTradingScenario example
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1. Maven downloads MetaRPC library (if not cached)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>2. Compiles all Java source files
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>3. Launches SimpleTradingScenario example
 </code></pre></div></p>
 <p>This ensures every run starts with a fresh, complete build.</p>
 <p><strong>For complete command reference and troubleshooting:</strong>
@@ -2086,35 +2071,35 @@ See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
 - Build process details</p>
 <hr />
 <p><strong>First build:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Windows CMD or PowerShell</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># This will:</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># 1. Download all Maven dependencies (including MetaRPC library)</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># 2. Compile the project</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># 3. Run SimpleTradingScenario example</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Windows CMD or PowerShell</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># This will:</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># 1. Download all Maven dependencies (including MetaRPC library)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># 2. Compile the project</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># 3. Run SimpleTradingScenario example</span>
 </code></pre></div></p>
 <p><strong>If you get errors:</strong>
 - See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for troubleshooting
 - Common fix: Delete <code>target/</code> folder and try again
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>target
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>target
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span>
 </code></pre></div></p>
 <hr />
 <h3 id="step-5-verify-everything-works">Step 5: Verify Everything Works<a class="headerlink" href="#step-5-verify-everything-works" title="Permanent link">¶</a></h3>
 <p><strong>Test the setup:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Run a simple example</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span><span class="w">    </span><span class="c1"># SimpleTradingScenario</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># If it connects and runs - you&#39;re ready!</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># If you see errors - check RUNNING_EXAMPLES.md</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Run a simple example</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>.<span class="se">\r</span>un.bat<span class="w"> </span><span class="m">7</span><span class="w">    </span><span class="c1"># SimpleTradingScenario</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># If it connects and runs - you&#39;re ready!</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># If you see errors - check RUNNING_EXAMPLES.md</span>
 </code></pre></div></p>
 <p><strong>Expected output:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[INFO] BUILD SUCCESS
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Configuration loaded: user=123456
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>► Connecting to MT5...
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>✓ Connected
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[INFO] BUILD SUCCESS
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Configuration loaded: user=123456
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>► Connecting to MT5...
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>✓ Connected
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>...
 </code></pre></div></p>
 <hr />
 <h3 id="whats-next">What's Next?<a class="headerlink" href="#whats-next" title="Permanent link">¶</a></h3>
@@ -2214,7 +2199,7 @@ See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
 <h2 id="the-learning-path">🗺️ The Learning Path<a class="headerlink" href="#the-learning-path" title="Permanent link">¶</a></h2>
 <h3 id="foundation-mt5account-low-level">Foundation: MT5Account (Low-Level) 📦<a class="headerlink" href="#foundation-mt5account-low-level" title="Permanent link">¶</a></h3>
 <p><strong>START HERE if you want to understand how everything works.</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>MT5 Terminal ←→ gRPC ←→ Proto Messages ←→ MT5Account.java
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>MT5 Terminal ←→ gRPC ←→ Proto Messages ←→ MT5Account.java
 </code></pre></div>
 <p><strong>What you'll do:</strong></p>
 <ol>
@@ -2240,7 +2225,7 @@ See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
 <hr />
 <h3 id="step-up-mt5service-wrapper-layer">Step Up: MT5Service (Wrapper Layer) 🔧<a class="headerlink" href="#step-up-mt5service-wrapper-layer" title="Permanent link">¶</a></h3>
 <p><strong>Continue here to see how to simplify the low-level API.</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>MT5Account (proto) → MT5Service (wrappers) → Simple method calls
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>MT5Account (proto) → MT5Service (wrappers) → Simple method calls
 </code></pre></div>
 <p><strong>What you'll do:</strong>
 1. Study how MT5Service wraps MT5Account methods
@@ -2258,7 +2243,7 @@ See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
 <hr />
 <h3 id="convenience-mt5sugar-high-level-api">Convenience: MT5Sugar (High-Level API) ⭐<a class="headerlink" href="#convenience-mt5sugar-high-level-api" title="Permanent link">¶</a></h3>
 <p><strong>Start here if you want to trade quickly and learn foundations later.</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>MT5Service → MT5Sugar → Auto-everything convenience methods
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>MT5Service → MT5Sugar → Auto-everything convenience methods
 </code></pre></div>
 <p><strong>What you'll do:</strong></p>
 <ol>
@@ -2283,7 +2268,7 @@ See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
 <hr />
 <h3 id="strategies-orchestrators-trading-automation">Strategies: Orchestrators (Trading Automation) 🎯<a class="headerlink" href="#strategies-orchestrators-trading-automation" title="Permanent link">¶</a></h3>
 <p><strong>Learn complete strategy implementation patterns.</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>MT5Sugar → Orchestrator → Complete trading strategy workflow
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>MT5Sugar → Orchestrator → Complete trading strategy workflow
 </code></pre></div>
 <p><strong>What you'll do:</strong></p>
 <ol>
@@ -2311,7 +2296,7 @@ See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
 <hr />
 <h3 id="advanced-presets-multi-strategy-systems">Advanced: Presets (Multi-Strategy Systems) 🎼<a class="headerlink" href="#advanced-presets-multi-strategy-systems" title="Permanent link">¶</a></h3>
 <p><strong>Learn how to combine strategies with adaptive logic.</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Orchestrators → Preset → Multi-strategy adaptive system
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Orchestrators → Preset → Multi-strategy adaptive system
 </code></pre></div>
 <p><strong>What you'll do:</strong></p>
 <ol>
@@ -2367,21 +2352,21 @@ See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
 <p><strong>Location:</strong> <code>src/main/java/examples/</code></p>
 <p>The <code>examples/</code> folder contains <strong>runnable demonstrations of every method</strong> for full-fledged work with MT5.</p>
 <h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>examples/
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>├── lowlevel/           ← MT5Account examples (proto level)
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>│   ├── MarketDataExample.java
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>│   ├── StreamingExample.java
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>│   └── TradingCalculationsExample.java
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>│
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>├── services/           ← MT5Service examples (wrapper level)
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>│   ├── MarketDataServiceExample.java
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>│   ├── StreamingServiceExample.java
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>│   └── TradingServiceExample.java
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>│
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>└── sugar/              ← MT5Sugar examples (convenience level)
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>    ├── SimpleTradingScenario.java
-<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>    ├── RiskManagementScenario.java
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>    └── GridTradingScenario.java
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>examples/
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>├── lowlevel/           ← MT5Account examples (proto level)
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>│   ├── MarketDataExample.java
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>│   ├── StreamingExample.java
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>│   └── TradingCalculationsExample.java
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>│
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>├── services/           ← MT5Service examples (wrapper level)
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>│   ├── MarketDataServiceExample.java
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>│   ├── StreamingServiceExample.java
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>│   └── TradingServiceExample.java
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>│
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>└── sugar/              ← MT5Sugar examples (convenience level)
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    ├── SimpleTradingScenario.java
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>    ├── RiskManagementScenario.java
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>    └── GridTradingScenario.java
 </code></pre></div>
 <h2 id="learning-resources">🎓 Learning Resources<a class="headerlink" href="#learning-resources" title="Permanent link">¶</a></h2>
 <h3 id="inside-the-project">Inside the project:<a class="headerlink" href="#inside-the-project" title="Permanent link">¶</a></h3>
@@ -2448,8 +2433,8 @@ See <a href="../RUNNING_EXAMPLES/">RUNNING_EXAMPLES.md</a> for:
 <li>Foundation for building your own trading systems</li>
 </ul>
 <h3 id="the-journey">The journey<a class="headerlink" href="#the-journey" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Proto/gRPC → Wrappers → Convenience → Strategies → Your Ideas
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>(Foundation)  (Simplification)  (Automation)   (Production)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Proto/gRPC → Wrappers → Convenience → Strategies → Your Ideas
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>(Foundation)  (Simplification)  (Automation)   (Production)
 </code></pre></div>
 <p><strong>Start wherever makes sense for you, and enjoy the learning process!</strong></p>
 <hr />

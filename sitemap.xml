@@ -2,430 +2,430 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://metarpc.github.io/JavaMT5/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/GETTING_STARTED/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/GLOSSARY/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/Orchestrators.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/PROJECT_MAP/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/RUNNING_EXAMPLES/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/MT5Account.Master.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/1.%20Account_information/AccountInfoDouble/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/1.%20Account_information/AccountInfoInteger/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/1.%20Account_information/AccountInfoString/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/1.%20Account_information/AccountSummary/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/1.%20Account_information/Account_Information.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolExist/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolInfoDouble/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolInfoInteger/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolInfoString/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolInfoTick/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolIsSynchronized/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolName/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolSelect/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/Symbol_Information.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolsTotal/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/TickValueWithSize/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/3.%20Positions_and_orders/OpenedOrders/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/3.%20Positions_and_orders/OpenedOrdersTickets/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/3.%20Positions_and_orders/OrderHistory/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/3.%20Positions_and_orders/PositionsHistory/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/3.%20Positions_and_orders/PositionsTotal/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/3.%20Positions_and_orders/Positions_And_Orders.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/4.%20Market_depth_DOM/MarketBookAdd/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/4.%20Market_depth_DOM/MarketBookGet/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/4.%20Market_depth_DOM/MarketBookRelease/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/4.%20Market_depth_DOM/Market_Depth_DOM.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/5.%20Trading/OrderCalcMargin/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/5.%20Trading/OrderCalcProfit/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/5.%20Trading/OrderCheck/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/5.%20Trading/OrderClose/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/5.%20Trading/OrderModify/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/5.%20Trading/OrderSend/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/5.%20Trading/Trading.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/6.%20Subscriptions/OnPositionProfit/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/6.%20Subscriptions/OnPositionsAndPendingOrdersTickets/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/6.%20Subscriptions/OnSymbolTick/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/6.%20Subscriptions/OnTrade/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/6.%20Subscriptions/OnTradeTransaction/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Account/6.%20Subscriptions/Subscriptions.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/MT5Sugar.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/Symbol_Helpers.Overview/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/ensureSymbolSelected/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/getAsk/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/getBid/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/getDigits/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/getPoint/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/getSpread/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/getSpreadPrice/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/normalizePrice/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/normalizeVolume/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/pointsToPips/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/pointsToPrice/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/1.%20Symbol_helpers/priceFromOffsetPoints/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/10.%20Snapshot_helpers/getAccountSnapshot/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/10.%20Snapshot_helpers/getSymbolSnapshot/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/11.%20History_helpers/getOrdersHistoryLastDays/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/11.%20History_helpers/getPositionsHistoryPaged/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/2.%20Market_orders/buyMarket/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/2.%20Market_orders/sellMarket/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/3.%20Pending_orders/buyLimit/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/3.%20Pending_orders/buyStop/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/3.%20Pending_orders/sellLimit/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/3.%20Pending_orders/sellStop/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/4.%20Pending_orders_points/buyLimitPoints/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/4.%20Pending_orders_points/buyStopPoints/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/4.%20Pending_orders_points/sellLimitPoints/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/4.%20Pending_orders_points/sellStopPoints/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/5.%20Position_management/closeAll/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/5.%20Position_management/closeAllBuy/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/5.%20Position_management/closeAllSell/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/5.%20Position_management/closePosition/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/5.%20Position_management/modifyPosition/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/6.%20Advanced_batch_operations/cancelAll/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/6.%20Advanced_batch_operations/closeAllPending/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/6.%20Advanced_batch_operations/closeAllPositions/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/7.%20Risk_management/buyByRisk/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/7.%20Risk_management/calculateVolume/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/7.%20Risk_management/sellByRisk/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/8.%20Advanced_helpers/getTickValueAndSize/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/8.%20Advanced_helpers/getVolumeLimits/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/8.%20Advanced_helpers/pointsToPips/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/8.%20Advanced_helpers/priceFromOffsetPoints/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/createTimestamp/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/getBalance/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/getEquity/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/getFreeMargin/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/getMargin/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/getPositionCount/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/getProfit/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/hasOpenPositions/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/normalizeLots/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/MT5Sugar/9.%20Account_and_position_helpers/normalizePriceDigits/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/api/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/api/MT5Account/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/api/MT5Service/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/api/MT5Sugar/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/javadoc/legal/dejavufonts/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/javadoc/legal/jquery/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://metarpc.github.io/JavaMT5/javadoc/legal/jqueryUI/</loc>
-         <lastmod>2025-11-30</lastmod>
+         <lastmod>2025-12-01</lastmod>
     </url>
 </urlset>
