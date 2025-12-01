@@ -62,61 +62,44 @@ set "MVND=C:\Users\<your-username>\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd"
 
 ---
 
-### Step 3: Configure MetaRPC Gateway Connection
+### Step 3: Configure MT5 Account Connection
 
-JavaMT5 connects to MT5 terminal via the **MetaRPC gRPC gateway** - a Java library that provides MT5 terminal integration.
+JavaMT5 connects to MT5 terminal via the **MetaRPC gRPC gateway** - a cloud service that routes your requests to your broker's MT5 server.
 
 **What is MetaRPC?**
 
 - GitHub package: `com.github.MetaRPC.metarpcmt5`
 - Provides gRPC communication with MT5 terminal
 - Already included in `pom.xml` dependencies
+- Connects via default gateway: `mt5.mrpc.pro:443`
 - See: [MetaRPC on GitHub Packages](https://github.com/MetaRPC/JavaMT5/packages/2470968)
 
-**Two ways to connect:**
+**Configure your MT5 account:**
 
-#### Option A: Connect to Your Own MT5 Terminal (Local)
-
-If you have MT5 installed locally with MetaRPC server running:
-
-1. Ensure MT5 terminal is running
-2. MetaRPC gRPC server must be running in MT5
-3. Configure `appsettings.json`:
+Edit `appsettings.json` with your MT5 account credentials:
 
 ```json
 {
-  "MT5": {
-    "Host": "localhost",
-    "Port": 5555,
-    "Login": 12345678,
-    "Password": "your_password",
-    "Symbol": "EURUSD",
-    "UseSSL": false,
-    "TimeoutSeconds": 30
-  }
+  "MT5Connections": {
+    "FxProDemo": {
+      "user": 123456,
+      "password": "your_password",
+      "serverName": "YourBroker-MT5 Demo",
+      "baseSymbol": "EURUSD"
+    }
+  },
+  "DefaultConnection": "FxProDemo"
 }
 ```
 
-#### Option B: Connect to Remote MetaRPC Gateway (Provided by MetaRPC)
+**Configuration parameters:**
 
-If MetaRPC team provides access to their gateway:
+- `user` - Your MT5 account number
+- `password` - Your MT5 account password
+- `serverName` - Your broker's MT5 server name (e.g., "FxPro-MT5 Demo")
+- `baseSymbol` - Default trading symbol (e.g., "EURUSD")
 
-1. Obtain connection credentials from MetaRPC
-2. Configure `appsettings.json` with provided settings:
-
-```json
-{
-  "MT5": {
-    "Host": "gateway.metarpc.com",     // Provided by MetaRPC
-    "Port": 5555,                      // Provided by MetaRPC
-    "Login": 123456,                   // Your MT5 account number
-    "Password": "your_password",       // Your MT5 password
-    "Symbol": "EURUSD",
-    "UseSSL": true,                    // Usually true for remote
-    "TimeoutSeconds": 30
-  }
-}
-```
+The library automatically connects through `mt5.mrpc.pro:443` gateway, which routes to your broker's server based on `serverName`.
 
 ### Step 4: Clone and Build the Project
 
