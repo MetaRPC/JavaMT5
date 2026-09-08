@@ -1,6 +1,7 @@
 package pro.mrpc.mt5;
 
 import org.junit.jupiter.api.Test;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,18 +31,29 @@ public class MT5AccountTest {
     }
 
     @Test
-    public void testGetIdProtoSerialization() {
-        mt5_term_api.GetIdRequest req = mt5_term_api.GetIdRequest.newBuilder()
-                .setUser("12345678")
+    public void testConnectRequestProtoSerialization() {
+        mt5_term_api.ConnectRequest req = mt5_term_api.ConnectRequest.newBuilder()
+                .setUser(12345678L)
                 .setPassword("test_password")
+                .setHost("mt5.mrpc.pro")
+                .setPort(443)
                 .build();
-        assertEquals("12345678", req.getUser());
+        assertEquals(12345678L, req.getUser());
         assertEquals("test_password", req.getPassword());
+        assertEquals("mt5.mrpc.pro", req.getHost());
+        assertEquals(443, req.getPort());
+    }
 
-        mt5_term_api.GetIdReply reply = mt5_term_api.GetIdReply.newBuilder()
-                .setData(mt5_term_api.GetIdData.newBuilder().setId("68c935ee-a2b1-4f3e-bb36-3982845cfa85").build())
-                .build();
-        assertNotNull(reply.getData());
-        assertEquals("68c935ee-a2b1-4f3e-bb36-3982845cfa85", reply.getData().getId());
+    @Test
+    public void testDeterministicAccountId() {
+        long user = 12345678L;
+        String pass = "test_password";
+        UUID id1 = UUID.nameUUIDFromBytes((user + ":" + pass).getBytes(StandardCharsets.UTF_8));
+        UUID id2 = UUID.nameUUIDFromBytes((user + ":" + pass).getBytes(StandardCharsets.UTF_8));
+        assertEquals(id1, id2);
+        assertNotNull(id1);
+
+        MT5Account account = new MT5Account(user, pass, "mt5.mrpc.pro:443", id1);
+        assertEquals(id1, account.getId());
     }
 }
