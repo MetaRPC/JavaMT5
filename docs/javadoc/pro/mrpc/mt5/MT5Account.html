@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="dc.created" content="2025-11-29">
-<meta name="description" content="declaration: package: io.metarpc.mt5, class: MT5Account">
+<meta name="description" content="declaration: package: pro.mrpc.mt5, class: MT5Account">
 <meta name="generator" content="javadoc/ClassWriter">
 <link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css">
@@ -41,7 +41,7 @@ loadScripts(document, 'script');</script>
 <div class="sub-nav">
 <div class="nav-content">
 <ol class="sub-nav-list">
-<li><a href="package-summary.html">io.metarpc.mt5</a></li>
+<li><a href="package-summary.html">pro.mrpc.mt5</a></li>
 <li><a href="MT5Account.html" class="current-selection">MT5Account</a></li>
 </ol>
 <div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
@@ -779,7 +779,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseChartSymbol,
  boolean&nbsp;waitForTerminalIsAlive,
  int&nbsp;timeoutSeconds)</span>
-                                          throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                          throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Connect to MT5 terminal by host and port</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -791,7 +791,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <dt>Returns:</dt>
 <dd>Connection response with terminal instance GUID</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if connection fails</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if connection fails</dd>
 </dl>
 </div>
 </section>
@@ -803,11 +803,11 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiConnection.ConnectReply</span>&nbsp;<span class="element-name">connect</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;host,
  int&nbsp;port,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseChartSymbol)</span>
-                                          throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                          throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Simplified connect method with default parameters</div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code></dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code></dd>
 </dl>
 </div>
 </section>
@@ -819,7 +819,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiConnection.ConnectExReply</span>&nbsp;<span class="element-name">connectByServerName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serverName,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseChartSymbol,
  int&nbsp;timeoutSeconds)</span>
-                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Connect to MT5 terminal by server name (MT cluster name)</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -829,7 +829,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <dt>Returns:</dt>
 <dd>Connection response with terminal instance GUID</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if connection fails</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if connection fails</dd>
 </dl>
 </div>
 </section>
@@ -840,11 +840,11 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiConnection.ConnectExReply</span>&nbsp;<span class="element-name">connectByServerName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serverName,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseChartSymbol)</span>
-                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Simplified connectByServerName with default timeout</div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code></dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code></dd>
 </dl>
 </div>
 </section>
@@ -854,13 +854,13 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <h3>checkConnect</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiConnection.CheckConnectReply</span>&nbsp;<span class="element-name">checkConnect</span>()
-                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Check if terminal connection is alive</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>Check connection response</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if check fails</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if check fails</dd>
 </dl>
 </div>
 </section>
@@ -870,13 +870,13 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <h3>disconnect</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiConnection.DisconnectReply</span>&nbsp;<span class="element-name">disconnect</span>()
-                                                throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Disconnect from MT5 terminal</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>Disconnect response</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if disconnect fails</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if disconnect fails</dd>
 </dl>
 </div>
 </section>
@@ -895,7 +895,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseChartSymbol,
  boolean&nbsp;waitForTerminalIsAlive,
  int&nbsp;timeoutSeconds)</span>
-                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Connect to MT5 terminal through proxy server</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -912,7 +912,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <dt>Returns:</dt>
 <dd>Connection response with terminal GUID</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if connection fails</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if connection fails</dd>
 </dl>
 </div>
 </section>
@@ -923,7 +923,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiConnection.ReconnectReply</span>&nbsp;<span class="element-name">reconnect</span><wbr><span class="parameters">(boolean&nbsp;forceReconnection,
  int&nbsp;timeoutSeconds)</span>
-                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Reconnect to terminal (recreate terminal instance if needed)</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -932,7 +932,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <dt>Returns:</dt>
 <dd>Reconnect response with terminal info</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if reconnection fails</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if reconnection fails</dd>
 </dl>
 </div>
 </section>
@@ -942,7 +942,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <h3>accountSummary</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiAccountHelper.AccountSummaryReply</span>&nbsp;<span class="element-name">accountSummary</span>()
-                                                           throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                           throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the complete summary of the trading account in a single call.
 Returns all essential account information including balance, equity, margin, profit, leverage, and currency.
 This is the recommended method for retrieving account data as it minimizes network calls.</div>
@@ -950,7 +950,7 @@ This is the recommended method for retrieving account data as it minimizes netwo
 <dt>Returns:</dt>
 <dd>Account summary containing all account properties</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -960,7 +960,7 @@ This is the recommended method for retrieving account data as it minimizes netwo
 <h3>accountInfoDouble</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiAccountInformation.AccountInfoDoubleReply</span>&nbsp;<span class="element-name">accountInfoDouble</span><wbr><span class="parameters">(Mt5TermApiAccountInformation.AccountInfoDoublePropertyType&nbsp;propertyType)</span>
-                                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Retrieves a specific double-precision property of the trading account.
 Use this to get individual numeric values such as BALANCE, EQUITY, MARGIN, PROFIT, etc.</div>
 <dl class="notes">
@@ -969,7 +969,7 @@ Use this to get individual numeric values such as BALANCE, EQUITY, MARGIN, PROFI
 <dt>Returns:</dt>
 <dd>Response containing the requested double value</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -979,7 +979,7 @@ Use this to get individual numeric values such as BALANCE, EQUITY, MARGIN, PROFI
 <h3>accountInfoInteger</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiAccountInformation.AccountInfoIntegerReply</span>&nbsp;<span class="element-name">accountInfoInteger</span><wbr><span class="parameters">(Mt5TermApiAccountInformation.AccountInfoIntegerPropertyType&nbsp;propertyType)</span>
-                                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Retrieves a specific integer property of the trading account.
 Use this to get values such as LOGIN, LEVERAGE, TRADE_MODE, LIMIT_ORDERS, etc.</div>
 <dl class="notes">
@@ -988,7 +988,7 @@ Use this to get values such as LOGIN, LEVERAGE, TRADE_MODE, LIMIT_ORDERS, etc.</
 <dt>Returns:</dt>
 <dd>Response containing the requested integer value</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -998,7 +998,7 @@ Use this to get values such as LOGIN, LEVERAGE, TRADE_MODE, LIMIT_ORDERS, etc.</
 <h3>accountInfoString</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiAccountInformation.AccountInfoStringReply</span>&nbsp;<span class="element-name">accountInfoString</span><wbr><span class="parameters">(Mt5TermApiAccountInformation.AccountInfoStringPropertyType&nbsp;propertyType)</span>
-                                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Retrieves a specific string property of the trading account.
 Use this to get textual information such as account NAME, SERVER, CURRENCY, or COMPANY.</div>
 <dl class="notes">
@@ -1007,7 +1007,7 @@ Use this to get textual information such as account NAME, SERVER, CURRENCY, or C
 <dt>Returns:</dt>
 <dd>Response containing the requested string value</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1017,7 +1017,7 @@ Use this to get textual information such as account NAME, SERVER, CURRENCY, or C
 <h3>quote</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoTickRequestReply</span>&nbsp;<span class="element-name">quote</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol)</span>
-                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the current market quote (Bid/Ask prices) for a trading symbol.
 This is a convenience method that internally calls symbolInfoTick().</div>
 <dl class="notes">
@@ -1026,7 +1026,7 @@ This is a convenience method that internally calls symbolInfoTick().</div>
 <dt>Returns:</dt>
 <dd>Current tick data including bid, ask, last price, and volume</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1036,7 +1036,7 @@ This is a convenience method that internally calls symbolInfoTick().</div>
 <h3>quoteMany</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoTickRequestReply[]</span>&nbsp;<span class="element-name">quoteMany</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;symbols)</span>
-                                                            throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                            throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Get quotes for multiple symbols
 Note: Calls symbolInfoTick for each symbol sequentially</div>
 <dl class="notes">
@@ -1045,7 +1045,7 @@ Note: Calls symbolInfoTick for each symbol sequentially</div>
 <dt>Returns:</dt>
 <dd>Array of symbol info ticks</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if any call fails</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if any call fails</dd>
 </dl>
 </div>
 </section>
@@ -1055,7 +1055,7 @@ Note: Calls symbolInfoTick for each symbol sequentially</div>
 <h3>symbolsTotal</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolsTotalReply</span>&nbsp;<span class="element-name">symbolsTotal</span><wbr><span class="parameters">(boolean&nbsp;selectedOnly)</span>
-                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the total count of available symbols on the MT5 server.
 Returns either all symbols known to the server or only those currently shown in the MarketWatch window.
 Use this to determine how many symbols are available before requesting detailed symbol information.</div>
@@ -1065,7 +1065,7 @@ Use this to determine how many symbols are available before requesting detailed 
 <dt>Returns:</dt>
 <dd>Total number of symbols matching the filter criteria</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1075,7 +1075,7 @@ Use this to determine how many symbols are available before requesting detailed 
 <h3>symbolInfoTick</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoTickRequestReply</span>&nbsp;<span class="element-name">symbolInfoTick</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol)</span>
-                                                               throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                               throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the latest tick data for a specified symbol.
 Returns real-time market information including current bid/ask prices, last trade price, volume, and timestamp.
 This is the primary method for retrieving current market prices for trading decisions.</div>
@@ -1085,7 +1085,7 @@ This is the primary method for retrieving current market prices for trading deci
 <dt>Returns:</dt>
 <dd>Latest tick data with bid/ask prices, last price, volume, and time</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1096,7 +1096,7 @@ This is the primary method for retrieving current market prices for trading deci
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolSelectReply</span>&nbsp;<span class="element-name">symbolSelect</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol,
  boolean&nbsp;select)</span>
-                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Selects or deselects a symbol in the Market Watch window.
 Symbols must be selected in Market Watch to receive price updates and place trades.</div>
 <dl class="notes">
@@ -1106,7 +1106,7 @@ Symbols must be selected in Market Watch to receive price updates and place trad
 <dt>Returns:</dt>
 <dd>Reply with success status</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1117,7 +1117,7 @@ Symbols must be selected in Market Watch to receive price updates and place trad
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoDoubleReply</span>&nbsp;<span class="element-name">symbolInfoDouble</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol,
  Mt5TermApiMarketInfo.SymbolInfoDoubleProperty&nbsp;property)</span>
-                                                            throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                            throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets a double property value for a specified symbol.
 Used to retrieve numeric properties like point size, spread, volume limits, etc.</div>
 <dl class="notes">
@@ -1127,7 +1127,7 @@ Used to retrieve numeric properties like point size, spread, volume limits, etc.
 <dt>Returns:</dt>
 <dd>Reply with the property value</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1138,7 +1138,7 @@ Used to retrieve numeric properties like point size, spread, volume limits, etc.
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoIntegerReply</span>&nbsp;<span class="element-name">symbolInfoInteger</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol,
  Mt5TermApiMarketInfo.SymbolInfoIntegerProperty&nbsp;property)</span>
-                                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets an integer property value for a specified symbol.
 Used to retrieve integer properties like digits, spread in points, trade mode, etc.</div>
 <dl class="notes">
@@ -1148,7 +1148,7 @@ Used to retrieve integer properties like digits, spread in points, trade mode, e
 <dt>Returns:</dt>
 <dd>Reply with the property value</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1159,7 +1159,7 @@ Used to retrieve integer properties like digits, spread in points, trade mode, e
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoStringReply</span>&nbsp;<span class="element-name">symbolInfoString</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol,
  Mt5TermApiMarketInfo.SymbolInfoStringProperty&nbsp;property)</span>
-                                                            throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                            throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets a string property value for a specified symbol.
 Used to retrieve string properties like base currency, description, path, etc.</div>
 <dl class="notes">
@@ -1169,7 +1169,7 @@ Used to retrieve string properties like base currency, description, path, etc.</
 <dt>Returns:</dt>
 <dd>Reply with the property value</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1179,7 +1179,7 @@ Used to retrieve string properties like base currency, description, path, etc.</
 <h3>symbolExist</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolExistReply</span>&nbsp;<span class="element-name">symbolExist</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbolName)</span>
-                                                  throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                  throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Checks if a symbol exists on the MT5 server.
 Returns whether the specified symbol name is available for trading.</div>
 <dl class="notes">
@@ -1188,7 +1188,7 @@ Returns whether the specified symbol name is available for trading.</div>
 <dt>Returns:</dt>
 <dd>Reply with existence status</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1199,7 +1199,7 @@ Returns whether the specified symbol name is available for trading.</div>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolNameReply</span>&nbsp;<span class="element-name">symbolName</span><wbr><span class="parameters">(int&nbsp;index,
  boolean&nbsp;selectedOnly)</span>
-                                                throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the symbol name by its position in the symbols list.
 Returns the name of the symbol at the specified index.</div>
 <dl class="notes">
@@ -1209,7 +1209,7 @@ Returns the name of the symbol at the specified index.</div>
 <dt>Returns:</dt>
 <dd>Reply with symbol name</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1219,7 +1219,7 @@ Returns the name of the symbol at the specified index.</div>
 <h3>symbolIsSynchronized</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolIsSynchronizedReply</span>&nbsp;<span class="element-name">symbolIsSynchronized</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol)</span>
-                                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Checks if symbol data is synchronized with the trade server.
 Returns whether the symbol's price and market data is currently up to date.</div>
 <dl class="notes">
@@ -1228,7 +1228,7 @@ Returns whether the symbol's price and market data is currently up to date.</div
 <dt>Returns:</dt>
 <dd>Reply with synchronization status</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1239,7 +1239,7 @@ Returns whether the symbol's price and market data is currently up to date.</div
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoMarginRateReply</span>&nbsp;<span class="element-name">symbolInfoMarginRate</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol,
  Mt5TermApiMarketInfo.ENUM_ORDER_TYPE&nbsp;orderType)</span>
-                                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the margin rate required for opening positions on a specified symbol.
 Returns the margin multiplier applied for buy and sell orders, which varies based on order type.
 Use this to calculate the exact margin requirement before placing orders.</div>
@@ -1250,7 +1250,7 @@ Use this to calculate the exact margin requirement before placing orders.</div>
 <dt>Returns:</dt>
 <dd>Margin rate information including initial and maintenance margin multipliers</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1262,7 +1262,7 @@ Use this to calculate the exact margin requirement before placing orders.</div>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoSessionQuoteReply</span>&nbsp;<span class="element-name">symbolInfoSessionQuote</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol,
  Mt5TermApiMarketInfo.DayOfWeek&nbsp;dayOfWeek,
  int&nbsp;sessionIndex)</span>
-                                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the quote (pricing) session schedule for a symbol on a specific day.
 Returns the start and end times when price quotes are available for the symbol.
 Use this to determine when you can expect to receive price updates for market data.</div>
@@ -1274,7 +1274,7 @@ Use this to determine when you can expect to receive price updates for market da
 <dt>Returns:</dt>
 <dd>Quote session times including start and end times in seconds since midnight</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1286,7 +1286,7 @@ Use this to determine when you can expect to receive price updates for market da
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.SymbolInfoSessionTradeReply</span>&nbsp;<span class="element-name">symbolInfoSessionTrade</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol,
  Mt5TermApiMarketInfo.DayOfWeek&nbsp;dayOfWeek,
  int&nbsp;sessionIndex)</span>
-                                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the trading session schedule for a symbol on a specific day.
 Returns the start and end times when trading operations are allowed for the symbol.
 Use this to determine when you can open/close positions and place orders.</div>
@@ -1298,7 +1298,7 @@ Use this to determine when you can open/close positions and place orders.</div>
 <dt>Returns:</dt>
 <dd>Trade session times including start and end times in seconds since midnight</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1311,7 +1311,7 @@ Use this to determine when you can open/close positions and place orders.</div>
  Mt5TermApiAccountHelper.AH_SYMBOL_PARAMS_MANY_SORT_TYPE&nbsp;sortType,
  int&nbsp;pageNumber,
  int&nbsp;itemsPerPage)</span>
-                                                               throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                               throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets comprehensive parameter details for one or more symbols with pagination support.
 Returns extensive symbol information including contract specifications, trading conditions, and current state.
 Use this when you need complete symbol details beyond basic tick data, especially for multiple symbols.</div>
@@ -1324,7 +1324,7 @@ Use this when you need complete symbol details beyond basic tick data, especiall
 <dt>Returns:</dt>
 <dd>Detailed symbol parameters including specs, margins, session times, and current state</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1334,7 +1334,7 @@ Use this when you need complete symbol details beyond basic tick data, especiall
 <h3>positionsTotal</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiTradeFunctions.PositionsTotalReply</span>&nbsp;<span class="element-name">positionsTotal</span>()
-                                                            throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                            throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the total count of currently open positions on the account.
 Returns a simple count of all active positions regardless of symbol.
 Use this for quick checks of position count before retrieving detailed position information.</div>
@@ -1342,7 +1342,7 @@ Use this for quick checks of position count before retrieving detailed position 
 <dt>Returns:</dt>
 <dd>Total number of open positions</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1352,7 +1352,7 @@ Use this for quick checks of position count before retrieving detailed position 
 <h3>openedOrders</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiAccountHelper.OpenedOrdersReply</span>&nbsp;<span class="element-name">openedOrders</span><wbr><span class="parameters">(Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE&nbsp;sortType)</span>
-                                                       throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                       throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets complete details for all currently open positions and pending orders.
 Returns comprehensive information including symbols, volumes, prices, profits, and timestamps.
 Use this to retrieve the full state of all active trading operations with sorting options.</div>
@@ -1362,7 +1362,7 @@ Use this to retrieve the full state of all active trading operations with sortin
 <dt>Returns:</dt>
 <dd>Complete list of open positions and pending orders with all details</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1372,7 +1372,7 @@ Use this to retrieve the full state of all active trading operations with sortin
 <h3>openedOrdersTickets</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiAccountHelper.OpenedOrdersTicketsReply</span>&nbsp;<span class="element-name">openedOrdersTickets</span>()
-                                                                     throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                     throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets only the ticket numbers of all open positions and pending orders.
 This lightweight method returns just the ticket IDs without full position details.
 Use this when you only need to track which positions exist or for efficient position monitoring.</div>
@@ -1380,7 +1380,7 @@ Use this when you only need to track which positions exist or for efficient posi
 <dt>Returns:</dt>
 <dd>List of ticket numbers for all open positions and pending orders</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1394,7 +1394,7 @@ Use this when you only need to track which positions exist or for efficient posi
  Mt5TermApiAccountHelper.BMT5_ENUM_ORDER_HISTORY_SORT_TYPE&nbsp;sortType,
  int&nbsp;pageNumber,
  int&nbsp;itemsPerPage)</span>
-                                                       throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                       throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets historical order data within a specified time range with pagination support.
 Returns all orders (executed, canceled, rejected) that occurred between the given timestamps.
 Use this to analyze past trading activity, generate reports, or track order execution history.</div>
@@ -1408,7 +1408,7 @@ Use this to analyze past trading activity, generate reports, or track order exec
 <dt>Returns:</dt>
 <dd>Historical order data with pagination metadata</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1422,7 +1422,7 @@ Use this to analyze past trading activity, generate reports, or track order exec
  Timestamp&nbsp;positionOpenTimeTo,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pageNumber,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;itemsPerPage)</span>
-                                                               throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                               throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets historical position data with optional time filtering and pagination.
 Returns all closed positions with complete details including entry/exit prices, profits, and durations.
 Use this for performance analysis, reporting, or tracking past trading results.</div>
@@ -1436,7 +1436,7 @@ Use this for performance analysis, reporting, or tracking past trading results.<
 <dt>Returns:</dt>
 <dd>Historical position data with complete trading statistics</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1446,7 +1446,7 @@ Use this for performance analysis, reporting, or tracking past trading results.<
 <h3>marketBookAdd</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.MarketBookAddReply</span>&nbsp;<span class="element-name">marketBookAdd</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol)</span>
-                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Subscribes to Market Depth (DOM/Level II) updates for a specified symbol.
 After subscription, you can retrieve current order book data showing pending buy and sell orders.
 Use this to access liquidity information and see the market depth before placing large orders.</div>
@@ -1456,7 +1456,7 @@ Use this to access liquidity information and see the market depth before placing
 <dt>Returns:</dt>
 <dd>Subscription confirmation response</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1466,7 +1466,7 @@ Use this to access liquidity information and see the market depth before placing
 <h3>marketBookGet</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.MarketBookGetReply</span>&nbsp;<span class="element-name">marketBookGet</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol)</span>
-                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Gets the current Market Depth (order book) data for a subscribed symbol.
 Returns pending buy and sell orders with prices and volumes from the order book.
 Use this to analyze liquidity, identify support/resistance levels, or optimize order placement.</div>
@@ -1476,7 +1476,7 @@ Use this to analyze liquidity, identify support/resistance levels, or optimize o
 <dt>Returns:</dt>
 <dd>Market book data containing arrays of buy and sell orders with prices and volumes</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1486,7 +1486,7 @@ Use this to analyze liquidity, identify support/resistance levels, or optimize o
 <h3>marketBookRelease</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiMarketInfo.MarketBookReleaseReply</span>&nbsp;<span class="element-name">marketBookRelease</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;symbol)</span>
-                                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Unsubscribes from Market Depth updates for a specified symbol.
 Stops receiving order book data and releases associated resources.
 Use this when you no longer need DOM data for a symbol to free up resources.</div>
@@ -1496,7 +1496,7 @@ Use this when you no longer need DOM data for a symbol to free up resources.</di
 <dt>Returns:</dt>
 <dd>Unsubscription confirmation response</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1506,7 +1506,7 @@ Use this when you no longer need DOM data for a symbol to free up resources.</di
 <h3>tickValueWithSize</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiAccountHelper.TickValueWithSizeReply</span>&nbsp;<span class="element-name">tickValueWithSize</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;symbolNames)</span>
-                                                                 throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                 throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Get tick value and size information for multiple symbols
 Returns tick values, contract size, and tick size for trading calculations</div>
 <dl class="notes">
@@ -1515,7 +1515,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <dt>Returns:</dt>
 <dd>Tick value and size data for all requested symbols</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if call fails</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if call fails</dd>
 </dl>
 </div>
 </section>
@@ -1525,7 +1525,7 @@ Returns tick values, contract size, and tick size for trading calculations</div>
 <h3>orderSend</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiTradingHelper.OrderSendReply</span>&nbsp;<span class="element-name">orderSend</span><wbr><span class="parameters">(Mt5TermApiTradingHelper.OrderSendRequest&nbsp;request)</span>
-                                                 throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                 throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Sends a trading order to the MT5 server (market or pending order).
 Use this method to open new positions or place pending orders with specified parameters
 including symbol, volume, price, stop loss, and take profit levels.</div>
@@ -1535,7 +1535,7 @@ including symbol, volume, price, stop loss, and take profit levels.</div>
 <dt>Returns:</dt>
 <dd>Response with the order/deal ticket number if successful</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the order fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the order fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1545,7 +1545,7 @@ including symbol, volume, price, stop loss, and take profit levels.</div>
 <h3>orderModify</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiTradingHelper.OrderModifyReply</span>&nbsp;<span class="element-name">orderModify</span><wbr><span class="parameters">(Mt5TermApiTradingHelper.OrderModifyRequest&nbsp;request)</span>
-                                                     throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                     throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Modifies an existing order or position parameters.
 Use this to update stop loss, take profit, price, or other parameters of an open position or pending order.</div>
 <dl class="notes">
@@ -1554,7 +1554,7 @@ Use this to update stop loss, take profit, price, or other parameters of an open
 <dt>Returns:</dt>
 <dd>Response indicating success or failure of the modification</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the modification fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the modification fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1566,7 +1566,7 @@ Use this to update stop loss, take profit, price, or other parameters of an open
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiTradingHelper.OrderCloseReply</span>&nbsp;<span class="element-name">orderClose</span><wbr><span class="parameters">(long&nbsp;ticket,
  double&nbsp;volume,
  int&nbsp;slippage)</span>
-                                                   throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                   throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Closes an open position or deletes a pending order.
 For positions, you can specify partial closure by providing a volume less than the total position size.</div>
 <dl class="notes">
@@ -1577,7 +1577,7 @@ For positions, you can specify partial closure by providing a volume less than t
 <dt>Returns:</dt>
 <dd>Response indicating success or failure of the closure</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the closure fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the closure fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1590,7 +1590,7 @@ For positions, you can specify partial closure by providing a volume less than t
  Mt5TermApiTradeFunctions.ENUM_ORDER_TYPE_TF&nbsp;orderType,
  double&nbsp;volume,
  double&nbsp;openPrice)</span>
-                                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Calculates the margin required to open a position with specified parameters.
 Returns the amount of funds needed in account currency to maintain the position.
 Use this before placing orders to verify sufficient margin and avoid margin call risks.</div>
@@ -1603,7 +1603,7 @@ Use this before placing orders to verify sufficient margin and avoid margin call
 <dt>Returns:</dt>
 <dd>Calculated margin requirement in account currency</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1617,7 +1617,7 @@ Use this before placing orders to verify sufficient margin and avoid margin call
  double&nbsp;volume,
  double&nbsp;openPrice,
  double&nbsp;closePrice)</span>
-                                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Calculates the potential profit or loss for a trading operation.
 Returns the P<span class="invalid-tag">invalid input: '&amp;L'</span> in account currency for opening at one price and closing at another.
 Use this to evaluate potential trades, set profit targets, or calculate risk/reward ratios.</div>
@@ -1631,7 +1631,7 @@ Use this to evaluate potential trades, set profit targets, or calculate risk/rew
 <dt>Returns:</dt>
 <dd>Calculated profit/loss in account currency</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1641,7 +1641,7 @@ Use this to evaluate potential trades, set profit targets, or calculate risk/rew
 <h3>orderCheck</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiTradeFunctions.OrderCheckReply</span>&nbsp;<span class="element-name">orderCheck</span><wbr><span class="parameters">(Mt5TermApiTradeFunctions.MrpcMqlTradeRequest&nbsp;tradeRequest)</span>
-                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Validates a trading request and checks if there are sufficient funds to execute it.
 Returns detailed calculations including margin requirements, expected profit, and resulting balance.
 Use this to verify order validity before sending, preventing rejected orders due to insufficient funds.</div>
@@ -1651,7 +1651,7 @@ Use this to verify order validity before sending, preventing rejected orders due
 <dt>Returns:</dt>
 <dd>Validation result with margin, profit, balance calculations, and any error codes</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1664,7 +1664,7 @@ Use this to verify order validity before sending, preventing rejected orders due
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;eaFileName,
  Mt5TermApiCharts.EnumOpenTerminalChartWithEaChatPeriod&nbsp;chartPeriod,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;Mt5TermApiCharts.OpenTerminalChartWithEaParameter&gt;&nbsp;eaParameters)</span>
-                                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Opens a chart in the MT5 terminal with an Expert Advisor (EA) attached.
 Creates a new chart for the specified symbol with the given timeframe and automatically attaches an EA with parameters.
 Use this to programmatically deploy trading robots on specific symbols and timeframes.</div>
@@ -1677,7 +1677,7 @@ Use this to programmatically deploy trading robots on specific symbols and timef
 <dt>Returns:</dt>
 <dd>Chart ID and EA attachment status</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1687,7 +1687,7 @@ Use this to programmatically deploy trading robots on specific symbols and timef
 <h3>getEaParams</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiCharts.GetEaParamsReply</span>&nbsp;<span class="element-name">getEaParams</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;eaFileName)</span>
-                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                              throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Retrieves the input parameters defined in an Expert Advisor.
 Returns metadata about all configurable parameters including their names and types.
 Use this to discover which parameters an EA accepts before attaching it to a chart.</div>
@@ -1697,7 +1697,7 @@ Use this to discover which parameters an EA accepts before attaching it to a cha
 <dt>Returns:</dt>
 <dd>EA parameter information including names, types, and whether the EA was found</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1710,7 +1710,7 @@ Use this to discover which parameters an EA accepts before attaching it to a cha
  Mt5TermApiInternalCharts.ChartExpertMode&nbsp;expertMode,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;timerPeriod,
  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;ignoreEmptyData)</span>
-                                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                                    throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Opens an internal chart for a symbol with a specified expert mode for receiving trading events.
 Creates a background chart that can trigger callbacks based on ticks, trades, or profit changes.
 Use this for event-driven trading logic without displaying a visible chart in the terminal.</div>
@@ -1723,7 +1723,7 @@ Use this for event-driven trading logic without displaying a visible chart in th
 <dt>Returns:</dt>
 <dd>Chart ID for the opened internal chart</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1733,7 +1733,7 @@ Use this for event-driven trading logic without displaying a visible chart in th
 <h3>closeChartForSymbol</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">closeChartForSymbol</span><wbr><span class="parameters">(long&nbsp;mqlChartId)</span>
-                         throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                         throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Closes a previously opened internal chart.
 Removes the chart and stops all associated event callbacks.
 Use this to clean up resources when you no longer need events from a specific symbol.</div>
@@ -1741,7 +1741,7 @@ Use this to clean up resources when you no longer need events from a specific sy
 <dt>Parameters:</dt>
 <dd><code>mqlChartId</code> - Chart ID returned from openChartForSymbol</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1751,7 +1751,7 @@ Use this to clean up resources when you no longer need events from a specific sy
 <h3>healthCheck</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Mt5TermApiHealthCheck.HealthCheckReply</span>&nbsp;<span class="element-name">healthCheck</span>()
-                                                   throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                                   throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Performs a health check on the MT5 terminal connection.
 Returns connection status and current server time to verify the terminal is alive and responsive.
 Use this periodically to monitor connection health and detect disconnections early.</div>
@@ -1759,7 +1759,7 @@ Use this periodically to monitor connection health and detect disconnections ear
 <dt>Returns:</dt>
 <dd>Health check response with connection status and server time in seconds</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1769,13 +1769,13 @@ Use this periodically to monitor connection health and detect disconnections ear
 <h3>stopListening</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stopListening</span>()
-                   throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                   throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Stops the MT5 terminal from listening for incoming gRPC requests.
 Gracefully shuts down the terminal's API server while keeping the terminal running.
 Use this when you want to terminate API access but leave the terminal operational.</div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the call fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1786,7 +1786,7 @@ Use this when you want to terminate API access but leave the terminal operationa
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onSymbolTick</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;symbolNames,
  StreamObserver&lt;Mt5TermApiSubscriptions.OnSymbolTickReply&gt;&nbsp;responseObserver)</span>
-                  throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                  throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Subscribes to real-time tick updates for one or more symbols.
 Receives a continuous stream of price updates (bid, ask, last, volume) whenever prices change.
 Use this for real-time price monitoring, tick-based trading strategies, or market data feeds.</div>
@@ -1795,7 +1795,7 @@ Use this for real-time price monitoring, tick-based trading strategies, or marke
 <dd><code>symbolNames</code> - Array of symbol names to monitor (e.g., ["EURUSD", "GBPUSD"])</dd>
 <dd><code>responseObserver</code> - Observer to receive streaming tick updates</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1805,7 +1805,7 @@ Use this for real-time price monitoring, tick-based trading strategies, or marke
 <h3>onTrade</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onTrade</span><wbr><span class="parameters">(StreamObserver&lt;Mt5TermApiSubscriptions.OnTradeReply&gt;&nbsp;responseObserver)</span>
-             throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+             throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Subscribes to trade events whenever a trading operation occurs.
 Receives notifications when orders are opened, closed, modified, or deleted.
 Use this to track all trading activity in real-time and react to order execution events.</div>
@@ -1813,7 +1813,7 @@ Use this to track all trading activity in real-time and react to order execution
 <dt>Parameters:</dt>
 <dd><code>responseObserver</code> - Observer to receive streaming trade event notifications</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1825,7 +1825,7 @@ Use this to track all trading activity in real-time and react to order execution
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onPositionProfit</span><wbr><span class="parameters">(int&nbsp;timerPeriodMilliseconds,
  boolean&nbsp;ignoreEmptyData,
  StreamObserver&lt;Mt5TermApiSubscriptions.OnPositionProfitReply&gt;&nbsp;responseObserver)</span>
-                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                      throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Subscribes to periodic updates of position profit/loss values.
 Receives profit updates at regular intervals for all open positions.
 Use this to monitor unrealized P<span class="invalid-tag">invalid input: '&amp;L'</span> in real-time and implement profit-based exit strategies.</div>
@@ -1835,7 +1835,7 @@ Use this to monitor unrealized P<span class="invalid-tag">invalid input: '&amp;L
 <dd><code>ignoreEmptyData</code> - If true, skips updates when profit values haven't changed</dd>
 <dd><code>responseObserver</code> - Observer to receive streaming position profit updates</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1846,7 +1846,7 @@ Use this to monitor unrealized P<span class="invalid-tag">invalid input: '&amp;L
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onPositionsAndPendingOrdersTickets</span><wbr><span class="parameters">(int&nbsp;timerPeriodMilliseconds,
  StreamObserver&lt;Mt5TermApiSubscriptions.OnPositionsAndPendingOrdersTicketsReply&gt;&nbsp;responseObserver)</span>
-                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Subscribes to periodic updates of position and pending order ticket numbers.
 Receives lists of currently open position tickets and pending order tickets at regular intervals.
 Use this to efficiently track which positions/orders exist without retrieving full details.</div>
@@ -1855,7 +1855,7 @@ Use this to efficiently track which positions/orders exist without retrieving fu
 <dd><code>timerPeriodMilliseconds</code> - Update interval in milliseconds</dd>
 <dd><code>responseObserver</code> - Observer to receive streaming ticket lists</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
 </dl>
 </div>
 </section>
@@ -1865,7 +1865,7 @@ Use this to efficiently track which positions/orders exist without retrieving fu
 <h3>onTradeTransaction</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onTradeTransaction</span><wbr><span class="parameters">(StreamObserver&lt;Mt5TermApiSubscriptions.OnTradeTransactionReply&gt;&nbsp;responseObserver)</span>
-                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
+                        throws <span class="exceptions"><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></span></div>
 <div class="block">Subscribes to detailed trade transaction events.
 Receives comprehensive information about every trade operation including request, result, and execution details.
 Use this for detailed trade auditing, debugging order execution, or building advanced trading analytics.</div>
@@ -1873,7 +1873,7 @@ Use this for detailed trade auditing, debugging order execution, or building adv
 <dt>Parameters:</dt>
 <dd><code>responseObserver</code> - Observer to receive streaming trade transaction details</dd>
 <dt>Throws:</dt>
-<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in io.metarpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
+<dd><code><a href="exceptions/ApiExceptionMT5.html" title="class in pro.mrpc.mt5.exceptions">ApiExceptionMT5</a></code> - if the subscription fails or connection is lost</dd>
 </dl>
 </div>
 </section>

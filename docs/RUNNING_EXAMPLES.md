@@ -259,7 +259,7 @@ The `target/` folder is where Maven puts **your** compiled files:
 target/
 ├── classes/                          # Only YOUR compiled code
 │   ├── Program.class
-│   ├── io/metarpc/mt5/              # YOUR wrappers (MT5Account, MT5Service, MT5Sugar)
+│   ├── pro/mrpc/mt5/              # YOUR wrappers (MT5Account, MT5Service, MT5Sugar)
 │   │   ├── MT5Account.class
 │   │   ├── MT5Service.class
 │   │   └── MT5Sugar.class

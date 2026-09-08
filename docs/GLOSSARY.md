@@ -31,7 +31,7 @@ The foundational layer providing direct access to MT5 terminal via gRPC protocol
 
 **When to use:** Custom integrations, proto-level control needed.
 
-**Location:** `src/main/java/io/metarpc/mt5/MT5Account.java`
+**Location:** `src/main/java/pro/mrpc/mt5/MT5Account.java`
 
 ---
 
@@ -48,7 +48,7 @@ Middle layer providing simplified method signatures without proto wrapping.
 
 **When to use:** Need wrappers but not auto-normalization.
 
-**Location:** `src/main/java/io/metarpc/mt5/MT5Service.java`
+**Location:** `src/main/java/pro/mrpc/mt5/MT5Service.java`
 
 ---
 
@@ -66,7 +66,7 @@ Highest-level API with ~50 convenience methods for common trading operations.
 
 **When to use:** 95% of cases - easiest starting point.
 
-**Location:** `src/main/java/io/metarpc/mt5/MT5Sugar.java`
+**Location:** `src/main/java/pro/mrpc/mt5/MT5Sugar.java`
 
 **Documentation:** [MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)
 

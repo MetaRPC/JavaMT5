@@ -2,7 +2,7 @@
 
 **Layer 1 (Low-Level API)** - Direct proto/gRPC methods for MetaTrader 5
 
-**Source:** `src/main/java/io/metarpc/mt5/MT5Account.java`
+**Source:** `src/main/java/pro/mrpc/mt5/MT5Account.java`
 
 ---
 

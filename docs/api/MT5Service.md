@@ -2,7 +2,7 @@
 
 **Layer 2 (Mid-Level API)** - Wrapper methods with enhanced error handling and convenience
 
-**Source:** `src/main/java/io/metarpc/mt5/MT5Service.java`
+**Source:** `src/main/java/pro/mrpc/mt5/MT5Service.java`
 
 ---
 

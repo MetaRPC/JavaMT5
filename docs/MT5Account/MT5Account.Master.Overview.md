@@ -236,7 +236,7 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 - Complete access to all MT5 functions
 - Highest complexity
 
-**Location:** `src/main/java/io/metarpc/mt5/MT5Account.java`
+**Location:** `src/main/java/pro/mrpc/mt5/MT5Account.java`
 
 **Documentation:** This folder (you are here!)
 
@@ -257,7 +257,7 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 - No proto objects in return values
 - No auto-normalization
 
-**Location:** `src/main/java/io/metarpc/mt5/MT5Service.java`
+**Location:** `src/main/java/pro/mrpc/mt5/MT5Service.java`
 
 ---
 
@@ -277,7 +277,7 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 - Batch operations
 - Smart helpers
 
-**Location:** `src/main/java/io/metarpc/mt5/MT5Sugar.java`
+**Location:** `src/main/java/pro/mrpc/mt5/MT5Sugar.java`
 
 **Documentation:** [MT5Sugar.Overview.md](../API_Reference/MT5Sugar.md)
 

@@ -2,7 +2,7 @@
 
 **Layer 3 (High-Level API)** - Convenience methods with auto-normalization and risk management
 
-**Source:** `src/main/java/io/metarpc/mt5/MT5Sugar.java`
+**Source:** `src/main/java/pro/mrpc/mt5/MT5Sugar.java`
 
 ---
 

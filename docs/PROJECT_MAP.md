@@ -19,14 +19,14 @@ External Dependencies:
 
 ---
 
-## 📦 Core API (Internal - src/main/java/io/metarpc/mt5/)
+## 📦 Core API (Internal - src/main/java/pro/mrpc/mt5/)
 
 **What:** Three-tier architecture for MT5 trading automation.
 
 **User interaction:** Import and use, but typically don't modify.
 
 ```
-src/main/java/io/metarpc/mt5/
+src/main/java/pro/mrpc/mt5/
 ├── MT5Account.java         ← LAYER 1: Low-level proto/gRPC
 │   └── Direct proto Request/Response objects
 │   └── Connection management
@@ -366,7 +366,7 @@ docs/
 1. Read: docs/MT5Account/ documentation
 2. Study: MetaRPC proto classes (from JitPack JAR in ~/.m2/repository/)
 3. Run: run.bat 1-3 (Low-level examples)
-4. Study: src/main/java/io/metarpc/mt5/MT5Account.java
+4. Study: src/main/java/pro/mrpc/mt5/MT5Account.java
 5. Explore: Proto-generated classes (mt5_term_api.* packages)
 6. Use: When MT5Sugar/MT5Service don't fit your needs
 7. Build: Custom low-level gRPC integrations
@@ -443,7 +443,7 @@ appsettings.json         ← Configure for your MT5 terminal
 ### 📖 READ (Core API)
 
 ```
-io/metarpc/mt5/         ← Use but don't modify (import and call)
+pro/mrpc/mt5/         ← Use but don't modify (import and call)
 docs/                   ← Reference documentation
 ```
 
