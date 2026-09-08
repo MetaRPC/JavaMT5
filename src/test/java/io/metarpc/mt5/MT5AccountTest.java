@@ -25,7 +25,7 @@ public class MT5AccountTest {
         MT5Service service = new MT5Service(account);
         assertNotNull(service);
 
-        MT5Sugar sugar = new MT5Sugar(account);
+        MT5Sugar sugar = new MT5Sugar(service);
         assertNotNull(sugar);
     }
 }
