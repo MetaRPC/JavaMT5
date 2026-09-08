@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2166,7 +2166,7 @@
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// You pass: volume=0.0234, SL=1.09876543</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">// Sugar normalizes to: volume=0.02, SL=1.09877</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">sugar</span><span class="p">.</span><span class="na">buyMarket</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0234</span><span class="p">,</span><span class="w"> </span><span class="mf">1.09876543</span><span class="p">,</span><span class="w"> </span><span class="mf">1.10000</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">sugar</span><span class="p">.</span><span class="na">buyMarket</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0234</span><span class="p">,</span><span class="w"> </span><span class="mf">1.09876543</span><span class="p">,</span><span class="w"> </span><span class="mf">1.10000</span><span class="p">);</span>
 </code></pre></div></p>
 <hr />
 <h3 id="risk-based-volume-calculation">Risk-Based Volume Calculation<a class="headerlink" href="#risk-based-volume-calculation" title="Permanent link">¶</a></h3>
@@ -2191,8 +2191,8 @@
 <p><strong>In JavaMT5:</strong> All APIs use <strong>points</strong> for consistency.</p>
 <p><strong>Conversion:</strong> Use <code>pointsToPips(symbol, points)</code> helper.</p>
 <p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getPoint</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0.00001</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">pips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">pointsToPips</span><span class="p">(</span><span class="s">&quot;EURUSD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span><span class="w">  </span><span class="c1">// 5.0 pips</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">getPoint</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0.00001</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">pips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="na">pointsToPips</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span><span class="w">  </span><span class="c1">// 5.0 pips</span>
 </code></pre></div></p>
 <hr />
 <h3 id="trailing-stop">Trailing Stop<a class="headerlink" href="#trailing-stop" title="Permanent link">¶</a></h3>
@@ -2409,7 +2409,7 @@
 - Parallel compilation</p>
 <p><strong>Usage in JavaMT5:</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mvnd<span class="w"> </span>compile<span class="w">                        </span><span class="c1"># Build project</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>mvnd<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;7&quot;</span><span class="w">     </span><span class="c1"># Run example 7</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>mvnd<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">"7"</span><span class="w">     </span><span class="c1"># Run example 7</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>mvnd<span class="w"> </span>--stop<span class="w">                         </span><span class="c1"># Stop daemon</span>
 </code></pre></div></p>
 <p><strong>Configuration:</strong> <code>pom.xml</code></p>
@@ -2428,7 +2428,7 @@
 - Can be safely deleted for clean rebuild
 - MetaRPC library classes come from JAR dependency (not generated locally)</p>
 <p><strong>Troubleshooting:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># If you get &quot;Unresolved compilation problem&quot; errors:</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># If you get "Unresolved compilation problem" errors:</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>target<span class="w">         </span><span class="c1"># Windows CMD</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Remove-Item<span class="w"> </span>-Recurse<span class="w"> </span>-Force<span class="w"> </span>target<span class="w">  </span><span class="c1"># PowerShell</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>rm<span class="w"> </span>-rf<span class="w"> </span>target<span class="w">              </span><span class="c1"># Git Bash/Linux</span>
@@ -2751,10 +2751,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../javascripts/ux.js"></script>
       

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1725,7 +1725,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Windows CMD</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>run.bat<span class="w"> </span>&lt;number&gt;
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># PowerShell / Git Bash (if above doesn&#39;t work)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># PowerShell / Git Bash (if above doesn't work)</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>.<span class="se">\r</span>un.bat<span class="w"> </span>&lt;number&gt;
 </code></pre></div>
 <p><strong>Examples:</strong>
@@ -1929,7 +1929,7 @@
 <h3 id="example-runbat-7">Example: <code>run.bat 7</code><a class="headerlink" href="#example-runbat-7" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>run.bat 7
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    ↓
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Program.java main(String[] args)  // args[0] = &quot;7&quot;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Program.java main(String[] args)  // args[0] = "7"
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ↓
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>runDemo(7)
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    ↓
@@ -1942,7 +1942,7 @@
 <h3 id="example-runbat-10-1">Example: <code>run.bat 10 1</code><a class="headerlink" href="#example-runbat-10-1" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>run.bat 10 1
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    ↓
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Program.java main(String[] args)  // args[0] = &quot;10&quot;, args[1] = &quot;1&quot;
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Program.java main(String[] args)  // args[0] = "10", args[1] = "1"
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    ↓
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>runOrchestrator(sugar, 1)
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    ↓
@@ -1954,7 +1954,7 @@
 </code></pre></div>
 <h3 id="what-gets-compiled-and-run">What Gets Compiled and Run<a class="headerlink" href="#what-gets-compiled-and-run" title="Permanent link">¶</a></h3>
 <p>Every <code>run.bat</code> command does:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mvnd<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;&lt;your arguments&gt;&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mvnd<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">"&lt;your arguments&gt;"</span>
 </code></pre></div>
 <h3 id="this-means">This means:<a class="headerlink" href="#this-means" title="Permanent link">¶</a></h3>
 <ol>
@@ -2108,11 +2108,11 @@
 <h3 id="how-runbat-works">How <code>run.bat</code> Works<a class="headerlink" href="#how-runbat-works" title="Permanent link">¶</a></h3>
 <p>When you run <code>run.bat 7</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 1. run.bat calls:</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>mvnd<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">&quot;7&quot;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>mvnd<span class="w"> </span>compile<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.args<span class="o">=</span><span class="s2">"7"</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># 2. This does:</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>-<span class="w"> </span>Compile:<span class="w"> </span>Build<span class="w"> </span>all<span class="w"> </span>Java<span class="w"> </span>files<span class="w"> </span><span class="k">in</span><span class="w"> </span>src/main/java/
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>-<span class="w"> </span>exec:java:<span class="w"> </span>Run<span class="w"> </span>Program.java<span class="w"> </span>with<span class="w"> </span>argument<span class="w"> </span><span class="s2">&quot;7&quot;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>-<span class="w"> </span>exec:java:<span class="w"> </span>Run<span class="w"> </span>Program.java<span class="w"> </span>with<span class="w"> </span>argument<span class="w"> </span><span class="s2">"7"</span>
 <a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
 <a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># 3. Program.java routes to SimpleTradingScenario</span>
 <a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># 4. Your code executes</span>
@@ -2300,10 +2300,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../javascripts/ux.js"></script>
       
