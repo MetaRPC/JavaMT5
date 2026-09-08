@@ -275,7 +275,7 @@ docs/
 ```json
 {
   "MT5": {
-    "Host": "localhost",
+    "Host": "mt5.mrpc.pro",
     "Port": 5555,
     "Login": 12345678,
     "Password": "yourpassword",

@@ -67,3 +67,5 @@ credentials.properties
 # MkDocs
 site/
 broken_links_report.txt
+
+.cache/

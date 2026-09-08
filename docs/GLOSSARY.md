@@ -427,7 +427,7 @@ Calls: SimpleTradingScenario.main()
 Central configuration file for MT5 connection settings.
 
 **Key settings:**
-- `Host` - MT5 terminal host (usually localhost)
+- `Host` - MT5 terminal host (e.g., mt5.mrpc.pro)
 - `Port` - gRPC server port (default 5555)
 - `Login` - MT5 account number
 - `Password` - MT5 account password
