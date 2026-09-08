@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"io.metarpc.mt5"},{"l":"io.metarpc.mt5.exceptions"},{"l":"utils"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"pro.mrpc.mt5"},{"l":"pro.mrpc.mt5.exceptions"},{"l":"utils"}];updateSearchResults();

@@ -932,10 +932,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-api-internal-srcmainjavaiometarpcmt5" class="md-nav__link">
+  <a href="#core-api-internal-srcmainjavapromrpcmt5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📦 Core API (Internal - src/main/java/io/metarpc/mt5/)
+        📦 Core API (Internal - src/main/java/pro/mrpc/mt5/)
       
     </span>
   </a>
@@ -1255,10 +1255,10 @@
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── 🔌 Proto Definitions (from JitPack JAR)
 </code></pre></div>
 <hr />
-<h2 id="core-api-internal-srcmainjavaiometarpcmt5">📦 Core API (Internal - src/main/java/io/metarpc/mt5/)<a class="headerlink" href="#core-api-internal-srcmainjavaiometarpcmt5" title="Permanent link">¶</a></h2>
+<h2 id="core-api-internal-srcmainjavapromrpcmt5">📦 Core API (Internal - src/main/java/pro/mrpc/mt5/)<a class="headerlink" href="#core-api-internal-srcmainjavapromrpcmt5" title="Permanent link">¶</a></h2>
 <p><strong>What:</strong> Three-tier architecture for MT5 trading automation.</p>
 <p><strong>User interaction:</strong> Import and use, but typically don't modify.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>src/main/java/io/metarpc/mt5/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>src/main/java/pro/mrpc/mt5/
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── MT5Account.java         ← LAYER 1: Low-level proto/gRPC
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └── Direct proto Request/Response objects
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   └── Connection management
@@ -1523,7 +1523,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>1. Read: docs/MT5Account/ documentation
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>2. Study: MetaRPC proto classes (from JitPack JAR in ~/.m2/repository/)
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>3. Run: run.bat 1-3 (Low-level examples)
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>4. Study: src/main/java/io/metarpc/mt5/MT5Account.java
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>4. Study: src/main/java/pro/mrpc/mt5/MT5Account.java
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>5. Explore: Proto-generated classes (mt5_term_api.* packages)
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>6. Use: When MT5Sugar/MT5Service don't fit your needs
 <a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>7. Build: Custom low-level gRPC integrations
@@ -1589,7 +1589,7 @@
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>appsettings.json         ← Configure for your MT5 terminal
 </code></pre></div>
 <h3 id="read-core-api">📖 READ (Core API)<a class="headerlink" href="#read-core-api" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>io/metarpc/mt5/         ← Use but don't modify (import and call)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pro/mrpc/mt5/         ← Use but don't modify (import and call)
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>docs/                   ← Reference documentation
 </code></pre></div>
 <h3 id="leave-alone-generatedinternal">🔒 LEAVE ALONE (Generated/Internal)<a class="headerlink" href="#leave-alone-generatedinternal" title="Permanent link">¶</a></h3>
