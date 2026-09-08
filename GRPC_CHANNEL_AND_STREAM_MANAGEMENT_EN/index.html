@@ -1330,7 +1330,7 @@
 </code></pre></div>
 <h3 id="the-mt5accountclose-method">The <code>MT5Account.close()</code> Method<a class="headerlink" href="#the-mt5accountclose-method" title="Permanent link">¶</a></h3>
 <p>The <code>MT5Account</code> class has a <code>close()</code> method that properly closes the gRPC channel:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// In io.metarpc.mt5.MT5Account.java (lines 1901-1908)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// In pro.mrpc.mt5.MT5Account.java (lines 1901-1908)</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">close</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="n">grpcChannel</span><span class="p">.</span><span class="na">shutdown</span><span class="p">().</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
