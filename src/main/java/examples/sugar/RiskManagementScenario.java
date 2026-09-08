@@ -45,10 +45,10 @@
 
 package examples.sugar;
 
-import io.metarpc.mt5.MT5Account;
-import io.metarpc.mt5.MT5Service;
-import io.metarpc.mt5.MT5Sugar;
-import io.metarpc.mt5.exceptions.ApiExceptionMT5;
+import pro.mrpc.mt5.MT5Account;
+import pro.mrpc.mt5.MT5Service;
+import pro.mrpc.mt5.MT5Sugar;
+import pro.mrpc.mt5.exceptions.ApiExceptionMT5;
 
 import java.io.InputStream;
 

@@ -1,4 +1,4 @@
-package io.metarpc.mt5;
+package pro.mrpc.mt5;
 
 import org.junit.jupiter.api.Test;
 import java.util.UUID;

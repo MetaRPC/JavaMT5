@@ -21,7 +21,7 @@
 Install JavaMT5 via your standard Java package manager:
 
 ```bash
-implementation 'io.mtapi:mt5:1.0.0'
+implementation 'pro.mrpc:mt5:1.0.0'
 ```
 
 ---

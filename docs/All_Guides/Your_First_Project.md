@@ -16,7 +16,7 @@ cd my_javamt5_bot
 Install the package:
 
 ```bash
-implementation 'io.mtapi:mt5:1.0.0'
+implementation 'pro.mrpc:mt5:1.0.0'
 ```
 
 ---
@@ -26,8 +26,8 @@ implementation 'io.mtapi:mt5:1.0.0'
 Create your main application file and paste the following snippet:
 
 ```
-import io.mtapi.mt5.MT5Account;
-import io.mtapi.mt5.models.AccountSummary;
+import pro.mrpc.mt5.MT5Account;
+import pro.mrpc.mt5.models.AccountSummary;
 
 MT5Account account = new MT5Account(user, password, grpcServer);
 account.connectByServerNameAsync(serverName, "EURUSD", 30).get();

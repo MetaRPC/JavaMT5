@@ -43,8 +43,8 @@
 
 package examples.services;
 
-import io.metarpc.mt5.MT5Service;
-import io.metarpc.mt5.exceptions.ApiExceptionMT5;
+import pro.mrpc.mt5.MT5Service;
+import pro.mrpc.mt5.exceptions.ApiExceptionMT5;
 import mt5_term_api.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

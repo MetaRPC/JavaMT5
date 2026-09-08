@@ -37,7 +37,7 @@ try {
 The `MT5Account` class has a `close()` method that properly closes the gRPC channel:
 
 ```java
-// In io.metarpc.mt5.MT5Account.java (lines 1901-1908)
+// In pro.mrpc.mt5.MT5Account.java (lines 1901-1908)
 public void close() {
     try {
         grpcChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);

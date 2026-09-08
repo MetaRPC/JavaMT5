@@ -48,9 +48,9 @@ Use this method when you need to:
 ## 🔗 Usage Example
 
 ```java
-import io.metarpc.mt5.MT5Account;
-import io.metarpc.mt5.MT5Service;
-import io.metarpc.mt5.MT5Sugar;
+import pro.mrpc.mt5.MT5Account;
+import pro.mrpc.mt5.MT5Service;
+import pro.mrpc.mt5.MT5Sugar;
 
 public class Example {
     public static void main(String[] args) throws Exception {

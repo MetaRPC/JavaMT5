@@ -1,4 +1,4 @@
-package io.metarpc.mt5.exceptions;
+package pro.mrpc.mt5.exceptions;
 
 import mt5_term_api.MrpcMt5Error;
 

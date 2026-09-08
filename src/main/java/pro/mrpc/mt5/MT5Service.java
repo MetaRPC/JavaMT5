@@ -1,7 +1,7 @@
-package io.metarpc.mt5;
+package pro.mrpc.mt5;
 
 import io.grpc.stub.StreamObserver;
-import io.metarpc.mt5.exceptions.ApiExceptionMT5;
+import pro.mrpc.mt5.exceptions.ApiExceptionMT5;
 import mt5_term_api.*;
 
 import java.util.UUID;

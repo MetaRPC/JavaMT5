@@ -37,7 +37,7 @@
 package examples.services;
 
 import io.grpc.stub.StreamObserver;
-import io.metarpc.mt5.MT5Service;
+import pro.mrpc.mt5.MT5Service;
 import mt5_term_api.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

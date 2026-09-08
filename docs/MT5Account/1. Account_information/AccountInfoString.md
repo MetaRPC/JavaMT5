@@ -4,7 +4,7 @@
 
 **API Information:**
 
-* **SDK wrapper:** `MT5Account.accountInfoString(...)` (from package `io.metarpc.mt5`)
+* **SDK wrapper:** `MT5Account.accountInfoString(...)` (from package `pro.mrpc.mt5`)
 * **gRPC service:** `mt5_term_api.AccountInformation`
 * **Proto definition:** `AccountInfoString` (defined in `mt5-term-api-account-information.proto`)
 
@@ -16,7 +16,7 @@
 * **SDK wrapper (high-level):**
 
 ```java
-package io.metarpc.mt5;
+package pro.mrpc.mt5;
 
 public class MT5Account {
     /**
@@ -105,8 +105,8 @@ Use this method when you need to:
 ### 1) Get account name
 
 ```java
-import io.metarpc.mt5.MT5Account;
-import io.metarpc.mt5.exceptions.ApiExceptionMT5;
+import pro.mrpc.mt5.MT5Account;
+import pro.mrpc.mt5.exceptions.ApiExceptionMT5;
 import mt5_term_api.Mt5TermApiAccountInformation.*;
 
 public class Example {
