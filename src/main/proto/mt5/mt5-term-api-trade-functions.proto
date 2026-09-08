@@ -1,0 +1,186 @@
+﻿syntax = "proto3";
+option csharp_namespace = "mt5_term_api";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "mt5/mrpc-mt5-error.proto";
+
+package mt5_term_api;
+option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
+// -------------------------------------!!!! Trade Functions START !!!!!!!----------------------------------------------
+// https://www.mql5.com/en/docs/trading
+
+service TradeFunctions {
+  // The function calculates the margin required for the specified order type, on the current account, in the current market environment not taking into account current pending orders and open positions. It allows the evaluation of margin for the trade operation planned. The value is returned in the account currency +
+  // https://www.mql5.com/en/docs/trading/ordercalcmargin
+  rpc OrderCalcMargin(OrderCalcMarginRequest) returns (OrderCalcMarginReply)
+  {
+    option (google.api.http) =
+    {
+      get: "/OrderCalcMargin"
+    };
+  };
+  // The function calculates the profit for the current account, in the current market conditions, based on the parameters passed. The function is used for pre-evaluation of the result of a trade operation. The value is returned in the account currency. + 
+  // https://www.mql5.com/en/docs/trading/ordercalcprofit
+  rpc OrderCalcProfit(OrderCalcProfitRequest) returns (OrderCalcProfitReply)
+  {
+    option (google.api.http) =
+    {
+      get: "/OrderCalcProfit"
+    };
+  };
+  // Checks if there are enough money to execute a required Trade Operation Type +
+  // https://www.mql5.com/en/docs/trading/ordercheck
+  rpc OrderCheck(OrderCheckRequest) returns (OrderCheckReply)
+  {
+    option (google.api.http) =
+    {
+      get: "/OrderCheck"
+    };
+  };
+  // Returns the number of open positions +
+  // https://www.mql5.com/en/docs/trading/positionstotal
+  rpc PositionsTotal(google.protobuf.Empty) returns (PositionsTotalReply)
+  {
+    option (google.api.http) =
+    {
+      get: "/PositionsTotal"
+    };
+  }
+}
+enum ENUM_ORDER_TYPE_TF {
+  ORDER_TYPE_TF_BUY = 0;  // Market Buy order
+  ORDER_TYPE_TF_SELL = 1;  // Market Sell order
+  ORDER_TYPE_TF_BUY_LIMIT = 2;  // Buy Limit pending order
+  ORDER_TYPE_TF_SELL_LIMIT = 3;  // Sell Limit pending order
+  ORDER_TYPE_TF_BUY_STOP = 4;  // Buy Stop pending order
+  ORDER_TYPE_TF_SELL_STOP = 5;  // Sell Stop pending order
+  ORDER_TYPE_TF_BUY_STOP_LIMIT = 6;  // Upon reaching the order price, a pending Buy Limit order is placed at the StopLimit price
+  ORDER_TYPE_TF_SELL_STOP_LIMIT = 7;  // Upon reaching the order price, a pending Sell Limit order is placed at the StopLimit price
+  ORDER_TYPE_TF_CLOSE_BY = 8;  // Order to close a position by an opposite one
+}
+// 1. OrderCalcMargin
+message OrderCalcMarginRequest {
+  string symbol = 1;  // symbol name
+  ENUM_ORDER_TYPE_TF order_type = 2; // type of order
+  double volume = 3; // Volume of the trade operation
+  double open_price = 4; // Open price
+}
+
+message OrderCalcMarginReply {
+  oneof response {
+    OrderCalcMarginData data = 1;
+    Error error = 2;
+  }
+}
+message OrderCalcMarginData {
+  double margin = 1; // The variable, to which the value of the required margin will be written in case the function is successfully executed. The calculation is performed as if there were no pending orders and open positions on the current account. The margin value depends on many factors, and can differ in different market environments.
+}
+
+// 2. OrderCalcProfit
+message OrderCalcProfitRequest {
+  ENUM_ORDER_TYPE_TF order_type = 1; // type of order
+  string symbol = 2;  // symbol name
+  double volume = 3; // Volume of the trade operation
+  double open_price = 4; // Open price
+  double close_price = 5; // Close price
+}
+message OrderCalcProfitReply {
+  oneof response {
+    OrderCalcProfitData data = 1;
+    Error error = 2;
+  }
+}
+message OrderCalcProfitData {
+  double profit = 1; // The estimated profit value depends on many factors, and can differ in different market environments.
+}
+
+// 3. OrderCheck
+message OrderCheckRequest {
+  MrpcMqlTradeRequest mql_trade_request = 1; // Interaction between the client terminal and a trade server for executing the order placing operation
+}
+message OrderCheckReply {
+  oneof response {
+    OrderCheckData data = 1;
+    Error error = 2;
+  }
+}
+message OrderCheckData {
+  MrpcMqlTradeCheckResult mql_trade_check_result = 1;
+}
+message MrpcMqlTradeRequest {
+  MRPC_ENUM_TRADE_REQUEST_ACTIONS action = 1; // Trade operation type
+  uint64 expert_advisor_magic_number = 2; // Expert Advisor ID (magic number)
+  uint64 order = 3; // Order ticket
+  string symbol = 4;  // Symbol name
+  double volume = 5; // Requested volume for a deal in lots
+  double price = 6; // Price
+  double stop_limit = 7; // StopLimit level of the order
+  double stop_loss = 8; // Stop Loss level of the order
+  double take_profit = 9; // Take Profit level of the order
+  uint64 deviation = 10; // Maximal possible deviation from the requested price
+  ENUM_ORDER_TYPE_TF order_type = 11; // type of order
+  MRPC_ENUM_ORDER_TYPE_FILLING type_filling = 12; // Order execution type
+  MRPC_ENUM_ORDER_TYPE_TIME type_time = 13; // Order expiration type
+  google.protobuf.Timestamp expiration = 14; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
+  string comment = 15; // Order comment
+  uint64 position = 16; // Position ticket
+  uint64 position_by = 17; // The ticket of an opposite position
+}
+message MrpcMqlTradeCheckResult {
+  uint32 returned_code = 1; // Reply code
+  double balance_after_deal = 2; // Balance after the execution of the deal
+  double equity_after_deal = 3; // Equity after the execution of the deal
+  double profit = 4; // Floating profit
+  double margin = 5; // Margin requirements
+  double free_margin = 6; // Free margin
+  double margin_level = 7; // Margin level
+  string comment = 8; // Comment to the reply code (description of the error)
+}
+enum MRPC_ENUM_TRADE_REQUEST_ACTIONS {
+  // Place a trade order for an immediate execution with the specified parameters (market order)
+  TRADE_ACTION_DEAL = 0;
+  // Place a trade order for the execution under specified conditions (pending order)
+  TRADE_ACTION_PENDING = 1;
+  // Modify Stop Loss and Take Profit values of an opened position
+  TRADE_ACTION_SLTP = 2;
+  // Modify the parameters of the order placed previously
+  TRADE_ACTION_MODIFY = 3;
+  // Delete the pending order placed previously
+  TRADE_ACTION_REMOVE = 4;
+  // Close a position by an opposite one
+  TRADE_ACTION_CLOSE_BY = 5;
+}
+enum MRPC_ENUM_ORDER_TYPE_FILLING {
+  // An order can be executed in the specified volume only. If the necessary amount of a financial instrument is currently unavailable in the market, the order will not be executed. The desired volume can be made up of several available offers. The possibility of using FOK orders is determined at the trade server.
+  ORDER_FILLING_FOK = 0;
+  // A trader agrees to execute a deal with the volume maximally available in the market within that indicated in the order. If the request cannot be filled completely, an order with the available volume will be executed, and the remaining volume will be canceled. The possibility of using IOC orders is determined at the trade server.
+  ORDER_FILLING_IOC = 1;
+  // The BoC order assumes that the order can only be placed in the Depth of Market and cannot be immediately executed. If the order can be executed immediately when placed, then it is canceled. In fact, the BOC policy guarantees that the price of the placed order will be worse than the current market. BoC orders are used to implement passive trading, so that the order is not executed immediately when placed and does not affect current liquidity. Only limit and stop limit orders are supported (ORDER_TYPE_BUY_LIMIT, ORDER_TYPE_SELL_LIMIT, ORDER_TYPE_BUY_STOP_LIMIT, ORDER_TYPE_SELL_STOP_LIMIT).
+  ORDER_FILLING_BOC = 3;
+  // In case of partial filling, an order with remaining volume is not canceled but processed further. Return orders are not allowed in the Market Execution mode (market execution — SYMBOL_TRADE_EXECUTION_MARKET).
+  ORDER_FILLING_RETURN = 2;
+}
+enum MRPC_ENUM_ORDER_TYPE_TIME {
+  // Good till cancel order
+  ORDER_TIME_GTC = 0;
+  // Good till current trade day order
+  ORDER_TIME_DAY = 1;
+  // Good till expired order
+  ORDER_TIME_SPECIFIED = 2;
+  // The order will be effective till 23:59:59 of the specified day. If this time is outside a trading session, the order expires in the nearest trading time.
+  ORDER_TIME_SPECIFIED_DAY = 3;
+}
+// 6. PositionsTotal
+message PositionsTotalReply {
+  oneof response {
+    PositionsTotalData data = 1;
+    Error error = 2;
+  }
+}
+// Message to reply with the total number of positions
+message PositionsTotalData {
+  // Total number of positions
+  int32 total_positions = 1;
+}
+// -------------------------------------!!!! Trade Functions END !!!!!!!------------------------------------------------

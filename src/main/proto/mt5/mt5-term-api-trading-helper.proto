@@ -1,0 +1,145 @@
+syntax = "proto3";
+option csharp_namespace = "mt5_term_api";
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+import "mt5/mrpc-mt5-error.proto";
+
+package mt5_term_api;
+option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
+
+service TradingHelper {
+  // Send market or pending order
+  rpc OrderSend(OrderSendRequest) returns (OrderSendReply)
+  {
+    option (google.api.http) =
+    {
+      get: "/OrderSend"
+    };
+  }
+  // Modify market or pending order
+  rpc OrderModify(OrderModifyRequest) returns (OrderModifyReply) {
+    option (google.api.http) =
+    {
+      get: "/OrderModify"
+    };    
+  }
+  // Close market or pending order
+  rpc OrderClose(OrderCloseRequest) returns (OrderCloseReply) {
+    option (google.api.http) =
+    {
+      get: "/OrderClose"
+    };
+  }
+}
+
+message OrderCloseRequest {
+  uint64 ticket = 1;
+  double volume = 2;
+  int32 slippage = 5;
+}
+message OrderCloseReply {
+  oneof response {
+    OrderCloseData data = 1;
+    Error error = 2;
+  }
+}
+message OrderCloseData {
+  uint32 returned_code = 1; // Operation return code
+  string returned_string_code = 2;
+  string returned_code_description = 3;
+  MRPC_ORDER_CLOSE_MODE close_mode = 4;
+}
+
+enum MRPC_ORDER_CLOSE_MODE {
+  MRPC_MARKET_ORDER_CLOSE = 0;
+  MRPC_MARKET_ORDER_PARTIAL_CLOSE = 1;
+  MRPC_PENDING_ORDER_REMOVE = 2;
+}
+
+message OrderModifyRequest{
+  uint64 ticket = 1;                                // Pending order or position ticket
+  optional double stop_loss  = 2;                   // new SL for position or pending order
+  optional double take_profit  = 3;                 // new TP for position or pending order
+  optional double price = 4;                        // new price ONLY for pending order modification
+  optional TMT5_ENUM_ORDER_TYPE_TIME expiration_time_type = 5;    // Expiration type ONLY for pending order 
+  optional google.protobuf.Timestamp expiration_time = 6;         // Order expiration time (for the orders of expiration_time_type == ORDER_TIME_SPECIFIED OR ORDER_TIME_SPECIFIED_DAY)
+  optional double stop_limit = 8;                                 // new stop limit ONLY for pending order modification
+}
+message OrderModifyReply {
+  oneof response {
+    OrderModifyData data = 1;
+    Error error = 2;
+  }
+}
+message OrderModifyData {
+  uint32 returned_code = 1; // Operation return code
+  uint64 deal = 2; // Deal ticket, if it is performed
+  uint64 order = 3; // Order ticket, if it is placed
+  double volume = 4; // Deal volume, confirmed by broker
+  double price = 5; // Deal price, confirmed by broker
+  double bid = 6; // Current Bid price
+  double ask = 7; // Current Ask price
+  string comment = 8; // Broker comment to operation (by default it is filled by description of trade server return code)
+  uint32 request_id = 9;  // Request ID set by the terminal during the dispatch 
+  int32  ret_code_external = 10; // Return code of an external trading system
+  string returned_string_code = 11;
+  string returned_code_description = 12;
+}
+
+message OrderSendRequest {
+  string symbol = 1;  // Symbol name REQUIRED
+  TMT5_ENUM_ORDER_TYPE operation = 2;  // Type of order
+  double volume = 3; // Requested volume for a deal in lots
+  optional double price = 4; // Price
+  optional uint64 slippage = 5; // Maximal possible deviation from the requested price
+  optional double stop_loss = 6; // Stop Loss level of the order
+  optional double take_profit = 7; // Take Profit level of the order
+  optional string comment = 8; // Order comment
+  optional uint64 expert_id = 9; // Expert Advisor ID (magic number)
+  optional double stop_limit_price = 10; // StopLimit level of the order
+  optional TMT5_ENUM_ORDER_TYPE_TIME expiration_time_type = 11; // Order expiration type
+  optional google.protobuf.Timestamp expiration_time = 12; // Order expiration time (for the orders of expiration_time_type == ORDER_TIME_SPECIFIED type)
+}
+message OrderSendReply {
+  oneof response {
+    OrderSendData data = 1;
+    Error error = 2;
+  }
+}
+message OrderSendData {
+  uint32 returned_code = 1; // Operation return code
+  uint64 deal = 2; // Deal ticket, if it is performed
+  uint64 order = 3; // Order ticket, if it is placed
+  double volume = 4; // Deal volume, confirmed by broker
+  double price = 5; // Deal price, confirmed by broker
+  double bid = 6; // Current Bid price
+  double ask = 7; // Current Ask price
+  string comment = 8; // Broker comment to operation (by default it is filled by description of trade server return code)
+  uint32 request_id = 9;  // Request ID set by the terminal during the dispatch 
+  int32  ret_code_external = 10; // Return code of an external trading system
+  string returned_string_code = 11;
+  string returned_code_description = 12;
+}
+
+enum TMT5_ENUM_ORDER_TYPE {
+  TMT5_ORDER_TYPE_BUY = 0;  // Market Buy order
+  TMT5_ORDER_TYPE_SELL = 1;  // Market Sell order
+  TMT5_ORDER_TYPE_BUY_LIMIT = 2;  // Buy Limit pending order
+  TMT5_ORDER_TYPE_SELL_LIMIT = 3;  // Sell Limit pending order
+  TMT5_ORDER_TYPE_BUY_STOP = 4;  // Buy Stop pending order
+  TMT5_ORDER_TYPE_SELL_STOP = 5;  // Sell Stop pending order
+  TMT5_ORDER_TYPE_BUY_STOP_LIMIT = 6;  // Upon reaching the order price, a pending Buy Limit order is placed at the StopLimit price
+  TMT5_ORDER_TYPE_SELL_STOP_LIMIT = 7;  // Upon reaching the order price, a pending Sell Limit order is placed at the StopLimit price
+  TMT5_ORDER_TYPE_CLOSE_BY = 8;  // Order to close a position by an opposite one
+}
+
+enum TMT5_ENUM_ORDER_TYPE_TIME {
+  // Good till cancel order
+  TMT5_ORDER_TIME_GTC = 0;
+  // Good till current trade day order
+  TMT5_ORDER_TIME_DAY = 1;
+  // Good till expired order
+  TMT5_ORDER_TIME_SPECIFIED = 2;
+  // The order will be effective till 23:59:59 of the specified day. If this time is outside a trading session, the order expires in the nearest trading time.
+  TMT5_ORDER_TIME_SPECIFIED_DAY = 3;
+}
