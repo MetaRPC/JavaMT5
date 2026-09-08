@@ -3,6 +3,7 @@ package pro.mrpc.mt5;
 import org.junit.jupiter.api.Test;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
+import mt5_term_api.Mt5TermApiConnection;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MT5AccountTest {
@@ -32,7 +33,7 @@ public class MT5AccountTest {
 
     @Test
     public void testConnectRequestProtoSerialization() {
-        mt5_term_api.ConnectRequest req = mt5_term_api.ConnectRequest.newBuilder()
+        Mt5TermApiConnection.ConnectRequest req = Mt5TermApiConnection.ConnectRequest.newBuilder()
                 .setUser(12345678L)
                 .setPassword("test_password")
                 .setHost("mt5.mrpc.pro")
