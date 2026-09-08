@@ -106,5 +106,5 @@ System.out.printf("  Win rate: %.1f%%%n", (wins * 100.0) / (wins + losses));
 ## See also
 
 * **Positions history:** [`getPositionsHistoryPaged()`](./getPositionsHistoryPaged.md)
-* **Low-level:** [`orderHistory()`](../../MT5Account/3.%20Positions_and_orders/OrderHistory.md)
+* **Low-level:** [`orderHistory()`](../../API_Reference/MT5Account.md)
 * **Timestamp helpers:** [`createTimestamp()`](../9.%20Account_and_position_helpers/createTimestamp.md)

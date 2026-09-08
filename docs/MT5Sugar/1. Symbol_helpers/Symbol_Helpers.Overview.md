@@ -318,7 +318,7 @@ for (String symbol : symbols) {
 
 ## See also
 
-* **MT5Account Symbol Methods:** [`SymbolInfoTick`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md), [`SymbolInfoDouble`](../../MT5Account/2.%20Symbol_information/SymbolInfoDouble.md), [`SymbolInfoInteger`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md)
+* **MT5Account Symbol Methods:** [`SymbolInfoTick`](../../API_Reference/MT5Account.md), [`SymbolInfoDouble`](../../API_Reference/MT5Account.md), [`SymbolInfoInteger`](../../API_Reference/MT5Account.md)
 * **Trading Methods:** [Market Orders](../2.%20Market_orders/), [Pending Orders](../3.%20Pending_orders/)
 * **Position Management:** [Position Helpers](../5.%20Position_management/)
 * **Account Info:** [Account Helpers](../9.%20Account_and_position_helpers/)

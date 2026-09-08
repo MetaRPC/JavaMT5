@@ -5,7 +5,7 @@
 **API Information:**
 
 * **Sugar method:** `MT5Sugar.getAsk(String symbol)`
-* **Underlying method:** [`MT5Account.symbolInfoTick()`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md)
+* **Underlying method:** [`MT5Account.symbolInfoTick()`](../../API_Reference/MT5Account.md)
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -199,7 +199,7 @@ Loss: 0.00010 (the spread you pay)
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoTick`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md) - underlying implementation
+* **Low-level method:** [`SymbolInfoTick`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Related:** [`getBid()`](./getBid.md) - get Bid (SELL) price
 * **Related:** [`getSpreadPrice()`](./getSpreadPrice.md) - get spread (Ask - Bid)
 * **Trading:** [`buyMarket()`](../2.%20Market_orders/buyMarket.md) - uses Ask for entry

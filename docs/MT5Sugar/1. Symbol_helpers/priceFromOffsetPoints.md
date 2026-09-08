@@ -6,7 +6,7 @@
 
 * **Sugar method:** `MT5Sugar.priceFromOffsetPoints(String symbol, boolean isBuy, double pointsOffset)`
 * **Underlying methods:**
-  - [`MT5Account.symbolInfoTick()`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md) - gets current prices
+  - [`MT5Account.symbolInfoTick()`](../../API_Reference/MT5Account.md) - gets current prices
   - [`getPoint()`](./getPoint.md) - gets point size
 * **Source:** MT5Sugar convenience layer
 
@@ -301,7 +301,7 @@ priceFromOffsetPoints(symbol, false, -50):
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoTick`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md) - gets current prices
+* **Low-level method:** [`SymbolInfoTick`](../../API_Reference/MT5Account.md) - gets current prices
 * **Related:** [`pointsToPrice()`](./pointsToPrice.md) - alternative with direction-aware logic
 * **Related:** [`getPoint()`](./getPoint.md) - get point size
 * **Related:** [`getBid()`](./getBid.md) / [`getAsk()`](./getAsk.md) - get current prices

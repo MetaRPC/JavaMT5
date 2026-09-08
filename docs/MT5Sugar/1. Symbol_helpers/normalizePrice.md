@@ -6,7 +6,7 @@
 
 * **Sugar method:** `MT5Sugar.normalizePrice(String symbol, double price)`
 * **Underlying methods:**
-  - [`MT5Account.symbolInfoInteger()`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md) with `SYMBOL_DIGITS`
+  - [`MT5Account.symbolInfoInteger()`](../../API_Reference/MT5Account.md) with `SYMBOL_DIGITS`
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -181,7 +181,7 @@ return Math.round(price * multiplier) / multiplier;
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoInteger`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md) - gets digits
+* **Low-level method:** [`SymbolInfoInteger`](../../API_Reference/MT5Account.md) - gets digits
 * **Related:** [`getDigits()`](./getDigits.md) - get decimal places
 * **Related:** [`normalizeVolume()`](./normalizeVolume.md) - normalize lot size
 * **Auto-uses this:** [`buyLimit()`](../3.%20Pending_orders/buyLimit.md) and all pending order methods

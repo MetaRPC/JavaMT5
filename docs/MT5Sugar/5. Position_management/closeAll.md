@@ -7,7 +7,7 @@
 * **Sugar method (all positions):** `MT5Sugar.closeAll(String symbol)`
 * **Sugar method (by direction):** `MT5Sugar.closeAll(String symbol, Boolean isBuy)`
 * **Underlying methods:**
-  - [`openedOrders()`](../../MT5Account/3.%20Positions_and_orders/OpenedOrders.md) - get all positions
+  - [`openedOrders()`](../../API_Reference/MT5Account.md) - get all positions
   - [`closePosition()`](./closePosition.md) - close each position
 * **Source:** MT5Sugar convenience layer
 
@@ -217,4 +217,4 @@ closeAll(null, null)   → All positions (everything)
 * **Single close:** [`closePosition()`](./closePosition.md) - close one position
 * **Direction-specific:** [`closeAllBuy()`](./closeAllBuy.md), [`closeAllSell()`](./closeAllSell.md) - convenience methods
 * **Advanced batch:** [`closeAllPositions()`](../6.%20Advanced_batch_operations/closeAllPositions.md) - positions only (not orders)
-* **Get positions:** [`openedOrders()`](../../MT5Account/3.%20Positions_and_orders/OpenedOrders.md)
+* **Get positions:** [`openedOrders()`](../../API_Reference/MT5Account.md)

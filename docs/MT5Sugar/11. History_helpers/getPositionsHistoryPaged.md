@@ -125,4 +125,4 @@ System.out.printf("  Profit: $%.2f%n", totalProfit);
 ## See also
 
 * **Orders history:** [`getOrdersHistoryLastDays()`](./getOrdersHistoryLastDays.md)
-* **Low-level:** [`positionsHistory()`](../../MT5Account/3.%20Positions_and_orders/PositionsHistory.md) (if exists)
+* **Low-level:** [`positionsHistory()`](../../API_Reference/MT5Account.md) (if exists)

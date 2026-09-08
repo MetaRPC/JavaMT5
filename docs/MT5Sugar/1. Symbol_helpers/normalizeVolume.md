@@ -6,7 +6,7 @@
 
 * **Sugar method:** `MT5Sugar.normalizeVolume(String symbol, double volume)`
 * **Underlying methods:**
-  - [`MT5Account.symbolInfoDouble()`](../../MT5Account/2.%20Symbol_information/SymbolInfoDouble.md) with `VOLUME_MIN`, `VOLUME_MAX`, `VOLUME_STEP`
+  - [`MT5Account.symbolInfoDouble()`](../../API_Reference/MT5Account.md) with `VOLUME_MIN`, `VOLUME_MAX`, `VOLUME_STEP`
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -206,7 +206,7 @@ BTCUSD: [0.01 - 10.0] step 0.01
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoDouble`](../../MT5Account/2.%20Symbol_information/SymbolInfoDouble.md) - gets volume limits
+* **Low-level method:** [`SymbolInfoDouble`](../../API_Reference/MT5Account.md) - gets volume limits
 * **Related:** `getVolumeLimits()` - get [min, max, step] array
 * **Related:** [`calculateVolume()`](../7.%20Risk_management/calculateVolume.md) - calculate volume from risk
 * **Auto-uses this:** All trading methods normalize volume automatically

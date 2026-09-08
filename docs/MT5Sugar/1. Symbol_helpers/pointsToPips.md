@@ -5,7 +5,7 @@
 **API Information:**
 
 * **Sugar method:** `MT5Sugar.pointsToPips(String symbol, double points)`
-* **Underlying method:** [`getDigits()`](./getDigits.md) (which calls [`MT5Account.symbolInfoInteger()`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md))
+* **Underlying method:** [`getDigits()`](./getDigits.md) (which calls [`MT5Account.symbolInfoInteger()`](../../API_Reference/MT5Account.md))
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -261,7 +261,7 @@ XAUUSD (2 digits):
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoInteger`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md) - gets digits
+* **Low-level method:** [`SymbolInfoInteger`](../../API_Reference/MT5Account.md) - gets digits
 * **Related:** [`getDigits()`](./getDigits.md) - get decimal places
 * **Related:** [`getPoint()`](./getPoint.md) - get point size
 * **Related:** [`getSpread()`](./getSpread.md) - get spread in points

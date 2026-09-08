@@ -5,7 +5,7 @@
 **API Information:**
 
 * **Sugar method:** `MT5Sugar.getPoint(String symbol)`
-* **Underlying method:** [`MT5Account.symbolInfoDouble()`](../../MT5Account/2.%20Symbol_information/SymbolInfoDouble.md) with `SYMBOL_POINT`
+* **Underlying method:** [`MT5Account.symbolInfoDouble()`](../../API_Reference/MT5Account.md) with `SYMBOL_POINT`
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -116,7 +116,7 @@ Example: 50 points on EURUSD = 50 × 0.00001 = 0.0005
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoDouble`](../../MT5Account/2.%20Symbol_information/SymbolInfoDouble.md) - underlying implementation
+* **Low-level method:** [`SymbolInfoDouble`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Related:** [`getDigits()`](./getDigits.md) - decimal places for formatting
 * **Related:** [`pointsToPips()`](./pointsToPips.md) - convert points to pips
 * **Related:** [`normalizePrice()`](./normalizePrice.md) - normalize price to symbol's precision

@@ -6,8 +6,8 @@
 
 * **Sugar method:** `MT5Sugar.closeAllPending(String symbol, Boolean isBuy)`
 * **Underlying methods:**
-  - [`openedOrders()`](../../MT5Account/3.%20Positions_and_orders/OpenedOrders.md) - get all orders
-  - [`orderClose()`](../../MT5Account/5.%20Trading/OrderClose.md) - cancel each order
+  - [`openedOrders()`](../../API_Reference/MT5Account.md) - get all orders
+  - [`orderClose()`](../../API_Reference/MT5Account.md) - cancel each order
 * **Source:** MT5Sugar convenience layer
 
 ---

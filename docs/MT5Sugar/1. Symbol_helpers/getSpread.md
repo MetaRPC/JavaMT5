@@ -5,7 +5,7 @@
 **API Information:**
 
 * **Sugar method:** `MT5Sugar.getSpread(String symbol)`
-* **Underlying method:** [`MT5Account.symbolInfoInteger()`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md) with `SYMBOL_SPREAD`
+* **Underlying method:** [`MT5Account.symbolInfoInteger()`](../../API_Reference/MT5Account.md) with `SYMBOL_SPREAD`
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -172,7 +172,7 @@ System.out.printf("  Cost: $%.2f per lot%n", spreadCost);
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoInteger`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md) - underlying implementation
+* **Low-level method:** [`SymbolInfoInteger`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Related:** [`getSpreadPrice()`](./getSpreadPrice.md) - spread in price units (Ask - Bid)
 * **Related:** [`pointsToPips()`](./pointsToPips.md) - convert points to pips
 * **Related:** [`getBid()`](./getBid.md), [`getAsk()`](./getAsk.md) - get current prices

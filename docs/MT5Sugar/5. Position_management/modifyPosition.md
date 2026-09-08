@@ -272,7 +272,7 @@ if (currentSL == 0 || newSL < currentSL) {
 
 ## See also
 
-* **Low-level method:** [`OrderModify`](../../MT5Account/5.%20Trading/OrderModify.md) - underlying implementation
+* **Low-level method:** [`OrderModify`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Close position:** [`closePosition()`](./closePosition.md) - close instead of modify
-* **Get position info:** [`openedOrders()`](../../MT5Account/3.%20Positions_and_orders/OpenedOrders.md)
+* **Get position info:** [`openedOrders()`](../../API_Reference/MT5Account.md)
 * **Price helpers:** [`getBid()`](../1.%20Symbol_helpers/getBid.md), [`getAsk()`](../1.%20Symbol_helpers/getAsk.md), [`getPoint()`](../1.%20Symbol_helpers/getPoint.md)

@@ -5,7 +5,7 @@
 **API Information:**
 
 * **Sugar method:** `MT5Sugar.getDigits(String symbol)`
-* **Underlying method:** [`MT5Account.symbolInfoInteger()`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md) with `SYMBOL_DIGITS`
+* **Underlying method:** [`MT5Account.symbolInfoInteger()`](../../API_Reference/MT5Account.md) with `SYMBOL_DIGITS`
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -148,7 +148,7 @@ displayPrice("XAUUSD", 1850.12);  // XAUUSD: 1850.12
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoInteger`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md) - underlying implementation
+* **Low-level method:** [`SymbolInfoInteger`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Related:** [`getPoint()`](./getPoint.md) - get point size (10^-digits)
 * **Related:** [`normalizePrice()`](./normalizePrice.md) - auto-normalize to symbol's precision
 * **Related:** [`getSpread()`](./getSpread.md) - spread uses same precision

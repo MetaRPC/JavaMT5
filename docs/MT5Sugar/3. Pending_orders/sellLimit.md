@@ -7,7 +7,7 @@
 * **Sugar method:** `MT5Sugar.sellLimit(String symbol, double volume, double price, Double stopLoss, Double takeProfit)`
 * **Underlying methods:**
 
-  - [`MT5Service.orderSend()`](../../MT5Account/5.%20Trading/OrderSend.md) - low-level order placement
+  - [`MT5Service.orderSend()`](../../API_Reference/MT5Account.md) - low-level order placement
   - [`ensureSymbolSelected()`](../1.%20Symbol_helpers/ensureSymbolSelected.md) - auto symbol selection
   - [`normalizeVolume()`](../1.%20Symbol_helpers/normalizeVolume.md) - auto volume normalization
   - [`normalizePrice()`](../1.%20Symbol_helpers/normalizePrice.md) - auto price normalization
@@ -299,7 +299,7 @@ sugar.sellLimit(symbol, volume, price, stopLoss, takeProfit);
 
 ## See also
 
-* **Low-level method:** [`OrderSend`](../../MT5Account/5.%20Trading/OrderSend.md) - underlying implementation
+* **Low-level method:** [`OrderSend`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Related:** [`sellMarket()`](../2.%20Market_orders/sellMarket.md) - immediate SELL execution
 * **Other pending:** [`buyLimit()`](./buyLimit.md), [`buyStop()`](./buyStop.md), [`sellStop()`](./sellStop.md)
 * **Points-based:** [`sellLimitPoints()`](../4.%20Pending_orders_points/sellLimitPoints.md) - easier offset syntax

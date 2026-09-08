@@ -5,7 +5,7 @@
 **API Information:**
 
 * **Sugar method:** `MT5Sugar.ensureSymbolSelected(String symbol)`
-* **Underlying method:** [`MT5Account.symbolSelect()`](../../MT5Account/2.%20Symbol_information/SymbolSelect.md)
+* **Underlying method:** [`MT5Account.symbolSelect()`](../../API_Reference/MT5Account.md)
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -86,6 +86,6 @@ public class Example {
 
 ## See also
 
-* **Low-level method:** [`SymbolSelect`](../../MT5Account/2.%20Symbol_information/SymbolSelect.md) - underlying implementation
+* **Low-level method:** [`SymbolSelect`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Related:** [`getAsk()`](./getAsk.md), [`getBid()`](./getBid.md) - get current prices
 * **Trading:** [`buyMarket()`](../2.%20Market_orders/buyMarket.md) - auto-calls this method

@@ -100,4 +100,4 @@
 
 **When to use:** Production trading bots, quick prototypes, beginners.
 
-For detailed documentation with examples, see [MT5Sugar documentation](../MT5Sugar/MT5Sugar.Overview.md).
+For detailed documentation with examples, see [MT5Sugar documentation](../API_Reference/MT5Sugar.md).

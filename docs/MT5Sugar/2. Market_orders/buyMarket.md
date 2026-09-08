@@ -286,7 +286,7 @@ sugar.buyMarket(symbol, volume, stopLoss, takeProfit, "Strategy A");
 
 ## See also
 
-* **Low-level method:** [`OrderSend`](../../MT5Account/5.%20Trading/OrderSend.md) - underlying implementation
+* **Low-level method:** [`OrderSend`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Related:** [`sellMarket()`](./sellMarket.md) - open SELL position
 * **Pending orders:** [`buyLimit()`](../3.%20Pending_orders/buyLimit.md), [`buyStop()`](../3.%20Pending_orders/buyStop.md)
 * **Position management:** [`closePosition()`](../5.%20Position_management/closePosition.md)

@@ -6,7 +6,7 @@
 
 * **Sugar method:** `MT5Sugar.closeAllPositions(String symbol, Boolean isBuy)`
 * **Underlying methods:**
-  - [`openedOrders()`](../../MT5Account/3.%20Positions_and_orders/OpenedOrders.md) - get all positions
+  - [`openedOrders()`](../../API_Reference/MT5Account.md) - get all positions
   - [`closePosition()`](../5.%20Position_management/closePosition.md) - close each position
 * **Source:** MT5Sugar convenience layer
 

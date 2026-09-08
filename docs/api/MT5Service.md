@@ -64,4 +64,4 @@
 
 **Note:** MT5Service wraps MT5Account and provides the same functionality with improved usability.
 
-For detailed documentation with examples, see [MT5Account documentation](../MT5Account/MT5Account.Master.Overview.md).
+For detailed documentation with examples, see [MT5Account documentation](../API_Reference/MT5Account.md).

@@ -227,8 +227,8 @@ sugar.closePosition(ticket);
 
 ## See also
 
-* **Low-level method:** [`OrderClose`](../../MT5Account/5.%20Trading/OrderClose.md) - underlying implementation
+* **Low-level method:** [`OrderClose`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Batch close:** [`closeAll()`](./closeAll.md) - close multiple positions
 * **Direction close:** [`closeAllBuy()`](./closeAllBuy.md), [`closeAllSell()`](./closeAllSell.md)
 * **Modify instead:** [`modifyPosition()`](./modifyPosition.md) - change SL/TP without closing
-* **Get positions:** [`openedOrders()`](../../MT5Account/3.%20Positions_and_orders/OpenedOrders.md)
+* **Get positions:** [`openedOrders()`](../../API_Reference/MT5Account.md)

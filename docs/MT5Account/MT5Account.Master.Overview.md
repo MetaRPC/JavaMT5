@@ -279,7 +279,7 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 **Location:** `src/main/java/io/metarpc/mt5/MT5Sugar.java`
 
-**Documentation:** [MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)
+**Documentation:** [MT5Sugar.Overview.md](../API_Reference/MT5Sugar.md)
 
 ---
 
@@ -326,7 +326,7 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 ## 🔗 Related Documentation
 
 * **[PROJECT_MAP.md](../PROJECT_MAP.md)** - Complete project structure
-* **[MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)** - High-level convenience API (Layer 3)
+* **[MT5Sugar.Overview.md](../API_Reference/MT5Sugar.md)** - High-level convenience API (Layer 3)
 * **[Orchestrators.Overview.md](../Orchestrators.Overview.md)** - Trading strategy implementations
 * **[GLOSSARY.md](../GLOSSARY.md)** - Project terminology
 * **[GETTING_STARTED.md](../GETTING_STARTED.md)** - Complete learning guide

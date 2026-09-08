@@ -61,5 +61,5 @@ account.close();
 
 For complete documentation with examples:
 - [Complete project documentation](../index.md)
-- [MT5Account detailed docs](../MT5Account/MT5Account.Master.Overview.md)
-- [MT5Sugar detailed docs](../MT5Sugar/MT5Sugar.Overview.md)
+- [MT5Account detailed docs](../API_Reference/MT5Account.md)
+- [MT5Sugar detailed docs](../API_Reference/MT5Sugar.md)

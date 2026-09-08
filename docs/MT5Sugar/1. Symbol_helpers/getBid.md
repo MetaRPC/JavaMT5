@@ -5,7 +5,7 @@
 **API Information:**
 
 * **Sugar method:** `MT5Sugar.getBid(String symbol)`
-* **Underlying method:** [`MT5Account.symbolInfoTick()`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md)
+* **Underlying method:** [`MT5Account.symbolInfoTick()`](../../API_Reference/MT5Account.md)
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -181,7 +181,7 @@ Bid (lower)  ← You SELL here
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoTick`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md) - underlying implementation
+* **Low-level method:** [`SymbolInfoTick`](../../API_Reference/MT5Account.md) - underlying implementation
 * **Related:** [`getAsk()`](./getAsk.md) - get Ask (BUY) price
 * **Related:** [`getSpreadPrice()`](./getSpreadPrice.md) - get spread (Ask - Bid)
 * **Trading:** [`sellMarket()`](../2.%20Market_orders/sellMarket.md) - uses Bid for entry
