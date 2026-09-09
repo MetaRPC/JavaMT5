@@ -100,8 +100,6 @@ public class MT5Account {
         this.password = password;
         this.grpcServer = grpcServer != null ? grpcServer : "mt5.mrpc.pro:443";
         this.apiKey = apiKey != null ? apiKey : System.getenv("MRPC_API_KEY");
-        this.id = id != null ? id : computeDeterministicId(user, password);
-
         // Create gRPC channel with SSL/TLS
         this.grpcChannel = NettyChannelBuilder
                 .forTarget(this.grpcServer)
@@ -122,6 +120,8 @@ public class MT5Account {
 
         // Initialize async/streaming stub
         this.subscriptionClient = SubscriptionServiceGrpc.newStub(grpcChannel);
+
+        this.id = id != null ? id : getId();
     }
 
     public MT5Account(long user, String password, String grpcServer, String apiKey) {
@@ -159,6 +159,9 @@ public class MT5Account {
     }
 
     public UUID getId() {
+        if (id == null) {
+            id = computeDeterministicId(user, password);
+        }
         return id;
     }
 
