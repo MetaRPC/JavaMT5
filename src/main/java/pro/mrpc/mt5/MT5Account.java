@@ -32,6 +32,7 @@ public class MT5Account {
     private String baseChartSymbol;
     private int connectTimeoutSeconds;
     private UUID id;
+    private String apiKey;
 
     // gRPC configuration
     private final String grpcServer;
@@ -60,18 +61,46 @@ public class MT5Account {
     //==============================================
 
     /**
+     * Computes deterministic instance UUID matching .NET Guid byte layout.
+     */
+    public static UUID computeDeterministicId(long user, String password) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest((user + ":" + password).getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            byte[] le = new byte[16];
+            le[0] = hash[3];
+            le[1] = hash[2];
+            le[2] = hash[1];
+            le[3] = hash[0];
+            le[4] = hash[5];
+            le[5] = hash[4];
+            le[6] = hash[7];
+            le[7] = hash[6];
+            System.arraycopy(hash, 8, le, 8, 8);
+            java.nio.ByteBuffer bb = java.nio.ByteBuffer.wrap(le);
+            long high = bb.getLong();
+            long low = bb.getLong();
+            return new UUID(high, low);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to compute deterministic account ID", e);
+        }
+    }
+
+    /**
      * Create MT5 account connection
      *
      * @param user MT5 account number
      * @param password MT5 account password
      * @param grpcServer gRPC server address (default: "mt5.mrpc.pro:443")
-     * @param id Optional instance ID (generated if null)
+     * @param apiKey MetaRPC API key
+     * @param id Optional instance ID (auto-computed deterministically if null)
      */
-    public MT5Account(long user, String password, String grpcServer, UUID id) {
+    public MT5Account(long user, String password, String grpcServer, String apiKey, UUID id) {
         this.user = user;
         this.password = password;
         this.grpcServer = grpcServer != null ? grpcServer : "mt5.mrpc.pro:443";
-        this.id = id != null ? id : UUID.randomUUID();
+        this.apiKey = apiKey != null ? apiKey : System.getenv("MRPC_API_KEY");
+        this.id = id != null ? id : computeDeterministicId(user, password);
 
         // Create gRPC channel with SSL/TLS
         this.grpcChannel = NettyChannelBuilder
@@ -95,11 +124,23 @@ public class MT5Account {
         this.subscriptionClient = SubscriptionServiceGrpc.newStub(grpcChannel);
     }
 
+    public MT5Account(long user, String password, String grpcServer, String apiKey) {
+        this(user, password, grpcServer, apiKey, null);
+    }
+
+    public MT5Account(long user, String password, String grpcServer, UUID id) {
+        this(user, password, grpcServer, null, id);
+    }
+
+    public MT5Account(long user, String password, String apiKey) {
+        this(user, password, null, apiKey, null);
+    }
+
     /**
      * Simplified constructor (uses default gRPC server)
      */
     public MT5Account(long user, String password) {
-        this(user, password, null, null);
+        this(user, password, null, null, null);
     }
 
 
@@ -109,17 +150,31 @@ public class MT5Account {
     // region HELPER METHODS
     //==============================================
 
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
+    public UUID getId() {
+        return id;
+    }
 
     /**
      * Create metadata headers with authentication info
      */
     private Metadata getMetadataHeaders() {
         Metadata headers = new Metadata();
-        // Use "id" header as per C# implementation
-        Metadata.Key<String> idKey = Metadata.Key.of("id", Metadata.ASCII_STRING_MARSHALLER);
-
-        headers.put(idKey, id.toString());
-
+        if (id != null) {
+            Metadata.Key<String> idKey = Metadata.Key.of("id", Metadata.ASCII_STRING_MARSHALLER);
+            headers.put(idKey, id.toString());
+        }
+        if (apiKey != null && !apiKey.isEmpty()) {
+            Metadata.Key<String> apiKeyHeader = Metadata.Key.of("apikey", Metadata.ASCII_STRING_MARSHALLER);
+            headers.put(apiKeyHeader, apiKey);
+        }
         return headers;
     }
 
