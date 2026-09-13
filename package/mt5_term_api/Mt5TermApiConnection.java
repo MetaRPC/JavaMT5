@@ -39687,7 +39687,7 @@ public final class Mt5TermApiConnection {
 
     /**
      * <pre>
-     * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+     * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
      * </pre>
      *
      * <code>string state = 2;</code>
@@ -39696,7 +39696,7 @@ public final class Mt5TermApiConnection {
     java.lang.String getState();
     /**
      * <pre>
-     * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+     * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
      * </pre>
      *
      * <code>string state = 2;</code>
@@ -39950,7 +39950,7 @@ public final class Mt5TermApiConnection {
     private volatile java.lang.Object state_;
     /**
      * <pre>
-     * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+     * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
      * </pre>
      *
      * <code>string state = 2;</code>
@@ -39971,7 +39971,7 @@ public final class Mt5TermApiConnection {
     }
     /**
      * <pre>
-     * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+     * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
      * </pre>
      *
      * <code>string state = 2;</code>
@@ -40672,7 +40672,7 @@ public final class Mt5TermApiConnection {
       private java.lang.Object state_ = "";
       /**
        * <pre>
-       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
        * </pre>
        *
        * <code>string state = 2;</code>
@@ -40692,7 +40692,7 @@ public final class Mt5TermApiConnection {
       }
       /**
        * <pre>
-       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
        * </pre>
        *
        * <code>string state = 2;</code>
@@ -40713,7 +40713,7 @@ public final class Mt5TermApiConnection {
       }
       /**
        * <pre>
-       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
        * </pre>
        *
        * <code>string state = 2;</code>
@@ -40732,7 +40732,7 @@ public final class Mt5TermApiConnection {
       }
       /**
        * <pre>
-       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
        * </pre>
        *
        * <code>string state = 2;</code>
@@ -40746,7 +40746,7 @@ public final class Mt5TermApiConnection {
       }
       /**
        * <pre>
-       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "CannotConnect", "Stopped", "Expired"
+       * "Queued", "Starting", "Authorizing", "Syncing", "Connected", "WrongPassword", "Unreachable", "Stopped", "Expired"
        * </pre>
        *
        * <code>string state = 2;</code>
