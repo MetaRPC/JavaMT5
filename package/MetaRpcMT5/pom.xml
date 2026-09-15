@@ -7,7 +7,7 @@
 
     <groupId>com.github.MetaRPC</groupId>
     <artifactId>metarpcmt5</artifactId>
-    <version>1.0.26.09.13-21.28</version>
+    <version>1.0.26.09.15-05.26</version>
     <packaging>jar</packaging>
 
     <name>MetaRpcMT5</name>
