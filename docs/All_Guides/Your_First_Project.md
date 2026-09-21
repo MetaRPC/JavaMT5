@@ -38,7 +38,7 @@ Create your main application file and paste the following snippet:
 import pro.mrpc.mt5.MT5Account;
 import pro.mrpc.mt5.models.AccountSummary;
 
-// Account ID generation (GetId) and authentication are handled automatically
+// Session ID generation on Connect and authentication are handled automatically
 MT5Account account = new MT5Account(user, password, grpcServer, apiKey);
 account.connectByServerNameAsync(serverName, "EURUSD", 30).get();
 AccountSummary summary = account.accountSummaryAsync().get();

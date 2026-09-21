@@ -121,7 +121,7 @@ public class MT5Account {
         // Initialize async/streaming stub
         this.subscriptionClient = SubscriptionServiceGrpc.newStub(grpcChannel);
 
-        this.id = id != null ? id : getId();
+        this.id = id;
     }
 
     public MT5Account(long user, String password, String grpcServer, String apiKey) {
@@ -156,13 +156,6 @@ public class MT5Account {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
-    }
-
-    public UUID getId() {
-        if (id == null) {
-            id = computeDeterministicId(user, password);
-        }
-        return id;
     }
 
     /**
