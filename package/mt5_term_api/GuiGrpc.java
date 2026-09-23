@@ -139,68 +139,6 @@ public final class GuiGrpc {
     return getCloseDialogsMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getDemoFindCompaniesMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "DemoFindCompanies",
-      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest.class,
-      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getDemoFindCompaniesMethod() {
-    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getDemoFindCompaniesMethod;
-    if ((getDemoFindCompaniesMethod = GuiGrpc.getDemoFindCompaniesMethod) == null) {
-      synchronized (GuiGrpc.class) {
-        if ((getDemoFindCompaniesMethod = GuiGrpc.getDemoFindCompaniesMethod) == null) {
-          GuiGrpc.getDemoFindCompaniesMethod = getDemoFindCompaniesMethod =
-              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DemoFindCompanies"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply.getDefaultInstance()))
-              .setSchemaDescriptor(new GuiMethodDescriptorSupplier("DemoFindCompanies"))
-              .build();
-        }
-      }
-    }
-    return getDemoFindCompaniesMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getDemoServersAndTypesMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "DemoServersAndTypes",
-      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest.class,
-      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getDemoServersAndTypesMethod() {
-    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getDemoServersAndTypesMethod;
-    if ((getDemoServersAndTypesMethod = GuiGrpc.getDemoServersAndTypesMethod) == null) {
-      synchronized (GuiGrpc.class) {
-        if ((getDemoServersAndTypesMethod = GuiGrpc.getDemoServersAndTypesMethod) == null) {
-          GuiGrpc.getDemoServersAndTypesMethod = getDemoServersAndTypesMethod =
-              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DemoServersAndTypes"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply.getDefaultInstance()))
-              .setSchemaDescriptor(new GuiMethodDescriptorSupplier("DemoServersAndTypes"))
-              .build();
-        }
-      }
-    }
-    return getDemoServersAndTypesMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
       mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply> getDemoOpenAccountMethod;
 
@@ -230,68 +168,6 @@ public final class GuiGrpc {
       }
     }
     return getDemoOpenAccountMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> getDemoEnumControlsMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "DemoEnumControls",
-      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest.class,
-      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> getDemoEnumControlsMethod() {
-    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest, mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> getDemoEnumControlsMethod;
-    if ((getDemoEnumControlsMethod = GuiGrpc.getDemoEnumControlsMethod) == null) {
-      synchronized (GuiGrpc.class) {
-        if ((getDemoEnumControlsMethod = GuiGrpc.getDemoEnumControlsMethod) == null) {
-          GuiGrpc.getDemoEnumControlsMethod = getDemoEnumControlsMethod =
-              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest, mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DemoEnumControls"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply.getDefaultInstance()))
-              .setSchemaDescriptor(new GuiMethodDescriptorSupplier("DemoEnumControls"))
-              .build();
-        }
-      }
-    }
-    return getDemoEnumControlsMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent> getDemoOpenAccountWithProgressMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "DemoOpenAccountWithProgress",
-      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest.class,
-      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent> getDemoOpenAccountWithProgressMethod() {
-    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest, mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent> getDemoOpenAccountWithProgressMethod;
-    if ((getDemoOpenAccountWithProgressMethod = GuiGrpc.getDemoOpenAccountWithProgressMethod) == null) {
-      synchronized (GuiGrpc.class) {
-        if ((getDemoOpenAccountWithProgressMethod = GuiGrpc.getDemoOpenAccountWithProgressMethod) == null) {
-          GuiGrpc.getDemoOpenAccountWithProgressMethod = getDemoOpenAccountWithProgressMethod =
-              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest, mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DemoOpenAccountWithProgress"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent.getDefaultInstance()))
-              .setSchemaDescriptor(new GuiMethodDescriptorSupplier("DemoOpenAccountWithProgress"))
-              .build();
-        }
-      }
-    }
-    return getDemoOpenAccountWithProgressMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage,
@@ -403,37 +279,9 @@ public final class GuiGrpc {
 
     /**
      */
-    public void demoFindCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDemoFindCompaniesMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void demoServersAndTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDemoServersAndTypesMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void demoOpenAccount(mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request,
         io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDemoOpenAccountMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void demoEnumControls(mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDemoEnumControlsMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void demoOpenAccountWithProgress(mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDemoOpenAccountWithProgressMethod(), responseObserver);
     }
 
     /**
@@ -474,40 +322,12 @@ public final class GuiGrpc {
                 mt5_term_api.Mt5TermApiGui.GuiCloseDialogsReply>(
                   this, METHODID_CLOSE_DIALOGS)))
           .addMethod(
-            getDemoFindCompaniesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
-                mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>(
-                  this, METHODID_DEMO_FIND_COMPANIES)))
-          .addMethod(
-            getDemoServersAndTypesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
-                mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>(
-                  this, METHODID_DEMO_SERVERS_AND_TYPES)))
-          .addMethod(
             getDemoOpenAccountMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
                 mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply>(
                   this, METHODID_DEMO_OPEN_ACCOUNT)))
-          .addMethod(
-            getDemoEnumControlsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest,
-                mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply>(
-                  this, METHODID_DEMO_ENUM_CONTROLS)))
-          .addMethod(
-            getDemoOpenAccountWithProgressMethod(),
-            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
-              new MethodHandlers<
-                mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
-                mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent>(
-                  this, METHODID_DEMO_OPEN_ACCOUNT_WITH_PROGRESS)))
           .addMethod(
             getDemoOpenAccountInteractiveMethod(),
             io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
@@ -567,42 +387,10 @@ public final class GuiGrpc {
 
     /**
      */
-    public void demoFindCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getDemoFindCompaniesMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void demoServersAndTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getDemoServersAndTypesMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
     public void demoOpenAccount(mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request,
         io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDemoOpenAccountMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void demoEnumControls(mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getDemoEnumControlsMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void demoOpenAccountWithProgress(mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
-          getChannel().newCall(getDemoOpenAccountWithProgressMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -658,38 +446,9 @@ public final class GuiGrpc {
 
     /**
      */
-    public mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply demoFindCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getDemoFindCompaniesMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply demoServersAndTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getDemoServersAndTypesMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
     public mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply demoOpenAccount(mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDemoOpenAccountMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply demoEnumControls(mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getDemoEnumControlsMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public java.util.Iterator<mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent> demoOpenAccountWithProgress(
-        mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request) {
-      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
-          getChannel(), getDemoOpenAccountWithProgressMethod(), getCallOptions(), request);
     }
   }
 
@@ -741,34 +500,10 @@ public final class GuiGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> demoFindCompanies(
-        mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getDemoFindCompaniesMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> demoServersAndTypes(
-        mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getDemoServersAndTypesMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply> demoOpenAccount(
         mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDemoOpenAccountMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> demoEnumControls(
-        mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getDemoEnumControlsMethod(), getCallOptions()), request);
     }
   }
 
@@ -776,12 +511,8 @@ public final class GuiGrpc {
   private static final int METHODID_BROKER_SEARCH = 1;
   private static final int METHODID_LOGIN_EX = 2;
   private static final int METHODID_CLOSE_DIALOGS = 3;
-  private static final int METHODID_DEMO_FIND_COMPANIES = 4;
-  private static final int METHODID_DEMO_SERVERS_AND_TYPES = 5;
-  private static final int METHODID_DEMO_OPEN_ACCOUNT = 6;
-  private static final int METHODID_DEMO_ENUM_CONTROLS = 7;
-  private static final int METHODID_DEMO_OPEN_ACCOUNT_WITH_PROGRESS = 8;
-  private static final int METHODID_DEMO_OPEN_ACCOUNT_INTERACTIVE = 9;
+  private static final int METHODID_DEMO_OPEN_ACCOUNT = 4;
+  private static final int METHODID_DEMO_OPEN_ACCOUNT_INTERACTIVE = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -816,25 +547,9 @@ public final class GuiGrpc {
           serviceImpl.closeDialogs((mt5_term_api.Mt5TermApiGui.GuiCloseDialogsRequest) request,
               (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiCloseDialogsReply>) responseObserver);
           break;
-        case METHODID_DEMO_FIND_COMPANIES:
-          serviceImpl.demoFindCompanies((mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest) request,
-              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>) responseObserver);
-          break;
-        case METHODID_DEMO_SERVERS_AND_TYPES:
-          serviceImpl.demoServersAndTypes((mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest) request,
-              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>) responseObserver);
-          break;
         case METHODID_DEMO_OPEN_ACCOUNT:
           serviceImpl.demoOpenAccount((mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest) request,
               (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply>) responseObserver);
-          break;
-        case METHODID_DEMO_ENUM_CONTROLS:
-          serviceImpl.demoEnumControls((mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest) request,
-              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply>) responseObserver);
-          break;
-        case METHODID_DEMO_OPEN_ACCOUNT_WITH_PROGRESS:
-          serviceImpl.demoOpenAccountWithProgress((mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest) request,
-              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoProgressEvent>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -904,11 +619,7 @@ public final class GuiGrpc {
               .addMethod(getBrokerSearchMethod())
               .addMethod(getLoginExMethod())
               .addMethod(getCloseDialogsMethod())
-              .addMethod(getDemoFindCompaniesMethod())
-              .addMethod(getDemoServersAndTypesMethod())
               .addMethod(getDemoOpenAccountMethod())
-              .addMethod(getDemoEnumControlsMethod())
-              .addMethod(getDemoOpenAccountWithProgressMethod())
               .addMethod(getDemoOpenAccountInteractiveMethod())
               .build();
         }

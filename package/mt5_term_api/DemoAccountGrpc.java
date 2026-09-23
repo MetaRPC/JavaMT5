@@ -20,68 +20,6 @@ public final class DemoAccountGrpc {
   public static final String SERVICE_NAME = "mt5_term_api.DemoAccount";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getFindCompaniesMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "FindCompanies",
-      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest.class,
-      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getFindCompaniesMethod() {
-    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getFindCompaniesMethod;
-    if ((getFindCompaniesMethod = DemoAccountGrpc.getFindCompaniesMethod) == null) {
-      synchronized (DemoAccountGrpc.class) {
-        if ((getFindCompaniesMethod = DemoAccountGrpc.getFindCompaniesMethod) == null) {
-          DemoAccountGrpc.getFindCompaniesMethod = getFindCompaniesMethod =
-              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "FindCompanies"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply.getDefaultInstance()))
-              .setSchemaDescriptor(new DemoAccountMethodDescriptorSupplier("FindCompanies"))
-              .build();
-        }
-      }
-    }
-    return getFindCompaniesMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getServersAndAccountTypesMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ServersAndAccountTypes",
-      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest.class,
-      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
-      mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getServersAndAccountTypesMethod() {
-    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getServersAndAccountTypesMethod;
-    if ((getServersAndAccountTypesMethod = DemoAccountGrpc.getServersAndAccountTypesMethod) == null) {
-      synchronized (DemoAccountGrpc.class) {
-        if ((getServersAndAccountTypesMethod = DemoAccountGrpc.getServersAndAccountTypesMethod) == null) {
-          DemoAccountGrpc.getServersAndAccountTypesMethod = getServersAndAccountTypesMethod =
-              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ServersAndAccountTypes"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply.getDefaultInstance()))
-              .setSchemaDescriptor(new DemoAccountMethodDescriptorSupplier("ServersAndAccountTypes"))
-              .build();
-        }
-      }
-    }
-    return getServersAndAccountTypesMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
       mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply> getOpenDemoAccountMethod;
 
@@ -113,35 +51,35 @@ public final class DemoAccountGrpc {
     return getOpenDemoAccountMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
-      mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent> getOpenDemoAccountStreamMethod;
+  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage,
+      mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage> getDemoOpenAccountInteractiveMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "OpenDemoAccountStream",
-      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest.class,
-      responseType = mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
-      mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent> getOpenDemoAccountStreamMethod() {
-    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest, mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent> getOpenDemoAccountStreamMethod;
-    if ((getOpenDemoAccountStreamMethod = DemoAccountGrpc.getOpenDemoAccountStreamMethod) == null) {
+      fullMethodName = SERVICE_NAME + '/' + "DemoOpenAccountInteractive",
+      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage.class,
+      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage,
+      mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage> getDemoOpenAccountInteractiveMethod() {
+    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage, mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage> getDemoOpenAccountInteractiveMethod;
+    if ((getDemoOpenAccountInteractiveMethod = DemoAccountGrpc.getDemoOpenAccountInteractiveMethod) == null) {
       synchronized (DemoAccountGrpc.class) {
-        if ((getOpenDemoAccountStreamMethod = DemoAccountGrpc.getOpenDemoAccountStreamMethod) == null) {
-          DemoAccountGrpc.getOpenDemoAccountStreamMethod = getOpenDemoAccountStreamMethod =
-              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest, mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "OpenDemoAccountStream"))
+        if ((getDemoOpenAccountInteractiveMethod = DemoAccountGrpc.getDemoOpenAccountInteractiveMethod) == null) {
+          DemoAccountGrpc.getDemoOpenAccountInteractiveMethod = getDemoOpenAccountInteractiveMethod =
+              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage, mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DemoOpenAccountInteractive"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest.getDefaultInstance()))
+                  mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent.getDefaultInstance()))
-              .setSchemaDescriptor(new DemoAccountMethodDescriptorSupplier("OpenDemoAccountStream"))
+                  mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new DemoAccountMethodDescriptorSupplier("DemoOpenAccountInteractive"))
               .build();
         }
       }
     }
-    return getOpenDemoAccountStreamMethod;
+    return getDemoOpenAccountInteractiveMethod;
   }
 
   /**
@@ -199,36 +137,6 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Search for broker companies by name.
-     * Returns a list of matching companies from the wizard's ListView.
-     * [DefaultValues]
-     * {
-     *   "searchText": "MetaQuotes"
-     * }
-     * </pre>
-     */
-    public void findCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindCompaniesMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
-     * Get available servers and account types for a company.
-     * Navigates: company selection → demo account → reads dropdown options.
-     * [DefaultValues]
-     * {
-     *   "companyName": "MetaQuotes Ltd."
-     * }
-     * </pre>
-     */
-    public void serversAndAccountTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getServersAndAccountTypesMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
      * Open a demo account. Full wizard flow: search → select → fill form → register.
      * Returns login, password, and investor password for the new demo account.
      * [DefaultValues]
@@ -249,41 +157,17 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Same as OpenDemoAccount but streams real-time progress events.
-     * Does NOT require 'id' header — auto-picks any available terminal.
-     * Swagger does not support streaming — use /demo-account-stream interactive viewer.
-     * [DefaultValues]
-     * {
-     *   "company": "MetaQuotes Ltd.",
-     *   "firstName": "Test",
-     *   "lastName": "User",
-     *   "email": "test&#64;test.com",
-     *   "phone": "+1234567890",
-     *   "timeoutSeconds": "60"
-     * }
+     * Interactive step-by-step demo account opening wizard.
+     * Bidirectional streaming session: search company -&gt; select -&gt; form schema -&gt; submit -&gt; 2FA (if any) -&gt; completed.
      * </pre>
      */
-    public void openDemoAccountStream(mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getOpenDemoAccountStreamMethod(), responseObserver);
+    public io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage> demoOpenAccountInteractive(
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getDemoOpenAccountInteractiveMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getFindCompaniesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
-                mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>(
-                  this, METHODID_FIND_COMPANIES)))
-          .addMethod(
-            getServersAndAccountTypesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
-                mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>(
-                  this, METHODID_SERVERS_AND_ACCOUNT_TYPES)))
           .addMethod(
             getOpenDemoAccountMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -292,12 +176,12 @@ public final class DemoAccountGrpc {
                 mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply>(
                   this, METHODID_OPEN_DEMO_ACCOUNT)))
           .addMethod(
-            getOpenDemoAccountStreamMethod(),
-            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+            getDemoOpenAccountInteractiveMethod(),
+            io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
               new MethodHandlers<
-                mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
-                mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent>(
-                  this, METHODID_OPEN_DEMO_ACCOUNT_STREAM)))
+                mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage,
+                mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage>(
+                  this, METHODID_DEMO_OPEN_ACCOUNT_INTERACTIVE)))
           .build();
     }
   }
@@ -323,38 +207,6 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Search for broker companies by name.
-     * Returns a list of matching companies from the wizard's ListView.
-     * [DefaultValues]
-     * {
-     *   "searchText": "MetaQuotes"
-     * }
-     * </pre>
-     */
-    public void findCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getFindCompaniesMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * Get available servers and account types for a company.
-     * Navigates: company selection → demo account → reads dropdown options.
-     * [DefaultValues]
-     * {
-     *   "companyName": "MetaQuotes Ltd."
-     * }
-     * </pre>
-     */
-    public void serversAndAccountTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getServersAndAccountTypesMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
      * Open a demo account. Full wizard flow: search → select → fill form → register.
      * Returns login, password, and investor password for the new demo account.
      * [DefaultValues]
@@ -376,24 +228,14 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Same as OpenDemoAccount but streams real-time progress events.
-     * Does NOT require 'id' header — auto-picks any available terminal.
-     * Swagger does not support streaming — use /demo-account-stream interactive viewer.
-     * [DefaultValues]
-     * {
-     *   "company": "MetaQuotes Ltd.",
-     *   "firstName": "Test",
-     *   "lastName": "User",
-     *   "email": "test&#64;test.com",
-     *   "phone": "+1234567890",
-     *   "timeoutSeconds": "60"
-     * }
+     * Interactive step-by-step demo account opening wizard.
+     * Bidirectional streaming session: search company -&gt; select -&gt; form schema -&gt; submit -&gt; 2FA (if any) -&gt; completed.
      * </pre>
      */
-    public void openDemoAccountStream(mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request,
-        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
-          getChannel().newCall(getOpenDemoAccountStreamMethod(), getCallOptions()), request, responseObserver);
+    public io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveClientMessage> demoOpenAccountInteractive(
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage> responseObserver) {
+      return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
+          getChannel().newCall(getDemoOpenAccountInteractiveMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -418,36 +260,6 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Search for broker companies by name.
-     * Returns a list of matching companies from the wizard's ListView.
-     * [DefaultValues]
-     * {
-     *   "searchText": "MetaQuotes"
-     * }
-     * </pre>
-     */
-    public mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply findCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getFindCompaniesMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * Get available servers and account types for a company.
-     * Navigates: company selection → demo account → reads dropdown options.
-     * [DefaultValues]
-     * {
-     *   "companyName": "MetaQuotes Ltd."
-     * }
-     * </pre>
-     */
-    public mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply serversAndAccountTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getServersAndAccountTypesMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
      * Open a demo account. Full wizard flow: search → select → fill form → register.
      * Returns login, password, and investor password for the new demo account.
      * [DefaultValues]
@@ -464,28 +276,6 @@ public final class DemoAccountGrpc {
     public mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply openDemoAccount(mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getOpenDemoAccountMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * Same as OpenDemoAccount but streams real-time progress events.
-     * Does NOT require 'id' header — auto-picks any available terminal.
-     * Swagger does not support streaming — use /demo-account-stream interactive viewer.
-     * [DefaultValues]
-     * {
-     *   "company": "MetaQuotes Ltd.",
-     *   "firstName": "Test",
-     *   "lastName": "User",
-     *   "email": "test&#64;test.com",
-     *   "phone": "+1234567890",
-     *   "timeoutSeconds": "60"
-     * }
-     * </pre>
-     */
-    public java.util.Iterator<mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent> openDemoAccountStream(
-        mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest request) {
-      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
-          getChannel(), getOpenDemoAccountStreamMethod(), getCallOptions(), request);
     }
   }
 
@@ -510,38 +300,6 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Search for broker companies by name.
-     * Returns a list of matching companies from the wizard's ListView.
-     * [DefaultValues]
-     * {
-     *   "searchText": "MetaQuotes"
-     * }
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> findCompanies(
-        mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getFindCompaniesMethod(), getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
-     * Get available servers and account types for a company.
-     * Navigates: company selection → demo account → reads dropdown options.
-     * [DefaultValues]
-     * {
-     *   "companyName": "MetaQuotes Ltd."
-     * }
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> serversAndAccountTypes(
-        mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getServersAndAccountTypesMethod(), getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
      * Open a demo account. Full wizard flow: search → select → fill form → register.
      * Returns login, password, and investor password for the new demo account.
      * [DefaultValues]
@@ -562,10 +320,8 @@ public final class DemoAccountGrpc {
     }
   }
 
-  private static final int METHODID_FIND_COMPANIES = 0;
-  private static final int METHODID_SERVERS_AND_ACCOUNT_TYPES = 1;
-  private static final int METHODID_OPEN_DEMO_ACCOUNT = 2;
-  private static final int METHODID_OPEN_DEMO_ACCOUNT_STREAM = 3;
+  private static final int METHODID_OPEN_DEMO_ACCOUNT = 0;
+  private static final int METHODID_DEMO_OPEN_ACCOUNT_INTERACTIVE = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -584,21 +340,9 @@ public final class DemoAccountGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_FIND_COMPANIES:
-          serviceImpl.findCompanies((mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest) request,
-              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>) responseObserver);
-          break;
-        case METHODID_SERVERS_AND_ACCOUNT_TYPES:
-          serviceImpl.serversAndAccountTypes((mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest) request,
-              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>) responseObserver);
-          break;
         case METHODID_OPEN_DEMO_ACCOUNT:
           serviceImpl.openDemoAccount((mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest) request,
               (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply>) responseObserver);
-          break;
-        case METHODID_OPEN_DEMO_ACCOUNT_STREAM:
-          serviceImpl.openDemoAccountStream((mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest) request,
-              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiDemoAccount.DemoAccountStreamEvent>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -610,6 +354,9 @@ public final class DemoAccountGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_DEMO_OPEN_ACCOUNT_INTERACTIVE:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.demoOpenAccountInteractive(
+              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoInteractiveServerMessage>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -661,10 +408,8 @@ public final class DemoAccountGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new DemoAccountFileDescriptorSupplier())
-              .addMethod(getFindCompaniesMethod())
-              .addMethod(getServersAndAccountTypesMethod())
               .addMethod(getOpenDemoAccountMethod())
-              .addMethod(getOpenDemoAccountStreamMethod())
+              .addMethod(getDemoOpenAccountInteractiveMethod())
               .build();
         }
       }
