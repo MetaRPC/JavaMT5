@@ -2950,6 +2950,1016 @@ public final class Mt5TermApiAdmin {
 
   }
 
+  public interface KillAllTrialTerminalsReplyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:mrpc_admin.KillAllTrialTerminalsReply)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 killed_count = 1;</code>
+     * @return The killedCount.
+     */
+    int getKilledCount();
+
+    /**
+     * <code>repeated string killed_terminal_ids = 2;</code>
+     * @return A list containing the killedTerminalIds.
+     */
+    java.util.List<java.lang.String>
+        getKilledTerminalIdsList();
+    /**
+     * <code>repeated string killed_terminal_ids = 2;</code>
+     * @return The count of killedTerminalIds.
+     */
+    int getKilledTerminalIdsCount();
+    /**
+     * <code>repeated string killed_terminal_ids = 2;</code>
+     * @param index The index of the element to return.
+     * @return The killedTerminalIds at the given index.
+     */
+    java.lang.String getKilledTerminalIds(int index);
+    /**
+     * <code>repeated string killed_terminal_ids = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the killedTerminalIds at the given index.
+     */
+    com.google.protobuf.ByteString
+        getKilledTerminalIdsBytes(int index);
+
+    /**
+     * <code>string message = 3;</code>
+     * @return The message.
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 3;</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+
+    /**
+     * <code>string error = 4;</code>
+     * @return The error.
+     */
+    java.lang.String getError();
+    /**
+     * <code>string error = 4;</code>
+     * @return The bytes for error.
+     */
+    com.google.protobuf.ByteString
+        getErrorBytes();
+  }
+  /**
+   * Protobuf type {@code mrpc_admin.KillAllTrialTerminalsReply}
+   */
+  public static final class KillAllTrialTerminalsReply extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:mrpc_admin.KillAllTrialTerminalsReply)
+      KillAllTrialTerminalsReplyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use KillAllTrialTerminalsReply.newBuilder() to construct.
+    private KillAllTrialTerminalsReply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private KillAllTrialTerminalsReply() {
+      killedTerminalIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      message_ = "";
+      error_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new KillAllTrialTerminalsReply();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private KillAllTrialTerminalsReply(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              killedCount_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                killedTerminalIds_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              killedTerminalIds_.add(s);
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              error_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          killedTerminalIds_ = killedTerminalIds_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return mrpc_admin.Mt5TermApiAdmin.internal_static_mrpc_admin_KillAllTrialTerminalsReply_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return mrpc_admin.Mt5TermApiAdmin.internal_static_mrpc_admin_KillAllTrialTerminalsReply_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply.class, mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply.Builder.class);
+    }
+
+    public static final int KILLED_COUNT_FIELD_NUMBER = 1;
+    private int killedCount_;
+    /**
+     * <code>int32 killed_count = 1;</code>
+     * @return The killedCount.
+     */
+    @java.lang.Override
+    public int getKilledCount() {
+      return killedCount_;
+    }
+
+    public static final int KILLED_TERMINAL_IDS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList killedTerminalIds_;
+    /**
+     * <code>repeated string killed_terminal_ids = 2;</code>
+     * @return A list containing the killedTerminalIds.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getKilledTerminalIdsList() {
+      return killedTerminalIds_;
+    }
+    /**
+     * <code>repeated string killed_terminal_ids = 2;</code>
+     * @return The count of killedTerminalIds.
+     */
+    public int getKilledTerminalIdsCount() {
+      return killedTerminalIds_.size();
+    }
+    /**
+     * <code>repeated string killed_terminal_ids = 2;</code>
+     * @param index The index of the element to return.
+     * @return The killedTerminalIds at the given index.
+     */
+    public java.lang.String getKilledTerminalIds(int index) {
+      return killedTerminalIds_.get(index);
+    }
+    /**
+     * <code>repeated string killed_terminal_ids = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the killedTerminalIds at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getKilledTerminalIdsBytes(int index) {
+      return killedTerminalIds_.getByteString(index);
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object message_;
+    /**
+     * <code>string message = 3;</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 3;</code>
+     * @return The bytes for message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 4;
+    private volatile java.lang.Object error_;
+    /**
+     * <code>string error = 4;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public java.lang.String getError() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        error_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string error = 4;</code>
+     * @return The bytes for error.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getErrorBytes() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        error_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (killedCount_ != 0) {
+        output.writeInt32(1, killedCount_);
+      }
+      for (int i = 0; i < killedTerminalIds_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, killedTerminalIds_.getRaw(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, error_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (killedCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, killedCount_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < killedTerminalIds_.size(); i++) {
+          dataSize += computeStringSizeNoTag(killedTerminalIds_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getKilledTerminalIdsList().size();
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, error_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply)) {
+        return super.equals(obj);
+      }
+      mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply other = (mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply) obj;
+
+      if (getKilledCount()
+          != other.getKilledCount()) return false;
+      if (!getKilledTerminalIdsList()
+          .equals(other.getKilledTerminalIdsList())) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!getError()
+          .equals(other.getError())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KILLED_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getKilledCount();
+      if (getKilledTerminalIdsCount() > 0) {
+        hash = (37 * hash) + KILLED_TERMINAL_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getKilledTerminalIdsList().hashCode();
+      }
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code mrpc_admin.KillAllTrialTerminalsReply}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:mrpc_admin.KillAllTrialTerminalsReply)
+        mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReplyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return mrpc_admin.Mt5TermApiAdmin.internal_static_mrpc_admin_KillAllTrialTerminalsReply_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return mrpc_admin.Mt5TermApiAdmin.internal_static_mrpc_admin_KillAllTrialTerminalsReply_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply.class, mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply.Builder.class);
+      }
+
+      // Construct using mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        killedCount_ = 0;
+
+        killedTerminalIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        message_ = "";
+
+        error_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return mrpc_admin.Mt5TermApiAdmin.internal_static_mrpc_admin_KillAllTrialTerminalsReply_descriptor;
+      }
+
+      @java.lang.Override
+      public mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply getDefaultInstanceForType() {
+        return mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply build() {
+        mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply buildPartial() {
+        mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply result = new mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply(this);
+        int from_bitField0_ = bitField0_;
+        result.killedCount_ = killedCount_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          killedTerminalIds_ = killedTerminalIds_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.killedTerminalIds_ = killedTerminalIds_;
+        result.message_ = message_;
+        result.error_ = error_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply) {
+          return mergeFrom((mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply other) {
+        if (other == mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply.getDefaultInstance()) return this;
+        if (other.getKilledCount() != 0) {
+          setKilledCount(other.getKilledCount());
+        }
+        if (!other.killedTerminalIds_.isEmpty()) {
+          if (killedTerminalIds_.isEmpty()) {
+            killedTerminalIds_ = other.killedTerminalIds_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureKilledTerminalIdsIsMutable();
+            killedTerminalIds_.addAll(other.killedTerminalIds_);
+          }
+          onChanged();
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
+        }
+        if (!other.getError().isEmpty()) {
+          error_ = other.error_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int killedCount_ ;
+      /**
+       * <code>int32 killed_count = 1;</code>
+       * @return The killedCount.
+       */
+      @java.lang.Override
+      public int getKilledCount() {
+        return killedCount_;
+      }
+      /**
+       * <code>int32 killed_count = 1;</code>
+       * @param value The killedCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKilledCount(int value) {
+        
+        killedCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 killed_count = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKilledCount() {
+        
+        killedCount_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList killedTerminalIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureKilledTerminalIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          killedTerminalIds_ = new com.google.protobuf.LazyStringArrayList(killedTerminalIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @return A list containing the killedTerminalIds.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getKilledTerminalIdsList() {
+        return killedTerminalIds_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @return The count of killedTerminalIds.
+       */
+      public int getKilledTerminalIdsCount() {
+        return killedTerminalIds_.size();
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @param index The index of the element to return.
+       * @return The killedTerminalIds at the given index.
+       */
+      public java.lang.String getKilledTerminalIds(int index) {
+        return killedTerminalIds_.get(index);
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the killedTerminalIds at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getKilledTerminalIdsBytes(int index) {
+        return killedTerminalIds_.getByteString(index);
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The killedTerminalIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKilledTerminalIds(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureKilledTerminalIdsIsMutable();
+        killedTerminalIds_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @param value The killedTerminalIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addKilledTerminalIds(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureKilledTerminalIdsIsMutable();
+        killedTerminalIds_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @param values The killedTerminalIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllKilledTerminalIds(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureKilledTerminalIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, killedTerminalIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKilledTerminalIds() {
+        killedTerminalIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string killed_terminal_ids = 2;</code>
+       * @param value The bytes of the killedTerminalIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addKilledTerminalIdsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureKilledTerminalIdsIsMutable();
+        killedTerminalIds_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 3;</code>
+       * @return The message.
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 3;</code>
+       * @return The bytes for message.
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 3;</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 3;</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object error_ = "";
+      /**
+       * <code>string error = 4;</code>
+       * @return The error.
+       */
+      public java.lang.String getError() {
+        java.lang.Object ref = error_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          error_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string error = 4;</code>
+       * @return The bytes for error.
+       */
+      public com.google.protobuf.ByteString
+          getErrorBytes() {
+        java.lang.Object ref = error_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          error_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string error = 4;</code>
+       * @param value The error to set.
+       * @return This builder for chaining.
+       */
+      public Builder setError(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string error = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearError() {
+        
+        error_ = getDefaultInstance().getError();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string error = 4;</code>
+       * @param value The bytes for error to set.
+       * @return This builder for chaining.
+       */
+      public Builder setErrorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:mrpc_admin.KillAllTrialTerminalsReply)
+    }
+
+    // @@protoc_insertion_point(class_scope:mrpc_admin.KillAllTrialTerminalsReply)
+    private static final mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply();
+    }
+
+    public static mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<KillAllTrialTerminalsReply>
+        PARSER = new com.google.protobuf.AbstractParser<KillAllTrialTerminalsReply>() {
+      @java.lang.Override
+      public KillAllTrialTerminalsReply parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new KillAllTrialTerminalsReply(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<KillAllTrialTerminalsReply> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KillAllTrialTerminalsReply> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface GetSessionRestoreLogsRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:mrpc_admin.GetSessionRestoreLogsRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -34141,6 +35151,11 @@ public final class Mt5TermApiAdmin {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mrpc_admin_GetSessionRestoreStatusReply_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mrpc_admin_KillAllTrialTerminalsReply_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mrpc_admin_KillAllTrialTerminalsReply_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mrpc_admin_GetSessionRestoreLogsRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -34303,137 +35318,148 @@ public final class Mt5TermApiAdmin {
       "ms\030\r \001(\001\022\022\n\nlast_error\030\016 \001(\t\"f\n\034GetSessi" +
       "onRestoreStatusReply\0227\n\006status\030\001 \001(\0132\'.m" +
       "rpc_admin.SessionRestoreWatcherStatus\022\r\n" +
-      "\005error\030\002 \001(\t\"S\n\034GetSessionRestoreLogsReq" +
-      "uest\022\021\n\tadmin_key\030\001 \001(\t\022\013\n\003pod\030\002 \001(\t\022\023\n\013" +
-      "latest_only\030\003 \001(\010\"\302\001\n\026SessionRestoreLogE" +
-      "ntry\022\020\n\010token_id\030\001 \001(\t\022\020\n\010platform\030\002 \001(\t" +
-      "\022\016\n\006reason\030\003 \001(\t\022\r\n\005owner\030\004 \001(\t\022\014\n\004user\030" +
-      "\005 \001(\t\022\016\n\006target\030\006 \001(\t\022\017\n\007success\030\007 \001(\010\022\r" +
-      "\n\005error\030\010 \001(\t\022\022\n\nelapsed_ms\030\t \001(\001\022\023\n\013cre" +
-      "ated_utc\030\n \001(\t\"`\n\032GetSessionRestoreLogsR" +
-      "eply\0223\n\007entries\030\001 \003(\0132\".mrpc_admin.Sessi" +
-      "onRestoreLogEntry\022\r\n\005error\030\002 \001(\t\"]\n\021GetA" +
-      "llLogsRequest\022\021\n\tadmin_key\030\001 \001(\t\022\031\n\021max_" +
-      "bytes_per_log\030\002 \001(\003\022\032\n\022exclude_event_log" +
-      "s\030\003 \001(\010\"\226\001\n\014AllLogsEntry\022\016\n\006source\030\001 \001(\t" +
-      "\022\014\n\004name\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\022\n\nsize_byt" +
-      "es\030\004 \001(\003\022\023\n\013modified_at\030\005 \001(\t\022\017\n\007content" +
-      "\030\006 \001(\t\022\021\n\ttruncated\030\007 \001(\010\022\r\n\005error\030\010 \001(\t" +
-      "\"H\n\017GetAllLogsReply\022&\n\004logs\030\001 \003(\0132\030.mrpc" +
-      "_admin.AllLogsEntry\022\r\n\005error\030\002 \001(\t\"\020\n\016Ve" +
-      "rsionRequest\"V\n\014VersionReply\022\017\n\007service\030" +
-      "\001 \001(\t\022\017\n\007version\030\002 \001(\t\022\026\n\016build_time_utc" +
-      "\030\003 \001(\t\022\014\n\004mode\030\004 \001(\t\"K\n\021ListLogFilesRepl" +
-      "y\022\'\n\005files\030\001 \003(\0132\030.mrpc_admin.LogFileEnt" +
-      "ry\022\r\n\005error\030\002 \001(\t\"a\n\014LogFileEntry\022\014\n\004nam" +
-      "e\030\001 \001(\t\022\022\n\nsize_bytes\030\002 \001(\003\022/\n\013modified_" +
-      "at\030\003 \001(\0132\032.google.protobuf.Timestamp\"L\n\021" +
-      "GetLogFileRequest\022\021\n\tadmin_key\030\001 \001(\t\022\021\n\t" +
-      "file_name\030\002 \001(\t\022\021\n\tmax_bytes\030\003 \001(\003\"^\n\017Ge" +
-      "tLogFileReply\022\017\n\007content\030\001 \001(\t\022\021\n\ttrunca" +
-      "ted\030\002 \001(\010\022\030\n\020total_size_bytes\030\003 \001(\003\022\r\n\005e" +
-      "rror\030\004 \001(\t\"M\n\031GetTerminalJournalRequest\022" +
-      "\021\n\tadmin_key\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022\021\n\tmax_by" +
-      "tes\030\003 \001(\003\"a\n\023TerminalJournalFile\022\014\n\004name" +
-      "\030\001 \001(\t\022\017\n\007content\030\002 \001(\t\022\021\n\ttruncated\030\003 \001" +
-      "(\010\022\030\n\020total_size_bytes\030\004 \001(\003\"n\n\027GetTermi" +
-      "nalJournalReply\022\024\n\014terminal_dir\030\001 \001(\t\022.\n" +
-      "\005files\030\002 \003(\0132\037.mrpc_admin.TerminalJourna" +
-      "lFile\022\r\n\005error\030\003 \001(\t\"S\n\031GetEventLogEntri" +
-      "esRequest\022\021\n\tadmin_key\030\001 \001(\t\022\020\n\010log_name" +
-      "\030\002 \001(\t\022\021\n\tmax_count\030\003 \001(\005\"9\n\027GetEventLog" +
-      "EntriesReply\022\017\n\007entries\030\001 \003(\t\022\r\n\005error\030\002" +
-      " \001(\t\"O\n\037CaptureSessionScreenshotRequest\022" +
-      "\021\n\tadmin_key\030\001 \001(\t\022\031\n\021session_user_name\030" +
-      "\002 \001(\t\"d\n$CaptureSessionScreenshotOnPodRe" +
-      "quest\022\021\n\tadmin_key\030\001 \001(\t\022\016\n\006pod_ip\030\002 \001(\t" +
-      "\022\031\n\021session_user_name\030\003 \001(\t\"A\n\035CaptureSe" +
-      "ssionScreenshotReply\022\021\n\timage_png\030\001 \001(\014\022" +
-      "\r\n\005error\030\002 \001(\t\"G\n\024RefreshMrpcRestReply\022\017" +
-      "\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\022\r\n\005erro" +
-      "r\030\003 \001(\t\"w\n\013UsageSample\022(\n\004time\030\001 \001(\0132\032.g" +
-      "oogle.protobuf.Timestamp\022\023\n\013cpu_percent\030" +
-      "\002 \001(\001\022\023\n\013ram_used_mb\030\003 \001(\004\022\024\n\014ram_total_" +
-      "mb\030\004 \001(\004\"\213\001\n\020SystemUsageReply\022\023\n\013cpu_per" +
-      "cent\030\001 \001(\001\022\023\n\013ram_used_mb\030\002 \001(\004\022\024\n\014ram_t" +
-      "otal_mb\030\003 \001(\004\022(\n\007history\030\004 \003(\0132\027.mrpc_ad" +
-      "min.UsageSample\022\r\n\005error\030\005 \001(\t\"+\n\026Active" +
-      "TerminalsRequest\022\021\n\tadmin_key\030\001 \001(\t\"\340\003\n\014" +
-      "TerminalInfo\022\n\n\002id\030\001 \001(\t\022\023\n\013user_number\030" +
-      "\002 \001(\r\022\024\n\014windows_user\030\003 \001(\t\022\017\n\007account\030\004" +
-      " \001(\004\022\016\n\006server\030\005 \001(\t\022\014\n\004port\030\006 \001(\r\022.\n\ncr" +
-      "eated_at\030\007 \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022\030\n\020windows_password\030\010 \001(\t\022\021\n\004name\030\t \001" +
-      "(\tH\000\210\001\001\022\r\n\005state\030\n \001(\t\022\025\n\rerror_message\030" +
-      "\013 \001(\t\022\027\n\nuser_email\030\014 \001(\tH\001\210\001\001\022%\n\030startu" +
-      "p_duration_seconds\030\r \001(\001H\002\210\001\001\0225\n\014connect" +
-      "ed_at\030\016 \001(\0132\032.google.protobuf.TimestampH" +
-      "\003\210\001\001\022\031\n\014startup_time\030\017 \001(\tH\004\210\001\001B\007\n\005_name" +
-      "B\r\n\013_user_emailB\033\n\031_startup_duration_sec" +
-      "ondsB\017\n\r_connected_atB\017\n\r_startup_time\"\256" +
-      "\002\n\024ActiveTerminalsReply\022\013\n\003pod\030\001 \001(\t\022\014\n\004" +
-      "node\030\002 \001(\t\022\016\n\006pod_ip\030\003 \001(\t\022+\n\tterminals\030" +
-      "\004 \003(\0132\030.mrpc_admin.TerminalInfo\022\r\n\005error" +
-      "\030\005 \001(\t\022\023\n\013cpu_percent\030\006 \001(\001\022\023\n\013ram_used_" +
-      "mb\030\007 \001(\004\022\024\n\014ram_total_mb\030\010 \001(\004\022.\n\rusage_" +
-      "history\030\t \003(\0132\027.mrpc_admin.UsageSample\022?" +
-      "\n\016restore_status\030\n \001(\0132\'.mrpc_admin.Sess" +
-      "ionRestoreWatcherStatus\"\312\002\n\014PodTerminals" +
-      "\022\013\n\003pod\030\001 \001(\t\022\014\n\004node\030\002 \001(\t\022\016\n\006pod_ip\030\003 " +
-      "\001(\t\022\021\n\tnovnc_url\030\004 \001(\t\022+\n\tterminals\030\005 \003(" +
-      "\0132\030.mrpc_admin.TerminalInfo\022\r\n\005error\030\006 \001" +
-      "(\t\022\017\n\007host_ip\030\007 \001(\t\022\023\n\013cpu_percent\030\010 \001(\001" +
-      "\022\023\n\013ram_used_mb\030\t \001(\004\022\024\n\014ram_total_mb\030\n " +
-      "\001(\004\022.\n\rusage_history\030\013 \003(\0132\027.mrpc_admin." +
-      "UsageSample\022?\n\016restore_status\030\014 \001(\0132\'.mr" +
-      "pc_admin.SessionRestoreWatcherStatus\"E\n\033" +
-      "ActiveTerminalsClusterReply\022&\n\004pods\030\001 \003(" +
-      "\0132\030.mrpc_admin.PodTerminals2\266\r\n\010AdminApi" +
-      "\022q\n\017ActiveTerminals\022\".mrpc_admin.ActiveT" +
-      "erminalsRequest\032 .mrpc_admin.ActiveTermi" +
-      "nalsReply\"\030\202\323\344\223\002\022\022\020/ActiveTerminals\022\206\001\n\026" +
-      "ActiveTerminalsCluster\022\".mrpc_admin.Acti" +
-      "veTerminalsRequest\032\'.mrpc_admin.ActiveTe" +
-      "rminalsClusterReply\"\037\202\323\344\223\002\031\022\027/ActiveTerm" +
-      "inalsCluster\022e\n\013SystemUsage\022\".mrpc_admin" +
-      ".ActiveTerminalsRequest\032\034.mrpc_admin.Sys" +
-      "temUsageReply\"\024\202\323\344\223\002\016\022\014/SystemUsage\022h\n\014L" +
-      "istLogFiles\022\".mrpc_admin.ActiveTerminals" +
-      "Request\032\035.mrpc_admin.ListLogFilesReply\"\025" +
-      "\202\323\344\223\002\017\022\r/ListLogFiles\022]\n\nGetLogFile\022\035.mr" +
-      "pc_admin.GetLogFileRequest\032\033.mrpc_admin." +
-      "GetLogFileReply\"\023\202\323\344\223\002\r\022\013/GetLogFile\022}\n\022" +
-      "GetEventLogEntries\022%.mrpc_admin.GetEvent" +
-      "LogEntriesRequest\032#.mrpc_admin.GetEventL" +
-      "ogEntriesReply\"\033\202\323\344\223\002\025\022\023/GetEventLogEntr" +
-      "ies\022\225\001\n\030CaptureSessionScreenshot\022+.mrpc_" +
-      "admin.CaptureSessionScreenshotRequest\032)." +
-      "mrpc_admin.CaptureSessionScreenshotReply" +
-      "\"!\202\323\344\223\002\033\022\031/CaptureSessionScreenshot\022\244\001\n\035" +
-      "CaptureSessionScreenshotOnPod\0220.mrpc_adm" +
-      "in.CaptureSessionScreenshotOnPodRequest\032" +
-      ").mrpc_admin.CaptureSessionScreenshotRep" +
-      "ly\"&\202\323\344\223\002 \022\036/CaptureSessionScreenshotOnP" +
-      "od\022q\n\017RefreshMrpcRest\022\".mrpc_admin.Activ" +
-      "eTerminalsRequest\032 .mrpc_admin.RefreshMr" +
-      "pcRestReply\"\030\202\323\344\223\002\022\022\020/RefreshMrpcRest\022W\n" +
-      "\nGetVersion\022\032.mrpc_admin.VersionRequest\032" +
-      "\030.mrpc_admin.VersionReply\"\023\202\323\344\223\002\r\022\013/vers" +
-      "ion-tm\022}\n\022GetTerminalJournal\022%.mrpc_admi" +
-      "n.GetTerminalJournalRequest\032#.mrpc_admin" +
-      ".GetTerminalJournalReply\"\033\202\323\344\223\002\025\022\023/GetTe" +
-      "rminalJournal\022]\n\nGetAllLogs\022\035.mrpc_admin" +
-      ".GetAllLogsRequest\032\033.mrpc_admin.GetAllLo" +
-      "gsReply\"\023\202\323\344\223\002\r\022\013/GetAllLogs\022\211\001\n\025GetSess" +
-      "ionRestoreLogs\022(.mrpc_admin.GetSessionRe" +
-      "storeLogsRequest\032&.mrpc_admin.GetSession" +
-      "RestoreLogsReply\"\036\202\323\344\223\002\030\022\026/GetSessionRes" +
-      "toreLogs\022\211\001\n\027GetSessionRestoreStatus\022\".m" +
-      "rpc_admin.ActiveTerminalsRequest\032(.mrpc_" +
-      "admin.GetSessionRestoreStatusReply\" \202\323\344\223" +
-      "\002\032\022\030/GetSessionRestoreStatusB@Z1git.mtap" +
-      "i.io/root/mrpc-proto.git/mt5/libraries/g" +
-      "o\252\002\nmrpc_adminb\006proto3"
+      "\005error\030\002 \001(\t\"o\n\032KillAllTrialTerminalsRep" +
+      "ly\022\024\n\014killed_count\030\001 \001(\005\022\033\n\023killed_termi" +
+      "nal_ids\030\002 \003(\t\022\017\n\007message\030\003 \001(\t\022\r\n\005error\030" +
+      "\004 \001(\t\"S\n\034GetSessionRestoreLogsRequest\022\021\n" +
+      "\tadmin_key\030\001 \001(\t\022\013\n\003pod\030\002 \001(\t\022\023\n\013latest_" +
+      "only\030\003 \001(\010\"\302\001\n\026SessionRestoreLogEntry\022\020\n" +
+      "\010token_id\030\001 \001(\t\022\020\n\010platform\030\002 \001(\t\022\016\n\006rea" +
+      "son\030\003 \001(\t\022\r\n\005owner\030\004 \001(\t\022\014\n\004user\030\005 \001(\t\022\016" +
+      "\n\006target\030\006 \001(\t\022\017\n\007success\030\007 \001(\010\022\r\n\005error" +
+      "\030\010 \001(\t\022\022\n\nelapsed_ms\030\t \001(\001\022\023\n\013created_ut" +
+      "c\030\n \001(\t\"`\n\032GetSessionRestoreLogsReply\0223\n" +
+      "\007entries\030\001 \003(\0132\".mrpc_admin.SessionResto" +
+      "reLogEntry\022\r\n\005error\030\002 \001(\t\"]\n\021GetAllLogsR" +
+      "equest\022\021\n\tadmin_key\030\001 \001(\t\022\031\n\021max_bytes_p" +
+      "er_log\030\002 \001(\003\022\032\n\022exclude_event_logs\030\003 \001(\010" +
+      "\"\226\001\n\014AllLogsEntry\022\016\n\006source\030\001 \001(\t\022\014\n\004nam" +
+      "e\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\022\n\nsize_bytes\030\004 \001(" +
+      "\003\022\023\n\013modified_at\030\005 \001(\t\022\017\n\007content\030\006 \001(\t\022" +
+      "\021\n\ttruncated\030\007 \001(\010\022\r\n\005error\030\010 \001(\t\"H\n\017Get" +
+      "AllLogsReply\022&\n\004logs\030\001 \003(\0132\030.mrpc_admin." +
+      "AllLogsEntry\022\r\n\005error\030\002 \001(\t\"\020\n\016VersionRe" +
+      "quest\"V\n\014VersionReply\022\017\n\007service\030\001 \001(\t\022\017" +
+      "\n\007version\030\002 \001(\t\022\026\n\016build_time_utc\030\003 \001(\t\022" +
+      "\014\n\004mode\030\004 \001(\t\"K\n\021ListLogFilesReply\022\'\n\005fi" +
+      "les\030\001 \003(\0132\030.mrpc_admin.LogFileEntry\022\r\n\005e" +
+      "rror\030\002 \001(\t\"a\n\014LogFileEntry\022\014\n\004name\030\001 \001(\t" +
+      "\022\022\n\nsize_bytes\030\002 \001(\003\022/\n\013modified_at\030\003 \001(" +
+      "\0132\032.google.protobuf.Timestamp\"L\n\021GetLogF" +
+      "ileRequest\022\021\n\tadmin_key\030\001 \001(\t\022\021\n\tfile_na" +
+      "me\030\002 \001(\t\022\021\n\tmax_bytes\030\003 \001(\003\"^\n\017GetLogFil" +
+      "eReply\022\017\n\007content\030\001 \001(\t\022\021\n\ttruncated\030\002 \001" +
+      "(\010\022\030\n\020total_size_bytes\030\003 \001(\003\022\r\n\005error\030\004 " +
+      "\001(\t\"M\n\031GetTerminalJournalRequest\022\021\n\tadmi" +
+      "n_key\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022\021\n\tmax_bytes\030\003 \001" +
+      "(\003\"a\n\023TerminalJournalFile\022\014\n\004name\030\001 \001(\t\022" +
+      "\017\n\007content\030\002 \001(\t\022\021\n\ttruncated\030\003 \001(\010\022\030\n\020t" +
+      "otal_size_bytes\030\004 \001(\003\"n\n\027GetTerminalJour" +
+      "nalReply\022\024\n\014terminal_dir\030\001 \001(\t\022.\n\005files\030" +
+      "\002 \003(\0132\037.mrpc_admin.TerminalJournalFile\022\r" +
+      "\n\005error\030\003 \001(\t\"S\n\031GetEventLogEntriesReque" +
+      "st\022\021\n\tadmin_key\030\001 \001(\t\022\020\n\010log_name\030\002 \001(\t\022" +
+      "\021\n\tmax_count\030\003 \001(\005\"9\n\027GetEventLogEntries" +
+      "Reply\022\017\n\007entries\030\001 \003(\t\022\r\n\005error\030\002 \001(\t\"O\n" +
+      "\037CaptureSessionScreenshotRequest\022\021\n\tadmi" +
+      "n_key\030\001 \001(\t\022\031\n\021session_user_name\030\002 \001(\t\"d" +
+      "\n$CaptureSessionScreenshotOnPodRequest\022\021" +
+      "\n\tadmin_key\030\001 \001(\t\022\016\n\006pod_ip\030\002 \001(\t\022\031\n\021ses" +
+      "sion_user_name\030\003 \001(\t\"A\n\035CaptureSessionSc" +
+      "reenshotReply\022\021\n\timage_png\030\001 \001(\014\022\r\n\005erro" +
+      "r\030\002 \001(\t\"G\n\024RefreshMrpcRestReply\022\017\n\007succe" +
+      "ss\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\022\r\n\005error\030\003 \001(\t" +
+      "\"w\n\013UsageSample\022(\n\004time\030\001 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022\023\n\013cpu_percent\030\002 \001(\001\022\023" +
+      "\n\013ram_used_mb\030\003 \001(\004\022\024\n\014ram_total_mb\030\004 \001(" +
+      "\004\"\213\001\n\020SystemUsageReply\022\023\n\013cpu_percent\030\001 " +
+      "\001(\001\022\023\n\013ram_used_mb\030\002 \001(\004\022\024\n\014ram_total_mb" +
+      "\030\003 \001(\004\022(\n\007history\030\004 \003(\0132\027.mrpc_admin.Usa" +
+      "geSample\022\r\n\005error\030\005 \001(\t\"+\n\026ActiveTermina" +
+      "lsRequest\022\021\n\tadmin_key\030\001 \001(\t\"\340\003\n\014Termina" +
+      "lInfo\022\n\n\002id\030\001 \001(\t\022\023\n\013user_number\030\002 \001(\r\022\024" +
+      "\n\014windows_user\030\003 \001(\t\022\017\n\007account\030\004 \001(\004\022\016\n" +
+      "\006server\030\005 \001(\t\022\014\n\004port\030\006 \001(\r\022.\n\ncreated_a" +
+      "t\030\007 \001(\0132\032.google.protobuf.Timestamp\022\030\n\020w" +
+      "indows_password\030\010 \001(\t\022\021\n\004name\030\t \001(\tH\000\210\001\001" +
+      "\022\r\n\005state\030\n \001(\t\022\025\n\rerror_message\030\013 \001(\t\022\027" +
+      "\n\nuser_email\030\014 \001(\tH\001\210\001\001\022%\n\030startup_durat" +
+      "ion_seconds\030\r \001(\001H\002\210\001\001\0225\n\014connected_at\030\016" +
+      " \001(\0132\032.google.protobuf.TimestampH\003\210\001\001\022\031\n" +
+      "\014startup_time\030\017 \001(\tH\004\210\001\001B\007\n\005_nameB\r\n\013_us" +
+      "er_emailB\033\n\031_startup_duration_secondsB\017\n" +
+      "\r_connected_atB\017\n\r_startup_time\"\256\002\n\024Acti" +
+      "veTerminalsReply\022\013\n\003pod\030\001 \001(\t\022\014\n\004node\030\002 " +
+      "\001(\t\022\016\n\006pod_ip\030\003 \001(\t\022+\n\tterminals\030\004 \003(\0132\030" +
+      ".mrpc_admin.TerminalInfo\022\r\n\005error\030\005 \001(\t\022" +
+      "\023\n\013cpu_percent\030\006 \001(\001\022\023\n\013ram_used_mb\030\007 \001(" +
+      "\004\022\024\n\014ram_total_mb\030\010 \001(\004\022.\n\rusage_history" +
+      "\030\t \003(\0132\027.mrpc_admin.UsageSample\022?\n\016resto" +
+      "re_status\030\n \001(\0132\'.mrpc_admin.SessionRest" +
+      "oreWatcherStatus\"\312\002\n\014PodTerminals\022\013\n\003pod" +
+      "\030\001 \001(\t\022\014\n\004node\030\002 \001(\t\022\016\n\006pod_ip\030\003 \001(\t\022\021\n\t" +
+      "novnc_url\030\004 \001(\t\022+\n\tterminals\030\005 \003(\0132\030.mrp" +
+      "c_admin.TerminalInfo\022\r\n\005error\030\006 \001(\t\022\017\n\007h" +
+      "ost_ip\030\007 \001(\t\022\023\n\013cpu_percent\030\010 \001(\001\022\023\n\013ram" +
+      "_used_mb\030\t \001(\004\022\024\n\014ram_total_mb\030\n \001(\004\022.\n\r" +
+      "usage_history\030\013 \003(\0132\027.mrpc_admin.UsageSa" +
+      "mple\022?\n\016restore_status\030\014 \001(\0132\'.mrpc_admi" +
+      "n.SessionRestoreWatcherStatus\"E\n\033ActiveT" +
+      "erminalsClusterReply\022&\n\004pods\030\001 \003(\0132\030.mrp" +
+      "c_admin.PodTerminals2\205\020\n\010AdminApi\022q\n\017Act" +
+      "iveTerminals\022\".mrpc_admin.ActiveTerminal" +
+      "sRequest\032 .mrpc_admin.ActiveTerminalsRep" +
+      "ly\"\030\202\323\344\223\002\022\022\020/ActiveTerminals\022\206\001\n\026ActiveT" +
+      "erminalsCluster\022\".mrpc_admin.ActiveTermi" +
+      "nalsRequest\032\'.mrpc_admin.ActiveTerminals" +
+      "ClusterReply\"\037\202\323\344\223\002\031\022\027/ActiveTerminalsCl" +
+      "uster\022e\n\013SystemUsage\022\".mrpc_admin.Active" +
+      "TerminalsRequest\032\034.mrpc_admin.SystemUsag" +
+      "eReply\"\024\202\323\344\223\002\016\022\014/SystemUsage\022h\n\014ListLogF" +
+      "iles\022\".mrpc_admin.ActiveTerminalsRequest" +
+      "\032\035.mrpc_admin.ListLogFilesReply\"\025\202\323\344\223\002\017\022" +
+      "\r/ListLogFiles\022]\n\nGetLogFile\022\035.mrpc_admi" +
+      "n.GetLogFileRequest\032\033.mrpc_admin.GetLogF" +
+      "ileReply\"\023\202\323\344\223\002\r\022\013/GetLogFile\022}\n\022GetEven" +
+      "tLogEntries\022%.mrpc_admin.GetEventLogEntr" +
+      "iesRequest\032#.mrpc_admin.GetEventLogEntri" +
+      "esReply\"\033\202\323\344\223\002\025\022\023/GetEventLogEntries\022\225\001\n" +
+      "\030CaptureSessionScreenshot\022+.mrpc_admin.C" +
+      "aptureSessionScreenshotRequest\032).mrpc_ad" +
+      "min.CaptureSessionScreenshotReply\"!\202\323\344\223\002" +
+      "\033\022\031/CaptureSessionScreenshot\022\244\001\n\035Capture" +
+      "SessionScreenshotOnPod\0220.mrpc_admin.Capt" +
+      "ureSessionScreenshotOnPodRequest\032).mrpc_" +
+      "admin.CaptureSessionScreenshotReply\"&\202\323\344" +
+      "\223\002 \022\036/CaptureSessionScreenshotOnPod\022q\n\017R" +
+      "efreshMrpcRest\022\".mrpc_admin.ActiveTermin" +
+      "alsRequest\032 .mrpc_admin.RefreshMrpcRestR" +
+      "eply\"\030\202\323\344\223\002\022\022\020/RefreshMrpcRest\022W\n\nGetVer" +
+      "sion\022\032.mrpc_admin.VersionRequest\032\030.mrpc_" +
+      "admin.VersionReply\"\023\202\323\344\223\002\r\022\013/version-tm\022" +
+      "}\n\022GetTerminalJournal\022%.mrpc_admin.GetTe" +
+      "rminalJournalRequest\032#.mrpc_admin.GetTer" +
+      "minalJournalReply\"\033\202\323\344\223\002\025\022\023/GetTerminalJ" +
+      "ournal\022]\n\nGetAllLogs\022\035.mrpc_admin.GetAll" +
+      "LogsRequest\032\033.mrpc_admin.GetAllLogsReply" +
+      "\"\023\202\323\344\223\002\r\022\013/GetAllLogs\022\211\001\n\025GetSessionRest" +
+      "oreLogs\022(.mrpc_admin.GetSessionRestoreLo" +
+      "gsRequest\032&.mrpc_admin.GetSessionRestore" +
+      "LogsReply\"\036\202\323\344\223\002\030\022\026/GetSessionRestoreLog" +
+      "s\022\211\001\n\027GetSessionRestoreStatus\022\".mrpc_adm" +
+      "in.ActiveTerminalsRequest\032(.mrpc_admin.G" +
+      "etSessionRestoreStatusReply\" \202\323\344\223\002\032\022\030/Ge" +
+      "tSessionRestoreStatus\022\235\001\n\025KillAllTrialTe" +
+      "rminals\022\".mrpc_admin.ActiveTerminalsRequ" +
+      "est\032&.mrpc_admin.KillAllTrialTerminalsRe" +
+      "ply\"8\202\323\344\223\0022\022\026/KillAllTrialTerminalsZ\030\"\026/" +
+      "KillAllTrialTerminals\022\254\001\n\032KillAllTrialTe" +
+      "rminalsLocal\022\".mrpc_admin.ActiveTerminal" +
+      "sRequest\032&.mrpc_admin.KillAllTrialTermin" +
+      "alsReply\"B\202\323\344\223\002<\022\033/KillAllTrialTerminals" +
+      "LocalZ\035\"\033/KillAllTrialTerminalsLocalB@Z1" +
+      "git.mtapi.io/root/mrpc-proto.git/mt5/lib" +
+      "raries/go\252\002\nmrpc_adminb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -34453,170 +35479,176 @@ public final class Mt5TermApiAdmin {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetSessionRestoreStatusReply_descriptor,
         new java.lang.String[] { "Status", "Error", });
-    internal_static_mrpc_admin_GetSessionRestoreLogsRequest_descriptor =
+    internal_static_mrpc_admin_KillAllTrialTerminalsReply_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_mrpc_admin_KillAllTrialTerminalsReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mrpc_admin_KillAllTrialTerminalsReply_descriptor,
+        new java.lang.String[] { "KilledCount", "KilledTerminalIds", "Message", "Error", });
+    internal_static_mrpc_admin_GetSessionRestoreLogsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_mrpc_admin_GetSessionRestoreLogsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetSessionRestoreLogsRequest_descriptor,
         new java.lang.String[] { "AdminKey", "Pod", "LatestOnly", });
     internal_static_mrpc_admin_SessionRestoreLogEntry_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_mrpc_admin_SessionRestoreLogEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_SessionRestoreLogEntry_descriptor,
         new java.lang.String[] { "TokenId", "Platform", "Reason", "Owner", "User", "Target", "Success", "Error", "ElapsedMs", "CreatedUtc", });
     internal_static_mrpc_admin_GetSessionRestoreLogsReply_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_mrpc_admin_GetSessionRestoreLogsReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetSessionRestoreLogsReply_descriptor,
         new java.lang.String[] { "Entries", "Error", });
     internal_static_mrpc_admin_GetAllLogsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_mrpc_admin_GetAllLogsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetAllLogsRequest_descriptor,
         new java.lang.String[] { "AdminKey", "MaxBytesPerLog", "ExcludeEventLogs", });
     internal_static_mrpc_admin_AllLogsEntry_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_mrpc_admin_AllLogsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_AllLogsEntry_descriptor,
         new java.lang.String[] { "Source", "Name", "Path", "SizeBytes", "ModifiedAt", "Content", "Truncated", "Error", });
     internal_static_mrpc_admin_GetAllLogsReply_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_mrpc_admin_GetAllLogsReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetAllLogsReply_descriptor,
         new java.lang.String[] { "Logs", "Error", });
     internal_static_mrpc_admin_VersionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_mrpc_admin_VersionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_VersionRequest_descriptor,
         new java.lang.String[] { });
     internal_static_mrpc_admin_VersionReply_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_mrpc_admin_VersionReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_VersionReply_descriptor,
         new java.lang.String[] { "Service", "Version", "BuildTimeUtc", "Mode", });
     internal_static_mrpc_admin_ListLogFilesReply_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_mrpc_admin_ListLogFilesReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_ListLogFilesReply_descriptor,
         new java.lang.String[] { "Files", "Error", });
     internal_static_mrpc_admin_LogFileEntry_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_mrpc_admin_LogFileEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_LogFileEntry_descriptor,
         new java.lang.String[] { "Name", "SizeBytes", "ModifiedAt", });
     internal_static_mrpc_admin_GetLogFileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_mrpc_admin_GetLogFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetLogFileRequest_descriptor,
         new java.lang.String[] { "AdminKey", "FileName", "MaxBytes", });
     internal_static_mrpc_admin_GetLogFileReply_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_mrpc_admin_GetLogFileReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetLogFileReply_descriptor,
         new java.lang.String[] { "Content", "Truncated", "TotalSizeBytes", "Error", });
     internal_static_mrpc_admin_GetTerminalJournalRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_mrpc_admin_GetTerminalJournalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetTerminalJournalRequest_descriptor,
         new java.lang.String[] { "AdminKey", "Id", "MaxBytes", });
     internal_static_mrpc_admin_TerminalJournalFile_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_mrpc_admin_TerminalJournalFile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_TerminalJournalFile_descriptor,
         new java.lang.String[] { "Name", "Content", "Truncated", "TotalSizeBytes", });
     internal_static_mrpc_admin_GetTerminalJournalReply_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_mrpc_admin_GetTerminalJournalReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetTerminalJournalReply_descriptor,
         new java.lang.String[] { "TerminalDir", "Files", "Error", });
     internal_static_mrpc_admin_GetEventLogEntriesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_mrpc_admin_GetEventLogEntriesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetEventLogEntriesRequest_descriptor,
         new java.lang.String[] { "AdminKey", "LogName", "MaxCount", });
     internal_static_mrpc_admin_GetEventLogEntriesReply_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_mrpc_admin_GetEventLogEntriesReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_GetEventLogEntriesReply_descriptor,
         new java.lang.String[] { "Entries", "Error", });
     internal_static_mrpc_admin_CaptureSessionScreenshotRequest_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_mrpc_admin_CaptureSessionScreenshotRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_CaptureSessionScreenshotRequest_descriptor,
         new java.lang.String[] { "AdminKey", "SessionUserName", });
     internal_static_mrpc_admin_CaptureSessionScreenshotOnPodRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_mrpc_admin_CaptureSessionScreenshotOnPodRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_CaptureSessionScreenshotOnPodRequest_descriptor,
         new java.lang.String[] { "AdminKey", "PodIp", "SessionUserName", });
     internal_static_mrpc_admin_CaptureSessionScreenshotReply_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_mrpc_admin_CaptureSessionScreenshotReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_CaptureSessionScreenshotReply_descriptor,
         new java.lang.String[] { "ImagePng", "Error", });
     internal_static_mrpc_admin_RefreshMrpcRestReply_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_mrpc_admin_RefreshMrpcRestReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_RefreshMrpcRestReply_descriptor,
         new java.lang.String[] { "Success", "Message", "Error", });
     internal_static_mrpc_admin_UsageSample_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_mrpc_admin_UsageSample_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_UsageSample_descriptor,
         new java.lang.String[] { "Time", "CpuPercent", "RamUsedMb", "RamTotalMb", });
     internal_static_mrpc_admin_SystemUsageReply_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_mrpc_admin_SystemUsageReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_SystemUsageReply_descriptor,
         new java.lang.String[] { "CpuPercent", "RamUsedMb", "RamTotalMb", "History", "Error", });
     internal_static_mrpc_admin_ActiveTerminalsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_mrpc_admin_ActiveTerminalsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_ActiveTerminalsRequest_descriptor,
         new java.lang.String[] { "AdminKey", });
     internal_static_mrpc_admin_TerminalInfo_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_mrpc_admin_TerminalInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_TerminalInfo_descriptor,
         new java.lang.String[] { "Id", "UserNumber", "WindowsUser", "Account", "Server", "Port", "CreatedAt", "WindowsPassword", "Name", "State", "ErrorMessage", "UserEmail", "StartupDurationSeconds", "ConnectedAt", "StartupTime", "Name", "UserEmail", "StartupDurationSeconds", "ConnectedAt", "StartupTime", });
     internal_static_mrpc_admin_ActiveTerminalsReply_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_mrpc_admin_ActiveTerminalsReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_ActiveTerminalsReply_descriptor,
         new java.lang.String[] { "Pod", "Node", "PodIp", "Terminals", "Error", "CpuPercent", "RamUsedMb", "RamTotalMb", "UsageHistory", "RestoreStatus", });
     internal_static_mrpc_admin_PodTerminals_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_mrpc_admin_PodTerminals_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_PodTerminals_descriptor,
         new java.lang.String[] { "Pod", "Node", "PodIp", "NovncUrl", "Terminals", "Error", "HostIp", "CpuPercent", "RamUsedMb", "RamTotalMb", "UsageHistory", "RestoreStatus", });
     internal_static_mrpc_admin_ActiveTerminalsClusterReply_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_mrpc_admin_ActiveTerminalsClusterReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mrpc_admin_ActiveTerminalsClusterReply_descriptor,
