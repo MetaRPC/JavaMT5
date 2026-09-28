@@ -219,6 +219,8 @@ message TerminalHealthCheck
 
 // Do not forget to add header 'mt-sticky-session-header' with a Connection unique identifier value
 message DisconnectRequest {
+  optional string reason = 1;
+  optional bool delete = 2;
 }
 message DisconnectReply {
   oneof response {

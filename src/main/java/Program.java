@@ -415,7 +415,7 @@ public class Program {
             System.out.println("    run.bat 10 0    - Run all 5 orchestrators sequentially");
             System.out.println();
             System.out.println("+============================================================+");
-            account.disconnect();
+            account.disconnect(true);
             account.close();
             return;
         }
@@ -448,7 +448,7 @@ public class Program {
                     System.out.println("Invalid choice. Exiting.");
             }
         } finally {
-            account.disconnect();
+            account.disconnect(true);
             account.close();
         }
 
@@ -536,7 +536,7 @@ public class Program {
             System.out.println("    run.bat 11 0    - Run both presets");
             System.out.println();
             System.out.println("+============================================================+");
-            account.disconnect();
+            account.disconnect(true);
             account.close();
             return;
         }
@@ -560,7 +560,7 @@ public class Program {
                     System.out.println("Invalid choice. Exiting.");
             }
         } finally {
-            account.disconnect();
+            account.disconnect(true);
             account.close();
         }
 

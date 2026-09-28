@@ -65,8 +65,12 @@ public class MT5Sugar {
     }
 
     public void disconnect() throws ApiExceptionMT5 {
+        disconnect(false);
+    }
+
+    public void disconnect(boolean delete) throws ApiExceptionMT5 {
         if (service != null && service.getAccount() != null) {
-            service.getAccount().disconnect();
+            service.getAccount().disconnect(delete);
         }
     }
 

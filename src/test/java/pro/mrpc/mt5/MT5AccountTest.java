@@ -23,7 +23,7 @@ public class MT5AccountTest {
 
     @Test
     public void testServiceWrappers() {
-        MT5Account account = new MT5Account(12345678L, "test_password", "mt5.mrpc.pro:443", null);
+        MT5Account account = new MT5Account(12345678L, "test_password", "mt5.mrpc.pro:443", (UUID) null);
         MT5Service service = new MT5Service(account);
         assertNotNull(service);
 
@@ -56,5 +56,16 @@ public class MT5AccountTest {
 
         MT5Account account = new MT5Account(user, pass, "mt5.mrpc.pro:443", id1);
         assertEquals(id1, account.getId());
+    }
+
+    @Test
+    public void testDisconnectRequestProtoSerialization() {
+        Mt5TermApiConnection.DisconnectRequest reqDefault = Mt5TermApiConnection.DisconnectRequest.newBuilder().build();
+        assertFalse(reqDefault.getDelete());
+
+        Mt5TermApiConnection.DisconnectRequest reqDelete = Mt5TermApiConnection.DisconnectRequest.newBuilder()
+                .setDelete(true)
+                .build();
+        assertTrue(reqDelete.getDelete());
     }
 }

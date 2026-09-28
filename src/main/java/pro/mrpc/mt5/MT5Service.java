@@ -114,10 +114,17 @@ public class MT5Service {
     }
 
     /**
-     * Disconnect from terminal
+     * Disconnect from terminal (defaults to delete=false)
      */
     public void disconnect() throws ApiExceptionMT5 {
-        account.disconnect();
+        disconnect(false);
+    }
+
+    /**
+     * Disconnect from terminal with optional deletion
+     */
+    public void disconnect(boolean delete) throws ApiExceptionMT5 {
+        account.disconnect(delete);
     }
 
     /**

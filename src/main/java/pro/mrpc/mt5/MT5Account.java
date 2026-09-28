@@ -522,20 +522,35 @@ public class MT5Account {
     }
 
     /**
-     * Disconnect from MT5 terminal
+     * Disconnect from MT5 terminal (defaults to delete=false).
      *
      * @return Disconnect response
      * @throws ApiExceptionMT5 if disconnect fails
      */
     public Mt5TermApiConnection.DisconnectReply disconnect() throws ApiExceptionMT5 {
+        return disconnect(false);
+    }
+
+    /**
+     * Disconnect from MT5 terminal.
+     *
+     * @param delete If true, permanently delete the terminal instance instead of stopping it
+     * @return Disconnect response
+     * @throws ApiExceptionMT5 if disconnect fails
+     */
+    public Mt5TermApiConnection.DisconnectReply disconnect(boolean delete) throws ApiExceptionMT5 {
         if (id == null) {
             this.host = null;
             this.port = 0;
             this.serverName = null;
             return Mt5TermApiConnection.DisconnectReply.getDefaultInstance();
         }
-        Mt5TermApiConnection.DisconnectRequest request =
-                Mt5TermApiConnection.DisconnectRequest.newBuilder().build();
+        Mt5TermApiConnection.DisconnectRequest.Builder builder =
+                Mt5TermApiConnection.DisconnectRequest.newBuilder();
+        if (delete) {
+            builder.setDelete(true);
+        }
+        Mt5TermApiConnection.DisconnectRequest request = builder.build();
 
         Metadata headers = getMetadataHeaders();
 
