@@ -75,9 +75,19 @@ public class StreamingServiceExample {
             String grpcServer = config.has("grpcServer") ? config.get("grpcServer").getAsString() : null;
             String serverName = config.get("serverName").getAsString();
             String baseSymbol = config.get("baseSymbol").getAsString();
+            String apiKey = config.has("apiKey") ? config.get("apiKey").getAsString() : null;
+            if (args != null && args.length > 0) {
+                for (int i = 0; i < args.length; i++) {
+                    if (args[i].startsWith("--api-key=")) {
+                        apiKey = args[i].substring("--api-key=".length());
+                    } else if (args[i].equals("--api-key") && i + 1 < args.length) {
+                        apiKey = args[i + 1];
+                    }
+                }
+            }
 
             System.out.println("► Initializing MT5Service...");
-            service = new MT5Service(user, password, grpcServer, null);
+            service = new MT5Service(user, password, grpcServer, apiKey, null);
 
             System.out.println("► Connecting to " + serverName + "...");
             service.connectByServerName(serverName, baseSymbol, 30);

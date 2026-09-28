@@ -66,6 +66,7 @@ public class RiskManagementScenario {
         System.out.println("  SCENARIO 2: RISK MANAGEMENT TRADING                     ");
         System.out.println("+============================================================+\n");
 
+        MT5Account account = null;
         try {
             // Load credentials
             InputStream is = RiskManagementScenario.class.getClassLoader().getResourceAsStream("appsettings.json");
@@ -83,21 +84,37 @@ public class RiskManagementScenario {
             String grpcServer = fxProDemoSection.contains("\"grpcServer\"")
                 ? fxProDemoSection.split("\"grpcServer\":\\s*\"")[1].split("\"")[0]
                 : null;
+            String apiKey = fxProDemoSection.contains("\"apiKey\"")
+                ? fxProDemoSection.split("\"apiKey\":\\s*\"")[1].split("\"")[0]
+                : null;
+            String serverName = fxProDemoSection.contains("\"serverName\"")
+                ? fxProDemoSection.split("\"serverName\":\\s*\"")[1].split("\"")[0]
+                : "MetaQuotes-Demo";
+            if (args != null && args.length > 0) {
+                for (int i = 0; i < args.length; i++) {
+                    if (args[i].startsWith("--api-key=")) {
+                        apiKey = args[i].substring("--api-key=".length());
+                    } else if (args[i].equals("--api-key") && i + 1 < args.length) {
+                        apiKey = args[i + 1];
+                    }
+                }
+            }
 
-            System.out.println("Configuration loaded: user=" + user);
+            System.out.println("Configuration loaded: user=" + user + ", server=" + serverName);
             System.out.println();
 
             // Create full stack: Account → Service → Sugar
-            MT5Account account = new MT5Account(user, password, grpcServer, null);
+            account = new MT5Account(user, password, grpcServer, apiKey, null);
             MT5Service service = new MT5Service(account);
             MT5Sugar sugar = new MT5Sugar(service);
 
             // Connect
             System.out.println("► Connecting to MT5...");
-            account.connectByServerName("FxPro-MT5 Demo", "EURUSD");
+            account.connectByServerName(serverName, "EURUSD");
             System.out.println("✓ Connected\n");
 
             String symbol = "EURUSD";
+            sugar.ensureSymbolSelected(symbol);
 
             // ══════════════════════════════════════════════════════════════
             // STEP 1: GET ACCOUNT SNAPSHOT
@@ -264,12 +281,22 @@ public class RiskManagementScenario {
         } catch (Exception e) {
             System.err.println("\n✗ Error: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            if (account != null) {
+                try {
+                    account.disconnect();
+                    account.close();
+                } catch (Exception ignored) {
+                }
+            }
         }
 
-        System.out.println("\nPress Enter to exit...");
-        try {
-            System.in.read();
-        } catch (Exception ignored) {
+        if (System.console() != null) {
+            System.out.println("\nPress Enter to exit...");
+            try {
+                System.in.read();
+            } catch (Exception ignored) {
+            }
         }
     }
 

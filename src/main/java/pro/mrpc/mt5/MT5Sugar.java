@@ -64,6 +64,18 @@ public class MT5Sugar {
         return service.getAccount();
     }
 
+    public void disconnect() throws ApiExceptionMT5 {
+        if (service != null && service.getAccount() != null) {
+            service.getAccount().disconnect();
+        }
+    }
+
+    public void close() {
+        if (service != null && service.getAccount() != null) {
+            service.getAccount().close();
+        }
+    }
+
     // ═══════════════════════════════════════════════════════════════════════════════
     // region SYMBOL HELPERS
     // ═══════════════════════════════════════════════════════════════════════════════

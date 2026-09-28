@@ -52,6 +52,11 @@ public class MT5Service {
         this.account = new MT5Account(user, password, grpcServer, id);
     }
 
+    public MT5Service(long user, String password, String grpcServer, String apiKey, UUID id) {
+        this.account = new MT5Account(user, password, grpcServer, apiKey, id);
+    }
+
+
     /**
      * Get underlying MT5Account for advanced operations
      */

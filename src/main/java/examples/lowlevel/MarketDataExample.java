@@ -96,12 +96,22 @@ public class MarketDataExample {
             String grpcServer = config.has("grpcServer") ? config.get("grpcServer").getAsString() : null;
             String serverName = config.get("serverName").getAsString();
             String baseSymbol = config.get("baseSymbol").getAsString();
+            String apiKey = config.has("apiKey") ? config.get("apiKey").getAsString() : null;
+            if (args != null && args.length > 0) {
+                for (int i = 0; i < args.length; i++) {
+                    if (args[i].startsWith("--api-key=")) {
+                        apiKey = args[i].substring("--api-key=".length());
+                    } else if (args[i].equals("--api-key") && i + 1 < args.length) {
+                        apiKey = args[i + 1];
+                    }
+                }
+            }
 
             System.out.println("Configuration loaded: user=" + user);
             System.out.println();
 
             // Connect
-            account = new MT5Account(user, password, grpcServer, null);
+            account = new MT5Account(user, password, grpcServer, apiKey, null);
             account.connectByServerName(serverName, baseSymbol, 30);
             System.out.println("Connected to MT5");
             System.out.println();

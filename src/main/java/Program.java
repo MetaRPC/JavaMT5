@@ -214,20 +214,52 @@ import java.io.InputStream;
 
 public class Program {
 
+    public static String apiKeyOverride = null;
+
+    private static String resolveApiKey(String jsonSection, String[] args) {
+        if (apiKeyOverride != null && !apiKeyOverride.isEmpty()) {
+            return apiKeyOverride;
+        }
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].startsWith("--api-key=")) {
+                return args[i].substring("--api-key=".length());
+            } else if (args[i].equals("--api-key") && i + 1 < args.length) {
+                return args[i + 1];
+            }
+        }
+        if (jsonSection != null && jsonSection.contains("\"apiKey\"")) {
+            return jsonSection.split("\"apiKey\":\\s*\"")[1].split("\"")[0];
+        }
+        String envKey = System.getenv("MRPC_API_KEY");
+        if (envKey != null && !envKey.isEmpty()) {
+            return envKey;
+        }
+        return "TRIAL";
+    }
+
     public static void main(String[] args) {
+        // Extract --api-key if present
+        java.util.List<String> cleanArgs = new java.util.ArrayList<>();
+        for (int i = 0; i < args.length; i++) {
+            String arg = args[i];
+            if (arg.startsWith("--api-key=")) {
+                apiKeyOverride = arg.substring("--api-key=".length());
+            } else if (arg.equals("--api-key") && i + 1 < args.length) {
+                apiKeyOverride = args[++i];
+            } else {
+                cleanArgs.add(arg);
+            }
+        }
+
         // Check if arguments provided
-        if (args.length == 0) {
+        if (cleanArgs.isEmpty()) {
             showUsage();
             return;
         }
 
         // Extract main mode and sub-arguments
-        String mode = args[0].toLowerCase();
-        String[] subArgs = new String[0];
-        if (args.length > 1) {
-            subArgs = new String[args.length - 1];
-            System.arraycopy(args, 1, subArgs, 0, args.length - 1);
-        }
+        String mode = cleanArgs.get(0).toLowerCase();
+        String[] subArgs = cleanArgs.subList(1, cleanArgs.size()).toArray(new String[0]);
 
         // Run selected example
         try {
@@ -320,16 +352,21 @@ public class Program {
             ? fxProDemoSection.split("\"grpcServer\":\\s*\"")[1].split("\"")[0]
             : null;
 
-        System.out.println("Configuration loaded: user=" + user);
+        String serverName = fxProDemoSection.contains("\"serverName\"")
+            ? fxProDemoSection.split("\"serverName\":\\s*\"")[1].split("\"")[0]
+            : "MetaQuotes-Demo";
+
+        System.out.println("Configuration loaded: user=" + user + ", server=" + serverName);
         System.out.println();
 
         // Connect
-        MT5Account account = new MT5Account(user, password, grpcServer, null);
+        String apiKey = resolveApiKey(fxProDemoSection, args);
+        MT5Account account = new MT5Account(user, password, grpcServer, apiKey, null);
         MT5Service service = new MT5Service(account);
         MT5Sugar sugar = new MT5Sugar(service);
 
         System.out.println("► Connecting to MT5...");
-        account.connectByServerName("FxPro-MT5 Demo", "EURUSD");
+        account.connectByServerName(serverName, "EURUSD");
         System.out.println("✓ Connected\n");
 
         // Get choice from command line args
@@ -415,10 +452,12 @@ public class Program {
             account.close();
         }
 
-        System.out.println("\nPress Enter to exit...");
-        try {
-            System.in.read();
-        } catch (Exception ignored) {
+        if (System.console() != null) {
+            System.out.println("\nPress Enter to exit...");
+            try {
+                System.in.read();
+            } catch (Exception ignored) {
+            }
         }
     }
 
@@ -446,16 +485,21 @@ public class Program {
             ? fxProDemoSection.split("\"grpcServer\":\\s*\"")[1].split("\"")[0]
             : null;
 
-        System.out.println("Configuration loaded: user=" + user);
+        String serverName = fxProDemoSection.contains("\"serverName\"")
+            ? fxProDemoSection.split("\"serverName\":\\s*\"")[1].split("\"")[0]
+            : "MetaQuotes-Demo";
+
+        System.out.println("Configuration loaded: user=" + user + ", server=" + serverName);
         System.out.println();
 
         // Connect
-        MT5Account account = new MT5Account(user, password, grpcServer, null);
+        String apiKey = resolveApiKey(fxProDemoSection, args);
+        MT5Account account = new MT5Account(user, password, grpcServer, apiKey, null);
         MT5Service service = new MT5Service(account);
         MT5Sugar sugar = new MT5Sugar(service);
 
         System.out.println("► Connecting to MT5...");
-        account.connectByServerName("FxPro-MT5 Demo", "EURUSD");
+        account.connectByServerName(serverName, "EURUSD");
         System.out.println("✓ Connected\n");
 
         // Get choice
@@ -520,10 +564,12 @@ public class Program {
             account.close();
         }
 
-        System.out.println("\nPress Enter to exit...");
-        try {
-            System.in.read();
-        } catch (Exception ignored) {
+        if (System.console() != null) {
+            System.out.println("\nPress Enter to exit...");
+            try {
+                System.in.read();
+            } catch (Exception ignored) {
+            }
         }
     }
 

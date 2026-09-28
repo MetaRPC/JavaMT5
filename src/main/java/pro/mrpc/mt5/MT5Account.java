@@ -32,6 +32,7 @@ public class MT5Account {
     private String baseChartSymbol;
     private int connectTimeoutSeconds;
     private UUID id;
+    private String terminalInstanceGuid;
     private String apiKey;
 
     // gRPC configuration
@@ -99,7 +100,14 @@ public class MT5Account {
         this.user = user;
         this.password = password;
         this.grpcServer = grpcServer != null ? grpcServer : "mt5.mrpc.pro:443";
-        this.apiKey = apiKey != null ? apiKey : System.getenv("MRPC_API_KEY");
+        String envKey = System.getenv("MRPC_API_KEY");
+        if (apiKey != null && !apiKey.trim().isEmpty()) {
+            this.apiKey = apiKey.trim();
+        } else if (envKey != null && !envKey.trim().isEmpty()) {
+            this.apiKey = envKey.trim();
+        } else {
+            this.apiKey = "TRIAL";
+        }
         // Create gRPC channel with SSL/TLS
         this.grpcChannel = NettyChannelBuilder
                 .forTarget(this.grpcServer)
@@ -158,19 +166,46 @@ public class MT5Account {
         this.apiKey = apiKey;
     }
 
+    public String getTerminalInstanceGuid() {
+        return terminalInstanceGuid;
+    }
+
+    public static UUID parseGuidSafe(String guidStr) {
+        if (guidStr == null || guidStr.trim().isEmpty()) {
+            return UUID.randomUUID();
+        }
+        try {
+            return UUID.fromString(guidStr.trim());
+        } catch (Exception e1) {
+            String clean = guidStr.trim();
+            if (clean.startsWith("mt5_live_")) {
+                clean = clean.substring("mt5_live_".length());
+            } else if (clean.startsWith("mt4_live_")) {
+                clean = clean.substring("mt4_live_".length());
+            }
+            try {
+                return UUID.fromString(clean);
+            } catch (Exception e2) {
+                return UUID.randomUUID();
+            }
+        }
+    }
+
     /**
      * Create metadata headers with authentication info
      */
     private Metadata getMetadataHeaders() {
         Metadata headers = new Metadata();
-        if (id != null) {
+        if (terminalInstanceGuid != null && !terminalInstanceGuid.isEmpty()) {
+            Metadata.Key<String> idKey = Metadata.Key.of("id", Metadata.ASCII_STRING_MARSHALLER);
+            headers.put(idKey, terminalInstanceGuid);
+        } else if (id != null) {
             Metadata.Key<String> idKey = Metadata.Key.of("id", Metadata.ASCII_STRING_MARSHALLER);
             headers.put(idKey, id.toString());
         }
-        if (apiKey != null && !apiKey.isEmpty()) {
-            Metadata.Key<String> apiKeyHeader = Metadata.Key.of("apikey", Metadata.ASCII_STRING_MARSHALLER);
-            headers.put(apiKeyHeader, apiKey);
-        }
+        String key = (this.apiKey != null && !this.apiKey.trim().isEmpty()) ? this.apiKey.trim() : "TRIAL";
+        Metadata.Key<String> apiKeyHeader = Metadata.Key.of("apikey", Metadata.ASCII_STRING_MARSHALLER);
+        headers.put(apiKeyHeader, key);
         return headers;
     }
 
@@ -376,7 +411,8 @@ public class MT5Account {
         this.port = port;
         this.baseChartSymbol = baseChartSymbol;
         this.connectTimeoutSeconds = timeoutSeconds;
-        this.id = UUID.fromString(response.getData().getTerminalInstanceGuid());
+        this.terminalInstanceGuid = response.getData().getTerminalInstanceGuid();
+        this.id = parseGuidSafe(this.terminalInstanceGuid);
 
         return response;
     }
@@ -429,7 +465,8 @@ public class MT5Account {
         this.serverName = serverName;
         this.baseChartSymbol = baseChartSymbol;
         this.connectTimeoutSeconds = timeoutSeconds;
-        this.id = UUID.fromString(response.getData().getTerminalInstanceGuid());
+        this.terminalInstanceGuid = response.getData().getTerminalInstanceGuid();
+        this.id = parseGuidSafe(this.terminalInstanceGuid);
 
         return response;
     }
@@ -489,20 +526,29 @@ public class MT5Account {
      * @throws ApiExceptionMT5 if disconnect fails
      */
     public Mt5TermApiConnection.DisconnectReply disconnect() throws ApiExceptionMT5 {
+        if (id == null) {
+            this.host = null;
+            this.port = 0;
+            this.serverName = null;
+            return Mt5TermApiConnection.DisconnectReply.getDefaultInstance();
+        }
         Mt5TermApiConnection.DisconnectRequest request =
                 Mt5TermApiConnection.DisconnectRequest.newBuilder().build();
 
         Metadata headers = getMetadataHeaders();
 
-        Mt5TermApiConnection.DisconnectReply response = connectionClient
-                .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
-                .disconnect(request);
-
-        if (response.hasError()) {
-            throw new ApiExceptionMT5(response.getError());
+        Mt5TermApiConnection.DisconnectReply response;
+        try {
+            response = connectionClient
+                    .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                    .disconnect(request);
+        } catch (Exception e) {
+            response = Mt5TermApiConnection.DisconnectReply.getDefaultInstance();
         }
 
         // Clear connection parameters
+        this.id = null;
+        this.terminalInstanceGuid = null;
         this.host = null;
         this.port = 0;
         this.serverName = null;

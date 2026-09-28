@@ -68,6 +68,7 @@ public class SimpleTradingScenario {
         System.out.println("|  SCENARIO 1: SIMPLE TRADING WITH MODIFICATION            |");
         System.out.println("+============================================================+\n");
 
+        MT5Account account = null;
         try {
             // Load credentials
             InputStream is = SimpleTradingScenario.class.getClassLoader().getResourceAsStream("appsettings.json");
@@ -85,21 +86,37 @@ public class SimpleTradingScenario {
             String grpcServer = fxProDemoSection.contains("\"grpcServer\"")
                 ? fxProDemoSection.split("\"grpcServer\":\\s*\"")[1].split("\"")[0]
                 : null;
+            String apiKey = fxProDemoSection.contains("\"apiKey\"")
+                ? fxProDemoSection.split("\"apiKey\":\\s*\"")[1].split("\"")[0]
+                : null;
+            String serverName = fxProDemoSection.contains("\"serverName\"")
+                ? fxProDemoSection.split("\"serverName\":\\s*\"")[1].split("\"")[0]
+                : "MetaQuotes-Demo";
+            if (args != null && args.length > 0) {
+                for (int i = 0; i < args.length; i++) {
+                    if (args[i].startsWith("--api-key=")) {
+                        apiKey = args[i].substring("--api-key=".length());
+                    } else if (args[i].equals("--api-key") && i + 1 < args.length) {
+                        apiKey = args[i + 1];
+                    }
+                }
+            }
 
-            System.out.println("Configuration loaded: user=" + user);
+            System.out.println("Configuration loaded: user=" + user + ", server=" + serverName);
             System.out.println();
 
             // Create full stack: Account → Service → Sugar
-            MT5Account account = new MT5Account(user, password, grpcServer, null);
+            account = new MT5Account(user, password, grpcServer, apiKey, null);
             MT5Service service = new MT5Service(account);
             MT5Sugar sugar = new MT5Sugar(service);
 
             // Connect
             System.out.println("► Connecting to MT5...");
-            account.connectByServerName("FxPro-MT5 Demo", "EURUSD");
+            account.connectByServerName(serverName, "EURUSD");
             System.out.println("✓ Connected\n");
 
             String symbol = "EURUSD";
+            sugar.ensureSymbolSelected(symbol);
 
             // ══════════════════════════════════════════════════════════════
             // STEP 1: GET SYMBOL INFORMATION
@@ -135,7 +152,10 @@ public class SimpleTradingScenario {
             //   → Automatically gets Ask price
             //   → Sets SL/TP in same call
             //   → Returns ticket number directly
-            // ══════════════════════════════════════════════════════════════
+            try {
+                sugar.closeAll(symbol);
+            } catch (Exception ignored) {
+            }
 
             section("STEP 2: Open BUY Position");
 
@@ -177,10 +197,17 @@ public class SimpleTradingScenario {
             System.out.println("  New SL: " + String.format("%." + digits + "f", newSL) + " (-30 points)");
             System.out.println();
 
-            sugar.modifyPosition(ticket, newSL, null); // Keep current TP
-
-            System.out.println("  ✓ Position modified!");
-            System.out.println("  SL tightened from -50 to -30 points");
+            try {
+                sugar.modifyPosition(ticket, newSL, takeProfit); // Update SL and keep TP
+                System.out.println("  ✓ Position modified!");
+                System.out.println("  SL tightened from -50 to -30 points");
+            } catch (ApiExceptionMT5 e) {
+                if (e.getMessage() != null && e.getMessage().contains("10025")) {
+                    System.out.println("  ✓ Position modification checked (TRADE_RETCODE_NO_CHANGES)");
+                } else {
+                    throw e;
+                }
+            }
             System.out.println();
 
             // ══════════════════════════════════════════════════════════════
@@ -237,12 +264,22 @@ public class SimpleTradingScenario {
         } catch (Exception e) {
             System.err.println("\n✗ Error: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            if (account != null) {
+                try {
+                    account.disconnect();
+                    account.close();
+                } catch (Exception ignored) {
+                }
+            }
         }
 
-        System.out.println("\nPress Enter to exit...");
-        try {
-            System.in.read();
-        } catch (Exception ignored) {
+        if (System.console() != null) {
+            System.out.println("\nPress Enter to exit...");
+            try {
+                System.in.read();
+            } catch (Exception ignored) {
+            }
         }
     }
 

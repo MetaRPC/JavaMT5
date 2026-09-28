@@ -15,24 +15,35 @@ REM   run.bat stop      - Stop Maven daemon
 REM Set console code page to UTF-8
 chcp 65001 >nul
 
-REM Full paths (modify if needed)
-set "JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot"
-set "MVND=C:\Users\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd"
+REM Set JAVA_HOME if not defined
+if not defined JAVA_HOME (
+    if exist "C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot" (
+        set "JAVA_HOME=C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot"
+    )
+)
+
+REM Find Maven executable
+set "MVN_EXEC=mvn"
+if exist "C:\tools\apache-maven-3.9.9\bin\mvn.cmd" (
+    set "MVN_EXEC=C:\tools\apache-maven-3.9.9\bin\mvn.cmd"
+) else if exist "C:\Users\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd" (
+    set "MVN_EXEC=C:\Users\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd"
+)
 
 REM Handle special commands
 if "%1"=="stop" goto stop_daemon
 
 REM Pass all arguments to Program.java
 if "%1"=="" (
-    "%MVND%" compile exec:java
+    call "%MVN_EXEC%" compile exec:java
 ) else (
-    "%MVND%" compile exec:java -Dexec.args="%*"
+    call "%MVN_EXEC%" compile exec:java -Dexec.args="%*"
 )
 goto end
 
 :stop_daemon
-echo Stopping Maven daemon...
-"%MVND%" --stop
+echo Stopping Maven...
+call "%MVN_EXEC%" --stop 2>nul
 goto end
 
 :end
