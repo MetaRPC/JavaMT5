@@ -101,10 +101,12 @@ public class MT5Account {
         this.password = password;
         this.grpcServer = grpcServer != null ? grpcServer : "mt5.mrpc.pro:443";
         String envKey = System.getenv("MRPC_API_KEY");
-        if (apiKey != null && !apiKey.trim().isEmpty()) {
+        if (apiKey != null && !apiKey.trim().isEmpty() && !apiKey.equalsIgnoreCase("TRIAL")) {
             this.apiKey = apiKey.trim();
         } else if (envKey != null && !envKey.trim().isEmpty()) {
             this.apiKey = envKey.trim();
+        } else if (apiKey != null && !apiKey.trim().isEmpty()) {
+            this.apiKey = apiKey.trim();
         } else {
             this.apiKey = "TRIAL";
         }
