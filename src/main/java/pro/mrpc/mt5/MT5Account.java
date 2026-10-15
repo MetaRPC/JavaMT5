@@ -62,39 +62,13 @@ public class MT5Account {
     //==============================================
 
     /**
-     * Computes deterministic instance UUID matching .NET Guid byte layout.
-     */
-    public static UUID computeDeterministicId(long user, String password) {
-        try {
-            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
-            byte[] hash = md.digest((user + ":" + password).getBytes(java.nio.charset.StandardCharsets.UTF_8));
-            byte[] le = new byte[16];
-            le[0] = hash[3];
-            le[1] = hash[2];
-            le[2] = hash[1];
-            le[3] = hash[0];
-            le[4] = hash[5];
-            le[5] = hash[4];
-            le[6] = hash[7];
-            le[7] = hash[6];
-            System.arraycopy(hash, 8, le, 8, 8);
-            java.nio.ByteBuffer bb = java.nio.ByteBuffer.wrap(le);
-            long high = bb.getLong();
-            long low = bb.getLong();
-            return new UUID(high, low);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to compute deterministic account ID", e);
-        }
-    }
-
-    /**
      * Create MT5 account connection
      *
      * @param user MT5 account number
      * @param password MT5 account password
      * @param grpcServer gRPC server address (default: "mt5.mrpc.pro:443")
      * @param apiKey MetaRPC API key
-     * @param id Optional instance ID (auto-computed deterministically if null)
+     * @param id Optional id of a terminal that is already connected (null: connect() gets one from the server)
      */
     public MT5Account(long user, String password, String grpcServer, String apiKey, UUID id) {
         this.user = user;
