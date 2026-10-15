@@ -3161,6 +3161,33 @@ public final class Mt5TermApiTradingHelper {
 
     /**
      * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+     * @return Whether the expirationTimeUtc field is set.
+     */
+    boolean hasExpirationTimeUtc();
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+     * @return The expirationTimeUtc.
+     */
+    com.google.protobuf.Timestamp getExpirationTimeUtc();
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getExpirationTimeUtcOrBuilder();
+
+    /**
+     * <pre>
      * new stop limit ONLY for pending order modification
      * </pre>
      *
@@ -3265,8 +3292,21 @@ public final class Mt5TermApiTradingHelper {
               break;
             }
             case 65: {
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               stopLimit_ = input.readDouble();
+              break;
+            }
+            case 74: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) != 0)) {
+                subBuilder = expirationTimeUtc_.toBuilder();
+              }
+              expirationTimeUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(expirationTimeUtc_);
+                expirationTimeUtc_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
               break;
             }
             default: {
@@ -3476,6 +3516,44 @@ public final class Mt5TermApiTradingHelper {
       return expirationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expirationTime_;
     }
 
+    public static final int EXPIRATION_TIME_UTC_FIELD_NUMBER = 9;
+    private com.google.protobuf.Timestamp expirationTimeUtc_;
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+     * @return Whether the expirationTimeUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasExpirationTimeUtc() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+     * @return The expirationTimeUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getExpirationTimeUtc() {
+      return expirationTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expirationTimeUtc_;
+    }
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getExpirationTimeUtcOrBuilder() {
+      return expirationTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expirationTimeUtc_;
+    }
+
     public static final int STOP_LIMIT_FIELD_NUMBER = 8;
     private double stopLimit_;
     /**
@@ -3488,7 +3566,7 @@ public final class Mt5TermApiTradingHelper {
      */
     @java.lang.Override
     public boolean hasStopLimit() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3535,8 +3613,11 @@ public final class Mt5TermApiTradingHelper {
       if (((bitField0_ & 0x00000010) != 0)) {
         output.writeMessage(6, getExpirationTime());
       }
-      if (((bitField0_ & 0x00000020) != 0)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeDouble(8, stopLimit_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeMessage(9, getExpirationTimeUtc());
       }
       unknownFields.writeTo(output);
     }
@@ -3571,9 +3652,13 @@ public final class Mt5TermApiTradingHelper {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getExpirationTime());
       }
-      if (((bitField0_ & 0x00000020) != 0)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(8, stopLimit_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getExpirationTimeUtc());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3619,6 +3704,11 @@ public final class Mt5TermApiTradingHelper {
         if (!getExpirationTime()
             .equals(other.getExpirationTime())) return false;
       }
+      if (hasExpirationTimeUtc() != other.hasExpirationTimeUtc()) return false;
+      if (hasExpirationTimeUtc()) {
+        if (!getExpirationTimeUtc()
+            .equals(other.getExpirationTimeUtc())) return false;
+      }
       if (hasStopLimit() != other.hasStopLimit()) return false;
       if (hasStopLimit()) {
         if (java.lang.Double.doubleToLongBits(getStopLimit())
@@ -3661,6 +3751,10 @@ public final class Mt5TermApiTradingHelper {
       if (hasExpirationTime()) {
         hash = (37 * hash) + EXPIRATION_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getExpirationTime().hashCode();
+      }
+      if (hasExpirationTimeUtc()) {
+        hash = (37 * hash) + EXPIRATION_TIME_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getExpirationTimeUtc().hashCode();
       }
       if (hasStopLimit()) {
         hash = (37 * hash) + STOP_LIMIT_FIELD_NUMBER;
@@ -3796,6 +3890,7 @@ public final class Mt5TermApiTradingHelper {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getExpirationTimeFieldBuilder();
+          getExpirationTimeUtcFieldBuilder();
         }
       }
       @java.lang.Override
@@ -3817,8 +3912,14 @@ public final class Mt5TermApiTradingHelper {
           expirationTimeBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
-        stopLimit_ = 0D;
+        if (expirationTimeUtcBuilder_ == null) {
+          expirationTimeUtc_ = null;
+        } else {
+          expirationTimeUtcBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000020);
+        stopLimit_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -3873,8 +3974,16 @@ public final class Mt5TermApiTradingHelper {
           to_bitField0_ |= 0x00000010;
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.stopLimit_ = stopLimit_;
+          if (expirationTimeUtcBuilder_ == null) {
+            result.expirationTimeUtc_ = expirationTimeUtc_;
+          } else {
+            result.expirationTimeUtc_ = expirationTimeUtcBuilder_.build();
+          }
           to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.stopLimit_ = stopLimit_;
+          to_bitField0_ |= 0x00000040;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3942,6 +4051,9 @@ public final class Mt5TermApiTradingHelper {
         }
         if (other.hasExpirationTime()) {
           mergeExpirationTime(other.getExpirationTime());
+        }
+        if (other.hasExpirationTimeUtc()) {
+          mergeExpirationTimeUtc(other.getExpirationTimeUtc());
         }
         if (other.hasStopLimit()) {
           setStopLimit(other.getStopLimit());
@@ -4425,6 +4537,162 @@ public final class Mt5TermApiTradingHelper {
         return expirationTimeBuilder_;
       }
 
+      private com.google.protobuf.Timestamp expirationTimeUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expirationTimeUtcBuilder_;
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       * @return Whether the expirationTimeUtc field is set.
+       */
+      public boolean hasExpirationTimeUtc() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       * @return The expirationTimeUtc.
+       */
+      public com.google.protobuf.Timestamp getExpirationTimeUtc() {
+        if (expirationTimeUtcBuilder_ == null) {
+          return expirationTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expirationTimeUtc_;
+        } else {
+          return expirationTimeUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       */
+      public Builder setExpirationTimeUtc(com.google.protobuf.Timestamp value) {
+        if (expirationTimeUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expirationTimeUtc_ = value;
+          onChanged();
+        } else {
+          expirationTimeUtcBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       */
+      public Builder setExpirationTimeUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (expirationTimeUtcBuilder_ == null) {
+          expirationTimeUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          expirationTimeUtcBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       */
+      public Builder mergeExpirationTimeUtc(com.google.protobuf.Timestamp value) {
+        if (expirationTimeUtcBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0) &&
+              expirationTimeUtc_ != null &&
+              expirationTimeUtc_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            expirationTimeUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(expirationTimeUtc_).mergeFrom(value).buildPartial();
+          } else {
+            expirationTimeUtc_ = value;
+          }
+          onChanged();
+        } else {
+          expirationTimeUtcBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       */
+      public Builder clearExpirationTimeUtc() {
+        if (expirationTimeUtcBuilder_ == null) {
+          expirationTimeUtc_ = null;
+          onChanged();
+        } else {
+          expirationTimeUtcBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getExpirationTimeUtcBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getExpirationTimeUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getExpirationTimeUtcOrBuilder() {
+        if (expirationTimeUtcBuilder_ != null) {
+          return expirationTimeUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return expirationTimeUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : expirationTimeUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getExpirationTimeUtcFieldBuilder() {
+        if (expirationTimeUtcBuilder_ == null) {
+          expirationTimeUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getExpirationTimeUtc(),
+                  getParentForChildren(),
+                  isClean());
+          expirationTimeUtc_ = null;
+        }
+        return expirationTimeUtcBuilder_;
+      }
+
       private double stopLimit_ ;
       /**
        * <pre>
@@ -4436,7 +4704,7 @@ public final class Mt5TermApiTradingHelper {
        */
       @java.lang.Override
       public boolean hasStopLimit() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -4460,7 +4728,7 @@ public final class Mt5TermApiTradingHelper {
        * @return This builder for chaining.
        */
       public Builder setStopLimit(double value) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         stopLimit_ = value;
         onChanged();
         return this;
@@ -4474,7 +4742,7 @@ public final class Mt5TermApiTradingHelper {
        * @return This builder for chaining.
        */
       public Builder clearStopLimit() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         stopLimit_ = 0D;
         onChanged();
         return this;
@@ -7462,6 +7730,33 @@ public final class Mt5TermApiTradingHelper {
 
     /**
      * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+     * @return Whether the expirationTimeUtc field is set.
+     */
+    boolean hasExpirationTimeUtc();
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+     * @return The expirationTimeUtc.
+     */
+    com.google.protobuf.Timestamp getExpirationTimeUtc();
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getExpirationTimeUtcOrBuilder();
+
+    /**
+     * <pre>
      * How long OrderSend waits for the symbol's first quote, in milliseconds (default 5000, max 60000). Skipped entirely for a symbol already known to be streaming. Ignored by OrderSendWithoutChecks.
      * </pre>
      *
@@ -7602,8 +7897,21 @@ public final class Mt5TermApiTradingHelper {
               break;
             }
             case 104: {
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               quotesWaitMs_ = input.readInt32();
+              break;
+            }
+            case 114: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000200) != 0)) {
+                subBuilder = expirationTimeUtc_.toBuilder();
+              }
+              expirationTimeUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(expirationTimeUtc_);
+                expirationTimeUtc_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000200;
               break;
             }
             default: {
@@ -8025,6 +8333,44 @@ public final class Mt5TermApiTradingHelper {
       return expirationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expirationTime_;
     }
 
+    public static final int EXPIRATION_TIME_UTC_FIELD_NUMBER = 14;
+    private com.google.protobuf.Timestamp expirationTimeUtc_;
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+     * @return Whether the expirationTimeUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasExpirationTimeUtc() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+     * @return The expirationTimeUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getExpirationTimeUtc() {
+      return expirationTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expirationTimeUtc_;
+    }
+    /**
+     * <pre>
+     * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getExpirationTimeUtcOrBuilder() {
+      return expirationTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expirationTimeUtc_;
+    }
+
     public static final int QUOTES_WAIT_MS_FIELD_NUMBER = 13;
     private int quotesWaitMs_;
     /**
@@ -8037,7 +8383,7 @@ public final class Mt5TermApiTradingHelper {
      */
     @java.lang.Override
     public boolean hasQuotesWaitMs() {
-      return ((bitField0_ & 0x00000200) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -8102,8 +8448,11 @@ public final class Mt5TermApiTradingHelper {
       if (((bitField0_ & 0x00000100) != 0)) {
         output.writeMessage(12, getExpirationTime());
       }
-      if (((bitField0_ & 0x00000200) != 0)) {
+      if (((bitField0_ & 0x00000400) != 0)) {
         output.writeInt32(13, quotesWaitMs_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        output.writeMessage(14, getExpirationTimeUtc());
       }
       unknownFields.writeTo(output);
     }
@@ -8160,9 +8509,13 @@ public final class Mt5TermApiTradingHelper {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, getExpirationTime());
       }
-      if (((bitField0_ & 0x00000200) != 0)) {
+      if (((bitField0_ & 0x00000400) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(13, quotesWaitMs_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(14, getExpirationTimeUtc());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8233,6 +8586,11 @@ public final class Mt5TermApiTradingHelper {
         if (!getExpirationTime()
             .equals(other.getExpirationTime())) return false;
       }
+      if (hasExpirationTimeUtc() != other.hasExpirationTimeUtc()) return false;
+      if (hasExpirationTimeUtc()) {
+        if (!getExpirationTimeUtc()
+            .equals(other.getExpirationTimeUtc())) return false;
+      }
       if (hasQuotesWaitMs() != other.hasQuotesWaitMs()) return false;
       if (hasQuotesWaitMs()) {
         if (getQuotesWaitMs()
@@ -8297,6 +8655,10 @@ public final class Mt5TermApiTradingHelper {
       if (hasExpirationTime()) {
         hash = (37 * hash) + EXPIRATION_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getExpirationTime().hashCode();
+      }
+      if (hasExpirationTimeUtc()) {
+        hash = (37 * hash) + EXPIRATION_TIME_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getExpirationTimeUtc().hashCode();
       }
       if (hasQuotesWaitMs()) {
         hash = (37 * hash) + QUOTES_WAIT_MS_FIELD_NUMBER;
@@ -8431,6 +8793,7 @@ public final class Mt5TermApiTradingHelper {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getExpirationTimeFieldBuilder();
+          getExpirationTimeUtcFieldBuilder();
         }
       }
       @java.lang.Override
@@ -8464,8 +8827,14 @@ public final class Mt5TermApiTradingHelper {
           expirationTimeBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000100);
-        quotesWaitMs_ = 0;
+        if (expirationTimeUtcBuilder_ == null) {
+          expirationTimeUtc_ = null;
+        } else {
+          expirationTimeUtcBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000200);
+        quotesWaitMs_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -8538,8 +8907,16 @@ public final class Mt5TermApiTradingHelper {
           to_bitField0_ |= 0x00000100;
         }
         if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.quotesWaitMs_ = quotesWaitMs_;
+          if (expirationTimeUtcBuilder_ == null) {
+            result.expirationTimeUtc_ = expirationTimeUtc_;
+          } else {
+            result.expirationTimeUtc_ = expirationTimeUtcBuilder_.build();
+          }
           to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.quotesWaitMs_ = quotesWaitMs_;
+          to_bitField0_ |= 0x00000400;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -8628,6 +9005,9 @@ public final class Mt5TermApiTradingHelper {
         }
         if (other.hasExpirationTime()) {
           mergeExpirationTime(other.getExpirationTime());
+        }
+        if (other.hasExpirationTimeUtc()) {
+          mergeExpirationTimeUtc(other.getExpirationTimeUtc());
         }
         if (other.hasQuotesWaitMs()) {
           setQuotesWaitMs(other.getQuotesWaitMs());
@@ -9553,6 +9933,162 @@ public final class Mt5TermApiTradingHelper {
         return expirationTimeBuilder_;
       }
 
+      private com.google.protobuf.Timestamp expirationTimeUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expirationTimeUtcBuilder_;
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       * @return Whether the expirationTimeUtc field is set.
+       */
+      public boolean hasExpirationTimeUtc() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       * @return The expirationTimeUtc.
+       */
+      public com.google.protobuf.Timestamp getExpirationTimeUtc() {
+        if (expirationTimeUtcBuilder_ == null) {
+          return expirationTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expirationTimeUtc_;
+        } else {
+          return expirationTimeUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       */
+      public Builder setExpirationTimeUtc(com.google.protobuf.Timestamp value) {
+        if (expirationTimeUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expirationTimeUtc_ = value;
+          onChanged();
+        } else {
+          expirationTimeUtcBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       */
+      public Builder setExpirationTimeUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (expirationTimeUtcBuilder_ == null) {
+          expirationTimeUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          expirationTimeUtcBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       */
+      public Builder mergeExpirationTimeUtc(com.google.protobuf.Timestamp value) {
+        if (expirationTimeUtcBuilder_ == null) {
+          if (((bitField0_ & 0x00000200) != 0) &&
+              expirationTimeUtc_ != null &&
+              expirationTimeUtc_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            expirationTimeUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(expirationTimeUtc_).mergeFrom(value).buildPartial();
+          } else {
+            expirationTimeUtc_ = value;
+          }
+          onChanged();
+        } else {
+          expirationTimeUtcBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000200;
+        return this;
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       */
+      public Builder clearExpirationTimeUtc() {
+        if (expirationTimeUtcBuilder_ == null) {
+          expirationTimeUtc_ = null;
+          onChanged();
+        } else {
+          expirationTimeUtcBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getExpirationTimeUtcBuilder() {
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return getExpirationTimeUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getExpirationTimeUtcOrBuilder() {
+        if (expirationTimeUtcBuilder_ != null) {
+          return expirationTimeUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return expirationTimeUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : expirationTimeUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Timestamp expiration_time_utc = 14;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getExpirationTimeUtcFieldBuilder() {
+        if (expirationTimeUtcBuilder_ == null) {
+          expirationTimeUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getExpirationTimeUtc(),
+                  getParentForChildren(),
+                  isClean());
+          expirationTimeUtc_ = null;
+        }
+        return expirationTimeUtcBuilder_;
+      }
+
       private int quotesWaitMs_ ;
       /**
        * <pre>
@@ -9564,7 +10100,7 @@ public final class Mt5TermApiTradingHelper {
        */
       @java.lang.Override
       public boolean hasQuotesWaitMs() {
-        return ((bitField0_ & 0x00000200) != 0);
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
        * <pre>
@@ -9588,7 +10124,7 @@ public final class Mt5TermApiTradingHelper {
        * @return This builder for chaining.
        */
       public Builder setQuotesWaitMs(int value) {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         quotesWaitMs_ = value;
         onChanged();
         return this;
@@ -9602,7 +10138,7 @@ public final class Mt5TermApiTradingHelper {
        * @return This builder for chaining.
        */
       public Builder clearQuotesWaitMs() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         quotesWaitMs_ = 0;
         onChanged();
         return this;
@@ -12403,77 +12939,81 @@ public final class Mt5TermApiTradingHelper {
       "(\r\022\034\n\024returned_string_code\030\002 \001(\t\022!\n\031retu" +
       "rned_code_description\030\003 \001(\t\0227\n\nclose_mod" +
       "e\030\004 \001(\0162#.mt5_term_api.MRPC_ORDER_CLOSE_" +
-      "MODE\"\355\002\n\022OrderModifyRequest\022\016\n\006ticket\030\001 " +
+      "MODE\"\303\003\n\022OrderModifyRequest\022\016\n\006ticket\030\001 " +
       "\001(\004\022\026\n\tstop_loss\030\002 \001(\001H\000\210\001\001\022\030\n\013take_prof" +
       "it\030\003 \001(\001H\001\210\001\001\022\022\n\005price\030\004 \001(\001H\002\210\001\001\022J\n\024exp" +
       "iration_time_type\030\005 \001(\0162\'.mt5_term_api.T" +
       "MT5_ENUM_ORDER_TYPE_TIMEH\003\210\001\001\0228\n\017expirat" +
       "ion_time\030\006 \001(\0132\032.google.protobuf.Timesta" +
-      "mpH\004\210\001\001\022\027\n\nstop_limit\030\010 \001(\001H\005\210\001\001B\014\n\n_sto" +
-      "p_lossB\016\n\014_take_profitB\010\n\006_priceB\027\n\025_exp" +
-      "iration_time_typeB\022\n\020_expiration_timeB\r\n" +
-      "\013_stop_limit\"s\n\020OrderModifyReply\022-\n\004data" +
-      "\030\001 \001(\0132\035.mt5_term_api.OrderModifyDataH\000\022" +
-      "$\n\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n" +
-      "\010response\"\377\001\n\017OrderModifyData\022\025\n\rreturne" +
-      "d_code\030\001 \001(\r\022\014\n\004deal\030\002 \001(\004\022\r\n\005order\030\003 \001(" +
-      "\004\022\016\n\006volume\030\004 \001(\001\022\r\n\005price\030\005 \001(\001\022\013\n\003bid\030" +
-      "\006 \001(\001\022\013\n\003ask\030\007 \001(\001\022\017\n\007comment\030\010 \001(\t\022\022\n\nr" +
-      "equest_id\030\t \001(\r\022\031\n\021ret_code_external\030\n \001" +
-      "(\005\022\034\n\024returned_string_code\030\013 \001(\t\022!\n\031retu" +
-      "rned_code_description\030\014 \001(\t\"\332\004\n\020OrderSen" +
-      "dRequest\022\016\n\006symbol\030\001 \001(\t\0225\n\toperation\030\002 " +
-      "\001(\0162\".mt5_term_api.TMT5_ENUM_ORDER_TYPE\022" +
-      "\016\n\006volume\030\003 \001(\001\022\022\n\005price\030\004 \001(\001H\000\210\001\001\022\025\n\010s" +
-      "lippage\030\005 \001(\004H\001\210\001\001\022\026\n\tstop_loss\030\006 \001(\001H\002\210" +
-      "\001\001\022\030\n\013take_profit\030\007 \001(\001H\003\210\001\001\022\024\n\007comment\030" +
-      "\010 \001(\tH\004\210\001\001\022\026\n\texpert_id\030\t \001(\004H\005\210\001\001\022\035\n\020st" +
-      "op_limit_price\030\n \001(\001H\006\210\001\001\022J\n\024expiration_" +
-      "time_type\030\013 \001(\0162\'.mt5_term_api.TMT5_ENUM" +
-      "_ORDER_TYPE_TIMEH\007\210\001\001\0228\n\017expiration_time" +
-      "\030\014 \001(\0132\032.google.protobuf.TimestampH\010\210\001\001\022" +
-      "\033\n\016quotes_wait_ms\030\r \001(\005H\t\210\001\001B\010\n\006_priceB\013" +
-      "\n\t_slippageB\014\n\n_stop_lossB\016\n\014_take_profi" +
-      "tB\n\n\010_commentB\014\n\n_expert_idB\023\n\021_stop_lim" +
-      "it_priceB\027\n\025_expiration_time_typeB\022\n\020_ex" +
-      "piration_timeB\021\n\017_quotes_wait_ms\"o\n\016Orde" +
-      "rSendReply\022+\n\004data\030\001 \001(\0132\033.mt5_term_api." +
-      "OrderSendDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_ter" +
-      "m_api.ErrorH\000B\n\n\010response\"\375\001\n\rOrderSendD" +
-      "ata\022\025\n\rreturned_code\030\001 \001(\r\022\014\n\004deal\030\002 \001(\004" +
-      "\022\r\n\005order\030\003 \001(\004\022\016\n\006volume\030\004 \001(\001\022\r\n\005price" +
-      "\030\005 \001(\001\022\013\n\003bid\030\006 \001(\001\022\013\n\003ask\030\007 \001(\001\022\017\n\007comm" +
-      "ent\030\010 \001(\t\022\022\n\nrequest_id\030\t \001(\r\022\031\n\021ret_cod" +
-      "e_external\030\n \001(\005\022\034\n\024returned_string_code" +
-      "\030\013 \001(\t\022!\n\031returned_code_description\030\014 \001(" +
-      "\t*x\n\025MRPC_ORDER_CLOSE_MODE\022\033\n\027MRPC_MARKE" +
-      "T_ORDER_CLOSE\020\000\022#\n\037MRPC_MARKET_ORDER_PAR" +
-      "TIAL_CLOSE\020\001\022\035\n\031MRPC_PENDING_ORDER_REMOV" +
-      "E\020\002*\254\002\n\024TMT5_ENUM_ORDER_TYPE\022\027\n\023TMT5_ORD" +
-      "ER_TYPE_BUY\020\000\022\030\n\024TMT5_ORDER_TYPE_SELL\020\001\022" +
-      "\035\n\031TMT5_ORDER_TYPE_BUY_LIMIT\020\002\022\036\n\032TMT5_O" +
-      "RDER_TYPE_SELL_LIMIT\020\003\022\034\n\030TMT5_ORDER_TYP" +
-      "E_BUY_STOP\020\004\022\035\n\031TMT5_ORDER_TYPE_SELL_STO" +
-      "P\020\005\022\"\n\036TMT5_ORDER_TYPE_BUY_STOP_LIMIT\020\006\022" +
-      "#\n\037TMT5_ORDER_TYPE_SELL_STOP_LIMIT\020\007\022\034\n\030" +
-      "TMT5_ORDER_TYPE_CLOSE_BY\020\010*\217\001\n\031TMT5_ENUM" +
-      "_ORDER_TYPE_TIME\022\027\n\023TMT5_ORDER_TIME_GTC\020" +
-      "\000\022\027\n\023TMT5_ORDER_TIME_DAY\020\001\022\035\n\031TMT5_ORDER" +
-      "_TIME_SPECIFIED\020\002\022!\n\035TMT5_ORDER_TIME_SPE" +
-      "CIFIED_DAY\020\0032\261\003\n\rTradingHelper\022]\n\tOrderS" +
-      "end\022\036.mt5_term_api.OrderSendRequest\032\034.mt" +
-      "5_term_api.OrderSendReply\"\022\202\323\344\223\002\014\022\n/Orde" +
-      "rSend\022w\n\026OrderSendWithoutChecks\022\036.mt5_te" +
-      "rm_api.OrderSendRequest\032\034.mt5_term_api.O" +
-      "rderSendReply\"\037\202\323\344\223\002\031\022\027/OrderSendWithout" +
-      "Checks\022e\n\013OrderModify\022 .mt5_term_api.Ord" +
-      "erModifyRequest\032\036.mt5_term_api.OrderModi" +
-      "fyReply\"\024\202\323\344\223\002\016\022\014/OrderModify\022a\n\nOrderCl" +
-      "ose\022\037.mt5_term_api.OrderCloseRequest\032\035.m" +
-      "t5_term_api.OrderCloseReply\"\023\202\323\344\223\002\r\022\013/Or" +
-      "derCloseBBZ1git.mtapi.io/root/mrpc-proto" +
-      ".git/mt5/libraries/go\252\002\014mt5_term_apib\006pr" +
-      "oto3"
+      "mpH\004\210\001\001\022<\n\023expiration_time_utc\030\t \001(\0132\032.g" +
+      "oogle.protobuf.TimestampH\005\210\001\001\022\027\n\nstop_li" +
+      "mit\030\010 \001(\001H\006\210\001\001B\014\n\n_stop_lossB\016\n\014_take_pr" +
+      "ofitB\010\n\006_priceB\027\n\025_expiration_time_typeB" +
+      "\022\n\020_expiration_timeB\026\n\024_expiration_time_" +
+      "utcB\r\n\013_stop_limit\"s\n\020OrderModifyReply\022-" +
+      "\n\004data\030\001 \001(\0132\035.mt5_term_api.OrderModifyD" +
+      "ataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.Erro" +
+      "rH\000B\n\n\010response\"\377\001\n\017OrderModifyData\022\025\n\rr" +
+      "eturned_code\030\001 \001(\r\022\014\n\004deal\030\002 \001(\004\022\r\n\005orde" +
+      "r\030\003 \001(\004\022\016\n\006volume\030\004 \001(\001\022\r\n\005price\030\005 \001(\001\022\013" +
+      "\n\003bid\030\006 \001(\001\022\013\n\003ask\030\007 \001(\001\022\017\n\007comment\030\010 \001(" +
+      "\t\022\022\n\nrequest_id\030\t \001(\r\022\031\n\021ret_code_extern" +
+      "al\030\n \001(\005\022\034\n\024returned_string_code\030\013 \001(\t\022!" +
+      "\n\031returned_code_description\030\014 \001(\t\"\260\005\n\020Or" +
+      "derSendRequest\022\016\n\006symbol\030\001 \001(\t\0225\n\toperat" +
+      "ion\030\002 \001(\0162\".mt5_term_api.TMT5_ENUM_ORDER" +
+      "_TYPE\022\016\n\006volume\030\003 \001(\001\022\022\n\005price\030\004 \001(\001H\000\210\001" +
+      "\001\022\025\n\010slippage\030\005 \001(\004H\001\210\001\001\022\026\n\tstop_loss\030\006 " +
+      "\001(\001H\002\210\001\001\022\030\n\013take_profit\030\007 \001(\001H\003\210\001\001\022\024\n\007co" +
+      "mment\030\010 \001(\tH\004\210\001\001\022\026\n\texpert_id\030\t \001(\004H\005\210\001\001" +
+      "\022\035\n\020stop_limit_price\030\n \001(\001H\006\210\001\001\022J\n\024expir" +
+      "ation_time_type\030\013 \001(\0162\'.mt5_term_api.TMT" +
+      "5_ENUM_ORDER_TYPE_TIMEH\007\210\001\001\0228\n\017expiratio" +
+      "n_time\030\014 \001(\0132\032.google.protobuf.Timestamp" +
+      "H\010\210\001\001\022<\n\023expiration_time_utc\030\016 \001(\0132\032.goo" +
+      "gle.protobuf.TimestampH\t\210\001\001\022\033\n\016quotes_wa" +
+      "it_ms\030\r \001(\005H\n\210\001\001B\010\n\006_priceB\013\n\t_slippageB" +
+      "\014\n\n_stop_lossB\016\n\014_take_profitB\n\n\010_commen" +
+      "tB\014\n\n_expert_idB\023\n\021_stop_limit_priceB\027\n\025" +
+      "_expiration_time_typeB\022\n\020_expiration_tim" +
+      "eB\026\n\024_expiration_time_utcB\021\n\017_quotes_wai" +
+      "t_ms\"o\n\016OrderSendReply\022+\n\004data\030\001 \001(\0132\033.m" +
+      "t5_term_api.OrderSendDataH\000\022$\n\005error\030\002 \001" +
+      "(\0132\023.mt5_term_api.ErrorH\000B\n\n\010response\"\375\001" +
+      "\n\rOrderSendData\022\025\n\rreturned_code\030\001 \001(\r\022\014" +
+      "\n\004deal\030\002 \001(\004\022\r\n\005order\030\003 \001(\004\022\016\n\006volume\030\004 " +
+      "\001(\001\022\r\n\005price\030\005 \001(\001\022\013\n\003bid\030\006 \001(\001\022\013\n\003ask\030\007" +
+      " \001(\001\022\017\n\007comment\030\010 \001(\t\022\022\n\nrequest_id\030\t \001(" +
+      "\r\022\031\n\021ret_code_external\030\n \001(\005\022\034\n\024returned" +
+      "_string_code\030\013 \001(\t\022!\n\031returned_code_desc" +
+      "ription\030\014 \001(\t*x\n\025MRPC_ORDER_CLOSE_MODE\022\033" +
+      "\n\027MRPC_MARKET_ORDER_CLOSE\020\000\022#\n\037MRPC_MARK" +
+      "ET_ORDER_PARTIAL_CLOSE\020\001\022\035\n\031MRPC_PENDING" +
+      "_ORDER_REMOVE\020\002*\254\002\n\024TMT5_ENUM_ORDER_TYPE" +
+      "\022\027\n\023TMT5_ORDER_TYPE_BUY\020\000\022\030\n\024TMT5_ORDER_" +
+      "TYPE_SELL\020\001\022\035\n\031TMT5_ORDER_TYPE_BUY_LIMIT" +
+      "\020\002\022\036\n\032TMT5_ORDER_TYPE_SELL_LIMIT\020\003\022\034\n\030TM" +
+      "T5_ORDER_TYPE_BUY_STOP\020\004\022\035\n\031TMT5_ORDER_T" +
+      "YPE_SELL_STOP\020\005\022\"\n\036TMT5_ORDER_TYPE_BUY_S" +
+      "TOP_LIMIT\020\006\022#\n\037TMT5_ORDER_TYPE_SELL_STOP" +
+      "_LIMIT\020\007\022\034\n\030TMT5_ORDER_TYPE_CLOSE_BY\020\010*\217" +
+      "\001\n\031TMT5_ENUM_ORDER_TYPE_TIME\022\027\n\023TMT5_ORD" +
+      "ER_TIME_GTC\020\000\022\027\n\023TMT5_ORDER_TIME_DAY\020\001\022\035" +
+      "\n\031TMT5_ORDER_TIME_SPECIFIED\020\002\022!\n\035TMT5_OR" +
+      "DER_TIME_SPECIFIED_DAY\020\0032\261\003\n\rTradingHelp" +
+      "er\022]\n\tOrderSend\022\036.mt5_term_api.OrderSend" +
+      "Request\032\034.mt5_term_api.OrderSendReply\"\022\202" +
+      "\323\344\223\002\014\022\n/OrderSend\022w\n\026OrderSendWithoutChe" +
+      "cks\022\036.mt5_term_api.OrderSendRequest\032\034.mt" +
+      "5_term_api.OrderSendReply\"\037\202\323\344\223\002\031\022\027/Orde" +
+      "rSendWithoutChecks\022e\n\013OrderModify\022 .mt5_" +
+      "term_api.OrderModifyRequest\032\036.mt5_term_a" +
+      "pi.OrderModifyReply\"\024\202\323\344\223\002\016\022\014/OrderModif" +
+      "y\022a\n\nOrderClose\022\037.mt5_term_api.OrderClos" +
+      "eRequest\032\035.mt5_term_api.OrderCloseReply\"" +
+      "\023\202\323\344\223\002\r\022\013/OrderCloseBBZ1git.mtapi.io/roo" +
+      "t/mrpc-proto.git/mt5/libraries/go\252\002\014mt5_" +
+      "term_apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12505,7 +13045,7 @@ public final class Mt5TermApiTradingHelper {
     internal_static_mt5_term_api_OrderModifyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OrderModifyRequest_descriptor,
-        new java.lang.String[] { "Ticket", "StopLoss", "TakeProfit", "Price", "ExpirationTimeType", "ExpirationTime", "StopLimit", "StopLoss", "TakeProfit", "Price", "ExpirationTimeType", "ExpirationTime", "StopLimit", });
+        new java.lang.String[] { "Ticket", "StopLoss", "TakeProfit", "Price", "ExpirationTimeType", "ExpirationTime", "ExpirationTimeUtc", "StopLimit", "StopLoss", "TakeProfit", "Price", "ExpirationTimeType", "ExpirationTime", "ExpirationTimeUtc", "StopLimit", });
     internal_static_mt5_term_api_OrderModifyReply_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_mt5_term_api_OrderModifyReply_fieldAccessorTable = new
@@ -12523,7 +13063,7 @@ public final class Mt5TermApiTradingHelper {
     internal_static_mt5_term_api_OrderSendRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OrderSendRequest_descriptor,
-        new java.lang.String[] { "Symbol", "Operation", "Volume", "Price", "Slippage", "StopLoss", "TakeProfit", "Comment", "ExpertId", "StopLimitPrice", "ExpirationTimeType", "ExpirationTime", "QuotesWaitMs", "Price", "Slippage", "StopLoss", "TakeProfit", "Comment", "ExpertId", "StopLimitPrice", "ExpirationTimeType", "ExpirationTime", "QuotesWaitMs", });
+        new java.lang.String[] { "Symbol", "Operation", "Volume", "Price", "Slippage", "StopLoss", "TakeProfit", "Comment", "ExpertId", "StopLimitPrice", "ExpirationTimeType", "ExpirationTime", "ExpirationTimeUtc", "QuotesWaitMs", "Price", "Slippage", "StopLoss", "TakeProfit", "Comment", "ExpertId", "StopLimitPrice", "ExpirationTimeType", "ExpirationTime", "ExpirationTimeUtc", "QuotesWaitMs", });
     internal_static_mt5_term_api_OrderSendReply_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_mt5_term_api_OrderSendReply_fieldAccessorTable = new
