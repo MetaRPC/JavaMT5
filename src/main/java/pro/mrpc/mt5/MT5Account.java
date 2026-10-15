@@ -370,8 +370,8 @@ public class MT5Account {
      *
      * @param host MT5 server host (IP or domain)
      * @param port MT5 server port (default 443)
-     * @param baseChartSymbol Base chart symbol (e.g. "EURUSD")
-     * @param waitForTerminalIsAlive Wait for terminal to be ready
+     * @param baseChartSymbol Ignored: the server picks the terminal's base chart itself (kept for source compatibility)
+     * @param waitForTerminalIsAlive Ignored: the server always waits until the terminal is connected, up to timeoutSeconds
      * @param timeoutSeconds Timeout in seconds
      * @return Connection response with terminal instance GUID
      * @throws ApiExceptionMT5 if connection fails
@@ -388,9 +388,7 @@ public class MT5Account {
                 .setPassword(password)
                 .setHost(host)
                 .setPort(port)
-                .setBaseChartSymbol(baseChartSymbol)
-                .setWaitForTerminalIsAlive(waitForTerminalIsAlive)
-                .setTerminalReadinessWaitingTimeoutSeconds(timeoutSeconds)
+                .setTimeoutSeconds(timeoutSeconds)
                 .build();
 
         // Only send headers if we have an existing connection ID
@@ -430,7 +428,7 @@ public class MT5Account {
      * Connect to MT5 terminal by server name (MT cluster name)
      *
      * @param serverName MT5 server name from terminal
-     * @param baseChartSymbol Base chart symbol (e.g. "EURUSD")
+     * @param baseChartSymbol Ignored: the server picks the terminal's base chart itself (kept for source compatibility)
      * @param timeoutSeconds Timeout in seconds
      * @return Connection response with terminal instance GUID
      * @throws ApiExceptionMT5 if connection fails
@@ -444,8 +442,7 @@ public class MT5Account {
                 .setUser(user)
                 .setPassword(password)
                 .setMtClusterName(serverName)
-                .setBaseChartSymbol(baseChartSymbol)
-                .setTerminalReadinessWaitingTimeoutSeconds(timeoutSeconds)
+                .setTimeoutSeconds(timeoutSeconds)
                 .build();
 
         // Only send headers if we have an existing connection ID
@@ -613,11 +610,7 @@ public class MT5Account {
                         .setProxyPort(proxyPort)
                         .setProxyType(proxyType);
 
-        if (baseChartSymbol != null) {
-            builder.setBaseChartSymbol(baseChartSymbol);
-        }
-        builder.setWaitForTerminalIsAlive(waitForTerminalIsAlive);
-        builder.setTerminalReadinessWaitingTimeoutSeconds(timeoutSeconds);
+        builder.setTimeoutSeconds(timeoutSeconds);
 
         Mt5TermApiConnection.ConnectProxyRequest request = builder.build();
         Metadata headers = getMetadataHeaders();
@@ -654,7 +647,6 @@ public class MT5Account {
         Mt5TermApiConnection.ReconnectRequest request =
                 Mt5TermApiConnection.ReconnectRequest.newBuilder()
                         .setForceReconnection(forceReconnection)
-                        .setTerminalReadinessWaitingTimeoutSeconds(timeoutSeconds)
                         .build();
 
         Metadata headers = getMetadataHeaders();

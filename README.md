@@ -11,9 +11,29 @@
 
 ## 📦 Installation
 
+The SDK is not published to Maven Central yet: build it from this repository once (JDK 11+ and Maven); it installs
+`pro.mrpc:mt5:1.0.0` into your local Maven repository.
+
 ```bash
-implementation 'mrpc.pro:mt5:1.0.0'
+git clone https://github.com/MetaRPC/JavaMT5.git
+cd JavaMT5
+mvn install -DskipTests
 ```
+
+Then depend on it (Maven):
+
+```xml
+<dependency>
+    <groupId>pro.mrpc</groupId>
+    <artifactId>mt5</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+or Gradle (with `mavenLocal()` among the repositories): `implementation 'pro.mrpc:mt5:1.0.0'`.
+
+The jar holds the gRPC stubs generated from the current MT5 protos (`mt5_term_api`, synced into `package/` on every release) and the
+`pro.mrpc.mt5` helpers (`MT5Account`, `MT5Service`, `MT5Sugar`).
 
 ---
 
