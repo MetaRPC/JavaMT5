@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  * High-level Java client for MetaTrader 5 terminal via gRPC.
  * Provides convenient methods for trading, market data, and account management.
  */
-public class MT5Account {
+public class MT5Account implements AutoCloseable {
 
     //==============================================
     // region FIELDS
@@ -365,16 +365,10 @@ public class MT5Account {
                 .setTimeoutSeconds(timeoutSeconds)
                 .build();
 
-        // Only send headers if we have an existing connection ID
-        Mt5TermApiConnection.ConnectReply response;
-        if (id != null) {
-            Metadata headers = getMetadataHeaders();
-            response = connectionClient
-                    .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
-                    .connect(request);
-        } else {
-            response = connectionClient.connect(request);
-        }
+        // The API key always (without it the router connects the terminal as TRIAL); the id once there is one
+        Mt5TermApiConnection.ConnectReply response = connectionClient
+                .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(getMetadataHeaders()))
+                .connect(request);
 
         if (response.hasError()) {
             throw new ApiExceptionMT5(response.getError());
@@ -419,16 +413,10 @@ public class MT5Account {
                 .setTimeoutSeconds(timeoutSeconds)
                 .build();
 
-        // Only send headers if we have an existing connection ID
-        Mt5TermApiConnection.ConnectExReply response;
-        if (id != null) {
-            Metadata headers = getMetadataHeaders();
-            response = connectionClient
-                    .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
-                    .connectEx(request);
-        } else {
-            response = connectionClient.connectEx(request);
-        }
+        // The API key always (without it the router connects the terminal as TRIAL); the id once there is one
+        Mt5TermApiConnection.ConnectExReply response = connectionClient
+                .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(getMetadataHeaders()))
+                .connectEx(request);
 
         if (response.hasError()) {
             throw new ApiExceptionMT5(response.getError());
@@ -530,8 +518,12 @@ public class MT5Account {
             response = connectionClient
                     .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
                     .disconnect(request);
-        } catch (Exception e) {
-            response = Mt5TermApiConnection.DisconnectReply.getDefaultInstance();
+        } catch (StatusRuntimeException e) {
+            // The terminal may still run: keep the id so disconnect() can be called again
+            throw new ApiExceptionMT5("Disconnect failed: " + e.getStatus());
+        }
+        if (response.hasError()) {
+            throw new ApiExceptionMT5(response.getError());
         }
 
         // Clear connection parameters
@@ -1976,8 +1968,9 @@ public class MT5Account {
     //=============================================================
 
     /**
-     * Close gRPC channel and release resources
+     * Close gRPC channel and release resources (the terminal keeps running unless disconnect() was called)
      */
+    @Override
     public void close() {
         try {
             grpcChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);

@@ -22,39 +22,59 @@ mkdir my_javamt5_bot
 cd my_javamt5_bot
 ```
 
-Install the package:
+Add the SDK to the project's `build.gradle`:
 
-```bash
-implementation 'pro.mrpc:mt5:1.0.0'
+```groovy
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+dependencies {
+    implementation 'com.github.MetaRPC:JavaMT5:main-SNAPSHOT'   // or a commit hash of the repository
+}
 ```
+
+From [JitPack](https://jitpack.io/#MetaRPC/JavaMT5), built from the GitHub repository; Java 11+. It is not on Maven Central.
+Or build it yourself: `git clone https://github.com/MetaRPC/JavaMT5.git && cd JavaMT5 && mvn install` installs
+`pro.mrpc:mt5:1.0.0` into your local Maven repository.
 
 ---
 
 ## Step 2: Write Your Trading Code
 
-Create your main application file and paste the following snippet:
+`src/main/java/App.java` (it connects, reads the account and disconnects):
 
-```
+```java
+import mt5_term_api.Mt5TermApiAccountHelper.AccountSummaryData;
 import pro.mrpc.mt5.MT5Account;
-import pro.mrpc.mt5.models.AccountSummary;
 
-// Session ID generation on Connect and authentication are handled automatically
-MT5Account account = new MT5Account(user, password, grpcServer, apiKey);
-account.connectByServerNameAsync(serverName, "EURUSD", 30).get();
-AccountSummary summary = account.accountSummaryAsync().get();
-System.out.println("Balance: " + summary.getAccountBalance());
+public class App {
+    public static void main(String[] args) throws Exception {
+        try (MT5Account account = new MT5Account(Long.parseLong(System.getenv("MT5_LOGIN")), System.getenv("MT5_PASSWORD"),
+                "mt5.mrpc.pro:443", System.getenv("MRPC_API_KEY"))) {
+            account.connectByServerName("MetaQuotes-Demo", "EURUSD", 120);
+            try {
+                AccountSummaryData summary = account.accountSummary().getData();
+                System.out.println("Balance: " + summary.getAccountBalance() + ", equity: " + summary.getAccountEquity());
+            } finally {
+                account.disconnect();   // disconnect(true) also deletes the terminal
+            }
+        }
+    }
+}
 ```
 
 ---
 
 ## Step 3: Run the Program
 
-Run your application:
-
 ```bash
-# Verify connection output
-# Balance: 10000.00, Equity: 10000.00
+export MRPC_API_KEY=your-api-key MT5_LOGIN=your-login MT5_PASSWORD=your-password
+./gradlew run
 ```
+
+No account yet? `curl -H "APIKey: your-api-key" "https://mt5.mrpc.pro/DemoAccount/Open?server=MetaQuotes-Demo"`
+opens a demo account and returns its login and password.
 
 ---
 

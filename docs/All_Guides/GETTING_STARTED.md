@@ -20,9 +20,19 @@
 
 Install JavaMT5 via your standard Java package manager:
 
-```bash
-implementation 'pro.mrpc:mt5:1.0.0'
+```groovy
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+dependencies {
+    implementation 'com.github.MetaRPC:JavaMT5:main-SNAPSHOT'   // or a commit hash of the repository
+}
 ```
+
+From [JitPack](https://jitpack.io/#MetaRPC/JavaMT5), built from the GitHub repository; Java 11+. It is not on Maven Central.
+Or build it yourself: `git clone https://github.com/MetaRPC/JavaMT5.git && cd JavaMT5 && mvn install` installs
+`pro.mrpc:mt5:1.0.0` into your local Maven repository.
 
 ---
 
@@ -51,11 +61,24 @@ MetaRPC endpoints require authentication and session management:
 
 Here is how easy it is to initialize `MT5Account`, connect to your MetaTrader terminal, and retrieve your account balance:
 
-```
-MT5Account account = new MT5Account(user, password, grpcServer);
-account.connectByServerNameAsync(serverName, "EURUSD", 30).get();
-AccountSummary summary = account.accountSummaryAsync().get();
-System.out.println("Balance: " + summary.getAccountBalance());
+```java
+import mt5_term_api.Mt5TermApiAccountHelper.AccountSummaryData;
+import pro.mrpc.mt5.MT5Account;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        try (MT5Account account = new MT5Account(Long.parseLong(System.getenv("MT5_LOGIN")), System.getenv("MT5_PASSWORD"),
+                "mt5.mrpc.pro:443", System.getenv("MRPC_API_KEY"))) {
+            account.connectByServerName("MetaQuotes-Demo", "EURUSD", 120);
+            try {
+                AccountSummaryData summary = account.accountSummary().getData();
+                System.out.println("Balance: " + summary.getAccountBalance() + ", equity: " + summary.getAccountEquity());
+            } finally {
+                account.disconnect();   // disconnect(true) also deletes the terminal
+            }
+        }
+    }
+}
 ```
 
 ---
