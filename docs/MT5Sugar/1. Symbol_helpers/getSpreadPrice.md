@@ -5,7 +5,7 @@
 **API Information:**
 
 * **Sugar method:** `MT5Sugar.getSpreadPrice(String symbol)`
-* **Underlying method:** [`MT5Account.symbolInfoTick()`](../../API_Reference/MT5Account.md)
+* **Underlying method:** [`MT5Account.symbolInfoTick()`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md)
 * **Source:** MT5Sugar convenience layer
 
 ---
@@ -178,7 +178,8 @@ double volume = 1.0; // 1 lot
 double spreadPrice = sugar.getSpreadPrice(symbol);
 
 // Get contract size (usually 100,000 for forex)
-double contractSize = sugar.getContractSize(symbol);
+double contractSize = sugar.getAccount().symbolInfoDouble(symbol,
+        Mt5TermApiMarketInfo.SymbolInfoDoubleProperty.SYMBOL_TRADE_CONTRACT_SIZE).getData().getValue();
 
 // Calculate spread cost in account currency
 double spreadCost = spreadPrice * volume * contractSize;
@@ -246,7 +247,7 @@ Bid (1.12340) ← You SELL here
 
 ## See also
 
-* **Low-level method:** [`SymbolInfoTick`](../../API_Reference/MT5Account.md) - gets Bid/Ask
+* **Low-level method:** [`SymbolInfoTick`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md) - gets Bid/Ask
 * **Related:** [`getSpread()`](./getSpread.md) - get spread in **points**
 * **Related:** [`getPoint()`](./getPoint.md) - get point size
 * **Related:** [`getBid()`](./getBid.md) / [`getAsk()`](./getAsk.md) - get current prices

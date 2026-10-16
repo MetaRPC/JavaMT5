@@ -81,6 +81,6 @@ opens a demo account and returns its login and password.
 ## 🚀 Next Steps
 
 Congratulations! You have successfully established a direct gRPC connection to MetaTrader 5. Next:
-- Explore **[gRPC Streaming](GRPC_STREAM_MANAGEMENT.md)** to listen to live ticks.
-- Check the **[API Reference](../API_Reference/MT5Account.md)** for all 40+ available terminal methods.
-- Learn about high-level risk management and auto-normalization in **[MT5Sugar](../API_Reference/MT5Sugar.md)**.
+- Explore **[Subscriptions](../MT5Account/6.%20Subscriptions/Subscriptions.Overview.md)** to listen to live ticks and trades.
+- Check **[MT5Account](../MT5Account/MT5Account.Master.Overview.md)** for its methods, and **[API methods](../API_Reference/methods.md)** for every method of the API.
+- Learn about high-level risk management and auto-normalization in **[MT5Sugar](../MT5Sugar/MT5Sugar.Overview.md)**.

@@ -2,6 +2,7 @@ package pro.mrpc.mt5;
 
 import io.grpc.*;
 import io.grpc.netty.shaded.io.grpc.netty.NettyChannelBuilder;
+import io.grpc.stub.AbstractStub;
 import io.grpc.stub.MetadataUtils;
 import io.grpc.stub.StreamObserver;
 import pro.mrpc.mt5.exceptions.ApiExceptionMT5;
@@ -144,6 +145,19 @@ public class MT5Account implements AutoCloseable {
 
     public String getTerminalInstanceGuid() {
         return terminalInstanceGuid;
+    }
+
+    /** The gRPC channel of this account (to the API, e.g. mt5.mrpc.pro:443). */
+    public ManagedChannel getChannel() {
+        return grpcChannel;
+    }
+
+    /**
+     * The stub with the API key and the terminal id (once connected) in the metadata of every call: for the generated stubs
+     * of methods this class has no method for, e.g. {@code account.authorized(TradeStatsGrpc.newBlockingStub(account.getChannel()))}.
+     */
+    public <S extends AbstractStub<S>> S authorized(S stub) {
+        return stub.withInterceptors(MetadataUtils.newAttachHeadersInterceptor(getMetadataHeaders()));
     }
 
     public static UUID parseGuidSafe(String guidStr) {
