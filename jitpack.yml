@@ -1,3 +1,6 @@
 # JitPack (https://jitpack.io) builds this repository on request; the build needs JDK 17+.
 jdk:
   - openjdk17
+# Maven Central through a mirror (jitpack-settings.xml): JitPack's builders are refused by repo.maven.apache.org.
+install:
+  - mvn -B -s jitpack-settings.xml install -DskipTests
