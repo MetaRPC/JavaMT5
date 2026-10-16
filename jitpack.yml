@@ -1,6 +1,7 @@
-# JitPack (https://jitpack.io) builds this repository on request; the build needs JDK 17+.
+# JitPack (https://jitpack.io) builds this repository on request; the build needs JDK 17+ and Maven 3.6.3+ (the wrapper's
+# 3.9.9: JitPack's own mvn can be older). JitPack's builders are refused by repo.maven.apache.org, so both Maven and the
+# dependencies come from Google's mirror of Maven Central (MVNW_REPOURL, jitpack-settings.xml).
 jdk:
   - openjdk17
-# Maven Central through a mirror (jitpack-settings.xml): JitPack's builders are refused by repo.maven.apache.org.
 install:
-  - mvn -B -s jitpack-settings.xml install -DskipTests
+  - MVNW_REPOURL=https://maven-central.storage-download.googleapis.com/maven2 sh ./mvnw -B -s jitpack-settings.xml install -DskipTests
