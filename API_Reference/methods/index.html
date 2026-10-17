@@ -3144,7 +3144,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 <p><em>No fields.</em></p>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#accountsummarydata">AccountSummaryData</a></p>
 <h3 id="accounthelperorderhistory">AccountHelper.OrderHistory<a class="headerlink" href="#accounthelperorderhistory" title="Permanent link">¶</a></h3>
-<p>Orders History [DefaultValues] { "pageNumber": "0", "itemsPerPage": "0", }</p>
+<p>Orders History</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.AccountHelper/OrderHistory</code> (unary)</li>
 <li>REST: <code>GET /OrderHistory</code></li>
@@ -3551,7 +3551,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 <h2 id="accounts">Accounts<a class="headerlink" href="#accounts" title="Permanent link">¶</a></h2>
 <p>============================================================================ Accounts: the MT5 accounts (terminals) that belong to your API key. This is the call to make when you need the terminal ids of accounts that already exist - started from the dashboard or by an earlier ConnectEx - so that you can send them as the "id" header of every other call. Unlike the terminal calls it needs NO "id" header: it is answered from the platform's records of the API key sent in the "APIKey" header, and it never starts, wakes or bills a terminal. Accounts are listed newest first (by started_utc, then terminal_id) and returned by page. Only accounts of THIS platform's endpoint are listed (mt5.mrpc.pro lists MT5 accounts, mt4.mrpc.pro lists MT4 accounts). ============================================================================</p>
 <h3 id="accountslist">Accounts.List<a class="headerlink" href="#accountslist" title="Permanent link">¶</a></h3>
-<p>Lists the accounts of the API key sent in the APIKey header, one page per call. Pass the next_page_token of a page back as page_token to continue; an empty next_page_token means that was the last page. [DefaultValues] { "includeStopped": "false", "pageSize": "200" }</p>
+<p>Lists the accounts of the API key sent in the APIKey header, one page per call. Pass the next_page_token of a page back as page_token to continue; an empty next_page_token means that was the last page.</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.Accounts/List</code> (unary)</li>
 <li>REST: <code>GET /Accounts</code></li>
@@ -3602,7 +3602,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#accountslistdata">AccountsListData</a></p>
 <h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">¶</a></h2>
 <h3 id="connectionconnectex">Connection.ConnectEx<a class="headerlink" href="#connectionconnectex" title="Permanent link">¶</a></h3>
-<p>Creates terminal connection to the MT5 server by MT cluster name, waits for connection and returns Guid of it [DefaultValues] { "user": "213889529", "password": "7dPjA*Jm", "mtClusterName": "OctaFX-Demo", "timeoutSeconds": "120" }</p>
+<p>Creates terminal connection to the MT5 server by MT cluster name, waits for connection and returns Guid of it</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.Connection/ConnectEx</code> (unary)</li>
 <li>REST: <code>GET /ConnectEx</code></li>
@@ -3664,7 +3664,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 </table>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#connectdata">ConnectData</a></p>
 <h3 id="connectionconnect">Connection.Connect<a class="headerlink" href="#connectionconnect" title="Permanent link">¶</a></h3>
-<p>Creates terminal connection to the MT5 server and returns Guid of it [DefaultValues] { "user": "213889529", "password": "7dPjA*Jm", "host": "d51a1.octanetwork.net", "port": "443", "timeoutSeconds": "120" }</p>
+<p>Creates terminal connection to the MT5 server and returns Guid of it</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.Connection/Connect</code> (unary)</li>
 <li>REST: <code>GET /Connect</code></li>
@@ -3732,7 +3732,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 </table>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#connectdata">ConnectData</a></p>
 <h3 id="connectionconnectproxy">Connection.ConnectProxy<a class="headerlink" href="#connectionconnectproxy" title="Permanent link">¶</a></h3>
-<p>Connect to account with user, password, host, port. [DefaultValues] { "user": "213889529", "password": "7dPjA*Jm", "host": "d51a1.octanetwork.net", "port": "443", "proxyUser": "ProxyUser123", "proxyPassword": "qwerty123", "proxyHost": "65.108.126.217", "proxyPort": "1080", "proxyType": "Socks5" }</p>
+<p>Connect to account with user, password, host, port.</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.Connection/ConnectProxy</code> (unary)</li>
 <li>REST: <code>GET /ConnectProxy</code></li>
@@ -4007,7 +4007,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 <p><em>No fields.</em></p>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#screenshotdata">ScreenshotData</a></p>
 <h3 id="connectiongetid">Connection.GetId<a class="headerlink" href="#connectiongetid" title="Permanent link">¶</a></h3>
-<p>Generates a deterministic GUID from user and password. The same user/password combination always produces the same GUID. Use this GUID as the 'id' header for Connect and other endpoints. [DefaultValues] { "user": "213889529", "password": "7dPjA*Jm" }</p>
+<p>Generates a deterministic GUID from user and password. The same user/password combination always produces the same GUID. Use this GUID as the 'id' header for Connect and other endpoints.</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.Connection/GetId</code> (unary)</li>
 <li>REST: <code>GET /GetId</code></li>
@@ -4039,7 +4039,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 </table>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#getiddata">GetIdData</a></p>
 <h3 id="connectionconnectstream">Connection.ConnectStream<a class="headerlink" href="#connectionconnectstream" title="Permanent link">¶</a></h3>
-<p>Same as Connect but streams real-time progress events. Optional 'id' header — automatically generated by the server if omitted. Swagger does not support streaming — use /connect-stream interactive viewer. [DefaultValues] { "user": "213889529", "password": "7dPjA*Jm", "host": "d51a1.octanetwork.net", "port": "443", "timeoutSeconds": "120" }</p>
+<p>Same as Connect but streams real-time progress events. Optional 'id' header — automatically generated by the server if omitted. Swagger does not support streaming — use /connect-stream interactive viewer.</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.Connection/ConnectStream</code> (server stream)</li>
 <li>REST: <code>GET /ConnectStream</code> (also a WebSocket)</li>
@@ -4167,7 +4167,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 </tbody>
 </table>
 <h3 id="connectionconnectexstream">Connection.ConnectExStream<a class="headerlink" href="#connectionconnectexstream" title="Permanent link">¶</a></h3>
-<p>Same as ConnectEx but streams real-time progress events. Optional 'id' header — automatically generated by the server if omitted. Swagger does not support streaming — use /connect-stream interactive viewer. [DefaultValues] { "user": "213889529", "password": "7dPjA*Jm", "mtClusterName": "OctaFX-Demo", "timeoutSeconds": "120" }</p>
+<p>Same as ConnectEx but streams real-time progress events. Optional 'id' header — automatically generated by the server if omitted. Swagger does not support streaming — use /connect-stream interactive viewer.</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.Connection/ConnectExStream</code> (server stream)</li>
 <li>REST: <code>GET /ConnectExStream</code> (also a WebSocket)</li>
@@ -4329,7 +4329,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 <h2 id="demoaccount">DemoAccount<a class="headerlink" href="#demoaccount" title="Permanent link">¶</a></h2>
 <p>Demo account creation service. Automates the MT5 "Open an Account" wizard via Win32 GUI automation. Does NOT require 'id' header — auto-picks any available terminal.</p>
 <h3 id="demoaccountopendemoaccount">DemoAccount.OpenDemoAccount<a class="headerlink" href="#demoaccountopendemoaccount" title="Permanent link">¶</a></h3>
-<p>Open a demo account. Full wizard flow: search → select → fill form → register. Returns login, password, and investor password for the new demo account. [DefaultValues] { "company": "MetaQuotes Ltd.", "firstName": "Test", "lastName": "User", "email": "test@test.com", "phone": "+1234567890", "timeoutSeconds": "60" }</p>
+<p>Open a demo account. Full wizard flow: search → select → fill form → register. Returns login, password, and investor password for the new demo account.</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.DemoAccount/OpenDemoAccount</code> (unary)</li>
 <li>REST: <code>GET /DemoAccount/Open</code></li>
@@ -5118,7 +5118,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#servertimezonedata">ServerTimezoneData</a></p>
 <h2 id="subscriptionservice">SubscriptionService<a class="headerlink" href="#subscriptionservice" title="Permanent link">¶</a></h2>
 <h3 id="subscriptionserviceonsymboltick">SubscriptionService.OnSymbolTick<a class="headerlink" href="#subscriptionserviceonsymboltick" title="Permanent link">¶</a></h3>
-<p>Streams real-time symbol tick data for the specified symbols. Requires 'id' header with the terminal connection GUID returned by Connect. Swagger does not support streaming — use /subscription-stream interactive viewer. [DefaultValues] { "symbolNames": "EURUSD,BTCUSD" }</p>
+<p>Streams real-time symbol tick data for the specified symbols. Requires 'id' header with the terminal connection GUID returned by Connect. Swagger does not support streaming — use /subscription-stream interactive viewer.</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.SubscriptionService/OnSymbolTick</code> (server stream)</li>
 <li>REST: <code>GET /OnSymbolTick</code> (also a WebSocket)</li>
@@ -5351,7 +5351,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#positionstotaldata">PositionsTotalData</a></p>
 <h2 id="tradestats">TradeStats<a class="headerlink" href="#tradestats" title="Permanent link">¶</a></h2>
 <h3 id="tradestatstradestats">TradeStats.TradeStats<a class="headerlink" href="#tradestatstradestats" title="Permanent link">¶</a></h3>
-<p>Trading statistics calculated from order history and open orders [DefaultValues] { "from": "2024-01-01T00:00:00" }</p>
+<p>Trading statistics calculated from order history and open orders</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.TradeStats/TradeStats</code> (unary)</li>
 <li>REST: <code>GET /TradeStats</code></li>
@@ -5383,7 +5383,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 </table>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#statsdata">StatsData</a></p>
 <h3 id="tradestatstradestatsequityhistory">TradeStats.TradeStatsEquityHistory<a class="headerlink" href="#tradestatstradestatsequityhistory" title="Permanent link">¶</a></h3>
-<p>Trading statistics with equity history chart points [DefaultValues] { "from": "2024-01-01T00:00:00", "excludeSameBars": true }</p>
+<p>Trading statistics with equity history chart points</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.TradeStats/TradeStatsEquityHistory</code> (unary)</li>
 <li>REST: <code>GET /TradeStatsEquityHistory</code></li>
@@ -5421,7 +5421,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 </table>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#statswithchartsdata">StatsWithChartsData</a></p>
 <h3 id="tradestatsequityhistory">TradeStats.EquityHistory<a class="headerlink" href="#tradestatsequityhistory" title="Permanent link">¶</a></h3>
-<p>Equity history curve points with drawdown calculation [DefaultValues] { "from": "2024-10-01T00:00:00", "excludeSameBars": true }</p>
+<p>Equity history curve points with drawdown calculation</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.TradeStats/EquityHistory</code> (unary)</li>
 <li>REST: <code>GET /EquityHistory</code></li>
@@ -5459,7 +5459,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 </table>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#equityhistorydata">EquityHistoryData</a></p>
 <h3 id="tradestatstradeunrealizedpl">TradeStats.TradeUnrealizedPL<a class="headerlink" href="#tradestatstradeunrealizedpl" title="Permanent link">¶</a></h3>
-<p>Maximum and minimum unrealized profit/loss per trade [DefaultValues] { "from": "2024-01-01T00:00:00" }</p>
+<p>Maximum and minimum unrealized profit/loss per trade</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.TradeStats/TradeUnrealizedPL</code> (unary)</li>
 <li>REST: <code>GET /TradeUnrealizedPL</code></li>
@@ -5492,7 +5492,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#tradeunrealizedpldata">TradeUnrealizedPLData</a></p>
 <h2 id="tradinghelper">TradingHelper<a class="headerlink" href="#tradinghelper" title="Permanent link">¶</a></h2>
 <h3 id="tradinghelperordersend">TradingHelper.OrderSend<a class="headerlink" href="#tradinghelperordersend" title="Permanent link">¶</a></h3>
-<p>Send market or pending order [DefaultValues] { "symbol": "EURUSD", "operation": "TMT5_ORDER_TYPE_BUY", "volume": "0.1" }</p>
+<p>Send market or pending order</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.TradingHelper/OrderSend</code> (unary)</li>
 <li>REST: <code>GET /OrderSend</code></li>
@@ -5596,7 +5596,7 @@ below); a repeated field is <code>get...List()</code> / <code>add...(value)</cod
 </table>
 <p><strong>Reply <code>data</code></strong> <a href="../messages/#ordersenddata">OrderSendData</a></p>
 <h3 id="tradinghelperordersendwithoutchecks">TradingHelper.OrderSendWithoutChecks<a class="headerlink" href="#tradinghelperordersendwithoutchecks" title="Permanent link">¶</a></h3>
-<p>Send market or pending order immediately, with no Market Watch or quotes preparation. Same request and reply as OrderSend, but nothing is checked first and quotes_wait_ms is ignored. Use only for a symbol already known to be streaming; otherwise the trade server rejects the order (ErrMarketLasttimeUnknown 4304 "no ticks" and friends). [DefaultValues] { "symbol": "EURUSD", "operation": "TMT5_ORDER_TYPE_BUY", "volume": "0.1" }</p>
+<p>Send market or pending order immediately, with no Market Watch or quotes preparation. Same request and reply as OrderSend, but nothing is checked first and quotes_wait_ms is ignored. Use only for a symbol already known to be streaming; otherwise the trade server rejects the order (ErrMarketLasttimeUnknown 4304 "no ticks" and friends).</p>
 <ul>
 <li>gRPC: <code>mt5_term_api.TradingHelper/OrderSendWithoutChecks</code> (unary)</li>
 <li>REST: <code>GET /OrderSendWithoutChecks</code></li>
