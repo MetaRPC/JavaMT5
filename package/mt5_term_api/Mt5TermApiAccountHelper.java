@@ -15,6 +15,132 @@ public final class Mt5TermApiAccountHelper {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * Protobuf enum {@code mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE}
+   */
+  public enum BMT5_ENUM_DEALS_HISTORY_SORT_TYPE
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>BMT5_SORT_BY_DEAL_TIME_ASC = 0;</code>
+     */
+    BMT5_SORT_BY_DEAL_TIME_ASC(0),
+    /**
+     * <code>BMT5_SORT_BY_DEAL_TIME_DESC = 1;</code>
+     */
+    BMT5_SORT_BY_DEAL_TIME_DESC(1),
+    /**
+     * <code>BMT5_SORT_BY_DEAL_TICKET_ASC = 2;</code>
+     */
+    BMT5_SORT_BY_DEAL_TICKET_ASC(2),
+    /**
+     * <code>BMT5_SORT_BY_DEAL_TICKET_DESC = 3;</code>
+     */
+    BMT5_SORT_BY_DEAL_TICKET_DESC(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>BMT5_SORT_BY_DEAL_TIME_ASC = 0;</code>
+     */
+    public static final int BMT5_SORT_BY_DEAL_TIME_ASC_VALUE = 0;
+    /**
+     * <code>BMT5_SORT_BY_DEAL_TIME_DESC = 1;</code>
+     */
+    public static final int BMT5_SORT_BY_DEAL_TIME_DESC_VALUE = 1;
+    /**
+     * <code>BMT5_SORT_BY_DEAL_TICKET_ASC = 2;</code>
+     */
+    public static final int BMT5_SORT_BY_DEAL_TICKET_ASC_VALUE = 2;
+    /**
+     * <code>BMT5_SORT_BY_DEAL_TICKET_DESC = 3;</code>
+     */
+    public static final int BMT5_SORT_BY_DEAL_TICKET_DESC_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static BMT5_ENUM_DEALS_HISTORY_SORT_TYPE valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static BMT5_ENUM_DEALS_HISTORY_SORT_TYPE forNumber(int value) {
+      switch (value) {
+        case 0: return BMT5_SORT_BY_DEAL_TIME_ASC;
+        case 1: return BMT5_SORT_BY_DEAL_TIME_DESC;
+        case 2: return BMT5_SORT_BY_DEAL_TICKET_ASC;
+        case 3: return BMT5_SORT_BY_DEAL_TICKET_DESC;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<BMT5_ENUM_DEALS_HISTORY_SORT_TYPE>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        BMT5_ENUM_DEALS_HISTORY_SORT_TYPE> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<BMT5_ENUM_DEALS_HISTORY_SORT_TYPE>() {
+            public BMT5_ENUM_DEALS_HISTORY_SORT_TYPE findValueByNumber(int number) {
+              return BMT5_ENUM_DEALS_HISTORY_SORT_TYPE.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final BMT5_ENUM_DEALS_HISTORY_SORT_TYPE[] VALUES = values();
+
+    public static BMT5_ENUM_DEALS_HISTORY_SORT_TYPE valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private BMT5_ENUM_DEALS_HISTORY_SORT_TYPE(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE)
+  }
+
+  /**
    * Protobuf enum {@code mt5_term_api.AH_ENUM_POSITIONS_HISTORY_SORT_TYPE}
    */
   public enum AH_ENUM_POSITIONS_HISTORY_SORT_TYPE
@@ -114,7 +240,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(0);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final AH_ENUM_POSITIONS_HISTORY_SORT_TYPE[] VALUES = values();
@@ -357,7 +483,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(1);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final AH_ENUM_POSITIONS_HISTORY_ORDER_TYPE[] VALUES = values();
@@ -483,7 +609,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(2);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(3);
     }
 
     private static final BMT5_ENUM_OPENED_ORDER_SORT_TYPE[] VALUES = values();
@@ -591,7 +717,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(3);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(4);
     }
 
     private static final BMT5_ENUM_POSITION_TYPE[] VALUES = values();
@@ -744,7 +870,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(4);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(5);
     }
 
     private static final BMT5_ENUM_POSITION_REASON[] VALUES = values();
@@ -902,7 +1028,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(5);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(6);
     }
 
     private static final BMT5_ENUM_ORDER_TYPE_TIME[] VALUES = values();
@@ -1060,7 +1186,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(6);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(7);
     }
 
     private static final BMT5_ENUM_ORDER_TYPE_FILLING[] VALUES = values();
@@ -1303,7 +1429,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(7);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(8);
     }
 
     private static final BMT5_ENUM_ORDER_TYPE[] VALUES = values();
@@ -1580,7 +1706,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(8);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(9);
     }
 
     private static final BMT5_ENUM_DEAL_REASON[] VALUES = values();
@@ -1976,7 +2102,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(9);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(10);
     }
 
     private static final BMT5_ENUM_DEAL_TYPE[] VALUES = values();
@@ -2102,7 +2228,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(10);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(11);
     }
 
     private static final BMT5_ENUM_DEAL_ENTRY_TYPE[] VALUES = values();
@@ -2246,7 +2372,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(11);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(12);
     }
 
     private static final BMT5_ENUM_ORDER_HISTORY_SORT_TYPE[] VALUES = values();
@@ -2506,7 +2632,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(12);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(13);
     }
 
     private static final BMT5_ENUM_ORDER_STATE[] VALUES = values();
@@ -2623,7 +2749,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(13);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(14);
     }
 
     private static final MrpcEnumAccountTradeMode[] VALUES = values();
@@ -2647,6 +2773,127 @@ public final class Mt5TermApiAccountHelper {
     }
 
     // @@protoc_insertion_point(enum_scope:mt5_term_api.MrpcEnumAccountTradeMode)
+  }
+
+  /**
+   * <pre>
+   * Margin calculation mode of the account (MT5 ACCOUNT_MARGIN_MODE). Hedging allows several positions per symbol, netting one.
+   * </pre>
+   *
+   * Protobuf enum {@code mt5_term_api.MrpcEnumAccountMarginMode}
+   */
+  public enum MrpcEnumAccountMarginMode
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTING = 0;</code>
+     */
+    MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTING(0),
+    /**
+     * <code>MRPC_ACCOUNT_MARGIN_MODE_EXCHANGE = 1;</code>
+     */
+    MRPC_ACCOUNT_MARGIN_MODE_EXCHANGE(1),
+    /**
+     * <code>MRPC_ACCOUNT_MARGIN_MODE_RETAIL_HEDGING = 2;</code>
+     */
+    MRPC_ACCOUNT_MARGIN_MODE_RETAIL_HEDGING(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTING = 0;</code>
+     */
+    public static final int MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTING_VALUE = 0;
+    /**
+     * <code>MRPC_ACCOUNT_MARGIN_MODE_EXCHANGE = 1;</code>
+     */
+    public static final int MRPC_ACCOUNT_MARGIN_MODE_EXCHANGE_VALUE = 1;
+    /**
+     * <code>MRPC_ACCOUNT_MARGIN_MODE_RETAIL_HEDGING = 2;</code>
+     */
+    public static final int MRPC_ACCOUNT_MARGIN_MODE_RETAIL_HEDGING_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static MrpcEnumAccountMarginMode valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static MrpcEnumAccountMarginMode forNumber(int value) {
+      switch (value) {
+        case 0: return MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTING;
+        case 1: return MRPC_ACCOUNT_MARGIN_MODE_EXCHANGE;
+        case 2: return MRPC_ACCOUNT_MARGIN_MODE_RETAIL_HEDGING;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<MrpcEnumAccountMarginMode>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        MrpcEnumAccountMarginMode> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MrpcEnumAccountMarginMode>() {
+            public MrpcEnumAccountMarginMode findValueByNumber(int number) {
+              return MrpcEnumAccountMarginMode.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(15);
+    }
+
+    private static final MrpcEnumAccountMarginMode[] VALUES = values();
+
+    public static MrpcEnumAccountMarginMode valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private MrpcEnumAccountMarginMode(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:mt5_term_api.MrpcEnumAccountMarginMode)
   }
 
   /**
@@ -2749,7 +2996,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(14);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(16);
     }
 
     private static final AH_SYMBOL_PARAMS_MANY_SORT_TYPE[] VALUES = values();
@@ -2873,7 +3120,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(15);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(17);
     }
 
     private static final BMT5_ENUM_SYMBOL_OPTION_RIGHT[] VALUES = values();
@@ -2997,7 +3244,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(16);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(18);
     }
 
     private static final BMT5_ENUM_SYMBOL_OPTION_MODE[] VALUES = values();
@@ -3138,7 +3385,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(17);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(19);
     }
 
     private static final BMT5_ENUM_SYMBOL_ORDER_GTC_MODE[] VALUES = values();
@@ -3347,7 +3594,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(18);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(20);
     }
 
     private static final BMT5_ENUM_DAY_OF_WEEK[] VALUES = values();
@@ -3607,7 +3854,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(19);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(21);
     }
 
     private static final BMT5_ENUM_SYMBOL_SWAP_MODE[] VALUES = values();
@@ -3765,7 +4012,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(20);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(22);
     }
 
     private static final BMT5_ENUM_SYMBOL_TRADE_EXECUTION[] VALUES = values();
@@ -3940,7 +4187,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(21);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(23);
     }
 
     private static final BMT5_ENUM_SYMBOL_TRADE_MODE[] VALUES = values();
@@ -4251,7 +4498,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(22);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(24);
     }
 
     private static final BMT5_ENUM_SYMBOL_CALC_MODE[] VALUES = values();
@@ -4579,7 +4826,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(23);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(25);
     }
 
     private static final BMT5_ENUM_SYMBOL_SECTOR[] VALUES = values();
@@ -4687,7 +4934,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(24);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(26);
     }
 
     private static final BMT5_ENUM_SYMBOL_CHART_MODE[] VALUES = values();
@@ -7361,7 +7608,7 @@ public final class Mt5TermApiAccountHelper {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(25);
+      return mt5_term_api.Mt5TermApiAccountHelper.getDescriptor().getEnumTypes().get(27);
     }
 
     private static final BMT5_ENUM_SYMBOL_INDUSTRY[] VALUES = values();
@@ -7385,6 +7632,4119 @@ public final class Mt5TermApiAccountHelper {
     }
 
     // @@protoc_insertion_point(enum_scope:mt5_term_api.BMT5_ENUM_SYMBOL_INDUSTRY)
+  }
+
+  public interface DealsHistoryRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:mt5_term_api.DealsHistoryRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Start of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+     * @return Whether the inputFrom field is set.
+     */
+    boolean hasInputFrom();
+    /**
+     * <pre>
+     * Start of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+     * @return The inputFrom.
+     */
+    com.google.protobuf.Timestamp getInputFrom();
+    /**
+     * <pre>
+     * Start of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getInputFromOrBuilder();
+
+    /**
+     * <pre>
+     * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+     * @return Whether the inputFromUtc field is set.
+     */
+    boolean hasInputFromUtc();
+    /**
+     * <pre>
+     * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+     * @return The inputFromUtc.
+     */
+    com.google.protobuf.Timestamp getInputFromUtc();
+    /**
+     * <pre>
+     * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getInputFromUtcOrBuilder();
+
+    /**
+     * <pre>
+     * End of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+     * @return Whether the inputTo field is set.
+     */
+    boolean hasInputTo();
+    /**
+     * <pre>
+     * End of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+     * @return The inputTo.
+     */
+    com.google.protobuf.Timestamp getInputTo();
+    /**
+     * <pre>
+     * End of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getInputToOrBuilder();
+
+    /**
+     * <pre>
+     * inputTo in UTC: send either inputTo or inputToUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+     * @return Whether the inputToUtc field is set.
+     */
+    boolean hasInputToUtc();
+    /**
+     * <pre>
+     * inputTo in UTC: send either inputTo or inputToUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+     * @return The inputToUtc.
+     */
+    com.google.protobuf.Timestamp getInputToUtc();
+    /**
+     * <pre>
+     * inputTo in UTC: send either inputTo or inputToUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getInputToUtcOrBuilder();
+
+    /**
+     * <pre>
+     * By deal time (default, oldest first) or by deal ticket
+     * </pre>
+     *
+     * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+     * @return The enum numeric value on the wire for inputSortMode.
+     */
+    int getInputSortModeValue();
+    /**
+     * <pre>
+     * By deal time (default, oldest first) or by deal ticket
+     * </pre>
+     *
+     * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+     * @return The inputSortMode.
+     */
+    mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE getInputSortMode();
+
+    /**
+     * <pre>
+     * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+     * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+     * </pre>
+     *
+     * <code>string page_token = 4;</code>
+     * @return The pageToken.
+     */
+    java.lang.String getPageToken();
+    /**
+     * <pre>
+     * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+     * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+     * </pre>
+     *
+     * <code>string page_token = 4;</code>
+     * @return The bytes for pageToken.
+     */
+    com.google.protobuf.ByteString
+        getPageTokenBytes();
+
+    /**
+     * <pre>
+     * Cursor paging: deals per page, 1..5000. 0 = 1000 when page_token is set.
+     * </pre>
+     *
+     * <code>int32 page_size = 5;</code>
+     * @return The pageSize.
+     */
+    int getPageSize();
+  }
+  /**
+   * <pre>
+   * The range is the deal time (DEAL_TIME), both ends required: inputFrom/inputTo in broker server time or inputFromUtc/inputToUtc in UTC.
+   * </pre>
+   *
+   * Protobuf type {@code mt5_term_api.DealsHistoryRequest}
+   */
+  public static final class DealsHistoryRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:mt5_term_api.DealsHistoryRequest)
+      DealsHistoryRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DealsHistoryRequest.newBuilder() to construct.
+    private DealsHistoryRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DealsHistoryRequest() {
+      inputSortMode_ = 0;
+      pageToken_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DealsHistoryRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DealsHistoryRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (inputFrom_ != null) {
+                subBuilder = inputFrom_.toBuilder();
+              }
+              inputFrom_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(inputFrom_);
+                inputFrom_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (inputTo_ != null) {
+                subBuilder = inputTo_.toBuilder();
+              }
+              inputTo_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(inputTo_);
+                inputTo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              inputSortMode_ = rawValue;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              pageToken_ = s;
+              break;
+            }
+            case 40: {
+
+              pageSize_ = input.readInt32();
+              break;
+            }
+            case 66: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (inputFromUtc_ != null) {
+                subBuilder = inputFromUtc_.toBuilder();
+              }
+              inputFromUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(inputFromUtc_);
+                inputFromUtc_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 74: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (inputToUtc_ != null) {
+                subBuilder = inputToUtc_.toBuilder();
+              }
+              inputToUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(inputToUtc_);
+                inputToUtc_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.class, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.Builder.class);
+    }
+
+    public static final int INPUTFROM_FIELD_NUMBER = 1;
+    private com.google.protobuf.Timestamp inputFrom_;
+    /**
+     * <pre>
+     * Start of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+     * @return Whether the inputFrom field is set.
+     */
+    @java.lang.Override
+    public boolean hasInputFrom() {
+      return inputFrom_ != null;
+    }
+    /**
+     * <pre>
+     * Start of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+     * @return The inputFrom.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getInputFrom() {
+      return inputFrom_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : inputFrom_;
+    }
+    /**
+     * <pre>
+     * Start of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getInputFromOrBuilder() {
+      return getInputFrom();
+    }
+
+    public static final int INPUTFROMUTC_FIELD_NUMBER = 8;
+    private com.google.protobuf.Timestamp inputFromUtc_;
+    /**
+     * <pre>
+     * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+     * @return Whether the inputFromUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasInputFromUtc() {
+      return inputFromUtc_ != null;
+    }
+    /**
+     * <pre>
+     * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+     * @return The inputFromUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getInputFromUtc() {
+      return inputFromUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : inputFromUtc_;
+    }
+    /**
+     * <pre>
+     * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getInputFromUtcOrBuilder() {
+      return getInputFromUtc();
+    }
+
+    public static final int INPUTTO_FIELD_NUMBER = 2;
+    private com.google.protobuf.Timestamp inputTo_;
+    /**
+     * <pre>
+     * End of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+     * @return Whether the inputTo field is set.
+     */
+    @java.lang.Override
+    public boolean hasInputTo() {
+      return inputTo_ != null;
+    }
+    /**
+     * <pre>
+     * End of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+     * @return The inputTo.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getInputTo() {
+      return inputTo_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : inputTo_;
+    }
+    /**
+     * <pre>
+     * End of the range, broker server time
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getInputToOrBuilder() {
+      return getInputTo();
+    }
+
+    public static final int INPUTTOUTC_FIELD_NUMBER = 9;
+    private com.google.protobuf.Timestamp inputToUtc_;
+    /**
+     * <pre>
+     * inputTo in UTC: send either inputTo or inputToUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+     * @return Whether the inputToUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasInputToUtc() {
+      return inputToUtc_ != null;
+    }
+    /**
+     * <pre>
+     * inputTo in UTC: send either inputTo or inputToUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+     * @return The inputToUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getInputToUtc() {
+      return inputToUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : inputToUtc_;
+    }
+    /**
+     * <pre>
+     * inputTo in UTC: send either inputTo or inputToUtc, not both.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getInputToUtcOrBuilder() {
+      return getInputToUtc();
+    }
+
+    public static final int INPUTSORTMODE_FIELD_NUMBER = 3;
+    private int inputSortMode_;
+    /**
+     * <pre>
+     * By deal time (default, oldest first) or by deal ticket
+     * </pre>
+     *
+     * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+     * @return The enum numeric value on the wire for inputSortMode.
+     */
+    @java.lang.Override public int getInputSortModeValue() {
+      return inputSortMode_;
+    }
+    /**
+     * <pre>
+     * By deal time (default, oldest first) or by deal ticket
+     * </pre>
+     *
+     * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+     * @return The inputSortMode.
+     */
+    @java.lang.Override public mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE getInputSortMode() {
+      @SuppressWarnings("deprecation")
+      mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE result = mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE.valueOf(inputSortMode_);
+      return result == null ? mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE.UNRECOGNIZED : result;
+    }
+
+    public static final int PAGE_TOKEN_FIELD_NUMBER = 4;
+    private volatile java.lang.Object pageToken_;
+    /**
+     * <pre>
+     * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+     * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+     * </pre>
+     *
+     * <code>string page_token = 4;</code>
+     * @return The pageToken.
+     */
+    @java.lang.Override
+    public java.lang.String getPageToken() {
+      java.lang.Object ref = pageToken_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pageToken_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+     * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+     * </pre>
+     *
+     * <code>string page_token = 4;</code>
+     * @return The bytes for pageToken.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPageTokenBytes() {
+      java.lang.Object ref = pageToken_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pageToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PAGE_SIZE_FIELD_NUMBER = 5;
+    private int pageSize_;
+    /**
+     * <pre>
+     * Cursor paging: deals per page, 1..5000. 0 = 1000 when page_token is set.
+     * </pre>
+     *
+     * <code>int32 page_size = 5;</code>
+     * @return The pageSize.
+     */
+    @java.lang.Override
+    public int getPageSize() {
+      return pageSize_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (inputFrom_ != null) {
+        output.writeMessage(1, getInputFrom());
+      }
+      if (inputTo_ != null) {
+        output.writeMessage(2, getInputTo());
+      }
+      if (inputSortMode_ != mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE.BMT5_SORT_BY_DEAL_TIME_ASC.getNumber()) {
+        output.writeEnum(3, inputSortMode_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, pageToken_);
+      }
+      if (pageSize_ != 0) {
+        output.writeInt32(5, pageSize_);
+      }
+      if (inputFromUtc_ != null) {
+        output.writeMessage(8, getInputFromUtc());
+      }
+      if (inputToUtc_ != null) {
+        output.writeMessage(9, getInputToUtc());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (inputFrom_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getInputFrom());
+      }
+      if (inputTo_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getInputTo());
+      }
+      if (inputSortMode_ != mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE.BMT5_SORT_BY_DEAL_TIME_ASC.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, inputSortMode_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, pageToken_);
+      }
+      if (pageSize_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, pageSize_);
+      }
+      if (inputFromUtc_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getInputFromUtc());
+      }
+      if (inputToUtc_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getInputToUtc());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest)) {
+        return super.equals(obj);
+      }
+      mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest other = (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest) obj;
+
+      if (hasInputFrom() != other.hasInputFrom()) return false;
+      if (hasInputFrom()) {
+        if (!getInputFrom()
+            .equals(other.getInputFrom())) return false;
+      }
+      if (hasInputFromUtc() != other.hasInputFromUtc()) return false;
+      if (hasInputFromUtc()) {
+        if (!getInputFromUtc()
+            .equals(other.getInputFromUtc())) return false;
+      }
+      if (hasInputTo() != other.hasInputTo()) return false;
+      if (hasInputTo()) {
+        if (!getInputTo()
+            .equals(other.getInputTo())) return false;
+      }
+      if (hasInputToUtc() != other.hasInputToUtc()) return false;
+      if (hasInputToUtc()) {
+        if (!getInputToUtc()
+            .equals(other.getInputToUtc())) return false;
+      }
+      if (inputSortMode_ != other.inputSortMode_) return false;
+      if (!getPageToken()
+          .equals(other.getPageToken())) return false;
+      if (getPageSize()
+          != other.getPageSize()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasInputFrom()) {
+        hash = (37 * hash) + INPUTFROM_FIELD_NUMBER;
+        hash = (53 * hash) + getInputFrom().hashCode();
+      }
+      if (hasInputFromUtc()) {
+        hash = (37 * hash) + INPUTFROMUTC_FIELD_NUMBER;
+        hash = (53 * hash) + getInputFromUtc().hashCode();
+      }
+      if (hasInputTo()) {
+        hash = (37 * hash) + INPUTTO_FIELD_NUMBER;
+        hash = (53 * hash) + getInputTo().hashCode();
+      }
+      if (hasInputToUtc()) {
+        hash = (37 * hash) + INPUTTOUTC_FIELD_NUMBER;
+        hash = (53 * hash) + getInputToUtc().hashCode();
+      }
+      hash = (37 * hash) + INPUTSORTMODE_FIELD_NUMBER;
+      hash = (53 * hash) + inputSortMode_;
+      hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getPageToken().hashCode();
+      hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
+      hash = (53 * hash) + getPageSize();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The range is the deal time (DEAL_TIME), both ends required: inputFrom/inputTo in broker server time or inputFromUtc/inputToUtc in UTC.
+     * </pre>
+     *
+     * Protobuf type {@code mt5_term_api.DealsHistoryRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:mt5_term_api.DealsHistoryRequest)
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.class, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.Builder.class);
+      }
+
+      // Construct using mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (inputFromBuilder_ == null) {
+          inputFrom_ = null;
+        } else {
+          inputFrom_ = null;
+          inputFromBuilder_ = null;
+        }
+        if (inputFromUtcBuilder_ == null) {
+          inputFromUtc_ = null;
+        } else {
+          inputFromUtc_ = null;
+          inputFromUtcBuilder_ = null;
+        }
+        if (inputToBuilder_ == null) {
+          inputTo_ = null;
+        } else {
+          inputTo_ = null;
+          inputToBuilder_ = null;
+        }
+        if (inputToUtcBuilder_ == null) {
+          inputToUtc_ = null;
+        } else {
+          inputToUtc_ = null;
+          inputToUtcBuilder_ = null;
+        }
+        inputSortMode_ = 0;
+
+        pageToken_ = "";
+
+        pageSize_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest getDefaultInstanceForType() {
+        return mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest build() {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest buildPartial() {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest result = new mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest(this);
+        if (inputFromBuilder_ == null) {
+          result.inputFrom_ = inputFrom_;
+        } else {
+          result.inputFrom_ = inputFromBuilder_.build();
+        }
+        if (inputFromUtcBuilder_ == null) {
+          result.inputFromUtc_ = inputFromUtc_;
+        } else {
+          result.inputFromUtc_ = inputFromUtcBuilder_.build();
+        }
+        if (inputToBuilder_ == null) {
+          result.inputTo_ = inputTo_;
+        } else {
+          result.inputTo_ = inputToBuilder_.build();
+        }
+        if (inputToUtcBuilder_ == null) {
+          result.inputToUtc_ = inputToUtc_;
+        } else {
+          result.inputToUtc_ = inputToUtcBuilder_.build();
+        }
+        result.inputSortMode_ = inputSortMode_;
+        result.pageToken_ = pageToken_;
+        result.pageSize_ = pageSize_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest) {
+          return mergeFrom((mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest other) {
+        if (other == mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.getDefaultInstance()) return this;
+        if (other.hasInputFrom()) {
+          mergeInputFrom(other.getInputFrom());
+        }
+        if (other.hasInputFromUtc()) {
+          mergeInputFromUtc(other.getInputFromUtc());
+        }
+        if (other.hasInputTo()) {
+          mergeInputTo(other.getInputTo());
+        }
+        if (other.hasInputToUtc()) {
+          mergeInputToUtc(other.getInputToUtc());
+        }
+        if (other.inputSortMode_ != 0) {
+          setInputSortModeValue(other.getInputSortModeValue());
+        }
+        if (!other.getPageToken().isEmpty()) {
+          pageToken_ = other.pageToken_;
+          onChanged();
+        }
+        if (other.getPageSize() != 0) {
+          setPageSize(other.getPageSize());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp inputFrom_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> inputFromBuilder_;
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       * @return Whether the inputFrom field is set.
+       */
+      public boolean hasInputFrom() {
+        return inputFromBuilder_ != null || inputFrom_ != null;
+      }
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       * @return The inputFrom.
+       */
+      public com.google.protobuf.Timestamp getInputFrom() {
+        if (inputFromBuilder_ == null) {
+          return inputFrom_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : inputFrom_;
+        } else {
+          return inputFromBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       */
+      public Builder setInputFrom(com.google.protobuf.Timestamp value) {
+        if (inputFromBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          inputFrom_ = value;
+          onChanged();
+        } else {
+          inputFromBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       */
+      public Builder setInputFrom(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (inputFromBuilder_ == null) {
+          inputFrom_ = builderForValue.build();
+          onChanged();
+        } else {
+          inputFromBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       */
+      public Builder mergeInputFrom(com.google.protobuf.Timestamp value) {
+        if (inputFromBuilder_ == null) {
+          if (inputFrom_ != null) {
+            inputFrom_ =
+              com.google.protobuf.Timestamp.newBuilder(inputFrom_).mergeFrom(value).buildPartial();
+          } else {
+            inputFrom_ = value;
+          }
+          onChanged();
+        } else {
+          inputFromBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       */
+      public Builder clearInputFrom() {
+        if (inputFromBuilder_ == null) {
+          inputFrom_ = null;
+          onChanged();
+        } else {
+          inputFrom_ = null;
+          inputFromBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getInputFromBuilder() {
+        
+        onChanged();
+        return getInputFromFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getInputFromOrBuilder() {
+        if (inputFromBuilder_ != null) {
+          return inputFromBuilder_.getMessageOrBuilder();
+        } else {
+          return inputFrom_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : inputFrom_;
+        }
+      }
+      /**
+       * <pre>
+       * Start of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFrom = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getInputFromFieldBuilder() {
+        if (inputFromBuilder_ == null) {
+          inputFromBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getInputFrom(),
+                  getParentForChildren(),
+                  isClean());
+          inputFrom_ = null;
+        }
+        return inputFromBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp inputFromUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> inputFromUtcBuilder_;
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       * @return Whether the inputFromUtc field is set.
+       */
+      public boolean hasInputFromUtc() {
+        return inputFromUtcBuilder_ != null || inputFromUtc_ != null;
+      }
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       * @return The inputFromUtc.
+       */
+      public com.google.protobuf.Timestamp getInputFromUtc() {
+        if (inputFromUtcBuilder_ == null) {
+          return inputFromUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : inputFromUtc_;
+        } else {
+          return inputFromUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       */
+      public Builder setInputFromUtc(com.google.protobuf.Timestamp value) {
+        if (inputFromUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          inputFromUtc_ = value;
+          onChanged();
+        } else {
+          inputFromUtcBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       */
+      public Builder setInputFromUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (inputFromUtcBuilder_ == null) {
+          inputFromUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          inputFromUtcBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       */
+      public Builder mergeInputFromUtc(com.google.protobuf.Timestamp value) {
+        if (inputFromUtcBuilder_ == null) {
+          if (inputFromUtc_ != null) {
+            inputFromUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(inputFromUtc_).mergeFrom(value).buildPartial();
+          } else {
+            inputFromUtc_ = value;
+          }
+          onChanged();
+        } else {
+          inputFromUtcBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       */
+      public Builder clearInputFromUtc() {
+        if (inputFromUtcBuilder_ == null) {
+          inputFromUtc_ = null;
+          onChanged();
+        } else {
+          inputFromUtc_ = null;
+          inputFromUtcBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getInputFromUtcBuilder() {
+        
+        onChanged();
+        return getInputFromUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getInputFromUtcOrBuilder() {
+        if (inputFromUtcBuilder_ != null) {
+          return inputFromUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return inputFromUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : inputFromUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputFromUtc = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getInputFromUtcFieldBuilder() {
+        if (inputFromUtcBuilder_ == null) {
+          inputFromUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getInputFromUtc(),
+                  getParentForChildren(),
+                  isClean());
+          inputFromUtc_ = null;
+        }
+        return inputFromUtcBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp inputTo_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> inputToBuilder_;
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       * @return Whether the inputTo field is set.
+       */
+      public boolean hasInputTo() {
+        return inputToBuilder_ != null || inputTo_ != null;
+      }
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       * @return The inputTo.
+       */
+      public com.google.protobuf.Timestamp getInputTo() {
+        if (inputToBuilder_ == null) {
+          return inputTo_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : inputTo_;
+        } else {
+          return inputToBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       */
+      public Builder setInputTo(com.google.protobuf.Timestamp value) {
+        if (inputToBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          inputTo_ = value;
+          onChanged();
+        } else {
+          inputToBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       */
+      public Builder setInputTo(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (inputToBuilder_ == null) {
+          inputTo_ = builderForValue.build();
+          onChanged();
+        } else {
+          inputToBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       */
+      public Builder mergeInputTo(com.google.protobuf.Timestamp value) {
+        if (inputToBuilder_ == null) {
+          if (inputTo_ != null) {
+            inputTo_ =
+              com.google.protobuf.Timestamp.newBuilder(inputTo_).mergeFrom(value).buildPartial();
+          } else {
+            inputTo_ = value;
+          }
+          onChanged();
+        } else {
+          inputToBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       */
+      public Builder clearInputTo() {
+        if (inputToBuilder_ == null) {
+          inputTo_ = null;
+          onChanged();
+        } else {
+          inputTo_ = null;
+          inputToBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getInputToBuilder() {
+        
+        onChanged();
+        return getInputToFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getInputToOrBuilder() {
+        if (inputToBuilder_ != null) {
+          return inputToBuilder_.getMessageOrBuilder();
+        } else {
+          return inputTo_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : inputTo_;
+        }
+      }
+      /**
+       * <pre>
+       * End of the range, broker server time
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputTo = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getInputToFieldBuilder() {
+        if (inputToBuilder_ == null) {
+          inputToBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getInputTo(),
+                  getParentForChildren(),
+                  isClean());
+          inputTo_ = null;
+        }
+        return inputToBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp inputToUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> inputToUtcBuilder_;
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       * @return Whether the inputToUtc field is set.
+       */
+      public boolean hasInputToUtc() {
+        return inputToUtcBuilder_ != null || inputToUtc_ != null;
+      }
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       * @return The inputToUtc.
+       */
+      public com.google.protobuf.Timestamp getInputToUtc() {
+        if (inputToUtcBuilder_ == null) {
+          return inputToUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : inputToUtc_;
+        } else {
+          return inputToUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       */
+      public Builder setInputToUtc(com.google.protobuf.Timestamp value) {
+        if (inputToUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          inputToUtc_ = value;
+          onChanged();
+        } else {
+          inputToUtcBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       */
+      public Builder setInputToUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (inputToUtcBuilder_ == null) {
+          inputToUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          inputToUtcBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       */
+      public Builder mergeInputToUtc(com.google.protobuf.Timestamp value) {
+        if (inputToUtcBuilder_ == null) {
+          if (inputToUtc_ != null) {
+            inputToUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(inputToUtc_).mergeFrom(value).buildPartial();
+          } else {
+            inputToUtc_ = value;
+          }
+          onChanged();
+        } else {
+          inputToUtcBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       */
+      public Builder clearInputToUtc() {
+        if (inputToUtcBuilder_ == null) {
+          inputToUtc_ = null;
+          onChanged();
+        } else {
+          inputToUtc_ = null;
+          inputToUtcBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getInputToUtcBuilder() {
+        
+        onChanged();
+        return getInputToUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getInputToUtcOrBuilder() {
+        if (inputToUtcBuilder_ != null) {
+          return inputToUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return inputToUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : inputToUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * inputTo in UTC: send either inputTo or inputToUtc, not both.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp inputToUtc = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getInputToUtcFieldBuilder() {
+        if (inputToUtcBuilder_ == null) {
+          inputToUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getInputToUtc(),
+                  getParentForChildren(),
+                  isClean());
+          inputToUtc_ = null;
+        }
+        return inputToUtcBuilder_;
+      }
+
+      private int inputSortMode_ = 0;
+      /**
+       * <pre>
+       * By deal time (default, oldest first) or by deal ticket
+       * </pre>
+       *
+       * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+       * @return The enum numeric value on the wire for inputSortMode.
+       */
+      @java.lang.Override public int getInputSortModeValue() {
+        return inputSortMode_;
+      }
+      /**
+       * <pre>
+       * By deal time (default, oldest first) or by deal ticket
+       * </pre>
+       *
+       * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+       * @param value The enum numeric value on the wire for inputSortMode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInputSortModeValue(int value) {
+        
+        inputSortMode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * By deal time (default, oldest first) or by deal ticket
+       * </pre>
+       *
+       * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+       * @return The inputSortMode.
+       */
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE getInputSortMode() {
+        @SuppressWarnings("deprecation")
+        mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE result = mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE.valueOf(inputSortMode_);
+        return result == null ? mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * By deal time (default, oldest first) or by deal ticket
+       * </pre>
+       *
+       * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+       * @param value The inputSortMode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInputSortMode(mt5_term_api.Mt5TermApiAccountHelper.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        inputSortMode_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * By deal time (default, oldest first) or by deal ticket
+       * </pre>
+       *
+       * <code>.mt5_term_api.BMT5_ENUM_DEALS_HISTORY_SORT_TYPE inputSortMode = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInputSortMode() {
+        
+        inputSortMode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object pageToken_ = "";
+      /**
+       * <pre>
+       * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+       * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+       * </pre>
+       *
+       * <code>string page_token = 4;</code>
+       * @return The pageToken.
+       */
+      public java.lang.String getPageToken() {
+        java.lang.Object ref = pageToken_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          pageToken_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+       * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+       * </pre>
+       *
+       * <code>string page_token = 4;</code>
+       * @return The bytes for pageToken.
+       */
+      public com.google.protobuf.ByteString
+          getPageTokenBytes() {
+        java.lang.Object ref = pageToken_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pageToken_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+       * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+       * </pre>
+       *
+       * <code>string page_token = 4;</code>
+       * @param value The pageToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPageToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        pageToken_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+       * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+       * </pre>
+       *
+       * <code>string page_token = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPageToken() {
+        
+        pageToken_ = getDefaultInstance().getPageToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Cursor paging: the next_page_token of the previous page; empty for the first page. Send it back with the same range and
+       * inputSortMode (DEALS_HISTORY_PAGE_TOKEN_INVALID otherwise). Without page_token and page_size the whole range comes in one reply.
+       * </pre>
+       *
+       * <code>string page_token = 4;</code>
+       * @param value The bytes for pageToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPageTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        pageToken_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int pageSize_ ;
+      /**
+       * <pre>
+       * Cursor paging: deals per page, 1..5000. 0 = 1000 when page_token is set.
+       * </pre>
+       *
+       * <code>int32 page_size = 5;</code>
+       * @return The pageSize.
+       */
+      @java.lang.Override
+      public int getPageSize() {
+        return pageSize_;
+      }
+      /**
+       * <pre>
+       * Cursor paging: deals per page, 1..5000. 0 = 1000 when page_token is set.
+       * </pre>
+       *
+       * <code>int32 page_size = 5;</code>
+       * @param value The pageSize to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPageSize(int value) {
+        
+        pageSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Cursor paging: deals per page, 1..5000. 0 = 1000 when page_token is set.
+       * </pre>
+       *
+       * <code>int32 page_size = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPageSize() {
+        
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:mt5_term_api.DealsHistoryRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:mt5_term_api.DealsHistoryRequest)
+    private static final mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest();
+    }
+
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DealsHistoryRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DealsHistoryRequest>() {
+      @java.lang.Override
+      public DealsHistoryRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DealsHistoryRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DealsHistoryRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DealsHistoryRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DealsHistoryReplyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:mt5_term_api.DealsHistoryReply)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+     * @return Whether the data field is set.
+     */
+    boolean hasData();
+    /**
+     * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+     * @return The data.
+     */
+    mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData getData();
+    /**
+     * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+     */
+    mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryDataOrBuilder getDataOrBuilder();
+
+    /**
+     * <code>.mt5_term_api.Error error = 2;</code>
+     * @return Whether the error field is set.
+     */
+    boolean hasError();
+    /**
+     * <code>.mt5_term_api.Error error = 2;</code>
+     * @return The error.
+     */
+    mt5_term_api.MrpcMt5Error.Error getError();
+    /**
+     * <code>.mt5_term_api.Error error = 2;</code>
+     */
+    mt5_term_api.MrpcMt5Error.ErrorOrBuilder getErrorOrBuilder();
+
+    public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.ResponseCase getResponseCase();
+  }
+  /**
+   * Protobuf type {@code mt5_term_api.DealsHistoryReply}
+   */
+  public static final class DealsHistoryReply extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:mt5_term_api.DealsHistoryReply)
+      DealsHistoryReplyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DealsHistoryReply.newBuilder() to construct.
+    private DealsHistoryReply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DealsHistoryReply() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DealsHistoryReply();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DealsHistoryReply(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.Builder subBuilder = null;
+              if (responseCase_ == 1) {
+                subBuilder = ((mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_).toBuilder();
+              }
+              response_ =
+                  input.readMessage(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_);
+                response_ = subBuilder.buildPartial();
+              }
+              responseCase_ = 1;
+              break;
+            }
+            case 18: {
+              mt5_term_api.MrpcMt5Error.Error.Builder subBuilder = null;
+              if (responseCase_ == 2) {
+                subBuilder = ((mt5_term_api.MrpcMt5Error.Error) response_).toBuilder();
+              }
+              response_ =
+                  input.readMessage(mt5_term_api.MrpcMt5Error.Error.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((mt5_term_api.MrpcMt5Error.Error) response_);
+                response_ = subBuilder.buildPartial();
+              }
+              responseCase_ = 2;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryReply_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryReply_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.class, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.Builder.class);
+    }
+
+    private int responseCase_ = 0;
+    private java.lang.Object response_;
+    public enum ResponseCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      DATA(1),
+      ERROR(2),
+      RESPONSE_NOT_SET(0);
+      private final int value;
+      private ResponseCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ResponseCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ResponseCase forNumber(int value) {
+        switch (value) {
+          case 1: return DATA;
+          case 2: return ERROR;
+          case 0: return RESPONSE_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public ResponseCase
+    getResponseCase() {
+      return ResponseCase.forNumber(
+          responseCase_);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 1;
+    /**
+     * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+     * @return Whether the data field is set.
+     */
+    @java.lang.Override
+    public boolean hasData() {
+      return responseCase_ == 1;
+    }
+    /**
+     * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+     * @return The data.
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData getData() {
+      if (responseCase_ == 1) {
+         return (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_;
+      }
+      return mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance();
+    }
+    /**
+     * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryDataOrBuilder getDataOrBuilder() {
+      if (responseCase_ == 1) {
+         return (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_;
+      }
+      return mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance();
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 2;
+    /**
+     * <code>.mt5_term_api.Error error = 2;</code>
+     * @return Whether the error field is set.
+     */
+    @java.lang.Override
+    public boolean hasError() {
+      return responseCase_ == 2;
+    }
+    /**
+     * <code>.mt5_term_api.Error error = 2;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public mt5_term_api.MrpcMt5Error.Error getError() {
+      if (responseCase_ == 2) {
+         return (mt5_term_api.MrpcMt5Error.Error) response_;
+      }
+      return mt5_term_api.MrpcMt5Error.Error.getDefaultInstance();
+    }
+    /**
+     * <code>.mt5_term_api.Error error = 2;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.MrpcMt5Error.ErrorOrBuilder getErrorOrBuilder() {
+      if (responseCase_ == 2) {
+         return (mt5_term_api.MrpcMt5Error.Error) response_;
+      }
+      return mt5_term_api.MrpcMt5Error.Error.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (responseCase_ == 1) {
+        output.writeMessage(1, (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_);
+      }
+      if (responseCase_ == 2) {
+        output.writeMessage(2, (mt5_term_api.MrpcMt5Error.Error) response_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (responseCase_ == 1) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_);
+      }
+      if (responseCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (mt5_term_api.MrpcMt5Error.Error) response_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply)) {
+        return super.equals(obj);
+      }
+      mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply other = (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply) obj;
+
+      if (!getResponseCase().equals(other.getResponseCase())) return false;
+      switch (responseCase_) {
+        case 1:
+          if (!getData()
+              .equals(other.getData())) return false;
+          break;
+        case 2:
+          if (!getError()
+              .equals(other.getError())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      switch (responseCase_) {
+        case 1:
+          hash = (37 * hash) + DATA_FIELD_NUMBER;
+          hash = (53 * hash) + getData().hashCode();
+          break;
+        case 2:
+          hash = (37 * hash) + ERROR_FIELD_NUMBER;
+          hash = (53 * hash) + getError().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code mt5_term_api.DealsHistoryReply}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:mt5_term_api.DealsHistoryReply)
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReplyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryReply_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryReply_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.class, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.Builder.class);
+      }
+
+      // Construct using mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        responseCase_ = 0;
+        response_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryReply_descriptor;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply getDefaultInstanceForType() {
+        return mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply build() {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply buildPartial() {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply result = new mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply(this);
+        if (responseCase_ == 1) {
+          if (dataBuilder_ == null) {
+            result.response_ = response_;
+          } else {
+            result.response_ = dataBuilder_.build();
+          }
+        }
+        if (responseCase_ == 2) {
+          if (errorBuilder_ == null) {
+            result.response_ = response_;
+          } else {
+            result.response_ = errorBuilder_.build();
+          }
+        }
+        result.responseCase_ = responseCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply) {
+          return mergeFrom((mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply other) {
+        if (other == mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.getDefaultInstance()) return this;
+        switch (other.getResponseCase()) {
+          case DATA: {
+            mergeData(other.getData());
+            break;
+          }
+          case ERROR: {
+            mergeError(other.getError());
+            break;
+          }
+          case RESPONSE_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int responseCase_ = 0;
+      private java.lang.Object response_;
+      public ResponseCase
+          getResponseCase() {
+        return ResponseCase.forNumber(
+            responseCase_);
+      }
+
+      public Builder clearResponse() {
+        responseCase_ = 0;
+        response_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.Builder, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryDataOrBuilder> dataBuilder_;
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       * @return Whether the data field is set.
+       */
+      @java.lang.Override
+      public boolean hasData() {
+        return responseCase_ == 1;
+      }
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       * @return The data.
+       */
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData getData() {
+        if (dataBuilder_ == null) {
+          if (responseCase_ == 1) {
+            return (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_;
+          }
+          return mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance();
+        } else {
+          if (responseCase_ == 1) {
+            return dataBuilder_.getMessage();
+          }
+          return mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       */
+      public Builder setData(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          response_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
+        }
+        responseCase_ = 1;
+        return this;
+      }
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       */
+      public Builder setData(
+          mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          response_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
+        }
+        responseCase_ = 1;
+        return this;
+      }
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       */
+      public Builder mergeData(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData value) {
+        if (dataBuilder_ == null) {
+          if (responseCase_ == 1 &&
+              response_ != mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance()) {
+            response_ = mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.newBuilder((mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            response_ = value;
+          }
+          onChanged();
+        } else {
+          if (responseCase_ == 1) {
+            dataBuilder_.mergeFrom(value);
+          } else {
+            dataBuilder_.setMessage(value);
+          }
+        }
+        responseCase_ = 1;
+        return this;
+      }
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          if (responseCase_ == 1) {
+            responseCase_ = 0;
+            response_ = null;
+            onChanged();
+          }
+        } else {
+          if (responseCase_ == 1) {
+            responseCase_ = 0;
+            response_ = null;
+          }
+          dataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       */
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.Builder getDataBuilder() {
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       */
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryDataOrBuilder getDataOrBuilder() {
+        if ((responseCase_ == 1) && (dataBuilder_ != null)) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          if (responseCase_ == 1) {
+            return (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_;
+          }
+          return mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.mt5_term_api.DealsHistoryData data = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.Builder, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryDataOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          if (!(responseCase_ == 1)) {
+            response_ = mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance();
+          }
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.Builder, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryDataOrBuilder>(
+                  (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) response_,
+                  getParentForChildren(),
+                  isClean());
+          response_ = null;
+        }
+        responseCase_ = 1;
+        onChanged();;
+        return dataBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          mt5_term_api.MrpcMt5Error.Error, mt5_term_api.MrpcMt5Error.Error.Builder, mt5_term_api.MrpcMt5Error.ErrorOrBuilder> errorBuilder_;
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       * @return Whether the error field is set.
+       */
+      @java.lang.Override
+      public boolean hasError() {
+        return responseCase_ == 2;
+      }
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       * @return The error.
+       */
+      @java.lang.Override
+      public mt5_term_api.MrpcMt5Error.Error getError() {
+        if (errorBuilder_ == null) {
+          if (responseCase_ == 2) {
+            return (mt5_term_api.MrpcMt5Error.Error) response_;
+          }
+          return mt5_term_api.MrpcMt5Error.Error.getDefaultInstance();
+        } else {
+          if (responseCase_ == 2) {
+            return errorBuilder_.getMessage();
+          }
+          return mt5_term_api.MrpcMt5Error.Error.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       */
+      public Builder setError(mt5_term_api.MrpcMt5Error.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          response_ = value;
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(value);
+        }
+        responseCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       */
+      public Builder setError(
+          mt5_term_api.MrpcMt5Error.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          response_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+        responseCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       */
+      public Builder mergeError(mt5_term_api.MrpcMt5Error.Error value) {
+        if (errorBuilder_ == null) {
+          if (responseCase_ == 2 &&
+              response_ != mt5_term_api.MrpcMt5Error.Error.getDefaultInstance()) {
+            response_ = mt5_term_api.MrpcMt5Error.Error.newBuilder((mt5_term_api.MrpcMt5Error.Error) response_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            response_ = value;
+          }
+          onChanged();
+        } else {
+          if (responseCase_ == 2) {
+            errorBuilder_.mergeFrom(value);
+          } else {
+            errorBuilder_.setMessage(value);
+          }
+        }
+        responseCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          if (responseCase_ == 2) {
+            responseCase_ = 0;
+            response_ = null;
+            onChanged();
+          }
+        } else {
+          if (responseCase_ == 2) {
+            responseCase_ = 0;
+            response_ = null;
+          }
+          errorBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       */
+      public mt5_term_api.MrpcMt5Error.Error.Builder getErrorBuilder() {
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       */
+      @java.lang.Override
+      public mt5_term_api.MrpcMt5Error.ErrorOrBuilder getErrorOrBuilder() {
+        if ((responseCase_ == 2) && (errorBuilder_ != null)) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          if (responseCase_ == 2) {
+            return (mt5_term_api.MrpcMt5Error.Error) response_;
+          }
+          return mt5_term_api.MrpcMt5Error.Error.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.mt5_term_api.Error error = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          mt5_term_api.MrpcMt5Error.Error, mt5_term_api.MrpcMt5Error.Error.Builder, mt5_term_api.MrpcMt5Error.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          if (!(responseCase_ == 2)) {
+            response_ = mt5_term_api.MrpcMt5Error.Error.getDefaultInstance();
+          }
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              mt5_term_api.MrpcMt5Error.Error, mt5_term_api.MrpcMt5Error.Error.Builder, mt5_term_api.MrpcMt5Error.ErrorOrBuilder>(
+                  (mt5_term_api.MrpcMt5Error.Error) response_,
+                  getParentForChildren(),
+                  isClean());
+          response_ = null;
+        }
+        responseCase_ = 2;
+        onChanged();;
+        return errorBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:mt5_term_api.DealsHistoryReply)
+    }
+
+    // @@protoc_insertion_point(class_scope:mt5_term_api.DealsHistoryReply)
+    private static final mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply();
+    }
+
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DealsHistoryReply>
+        PARSER = new com.google.protobuf.AbstractParser<DealsHistoryReply>() {
+      @java.lang.Override
+      public DealsHistoryReply parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DealsHistoryReply(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DealsHistoryReply> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DealsHistoryReply> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DealsHistoryDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:mt5_term_api.DealsHistoryData)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Deals in the whole range (all pages)
+     * </pre>
+     *
+     * <code>int32 arrayTotal = 1;</code>
+     * @return The arrayTotal.
+     */
+    int getArrayTotal();
+
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    java.util.List<mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData> 
+        getDealsList();
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData getDeals(int index);
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    int getDealsCount();
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    java.util.List<? extends mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder> 
+        getDealsOrBuilderList();
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder getDealsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Pass back as page_token for the next page; empty when this was the last page
+     * </pre>
+     *
+     * <code>string next_page_token = 3;</code>
+     * @return The nextPageToken.
+     */
+    java.lang.String getNextPageToken();
+    /**
+     * <pre>
+     * Pass back as page_token for the next page; empty when this was the last page
+     * </pre>
+     *
+     * <code>string next_page_token = 3;</code>
+     * @return The bytes for nextPageToken.
+     */
+    com.google.protobuf.ByteString
+        getNextPageTokenBytes();
+
+    /**
+     * <code>int64 account_login = 4;</code>
+     * @return The accountLogin.
+     */
+    long getAccountLogin();
+  }
+  /**
+   * Protobuf type {@code mt5_term_api.DealsHistoryData}
+   */
+  public static final class DealsHistoryData extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:mt5_term_api.DealsHistoryData)
+      DealsHistoryDataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DealsHistoryData.newBuilder() to construct.
+    private DealsHistoryData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DealsHistoryData() {
+      deals_ = java.util.Collections.emptyList();
+      nextPageToken_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DealsHistoryData();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DealsHistoryData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              arrayTotal_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                deals_ = new java.util.ArrayList<mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              deals_.add(
+                  input.readMessage(mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              nextPageToken_ = s;
+              break;
+            }
+            case 32: {
+
+              accountLogin_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          deals_ = java.util.Collections.unmodifiableList(deals_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryData_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryData_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.class, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.Builder.class);
+    }
+
+    public static final int ARRAYTOTAL_FIELD_NUMBER = 1;
+    private int arrayTotal_;
+    /**
+     * <pre>
+     * Deals in the whole range (all pages)
+     * </pre>
+     *
+     * <code>int32 arrayTotal = 1;</code>
+     * @return The arrayTotal.
+     */
+    @java.lang.Override
+    public int getArrayTotal() {
+      return arrayTotal_;
+    }
+
+    public static final int DEALS_FIELD_NUMBER = 2;
+    private java.util.List<mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData> deals_;
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData> getDealsList() {
+      return deals_;
+    }
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder> 
+        getDealsOrBuilderList() {
+      return deals_;
+    }
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    @java.lang.Override
+    public int getDealsCount() {
+      return deals_.size();
+    }
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData getDeals(int index) {
+      return deals_.get(index);
+    }
+    /**
+     * <pre>
+     * The deals of this page, in the order of inputSortMode
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder getDealsOrBuilder(
+        int index) {
+      return deals_.get(index);
+    }
+
+    public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 3;
+    private volatile java.lang.Object nextPageToken_;
+    /**
+     * <pre>
+     * Pass back as page_token for the next page; empty when this was the last page
+     * </pre>
+     *
+     * <code>string next_page_token = 3;</code>
+     * @return The nextPageToken.
+     */
+    @java.lang.Override
+    public java.lang.String getNextPageToken() {
+      java.lang.Object ref = nextPageToken_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nextPageToken_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Pass back as page_token for the next page; empty when this was the last page
+     * </pre>
+     *
+     * <code>string next_page_token = 3;</code>
+     * @return The bytes for nextPageToken.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNextPageTokenBytes() {
+      java.lang.Object ref = nextPageToken_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nextPageToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNT_LOGIN_FIELD_NUMBER = 4;
+    private long accountLogin_;
+    /**
+     * <code>int64 account_login = 4;</code>
+     * @return The accountLogin.
+     */
+    @java.lang.Override
+    public long getAccountLogin() {
+      return accountLogin_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (arrayTotal_ != 0) {
+        output.writeInt32(1, arrayTotal_);
+      }
+      for (int i = 0; i < deals_.size(); i++) {
+        output.writeMessage(2, deals_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, nextPageToken_);
+      }
+      if (accountLogin_ != 0L) {
+        output.writeInt64(4, accountLogin_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (arrayTotal_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, arrayTotal_);
+      }
+      for (int i = 0; i < deals_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, deals_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, nextPageToken_);
+      }
+      if (accountLogin_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, accountLogin_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData)) {
+        return super.equals(obj);
+      }
+      mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData other = (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) obj;
+
+      if (getArrayTotal()
+          != other.getArrayTotal()) return false;
+      if (!getDealsList()
+          .equals(other.getDealsList())) return false;
+      if (!getNextPageToken()
+          .equals(other.getNextPageToken())) return false;
+      if (getAccountLogin()
+          != other.getAccountLogin()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ARRAYTOTAL_FIELD_NUMBER;
+      hash = (53 * hash) + getArrayTotal();
+      if (getDealsCount() > 0) {
+        hash = (37 * hash) + DEALS_FIELD_NUMBER;
+        hash = (53 * hash) + getDealsList().hashCode();
+      }
+      hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getNextPageToken().hashCode();
+      hash = (37 * hash) + ACCOUNT_LOGIN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getAccountLogin());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code mt5_term_api.DealsHistoryData}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:mt5_term_api.DealsHistoryData)
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryDataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryData_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryData_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.class, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.Builder.class);
+      }
+
+      // Construct using mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDealsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        arrayTotal_ = 0;
+
+        if (dealsBuilder_ == null) {
+          deals_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          dealsBuilder_.clear();
+        }
+        nextPageToken_ = "";
+
+        accountLogin_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return mt5_term_api.Mt5TermApiAccountHelper.internal_static_mt5_term_api_DealsHistoryData_descriptor;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData getDefaultInstanceForType() {
+        return mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData build() {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData buildPartial() {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData result = new mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData(this);
+        int from_bitField0_ = bitField0_;
+        result.arrayTotal_ = arrayTotal_;
+        if (dealsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            deals_ = java.util.Collections.unmodifiableList(deals_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.deals_ = deals_;
+        } else {
+          result.deals_ = dealsBuilder_.build();
+        }
+        result.nextPageToken_ = nextPageToken_;
+        result.accountLogin_ = accountLogin_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) {
+          return mergeFrom((mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData other) {
+        if (other == mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData.getDefaultInstance()) return this;
+        if (other.getArrayTotal() != 0) {
+          setArrayTotal(other.getArrayTotal());
+        }
+        if (dealsBuilder_ == null) {
+          if (!other.deals_.isEmpty()) {
+            if (deals_.isEmpty()) {
+              deals_ = other.deals_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDealsIsMutable();
+              deals_.addAll(other.deals_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.deals_.isEmpty()) {
+            if (dealsBuilder_.isEmpty()) {
+              dealsBuilder_.dispose();
+              dealsBuilder_ = null;
+              deals_ = other.deals_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              dealsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDealsFieldBuilder() : null;
+            } else {
+              dealsBuilder_.addAllMessages(other.deals_);
+            }
+          }
+        }
+        if (!other.getNextPageToken().isEmpty()) {
+          nextPageToken_ = other.nextPageToken_;
+          onChanged();
+        }
+        if (other.getAccountLogin() != 0L) {
+          setAccountLogin(other.getAccountLogin());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int arrayTotal_ ;
+      /**
+       * <pre>
+       * Deals in the whole range (all pages)
+       * </pre>
+       *
+       * <code>int32 arrayTotal = 1;</code>
+       * @return The arrayTotal.
+       */
+      @java.lang.Override
+      public int getArrayTotal() {
+        return arrayTotal_;
+      }
+      /**
+       * <pre>
+       * Deals in the whole range (all pages)
+       * </pre>
+       *
+       * <code>int32 arrayTotal = 1;</code>
+       * @param value The arrayTotal to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArrayTotal(int value) {
+        
+        arrayTotal_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Deals in the whole range (all pages)
+       * </pre>
+       *
+       * <code>int32 arrayTotal = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearArrayTotal() {
+        
+        arrayTotal_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData> deals_ =
+        java.util.Collections.emptyList();
+      private void ensureDealsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          deals_ = new java.util.ArrayList<mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData>(deals_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder> dealsBuilder_;
+
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public java.util.List<mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData> getDealsList() {
+        if (dealsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(deals_);
+        } else {
+          return dealsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public int getDealsCount() {
+        if (dealsBuilder_ == null) {
+          return deals_.size();
+        } else {
+          return dealsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData getDeals(int index) {
+        if (dealsBuilder_ == null) {
+          return deals_.get(index);
+        } else {
+          return dealsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder setDeals(
+          int index, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData value) {
+        if (dealsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDealsIsMutable();
+          deals_.set(index, value);
+          onChanged();
+        } else {
+          dealsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder setDeals(
+          int index, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder builderForValue) {
+        if (dealsBuilder_ == null) {
+          ensureDealsIsMutable();
+          deals_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dealsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder addDeals(mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData value) {
+        if (dealsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDealsIsMutable();
+          deals_.add(value);
+          onChanged();
+        } else {
+          dealsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder addDeals(
+          int index, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData value) {
+        if (dealsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDealsIsMutable();
+          deals_.add(index, value);
+          onChanged();
+        } else {
+          dealsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder addDeals(
+          mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder builderForValue) {
+        if (dealsBuilder_ == null) {
+          ensureDealsIsMutable();
+          deals_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dealsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder addDeals(
+          int index, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder builderForValue) {
+        if (dealsBuilder_ == null) {
+          ensureDealsIsMutable();
+          deals_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dealsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder addAllDeals(
+          java.lang.Iterable<? extends mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData> values) {
+        if (dealsBuilder_ == null) {
+          ensureDealsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, deals_);
+          onChanged();
+        } else {
+          dealsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder clearDeals() {
+        if (dealsBuilder_ == null) {
+          deals_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          dealsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public Builder removeDeals(int index) {
+        if (dealsBuilder_ == null) {
+          ensureDealsIsMutable();
+          deals_.remove(index);
+          onChanged();
+        } else {
+          dealsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder getDealsBuilder(
+          int index) {
+        return getDealsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder getDealsOrBuilder(
+          int index) {
+        if (dealsBuilder_ == null) {
+          return deals_.get(index);  } else {
+          return dealsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public java.util.List<? extends mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder> 
+           getDealsOrBuilderList() {
+        if (dealsBuilder_ != null) {
+          return dealsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(deals_);
+        }
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder addDealsBuilder() {
+        return getDealsFieldBuilder().addBuilder(
+            mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder addDealsBuilder(
+          int index) {
+        return getDealsFieldBuilder().addBuilder(
+            index, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The deals of this page, in the order of inputSortMode
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.DealHistoryData deals = 2;</code>
+       */
+      public java.util.List<mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder> 
+           getDealsBuilderList() {
+        return getDealsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder> 
+          getDealsFieldBuilder() {
+        if (dealsBuilder_ == null) {
+          dealsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryData.Builder, mt5_term_api.Mt5TermApiAccountHelper.DealHistoryDataOrBuilder>(
+                  deals_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          deals_ = null;
+        }
+        return dealsBuilder_;
+      }
+
+      private java.lang.Object nextPageToken_ = "";
+      /**
+       * <pre>
+       * Pass back as page_token for the next page; empty when this was the last page
+       * </pre>
+       *
+       * <code>string next_page_token = 3;</code>
+       * @return The nextPageToken.
+       */
+      public java.lang.String getNextPageToken() {
+        java.lang.Object ref = nextPageToken_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          nextPageToken_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Pass back as page_token for the next page; empty when this was the last page
+       * </pre>
+       *
+       * <code>string next_page_token = 3;</code>
+       * @return The bytes for nextPageToken.
+       */
+      public com.google.protobuf.ByteString
+          getNextPageTokenBytes() {
+        java.lang.Object ref = nextPageToken_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          nextPageToken_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Pass back as page_token for the next page; empty when this was the last page
+       * </pre>
+       *
+       * <code>string next_page_token = 3;</code>
+       * @param value The nextPageToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNextPageToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        nextPageToken_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Pass back as page_token for the next page; empty when this was the last page
+       * </pre>
+       *
+       * <code>string next_page_token = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNextPageToken() {
+        
+        nextPageToken_ = getDefaultInstance().getNextPageToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Pass back as page_token for the next page; empty when this was the last page
+       * </pre>
+       *
+       * <code>string next_page_token = 3;</code>
+       * @param value The bytes for nextPageToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNextPageTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        nextPageToken_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long accountLogin_ ;
+      /**
+       * <code>int64 account_login = 4;</code>
+       * @return The accountLogin.
+       */
+      @java.lang.Override
+      public long getAccountLogin() {
+        return accountLogin_;
+      }
+      /**
+       * <code>int64 account_login = 4;</code>
+       * @param value The accountLogin to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountLogin(long value) {
+        
+        accountLogin_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 account_login = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountLogin() {
+        
+        accountLogin_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:mt5_term_api.DealsHistoryData)
+    }
+
+    // @@protoc_insertion_point(class_scope:mt5_term_api.DealsHistoryData)
+    private static final mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData();
+    }
+
+    public static mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DealsHistoryData>
+        PARSER = new com.google.protobuf.AbstractParser<DealsHistoryData>() {
+      @java.lang.Override
+      public DealsHistoryData parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DealsHistoryData(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DealsHistoryData> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DealsHistoryData> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryData getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface AllHistoryOrdersRequestOrBuilder extends
@@ -42027,6 +46387,26 @@ public final class Mt5TermApiAccountHelper {
      * @return The accountLogin.
      */
     long getAccountLogin();
+
+    /**
+     * <pre>
+     * Order that executed the deal (DEAL_ORDER); 0 for balance, credit, charge, correction, bonus and other non-trade deals
+     * </pre>
+     *
+     * <code>uint64 order = 20;</code>
+     * @return The order.
+     */
+    long getOrder();
+
+    /**
+     * <pre>
+     * Magic number of the order that executed the deal (DEAL_MAGIC)
+     * </pre>
+     *
+     * <code>int64 magic = 21;</code>
+     * @return The magic.
+     */
+    long getMagic();
   }
   /**
    * Protobuf type {@code mt5_term_api.DealHistoryData}
@@ -42194,6 +46574,16 @@ public final class Mt5TermApiAccountHelper {
                 timeUtc_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 160: {
+
+              order_ = input.readUInt64();
+              break;
+            }
+            case 168: {
+
+              magic_ = input.readInt64();
               break;
             }
             default: {
@@ -42586,6 +46976,36 @@ public final class Mt5TermApiAccountHelper {
       return accountLogin_;
     }
 
+    public static final int ORDER_FIELD_NUMBER = 20;
+    private long order_;
+    /**
+     * <pre>
+     * Order that executed the deal (DEAL_ORDER); 0 for balance, credit, charge, correction, bonus and other non-trade deals
+     * </pre>
+     *
+     * <code>uint64 order = 20;</code>
+     * @return The order.
+     */
+    @java.lang.Override
+    public long getOrder() {
+      return order_;
+    }
+
+    public static final int MAGIC_FIELD_NUMBER = 21;
+    private long magic_;
+    /**
+     * <pre>
+     * Magic number of the order that executed the deal (DEAL_MAGIC)
+     * </pre>
+     *
+     * <code>int64 magic = 21;</code>
+     * @return The magic.
+     */
+    @java.lang.Override
+    public long getMagic() {
+      return magic_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -42656,6 +47076,12 @@ public final class Mt5TermApiAccountHelper {
       }
       if (timeUtc_ != null) {
         output.writeMessage(19, getTimeUtc());
+      }
+      if (order_ != 0L) {
+        output.writeUInt64(20, order_);
+      }
+      if (magic_ != 0L) {
+        output.writeInt64(21, magic_);
       }
       unknownFields.writeTo(output);
     }
@@ -42739,6 +47165,14 @@ public final class Mt5TermApiAccountHelper {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(19, getTimeUtc());
       }
+      if (order_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(20, order_);
+      }
+      if (magic_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(21, magic_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -42803,6 +47237,10 @@ public final class Mt5TermApiAccountHelper {
           .equals(other.getExternalId())) return false;
       if (getAccountLogin()
           != other.getAccountLogin()) return false;
+      if (getOrder()
+          != other.getOrder()) return false;
+      if (getMagic()
+          != other.getMagic()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -42867,6 +47305,12 @@ public final class Mt5TermApiAccountHelper {
       hash = (37 * hash) + ACCOUNT_LOGIN_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getAccountLogin());
+      hash = (37 * hash) + ORDER_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getOrder());
+      hash = (37 * hash) + MAGIC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMagic());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -43046,6 +47490,10 @@ public final class Mt5TermApiAccountHelper {
 
         accountLogin_ = 0L;
 
+        order_ = 0L;
+
+        magic_ = 0L;
+
         return this;
       }
 
@@ -43099,6 +47547,8 @@ public final class Mt5TermApiAccountHelper {
         result.symbol_ = symbol_;
         result.externalId_ = externalId_;
         result.accountLogin_ = accountLogin_;
+        result.order_ = order_;
+        result.magic_ = magic_;
         onBuilt();
         return result;
       }
@@ -43206,6 +47656,12 @@ public final class Mt5TermApiAccountHelper {
         }
         if (other.getAccountLogin() != 0L) {
           setAccountLogin(other.getAccountLogin());
+        }
+        if (other.getOrder() != 0L) {
+          setOrder(other.getOrder());
+        }
+        if (other.getMagic() != 0L) {
+          setMagic(other.getMagic());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -44237,6 +48693,92 @@ public final class Mt5TermApiAccountHelper {
       public Builder clearAccountLogin() {
         
         accountLogin_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long order_ ;
+      /**
+       * <pre>
+       * Order that executed the deal (DEAL_ORDER); 0 for balance, credit, charge, correction, bonus and other non-trade deals
+       * </pre>
+       *
+       * <code>uint64 order = 20;</code>
+       * @return The order.
+       */
+      @java.lang.Override
+      public long getOrder() {
+        return order_;
+      }
+      /**
+       * <pre>
+       * Order that executed the deal (DEAL_ORDER); 0 for balance, credit, charge, correction, bonus and other non-trade deals
+       * </pre>
+       *
+       * <code>uint64 order = 20;</code>
+       * @param value The order to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrder(long value) {
+        
+        order_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Order that executed the deal (DEAL_ORDER); 0 for balance, credit, charge, correction, bonus and other non-trade deals
+       * </pre>
+       *
+       * <code>uint64 order = 20;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrder() {
+        
+        order_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long magic_ ;
+      /**
+       * <pre>
+       * Magic number of the order that executed the deal (DEAL_MAGIC)
+       * </pre>
+       *
+       * <code>int64 magic = 21;</code>
+       * @return The magic.
+       */
+      @java.lang.Override
+      public long getMagic() {
+        return magic_;
+      }
+      /**
+       * <pre>
+       * Magic number of the order that executed the deal (DEAL_MAGIC)
+       * </pre>
+       *
+       * <code>int64 magic = 21;</code>
+       * @param value The magic to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMagic(long value) {
+        
+        magic_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Magic number of the order that executed the deal (DEAL_MAGIC)
+       * </pre>
+       *
+       * <code>int64 magic = 21;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMagic() {
+        
+        magic_ = 0L;
         onChanged();
         return this;
       }
@@ -49292,6 +53834,76 @@ public final class Mt5TermApiAccountHelper {
      * @return The serverUtcOffsetSeconds.
      */
     int getServerUtcOffsetSeconds();
+
+    /**
+     * <pre>
+     * Money state and permissions, read by the terminal in the same AccountSummary round trip (no separate AccountInfoDouble /
+     * AccountInfoInteger calls needed). All are 0/false while the account is not connected. One AccountSummary call is one counted read.
+     * </pre>
+     *
+     * <code>double account_margin = 12;</code>
+     * @return The accountMargin.
+     */
+    double getAccountMargin();
+
+    /**
+     * <pre>
+     * Free margin for new positions (ACCOUNT_MARGIN_FREE), account currency.
+     * </pre>
+     *
+     * <code>double account_margin_free = 15;</code>
+     * @return The accountMarginFree.
+     */
+    double getAccountMarginFree();
+
+    /**
+     * <pre>
+     * Margin level in percent, equity / margin * 100 (ACCOUNT_MARGIN_LEVEL); 0 when no margin is used.
+     * </pre>
+     *
+     * <code>double account_margin_level = 16;</code>
+     * @return The accountMarginLevel.
+     */
+    double getAccountMarginLevel();
+
+    /**
+     * <pre>
+     * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+     * </pre>
+     *
+     * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+     * @return The enum numeric value on the wire for accountMarginMode.
+     */
+    int getAccountMarginModeValue();
+    /**
+     * <pre>
+     * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+     * </pre>
+     *
+     * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+     * @return The accountMarginMode.
+     */
+    mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode getAccountMarginMode();
+
+    /**
+     * <pre>
+     * The account may trade (ACCOUNT_TRADE_ALLOWED).
+     * </pre>
+     *
+     * <code>bool account_trade_allowed = 18;</code>
+     * @return The accountTradeAllowed.
+     */
+    boolean getAccountTradeAllowed();
+
+    /**
+     * <pre>
+     * Automated (Expert Advisor / API) trading is allowed for the account (ACCOUNT_TRADE_EXPERT).
+     * </pre>
+     *
+     * <code>bool account_trade_expert = 19;</code>
+     * @return The accountTradeExpert.
+     */
+    boolean getAccountTradeExpert();
   }
   /**
    * Protobuf type {@code mt5_term_api.AccountSummaryData}
@@ -49310,6 +53922,7 @@ public final class Mt5TermApiAccountHelper {
       accountTradeMode_ = 0;
       accountCompanyName_ = "";
       accountCurrency_ = "";
+      accountMarginMode_ = 0;
     }
 
     @java.lang.Override
@@ -49409,6 +54022,11 @@ public final class Mt5TermApiAccountHelper {
               accountCredit_ = input.readDouble();
               break;
             }
+            case 97: {
+
+              accountMargin_ = input.readDouble();
+              break;
+            }
             case 104: {
 
               serverUtcOffsetSeconds_ = input.readInt32();
@@ -49425,6 +54043,32 @@ public final class Mt5TermApiAccountHelper {
                 serverTimeUtc_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 121: {
+
+              accountMarginFree_ = input.readDouble();
+              break;
+            }
+            case 129: {
+
+              accountMarginLevel_ = input.readDouble();
+              break;
+            }
+            case 136: {
+              int rawValue = input.readEnum();
+
+              accountMarginMode_ = rawValue;
+              break;
+            }
+            case 144: {
+
+              accountTradeAllowed_ = input.readBool();
+              break;
+            }
+            case 152: {
+
+              accountTradeExpert_ = input.readBool();
               break;
             }
             default: {
@@ -49745,6 +54389,109 @@ public final class Mt5TermApiAccountHelper {
       return serverUtcOffsetSeconds_;
     }
 
+    public static final int ACCOUNT_MARGIN_FIELD_NUMBER = 12;
+    private double accountMargin_;
+    /**
+     * <pre>
+     * Money state and permissions, read by the terminal in the same AccountSummary round trip (no separate AccountInfoDouble /
+     * AccountInfoInteger calls needed). All are 0/false while the account is not connected. One AccountSummary call is one counted read.
+     * </pre>
+     *
+     * <code>double account_margin = 12;</code>
+     * @return The accountMargin.
+     */
+    @java.lang.Override
+    public double getAccountMargin() {
+      return accountMargin_;
+    }
+
+    public static final int ACCOUNT_MARGIN_FREE_FIELD_NUMBER = 15;
+    private double accountMarginFree_;
+    /**
+     * <pre>
+     * Free margin for new positions (ACCOUNT_MARGIN_FREE), account currency.
+     * </pre>
+     *
+     * <code>double account_margin_free = 15;</code>
+     * @return The accountMarginFree.
+     */
+    @java.lang.Override
+    public double getAccountMarginFree() {
+      return accountMarginFree_;
+    }
+
+    public static final int ACCOUNT_MARGIN_LEVEL_FIELD_NUMBER = 16;
+    private double accountMarginLevel_;
+    /**
+     * <pre>
+     * Margin level in percent, equity / margin * 100 (ACCOUNT_MARGIN_LEVEL); 0 when no margin is used.
+     * </pre>
+     *
+     * <code>double account_margin_level = 16;</code>
+     * @return The accountMarginLevel.
+     */
+    @java.lang.Override
+    public double getAccountMarginLevel() {
+      return accountMarginLevel_;
+    }
+
+    public static final int ACCOUNT_MARGIN_MODE_FIELD_NUMBER = 17;
+    private int accountMarginMode_;
+    /**
+     * <pre>
+     * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+     * </pre>
+     *
+     * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+     * @return The enum numeric value on the wire for accountMarginMode.
+     */
+    @java.lang.Override public int getAccountMarginModeValue() {
+      return accountMarginMode_;
+    }
+    /**
+     * <pre>
+     * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+     * </pre>
+     *
+     * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+     * @return The accountMarginMode.
+     */
+    @java.lang.Override public mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode getAccountMarginMode() {
+      @SuppressWarnings("deprecation")
+      mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode result = mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode.valueOf(accountMarginMode_);
+      return result == null ? mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode.UNRECOGNIZED : result;
+    }
+
+    public static final int ACCOUNT_TRADE_ALLOWED_FIELD_NUMBER = 18;
+    private boolean accountTradeAllowed_;
+    /**
+     * <pre>
+     * The account may trade (ACCOUNT_TRADE_ALLOWED).
+     * </pre>
+     *
+     * <code>bool account_trade_allowed = 18;</code>
+     * @return The accountTradeAllowed.
+     */
+    @java.lang.Override
+    public boolean getAccountTradeAllowed() {
+      return accountTradeAllowed_;
+    }
+
+    public static final int ACCOUNT_TRADE_EXPERT_FIELD_NUMBER = 19;
+    private boolean accountTradeExpert_;
+    /**
+     * <pre>
+     * Automated (Expert Advisor / API) trading is allowed for the account (ACCOUNT_TRADE_EXPERT).
+     * </pre>
+     *
+     * <code>bool account_trade_expert = 19;</code>
+     * @return The accountTradeExpert.
+     */
+    @java.lang.Override
+    public boolean getAccountTradeExpert() {
+      return accountTradeExpert_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -49792,11 +54539,29 @@ public final class Mt5TermApiAccountHelper {
       if (java.lang.Double.doubleToRawLongBits(accountCredit_) != 0) {
         output.writeDouble(11, accountCredit_);
       }
+      if (java.lang.Double.doubleToRawLongBits(accountMargin_) != 0) {
+        output.writeDouble(12, accountMargin_);
+      }
       if (serverUtcOffsetSeconds_ != 0) {
         output.writeInt32(13, serverUtcOffsetSeconds_);
       }
       if (serverTimeUtc_ != null) {
         output.writeMessage(14, getServerTimeUtc());
+      }
+      if (java.lang.Double.doubleToRawLongBits(accountMarginFree_) != 0) {
+        output.writeDouble(15, accountMarginFree_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(accountMarginLevel_) != 0) {
+        output.writeDouble(16, accountMarginLevel_);
+      }
+      if (accountMarginMode_ != mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode.MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTING.getNumber()) {
+        output.writeEnum(17, accountMarginMode_);
+      }
+      if (accountTradeAllowed_ != false) {
+        output.writeBool(18, accountTradeAllowed_);
+      }
+      if (accountTradeExpert_ != false) {
+        output.writeBool(19, accountTradeExpert_);
       }
       unknownFields.writeTo(output);
     }
@@ -49848,6 +54613,10 @@ public final class Mt5TermApiAccountHelper {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(11, accountCredit_);
       }
+      if (java.lang.Double.doubleToRawLongBits(accountMargin_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(12, accountMargin_);
+      }
       if (serverUtcOffsetSeconds_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(13, serverUtcOffsetSeconds_);
@@ -49855,6 +54624,26 @@ public final class Mt5TermApiAccountHelper {
       if (serverTimeUtc_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, getServerTimeUtc());
+      }
+      if (java.lang.Double.doubleToRawLongBits(accountMarginFree_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(15, accountMarginFree_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(accountMarginLevel_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(16, accountMarginLevel_);
+      }
+      if (accountMarginMode_ != mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode.MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTING.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(17, accountMarginMode_);
+      }
+      if (accountTradeAllowed_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(18, accountTradeAllowed_);
+      }
+      if (accountTradeExpert_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(19, accountTradeExpert_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -49905,6 +54694,20 @@ public final class Mt5TermApiAccountHelper {
               other.getAccountCredit())) return false;
       if (getServerUtcOffsetSeconds()
           != other.getServerUtcOffsetSeconds()) return false;
+      if (java.lang.Double.doubleToLongBits(getAccountMargin())
+          != java.lang.Double.doubleToLongBits(
+              other.getAccountMargin())) return false;
+      if (java.lang.Double.doubleToLongBits(getAccountMarginFree())
+          != java.lang.Double.doubleToLongBits(
+              other.getAccountMarginFree())) return false;
+      if (java.lang.Double.doubleToLongBits(getAccountMarginLevel())
+          != java.lang.Double.doubleToLongBits(
+              other.getAccountMarginLevel())) return false;
+      if (accountMarginMode_ != other.accountMarginMode_) return false;
+      if (getAccountTradeAllowed()
+          != other.getAccountTradeAllowed()) return false;
+      if (getAccountTradeExpert()
+          != other.getAccountTradeExpert()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -49952,6 +54755,23 @@ public final class Mt5TermApiAccountHelper {
           java.lang.Double.doubleToLongBits(getAccountCredit()));
       hash = (37 * hash) + SERVER_UTC_OFFSET_SECONDS_FIELD_NUMBER;
       hash = (53 * hash) + getServerUtcOffsetSeconds();
+      hash = (37 * hash) + ACCOUNT_MARGIN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getAccountMargin()));
+      hash = (37 * hash) + ACCOUNT_MARGIN_FREE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getAccountMarginFree()));
+      hash = (37 * hash) + ACCOUNT_MARGIN_LEVEL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getAccountMarginLevel()));
+      hash = (37 * hash) + ACCOUNT_MARGIN_MODE_FIELD_NUMBER;
+      hash = (53 * hash) + accountMarginMode_;
+      hash = (37 * hash) + ACCOUNT_TRADE_ALLOWED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAccountTradeAllowed());
+      hash = (37 * hash) + ACCOUNT_TRADE_EXPERT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAccountTradeExpert());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -50119,6 +54939,18 @@ public final class Mt5TermApiAccountHelper {
 
         serverUtcOffsetSeconds_ = 0;
 
+        accountMargin_ = 0D;
+
+        accountMarginFree_ = 0D;
+
+        accountMarginLevel_ = 0D;
+
+        accountMarginMode_ = 0;
+
+        accountTradeAllowed_ = false;
+
+        accountTradeExpert_ = false;
+
         return this;
       }
 
@@ -50166,6 +54998,12 @@ public final class Mt5TermApiAccountHelper {
         result.utcTimezoneServerTimeShiftMinutes_ = utcTimezoneServerTimeShiftMinutes_;
         result.accountCredit_ = accountCredit_;
         result.serverUtcOffsetSeconds_ = serverUtcOffsetSeconds_;
+        result.accountMargin_ = accountMargin_;
+        result.accountMarginFree_ = accountMarginFree_;
+        result.accountMarginLevel_ = accountMarginLevel_;
+        result.accountMarginMode_ = accountMarginMode_;
+        result.accountTradeAllowed_ = accountTradeAllowed_;
+        result.accountTradeExpert_ = accountTradeExpert_;
         onBuilt();
         return result;
       }
@@ -50255,6 +55093,24 @@ public final class Mt5TermApiAccountHelper {
         }
         if (other.getServerUtcOffsetSeconds() != 0) {
           setServerUtcOffsetSeconds(other.getServerUtcOffsetSeconds());
+        }
+        if (other.getAccountMargin() != 0D) {
+          setAccountMargin(other.getAccountMargin());
+        }
+        if (other.getAccountMarginFree() != 0D) {
+          setAccountMarginFree(other.getAccountMarginFree());
+        }
+        if (other.getAccountMarginLevel() != 0D) {
+          setAccountMarginLevel(other.getAccountMarginLevel());
+        }
+        if (other.accountMarginMode_ != 0) {
+          setAccountMarginModeValue(other.getAccountMarginModeValue());
+        }
+        if (other.getAccountTradeAllowed() != false) {
+          setAccountTradeAllowed(other.getAccountTradeAllowed());
+        }
+        if (other.getAccountTradeExpert() != false) {
+          setAccountTradeExpert(other.getAccountTradeExpert());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -51084,6 +55940,298 @@ public final class Mt5TermApiAccountHelper {
       public Builder clearServerUtcOffsetSeconds() {
         
         serverUtcOffsetSeconds_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double accountMargin_ ;
+      /**
+       * <pre>
+       * Money state and permissions, read by the terminal in the same AccountSummary round trip (no separate AccountInfoDouble /
+       * AccountInfoInteger calls needed). All are 0/false while the account is not connected. One AccountSummary call is one counted read.
+       * </pre>
+       *
+       * <code>double account_margin = 12;</code>
+       * @return The accountMargin.
+       */
+      @java.lang.Override
+      public double getAccountMargin() {
+        return accountMargin_;
+      }
+      /**
+       * <pre>
+       * Money state and permissions, read by the terminal in the same AccountSummary round trip (no separate AccountInfoDouble /
+       * AccountInfoInteger calls needed). All are 0/false while the account is not connected. One AccountSummary call is one counted read.
+       * </pre>
+       *
+       * <code>double account_margin = 12;</code>
+       * @param value The accountMargin to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountMargin(double value) {
+        
+        accountMargin_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Money state and permissions, read by the terminal in the same AccountSummary round trip (no separate AccountInfoDouble /
+       * AccountInfoInteger calls needed). All are 0/false while the account is not connected. One AccountSummary call is one counted read.
+       * </pre>
+       *
+       * <code>double account_margin = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountMargin() {
+        
+        accountMargin_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double accountMarginFree_ ;
+      /**
+       * <pre>
+       * Free margin for new positions (ACCOUNT_MARGIN_FREE), account currency.
+       * </pre>
+       *
+       * <code>double account_margin_free = 15;</code>
+       * @return The accountMarginFree.
+       */
+      @java.lang.Override
+      public double getAccountMarginFree() {
+        return accountMarginFree_;
+      }
+      /**
+       * <pre>
+       * Free margin for new positions (ACCOUNT_MARGIN_FREE), account currency.
+       * </pre>
+       *
+       * <code>double account_margin_free = 15;</code>
+       * @param value The accountMarginFree to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountMarginFree(double value) {
+        
+        accountMarginFree_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Free margin for new positions (ACCOUNT_MARGIN_FREE), account currency.
+       * </pre>
+       *
+       * <code>double account_margin_free = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountMarginFree() {
+        
+        accountMarginFree_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double accountMarginLevel_ ;
+      /**
+       * <pre>
+       * Margin level in percent, equity / margin * 100 (ACCOUNT_MARGIN_LEVEL); 0 when no margin is used.
+       * </pre>
+       *
+       * <code>double account_margin_level = 16;</code>
+       * @return The accountMarginLevel.
+       */
+      @java.lang.Override
+      public double getAccountMarginLevel() {
+        return accountMarginLevel_;
+      }
+      /**
+       * <pre>
+       * Margin level in percent, equity / margin * 100 (ACCOUNT_MARGIN_LEVEL); 0 when no margin is used.
+       * </pre>
+       *
+       * <code>double account_margin_level = 16;</code>
+       * @param value The accountMarginLevel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountMarginLevel(double value) {
+        
+        accountMarginLevel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Margin level in percent, equity / margin * 100 (ACCOUNT_MARGIN_LEVEL); 0 when no margin is used.
+       * </pre>
+       *
+       * <code>double account_margin_level = 16;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountMarginLevel() {
+        
+        accountMarginLevel_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private int accountMarginMode_ = 0;
+      /**
+       * <pre>
+       * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+       * </pre>
+       *
+       * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+       * @return The enum numeric value on the wire for accountMarginMode.
+       */
+      @java.lang.Override public int getAccountMarginModeValue() {
+        return accountMarginMode_;
+      }
+      /**
+       * <pre>
+       * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+       * </pre>
+       *
+       * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+       * @param value The enum numeric value on the wire for accountMarginMode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountMarginModeValue(int value) {
+        
+        accountMarginMode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+       * </pre>
+       *
+       * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+       * @return The accountMarginMode.
+       */
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode getAccountMarginMode() {
+        @SuppressWarnings("deprecation")
+        mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode result = mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode.valueOf(accountMarginMode_);
+        return result == null ? mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+       * </pre>
+       *
+       * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+       * @param value The accountMarginMode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountMarginMode(mt5_term_api.Mt5TermApiAccountHelper.MrpcEnumAccountMarginMode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        accountMarginMode_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Netting, exchange or hedging (ACCOUNT_MARGIN_MODE).
+       * </pre>
+       *
+       * <code>.mt5_term_api.MrpcEnumAccountMarginMode account_margin_mode = 17;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountMarginMode() {
+        
+        accountMarginMode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean accountTradeAllowed_ ;
+      /**
+       * <pre>
+       * The account may trade (ACCOUNT_TRADE_ALLOWED).
+       * </pre>
+       *
+       * <code>bool account_trade_allowed = 18;</code>
+       * @return The accountTradeAllowed.
+       */
+      @java.lang.Override
+      public boolean getAccountTradeAllowed() {
+        return accountTradeAllowed_;
+      }
+      /**
+       * <pre>
+       * The account may trade (ACCOUNT_TRADE_ALLOWED).
+       * </pre>
+       *
+       * <code>bool account_trade_allowed = 18;</code>
+       * @param value The accountTradeAllowed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountTradeAllowed(boolean value) {
+        
+        accountTradeAllowed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The account may trade (ACCOUNT_TRADE_ALLOWED).
+       * </pre>
+       *
+       * <code>bool account_trade_allowed = 18;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountTradeAllowed() {
+        
+        accountTradeAllowed_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean accountTradeExpert_ ;
+      /**
+       * <pre>
+       * Automated (Expert Advisor / API) trading is allowed for the account (ACCOUNT_TRADE_EXPERT).
+       * </pre>
+       *
+       * <code>bool account_trade_expert = 19;</code>
+       * @return The accountTradeExpert.
+       */
+      @java.lang.Override
+      public boolean getAccountTradeExpert() {
+        return accountTradeExpert_;
+      }
+      /**
+       * <pre>
+       * Automated (Expert Advisor / API) trading is allowed for the account (ACCOUNT_TRADE_EXPERT).
+       * </pre>
+       *
+       * <code>bool account_trade_expert = 19;</code>
+       * @param value The accountTradeExpert to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountTradeExpert(boolean value) {
+        
+        accountTradeExpert_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Automated (Expert Advisor / API) trading is allowed for the account (ACCOUNT_TRADE_EXPERT).
+       * </pre>
+       *
+       * <code>bool account_trade_expert = 19;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountTradeExpert() {
+        
+        accountTradeExpert_ = false;
         onChanged();
         return this;
       }
@@ -65798,6 +70946,21 @@ public final class Mt5TermApiAccountHelper {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mt5_term_api_DealsHistoryRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mt5_term_api_DealsHistoryRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mt5_term_api_DealsHistoryReply_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mt5_term_api_DealsHistoryReply_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mt5_term_api_DealsHistoryData_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mt5_term_api_DealsHistoryData_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mt5_term_api_AllHistoryOrdersRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -65974,630 +71137,662 @@ public final class Mt5TermApiAccountHelper {
       "\n!mt5-term-api-account-helper.proto\022\014mt5" +
       "_term_api\032\037google/protobuf/timestamp.pro" +
       "to\032\034google/api/annotations.proto\032\024mrpc-m" +
-      "t5-error.proto\"\350\003\n\027AllHistoryOrdersReque" +
-      "st\022F\n\rinputSortMode\030\001 \001(\0162/.mt5_term_api" +
-      ".BMT5_ENUM_ORDER_HISTORY_SORT_TYPE\0222\n\tin" +
-      "putFrom\030\002 \001(\0132\032.google.protobuf.Timestam" +
-      "pH\000\210\001\001\0225\n\014inputFromUtc\030\010 \001(\0132\032.google.pr" +
-      "otobuf.TimestampH\001\210\001\001\0220\n\007inputTo\030\003 \001(\0132\032" +
-      ".google.protobuf.TimestampH\002\210\001\001\0223\n\ninput" +
-      "ToUtc\030\t \001(\0132\032.google.protobuf.TimestampH" +
-      "\003\210\001\001\022\027\n\npageNumber\030\004 \001(\005H\004\210\001\001\022\031\n\014itemsPe" +
-      "rPage\030\005 \001(\005H\005\210\001\001\022\022\n\npage_token\030\006 \001(\t\022\021\n\t" +
-      "page_size\030\007 \001(\005B\014\n\n_inputFromB\017\n\r_inputF" +
-      "romUtcB\n\n\010_inputToB\r\n\013_inputToUtcB\r\n\013_pa" +
-      "geNumberB\017\n\r_itemsPerPage\"}\n\025AllHistoryO" +
-      "rdersReply\0222\n\004data\030\001 \001(\0132\".mt5_term_api." +
-      "AllHistoryOrdersDataH\000\022$\n\005error\030\002 \001(\0132\023." +
-      "mt5_term_api.ErrorH\000B\n\n\010response\"\245\001\n\024All" +
-      "HistoryOrdersData\022\022\n\narrayTotal\030\001 \001(\005\022\022\n" +
-      "\npageNumber\030\002 \001(\005\022\024\n\014itemsPerPage\030\003 \001(\005\022" +
-      "6\n\016history_orders\030\004 \003(\0132\036.mt5_term_api.H" +
-      "istoryOrderInfo\022\027\n\017next_page_token\030\005 \001(\t" +
-      "\"\337\006\n\020HistoryOrderInfo\022\024\n\014record_index\030\001 " +
-      "\001(\005\022\016\n\006ticket\030\002 \001(\004\022.\n\ntime_setup\030\003 \001(\0132" +
-      "\032.google.protobuf.Timestamp\0222\n\016time_setu" +
-      "p_utc\030\027 \001(\0132\032.google.protobuf.Timestamp\022" +
-      "0\n\004type\030\004 \001(\0162\".mt5_term_api.BMT5_ENUM_O" +
-      "RDER_TYPE\0222\n\005state\030\005 \001(\0162#.mt5_term_api." +
-      "BMT5_ENUM_ORDER_STATE\022-\n\ttime_done\030\006 \001(\013" +
+      "t5-error.proto\"\302\002\n\023DealsHistoryRequest\022-" +
+      "\n\tinputFrom\030\001 \001(\0132\032.google.protobuf.Time" +
+      "stamp\0220\n\014inputFromUtc\030\010 \001(\0132\032.google.pro" +
+      "tobuf.Timestamp\022+\n\007inputTo\030\002 \001(\0132\032.googl" +
+      "e.protobuf.Timestamp\022.\n\ninputToUtc\030\t \001(\013" +
+      "2\032.google.protobuf.Timestamp\022F\n\rinputSor" +
+      "tMode\030\003 \001(\0162/.mt5_term_api.BMT5_ENUM_DEA" +
+      "LS_HISTORY_SORT_TYPE\022\022\n\npage_token\030\004 \001(\t" +
+      "\022\021\n\tpage_size\030\005 \001(\005\"u\n\021DealsHistoryReply" +
+      "\022.\n\004data\030\001 \001(\0132\036.mt5_term_api.DealsHisto" +
+      "ryDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.E" +
+      "rrorH\000B\n\n\010response\"\204\001\n\020DealsHistoryData\022" +
+      "\022\n\narrayTotal\030\001 \001(\005\022,\n\005deals\030\002 \003(\0132\035.mt5" +
+      "_term_api.DealHistoryData\022\027\n\017next_page_t" +
+      "oken\030\003 \001(\t\022\025\n\raccount_login\030\004 \001(\003\"\350\003\n\027Al" +
+      "lHistoryOrdersRequest\022F\n\rinputSortMode\030\001" +
+      " \001(\0162/.mt5_term_api.BMT5_ENUM_ORDER_HIST" +
+      "ORY_SORT_TYPE\0222\n\tinputFrom\030\002 \001(\0132\032.googl" +
+      "e.protobuf.TimestampH\000\210\001\001\0225\n\014inputFromUt" +
+      "c\030\010 \001(\0132\032.google.protobuf.TimestampH\001\210\001\001" +
+      "\0220\n\007inputTo\030\003 \001(\0132\032.google.protobuf.Time" +
+      "stampH\002\210\001\001\0223\n\ninputToUtc\030\t \001(\0132\032.google." +
+      "protobuf.TimestampH\003\210\001\001\022\027\n\npageNumber\030\004 " +
+      "\001(\005H\004\210\001\001\022\031\n\014itemsPerPage\030\005 \001(\005H\005\210\001\001\022\022\n\np" +
+      "age_token\030\006 \001(\t\022\021\n\tpage_size\030\007 \001(\005B\014\n\n_i" +
+      "nputFromB\017\n\r_inputFromUtcB\n\n\010_inputToB\r\n" +
+      "\013_inputToUtcB\r\n\013_pageNumberB\017\n\r_itemsPer" +
+      "Page\"}\n\025AllHistoryOrdersReply\0222\n\004data\030\001 " +
+      "\001(\0132\".mt5_term_api.AllHistoryOrdersDataH" +
+      "\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B" +
+      "\n\n\010response\"\245\001\n\024AllHistoryOrdersData\022\022\n\n" +
+      "arrayTotal\030\001 \001(\005\022\022\n\npageNumber\030\002 \001(\005\022\024\n\014" +
+      "itemsPerPage\030\003 \001(\005\0226\n\016history_orders\030\004 \003" +
+      "(\0132\036.mt5_term_api.HistoryOrderInfo\022\027\n\017ne" +
+      "xt_page_token\030\005 \001(\t\"\337\006\n\020HistoryOrderInfo" +
+      "\022\024\n\014record_index\030\001 \001(\005\022\016\n\006ticket\030\002 \001(\004\022." +
+      "\n\ntime_setup\030\003 \001(\0132\032.google.protobuf.Tim" +
+      "estamp\0222\n\016time_setup_utc\030\027 \001(\0132\032.google." +
+      "protobuf.Timestamp\0220\n\004type\030\004 \001(\0162\".mt5_t" +
+      "erm_api.BMT5_ENUM_ORDER_TYPE\0222\n\005state\030\005 " +
+      "\001(\0162#.mt5_term_api.BMT5_ENUM_ORDER_STATE" +
+      "\022-\n\ttime_done\030\006 \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\0221\n\rtime_done_utc\030\030 \001(\0132\032.google." +
+      "protobuf.Timestamp\022E\n\024expiration_time_ty" +
+      "pe\030\007 \001(\0162\'.mt5_term_api.BMT5_ENUM_ORDER_" +
+      "TYPE_TIME\0223\n\017expiration_time\030\010 \001(\0132\032.goo" +
+      "gle.protobuf.Timestamp\0227\n\023expiration_tim" +
+      "e_utc\030\031 \001(\0132\032.google.protobuf.Timestamp\022" +
+      "@\n\014filling_type\030\t \001(\0162*.mt5_term_api.BMT" +
+      "5_ENUM_ORDER_TYPE_FILLING\022\r\n\005magic\030\n \001(\003" +
+      "\022\023\n\013position_id\030\013 \001(\003\022\026\n\016position_by_id\030" +
+      "\014 \001(\003\022\026\n\016volume_initial\030\r \001(\001\022\026\n\016volume_" +
+      "current\030\016 \001(\001\022\022\n\nprice_open\030\017 \001(\001\022\n\n\002sl\030" +
+      "\020 \001(\001\022\n\n\002tp\030\021 \001(\001\022\025\n\rprice_current\030\022 \001(\001" +
+      "\022\022\n\nstop_limit\030\023 \001(\001\022\016\n\006symbol\030\024 \001(\t\022\017\n\007" +
+      "comment\030\025 \001(\t\022\036\n\026order_external_id_name\030" +
+      "\026 \001(\t\"\340\004\n\027PositionsHistoryRequest\022D\n\tsor" +
+      "t_type\030\001 \001(\01621.mt5_term_api.AH_ENUM_POSI" +
+      "TIONS_HISTORY_SORT_TYPE\022@\n\027position_open" +
+      "_time_from\030\002 \001(\0132\032.google.protobuf.Times" +
+      "tampH\000\210\001\001\022D\n\033position_open_time_from_utc" +
+      "\030\010 \001(\0132\032.google.protobuf.TimestampH\001\210\001\001\022" +
+      ">\n\025position_open_time_to\030\003 \001(\0132\032.google." +
+      "protobuf.TimestampH\002\210\001\001\022B\n\031position_open" +
+      "_time_to_utc\030\t \001(\0132\032.google.protobuf.Tim" +
+      "estampH\003\210\001\001\022\030\n\013page_number\030\004 \001(\005H\004\210\001\001\022\033\n" +
+      "\016items_per_page\030\005 \001(\005H\005\210\001\001\022\022\n\npage_token" +
+      "\030\006 \001(\t\022\021\n\tpage_size\030\007 \001(\005B\032\n\030_position_o" +
+      "pen_time_fromB\036\n\034_position_open_time_fro" +
+      "m_utcB\030\n\026_position_open_time_toB\034\n\032_posi" +
+      "tion_open_time_to_utcB\016\n\014_page_numberB\021\n" +
+      "\017_items_per_page\"}\n\025PositionsHistoryRepl" +
+      "y\0222\n\004data\030\001 \001(\0132\".mt5_term_api.Positions" +
+      "HistoryDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_" +
+      "api.ErrorH\000B\n\n\010response\"\202\001\n\024PositionsHis" +
+      "toryData\022<\n\021history_positions\030\001 \003(\0132!.mt" +
+      "5_term_api.PositionHistoryInfo\022\023\n\013total_" +
+      "count\030\002 \001(\005\022\027\n\017next_page_token\030\003 \001(\t\"\261\004\n" +
+      "\023PositionHistoryInfo\022\r\n\005index\030\001 \001(\005\022\027\n\017p" +
+      "osition_ticket\030\002 \001(\004\022F\n\norder_type\030\003 \001(\016" +
+      "22.mt5_term_api.AH_ENUM_POSITIONS_HISTOR" +
+      "Y_ORDER_TYPE\022-\n\topen_time\030\004 \001(\0132\032.google" +
+      ".protobuf.Timestamp\0221\n\ropen_time_utc\030\023 \001" +
+      "(\0132\032.google.protobuf.Timestamp\022.\n\nclose_" +
+      "time\030\005 \001(\0132\032.google.protobuf.Timestamp\0222" +
+      "\n\016close_time_utc\030\024 \001(\0132\032.google.protobuf" +
+      ".Timestamp\022\016\n\006volume\030\006 \001(\001\022\022\n\nopen_price" +
+      "\030\007 \001(\001\022\023\n\013close_price\030\010 \001(\001\022\021\n\tstop_loss" +
+      "\030\t \001(\001\022\023\n\013take_profit\030\n \001(\001\022\024\n\014market_va" +
+      "lue\030\013 \001(\001\022\022\n\ncommission\030\014 \001(\001\022\013\n\003fee\030\r \001" +
+      "(\001\022\016\n\006profit\030\016 \001(\001\022\014\n\004swap\030\017 \001(\001\022\017\n\007comm" +
+      "ent\030\020 \001(\t\022\016\n\006symbol\030\021 \001(\t\022\r\n\005magic\030\022 \001(\003" +
+      "\"0\n\030TickValueWithSizeRequest\022\024\n\014symbol_n" +
+      "ames\030\001 \003(\t\"o\n\026TickValueWithSizeReply\0221\n\004" +
+      "data\030\001 \001(\0132#.mt5_term_api.TickValueWithS" +
+      "izeData\022\"\n\005error\030\002 \001(\0132\023.mt5_term_api.Er" +
+      "ror\"U\n\025TickValueWithSizeData\022<\n\026symbol_t" +
+      "ick_size_infos\030\001 \003(\0132\034.mt5_term_api.Tick" +
+      "SizeSymbol\"\261\001\n\016TickSizeSymbol\022\r\n\005Index\030\001" +
+      " \001(\005\022\014\n\004Name\030\002 \001(\t\022\026\n\016TradeTickValue\030\003 \001" +
+      "(\001\022\034\n\024TradeTickValueProfit\030\004 \001(\001\022\032\n\022Trad" +
+      "eTickValueLoss\030\005 \001(\001\022\025\n\rTradeTickSize\030\006 " +
+      "\001(\001\022\031\n\021TradeContractSize\030\007 \001(\001\"\034\n\032Opened" +
+      "OrdersTicketsRequest\"\203\001\n\030OpenedOrdersTic" +
+      "ketsReply\0225\n\004data\030\001 \001(\0132%.mt5_term_api.O" +
+      "penedOrdersTicketsDataH\000\022$\n\005error\030\002 \001(\0132" +
+      "\023.mt5_term_api.ErrorH\000B\n\n\010response\"Y\n\027Op" +
+      "enedOrdersTicketsData\022\035\n\025opened_orders_t" +
+      "ickets\030\001 \003(\003\022\037\n\027opened_position_tickets\030" +
+      "\002 \003(\003\"\\\n\023OpenedOrdersRequest\022E\n\rinputSor" +
+      "tMode\030\001 \001(\0162..mt5_term_api.BMT5_ENUM_OPE" +
+      "NED_ORDER_SORT_TYPE\"u\n\021OpenedOrdersReply" +
+      "\022.\n\004data\030\001 \001(\0132\036.mt5_term_api.OpenedOrde" +
+      "rsDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.E" +
+      "rrorH\000B\n\n\010response\"|\n\020OpenedOrdersData\0224" +
+      "\n\ropened_orders\030\001 \003(\0132\035.mt5_term_api.Ope" +
+      "nedOrderInfo\0222\n\016position_infos\030\002 \003(\0132\032.m" +
+      "t5_term_api.PositionInfo\"\202\005\n\014PositionInf" +
+      "o\022\r\n\005index\030\001 \001(\r\022\016\n\006ticket\030\002 \001(\004\022-\n\topen" +
+      "_time\030\003 \001(\0132\032.google.protobuf.Timestamp\022" +
+      "1\n\ropen_time_utc\030\025 \001(\0132\032.google.protobuf" +
+      ".Timestamp\022\016\n\006volume\030\004 \001(\001\022\022\n\nprice_open" +
+      "\030\005 \001(\001\022\021\n\tstop_loss\030\006 \001(\001\022\023\n\013take_profit" +
+      "\030\007 \001(\001\022\025\n\rprice_current\030\010 \001(\001\022\014\n\004swap\030\t " +
+      "\001(\001\022\016\n\006profit\030\n \001(\001\0224\n\020last_update_time\030" +
+      "\013 \001(\0132\032.google.protobuf.Timestamp\0228\n\024las" +
+      "t_update_time_utc\030\026 \001(\0132\032.google.protobu" +
+      "f.Timestamp\0223\n\004type\030\014 \001(\0162%.mt5_term_api" +
+      ".BMT5_ENUM_POSITION_TYPE\022\024\n\014magic_number" +
+      "\030\r \001(\003\022\022\n\nidentifier\030\016 \001(\003\0227\n\006reason\030\017 \001" +
+      "(\0162\'.mt5_term_api.BMT5_ENUM_POSITION_REA" +
+      "SON\022\016\n\006symbol\030\020 \001(\t\022\017\n\007comment\030\021 \001(\t\022\023\n\013" +
+      "external_id\030\022 \001(\t\022\033\n\023position_commission" +
+      "\030\023 \001(\001\022\025\n\raccount_login\030\024 \001(\003\"\377\006\n\017Opened" +
+      "OrderInfo\022\r\n\005index\030\001 \001(\r\022\016\n\006ticket\030\002 \001(\004" +
+      "\022\025\n\rprice_current\030\003 \001(\001\022\022\n\nprice_open\030\004 " +
+      "\001(\001\022\022\n\nstop_limit\030\005 \001(\001\022\021\n\tstop_loss\030\006 \001" +
+      "(\001\022\023\n\013take_profit\030\007 \001(\001\022\026\n\016volume_curren" +
+      "t\030\010 \001(\001\022\026\n\016volume_initial\030\t \001(\001\022\024\n\014magic" +
+      "_number\030\n \001(\003\022\016\n\006reason\030\013 \001(\005\0220\n\004type\030\014 " +
+      "\001(\0162\".mt5_term_api.BMT5_ENUM_ORDER_TYPE\022" +
+      "2\n\005state\030\r \001(\0162#.mt5_term_api.BMT5_ENUM_" +
+      "ORDER_STATE\0223\n\017time_expiration\030\016 \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\0227\n\023time_expirat" +
+      "ion_utc\030\031 \001(\0132\032.google.protobuf.Timestam" +
+      "p\022.\n\ntime_setup\030\017 \001(\0132\032.google.protobuf." +
+      "Timestamp\0222\n\016time_setup_utc\030\032 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022-\n\ttime_done\030\020 \001(\013" +
       "2\032.google.protobuf.Timestamp\0221\n\rtime_don" +
-      "e_utc\030\030 \001(\0132\032.google.protobuf.Timestamp\022" +
-      "E\n\024expiration_time_type\030\007 \001(\0162\'.mt5_term" +
-      "_api.BMT5_ENUM_ORDER_TYPE_TIME\0223\n\017expira" +
-      "tion_time\030\010 \001(\0132\032.google.protobuf.Timest" +
-      "amp\0227\n\023expiration_time_utc\030\031 \001(\0132\032.googl" +
-      "e.protobuf.Timestamp\022@\n\014filling_type\030\t \001" +
-      "(\0162*.mt5_term_api.BMT5_ENUM_ORDER_TYPE_F" +
-      "ILLING\022\r\n\005magic\030\n \001(\003\022\023\n\013position_id\030\013 \001" +
-      "(\003\022\026\n\016position_by_id\030\014 \001(\003\022\026\n\016volume_ini" +
-      "tial\030\r \001(\001\022\026\n\016volume_current\030\016 \001(\001\022\022\n\npr" +
-      "ice_open\030\017 \001(\001\022\n\n\002sl\030\020 \001(\001\022\n\n\002tp\030\021 \001(\001\022\025" +
-      "\n\rprice_current\030\022 \001(\001\022\022\n\nstop_limit\030\023 \001(" +
-      "\001\022\016\n\006symbol\030\024 \001(\t\022\017\n\007comment\030\025 \001(\t\022\036\n\026or" +
-      "der_external_id_name\030\026 \001(\t\"\340\004\n\027Positions" +
-      "HistoryRequest\022D\n\tsort_type\030\001 \001(\01621.mt5_" +
-      "term_api.AH_ENUM_POSITIONS_HISTORY_SORT_" +
-      "TYPE\022@\n\027position_open_time_from\030\002 \001(\0132\032." +
-      "google.protobuf.TimestampH\000\210\001\001\022D\n\033positi" +
-      "on_open_time_from_utc\030\010 \001(\0132\032.google.pro" +
-      "tobuf.TimestampH\001\210\001\001\022>\n\025position_open_ti" +
-      "me_to\030\003 \001(\0132\032.google.protobuf.TimestampH" +
-      "\002\210\001\001\022B\n\031position_open_time_to_utc\030\t \001(\0132" +
-      "\032.google.protobuf.TimestampH\003\210\001\001\022\030\n\013page" +
-      "_number\030\004 \001(\005H\004\210\001\001\022\033\n\016items_per_page\030\005 \001" +
-      "(\005H\005\210\001\001\022\022\n\npage_token\030\006 \001(\t\022\021\n\tpage_size" +
-      "\030\007 \001(\005B\032\n\030_position_open_time_fromB\036\n\034_p" +
-      "osition_open_time_from_utcB\030\n\026_position_" +
-      "open_time_toB\034\n\032_position_open_time_to_u" +
-      "tcB\016\n\014_page_numberB\021\n\017_items_per_page\"}\n" +
-      "\025PositionsHistoryReply\0222\n\004data\030\001 \001(\0132\".m" +
-      "t5_term_api.PositionsHistoryDataH\000\022$\n\005er" +
-      "ror\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010resp" +
-      "onse\"\202\001\n\024PositionsHistoryData\022<\n\021history" +
-      "_positions\030\001 \003(\0132!.mt5_term_api.Position" +
-      "HistoryInfo\022\023\n\013total_count\030\002 \001(\005\022\027\n\017next" +
-      "_page_token\030\003 \001(\t\"\261\004\n\023PositionHistoryInf" +
-      "o\022\r\n\005index\030\001 \001(\005\022\027\n\017position_ticket\030\002 \001(" +
-      "\004\022F\n\norder_type\030\003 \001(\01622.mt5_term_api.AH_" +
-      "ENUM_POSITIONS_HISTORY_ORDER_TYPE\022-\n\tope" +
-      "n_time\030\004 \001(\0132\032.google.protobuf.Timestamp" +
-      "\0221\n\ropen_time_utc\030\023 \001(\0132\032.google.protobu" +
-      "f.Timestamp\022.\n\nclose_time\030\005 \001(\0132\032.google" +
-      ".protobuf.Timestamp\0222\n\016close_time_utc\030\024 " +
-      "\001(\0132\032.google.protobuf.Timestamp\022\016\n\006volum" +
-      "e\030\006 \001(\001\022\022\n\nopen_price\030\007 \001(\001\022\023\n\013close_pri" +
-      "ce\030\010 \001(\001\022\021\n\tstop_loss\030\t \001(\001\022\023\n\013take_prof" +
-      "it\030\n \001(\001\022\024\n\014market_value\030\013 \001(\001\022\022\n\ncommis" +
-      "sion\030\014 \001(\001\022\013\n\003fee\030\r \001(\001\022\016\n\006profit\030\016 \001(\001\022" +
-      "\014\n\004swap\030\017 \001(\001\022\017\n\007comment\030\020 \001(\t\022\016\n\006symbol" +
-      "\030\021 \001(\t\022\r\n\005magic\030\022 \001(\003\"0\n\030TickValueWithSi" +
-      "zeRequest\022\024\n\014symbol_names\030\001 \003(\t\"o\n\026TickV" +
-      "alueWithSizeReply\0221\n\004data\030\001 \001(\0132#.mt5_te" +
-      "rm_api.TickValueWithSizeData\022\"\n\005error\030\002 " +
-      "\001(\0132\023.mt5_term_api.Error\"U\n\025TickValueWit" +
-      "hSizeData\022<\n\026symbol_tick_size_infos\030\001 \003(" +
-      "\0132\034.mt5_term_api.TickSizeSymbol\"\261\001\n\016Tick" +
-      "SizeSymbol\022\r\n\005Index\030\001 \001(\005\022\014\n\004Name\030\002 \001(\t\022" +
-      "\026\n\016TradeTickValue\030\003 \001(\001\022\034\n\024TradeTickValu" +
-      "eProfit\030\004 \001(\001\022\032\n\022TradeTickValueLoss\030\005 \001(" +
-      "\001\022\025\n\rTradeTickSize\030\006 \001(\001\022\031\n\021TradeContrac" +
-      "tSize\030\007 \001(\001\"\034\n\032OpenedOrdersTicketsReques" +
-      "t\"\203\001\n\030OpenedOrdersTicketsReply\0225\n\004data\030\001" +
-      " \001(\0132%.mt5_term_api.OpenedOrdersTicketsD" +
-      "ataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.Erro" +
-      "rH\000B\n\n\010response\"Y\n\027OpenedOrdersTicketsDa" +
-      "ta\022\035\n\025opened_orders_tickets\030\001 \003(\003\022\037\n\027ope" +
-      "ned_position_tickets\030\002 \003(\003\"\\\n\023OpenedOrde" +
-      "rsRequest\022E\n\rinputSortMode\030\001 \001(\0162..mt5_t" +
-      "erm_api.BMT5_ENUM_OPENED_ORDER_SORT_TYPE" +
-      "\"u\n\021OpenedOrdersReply\022.\n\004data\030\001 \001(\0132\036.mt" +
-      "5_term_api.OpenedOrdersDataH\000\022$\n\005error\030\002" +
+      "e_utc\030\033 \001(\0132\032.google.protobuf.Timestamp\022" +
+      "@\n\014type_filling\030\021 \001(\0162*.mt5_term_api.BMT" +
+      "5_ENUM_ORDER_TYPE_FILLING\022:\n\ttype_time\030\022" +
+      " \001(\0162\'.mt5_term_api.BMT5_ENUM_ORDER_TYPE" +
+      "_TIME\022\023\n\013position_id\030\023 \001(\003\022\026\n\016position_b" +
+      "y_id\030\024 \001(\003\022\016\n\006symbol\030\025 \001(\t\022\023\n\013external_i" +
+      "d\030\026 \001(\t\022\017\n\007comment\030\027 \001(\t\022\025\n\raccount_logi" +
+      "n\030\030 \001(\003\"\354\002\n\023OrderHistoryRequest\022-\n\tinput" +
+      "From\030\001 \001(\0132\032.google.protobuf.Timestamp\0220" +
+      "\n\014inputFromUtc\030\010 \001(\0132\032.google.protobuf.T" +
+      "imestamp\022+\n\007inputTo\030\002 \001(\0132\032.google.proto" +
+      "buf.Timestamp\022.\n\ninputToUtc\030\t \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022F\n\rinputSortMode\030\003" +
+      " \001(\0162/.mt5_term_api.BMT5_ENUM_ORDER_HIST" +
+      "ORY_SORT_TYPE\022\022\n\npageNumber\030\004 \001(\005\022\024\n\014ite" +
+      "msPerPage\030\005 \001(\005\022\022\n\npage_token\030\006 \001(\t\022\021\n\tp" +
+      "age_size\030\007 \001(\005\"v\n\021OrderHistoryReply\022/\n\004d" +
+      "ata\030\001 \001(\0132\037.mt5_term_api.OrdersHistoryDa" +
+      "taH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.Error" +
+      "H\000B\n\n\010response\"\233\001\n\021OrdersHistoryData\022\022\n\n" +
+      "arrayTotal\030\001 \001(\005\022\022\n\npageNumber\030\002 \001(\005\022\024\n\014" +
+      "itemsPerPage\030\003 \001(\005\022/\n\014history_data\030\004 \003(\013" +
+      "2\031.mt5_term_api.HistoryData\022\027\n\017next_page" +
+      "_token\030\005 \001(\t\"\210\001\n\013HistoryData\022\r\n\005index\030\001 " +
+      "\001(\r\0225\n\rhistory_order\030\002 \001(\0132\036.mt5_term_ap" +
+      "i.OrderHistoryData\0223\n\014history_deal\030\003 \001(\013" +
+      "2\035.mt5_term_api.DealHistoryData\"\242\004\n\017Deal" +
+      "HistoryData\022\016\n\006ticket\030\001 \001(\004\022\016\n\006profit\030\002 " +
+      "\001(\001\022\022\n\ncommission\030\003 \001(\001\022\013\n\003fee\030\004 \001(\001\022\r\n\005" +
+      "price\030\005 \001(\001\022\021\n\tstop_loss\030\006 \001(\001\022\023\n\013take_p" +
+      "rofit\030\007 \001(\001\022\014\n\004swap\030\010 \001(\001\022\016\n\006volume\030\t \001(" +
+      "\001\022;\n\nentry_type\030\n \001(\0162\'.mt5_term_api.BMT" +
+      "5_ENUM_DEAL_ENTRY_TYPE\022(\n\004time\030\013 \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\022,\n\010time_utc\030\023 \001" +
+      "(\0132\032.google.protobuf.Timestamp\022/\n\004type\030\014" +
+      " \001(\0162!.mt5_term_api.BMT5_ENUM_DEAL_TYPE\022" +
+      "3\n\006reason\030\r \001(\0162#.mt5_term_api.BMT5_ENUM" +
+      "_DEAL_REASON\022\023\n\013position_id\030\016 \001(\004\022\017\n\007com" +
+      "ment\030\017 \001(\t\022\016\n\006symbol\030\020 \001(\t\022\023\n\013external_i" +
+      "d\030\021 \001(\t\022\025\n\raccount_login\030\022 \001(\003\022\r\n\005order\030" +
+      "\024 \001(\004\022\r\n\005magic\030\025 \001(\003\"\311\006\n\020OrderHistoryDat" +
+      "a\022\016\n\006ticket\030\001 \001(\004\022.\n\nsetup_time\030\002 \001(\0132\032." +
+      "google.protobuf.Timestamp\0222\n\016setup_time_" +
+      "utc\030\026 \001(\0132\032.google.protobuf.Timestamp\022-\n" +
+      "\tdone_time\030\003 \001(\0132\032.google.protobuf.Times" +
+      "tamp\0221\n\rdone_time_utc\030\027 \001(\0132\032.google.pro" +
+      "tobuf.Timestamp\0222\n\005state\030\004 \001(\0162#.mt5_ter" +
+      "m_api.BMT5_ENUM_ORDER_STATE\022\025\n\rprice_cur" +
+      "rent\030\005 \001(\001\022\022\n\nprice_open\030\006 \001(\001\022\022\n\nstop_l" +
+      "imit\030\007 \001(\001\022\021\n\tstop_loss\030\010 \001(\001\022\023\n\013take_pr" +
+      "ofit\030\t \001(\001\022\026\n\016volume_current\030\n \001(\001\022\026\n\016vo" +
+      "lume_initial\030\013 \001(\001\022\024\n\014magic_number\030\014 \001(\003" +
+      "\0220\n\004type\030\r \001(\0162\".mt5_term_api.BMT5_ENUM_" +
+      "ORDER_TYPE\0223\n\017time_expiration\030\016 \001(\0132\032.go" +
+      "ogle.protobuf.Timestamp\0227\n\023time_expirati" +
+      "on_utc\030\030 \001(\0132\032.google.protobuf.Timestamp" +
+      "\022@\n\014type_filling\030\017 \001(\0162*.mt5_term_api.BM" +
+      "T5_ENUM_ORDER_TYPE_FILLING\022:\n\ttype_time\030" +
+      "\020 \001(\0162\'.mt5_term_api.BMT5_ENUM_ORDER_TYP" +
+      "E_TIME\022\023\n\013position_id\030\021 \001(\004\022\016\n\006symbol\030\022 " +
+      "\001(\t\022\023\n\013external_id\030\023 \001(\t\022\017\n\007comment\030\024 \001(" +
+      "\t\022\025\n\raccount_login\030\025 \001(\003\"\027\n\025AccountSumma" +
+      "ryRequest\"y\n\023AccountSummaryReply\0220\n\004data" +
+      "\030\001 \001(\0132 .mt5_term_api.AccountSummaryData" +
+      "H\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000" +
+      "B\n\n\010response\"\264\005\n\022AccountSummaryData\022\025\n\ra" +
+      "ccount_login\030\001 \001(\003\022\027\n\017account_balance\030\002 " +
+      "\001(\001\022\026\n\016account_equity\030\003 \001(\001\022\031\n\021account_u" +
+      "ser_name\030\004 \001(\t\022\030\n\020account_leverage\030\005 \001(\003" +
+      "\022B\n\022account_trade_mode\030\006 \001(\0162&.mt5_term_" +
+      "api.MrpcEnumAccountTradeMode\022\034\n\024account_" +
+      "company_name\030\007 \001(\t\022\030\n\020account_currency\030\010" +
+      " \001(\t\022/\n\013server_time\030\t \001(\0132\032.google.proto" +
+      "buf.Timestamp\0223\n\017server_time_utc\030\016 \001(\0132\032" +
+      ".google.protobuf.Timestamp\022.\n&utc_timezo" +
+      "ne_server_time_shift_minutes\030\n \001(\003\022\026\n\016ac" +
+      "count_credit\030\013 \001(\001\022!\n\031server_utc_offset_" +
+      "seconds\030\r \001(\005\022\026\n\016account_margin\030\014 \001(\001\022\033\n" +
+      "\023account_margin_free\030\017 \001(\001\022\034\n\024account_ma" +
+      "rgin_level\030\020 \001(\001\022D\n\023account_margin_mode\030" +
+      "\021 \001(\0162\'.mt5_term_api.MrpcEnumAccountMarg" +
+      "inMode\022\035\n\025account_trade_allowed\030\022 \001(\010\022\034\n" +
+      "\024account_trade_expert\030\023 \001(\010\"\362\001\n\027SymbolPa" +
+      "ramsManyRequest\022\030\n\013symbol_name\030\001 \001(\tH\000\210\001" +
+      "\001\022E\n\tsort_type\030\002 \001(\0162-.mt5_term_api.AH_S" +
+      "YMBOL_PARAMS_MANY_SORT_TYPEH\001\210\001\001\022\030\n\013page" +
+      "_number\030\003 \001(\005H\002\210\001\001\022\033\n\016items_per_page\030\004 \001" +
+      "(\005H\003\210\001\001B\016\n\014_symbol_nameB\014\n\n_sort_typeB\016\n" +
+      "\014_page_numberB\021\n\017_items_per_page\"}\n\025Symb" +
+      "olParamsManyReply\0222\n\004data\030\001 \001(\0132\".mt5_te" +
+      "rm_api.SymbolParamsManyDataH\000\022$\n\005error\030\002" +
       " \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010response\"" +
-      "|\n\020OpenedOrdersData\0224\n\ropened_orders\030\001 \003" +
-      "(\0132\035.mt5_term_api.OpenedOrderInfo\0222\n\016pos" +
-      "ition_infos\030\002 \003(\0132\032.mt5_term_api.Positio" +
-      "nInfo\"\202\005\n\014PositionInfo\022\r\n\005index\030\001 \001(\r\022\016\n" +
-      "\006ticket\030\002 \001(\004\022-\n\topen_time\030\003 \001(\0132\032.googl" +
-      "e.protobuf.Timestamp\0221\n\ropen_time_utc\030\025 " +
-      "\001(\0132\032.google.protobuf.Timestamp\022\016\n\006volum" +
-      "e\030\004 \001(\001\022\022\n\nprice_open\030\005 \001(\001\022\021\n\tstop_loss" +
-      "\030\006 \001(\001\022\023\n\013take_profit\030\007 \001(\001\022\025\n\rprice_cur" +
-      "rent\030\010 \001(\001\022\014\n\004swap\030\t \001(\001\022\016\n\006profit\030\n \001(\001" +
-      "\0224\n\020last_update_time\030\013 \001(\0132\032.google.prot" +
-      "obuf.Timestamp\0228\n\024last_update_time_utc\030\026" +
-      " \001(\0132\032.google.protobuf.Timestamp\0223\n\004type" +
-      "\030\014 \001(\0162%.mt5_term_api.BMT5_ENUM_POSITION" +
-      "_TYPE\022\024\n\014magic_number\030\r \001(\003\022\022\n\nidentifie" +
-      "r\030\016 \001(\003\0227\n\006reason\030\017 \001(\0162\'.mt5_term_api.B" +
-      "MT5_ENUM_POSITION_REASON\022\016\n\006symbol\030\020 \001(\t" +
-      "\022\017\n\007comment\030\021 \001(\t\022\023\n\013external_id\030\022 \001(\t\022\033" +
-      "\n\023position_commission\030\023 \001(\001\022\025\n\raccount_l" +
-      "ogin\030\024 \001(\003\"\377\006\n\017OpenedOrderInfo\022\r\n\005index\030" +
-      "\001 \001(\r\022\016\n\006ticket\030\002 \001(\004\022\025\n\rprice_current\030\003" +
-      " \001(\001\022\022\n\nprice_open\030\004 \001(\001\022\022\n\nstop_limit\030\005" +
-      " \001(\001\022\021\n\tstop_loss\030\006 \001(\001\022\023\n\013take_profit\030\007" +
-      " \001(\001\022\026\n\016volume_current\030\010 \001(\001\022\026\n\016volume_i" +
-      "nitial\030\t \001(\001\022\024\n\014magic_number\030\n \001(\003\022\016\n\006re" +
-      "ason\030\013 \001(\005\0220\n\004type\030\014 \001(\0162\".mt5_term_api." +
-      "BMT5_ENUM_ORDER_TYPE\0222\n\005state\030\r \001(\0162#.mt" +
-      "5_term_api.BMT5_ENUM_ORDER_STATE\0223\n\017time" +
-      "_expiration\030\016 \001(\0132\032.google.protobuf.Time" +
-      "stamp\0227\n\023time_expiration_utc\030\031 \001(\0132\032.goo" +
-      "gle.protobuf.Timestamp\022.\n\ntime_setup\030\017 \001" +
-      "(\0132\032.google.protobuf.Timestamp\0222\n\016time_s" +
-      "etup_utc\030\032 \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022-\n\ttime_done\030\020 \001(\0132\032.google.protobuf." +
-      "Timestamp\0221\n\rtime_done_utc\030\033 \001(\0132\032.googl" +
-      "e.protobuf.Timestamp\022@\n\014type_filling\030\021 \001" +
-      "(\0162*.mt5_term_api.BMT5_ENUM_ORDER_TYPE_F" +
-      "ILLING\022:\n\ttype_time\030\022 \001(\0162\'.mt5_term_api" +
-      ".BMT5_ENUM_ORDER_TYPE_TIME\022\023\n\013position_i" +
-      "d\030\023 \001(\003\022\026\n\016position_by_id\030\024 \001(\003\022\016\n\006symbo" +
-      "l\030\025 \001(\t\022\023\n\013external_id\030\026 \001(\t\022\017\n\007comment\030" +
-      "\027 \001(\t\022\025\n\raccount_login\030\030 \001(\003\"\354\002\n\023OrderHi" +
-      "storyRequest\022-\n\tinputFrom\030\001 \001(\0132\032.google" +
-      ".protobuf.Timestamp\0220\n\014inputFromUtc\030\010 \001(" +
-      "\0132\032.google.protobuf.Timestamp\022+\n\007inputTo" +
-      "\030\002 \001(\0132\032.google.protobuf.Timestamp\022.\n\nin" +
-      "putToUtc\030\t \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022F\n\rinputSortMode\030\003 \001(\0162/.mt5_term_api" +
-      ".BMT5_ENUM_ORDER_HISTORY_SORT_TYPE\022\022\n\npa" +
-      "geNumber\030\004 \001(\005\022\024\n\014itemsPerPage\030\005 \001(\005\022\022\n\n" +
-      "page_token\030\006 \001(\t\022\021\n\tpage_size\030\007 \001(\005\"v\n\021O" +
-      "rderHistoryReply\022/\n\004data\030\001 \001(\0132\037.mt5_ter" +
-      "m_api.OrdersHistoryDataH\000\022$\n\005error\030\002 \001(\013" +
-      "2\023.mt5_term_api.ErrorH\000B\n\n\010response\"\233\001\n\021" +
-      "OrdersHistoryData\022\022\n\narrayTotal\030\001 \001(\005\022\022\n" +
-      "\npageNumber\030\002 \001(\005\022\024\n\014itemsPerPage\030\003 \001(\005\022" +
-      "/\n\014history_data\030\004 \003(\0132\031.mt5_term_api.His" +
-      "toryData\022\027\n\017next_page_token\030\005 \001(\t\"\210\001\n\013Hi" +
-      "storyData\022\r\n\005index\030\001 \001(\r\0225\n\rhistory_orde" +
-      "r\030\002 \001(\0132\036.mt5_term_api.OrderHistoryData\022" +
-      "3\n\014history_deal\030\003 \001(\0132\035.mt5_term_api.Dea" +
-      "lHistoryData\"\204\004\n\017DealHistoryData\022\016\n\006tick" +
-      "et\030\001 \001(\004\022\016\n\006profit\030\002 \001(\001\022\022\n\ncommission\030\003" +
-      " \001(\001\022\013\n\003fee\030\004 \001(\001\022\r\n\005price\030\005 \001(\001\022\021\n\tstop" +
-      "_loss\030\006 \001(\001\022\023\n\013take_profit\030\007 \001(\001\022\014\n\004swap" +
-      "\030\010 \001(\001\022\016\n\006volume\030\t \001(\001\022;\n\nentry_type\030\n \001" +
-      "(\0162\'.mt5_term_api.BMT5_ENUM_DEAL_ENTRY_T" +
-      "YPE\022(\n\004time\030\013 \001(\0132\032.google.protobuf.Time" +
-      "stamp\022,\n\010time_utc\030\023 \001(\0132\032.google.protobu" +
-      "f.Timestamp\022/\n\004type\030\014 \001(\0162!.mt5_term_api" +
-      ".BMT5_ENUM_DEAL_TYPE\0223\n\006reason\030\r \001(\0162#.m" +
-      "t5_term_api.BMT5_ENUM_DEAL_REASON\022\023\n\013pos" +
-      "ition_id\030\016 \001(\004\022\017\n\007comment\030\017 \001(\t\022\016\n\006symbo" +
-      "l\030\020 \001(\t\022\023\n\013external_id\030\021 \001(\t\022\025\n\raccount_" +
-      "login\030\022 \001(\003\"\311\006\n\020OrderHistoryData\022\016\n\006tick" +
-      "et\030\001 \001(\004\022.\n\nsetup_time\030\002 \001(\0132\032.google.pr" +
-      "otobuf.Timestamp\0222\n\016setup_time_utc\030\026 \001(\013" +
-      "2\032.google.protobuf.Timestamp\022-\n\tdone_tim" +
-      "e\030\003 \001(\0132\032.google.protobuf.Timestamp\0221\n\rd" +
-      "one_time_utc\030\027 \001(\0132\032.google.protobuf.Tim" +
-      "estamp\0222\n\005state\030\004 \001(\0162#.mt5_term_api.BMT" +
-      "5_ENUM_ORDER_STATE\022\025\n\rprice_current\030\005 \001(" +
-      "\001\022\022\n\nprice_open\030\006 \001(\001\022\022\n\nstop_limit\030\007 \001(" +
-      "\001\022\021\n\tstop_loss\030\010 \001(\001\022\023\n\013take_profit\030\t \001(" +
-      "\001\022\026\n\016volume_current\030\n \001(\001\022\026\n\016volume_init" +
-      "ial\030\013 \001(\001\022\024\n\014magic_number\030\014 \001(\003\0220\n\004type\030" +
-      "\r \001(\0162\".mt5_term_api.BMT5_ENUM_ORDER_TYP" +
-      "E\0223\n\017time_expiration\030\016 \001(\0132\032.google.prot" +
-      "obuf.Timestamp\0227\n\023time_expiration_utc\030\030 " +
-      "\001(\0132\032.google.protobuf.Timestamp\022@\n\014type_" +
-      "filling\030\017 \001(\0162*.mt5_term_api.BMT5_ENUM_O" +
-      "RDER_TYPE_FILLING\022:\n\ttype_time\030\020 \001(\0162\'.m" +
-      "t5_term_api.BMT5_ENUM_ORDER_TYPE_TIME\022\023\n" +
-      "\013position_id\030\021 \001(\004\022\016\n\006symbol\030\022 \001(\t\022\023\n\013ex" +
-      "ternal_id\030\023 \001(\t\022\017\n\007comment\030\024 \001(\t\022\025\n\racco" +
-      "unt_login\030\025 \001(\003\"\027\n\025AccountSummaryRequest" +
-      "\"y\n\023AccountSummaryReply\0220\n\004data\030\001 \001(\0132 ." +
-      "mt5_term_api.AccountSummaryDataH\000\022$\n\005err" +
-      "or\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010respo" +
-      "nse\"\336\003\n\022AccountSummaryData\022\025\n\raccount_lo" +
-      "gin\030\001 \001(\003\022\027\n\017account_balance\030\002 \001(\001\022\026\n\016ac" +
-      "count_equity\030\003 \001(\001\022\031\n\021account_user_name\030" +
-      "\004 \001(\t\022\030\n\020account_leverage\030\005 \001(\003\022B\n\022accou" +
-      "nt_trade_mode\030\006 \001(\0162&.mt5_term_api.MrpcE" +
-      "numAccountTradeMode\022\034\n\024account_company_n" +
-      "ame\030\007 \001(\t\022\030\n\020account_currency\030\010 \001(\t\022/\n\013s" +
-      "erver_time\030\t \001(\0132\032.google.protobuf.Times" +
-      "tamp\0223\n\017server_time_utc\030\016 \001(\0132\032.google.p" +
-      "rotobuf.Timestamp\022.\n&utc_timezone_server" +
-      "_time_shift_minutes\030\n \001(\003\022\026\n\016account_cre" +
-      "dit\030\013 \001(\001\022!\n\031server_utc_offset_seconds\030\r" +
-      " \001(\005\"\362\001\n\027SymbolParamsManyRequest\022\030\n\013symb" +
-      "ol_name\030\001 \001(\tH\000\210\001\001\022E\n\tsort_type\030\002 \001(\0162-." +
-      "mt5_term_api.AH_SYMBOL_PARAMS_MANY_SORT_" +
-      "TYPEH\001\210\001\001\022\030\n\013page_number\030\003 \001(\005H\002\210\001\001\022\033\n\016i" +
-      "tems_per_page\030\004 \001(\005H\003\210\001\001B\016\n\014_symbol_name" +
-      "B\014\n\n_sort_typeB\016\n\014_page_numberB\021\n\017_items" +
-      "_per_page\"}\n\025SymbolParamsManyReply\0222\n\004da" +
-      "ta\030\001 \001(\0132\".mt5_term_api.SymbolParamsMany" +
-      "DataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.Err" +
-      "orH\000B\n\n\010response\"\275\001\n\024SymbolParamsManyDat" +
-      "a\0224\n\014symbol_infos\030\001 \003(\0132\036.mt5_term_api.S" +
-      "ymbolParameters\022\025\n\rsymbols_total\030\002 \001(\005\022\030" +
-      "\n\013page_number\030\003 \001(\005H\000\210\001\001\022\033\n\016items_per_pa" +
-      "ge\030\004 \001(\005H\001\210\001\001B\016\n\014_page_numberB\021\n\017_items_" +
-      "per_page\"\354\031\n\020SymbolParameters\022\014\n\004name\030\001 " +
-      "\001(\t\022\013\n\003bid\030\002 \001(\001\022\020\n\010bid_high\030\003 \001(\001\022\017\n\007bi" +
-      "d_low\030\004 \001(\001\022\013\n\003ask\030\005 \001(\001\022\020\n\010ask_high\030\006 \001" +
-      "(\001\022\017\n\007ask_low\030\007 \001(\001\022\014\n\004last\030\010 \001(\001\022\021\n\tlas" +
-      "t_high\030\t \001(\001\022\020\n\010last_low\030\n \001(\001\022\023\n\013volume" +
-      "_real\030\013 \001(\001\022\030\n\020volume_high_real\030\014 \001(\001\022\027\n" +
-      "\017volume_low_real\030\r \001(\001\022\025\n\roption_strike\030" +
-      "\016 \001(\001\022\r\n\005point\030\017 \001(\001\022\030\n\020trade_tick_value" +
-      "\030\020 \001(\001\022\037\n\027trade_tick_value_profit\030\021 \001(\001\022" +
-      "\035\n\025trade_tick_value_loss\030\022 \001(\001\022\027\n\017trade_" +
-      "tick_size\030\023 \001(\001\022\033\n\023trade_contract_size\030\024" +
-      " \001(\001\022\036\n\026trade_accrued_interest\030\025 \001(\001\022\030\n\020" +
-      "trade_face_value\030\026 \001(\001\022\034\n\024trade_liquidit" +
-      "y_rate\030\027 \001(\001\022\022\n\nvolume_min\030\030 \001(\001\022\022\n\nvolu" +
-      "me_max\030\031 \001(\001\022\023\n\013volume_step\030\032 \001(\001\022\024\n\014vol" +
-      "ume_limit\030\033 \001(\001\022\021\n\tswap_long\030\034 \001(\001\022\022\n\nsw" +
-      "ap_short\030\035 \001(\001\022\023\n\013swap_sunday\030\036 \001(\001\022\023\n\013s" +
-      "wap_monday\030\037 \001(\001\022\024\n\014swap_tuesday\030  \001(\001\022\026" +
-      "\n\016swap_wednesday\030! \001(\001\022\025\n\rswap_thursday\030" +
-      "\" \001(\001\022\023\n\013swap_friday\030# \001(\001\022\025\n\rswap_satur" +
-      "day\030$ \001(\001\022\026\n\016margin_initial\030% \001(\001\022\032\n\022mar" +
-      "gin_maintenance\030& \001(\001\022\026\n\016session_volume\030" +
-      "\' \001(\001\022\030\n\020session_turnover\030( \001(\001\022\030\n\020sessi" +
-      "on_interest\030) \001(\001\022!\n\031session_buy_orders_" +
-      "volume\030* \001(\001\022\"\n\032session_sell_orders_volu" +
-      "me\030+ \001(\001\022\024\n\014session_open\030, \001(\001\022\025\n\rsessio" +
-      "n_close\030- \001(\001\022\022\n\nsession_aw\030. \001(\001\022 \n\030ses" +
-      "sion_price_settlement\030/ \001(\001\022\037\n\027session_p" +
-      "rice_limit_min\0300 \001(\001\022\037\n\027session_price_li" +
-      "mit_max\0301 \001(\001\022\025\n\rmargin_hedged\0302 \001(\001\022\024\n\014" +
-      "price_change\0303 \001(\001\022\030\n\020price_volatility\0304" +
-      " \001(\001\022\031\n\021price_theoretical\0305 \001(\001\022\023\n\013price" +
-      "_delta\0306 \001(\001\022\023\n\013price_theta\0307 \001(\001\022\023\n\013pri" +
-      "ce_gamma\0308 \001(\001\022\022\n\nprice_vega\0309 \001(\001\022\021\n\tpr" +
-      "ice_rho\030: \001(\001\022\023\n\013price_omega\030; \001(\001\022\031\n\021pr" +
-      "ice_sensitivity\030< \001(\001\0225\n\006sector\030= \001(\0162%." +
-      "mt5_term_api.BMT5_ENUM_SYMBOL_SECTOR\0229\n\010" +
-      "industry\030> \001(\0162\'.mt5_term_api.BMT5_ENUM_" +
-      "SYMBOL_INDUSTRY\022\016\n\006custom\030? \001(\010\022\030\n\020backg" +
-      "round_color\030@ \001(\t\022=\n\nchart_mode\030A \001(\0162)." +
-      "mt5_term_api.BMT5_ENUM_SYMBOL_CHART_MODE" +
-      "\022\r\n\005exist\030B \001(\010\022\016\n\006select\030C \001(\010\022\032\n\022subsc" +
-      "ription_delay\030D \001(\005\022\017\n\007visible\030E \001(\010\022\025\n\r" +
-      "session_deals\030F \001(\003\022\032\n\022session_buy_order" +
-      "s\030G \001(\003\022\033\n\023session_sell_orders\030H \001(\003\022\016\n\006" +
-      "volume\030I \001(\003\022\023\n\013volume_high\030J \001(\003\022\022\n\nvol" +
-      "ume_low\030K \001(\003\022(\n\004time\030L \001(\0132\032.google.pro" +
-      "tobuf.Timestamp\022,\n\010time_utc\030q \001(\0132\032.goog" +
-      "le.protobuf.Timestamp\022\020\n\010time_msc\030M \001(\003\022" +
-      "\024\n\014time_msc_utc\030r \001(\003\022\016\n\006digits\030N \001(\005\022\024\n" +
-      "\014spread_float\030O \001(\010\022\016\n\006spread\030P \001(\005\022\030\n\020t" +
-      "icks_book_depth\030Q \001(\005\022A\n\017trade_calc_mode" +
-      "\030R \001(\0162(.mt5_term_api.BMT5_ENUM_SYMBOL_C" +
-      "ALC_MODE\022=\n\ntrade_mode\030S \001(\0162).mt5_term_" +
-      "api.BMT5_ENUM_SYMBOL_TRADE_MODE\022.\n\nstart" +
-      "_time\030T \001(\0132\032.google.protobuf.Timestamp\022" +
-      "2\n\016start_time_utc\030s \001(\0132\032.google.protobu" +
-      "f.Timestamp\0223\n\017expiration_time\030U \001(\0132\032.g" +
-      "oogle.protobuf.Timestamp\0227\n\023expiration_t" +
-      "ime_utc\030t \001(\0132\032.google.protobuf.Timestam" +
-      "p\022\031\n\021trade_stops_level\030V \001(\005\022\032\n\022trade_fr" +
-      "eeze_level\030W \001(\005\022F\n\016trade_exe_mode\030X \001(\016" +
-      "2..mt5_term_api.BMT5_ENUM_SYMBOL_TRADE_E" +
-      "XECUTION\022;\n\tswap_mode\030Y \001(\0162(.mt5_term_a" +
-      "pi.BMT5_ENUM_SYMBOL_SWAP_MODE\022@\n\023swap_ro" +
-      "llover_3days\030Z \001(\0162#.mt5_term_api.BMT5_E" +
-      "NUM_DAY_OF_WEEK\022\035\n\025margin_hedged_use_leg" +
-      "\030[ \001(\010\022\027\n\017expiration_mode\030\\ \001(\005\022@\n\014filli" +
-      "ng_mode\030] \003(\0162*.mt5_term_api.BMT5_ENUM_O" +
-      "RDER_TYPE_FILLING\0226\n\norder_mode\030^ \001(\0162\"." +
-      "mt5_term_api.BMT5_ENUM_ORDER_TYPE\022E\n\016ord" +
-      "er_gtc_mode\030_ \001(\0162-.mt5_term_api.BMT5_EN" +
-      "UM_SYMBOL_ORDER_GTC_MODE\022?\n\013option_mode\030" +
-      "` \001(\0162*.mt5_term_api.BMT5_ENUM_SYMBOL_OP" +
-      "TION_MODE\022A\n\014option_right\030a \001(\0162+.mt5_te" +
-      "rm_api.BMT5_ENUM_SYMBOL_OPTION_RIGHT\022\r\n\005" +
-      "basis\030b \001(\t\022\020\n\010category\030c \001(\t\022\017\n\007country" +
-      "\030d \001(\t\022\023\n\013sector_name\030e \001(\t\022\025\n\rindustry_" +
-      "name\030f \001(\t\022\025\n\rcurrency_base\030g \001(\t\022\027\n\017cur" +
-      "rency_profit\030h \001(\t\022\027\n\017currency_margin\030i " +
-      "\001(\t\022\014\n\004bank\030j \001(\t\022\027\n\017sym_description\030k \001" +
-      "(\t\022\020\n\010exchange\030l \001(\t\022\017\n\007formula\030m \001(\t\022\014\n" +
-      "\004isin\030n \001(\t\022\014\n\004page\030o \001(\t\022\014\n\004path\030p \001(\t*" +
-      "\235\001\n#AH_ENUM_POSITIONS_HISTORY_SORT_TYPE\022" +
-      "\035\n\031AH_POSITION_OPEN_TIME_ASC\020\000\022\036\n\032AH_POS" +
-      "ITION_OPEN_TIME_DESC\020\001\022\032\n\026AH_POSITION_TI" +
-      "CKET_ASC\020\002\022\033\n\027AH_POSITION_TICKET_DESC\020\003*" +
-      "\252\002\n$AH_ENUM_POSITIONS_HISTORY_ORDER_TYPE" +
-      "\022\025\n\021AH_ORDER_TYPE_BUY\020\000\022\026\n\022AH_ORDER_TYPE" +
-      "_SELL\020\001\022\033\n\027AH_ORDER_TYPE_BUY_LIMIT\020\002\022\034\n\030" +
-      "AH_ORDER_TYPE_SELL_LIMIT\020\003\022\032\n\026AH_ORDER_T" +
-      "YPE_BUY_STOP\020\004\022\033\n\027AH_ORDER_TYPE_SELL_STO" +
-      "P\020\005\022 \n\034AH_ORDER_TYPE_BUY_STOP_LIMIT\020\006\022!\n" +
-      "\035AH_ORDER_TYPE_SELL_STOP_LIMIT\020\007\022\032\n\026AH_O" +
-      "RDER_TYPE_CLOSE_BY\020\010*\344\001\n BMT5_ENUM_OPENE" +
-      "D_ORDER_SORT_TYPE\022+\n\'BMT5_OPENED_ORDER_S" +
-      "ORT_BY_OPEN_TIME_ASC\020\000\022,\n(BMT5_OPENED_OR" +
-      "DER_SORT_BY_OPEN_TIME_DESC\020\001\0221\n-BMT5_OPE" +
-      "NED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC\020\002\022" +
-      "2\n.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKE" +
-      "T_ID_DESC\020\003*R\n\027BMT5_ENUM_POSITION_TYPE\022\032" +
-      "\n\026BMT5_POSITION_TYPE_BUY\020\000\022\033\n\027BMT5_POSIT" +
-      "ION_TYPE_SELL\020\001*\333\001\n\031BMT5_ENUM_POSITION_R" +
-      "EASON\022\037\n\033BMT5_POSITION_REASON_CLIENT\020\000\022\037" +
-      "\n\033BMT5_POSITION_REASON_MOBILE\020\001\022\034\n\030BMT5_" +
-      "POSITION_REASON_WEB\020\002\022\037\n\033BMT5_POSITION_R" +
-      "EASON_EXPERT\020\003\022\023\n\017ORDER_REASON_SL\020\004\022\023\n\017O" +
-      "RDER_REASON_TP\020\005\022\023\n\017ORDER_REASON_SO\020\006*\217\001" +
-      "\n\031BMT5_ENUM_ORDER_TYPE_TIME\022\027\n\023BMT5_ORDE" +
-      "R_TIME_GTC\020\000\022\027\n\023BMT5_ORDER_TIME_DAY\020\001\022\035\n" +
-      "\031BMT5_ORDER_TIME_SPECIFIED\020\002\022!\n\035BMT5_ORD" +
-      "ER_TIME_SPECIFIED_DAY\020\003*\221\001\n\034BMT5_ENUM_OR" +
-      "DER_TYPE_FILLING\022\032\n\026BMT5_ORDER_FILLING_F" +
-      "OK\020\000\022\032\n\026BMT5_ORDER_FILLING_IOC\020\001\022\032\n\026BMT5" +
-      "_ORDER_FILLING_BOC\020\003\022\035\n\031BMT5_ORDER_FILLI" +
-      "NG_RETURN\020\002*\254\002\n\024BMT5_ENUM_ORDER_TYPE\022\027\n\023" +
-      "BMT5_ORDER_TYPE_BUY\020\000\022\030\n\024BMT5_ORDER_TYPE" +
-      "_SELL\020\001\022\035\n\031BMT5_ORDER_TYPE_BUY_LIMIT\020\002\022\036" +
-      "\n\032BMT5_ORDER_TYPE_SELL_LIMIT\020\003\022\034\n\030BMT5_O" +
-      "RDER_TYPE_BUY_STOP\020\004\022\035\n\031BMT5_ORDER_TYPE_" +
-      "SELL_STOP\020\005\022\"\n\036BMT5_ORDER_TYPE_BUY_STOP_" +
-      "LIMIT\020\006\022#\n\037BMT5_ORDER_TYPE_SELL_STOP_LIM" +
-      "IT\020\007\022\034\n\030BMT5_ORDER_TYPE_CLOSE_BY\020\010*\323\002\n\025B" +
-      "MT5_ENUM_DEAL_REASON\022\033\n\027BMT5_DEAL_REASON" +
-      "_CLIENT\020\000\022\033\n\027BMT5_DEAL_REASON_MOBILE\020\001\022\030" +
-      "\n\024BMT5_DEAL_REASON_WEB\020\002\022\033\n\027BMT5_DEAL_RE" +
-      "ASON_EXPERT\020\003\022\027\n\023BMT5_DEAL_REASON_SL\020\004\022\027" +
-      "\n\023BMT5_DEAL_REASON_TP\020\005\022\027\n\023BMT5_DEAL_REA" +
-      "SON_SO\020\006\022\035\n\031BMT5_DEAL_REASON_ROLLOVER\020\007\022" +
-      "\034\n\030BMT5_DEAL_REASON_VMARGIN\020\010\022\032\n\026BMT5_DE" +
-      "AL_REASON_SPLIT\020\t\022%\n!BMT5_DEAL_REASON_CO" +
-      "RPORATE_ACTION\020\n*\277\004\n\023BMT5_ENUM_DEAL_TYPE" +
-      "\022\026\n\022BMT5_DEAL_TYPE_BUY\020\000\022\027\n\023BMT5_DEAL_TY" +
-      "PE_SELL\020\001\022\032\n\026BMT5_DEAL_TYPE_BALANCE\020\002\022\031\n" +
-      "\025BMT5_DEAL_TYPE_CREDIT\020\003\022\031\n\025BMT5_DEAL_TY" +
-      "PE_CHARGE\020\004\022\035\n\031BMT5_DEAL_TYPE_CORRECTION" +
-      "\020\005\022\030\n\024BMT5_DEAL_TYPE_BONUS\020\006\022\035\n\031BMT5_DEA" +
-      "L_TYPE_COMMISSION\020\007\022#\n\037BMT5_DEAL_TYPE_CO" +
-      "MMISSION_DAILY\020\010\022%\n!BMT5_DEAL_TYPE_COMMI" +
-      "SSION_MONTHLY\020\t\022)\n%BMT5_DEAL_TYPE_COMMIS" +
-      "SION_AGENT_DAILY\020\n\022+\n\'BMT5_DEAL_TYPE_COM" +
-      "MISSION_AGENT_MONTHLY\020\013\022\033\n\027BMT5_DEAL_TYP" +
-      "E_INTEREST\020\014\022\037\n\033BMT5_DEAL_TYPE_BUY_CANCE" +
-      "LED\020\r\022 \n\034BMT5_DEAL_TYPE_SELL_CANCELED\020\016\022" +
-      "\026\n\022BMT5_DEAL_DIVIDEND\020\017\022\036\n\032BMT5_DEAL_DIV" +
-      "IDEND_FRANKED\020\020\022\021\n\rBMT5_DEAL_TAX\020\021*\203\001\n\031B" +
-      "MT5_ENUM_DEAL_ENTRY_TYPE\022\026\n\022BMT5_DEAL_EN" +
-      "TRY_IN\020\000\022\027\n\023BMT5_DEAL_ENTRY_OUT\020\001\022\031\n\025BMT" +
-      "5_DEAL_ENTRY_INOUT\020\002\022\032\n\026BMT5_DEAL_ENTRY_" +
-      "OUT_BY\020\003*\364\001\n!BMT5_ENUM_ORDER_HISTORY_SOR" +
-      "T_TYPE\022\036\n\032BMT5_SORT_BY_OPEN_TIME_ASC\020\000\022\037" +
-      "\n\033BMT5_SORT_BY_OPEN_TIME_DESC\020\001\022\037\n\033BMT5_" +
-      "SORT_BY_CLOSE_TIME_ASC\020\002\022 \n\034BMT5_SORT_BY" +
-      "_CLOSE_TIME_DESC\020\003\022$\n BMT5_SORT_BY_ORDER" +
-      "_TICKET_ID_ASC\020\004\022%\n!BMT5_SORT_BY_ORDER_T" +
-      "ICKET_ID_DESC\020\005*\325\002\n\025BMT5_ENUM_ORDER_STAT" +
-      "E\022\034\n\030BMT5_ORDER_STATE_STARTED\020\000\022\033\n\027BMT5_" +
-      "ORDER_STATE_PLACED\020\001\022\035\n\031BMT5_ORDER_STATE" +
-      "_CANCELED\020\002\022\034\n\030BMT5_ORDER_STATE_PARTIAL\020" +
-      "\003\022\033\n\027BMT5_ORDER_STATE_FILLED\020\004\022\035\n\031BMT5_O" +
-      "RDER_STATE_REJECTED\020\005\022\034\n\030BMT5_ORDER_STAT" +
-      "E_EXPIRED\020\006\022 \n\034BMT5_ORDER_STATE_REQUEST_" +
-      "ADD\020\007\022#\n\037BMT5_ORDER_STATE_REQUEST_MODIFY" +
-      "\020\010\022#\n\037BMT5_ORDER_STATE_REQUEST_CANCEL\020\t*" +
-      "\203\001\n\030MrpcEnumAccountTradeMode\022 \n\034MRPC_ACC" +
-      "OUNT_TRADE_MODE_DEMO\020\000\022#\n\037MRPC_ACCOUNT_T" +
-      "RADE_MODE_CONTEST\020\001\022 \n\034MRPC_ACCOUNT_TRAD" +
-      "E_MODE_REAL\020\002*\327\001\n\037AH_SYMBOL_PARAMS_MANY_" +
-      "SORT_TYPE\022,\n(AH_PARAMS_MANY_SORT_TYPE_SY" +
-      "MBOL_NAME_ASC\020\000\022-\n)AH_PARAMS_MANY_SORT_T" +
-      "YPE_SYMBOL_NAME_DESC\020\001\022*\n&AH_PARAMS_MANY" +
-      "_SORT_TYPE_MQL_INDEX_ASC\020\002\022+\n\'AH_PARAMS_",
-      "MANY_SORT_TYPE_MQL_INDEX_DESC\020\003*d\n\035BMT5_" +
-      "ENUM_SYMBOL_OPTION_RIGHT\022!\n\035BMT5_SYMBOL_" +
-      "OPTION_RIGHT_CALL\020\000\022 \n\034BMT5_SYMBOL_OPTIO" +
-      "N_RIGHT_PUT\020\001*j\n\034BMT5_ENUM_SYMBOL_OPTION" +
-      "_MODE\022$\n BMT5_SYMBOL_OPTION_MODE_EUROPEA" +
-      "N\020\000\022$\n BMT5_SYMBOL_OPTION_MODE_AMERICAN\020" +
-      "\001*\211\001\n\037BMT5_ENUM_SYMBOL_ORDER_GTC_MODE\022\032\n" +
-      "\026BMT5_SYMBOL_ORDERS_GTC\020\000\022\034\n\030BMT5_SYMBOL" +
-      "_ORDERS_DAILY\020\001\022,\n(BMT5_SYMBOL_ORDERS_DA" +
-      "ILY_EXCLUDING_STOPS\020\002*\226\001\n\025BMT5_ENUM_DAY_" +
-      "OF_WEEK\022\017\n\013BMT5_SUNDAY\020\000\022\017\n\013BMT5_MONDAY\020" +
-      "\001\022\020\n\014BMT5_TUESDAY\020\002\022\022\n\016BMT5_WEDNESDAY\020\003\022" +
-      "\021\n\rBMT5_THURSDAY\020\004\022\017\n\013BMT5_FRIDAY\020\005\022\021\n\rB" +
-      "MT5_SATURDAY\020\006*\264\003\n\032BMT5_ENUM_SYMBOL_SWAP" +
-      "_MODE\022\"\n\036BMT5_SYMBOL_SWAP_MODE_DISABLED\020" +
-      "\000\022 \n\034BMT5_SYMBOL_SWAP_MODE_POINTS\020\001\022)\n%B" +
-      "MT5_SYMBOL_SWAP_MODE_CURRENCY_SYMBOL\020\002\022)" +
-      "\n%BMT5_SYMBOL_SWAP_MODE_CURRENCY_MARGIN\020" +
-      "\003\022*\n&BMT5_SYMBOL_SWAP_MODE_CURRENCY_DEPO" +
-      "SIT\020\004\022)\n%BMT5_SYMBOL_SWAP_MODE_CURRENCY_" +
-      "PROFIT\020\005\022*\n&BMT5_SYMBOL_SWAP_MODE_INTERE" +
-      "ST_CURRENT\020\006\022\'\n#BMT5_SYMBOL_SWAP_MODE_IN" +
-      "TEREST_OPEN\020\007\022(\n$BMT5_SYMBOL_SWAP_MODE_R" +
-      "EOPEN_CURRENT\020\010\022$\n BMT5_SYMBOL_SWAP_MODE" +
-      "_REOPEN_BID\020\t*\306\001\n BMT5_ENUM_SYMBOL_TRADE" +
-      "_EXECUTION\022\'\n#BMT5_SYMBOL_TRADE_EXECUTIO" +
-      "N_REQUEST\020\000\022\'\n#BMT5_SYMBOL_TRADE_EXECUTI" +
-      "ON_INSTANT\020\001\022&\n\"BMT5_SYMBOL_TRADE_EXECUT" +
-      "ION_MARKET\020\002\022(\n$BMT5_SYMBOL_TRADE_EXECUT" +
-      "ION_EXCHANGE\020\003*\324\001\n\033BMT5_ENUM_SYMBOL_TRAD" +
-      "E_MODE\022#\n\037BMT5_SYMBOL_TRADE_MODE_DISABLE" +
-      "D\020\000\022#\n\037BMT5_SYMBOL_TRADE_MODE_LONGONLY\020\001" +
-      "\022$\n BMT5_SYMBOL_TRADE_MODE_SHORTONLY\020\002\022$" +
-      "\n BMT5_SYMBOL_TRADE_MODE_CLOSEONLY\020\003\022\037\n\033" +
-      "BMT5_SYMBOL_TRADE_MODE_FULL\020\004*\234\004\n\032BMT5_E" +
-      "NUM_SYMBOL_CALC_MODE\022\037\n\033BMT5_SYMBOL_CALC" +
-      "_MODE_FOREX\020\000\022+\n\'BMT5_SYMBOL_CALC_MODE_F" +
-      "OREX_NO_LEVERAGE\020\001\022!\n\035BMT5_SYMBOL_CALC_M" +
-      "ODE_FUTURES\020\002\022\035\n\031BMT5_SYMBOL_CALC_MODE_C" +
-      "FD\020\003\022\"\n\036BMT5_SYMBOL_CALC_MODE_CFDINDEX\020\004" +
-      "\022%\n!BMT5_SYMBOL_CALC_MODE_CFDLEVERAGE\020\005\022" +
-      "%\n!BMT5_SYMBOL_CALC_MODE_EXCH_STOCKS\020\006\022&" +
-      "\n\"BMT5_SYMBOL_CALC_MODE_EXCH_FUTURES\020\007\022," +
-      "\n(BMT5_SYMBOL_CALC_MODE_EXCH_FUTURES_FOR" +
-      "TS\020\010\022$\n BMT5_SYMBOL_CALC_MODE_EXCH_BONDS" +
-      "\020\t\022*\n&BMT5_SYMBOL_CALC_MODE_EXCH_STOCKS_" +
-      "MOEX\020\n\022)\n%BMT5_SYMBOL_CALC_MODE_EXCH_BON" +
-      "DS_MOEX\020\013\022)\n%BMT5_SYMBOL_CALC_MODE_SERV_" +
-      "COLLATERAL\020\014*\277\003\n\027BMT5_ENUM_SYMBOL_SECTOR" +
-      "\022\031\n\025BMT5_SECTOR_UNDEFINED\020\000\022\037\n\033BMT5_SECT" +
-      "OR_BASIC_MATERIALS\020\001\022&\n\"BMT5_SECTOR_COMM" +
-      "UNICATION_SERVICES\020\002\022!\n\035BMT5_SECTOR_CONS" +
-      "UMER_CYCLICAL\020\003\022\"\n\036BMT5_SECTOR_CONSUMER_" +
-      "DEFENSIVE\020\004\022\030\n\024BMT5_SECTOR_CURRENCY\020\005\022\037\n" +
-      "\033BMT5_SECTOR_CURRENCY_CRYPTO\020\006\022\026\n\022BMT5_S" +
-      "ECTOR_ENERGY\020\007\022\031\n\025BMT5_SECTOR_FINANCIAL\020" +
-      "\010\022\032\n\026BMT5_SECTOR_HEALTHCARE\020\t\022\033\n\027BMT5_SE" +
-      "CTOR_INDUSTRIALS\020\n\022\033\n\027BMT5_SECTOR_REAL_E" +
-      "STATE\020\013\022\032\n\026BMT5_SECTOR_TECHNOLOGY\020\014\022\031\n\025B" +
-      "MT5_SECTOR_UTILITIES\020\r*^\n\033BMT5_ENUM_SYMB" +
-      "OL_CHART_MODE\022\036\n\032BMT5_SYMBOL_CHART_MODE_" +
-      "BID\020\000\022\037\n\033BMT5_SYMBOL_CHART_MODE_LAST\020\001*\246" +
-      "+\n\031BMT5_ENUM_SYMBOL_INDUSTRY\022\033\n\027BMT5_IND" +
-      "USTRY_UNDEFINED\020\000\022%\n!BMT5_INDUSTRY_AGRIC" +
-      "ULTURAL_INPUTS\020\001\022\033\n\027BMT5_INDUSTRY_ALUMIN" +
-      "IUM\020\002\022$\n BMT5_INDUSTRY_BUILDING_MATERIAL" +
-      "S\020\003\022\033\n\027BMT5_INDUSTRY_CHEMICALS\020\004\022\035\n\031BMT5" +
-      "_INDUSTRY_COKING_COAL\020\005\022\030\n\024BMT5_INDUSTRY" +
-      "_COPPER\020\006\022\026\n\022BMT5_INDUSTRY_GOLD\020\007\022\035\n\031BMT" +
-      "5_INDUSTRY_LUMBER_WOOD\020\010\022#\n\037BMT5_INDUSTR" +
-      "Y_INDUSTRIAL_METALS\020\t\022!\n\035BMT5_INDUSTRY_P" +
-      "RECIOUS_METALS\020\n\022\027\n\023BMT5_INDUSTRY_PAPER\020" +
-      "\013\022\030\n\024BMT5_INDUSTRY_SILVER\020\014\022%\n!BMT5_INDU" +
-      "STRY_SPECIALTY_CHEMICALS\020\r\022\027\n\023BMT5_INDUS" +
-      "TRY_STEEL\020\016\022\035\n\031BMT5_INDUSTRY_ADVERTISING" +
-      "\020\017\022\036\n\032BMT5_INDUSTRY_BROADCASTING\020\020\022#\n\037BM" +
-      "T5_INDUSTRY_GAMING_MULTIMEDIA\020\021\022\037\n\033BMT5_" +
-      "INDUSTRY_ENTERTAINMENT\020\022\022\"\n\036BMT5_INDUSTR" +
-      "Y_INTERNET_CONTENT\020\023\022\034\n\030BMT5_INDUSTRY_PU" +
-      "BLISHING\020\024\022\031\n\025BMT5_INDUSTRY_TELECOM\020\025\022\'\n" +
-      "#BMT5_INDUSTRY_APPAREL_MANUFACTURING\020\026\022 " +
-      "\n\034BMT5_INDUSTRY_APPAREL_RETAIL\020\027\022$\n BMT5" +
-      "_INDUSTRY_AUTO_MANUFACTURERS\020\030\022\034\n\030BMT5_I" +
-      "NDUSTRY_AUTO_PARTS\020\031\022!\n\035BMT5_INDUSTRY_AU" +
-      "TO_DEALERSHIP\020\032\022#\n\037BMT5_INDUSTRY_DEPARTM" +
-      "ENT_STORES\020\033\022&\n\"BMT5_INDUSTRY_FOOTWEAR_A" +
-      "CCESSORIES\020\034\022\035\n\031BMT5_INDUSTRY_FURNISHING" +
-      "S\020\035\022\032\n\026BMT5_INDUSTRY_GAMBLING\020\036\022$\n BMT5_" +
-      "INDUSTRY_HOME_IMPROV_RETAIL\020\037\022!\n\035BMT5_IN" +
-      "DUSTRY_INTERNET_RETAIL\020 \022\031\n\025BMT5_INDUSTR" +
-      "Y_LEISURE\020!\022\031\n\025BMT5_INDUSTRY_LODGING\020\"\022\036" +
-      "\n\032BMT5_INDUSTRY_LUXURY_GOODS\020#\022&\n\"BMT5_I" +
-      "NDUSTRY_PACKAGING_CONTAINERS\020$\022#\n\037BMT5_I" +
-      "NDUSTRY_PERSONAL_SERVICES\020%\022\'\n#BMT5_INDU" +
-      "STRY_RECREATIONAL_VEHICLES\020&\022\'\n#BMT5_IND" +
-      "USTRY_RESIDENT_CONSTRUCTION\020\'\022!\n\035BMT5_IN" +
-      "DUSTRY_RESORTS_CASINOS\020(\022\035\n\031BMT5_INDUSTR" +
-      "Y_RESTAURANTS\020)\022\"\n\036BMT5_INDUSTRY_SPECIAL" +
-      "TY_RETAIL\020*\022\'\n#BMT5_INDUSTRY_TEXTILE_MAN" +
-      "UFACTURING\020+\022!\n\035BMT5_INDUSTRY_TRAVEL_SER" +
-      "VICES\020,\022#\n\037BMT5_INDUSTRY_BEVERAGES_BREWE" +
-      "RS\020-\022$\n BMT5_INDUSTRY_BEVERAGES_NON_ALCO" +
-      "\020.\022$\n BMT5_INDUSTRY_BEVERAGES_WINERIES\020/" +
-      "\022\037\n\033BMT5_INDUSTRY_CONFECTIONERS\0200\022!\n\035BMT" +
-      "5_INDUSTRY_DISCOUNT_STORES\0201\022#\n\037BMT5_IND" +
-      "USTRY_EDUCATION_TRAINIG\0202\022\037\n\033BMT5_INDUST" +
-      "RY_FARM_PRODUCTS\0203\022#\n\037BMT5_INDUSTRY_FOOD" +
-      "_DISTRIBUTION\0204\022 \n\034BMT5_INDUSTRY_GROCERY" +
-      "_STORES\0205\022$\n BMT5_INDUSTRY_HOUSEHOLD_PRO" +
-      "DUCTS\0206\022 \n\034BMT5_INDUSTRY_PACKAGED_FOODS\020" +
-      "7\022\031\n\025BMT5_INDUSTRY_TOBACCO\0208\022\"\n\036BMT5_IND" +
-      "USTRY_OIL_GAS_DRILLING\0209\022\034\n\030BMT5_INDUSTR" +
-      "Y_OIL_GAS_EP\020:\022#\n\037BMT5_INDUSTRY_OIL_GAS_" +
-      "EQUIPMENT\020;\022$\n BMT5_INDUSTRY_OIL_GAS_INT" +
-      "EGRATED\020<\022#\n\037BMT5_INDUSTRY_OIL_GAS_MIDST" +
-      "REAM\020=\022\"\n\036BMT5_INDUSTRY_OIL_GAS_REFINING" +
-      "\020>\022\036\n\032BMT5_INDUSTRY_THERMAL_COAL\020?\022\031\n\025BM" +
-      "T5_INDUSTRY_URANIUM\020@\022&\n\"BMT5_INDUSTRY_E" +
-      "XCHANGE_TRADED_FUND\020A\022#\n\037BMT5_INDUSTRY_A" +
-      "SSETS_MANAGEMENT\020B\022#\n\037BMT5_INDUSTRY_BANK" +
-      "S_DIVERSIFIED\020C\022 \n\034BMT5_INDUSTRY_BANKS_R" +
-      "EGIONAL\020D\022!\n\035BMT5_INDUSTRY_CAPITAL_MARKE" +
-      "TS\020E\022%\n!BMT5_INDUSTRY_CLOSE_END_FUND_DEB" +
-      "T\020F\022\'\n#BMT5_INDUSTRY_CLOSE_END_FUND_EQUI" +
-      "TY\020G\022(\n$BMT5_INDUSTRY_CLOSE_END_FUND_FOR" +
-      "EIGN\020H\022!\n\035BMT5_INDUSTRY_CREDIT_SERVICES\020" +
-      "I\022(\n$BMT5_INDUSTRY_FINANCIAL_CONGLOMERAT" +
-      "E\020J\022)\n%BMT5_INDUSTRY_FINANCIAL_DATA_EXCH" +
-      "ANGE\020K\022#\n\037BMT5_INDUSTRY_INSURANCE_BROKER" +
-      "S\020L\022\'\n#BMT5_INDUSTRY_INSURANCE_DIVERSIFI" +
-      "ED\020M\022 \n\034BMT5_INDUSTRY_INSURANCE_LIFE\020N\022$" +
-      "\n BMT5_INDUSTRY_INSURANCE_PROPERTY\020O\022\'\n#" +
-      "BMT5_INDUSTRY_INSURANCE_REINSURANCE\020P\022%\n" +
-      "!BMT5_INDUSTRY_INSURANCE_SPECIALTY\020Q\022\"\n\036" +
-      "BMT5_INDUSTRY_MORTGAGE_FINANCE\020R\022!\n\035BMT5" +
-      "_INDUSTRY_SHELL_COMPANIES\020S\022\037\n\033BMT5_INDU" +
-      "STRY_BIOTECHNOLOGY\020T\022&\n\"BMT5_INDUSTRY_DI" +
-      "AGNOSTICS_RESEARCH\020U\022%\n!BMT5_INDUSTRY_DR" +
-      "UGS_MANUFACTURERS\020V\022*\n&BMT5_INDUSTRY_DRU" +
-      "GS_MANUFACTURERS_SPEC\020W\022\"\n\036BMT5_INDUSTRY" +
-      "_HEALTHCARE_PLANS\020X\022$\n BMT5_INDUSTRY_HEA" +
-      "LTH_INFORMATION\020Y\022$\n BMT5_INDUSTRY_MEDIC" +
-      "AL_FACILITIES\020Z\022!\n\035BMT5_INDUSTRY_MEDICAL" +
-      "_DEVICES\020[\022&\n\"BMT5_INDUSTRY_MEDICAL_DIST" +
-      "RIBUTION\020\\\022%\n!BMT5_INDUSTRY_MEDICAL_INST" +
-      "RUMENTS\020]\022!\n\035BMT5_INDUSTRY_PHARM_RETAILE" +
-      "RS\020^\022#\n\037BMT5_INDUSTRY_AEROSPACE_DEFENSE\020" +
-      "_\022\032\n\026BMT5_INDUSTRY_AIRLINES\020`\022#\n\037BMT5_IN" +
-      "DUSTRY_AIRPORTS_SERVICES\020a\022#\n\037BMT5_INDUS" +
-      "TRY_BUILDING_PRODUCTS\020b\022$\n BMT5_INDUSTRY" +
-      "_BUSINESS_EQUIPMENT\020c\022\037\n\033BMT5_INDUSTRY_C" +
-      "ONGLOMERATES\020d\022%\n!BMT5_INDUSTRY_CONSULTI" +
-      "NG_SERVICES\020e\022&\n\"BMT5_INDUSTRY_ELECTRICA" +
-      "L_EQUIPMENT\020f\022*\n&BMT5_INDUSTRY_ENGINEERI" +
-      "NG_CONSTRUCTION\020g\022&\n\"BMT5_INDUSTRY_FARM_" +
-      "HEAVY_MACHINERY\020h\022)\n%BMT5_INDUSTRY_INDUS" +
-      "TRIAL_DISTRIBUTION\020i\022+\n\'BMT5_INDUSTRY_IN" +
-      "FRASTRUCTURE_OPERATIONS\020j\022#\n\037BMT5_INDUST" +
-      "RY_FREIGHT_LOGISTICS\020k\022!\n\035BMT5_INDUSTRY_" +
-      "MARINE_SHIPPING\020l\022#\n\037BMT5_INDUSTRY_METAL" +
-      "_FABRICATION\020m\022#\n\037BMT5_INDUSTRY_POLLUTIO" +
-      "N_CONTROL\020n\022\033\n\027BMT5_INDUSTRY_RAILROADS\020o" +
-      "\022 \n\034BMT5_INDUSTRY_RENTAL_LEASING\020p\022%\n!BM" +
-      "T5_INDUSTRY_SECURITY_PROTECTION\020q\022,\n(BMT" +
-      "5_INDUSTRY_SPEALITY_BUSINESS_SERVICES\020r\022" +
-      "$\n BMT5_INDUSTRY_SPEALITY_MACHINERY\020s\022%\n" +
-      "!BMT5_INDUSTRY_STUFFING_EMPLOYMENT\020t\022#\n\037" +
-      "BMT5_INDUSTRY_TOOLS_ACCESSORIES\020u\022\032\n\026BMT" +
-      "5_INDUSTRY_TRUCKING\020v\022\"\n\036BMT5_INDUSTRY_W" +
-      "ASTE_MANAGEMENT\020w\022)\n%BMT5_INDUSTRY_REAL_" +
-      "ESTATE_DEVELOPMENT\020x\022)\n%BMT5_INDUSTRY_RE" +
-      "AL_ESTATE_DIVERSIFIED\020y\022&\n\"BMT5_INDUSTRY" +
-      "_REAL_ESTATE_SERVICES\020z\022\"\n\036BMT5_INDUSTRY" +
-      "_REIT_DIVERSIFIED\020{\022 \n\034BMT5_INDUSTRY_REI" +
-      "T_HEALTCARE\020|\022\"\n\036BMT5_INDUSTRY_REIT_HOTE" +
-      "L_MOTEL\020}\022!\n\035BMT5_INDUSTRY_REIT_INDUSTRI" +
-      "AL\020~\022\036\n\032BMT5_INDUSTRY_REIT_MORTAGE\020\177\022\036\n\031" +
-      "BMT5_INDUSTRY_REIT_OFFICE\020\200\001\022\"\n\035BMT5_IND" +
-      "USTRY_REIT_RESIDENTAL\020\201\001\022\036\n\031BMT5_INDUSTR" +
-      "Y_REIT_RETAIL\020\202\001\022\"\n\035BMT5_INDUSTRY_REIT_S" +
-      "PECIALITY\020\203\001\022*\n%BMT5_INDUSTRY_COMMUNICAT" +
-      "ION_EQUIPMENT\020\204\001\022$\n\037BMT5_INDUSTRY_COMPUT" +
-      "ER_HARDWARE\020\205\001\022\'\n\"BMT5_INDUSTRY_CONSUMER" +
-      "_ELECTRONICS\020\206\001\022(\n#BMT5_INDUSTRY_ELECTRO" +
-      "NIC_COMPONENTS\020\207\001\022*\n%BMT5_INDUSTRY_ELECT" +
-      "RONIC_DISTRIBUTION\020\210\001\022\036\n\031BMT5_INDUSTRY_I" +
-      "T_SERVICES\020\211\001\022)\n$BMT5_INDUSTRY_SCIENTIFI" +
-      "C_INSTRUMENTS\020\212\001\022*\n%BMT5_INDUSTRY_SEMICO" +
-      "NDUCTOR_EQUIPMENT\020\213\001\022!\n\034BMT5_INDUSTRY_SE" +
-      "MICONDUCTORS\020\214\001\022\'\n\"BMT5_INDUSTRY_SOFTWAR" +
-      "E_APPLICATION\020\215\001\022*\n%BMT5_INDUSTRY_SOFTWA" +
-      "RE_INFRASTRUCTURE\020\216\001\022\030\n\023BMT5_INDUSTRY_SO" +
-      "LAR\020\217\001\022(\n#BMT5_INDUSTRY_UTILITIES_DIVERS" +
-      "IFIED\020\220\001\022+\n&BMT5_INDUSTRY_UTILITIES_POWE" +
-      "RPRODUCERS\020\221\001\022&\n!BMT5_INDUSTRY_UTILITIES" +
-      "_RENEWABLE\020\222\001\022/\n*BMT5_INDUSTRY_UTILITIES" +
-      "_REGULATED_ELECTRIC\020\223\001\022*\n%BMT5_INDUSTRY_" +
-      "UTILITIES_REGULATED_GAS\020\224\001\022,\n\'BMT5_INDUS" +
-      "TRY_UTILITIES_REGULATED_WATER\020\225\001\022\"\n\035BMT5" +
-      "_INDUSTRY_UTILITIES_FIRST\020\226\001\022!\n\034BMT5_IND" +
-      "USTRY_UTILITIES_LAST\020\227\0012\320\007\n\rAccountHelpe" +
-      "r\022q\n\016AccountSummary\022#.mt5_term_api.Accou" +
-      "ntSummaryRequest\032!.mt5_term_api.AccountS" +
-      "ummaryReply\"\027\202\323\344\223\002\021\022\017/AccountSummary\022i\n\014" +
-      "OrderHistory\022!.mt5_term_api.OrderHistory" +
-      "Request\032\037.mt5_term_api.OrderHistoryReply" +
-      "\"\025\202\323\344\223\002\017\022\r/OrderHistory\022i\n\014OpenedOrders\022" +
-      "!.mt5_term_api.OpenedOrdersRequest\032\037.mt5" +
-      "_term_api.OpenedOrdersReply\"\025\202\323\344\223\002\017\022\r/Op" +
-      "enedOrders\022\205\001\n\023OpenedOrdersTickets\022(.mt5" +
-      "_term_api.OpenedOrdersTicketsRequest\032&.m" +
-      "t5_term_api.OpenedOrdersTicketsReply\"\034\202\323" +
-      "\344\223\002\026\022\024/OpenedOrdersTickets\022y\n\020SymbolPara" +
-      "msMany\022%.mt5_term_api.SymbolParamsManyRe" +
-      "quest\032#.mt5_term_api.SymbolParamsManyRep" +
-      "ly\"\031\202\323\344\223\002\023\022\021/SymbolParamsMany\022}\n\021TickVal" +
-      "ueWithSize\022&.mt5_term_api.TickValueWithS" +
-      "izeRequest\032$.mt5_term_api.TickValueWithS" +
-      "izeReply\"\032\202\323\344\223\002\024\022\022/TickValueWithSize\022y\n\020" +
-      "PositionsHistory\022%.mt5_term_api.Position" +
-      "sHistoryRequest\032#.mt5_term_api.Positions" +
-      "HistoryReply\"\031\202\323\344\223\002\023\022\021/PositionsHistory\022" +
-      "y\n\020AllHistoryOrders\022%.mt5_term_api.AllHi" +
-      "storyOrdersRequest\032#.mt5_term_api.AllHis" +
-      "toryOrdersReply\"\031\202\323\344\223\002\023\022\021/AllHistoryOrde" +
-      "rsBBZ1git.mtapi.io/root/mrpc-proto.git/m" +
-      "t5/libraries/go\252\002\014mt5_term_apib\006proto3"
+      "\275\001\n\024SymbolParamsManyData\0224\n\014symbol_infos" +
+      "\030\001 \003(\0132\036.mt5_term_api.SymbolParameters\022\025" +
+      "\n\rsymbols_total\030\002 \001(\005\022\030\n\013page_number\030\003 \001" +
+      "(\005H\000\210\001\001\022\033\n\016items_per_page\030\004 \001(\005H\001\210\001\001B\016\n\014" +
+      "_page_numberB\021\n\017_items_per_page\"\354\031\n\020Symb" +
+      "olParameters\022\014\n\004name\030\001 \001(\t\022\013\n\003bid\030\002 \001(\001\022" +
+      "\020\n\010bid_high\030\003 \001(\001\022\017\n\007bid_low\030\004 \001(\001\022\013\n\003as" +
+      "k\030\005 \001(\001\022\020\n\010ask_high\030\006 \001(\001\022\017\n\007ask_low\030\007 \001" +
+      "(\001\022\014\n\004last\030\010 \001(\001\022\021\n\tlast_high\030\t \001(\001\022\020\n\010l" +
+      "ast_low\030\n \001(\001\022\023\n\013volume_real\030\013 \001(\001\022\030\n\020vo" +
+      "lume_high_real\030\014 \001(\001\022\027\n\017volume_low_real\030" +
+      "\r \001(\001\022\025\n\roption_strike\030\016 \001(\001\022\r\n\005point\030\017 " +
+      "\001(\001\022\030\n\020trade_tick_value\030\020 \001(\001\022\037\n\027trade_t" +
+      "ick_value_profit\030\021 \001(\001\022\035\n\025trade_tick_val" +
+      "ue_loss\030\022 \001(\001\022\027\n\017trade_tick_size\030\023 \001(\001\022\033" +
+      "\n\023trade_contract_size\030\024 \001(\001\022\036\n\026trade_acc" +
+      "rued_interest\030\025 \001(\001\022\030\n\020trade_face_value\030" +
+      "\026 \001(\001\022\034\n\024trade_liquidity_rate\030\027 \001(\001\022\022\n\nv" +
+      "olume_min\030\030 \001(\001\022\022\n\nvolume_max\030\031 \001(\001\022\023\n\013v" +
+      "olume_step\030\032 \001(\001\022\024\n\014volume_limit\030\033 \001(\001\022\021" +
+      "\n\tswap_long\030\034 \001(\001\022\022\n\nswap_short\030\035 \001(\001\022\023\n" +
+      "\013swap_sunday\030\036 \001(\001\022\023\n\013swap_monday\030\037 \001(\001\022" +
+      "\024\n\014swap_tuesday\030  \001(\001\022\026\n\016swap_wednesday\030" +
+      "! \001(\001\022\025\n\rswap_thursday\030\" \001(\001\022\023\n\013swap_fri" +
+      "day\030# \001(\001\022\025\n\rswap_saturday\030$ \001(\001\022\026\n\016marg" +
+      "in_initial\030% \001(\001\022\032\n\022margin_maintenance\030&" +
+      " \001(\001\022\026\n\016session_volume\030\' \001(\001\022\030\n\020session_" +
+      "turnover\030( \001(\001\022\030\n\020session_interest\030) \001(\001" +
+      "\022!\n\031session_buy_orders_volume\030* \001(\001\022\"\n\032s" +
+      "ession_sell_orders_volume\030+ \001(\001\022\024\n\014sessi" +
+      "on_open\030, \001(\001\022\025\n\rsession_close\030- \001(\001\022\022\n\n" +
+      "session_aw\030. \001(\001\022 \n\030session_price_settle" +
+      "ment\030/ \001(\001\022\037\n\027session_price_limit_min\0300 " +
+      "\001(\001\022\037\n\027session_price_limit_max\0301 \001(\001\022\025\n\r" +
+      "margin_hedged\0302 \001(\001\022\024\n\014price_change\0303 \001(" +
+      "\001\022\030\n\020price_volatility\0304 \001(\001\022\031\n\021price_the" +
+      "oretical\0305 \001(\001\022\023\n\013price_delta\0306 \001(\001\022\023\n\013p" +
+      "rice_theta\0307 \001(\001\022\023\n\013price_gamma\0308 \001(\001\022\022\n" +
+      "\nprice_vega\0309 \001(\001\022\021\n\tprice_rho\030: \001(\001\022\023\n\013" +
+      "price_omega\030; \001(\001\022\031\n\021price_sensitivity\030<" +
+      " \001(\001\0225\n\006sector\030= \001(\0162%.mt5_term_api.BMT5" +
+      "_ENUM_SYMBOL_SECTOR\0229\n\010industry\030> \001(\0162\'." +
+      "mt5_term_api.BMT5_ENUM_SYMBOL_INDUSTRY\022\016" +
+      "\n\006custom\030? \001(\010\022\030\n\020background_color\030@ \001(\t" +
+      "\022=\n\nchart_mode\030A \001(\0162).mt5_term_api.BMT5" +
+      "_ENUM_SYMBOL_CHART_MODE\022\r\n\005exist\030B \001(\010\022\016" +
+      "\n\006select\030C \001(\010\022\032\n\022subscription_delay\030D \001" +
+      "(\005\022\017\n\007visible\030E \001(\010\022\025\n\rsession_deals\030F \001" +
+      "(\003\022\032\n\022session_buy_orders\030G \001(\003\022\033\n\023sessio" +
+      "n_sell_orders\030H \001(\003\022\016\n\006volume\030I \001(\003\022\023\n\013v" +
+      "olume_high\030J \001(\003\022\022\n\nvolume_low\030K \001(\003\022(\n\004" +
+      "time\030L \001(\0132\032.google.protobuf.Timestamp\022," +
+      "\n\010time_utc\030q \001(\0132\032.google.protobuf.Times" +
+      "tamp\022\020\n\010time_msc\030M \001(\003\022\024\n\014time_msc_utc\030r" +
+      " \001(\003\022\016\n\006digits\030N \001(\005\022\024\n\014spread_float\030O \001" +
+      "(\010\022\016\n\006spread\030P \001(\005\022\030\n\020ticks_book_depth\030Q" +
+      " \001(\005\022A\n\017trade_calc_mode\030R \001(\0162(.mt5_term" +
+      "_api.BMT5_ENUM_SYMBOL_CALC_MODE\022=\n\ntrade" +
+      "_mode\030S \001(\0162).mt5_term_api.BMT5_ENUM_SYM" +
+      "BOL_TRADE_MODE\022.\n\nstart_time\030T \001(\0132\032.goo" +
+      "gle.protobuf.Timestamp\0222\n\016start_time_utc" +
+      "\030s \001(\0132\032.google.protobuf.Timestamp\0223\n\017ex" +
+      "piration_time\030U \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\0227\n\023expiration_time_utc\030t \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\022\031\n\021trade_stops_" +
+      "level\030V \001(\005\022\032\n\022trade_freeze_level\030W \001(\005\022" +
+      "F\n\016trade_exe_mode\030X \001(\0162..mt5_term_api.B" +
+      "MT5_ENUM_SYMBOL_TRADE_EXECUTION\022;\n\tswap_" +
+      "mode\030Y \001(\0162(.mt5_term_api.BMT5_ENUM_SYMB" +
+      "OL_SWAP_MODE\022@\n\023swap_rollover_3days\030Z \001(" +
+      "\0162#.mt5_term_api.BMT5_ENUM_DAY_OF_WEEK\022\035" +
+      "\n\025margin_hedged_use_leg\030[ \001(\010\022\027\n\017expirat" +
+      "ion_mode\030\\ \001(\005\022@\n\014filling_mode\030] \003(\0162*.m" +
+      "t5_term_api.BMT5_ENUM_ORDER_TYPE_FILLING" +
+      "\0226\n\norder_mode\030^ \001(\0162\".mt5_term_api.BMT5" +
+      "_ENUM_ORDER_TYPE\022E\n\016order_gtc_mode\030_ \001(\016" +
+      "2-.mt5_term_api.BMT5_ENUM_SYMBOL_ORDER_G" +
+      "TC_MODE\022?\n\013option_mode\030` \001(\0162*.mt5_term_" +
+      "api.BMT5_ENUM_SYMBOL_OPTION_MODE\022A\n\014opti" +
+      "on_right\030a \001(\0162+.mt5_term_api.BMT5_ENUM_" +
+      "SYMBOL_OPTION_RIGHT\022\r\n\005basis\030b \001(\t\022\020\n\010ca" +
+      "tegory\030c \001(\t\022\017\n\007country\030d \001(\t\022\023\n\013sector_" +
+      "name\030e \001(\t\022\025\n\rindustry_name\030f \001(\t\022\025\n\rcur" +
+      "rency_base\030g \001(\t\022\027\n\017currency_profit\030h \001(" +
+      "\t\022\027\n\017currency_margin\030i \001(\t\022\014\n\004bank\030j \001(\t" +
+      "\022\027\n\017sym_description\030k \001(\t\022\020\n\010exchange\030l " +
+      "\001(\t\022\017\n\007formula\030m \001(\t\022\014\n\004isin\030n \001(\t\022\014\n\004pa" +
+      "ge\030o \001(\t\022\014\n\004path\030p \001(\t*\251\001\n!BMT5_ENUM_DEA" +
+      "LS_HISTORY_SORT_TYPE\022\036\n\032BMT5_SORT_BY_DEA" +
+      "L_TIME_ASC\020\000\022\037\n\033BMT5_SORT_BY_DEAL_TIME_D" +
+      "ESC\020\001\022 \n\034BMT5_SORT_BY_DEAL_TICKET_ASC\020\002\022" +
+      "!\n\035BMT5_SORT_BY_DEAL_TICKET_DESC\020\003*\235\001\n#A" +
+      "H_ENUM_POSITIONS_HISTORY_SORT_TYPE\022\035\n\031AH" +
+      "_POSITION_OPEN_TIME_ASC\020\000\022\036\n\032AH_POSITION" +
+      "_OPEN_TIME_DESC\020\001\022\032\n\026AH_POSITION_TICKET_" +
+      "ASC\020\002\022\033\n\027AH_POSITION_TICKET_DESC\020\003*\252\002\n$A" +
+      "H_ENUM_POSITIONS_HISTORY_ORDER_TYPE\022\025\n\021A" +
+      "H_ORDER_TYPE_BUY\020\000\022\026\n\022AH_ORDER_TYPE_SELL" +
+      "\020\001\022\033\n\027AH_ORDER_TYPE_BUY_LIMIT\020\002\022\034\n\030AH_OR" +
+      "DER_TYPE_SELL_LIMIT\020\003\022\032\n\026AH_ORDER_TYPE_B" +
+      "UY_STOP\020\004\022\033\n\027AH_ORDER_TYPE_SELL_STOP\020\005\022 " +
+      "\n\034AH_ORDER_TYPE_BUY_STOP_LIMIT\020\006\022!\n\035AH_O" +
+      "RDER_TYPE_SELL_STOP_LIMIT\020\007\022\032\n\026AH_ORDER_" +
+      "TYPE_CLOSE_BY\020\010*\344\001\n BMT5_ENUM_OPENED_ORD" +
+      "ER_SORT_TYPE\022+\n\'BMT5_OPENED_ORDER_SORT_B" +
+      "Y_OPEN_TIME_ASC\020\000\022,\n(BMT5_OPENED_ORDER_S" +
+      "ORT_BY_OPEN_TIME_DESC\020\001\0221\n-BMT5_OPENED_O" +
+      "RDER_SORT_BY_ORDER_TICKET_ID_ASC\020\002\0222\n.BM" +
+      "T5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_" +
+      "DESC\020\003*R\n\027BMT5_ENUM_POSITION_TYPE\022\032\n\026BMT" +
+      "5_POSITION_TYPE_BUY\020\000\022\033\n\027BMT5_POSITION_T" +
+      "YPE_SELL\020\001*\333\001\n\031BMT5_ENUM_POSITION_REASON" +
+      "\022\037\n\033BMT5_POSITION_REASON_CLIENT\020\000\022\037\n\033BMT" +
+      "5_POSITION_REASON_MOBILE\020\001\022\034\n\030BMT5_POSIT" +
+      "ION_REASON_WEB\020\002\022\037\n\033BMT5_POSITION_REASON" +
+      "_EXPERT\020\003\022\023\n\017ORDER_REASON_SL\020\004\022\023\n\017ORDER_" +
+      "REASON_TP\020\005\022\023\n\017ORDER_REASON_SO\020\006*\217\001\n\031BMT" +
+      "5_ENUM_ORDER_TYPE_TIME\022\027\n\023BMT5_ORDER_TIM" +
+      "E_GTC\020\000\022\027\n\023BMT5_ORDER_TIME_DAY\020\001\022\035\n\031BMT5" +
+      "_ORDER_TIME_SPECIFIED\020\002\022!\n\035BMT5_ORDER_TI" +
+      "ME_SPECIFIED_DAY\020\003*\221\001\n\034BMT5_ENUM_ORDER_T" +
+      "YPE_FILLING\022\032\n\026BMT5_ORDER_FILLING_FOK\020\000\022" +
+      "\032\n\026BMT5_ORDER_FILLING_IOC\020\001\022\032\n\026BMT5_ORDE" +
+      "R_FILLING_BOC\020\003\022\035\n\031BMT5_ORDER_FILLING_RE" +
+      "TURN\020\002*\254\002\n\024BMT5_ENUM_ORDER_TYPE\022\027\n\023BMT5_" +
+      "ORDER_TYPE_BUY\020\000\022\030\n\024BMT5_ORDER_TYPE_SELL" +
+      "\020\001\022\035\n\031BMT5_ORDER_TYPE_BUY_LIMIT\020\002\022\036\n\032BMT" +
+      "5_ORDER_TYPE_SELL_LIMIT\020\003\022\034\n\030BMT5_ORDER_" +
+      "TYPE_BUY_STOP\020\004\022\035\n\031BMT5_ORDER_TYPE_SELL_" +
+      "STOP\020\005\022\"\n\036BMT5_ORDER_TYPE_BUY_STOP_LIMIT" +
+      "\020\006\022#\n\037BMT5_ORDER_TYPE_SELL_STOP_LIMIT\020\007\022" +
+      "\034\n\030BMT5_ORDER_TYPE_CLOSE_BY\020\010*\323\002\n\025BMT5_E" +
+      "NUM_DEAL_REASON\022\033\n\027BMT5_DEAL_REASON_CLIE" +
+      "NT\020\000\022\033\n\027BMT5_DEAL_REASON_MOBILE\020\001\022\030\n\024BMT" +
+      "5_DEAL_REASON_WEB\020\002\022\033\n\027BMT5_DEAL_REASON_" +
+      "EXPERT\020\003\022\027\n\023BMT5_DEAL_REASON_SL\020\004\022\027\n\023BMT" +
+      "5_DEAL_REASON_TP\020\005\022\027\n\023BMT5_DEAL_REASON_S" +
+      "O\020\006\022\035\n\031BMT5_DEAL_REASON_ROLLOVER\020\007\022\034\n\030BM" +
+      "T5_DEAL_REASON_VMARGIN\020\010\022\032\n\026BMT5_DEAL_RE" +
+      "ASON_SPLIT\020\t\022%\n!BMT5_DEAL_REASON_CORPORA" +
+      "TE_ACTION\020\n*\277\004\n\023BMT5_ENUM_DEAL_TYPE\022\026\n\022B" +
+      "MT5_DEAL_TYPE_BUY\020\000\022\027\n\023BMT5_DEAL_TYPE_SE" +
+      "LL\020\001\022\032\n\026BMT5_DEAL_TYPE_BALANCE\020\002\022\031\n\025BMT5" +
+      "_DEAL_TYPE_CREDIT\020\003\022\031\n\025BMT5_DEAL_TYPE_CH" +
+      "ARGE\020\004\022\035\n\031BMT5_DEAL_TYPE_CORRECTION\020\005\022\030\n" +
+      "\024BMT5_DEAL_TYPE_BONUS\020\006\022\035\n\031BMT5_DEAL_TYP" +
+      "E_COMMISSION\020\007\022#\n\037BMT5_DEAL_TYPE_COMMISS" +
+      "ION_DAILY\020\010\022%\n!BMT5_DEAL_TYPE_COMMISSION" +
+      "_MONTHLY\020\t\022)\n%BMT5_DEAL_TYPE_COMMISSION_" +
+      "AGENT_DAILY\020\n\022+\n\'BMT5_DEAL_TYPE_COMMISSI" +
+      "ON_AGENT_MONTHLY\020\013\022\033\n\027BMT5_DEAL_TYPE_INT" +
+      "EREST\020\014\022\037\n\033BMT5_DEAL_TYPE_BUY_CANCELED\020\r" +
+      "\022 \n\034BMT5_DEAL_TYPE_SELL_CANCELED\020\016\022\026\n\022BM" +
+      "T5_DEAL_DIVIDEND\020\017\022\036\n\032BMT5_DEAL_DIVIDEND" +
+      "_FRANKED\020\020\022\021\n\rBMT5_DEAL_TAX\020\021*\203\001\n\031BMT5_E" +
+      "NUM_DEAL_ENTRY_TYPE\022\026\n\022BMT5_DEAL_ENTRY_I",
+      "N\020\000\022\027\n\023BMT5_DEAL_ENTRY_OUT\020\001\022\031\n\025BMT5_DEA" +
+      "L_ENTRY_INOUT\020\002\022\032\n\026BMT5_DEAL_ENTRY_OUT_B" +
+      "Y\020\003*\364\001\n!BMT5_ENUM_ORDER_HISTORY_SORT_TYP" +
+      "E\022\036\n\032BMT5_SORT_BY_OPEN_TIME_ASC\020\000\022\037\n\033BMT" +
+      "5_SORT_BY_OPEN_TIME_DESC\020\001\022\037\n\033BMT5_SORT_" +
+      "BY_CLOSE_TIME_ASC\020\002\022 \n\034BMT5_SORT_BY_CLOS" +
+      "E_TIME_DESC\020\003\022$\n BMT5_SORT_BY_ORDER_TICK" +
+      "ET_ID_ASC\020\004\022%\n!BMT5_SORT_BY_ORDER_TICKET" +
+      "_ID_DESC\020\005*\325\002\n\025BMT5_ENUM_ORDER_STATE\022\034\n\030" +
+      "BMT5_ORDER_STATE_STARTED\020\000\022\033\n\027BMT5_ORDER" +
+      "_STATE_PLACED\020\001\022\035\n\031BMT5_ORDER_STATE_CANC" +
+      "ELED\020\002\022\034\n\030BMT5_ORDER_STATE_PARTIAL\020\003\022\033\n\027" +
+      "BMT5_ORDER_STATE_FILLED\020\004\022\035\n\031BMT5_ORDER_" +
+      "STATE_REJECTED\020\005\022\034\n\030BMT5_ORDER_STATE_EXP" +
+      "IRED\020\006\022 \n\034BMT5_ORDER_STATE_REQUEST_ADD\020\007" +
+      "\022#\n\037BMT5_ORDER_STATE_REQUEST_MODIFY\020\010\022#\n" +
+      "\037BMT5_ORDER_STATE_REQUEST_CANCEL\020\t*\203\001\n\030M" +
+      "rpcEnumAccountTradeMode\022 \n\034MRPC_ACCOUNT_" +
+      "TRADE_MODE_DEMO\020\000\022#\n\037MRPC_ACCOUNT_TRADE_" +
+      "MODE_CONTEST\020\001\022 \n\034MRPC_ACCOUNT_TRADE_MOD" +
+      "E_REAL\020\002*\234\001\n\031MrpcEnumAccountMarginMode\022+" +
+      "\n\'MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTIN" +
+      "G\020\000\022%\n!MRPC_ACCOUNT_MARGIN_MODE_EXCHANGE" +
+      "\020\001\022+\n\'MRPC_ACCOUNT_MARGIN_MODE_RETAIL_HE" +
+      "DGING\020\002*\327\001\n\037AH_SYMBOL_PARAMS_MANY_SORT_T" +
+      "YPE\022,\n(AH_PARAMS_MANY_SORT_TYPE_SYMBOL_N" +
+      "AME_ASC\020\000\022-\n)AH_PARAMS_MANY_SORT_TYPE_SY" +
+      "MBOL_NAME_DESC\020\001\022*\n&AH_PARAMS_MANY_SORT_" +
+      "TYPE_MQL_INDEX_ASC\020\002\022+\n\'AH_PARAMS_MANY_S" +
+      "ORT_TYPE_MQL_INDEX_DESC\020\003*d\n\035BMT5_ENUM_S" +
+      "YMBOL_OPTION_RIGHT\022!\n\035BMT5_SYMBOL_OPTION" +
+      "_RIGHT_CALL\020\000\022 \n\034BMT5_SYMBOL_OPTION_RIGH" +
+      "T_PUT\020\001*j\n\034BMT5_ENUM_SYMBOL_OPTION_MODE\022" +
+      "$\n BMT5_SYMBOL_OPTION_MODE_EUROPEAN\020\000\022$\n" +
+      " BMT5_SYMBOL_OPTION_MODE_AMERICAN\020\001*\211\001\n\037" +
+      "BMT5_ENUM_SYMBOL_ORDER_GTC_MODE\022\032\n\026BMT5_" +
+      "SYMBOL_ORDERS_GTC\020\000\022\034\n\030BMT5_SYMBOL_ORDER" +
+      "S_DAILY\020\001\022,\n(BMT5_SYMBOL_ORDERS_DAILY_EX" +
+      "CLUDING_STOPS\020\002*\226\001\n\025BMT5_ENUM_DAY_OF_WEE" +
+      "K\022\017\n\013BMT5_SUNDAY\020\000\022\017\n\013BMT5_MONDAY\020\001\022\020\n\014B" +
+      "MT5_TUESDAY\020\002\022\022\n\016BMT5_WEDNESDAY\020\003\022\021\n\rBMT" +
+      "5_THURSDAY\020\004\022\017\n\013BMT5_FRIDAY\020\005\022\021\n\rBMT5_SA" +
+      "TURDAY\020\006*\264\003\n\032BMT5_ENUM_SYMBOL_SWAP_MODE\022" +
+      "\"\n\036BMT5_SYMBOL_SWAP_MODE_DISABLED\020\000\022 \n\034B" +
+      "MT5_SYMBOL_SWAP_MODE_POINTS\020\001\022)\n%BMT5_SY" +
+      "MBOL_SWAP_MODE_CURRENCY_SYMBOL\020\002\022)\n%BMT5" +
+      "_SYMBOL_SWAP_MODE_CURRENCY_MARGIN\020\003\022*\n&B" +
+      "MT5_SYMBOL_SWAP_MODE_CURRENCY_DEPOSIT\020\004\022" +
+      ")\n%BMT5_SYMBOL_SWAP_MODE_CURRENCY_PROFIT" +
+      "\020\005\022*\n&BMT5_SYMBOL_SWAP_MODE_INTEREST_CUR" +
+      "RENT\020\006\022\'\n#BMT5_SYMBOL_SWAP_MODE_INTEREST" +
+      "_OPEN\020\007\022(\n$BMT5_SYMBOL_SWAP_MODE_REOPEN_" +
+      "CURRENT\020\010\022$\n BMT5_SYMBOL_SWAP_MODE_REOPE" +
+      "N_BID\020\t*\306\001\n BMT5_ENUM_SYMBOL_TRADE_EXECU" +
+      "TION\022\'\n#BMT5_SYMBOL_TRADE_EXECUTION_REQU" +
+      "EST\020\000\022\'\n#BMT5_SYMBOL_TRADE_EXECUTION_INS" +
+      "TANT\020\001\022&\n\"BMT5_SYMBOL_TRADE_EXECUTION_MA" +
+      "RKET\020\002\022(\n$BMT5_SYMBOL_TRADE_EXECUTION_EX" +
+      "CHANGE\020\003*\324\001\n\033BMT5_ENUM_SYMBOL_TRADE_MODE" +
+      "\022#\n\037BMT5_SYMBOL_TRADE_MODE_DISABLED\020\000\022#\n" +
+      "\037BMT5_SYMBOL_TRADE_MODE_LONGONLY\020\001\022$\n BM" +
+      "T5_SYMBOL_TRADE_MODE_SHORTONLY\020\002\022$\n BMT5" +
+      "_SYMBOL_TRADE_MODE_CLOSEONLY\020\003\022\037\n\033BMT5_S" +
+      "YMBOL_TRADE_MODE_FULL\020\004*\234\004\n\032BMT5_ENUM_SY" +
+      "MBOL_CALC_MODE\022\037\n\033BMT5_SYMBOL_CALC_MODE_" +
+      "FOREX\020\000\022+\n\'BMT5_SYMBOL_CALC_MODE_FOREX_N" +
+      "O_LEVERAGE\020\001\022!\n\035BMT5_SYMBOL_CALC_MODE_FU" +
+      "TURES\020\002\022\035\n\031BMT5_SYMBOL_CALC_MODE_CFD\020\003\022\"" +
+      "\n\036BMT5_SYMBOL_CALC_MODE_CFDINDEX\020\004\022%\n!BM" +
+      "T5_SYMBOL_CALC_MODE_CFDLEVERAGE\020\005\022%\n!BMT" +
+      "5_SYMBOL_CALC_MODE_EXCH_STOCKS\020\006\022&\n\"BMT5" +
+      "_SYMBOL_CALC_MODE_EXCH_FUTURES\020\007\022,\n(BMT5" +
+      "_SYMBOL_CALC_MODE_EXCH_FUTURES_FORTS\020\010\022$" +
+      "\n BMT5_SYMBOL_CALC_MODE_EXCH_BONDS\020\t\022*\n&" +
+      "BMT5_SYMBOL_CALC_MODE_EXCH_STOCKS_MOEX\020\n" +
+      "\022)\n%BMT5_SYMBOL_CALC_MODE_EXCH_BONDS_MOE" +
+      "X\020\013\022)\n%BMT5_SYMBOL_CALC_MODE_SERV_COLLAT" +
+      "ERAL\020\014*\277\003\n\027BMT5_ENUM_SYMBOL_SECTOR\022\031\n\025BM" +
+      "T5_SECTOR_UNDEFINED\020\000\022\037\n\033BMT5_SECTOR_BAS" +
+      "IC_MATERIALS\020\001\022&\n\"BMT5_SECTOR_COMMUNICAT" +
+      "ION_SERVICES\020\002\022!\n\035BMT5_SECTOR_CONSUMER_C" +
+      "YCLICAL\020\003\022\"\n\036BMT5_SECTOR_CONSUMER_DEFENS" +
+      "IVE\020\004\022\030\n\024BMT5_SECTOR_CURRENCY\020\005\022\037\n\033BMT5_" +
+      "SECTOR_CURRENCY_CRYPTO\020\006\022\026\n\022BMT5_SECTOR_" +
+      "ENERGY\020\007\022\031\n\025BMT5_SECTOR_FINANCIAL\020\010\022\032\n\026B" +
+      "MT5_SECTOR_HEALTHCARE\020\t\022\033\n\027BMT5_SECTOR_I" +
+      "NDUSTRIALS\020\n\022\033\n\027BMT5_SECTOR_REAL_ESTATE\020" +
+      "\013\022\032\n\026BMT5_SECTOR_TECHNOLOGY\020\014\022\031\n\025BMT5_SE" +
+      "CTOR_UTILITIES\020\r*^\n\033BMT5_ENUM_SYMBOL_CHA" +
+      "RT_MODE\022\036\n\032BMT5_SYMBOL_CHART_MODE_BID\020\000\022" +
+      "\037\n\033BMT5_SYMBOL_CHART_MODE_LAST\020\001*\246+\n\031BMT" +
+      "5_ENUM_SYMBOL_INDUSTRY\022\033\n\027BMT5_INDUSTRY_" +
+      "UNDEFINED\020\000\022%\n!BMT5_INDUSTRY_AGRICULTURA" +
+      "L_INPUTS\020\001\022\033\n\027BMT5_INDUSTRY_ALUMINIUM\020\002\022" +
+      "$\n BMT5_INDUSTRY_BUILDING_MATERIALS\020\003\022\033\n" +
+      "\027BMT5_INDUSTRY_CHEMICALS\020\004\022\035\n\031BMT5_INDUS" +
+      "TRY_COKING_COAL\020\005\022\030\n\024BMT5_INDUSTRY_COPPE" +
+      "R\020\006\022\026\n\022BMT5_INDUSTRY_GOLD\020\007\022\035\n\031BMT5_INDU" +
+      "STRY_LUMBER_WOOD\020\010\022#\n\037BMT5_INDUSTRY_INDU" +
+      "STRIAL_METALS\020\t\022!\n\035BMT5_INDUSTRY_PRECIOU" +
+      "S_METALS\020\n\022\027\n\023BMT5_INDUSTRY_PAPER\020\013\022\030\n\024B" +
+      "MT5_INDUSTRY_SILVER\020\014\022%\n!BMT5_INDUSTRY_S" +
+      "PECIALTY_CHEMICALS\020\r\022\027\n\023BMT5_INDUSTRY_ST" +
+      "EEL\020\016\022\035\n\031BMT5_INDUSTRY_ADVERTISING\020\017\022\036\n\032" +
+      "BMT5_INDUSTRY_BROADCASTING\020\020\022#\n\037BMT5_IND" +
+      "USTRY_GAMING_MULTIMEDIA\020\021\022\037\n\033BMT5_INDUST" +
+      "RY_ENTERTAINMENT\020\022\022\"\n\036BMT5_INDUSTRY_INTE" +
+      "RNET_CONTENT\020\023\022\034\n\030BMT5_INDUSTRY_PUBLISHI" +
+      "NG\020\024\022\031\n\025BMT5_INDUSTRY_TELECOM\020\025\022\'\n#BMT5_" +
+      "INDUSTRY_APPAREL_MANUFACTURING\020\026\022 \n\034BMT5" +
+      "_INDUSTRY_APPAREL_RETAIL\020\027\022$\n BMT5_INDUS" +
+      "TRY_AUTO_MANUFACTURERS\020\030\022\034\n\030BMT5_INDUSTR" +
+      "Y_AUTO_PARTS\020\031\022!\n\035BMT5_INDUSTRY_AUTO_DEA" +
+      "LERSHIP\020\032\022#\n\037BMT5_INDUSTRY_DEPARTMENT_ST" +
+      "ORES\020\033\022&\n\"BMT5_INDUSTRY_FOOTWEAR_ACCESSO" +
+      "RIES\020\034\022\035\n\031BMT5_INDUSTRY_FURNISHINGS\020\035\022\032\n" +
+      "\026BMT5_INDUSTRY_GAMBLING\020\036\022$\n BMT5_INDUST" +
+      "RY_HOME_IMPROV_RETAIL\020\037\022!\n\035BMT5_INDUSTRY" +
+      "_INTERNET_RETAIL\020 \022\031\n\025BMT5_INDUSTRY_LEIS" +
+      "URE\020!\022\031\n\025BMT5_INDUSTRY_LODGING\020\"\022\036\n\032BMT5" +
+      "_INDUSTRY_LUXURY_GOODS\020#\022&\n\"BMT5_INDUSTR" +
+      "Y_PACKAGING_CONTAINERS\020$\022#\n\037BMT5_INDUSTR" +
+      "Y_PERSONAL_SERVICES\020%\022\'\n#BMT5_INDUSTRY_R" +
+      "ECREATIONAL_VEHICLES\020&\022\'\n#BMT5_INDUSTRY_" +
+      "RESIDENT_CONSTRUCTION\020\'\022!\n\035BMT5_INDUSTRY" +
+      "_RESORTS_CASINOS\020(\022\035\n\031BMT5_INDUSTRY_REST" +
+      "AURANTS\020)\022\"\n\036BMT5_INDUSTRY_SPECIALTY_RET" +
+      "AIL\020*\022\'\n#BMT5_INDUSTRY_TEXTILE_MANUFACTU" +
+      "RING\020+\022!\n\035BMT5_INDUSTRY_TRAVEL_SERVICES\020" +
+      ",\022#\n\037BMT5_INDUSTRY_BEVERAGES_BREWERS\020-\022$" +
+      "\n BMT5_INDUSTRY_BEVERAGES_NON_ALCO\020.\022$\n " +
+      "BMT5_INDUSTRY_BEVERAGES_WINERIES\020/\022\037\n\033BM" +
+      "T5_INDUSTRY_CONFECTIONERS\0200\022!\n\035BMT5_INDU" +
+      "STRY_DISCOUNT_STORES\0201\022#\n\037BMT5_INDUSTRY_" +
+      "EDUCATION_TRAINIG\0202\022\037\n\033BMT5_INDUSTRY_FAR" +
+      "M_PRODUCTS\0203\022#\n\037BMT5_INDUSTRY_FOOD_DISTR" +
+      "IBUTION\0204\022 \n\034BMT5_INDUSTRY_GROCERY_STORE" +
+      "S\0205\022$\n BMT5_INDUSTRY_HOUSEHOLD_PRODUCTS\020" +
+      "6\022 \n\034BMT5_INDUSTRY_PACKAGED_FOODS\0207\022\031\n\025B" +
+      "MT5_INDUSTRY_TOBACCO\0208\022\"\n\036BMT5_INDUSTRY_" +
+      "OIL_GAS_DRILLING\0209\022\034\n\030BMT5_INDUSTRY_OIL_" +
+      "GAS_EP\020:\022#\n\037BMT5_INDUSTRY_OIL_GAS_EQUIPM" +
+      "ENT\020;\022$\n BMT5_INDUSTRY_OIL_GAS_INTEGRATE" +
+      "D\020<\022#\n\037BMT5_INDUSTRY_OIL_GAS_MIDSTREAM\020=" +
+      "\022\"\n\036BMT5_INDUSTRY_OIL_GAS_REFINING\020>\022\036\n\032" +
+      "BMT5_INDUSTRY_THERMAL_COAL\020?\022\031\n\025BMT5_IND" +
+      "USTRY_URANIUM\020@\022&\n\"BMT5_INDUSTRY_EXCHANG" +
+      "E_TRADED_FUND\020A\022#\n\037BMT5_INDUSTRY_ASSETS_" +
+      "MANAGEMENT\020B\022#\n\037BMT5_INDUSTRY_BANKS_DIVE" +
+      "RSIFIED\020C\022 \n\034BMT5_INDUSTRY_BANKS_REGIONA" +
+      "L\020D\022!\n\035BMT5_INDUSTRY_CAPITAL_MARKETS\020E\022%" +
+      "\n!BMT5_INDUSTRY_CLOSE_END_FUND_DEBT\020F\022\'\n" +
+      "#BMT5_INDUSTRY_CLOSE_END_FUND_EQUITY\020G\022(" +
+      "\n$BMT5_INDUSTRY_CLOSE_END_FUND_FOREIGN\020H" +
+      "\022!\n\035BMT5_INDUSTRY_CREDIT_SERVICES\020I\022(\n$B" +
+      "MT5_INDUSTRY_FINANCIAL_CONGLOMERATE\020J\022)\n" +
+      "%BMT5_INDUSTRY_FINANCIAL_DATA_EXCHANGE\020K" +
+      "\022#\n\037BMT5_INDUSTRY_INSURANCE_BROKERS\020L\022\'\n" +
+      "#BMT5_INDUSTRY_INSURANCE_DIVERSIFIED\020M\022 " +
+      "\n\034BMT5_INDUSTRY_INSURANCE_LIFE\020N\022$\n BMT5" +
+      "_INDUSTRY_INSURANCE_PROPERTY\020O\022\'\n#BMT5_I" +
+      "NDUSTRY_INSURANCE_REINSURANCE\020P\022%\n!BMT5_" +
+      "INDUSTRY_INSURANCE_SPECIALTY\020Q\022\"\n\036BMT5_I" +
+      "NDUSTRY_MORTGAGE_FINANCE\020R\022!\n\035BMT5_INDUS" +
+      "TRY_SHELL_COMPANIES\020S\022\037\n\033BMT5_INDUSTRY_B" +
+      "IOTECHNOLOGY\020T\022&\n\"BMT5_INDUSTRY_DIAGNOST" +
+      "ICS_RESEARCH\020U\022%\n!BMT5_INDUSTRY_DRUGS_MA" +
+      "NUFACTURERS\020V\022*\n&BMT5_INDUSTRY_DRUGS_MAN" +
+      "UFACTURERS_SPEC\020W\022\"\n\036BMT5_INDUSTRY_HEALT" +
+      "HCARE_PLANS\020X\022$\n BMT5_INDUSTRY_HEALTH_IN" +
+      "FORMATION\020Y\022$\n BMT5_INDUSTRY_MEDICAL_FAC" +
+      "ILITIES\020Z\022!\n\035BMT5_INDUSTRY_MEDICAL_DEVIC" +
+      "ES\020[\022&\n\"BMT5_INDUSTRY_MEDICAL_DISTRIBUTI" +
+      "ON\020\\\022%\n!BMT5_INDUSTRY_MEDICAL_INSTRUMENT" +
+      "S\020]\022!\n\035BMT5_INDUSTRY_PHARM_RETAILERS\020^\022#" +
+      "\n\037BMT5_INDUSTRY_AEROSPACE_DEFENSE\020_\022\032\n\026B" +
+      "MT5_INDUSTRY_AIRLINES\020`\022#\n\037BMT5_INDUSTRY" +
+      "_AIRPORTS_SERVICES\020a\022#\n\037BMT5_INDUSTRY_BU" +
+      "ILDING_PRODUCTS\020b\022$\n BMT5_INDUSTRY_BUSIN" +
+      "ESS_EQUIPMENT\020c\022\037\n\033BMT5_INDUSTRY_CONGLOM" +
+      "ERATES\020d\022%\n!BMT5_INDUSTRY_CONSULTING_SER" +
+      "VICES\020e\022&\n\"BMT5_INDUSTRY_ELECTRICAL_EQUI" +
+      "PMENT\020f\022*\n&BMT5_INDUSTRY_ENGINEERING_CON" +
+      "STRUCTION\020g\022&\n\"BMT5_INDUSTRY_FARM_HEAVY_" +
+      "MACHINERY\020h\022)\n%BMT5_INDUSTRY_INDUSTRIAL_" +
+      "DISTRIBUTION\020i\022+\n\'BMT5_INDUSTRY_INFRASTR" +
+      "UCTURE_OPERATIONS\020j\022#\n\037BMT5_INDUSTRY_FRE" +
+      "IGHT_LOGISTICS\020k\022!\n\035BMT5_INDUSTRY_MARINE" +
+      "_SHIPPING\020l\022#\n\037BMT5_INDUSTRY_METAL_FABRI" +
+      "CATION\020m\022#\n\037BMT5_INDUSTRY_POLLUTION_CONT" +
+      "ROL\020n\022\033\n\027BMT5_INDUSTRY_RAILROADS\020o\022 \n\034BM" +
+      "T5_INDUSTRY_RENTAL_LEASING\020p\022%\n!BMT5_IND" +
+      "USTRY_SECURITY_PROTECTION\020q\022,\n(BMT5_INDU" +
+      "STRY_SPEALITY_BUSINESS_SERVICES\020r\022$\n BMT" +
+      "5_INDUSTRY_SPEALITY_MACHINERY\020s\022%\n!BMT5_" +
+      "INDUSTRY_STUFFING_EMPLOYMENT\020t\022#\n\037BMT5_I" +
+      "NDUSTRY_TOOLS_ACCESSORIES\020u\022\032\n\026BMT5_INDU" +
+      "STRY_TRUCKING\020v\022\"\n\036BMT5_INDUSTRY_WASTE_M" +
+      "ANAGEMENT\020w\022)\n%BMT5_INDUSTRY_REAL_ESTATE" +
+      "_DEVELOPMENT\020x\022)\n%BMT5_INDUSTRY_REAL_EST" +
+      "ATE_DIVERSIFIED\020y\022&\n\"BMT5_INDUSTRY_REAL_" +
+      "ESTATE_SERVICES\020z\022\"\n\036BMT5_INDUSTRY_REIT_" +
+      "DIVERSIFIED\020{\022 \n\034BMT5_INDUSTRY_REIT_HEAL" +
+      "TCARE\020|\022\"\n\036BMT5_INDUSTRY_REIT_HOTEL_MOTE" +
+      "L\020}\022!\n\035BMT5_INDUSTRY_REIT_INDUSTRIAL\020~\022\036" +
+      "\n\032BMT5_INDUSTRY_REIT_MORTAGE\020\177\022\036\n\031BMT5_I" +
+      "NDUSTRY_REIT_OFFICE\020\200\001\022\"\n\035BMT5_INDUSTRY_" +
+      "REIT_RESIDENTAL\020\201\001\022\036\n\031BMT5_INDUSTRY_REIT" +
+      "_RETAIL\020\202\001\022\"\n\035BMT5_INDUSTRY_REIT_SPECIAL" +
+      "ITY\020\203\001\022*\n%BMT5_INDUSTRY_COMMUNICATION_EQ" +
+      "UIPMENT\020\204\001\022$\n\037BMT5_INDUSTRY_COMPUTER_HAR" +
+      "DWARE\020\205\001\022\'\n\"BMT5_INDUSTRY_CONSUMER_ELECT" +
+      "RONICS\020\206\001\022(\n#BMT5_INDUSTRY_ELECTRONIC_CO" +
+      "MPONENTS\020\207\001\022*\n%BMT5_INDUSTRY_ELECTRONIC_" +
+      "DISTRIBUTION\020\210\001\022\036\n\031BMT5_INDUSTRY_IT_SERV" +
+      "ICES\020\211\001\022)\n$BMT5_INDUSTRY_SCIENTIFIC_INST" +
+      "RUMENTS\020\212\001\022*\n%BMT5_INDUSTRY_SEMICONDUCTO" +
+      "R_EQUIPMENT\020\213\001\022!\n\034BMT5_INDUSTRY_SEMICOND" +
+      "UCTORS\020\214\001\022\'\n\"BMT5_INDUSTRY_SOFTWARE_APPL" +
+      "ICATION\020\215\001\022*\n%BMT5_INDUSTRY_SOFTWARE_INF" +
+      "RASTRUCTURE\020\216\001\022\030\n\023BMT5_INDUSTRY_SOLAR\020\217\001" +
+      "\022(\n#BMT5_INDUSTRY_UTILITIES_DIVERSIFIED\020" +
+      "\220\001\022+\n&BMT5_INDUSTRY_UTILITIES_POWERPRODU" +
+      "CERS\020\221\001\022&\n!BMT5_INDUSTRY_UTILITIES_RENEW" +
+      "ABLE\020\222\001\022/\n*BMT5_INDUSTRY_UTILITIES_REGUL" +
+      "ATED_ELECTRIC\020\223\001\022*\n%BMT5_INDUSTRY_UTILIT" +
+      "IES_REGULATED_GAS\020\224\001\022,\n\'BMT5_INDUSTRY_UT" +
+      "ILITIES_REGULATED_WATER\020\225\001\022\"\n\035BMT5_INDUS" +
+      "TRY_UTILITIES_FIRST\020\226\001\022!\n\034BMT5_INDUSTRY_" +
+      "UTILITIES_LAST\020\227\0012\273\010\n\rAccountHelper\022q\n\016A" +
+      "ccountSummary\022#.mt5_term_api.AccountSumm" +
+      "aryRequest\032!.mt5_term_api.AccountSummary" +
+      "Reply\"\027\202\323\344\223\002\021\022\017/AccountSummary\022i\n\014OrderH" +
+      "istory\022!.mt5_term_api.OrderHistoryReques" +
+      "t\032\037.mt5_term_api.OrderHistoryReply\"\025\202\323\344\223" +
+      "\002\017\022\r/OrderHistory\022i\n\014OpenedOrders\022!.mt5_" +
+      "term_api.OpenedOrdersRequest\032\037.mt5_term_" +
+      "api.OpenedOrdersReply\"\025\202\323\344\223\002\017\022\r/OpenedOr" +
+      "ders\022\205\001\n\023OpenedOrdersTickets\022(.mt5_term_" +
+      "api.OpenedOrdersTicketsRequest\032&.mt5_ter" +
+      "m_api.OpenedOrdersTicketsReply\"\034\202\323\344\223\002\026\022\024" +
+      "/OpenedOrdersTickets\022y\n\020SymbolParamsMany" +
+      "\022%.mt5_term_api.SymbolParamsManyRequest\032" +
+      "#.mt5_term_api.SymbolParamsManyReply\"\031\202\323" +
+      "\344\223\002\023\022\021/SymbolParamsMany\022}\n\021TickValueWith" +
+      "Size\022&.mt5_term_api.TickValueWithSizeReq" +
+      "uest\032$.mt5_term_api.TickValueWithSizeRep" +
+      "ly\"\032\202\323\344\223\002\024\022\022/TickValueWithSize\022y\n\020Positi" +
+      "onsHistory\022%.mt5_term_api.PositionsHisto" +
+      "ryRequest\032#.mt5_term_api.PositionsHistor" +
+      "yReply\"\031\202\323\344\223\002\023\022\021/PositionsHistory\022y\n\020All" +
+      "HistoryOrders\022%.mt5_term_api.AllHistoryO" +
+      "rdersRequest\032#.mt5_term_api.AllHistoryOr" +
+      "dersReply\"\031\202\323\344\223\002\023\022\021/AllHistoryOrders\022i\n\014" +
+      "DealsHistory\022!.mt5_term_api.DealsHistory" +
+      "Request\032\037.mt5_term_api.DealsHistoryReply" +
+      "\"\025\202\323\344\223\002\017\022\r/DealsHistoryBBZ1git.mtapi.io/" +
+      "root/mrpc-proto.git/mt5/libraries/go\252\002\014m" +
+      "t5_term_apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -66606,200 +71801,218 @@ public final class Mt5TermApiAccountHelper {
           com.google.api.AnnotationsProto.getDescriptor(),
           mt5_term_api.MrpcMt5Error.getDescriptor(),
         });
-    internal_static_mt5_term_api_AllHistoryOrdersRequest_descriptor =
+    internal_static_mt5_term_api_DealsHistoryRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_mt5_term_api_DealsHistoryRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mt5_term_api_DealsHistoryRequest_descriptor,
+        new java.lang.String[] { "InputFrom", "InputFromUtc", "InputTo", "InputToUtc", "InputSortMode", "PageToken", "PageSize", });
+    internal_static_mt5_term_api_DealsHistoryReply_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_mt5_term_api_DealsHistoryReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mt5_term_api_DealsHistoryReply_descriptor,
+        new java.lang.String[] { "Data", "Error", "Response", });
+    internal_static_mt5_term_api_DealsHistoryData_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_mt5_term_api_DealsHistoryData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mt5_term_api_DealsHistoryData_descriptor,
+        new java.lang.String[] { "ArrayTotal", "Deals", "NextPageToken", "AccountLogin", });
+    internal_static_mt5_term_api_AllHistoryOrdersRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_mt5_term_api_AllHistoryOrdersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_AllHistoryOrdersRequest_descriptor,
         new java.lang.String[] { "InputSortMode", "InputFrom", "InputFromUtc", "InputTo", "InputToUtc", "PageNumber", "ItemsPerPage", "PageToken", "PageSize", "InputFrom", "InputFromUtc", "InputTo", "InputToUtc", "PageNumber", "ItemsPerPage", });
     internal_static_mt5_term_api_AllHistoryOrdersReply_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_mt5_term_api_AllHistoryOrdersReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_AllHistoryOrdersReply_descriptor,
         new java.lang.String[] { "Data", "Error", "Response", });
     internal_static_mt5_term_api_AllHistoryOrdersData_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_mt5_term_api_AllHistoryOrdersData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_AllHistoryOrdersData_descriptor,
         new java.lang.String[] { "ArrayTotal", "PageNumber", "ItemsPerPage", "HistoryOrders", "NextPageToken", });
     internal_static_mt5_term_api_HistoryOrderInfo_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_mt5_term_api_HistoryOrderInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_HistoryOrderInfo_descriptor,
         new java.lang.String[] { "RecordIndex", "Ticket", "TimeSetup", "TimeSetupUtc", "Type", "State", "TimeDone", "TimeDoneUtc", "ExpirationTimeType", "ExpirationTime", "ExpirationTimeUtc", "FillingType", "Magic", "PositionId", "PositionById", "VolumeInitial", "VolumeCurrent", "PriceOpen", "Sl", "Tp", "PriceCurrent", "StopLimit", "Symbol", "Comment", "OrderExternalIdName", });
     internal_static_mt5_term_api_PositionsHistoryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_mt5_term_api_PositionsHistoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_PositionsHistoryRequest_descriptor,
         new java.lang.String[] { "SortType", "PositionOpenTimeFrom", "PositionOpenTimeFromUtc", "PositionOpenTimeTo", "PositionOpenTimeToUtc", "PageNumber", "ItemsPerPage", "PageToken", "PageSize", "PositionOpenTimeFrom", "PositionOpenTimeFromUtc", "PositionOpenTimeTo", "PositionOpenTimeToUtc", "PageNumber", "ItemsPerPage", });
     internal_static_mt5_term_api_PositionsHistoryReply_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_mt5_term_api_PositionsHistoryReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_PositionsHistoryReply_descriptor,
         new java.lang.String[] { "Data", "Error", "Response", });
     internal_static_mt5_term_api_PositionsHistoryData_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_mt5_term_api_PositionsHistoryData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_PositionsHistoryData_descriptor,
         new java.lang.String[] { "HistoryPositions", "TotalCount", "NextPageToken", });
     internal_static_mt5_term_api_PositionHistoryInfo_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_mt5_term_api_PositionHistoryInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_PositionHistoryInfo_descriptor,
         new java.lang.String[] { "Index", "PositionTicket", "OrderType", "OpenTime", "OpenTimeUtc", "CloseTime", "CloseTimeUtc", "Volume", "OpenPrice", "ClosePrice", "StopLoss", "TakeProfit", "MarketValue", "Commission", "Fee", "Profit", "Swap", "Comment", "Symbol", "Magic", });
     internal_static_mt5_term_api_TickValueWithSizeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_mt5_term_api_TickValueWithSizeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TickValueWithSizeRequest_descriptor,
         new java.lang.String[] { "SymbolNames", });
     internal_static_mt5_term_api_TickValueWithSizeReply_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_mt5_term_api_TickValueWithSizeReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TickValueWithSizeReply_descriptor,
         new java.lang.String[] { "Data", "Error", });
     internal_static_mt5_term_api_TickValueWithSizeData_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_mt5_term_api_TickValueWithSizeData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TickValueWithSizeData_descriptor,
         new java.lang.String[] { "SymbolTickSizeInfos", });
     internal_static_mt5_term_api_TickSizeSymbol_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_mt5_term_api_TickSizeSymbol_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TickSizeSymbol_descriptor,
         new java.lang.String[] { "Index", "Name", "TradeTickValue", "TradeTickValueProfit", "TradeTickValueLoss", "TradeTickSize", "TradeContractSize", });
     internal_static_mt5_term_api_OpenedOrdersTicketsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_mt5_term_api_OpenedOrdersTicketsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OpenedOrdersTicketsRequest_descriptor,
         new java.lang.String[] { });
     internal_static_mt5_term_api_OpenedOrdersTicketsReply_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_mt5_term_api_OpenedOrdersTicketsReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OpenedOrdersTicketsReply_descriptor,
         new java.lang.String[] { "Data", "Error", "Response", });
     internal_static_mt5_term_api_OpenedOrdersTicketsData_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_mt5_term_api_OpenedOrdersTicketsData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OpenedOrdersTicketsData_descriptor,
         new java.lang.String[] { "OpenedOrdersTickets", "OpenedPositionTickets", });
     internal_static_mt5_term_api_OpenedOrdersRequest_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_mt5_term_api_OpenedOrdersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OpenedOrdersRequest_descriptor,
         new java.lang.String[] { "InputSortMode", });
     internal_static_mt5_term_api_OpenedOrdersReply_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_mt5_term_api_OpenedOrdersReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OpenedOrdersReply_descriptor,
         new java.lang.String[] { "Data", "Error", "Response", });
     internal_static_mt5_term_api_OpenedOrdersData_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_mt5_term_api_OpenedOrdersData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OpenedOrdersData_descriptor,
         new java.lang.String[] { "OpenedOrders", "PositionInfos", });
     internal_static_mt5_term_api_PositionInfo_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_mt5_term_api_PositionInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_PositionInfo_descriptor,
         new java.lang.String[] { "Index", "Ticket", "OpenTime", "OpenTimeUtc", "Volume", "PriceOpen", "StopLoss", "TakeProfit", "PriceCurrent", "Swap", "Profit", "LastUpdateTime", "LastUpdateTimeUtc", "Type", "MagicNumber", "Identifier", "Reason", "Symbol", "Comment", "ExternalId", "PositionCommission", "AccountLogin", });
     internal_static_mt5_term_api_OpenedOrderInfo_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_mt5_term_api_OpenedOrderInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OpenedOrderInfo_descriptor,
         new java.lang.String[] { "Index", "Ticket", "PriceCurrent", "PriceOpen", "StopLimit", "StopLoss", "TakeProfit", "VolumeCurrent", "VolumeInitial", "MagicNumber", "Reason", "Type", "State", "TimeExpiration", "TimeExpirationUtc", "TimeSetup", "TimeSetupUtc", "TimeDone", "TimeDoneUtc", "TypeFilling", "TypeTime", "PositionId", "PositionById", "Symbol", "ExternalId", "Comment", "AccountLogin", });
     internal_static_mt5_term_api_OrderHistoryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_mt5_term_api_OrderHistoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OrderHistoryRequest_descriptor,
         new java.lang.String[] { "InputFrom", "InputFromUtc", "InputTo", "InputToUtc", "InputSortMode", "PageNumber", "ItemsPerPage", "PageToken", "PageSize", });
     internal_static_mt5_term_api_OrderHistoryReply_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_mt5_term_api_OrderHistoryReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OrderHistoryReply_descriptor,
         new java.lang.String[] { "Data", "Error", "Response", });
     internal_static_mt5_term_api_OrdersHistoryData_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_mt5_term_api_OrdersHistoryData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OrdersHistoryData_descriptor,
         new java.lang.String[] { "ArrayTotal", "PageNumber", "ItemsPerPage", "HistoryData", "NextPageToken", });
     internal_static_mt5_term_api_HistoryData_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_mt5_term_api_HistoryData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_HistoryData_descriptor,
         new java.lang.String[] { "Index", "HistoryOrder", "HistoryDeal", });
     internal_static_mt5_term_api_DealHistoryData_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_mt5_term_api_DealHistoryData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_DealHistoryData_descriptor,
-        new java.lang.String[] { "Ticket", "Profit", "Commission", "Fee", "Price", "StopLoss", "TakeProfit", "Swap", "Volume", "EntryType", "Time", "TimeUtc", "Type", "Reason", "PositionId", "Comment", "Symbol", "ExternalId", "AccountLogin", });
+        new java.lang.String[] { "Ticket", "Profit", "Commission", "Fee", "Price", "StopLoss", "TakeProfit", "Swap", "Volume", "EntryType", "Time", "TimeUtc", "Type", "Reason", "PositionId", "Comment", "Symbol", "ExternalId", "AccountLogin", "Order", "Magic", });
     internal_static_mt5_term_api_OrderHistoryData_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_mt5_term_api_OrderHistoryData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_OrderHistoryData_descriptor,
         new java.lang.String[] { "Ticket", "SetupTime", "SetupTimeUtc", "DoneTime", "DoneTimeUtc", "State", "PriceCurrent", "PriceOpen", "StopLimit", "StopLoss", "TakeProfit", "VolumeCurrent", "VolumeInitial", "MagicNumber", "Type", "TimeExpiration", "TimeExpirationUtc", "TypeFilling", "TypeTime", "PositionId", "Symbol", "ExternalId", "Comment", "AccountLogin", });
     internal_static_mt5_term_api_AccountSummaryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_mt5_term_api_AccountSummaryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_AccountSummaryRequest_descriptor,
         new java.lang.String[] { });
     internal_static_mt5_term_api_AccountSummaryReply_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_mt5_term_api_AccountSummaryReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_AccountSummaryReply_descriptor,
         new java.lang.String[] { "Data", "Error", "Response", });
     internal_static_mt5_term_api_AccountSummaryData_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_mt5_term_api_AccountSummaryData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_AccountSummaryData_descriptor,
-        new java.lang.String[] { "AccountLogin", "AccountBalance", "AccountEquity", "AccountUserName", "AccountLeverage", "AccountTradeMode", "AccountCompanyName", "AccountCurrency", "ServerTime", "ServerTimeUtc", "UtcTimezoneServerTimeShiftMinutes", "AccountCredit", "ServerUtcOffsetSeconds", });
+        new java.lang.String[] { "AccountLogin", "AccountBalance", "AccountEquity", "AccountUserName", "AccountLeverage", "AccountTradeMode", "AccountCompanyName", "AccountCurrency", "ServerTime", "ServerTimeUtc", "UtcTimezoneServerTimeShiftMinutes", "AccountCredit", "ServerUtcOffsetSeconds", "AccountMargin", "AccountMarginFree", "AccountMarginLevel", "AccountMarginMode", "AccountTradeAllowed", "AccountTradeExpert", });
     internal_static_mt5_term_api_SymbolParamsManyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_mt5_term_api_SymbolParamsManyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_SymbolParamsManyRequest_descriptor,
         new java.lang.String[] { "SymbolName", "SortType", "PageNumber", "ItemsPerPage", "SymbolName", "SortType", "PageNumber", "ItemsPerPage", });
     internal_static_mt5_term_api_SymbolParamsManyReply_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_mt5_term_api_SymbolParamsManyReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_SymbolParamsManyReply_descriptor,
         new java.lang.String[] { "Data", "Error", "Response", });
     internal_static_mt5_term_api_SymbolParamsManyData_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_mt5_term_api_SymbolParamsManyData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_SymbolParamsManyData_descriptor,
         new java.lang.String[] { "SymbolInfos", "SymbolsTotal", "PageNumber", "ItemsPerPage", "PageNumber", "ItemsPerPage", });
     internal_static_mt5_term_api_SymbolParameters_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_mt5_term_api_SymbolParameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_SymbolParameters_descriptor,

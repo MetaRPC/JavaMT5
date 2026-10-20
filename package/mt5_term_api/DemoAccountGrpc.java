@@ -20,6 +20,99 @@ public final class DemoAccountGrpc {
   public static final String SERVICE_NAME = "mt5_term_api.DemoAccount";
 
   // Static method descriptors that strictly reflect the proto.
+  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
+      mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getFindCompaniesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "FindCompanies",
+      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest.class,
+      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
+      mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getFindCompaniesMethod() {
+    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> getFindCompaniesMethod;
+    if ((getFindCompaniesMethod = DemoAccountGrpc.getFindCompaniesMethod) == null) {
+      synchronized (DemoAccountGrpc.class) {
+        if ((getFindCompaniesMethod = DemoAccountGrpc.getFindCompaniesMethod) == null) {
+          DemoAccountGrpc.getFindCompaniesMethod = getFindCompaniesMethod =
+              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "FindCompanies"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply.getDefaultInstance()))
+              .setSchemaDescriptor(new DemoAccountMethodDescriptorSupplier("FindCompanies"))
+              .build();
+        }
+      }
+    }
+    return getFindCompaniesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
+      mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getServersAndAccountTypesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ServersAndAccountTypes",
+      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest.class,
+      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
+      mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getServersAndAccountTypesMethod() {
+    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> getServersAndAccountTypesMethod;
+    if ((getServersAndAccountTypesMethod = DemoAccountGrpc.getServersAndAccountTypesMethod) == null) {
+      synchronized (DemoAccountGrpc.class) {
+        if ((getServersAndAccountTypesMethod = DemoAccountGrpc.getServersAndAccountTypesMethod) == null) {
+          DemoAccountGrpc.getServersAndAccountTypesMethod = getServersAndAccountTypesMethod =
+              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest, mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ServersAndAccountTypes"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply.getDefaultInstance()))
+              .setSchemaDescriptor(new DemoAccountMethodDescriptorSupplier("ServersAndAccountTypes"))
+              .build();
+        }
+      }
+    }
+    return getServersAndAccountTypesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest,
+      mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> getEnumControlsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "EnumControls",
+      requestType = mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest.class,
+      responseType = mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest,
+      mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> getEnumControlsMethod() {
+    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest, mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> getEnumControlsMethod;
+    if ((getEnumControlsMethod = DemoAccountGrpc.getEnumControlsMethod) == null) {
+      synchronized (DemoAccountGrpc.class) {
+        if ((getEnumControlsMethod = DemoAccountGrpc.getEnumControlsMethod) == null) {
+          DemoAccountGrpc.getEnumControlsMethod = getEnumControlsMethod =
+              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest, mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "EnumControls"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply.getDefaultInstance()))
+              .setSchemaDescriptor(new DemoAccountMethodDescriptorSupplier("EnumControls"))
+              .build();
+        }
+      }
+    }
+    return getEnumControlsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest,
       mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply> getOpenDemoAccountMethod;
 
@@ -137,7 +230,52 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Open a demo account. Full wizard flow: search → select → fill form → register.
+     * Search for broker companies by name.
+     * Returns a list of matching companies from the wizard's ListView.
+     * [DefaultValues]
+     * {
+     *   "searchText": "MetaQuotes"
+     * }
+     * </pre>
+     */
+    public void findCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request,
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindCompaniesMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Get available servers and account types for a company.
+     * Navigates: company selection → demo account → reads dropdown options.
+     * [DefaultValues]
+     * {
+     *   "companyName": "MetaQuotes Ltd."
+     * }
+     * </pre>
+     */
+    public void serversAndAccountTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request,
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getServersAndAccountTypesMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Debug: enumerate the controls of the wizard dialog currently open in the terminal.
+     * controlCount is -1 and the dump empty when no wizard dialog is open.
+     * </pre>
+     */
+    public void enumControls(mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest request,
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEnumControlsMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Open a demo account. The wire protocol is tried first (a direct request to the trade
+     * server, about a second); when the trade server does not accept it (TeleTrade answers
+     * 1001 INVALID_ACCOUNT, for example) the terminal's "Open an Account" wizard is driven
+     * instead, bounded by timeoutSeconds (default 90). debugLog says which path produced the
+     * account ("Wire protocol" or "Wire protocol failed: ...; GUI wizard used").
      * Returns login, password, and investor password for the new demo account.
      * [DefaultValues]
      * {
@@ -168,6 +306,27 @@ public final class DemoAccountGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+          .addMethod(
+            getFindCompaniesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest,
+                mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>(
+                  this, METHODID_FIND_COMPANIES)))
+          .addMethod(
+            getServersAndAccountTypesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest,
+                mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>(
+                  this, METHODID_SERVERS_AND_ACCOUNT_TYPES)))
+          .addMethod(
+            getEnumControlsMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest,
+                mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply>(
+                  this, METHODID_ENUM_CONTROLS)))
           .addMethod(
             getOpenDemoAccountMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -207,7 +366,55 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Open a demo account. Full wizard flow: search → select → fill form → register.
+     * Search for broker companies by name.
+     * Returns a list of matching companies from the wizard's ListView.
+     * [DefaultValues]
+     * {
+     *   "searchText": "MetaQuotes"
+     * }
+     * </pre>
+     */
+    public void findCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request,
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getFindCompaniesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Get available servers and account types for a company.
+     * Navigates: company selection → demo account → reads dropdown options.
+     * [DefaultValues]
+     * {
+     *   "companyName": "MetaQuotes Ltd."
+     * }
+     * </pre>
+     */
+    public void serversAndAccountTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request,
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getServersAndAccountTypesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Debug: enumerate the controls of the wizard dialog currently open in the terminal.
+     * controlCount is -1 and the dump empty when no wizard dialog is open.
+     * </pre>
+     */
+    public void enumControls(mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest request,
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getEnumControlsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Open a demo account. The wire protocol is tried first (a direct request to the trade
+     * server, about a second); when the trade server does not accept it (TeleTrade answers
+     * 1001 INVALID_ACCOUNT, for example) the terminal's "Open an Account" wizard is driven
+     * instead, bounded by timeoutSeconds (default 90). debugLog says which path produced the
+     * account ("Wire protocol" or "Wire protocol failed: ...; GUI wizard used").
      * Returns login, password, and investor password for the new demo account.
      * [DefaultValues]
      * {
@@ -260,7 +467,52 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Open a demo account. Full wizard flow: search → select → fill form → register.
+     * Search for broker companies by name.
+     * Returns a list of matching companies from the wizard's ListView.
+     * [DefaultValues]
+     * {
+     *   "searchText": "MetaQuotes"
+     * }
+     * </pre>
+     */
+    public mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply findCompanies(mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getFindCompaniesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Get available servers and account types for a company.
+     * Navigates: company selection → demo account → reads dropdown options.
+     * [DefaultValues]
+     * {
+     *   "companyName": "MetaQuotes Ltd."
+     * }
+     * </pre>
+     */
+    public mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply serversAndAccountTypes(mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getServersAndAccountTypesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Debug: enumerate the controls of the wizard dialog currently open in the terminal.
+     * controlCount is -1 and the dump empty when no wizard dialog is open.
+     * </pre>
+     */
+    public mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply enumControls(mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getEnumControlsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Open a demo account. The wire protocol is tried first (a direct request to the trade
+     * server, about a second); when the trade server does not accept it (TeleTrade answers
+     * 1001 INVALID_ACCOUNT, for example) the terminal's "Open an Account" wizard is driven
+     * instead, bounded by timeoutSeconds (default 90). debugLog says which path produced the
+     * account ("Wire protocol" or "Wire protocol failed: ...; GUI wizard used").
      * Returns login, password, and investor password for the new demo account.
      * [DefaultValues]
      * {
@@ -300,7 +552,55 @@ public final class DemoAccountGrpc {
 
     /**
      * <pre>
-     * Open a demo account. Full wizard flow: search → select → fill form → register.
+     * Search for broker companies by name.
+     * Returns a list of matching companies from the wizard's ListView.
+     * [DefaultValues]
+     * {
+     *   "searchText": "MetaQuotes"
+     * }
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply> findCompanies(
+        mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getFindCompaniesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * Get available servers and account types for a company.
+     * Navigates: company selection → demo account → reads dropdown options.
+     * [DefaultValues]
+     * {
+     *   "companyName": "MetaQuotes Ltd."
+     * }
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply> serversAndAccountTypes(
+        mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getServersAndAccountTypesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * Debug: enumerate the controls of the wizard dialog currently open in the terminal.
+     * controlCount is -1 and the dump empty when no wizard dialog is open.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply> enumControls(
+        mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getEnumControlsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * Open a demo account. The wire protocol is tried first (a direct request to the trade
+     * server, about a second); when the trade server does not accept it (TeleTrade answers
+     * 1001 INVALID_ACCOUNT, for example) the terminal's "Open an Account" wizard is driven
+     * instead, bounded by timeoutSeconds (default 90). debugLog says which path produced the
+     * account ("Wire protocol" or "Wire protocol failed: ...; GUI wizard used").
      * Returns login, password, and investor password for the new demo account.
      * [DefaultValues]
      * {
@@ -320,8 +620,11 @@ public final class DemoAccountGrpc {
     }
   }
 
-  private static final int METHODID_OPEN_DEMO_ACCOUNT = 0;
-  private static final int METHODID_DEMO_OPEN_ACCOUNT_INTERACTIVE = 1;
+  private static final int METHODID_FIND_COMPANIES = 0;
+  private static final int METHODID_SERVERS_AND_ACCOUNT_TYPES = 1;
+  private static final int METHODID_ENUM_CONTROLS = 2;
+  private static final int METHODID_OPEN_DEMO_ACCOUNT = 3;
+  private static final int METHODID_DEMO_OPEN_ACCOUNT_INTERACTIVE = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -340,6 +643,18 @@ public final class DemoAccountGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_FIND_COMPANIES:
+          serviceImpl.findCompanies((mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesRequest) request,
+              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoFindCompaniesReply>) responseObserver);
+          break;
+        case METHODID_SERVERS_AND_ACCOUNT_TYPES:
+          serviceImpl.serversAndAccountTypes((mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesRequest) request,
+              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoServersAndTypesReply>) responseObserver);
+          break;
+        case METHODID_ENUM_CONTROLS:
+          serviceImpl.enumControls((mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsRequest) request,
+              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoEnumControlsReply>) responseObserver);
+          break;
         case METHODID_OPEN_DEMO_ACCOUNT:
           serviceImpl.openDemoAccount((mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountRequest) request,
               (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiGui.GuiDemoOpenAccountReply>) responseObserver);
@@ -408,6 +723,9 @@ public final class DemoAccountGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new DemoAccountFileDescriptorSupplier())
+              .addMethod(getFindCompaniesMethod())
+              .addMethod(getServersAndAccountTypesMethod())
+              .addMethod(getEnumControlsMethod())
               .addMethod(getOpenDemoAccountMethod())
               .addMethod(getDemoOpenAccountInteractiveMethod())
               .build();

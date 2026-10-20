@@ -263,6 +263,37 @@ public final class AccountHelperGrpc {
     return getAllHistoryOrdersMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest,
+      mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply> getDealsHistoryMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DealsHistory",
+      requestType = mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.class,
+      responseType = mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest,
+      mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply> getDealsHistoryMethod() {
+    io.grpc.MethodDescriptor<mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply> getDealsHistoryMethod;
+    if ((getDealsHistoryMethod = AccountHelperGrpc.getDealsHistoryMethod) == null) {
+      synchronized (AccountHelperGrpc.class) {
+        if ((getDealsHistoryMethod = AccountHelperGrpc.getDealsHistoryMethod) == null) {
+          AccountHelperGrpc.getDealsHistoryMethod = getDealsHistoryMethod =
+              io.grpc.MethodDescriptor.<mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest, mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DealsHistory"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountHelperMethodDescriptorSupplier("DealsHistory"))
+              .build();
+        }
+      }
+    }
+    return getDealsHistoryMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -393,6 +424,24 @@ public final class AccountHelperGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAllHistoryOrdersMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * Every deal of the account in a time range: trades and also the deals without an order - deposits, withdrawals, credit,
+     * charges, corrections, bonuses, commissions, interest, dividends, taxes - which OrderHistory and PositionsHistory leave out.
+     * A balance operation has type BMT5_DEAL_TYPE_BALANCE (CREDIT, BONUS...), order 0 and position_id 0; profit is its amount.
+     * [DefaultValues]
+     * {
+     *   "inputFromUtc": "2026-10-01T00:00:00Z",
+     *   "inputToUtc": "2026-10-31T00:00:00Z",
+     *   "pageSize": 1000
+     * }
+     * </pre>
+     */
+    public void dealsHistory(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest request,
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDealsHistoryMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -451,6 +500,13 @@ public final class AccountHelperGrpc {
                 mt5_term_api.Mt5TermApiAccountHelper.AllHistoryOrdersRequest,
                 mt5_term_api.Mt5TermApiAccountHelper.AllHistoryOrdersReply>(
                   this, METHODID_ALL_HISTORY_ORDERS)))
+          .addMethod(
+            getDealsHistoryMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest,
+                mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply>(
+                  this, METHODID_DEALS_HISTORY)))
           .build();
     }
   }
@@ -558,6 +614,25 @@ public final class AccountHelperGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getAllHistoryOrdersMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * Every deal of the account in a time range: trades and also the deals without an order - deposits, withdrawals, credit,
+     * charges, corrections, bonuses, commissions, interest, dividends, taxes - which OrderHistory and PositionsHistory leave out.
+     * A balance operation has type BMT5_DEAL_TYPE_BALANCE (CREDIT, BONUS...), order 0 and position_id 0; profit is its amount.
+     * [DefaultValues]
+     * {
+     *   "inputFromUtc": "2026-10-01T00:00:00Z",
+     *   "inputToUtc": "2026-10-31T00:00:00Z",
+     *   "pageSize": 1000
+     * }
+     * </pre>
+     */
+    public void dealsHistory(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest request,
+        io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDealsHistoryMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -654,6 +729,24 @@ public final class AccountHelperGrpc {
     public mt5_term_api.Mt5TermApiAccountHelper.AllHistoryOrdersReply allHistoryOrders(mt5_term_api.Mt5TermApiAccountHelper.AllHistoryOrdersRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getAllHistoryOrdersMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Every deal of the account in a time range: trades and also the deals without an order - deposits, withdrawals, credit,
+     * charges, corrections, bonuses, commissions, interest, dividends, taxes - which OrderHistory and PositionsHistory leave out.
+     * A balance operation has type BMT5_DEAL_TYPE_BALANCE (CREDIT, BONUS...), order 0 and position_id 0; profit is its amount.
+     * [DefaultValues]
+     * {
+     *   "inputFromUtc": "2026-10-01T00:00:00Z",
+     *   "inputToUtc": "2026-10-31T00:00:00Z",
+     *   "pageSize": 1000
+     * }
+     * </pre>
+     */
+    public mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply dealsHistory(mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDealsHistoryMethod(), getCallOptions(), request);
     }
   }
 
@@ -760,6 +853,25 @@ public final class AccountHelperGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getAllHistoryOrdersMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * Every deal of the account in a time range: trades and also the deals without an order - deposits, withdrawals, credit,
+     * charges, corrections, bonuses, commissions, interest, dividends, taxes - which OrderHistory and PositionsHistory leave out.
+     * A balance operation has type BMT5_DEAL_TYPE_BALANCE (CREDIT, BONUS...), order 0 and position_id 0; profit is its amount.
+     * [DefaultValues]
+     * {
+     *   "inputFromUtc": "2026-10-01T00:00:00Z",
+     *   "inputToUtc": "2026-10-31T00:00:00Z",
+     *   "pageSize": 1000
+     * }
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply> dealsHistory(
+        mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDealsHistoryMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ACCOUNT_SUMMARY = 0;
@@ -770,6 +882,7 @@ public final class AccountHelperGrpc {
   private static final int METHODID_TICK_VALUE_WITH_SIZE = 5;
   private static final int METHODID_POSITIONS_HISTORY = 6;
   private static final int METHODID_ALL_HISTORY_ORDERS = 7;
+  private static final int METHODID_DEALS_HISTORY = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -819,6 +932,10 @@ public final class AccountHelperGrpc {
         case METHODID_ALL_HISTORY_ORDERS:
           serviceImpl.allHistoryOrders((mt5_term_api.Mt5TermApiAccountHelper.AllHistoryOrdersRequest) request,
               (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiAccountHelper.AllHistoryOrdersReply>) responseObserver);
+          break;
+        case METHODID_DEALS_HISTORY:
+          serviceImpl.dealsHistory((mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryRequest) request,
+              (io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiAccountHelper.DealsHistoryReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -889,6 +1006,7 @@ public final class AccountHelperGrpc {
               .addMethod(getTickValueWithSizeMethod())
               .addMethod(getPositionsHistoryMethod())
               .addMethod(getAllHistoryOrdersMethod())
+              .addMethod(getDealsHistoryMethod())
               .build();
         }
       }
