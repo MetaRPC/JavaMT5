@@ -9,11 +9,34 @@ option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
 
 service TradingHelper {
   // Send market or pending order
+  // [DefaultValues]
+  // {
+  //   "symbol": "EURUSD",
+  //   "operation": "TMT5_ORDER_TYPE_BUY",
+  //   "volume": "0.1"
+  // }
   rpc OrderSend(OrderSendRequest) returns (OrderSendReply)
   {
     option (google.api.http) =
     {
       get: "/OrderSend"
+    };
+  }
+  // Send market or pending order immediately, with no Market Watch or quotes preparation.
+  // Same request and reply as OrderSend, but nothing is checked first and quotes_wait_ms is
+  // ignored. Use only for a symbol already known to be streaming; otherwise the trade server
+  // rejects the order (ErrMarketLasttimeUnknown 4304 "no ticks" and friends).
+  // [DefaultValues]
+  // {
+  //   "symbol": "EURUSD",
+  //   "operation": "TMT5_ORDER_TYPE_BUY",
+  //   "volume": "0.1"
+  // }
+  rpc OrderSendWithoutChecks(OrderSendRequest) returns (OrderSendReply)
+  {
+    option (google.api.http) =
+    {
+      get: "/OrderSendWithoutChecks"
     };
   }
   // Modify market or pending order
@@ -63,6 +86,7 @@ message OrderModifyRequest{
   optional double price = 4;                        // new price ONLY for pending order modification
   optional TMT5_ENUM_ORDER_TYPE_TIME expiration_time_type = 5;    // Expiration type ONLY for pending order 
   optional google.protobuf.Timestamp expiration_time = 6;         // Order expiration time (for the orders of expiration_time_type == ORDER_TIME_SPECIFIED OR ORDER_TIME_SPECIFIED_DAY)
+  optional google.protobuf.Timestamp expiration_time_utc = 9;  // expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
   optional double stop_limit = 8;                                 // new stop limit ONLY for pending order modification
 }
 message OrderModifyReply {
@@ -99,6 +123,8 @@ message OrderSendRequest {
   optional double stop_limit_price = 10; // StopLimit level of the order
   optional TMT5_ENUM_ORDER_TYPE_TIME expiration_time_type = 11; // Order expiration type
   optional google.protobuf.Timestamp expiration_time = 12; // Order expiration time (for the orders of expiration_time_type == ORDER_TIME_SPECIFIED type)
+  optional google.protobuf.Timestamp expiration_time_utc = 14;  // expiration_time in UTC: send either expiration_time or expiration_time_utc, not both.
+  optional int32 quotes_wait_ms = 13; // How long OrderSend waits for the symbol's first quote, in milliseconds (default 5000, max 60000). Skipped entirely for a symbol already known to be streaming. Ignored by OrderSendWithoutChecks.
 }
 message OrderSendReply {
   oneof response {

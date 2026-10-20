@@ -123,6 +123,7 @@ message MrpcMqlTradeRequest {
   MRPC_ENUM_ORDER_TYPE_FILLING type_filling = 12; // Order execution type
   MRPC_ENUM_ORDER_TYPE_TIME type_time = 13; // Order expiration type
   google.protobuf.Timestamp expiration = 14; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
+  google.protobuf.Timestamp expiration_utc = 18;  // expiration in UTC: send either expiration or expiration_utc, not both.
   string comment = 15; // Order comment
   uint64 position = 16; // Position ticket
   uint64 position_by = 17; // The ticket of an opposite position

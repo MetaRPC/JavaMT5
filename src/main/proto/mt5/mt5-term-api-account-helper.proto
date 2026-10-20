@@ -57,13 +57,85 @@ service AccountHelper {
       get: "/PositionsHistory"
     };
   }
+  rpc AllHistoryOrders (AllHistoryOrdersRequest) returns (AllHistoryOrdersReply) {
+    option (google.api.http) = {
+      get: "/AllHistoryOrders"
+    };
+  }
 }
+
+message AllHistoryOrdersRequest {
+  BMT5_ENUM_ORDER_HISTORY_SORT_TYPE inputSortMode = 1;  // 0 - by open time, 1 - by close time, 2 - ticketid
+  optional google.protobuf.Timestamp inputFrom = 2;
+  optional google.protobuf.Timestamp inputFromUtc = 8;  // inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
+  optional google.protobuf.Timestamp inputTo = 3;
+  optional google.protobuf.Timestamp inputToUtc = 9;  // inputTo in UTC: send either inputTo or inputToUtc, not both.
+  optional int32 pageNumber = 4;
+  optional int32 itemsPerPage = 5;
+  // Cursor paging (preferred, stable): the next_page_token of the previous page; empty for the first page. Send it back
+  // with the same inputFrom, inputTo and inputSortMode. Cursor paging is on when page_token or page_size is set; it cannot be
+  // combined with pageNumber/itemsPerPage (ALL_HISTORY_ORDERS_PAGING_INVALID).
+  string page_token = 6;
+  // Cursor paging: orders per page, 1..5000. 0 = 1000 when page_token is set.
+  int32 page_size = 7;
+}
+message AllHistoryOrdersReply {
+  oneof response {
+    AllHistoryOrdersData data = 1;
+    Error error = 2;
+  }
+}
+message AllHistoryOrdersData {
+  int32 arrayTotal = 1;
+  int32 pageNumber = 2;
+  int32 itemsPerPage = 3;
+  repeated HistoryOrderInfo history_orders = 4;
+  // Cursor paging: pass back as page_token for the next page; empty when this was the last page (end of history for the range).
+  string next_page_token = 5;
+}
+
+message HistoryOrderInfo {
+  int32 record_index = 1;
+  uint64 ticket = 2;
+  google.protobuf.Timestamp time_setup  = 3;
+  google.protobuf.Timestamp time_setup_utc = 23;  // time_setup in UTC (the same moment; time_setup is in the broker server's time zone).
+  BMT5_ENUM_ORDER_TYPE type = 4;
+  BMT5_ENUM_ORDER_STATE state = 5;
+  google.protobuf.Timestamp time_done = 6;
+  google.protobuf.Timestamp time_done_utc = 24;  // time_done in UTC (the same moment; time_done is in the broker server's time zone).
+  BMT5_ENUM_ORDER_TYPE_TIME expiration_time_type = 7;
+  google.protobuf.Timestamp expiration_time = 8;
+  google.protobuf.Timestamp expiration_time_utc = 25;  // expiration_time in UTC (the same moment; expiration_time is in the broker server's time zone).
+  BMT5_ENUM_ORDER_TYPE_FILLING filling_type  = 9;
+  int64 magic = 10;
+  int64 position_id = 11;
+  int64 position_by_id = 12;
+  double volume_initial = 13;
+  double volume_current = 14;
+  double price_open = 15;
+  double sl = 16;
+  double tp  = 17;
+  double price_current = 18;
+  double stop_limit = 19;
+  string symbol  = 20;
+  string comment  = 21;
+  string order_external_id_name = 22;
+}
+
 message PositionsHistoryRequest {
   AH_ENUM_POSITIONS_HISTORY_SORT_TYPE sort_type = 1;
   optional google.protobuf.Timestamp position_open_time_from = 2;
+  optional google.protobuf.Timestamp position_open_time_from_utc = 8;  // position_open_time_from in UTC: send either position_open_time_from or position_open_time_from_utc, not both.
   optional google.protobuf.Timestamp position_open_time_to = 3;
+  optional google.protobuf.Timestamp position_open_time_to_utc = 9;  // position_open_time_to in UTC: send either position_open_time_to or position_open_time_to_utc, not both.
   optional int32 page_number = 4;
   optional int32 items_per_page = 5;
+  // Cursor paging (preferred, stable): the next_page_token of the previous page; empty for the first page. Send it back
+  // with the same sort_type and position_open_time_from/to. Cursor paging is on when page_token or page_size is set; it cannot be
+  // combined with page_number/items_per_page (POSITIONS_HISTORY_PAGING_INVALID).
+  string page_token = 6;
+  // Cursor paging: positions per page, 1..5000. 0 = 1000 when page_token is set.
+  int32 page_size = 7;
 }
 message PositionsHistoryReply {
   oneof response {
@@ -73,13 +145,19 @@ message PositionsHistoryReply {
 }
 message PositionsHistoryData {
   repeated PositionHistoryInfo history_positions = 1;
+  // Number of positions in the selected range, over all pages (at the moment of the call).
+  int32 total_count = 2;
+  // Cursor paging: pass back as page_token for the next page; empty when this was the last page (end of history for the range).
+  string next_page_token = 3;
 }
 message PositionHistoryInfo {
   int32 index = 1;
   uint64 position_ticket = 2;
   AH_ENUM_POSITIONS_HISTORY_ORDER_TYPE order_type = 3;
   google.protobuf.Timestamp open_time = 4;
+  google.protobuf.Timestamp open_time_utc = 19;  // open_time in UTC (the same moment; open_time is in the broker server's time zone).
   google.protobuf.Timestamp close_time = 5;
+  google.protobuf.Timestamp close_time_utc = 20;  // close_time in UTC (the same moment; close_time is in the broker server's time zone).
   double volume = 6;
   double open_price = 7;
   double close_price = 8;
@@ -114,6 +192,13 @@ enum AH_ENUM_POSITIONS_HISTORY_ORDER_TYPE {
 
 
 message TickValueWithSizeRequest {
+  // Symbols to read, by exact name (REST: repeated query parameter symbolNames).
+  // Each named symbol is added to Market Watch when it is not there yet, then read.
+  // At most 1000 names per request; a longer list is answered with an error.
+  // EMPTY list = every symbol currently in Market Watch. It is NOT "all symbols of the
+  // server": the terminal's Market Watch holds at most ~1000 symbols, so serving the
+  // server's list (12,000+ at some brokers) would mean adding all of them to Market Watch
+  // and changing the user's selection. Name the symbols you need.
   repeated string symbol_names = 1;
 }
 message TickValueWithSizeReply {
@@ -163,6 +248,7 @@ message PositionInfo {
   uint32 index = 1;
   uint64 ticket = 2;
   google.protobuf.Timestamp open_time = 3;
+  google.protobuf.Timestamp open_time_utc = 21;  // open_time in UTC (the same moment; open_time is in the broker server's time zone).
   double volume = 4;
   double price_open = 5;
   double stop_loss = 6;
@@ -171,6 +257,7 @@ message PositionInfo {
   double swap = 9;
   double profit = 10;
   google.protobuf.Timestamp last_update_time = 11;
+  google.protobuf.Timestamp last_update_time_utc = 22;  // last_update_time in UTC (the same moment; last_update_time is in the broker server's time zone).
   BMT5_ENUM_POSITION_TYPE type = 12;
   int64 magic_number = 13;
   int64 identifier = 14;
@@ -196,8 +283,11 @@ message OpenedOrderInfo {
   BMT5_ENUM_ORDER_TYPE type = 12;
   BMT5_ENUM_ORDER_STATE state = 13;
   google.protobuf.Timestamp time_expiration = 14;
+  google.protobuf.Timestamp time_expiration_utc = 25;  // time_expiration in UTC (the same moment; time_expiration is in the broker server's time zone).
   google.protobuf.Timestamp time_setup = 15;
+  google.protobuf.Timestamp time_setup_utc = 26;  // time_setup in UTC (the same moment; time_setup is in the broker server's time zone).
   google.protobuf.Timestamp time_done = 16;
+  google.protobuf.Timestamp time_done_utc = 27;  // time_done in UTC (the same moment; time_done is in the broker server's time zone).
   BMT5_ENUM_ORDER_TYPE_FILLING type_filling = 17;
   BMT5_ENUM_ORDER_TYPE_TIME type_time = 18;
   int64 position_id = 19;
@@ -232,10 +322,18 @@ enum BMT5_ENUM_POSITION_REASON
 
 message OrderHistoryRequest {
   google.protobuf.Timestamp inputFrom = 1; // required (server time)
+  google.protobuf.Timestamp inputFromUtc = 8;  // inputFrom in UTC: send either inputFrom or inputFromUtc, not both.
   google.protobuf.Timestamp inputTo = 2;   // required (server time)
+  google.protobuf.Timestamp inputToUtc = 9;  // inputTo in UTC: send either inputTo or inputToUtc, not both.
   BMT5_ENUM_ORDER_HISTORY_SORT_TYPE inputSortMode = 3;  // 0 - by open time, 1 - by close time, 2 - ticketid
-  int32 pageNumber = 4;  // default 0
-  int32 itemsPerPage = 5; // default 0
+  int32 pageNumber = 4;  // Page-number paging (legacy): 1-based, needs itemsPerPage too. 0 = not used
+  int32 itemsPerPage = 5; // Page-number paging (legacy): rows per page, needs pageNumber too. 0 = not used
+  // Cursor paging (preferred, stable): the next_page_token of the previous page; empty for the first page. Send it back
+  // with the same inputFrom, inputTo and inputSortMode. Cursor paging is on when page_token or page_size is set; it cannot be
+  // combined with pageNumber/itemsPerPage (ORDER_HISTORY_PAGING_INVALID).
+  string page_token = 6;
+  // Cursor paging: rows (deals) per page, 1..5000. 0 = 1000 when page_token is set.
+  int32 page_size = 7;
 }
 message OrderHistoryReply {
   oneof response {
@@ -248,6 +346,8 @@ message OrdersHistoryData {
   int32 pageNumber = 2;
   int32 itemsPerPage = 3;
   repeated HistoryData history_data = 4;
+  // Cursor paging: pass back as page_token for the next page; empty when this was the last page (end of history for the range).
+  string next_page_token = 5;
 }
 message HistoryData {
   uint32 index = 1;
@@ -266,6 +366,7 @@ message DealHistoryData {
   double volume = 9;
   BMT5_ENUM_DEAL_ENTRY_TYPE entry_type = 10;
   google.protobuf.Timestamp  time = 11;
+  google.protobuf.Timestamp time_utc = 19;  // time in UTC (the same moment; time is in the broker server's time zone).
   BMT5_ENUM_DEAL_TYPE type = 12;
   BMT5_ENUM_DEAL_REASON reason = 13;
   uint64  position_id = 14;
@@ -277,7 +378,9 @@ message DealHistoryData {
 message OrderHistoryData {
   uint64 ticket = 1;
   google.protobuf.Timestamp setup_time = 2;
+  google.protobuf.Timestamp setup_time_utc = 22;  // setup_time in UTC (the same moment; setup_time is in the broker server's time zone).
   google.protobuf.Timestamp done_time = 3;
+  google.protobuf.Timestamp done_time_utc = 23;  // done_time in UTC (the same moment; done_time is in the broker server's time zone).
   BMT5_ENUM_ORDER_STATE state = 4;
   double price_current = 5;
   double price_open = 6;
@@ -289,6 +392,7 @@ message OrderHistoryData {
   int64 magic_number = 12;
   BMT5_ENUM_ORDER_TYPE type = 13;
   google.protobuf.Timestamp time_expiration = 14;
+  google.protobuf.Timestamp time_expiration_utc = 24;  // time_expiration in UTC (the same moment; time_expiration is in the broker server's time zone).
   BMT5_ENUM_ORDER_TYPE_FILLING type_filling = 15;
   BMT5_ENUM_ORDER_TYPE_TIME type_time = 16;
   uint64 position_id = 17;
@@ -406,8 +510,17 @@ message AccountSummaryData {
   string account_company_name = 7;
   string account_currency = 8;
   google.protobuf.Timestamp server_time = 9;
+  google.protobuf.Timestamp server_time_utc = 14;  // server_time in UTC (the same moment; server_time is in the broker server's time zone).
   int64 utc_timezone_server_time_shift_minutes = 10;
   double account_credit = 11;
+  // The broker server's offset from UTC in seconds, positive = ahead of UTC: validated by the terminal (a multiple of 15
+  // minutes). Information, never converted; it is the offset behind every *_utc field of this API. Valid when
+  // account_leverage > 0 (data with account_leverage above 0 always carries a valid offset); 0 while the account is not
+  // connected yet (not UTC+0). A connected terminal whose offset cannot be determined answers SERVER_TIMEZONE_UNDETERMINED
+  // instead of data and cannot start (MT4: typically a closed market with no quote). The current offset is applied to every
+  // value, so history from before the broker's last daylight-saving change is off by the daylight-saving step (usually 3600
+  // s).
+  int32 server_utc_offset_seconds = 13;
 }
 
 enum MrpcEnumAccountTradeMode {
@@ -517,7 +630,9 @@ message SymbolParameters {
   int64 volume_high = 74;
   int64 volume_low = 75;
   google.protobuf.Timestamp time = 76;
+  google.protobuf.Timestamp time_utc = 113;  // time in UTC (the same moment; time is in the broker server's time zone).
   int64 time_msc = 77;
+  int64 time_msc_utc = 114;  // time_msc in UTC (the same moment; time_msc is in the broker server's time zone).
   int32 digits = 78;
   bool spread_float = 79;
   int32 spread = 80;
@@ -525,7 +640,9 @@ message SymbolParameters {
   BMT5_ENUM_SYMBOL_CALC_MODE trade_calc_mode = 82;
   BMT5_ENUM_SYMBOL_TRADE_MODE trade_mode = 83;
   google.protobuf.Timestamp start_time = 84;
+  google.protobuf.Timestamp start_time_utc = 115;  // start_time in UTC (the same moment; start_time is in the broker server's time zone).
   google.protobuf.Timestamp expiration_time = 85;
+  google.protobuf.Timestamp expiration_time_utc = 116;  // expiration_time in UTC (the same moment; expiration_time is in the broker server's time zone).
   int32 trade_stops_level = 86;
   int32 trade_freeze_level = 87;
   BMT5_ENUM_SYMBOL_TRADE_EXECUTION trade_exe_mode = 88;

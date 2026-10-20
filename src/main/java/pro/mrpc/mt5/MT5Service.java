@@ -107,6 +107,17 @@ public class MT5Service {
     }
 
     /**
+     * Connect by server name, labelling the terminal with {@code name}
+     */
+    public Mt5TermApiConnection.ConnectData connectByServerName(
+            String serverName,
+            String baseChartSymbol,
+            int timeoutSeconds,
+            String name) throws ApiExceptionMT5 {
+        return account.connectByServerName(serverName, baseChartSymbol, timeoutSeconds, name).getData();
+    }
+
+    /**
      * Check if connection is alive
      */
     public boolean isConnected() throws ApiExceptionMT5 {
@@ -412,6 +423,30 @@ public class MT5Service {
     }
 
     /**
+     * Order + deal history in a UTC range, cursor-paged. See {@link MT5Account#orderHistoryUtc}.
+     */
+    public Mt5TermApiAccountHelper.OrdersHistoryData orderHistoryUtc(
+            com.google.protobuf.Timestamp fromUtc,
+            com.google.protobuf.Timestamp toUtc,
+            Mt5TermApiAccountHelper.BMT5_ENUM_ORDER_HISTORY_SORT_TYPE sortType,
+            String pageToken,
+            int pageSize) throws ApiExceptionMT5 {
+        return account.orderHistoryUtc(fromUtc, toUtc, sortType, pageToken, pageSize).getData();
+    }
+
+    /**
+     * Closed positions opened in a UTC range, cursor-paged. See {@link MT5Account#positionsHistoryUtc}.
+     */
+    public Mt5TermApiAccountHelper.PositionsHistoryData positionsHistoryUtc(
+            Mt5TermApiAccountHelper.AH_ENUM_POSITIONS_HISTORY_SORT_TYPE sortType,
+            com.google.protobuf.Timestamp openTimeFromUtc,
+            com.google.protobuf.Timestamp openTimeToUtc,
+            String pageToken,
+            int pageSize) throws ApiExceptionMT5 {
+        return account.positionsHistoryUtc(sortType, openTimeFromUtc, openTimeToUtc, pageToken, pageSize).getData();
+    }
+
+    /**
      * Get positions history
      */
     public Mt5TermApiAccountHelper.PositionsHistoryData positionsHistory(
@@ -465,6 +500,75 @@ public class MT5Service {
      */
     public Mt5TermApiAccountHelper.TickValueWithSizeData tickValueWithSize(String[] symbolNames) throws ApiExceptionMT5 {
         return account.tickValueWithSize(symbolNames).getData();
+    }
+
+    /**
+     * One page of historical bars (oldest first). See {@link MT5Account#quoteHistoryBars}.
+     */
+    public Mt5TermApiQuoteHistory.QuoteHistoryBarsData quoteHistoryBars(
+            String symbol,
+            Mt5TermApiQuoteHistory.QUOTE_HISTORY_TIMEFRAME timeframe,
+            long fromTimeUtc,
+            long toTimeUtc,
+            int pageSize,
+            String pageToken) throws ApiExceptionMT5 {
+        return account.quoteHistoryBars(symbol, timeframe, fromTimeUtc, toTimeUtc, pageSize, pageToken).getData();
+    }
+
+    /**
+     * The newest {@code count} bars of a symbol (oldest first), walking {@code QuoteHistory.Bars} pages
+     * from {@code now - count * barMinutes * lookbackFactor}. Convenience for indicators.
+     *
+     * @param symbol Symbol name
+     * @param timeframe Bar length
+     * @param count Number of bars wanted (the broker may have fewer)
+     */
+    public java.util.List<Mt5TermApiQuoteHistory.QuoteHistoryBar> lastBars(
+            String symbol,
+            Mt5TermApiQuoteHistory.QUOTE_HISTORY_TIMEFRAME timeframe,
+            int count) throws ApiExceptionMT5 {
+        long now = System.currentTimeMillis() / 1000L;
+        // Weekends and holidays leave gaps: look back 4x the nominal window (at least 3 days).
+        long window = Math.max(3L * 86400L, 4L * (long) count * (long) timeframe.getNumber() * 60L);
+        java.util.ArrayList<Mt5TermApiQuoteHistory.QuoteHistoryBar> all = new java.util.ArrayList<>();
+        String token = null;
+        do {
+            Mt5TermApiQuoteHistory.QuoteHistoryBarsData page =
+                    quoteHistoryBars(symbol, timeframe, now - window, 0, 5000, token);
+            all.addAll(page.getBarsList());
+            token = page.getNextPageToken();
+        } while (token != null && !token.isEmpty());
+        if (all.size() > count) {
+            return new java.util.ArrayList<>(all.subList(all.size() - count, all.size()));
+        }
+        return all;
+    }
+
+    /**
+     * Legacy bars call (newest {@code maxBars} bars when both times are 0). See {@link MT5Account#priceHistory}.
+     */
+    public java.util.List<Mt5TermApiMarketInfo.PriceBar> priceHistory(
+            String symbol, int mqlTimeframe, long fromTimeUtc, long toTimeUtc, int maxBars) throws ApiExceptionMT5 {
+        return account.priceHistory(symbol, mqlTimeframe, fromTimeUtc, toTimeUtc, maxBars).getData().getBarsList();
+    }
+
+    /**
+     * Names of every symbol the broker offers.
+     */
+    public java.util.List<String> symbolList() throws ApiExceptionMT5 {
+        return account.symbolList().getData().getSymbolsList();
+    }
+
+    /**
+     * Historical orders (no deals) in a UTC range, cursor-paged. See {@link MT5Account#allHistoryOrders}.
+     */
+    public Mt5TermApiAccountHelper.AllHistoryOrdersData allHistoryOrders(
+            com.google.protobuf.Timestamp fromUtc,
+            com.google.protobuf.Timestamp toUtc,
+            Mt5TermApiAccountHelper.BMT5_ENUM_ORDER_HISTORY_SORT_TYPE sortType,
+            String pageToken,
+            int pageSize) throws ApiExceptionMT5 {
+        return account.allHistoryOrders(fromUtc, toUtc, sortType, pageToken, pageSize).getData();
     }
 
     //endregion
@@ -636,36 +740,36 @@ public class MT5Service {
     /**
      * Subscribe to symbol ticks
      */
-    public void onSymbolTick(String[] symbolNames, StreamObserver<Mt5TermApiSubscriptions.OnSymbolTickReply> responseObserver) throws ApiExceptionMT5 {
-        account.onSymbolTick(symbolNames, responseObserver);
+    public io.grpc.Context.CancellableContext onSymbolTick(String[] symbolNames, StreamObserver<Mt5TermApiSubscriptions.OnSymbolTickReply> responseObserver) throws ApiExceptionMT5 {
+        return account.onSymbolTick(symbolNames, responseObserver);
     }
 
     /**
      * Subscribe to trade events
      */
-    public void onTrade(StreamObserver<Mt5TermApiSubscriptions.OnTradeReply> responseObserver) throws ApiExceptionMT5 {
-        account.onTrade(responseObserver);
+    public io.grpc.Context.CancellableContext onTrade(StreamObserver<Mt5TermApiSubscriptions.OnTradeReply> responseObserver) throws ApiExceptionMT5 {
+        return account.onTrade(responseObserver);
     }
 
     /**
      * Subscribe to position profit updates
      */
-    public void onPositionProfit(int timerPeriodMilliseconds, boolean ignoreEmptyData, StreamObserver<Mt5TermApiSubscriptions.OnPositionProfitReply> responseObserver) throws ApiExceptionMT5 {
-        account.onPositionProfit(timerPeriodMilliseconds, ignoreEmptyData, responseObserver);
+    public io.grpc.Context.CancellableContext onPositionProfit(int timerPeriodMilliseconds, boolean ignoreEmptyData, StreamObserver<Mt5TermApiSubscriptions.OnPositionProfitReply> responseObserver) throws ApiExceptionMT5 {
+        return account.onPositionProfit(timerPeriodMilliseconds, ignoreEmptyData, responseObserver);
     }
 
     /**
      * Subscribe to position/order tickets
      */
-    public void onPositionsAndPendingOrdersTickets(int timerPeriodMilliseconds, StreamObserver<Mt5TermApiSubscriptions.OnPositionsAndPendingOrdersTicketsReply> responseObserver) throws ApiExceptionMT5 {
-        account.onPositionsAndPendingOrdersTickets(timerPeriodMilliseconds, responseObserver);
+    public io.grpc.Context.CancellableContext onPositionsAndPendingOrdersTickets(int timerPeriodMilliseconds, StreamObserver<Mt5TermApiSubscriptions.OnPositionsAndPendingOrdersTicketsReply> responseObserver) throws ApiExceptionMT5 {
+        return account.onPositionsAndPendingOrdersTickets(timerPeriodMilliseconds, responseObserver);
     }
 
     /**
      * Subscribe to trade transactions
      */
-    public void onTradeTransaction(StreamObserver<Mt5TermApiSubscriptions.OnTradeTransactionReply> responseObserver) throws ApiExceptionMT5 {
-        account.onTradeTransaction(responseObserver);
+    public io.grpc.Context.CancellableContext onTradeTransaction(StreamObserver<Mt5TermApiSubscriptions.OnTradeTransactionReply> responseObserver) throws ApiExceptionMT5 {
+        return account.onTradeTransaction(responseObserver);
     }
 
 

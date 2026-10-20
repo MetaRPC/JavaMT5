@@ -34,6 +34,7 @@ public class MT5Account {
     private UUID id;
     private String terminalInstanceGuid;
     private String apiKey;
+    private String terminalName;
 
     // gRPC configuration
     private final String grpcServer;
@@ -49,6 +50,7 @@ public class MT5Account {
     public final ChartsGrpc.ChartsBlockingStub chartsClient;
     public final InternalChartsGrpc.InternalChartsBlockingStub internalChartsClient;
     public final HealthGrpc.HealthBlockingStub healthClient;
+    public final QuoteHistoryGrpc.QuoteHistoryBlockingStub quoteHistoryClient;
 
     // gRPC client stubs (async/streaming)
     public final SubscriptionServiceGrpc.SubscriptionServiceStub subscriptionClient;
@@ -127,6 +129,7 @@ public class MT5Account {
         this.chartsClient = ChartsGrpc.newBlockingStub(grpcChannel);
         this.internalChartsClient = InternalChartsGrpc.newBlockingStub(grpcChannel);
         this.healthClient = HealthGrpc.newBlockingStub(grpcChannel);
+        this.quoteHistoryClient = QuoteHistoryGrpc.newBlockingStub(grpcChannel);
 
         // Initialize async/streaming stub
         this.subscriptionClient = SubscriptionServiceGrpc.newStub(grpcChannel);
@@ -172,24 +175,41 @@ public class MT5Account {
         return terminalInstanceGuid;
     }
 
+    /** Terminal label sent with Connect/ConnectEx (null if none). */
+    public String getTerminalName() {
+        return terminalName;
+    }
+
+    /** Set the terminal label used by the next connect / automatic reconnect. */
+    public void setTerminalName(String terminalName) {
+        this.terminalName = terminalName;
+    }
+
+    /**
+     * Parses the terminal id the gateway returns. Prod answers {@code mt5_live_<32 hex digits, no dashes>}
+     * (e.g. {@code mt5_live_f6a35703d3905dcfbb64a23164b31f7b}); older gateways answered a plain GUID.
+     * Returns a random UUID only when nothing parseable is given.
+     */
     public static UUID parseGuidSafe(String guidStr) {
         if (guidStr == null || guidStr.trim().isEmpty()) {
             return UUID.randomUUID();
         }
+        String clean = guidStr.trim();
+        if (clean.startsWith("mt5_live_")) {
+            clean = clean.substring("mt5_live_".length());
+        } else if (clean.startsWith("mt4_live_")) {
+            clean = clean.substring("mt4_live_".length());
+        }
         try {
-            return UUID.fromString(guidStr.trim());
+            return UUID.fromString(clean);
         } catch (Exception e1) {
-            String clean = guidStr.trim();
-            if (clean.startsWith("mt5_live_")) {
-                clean = clean.substring("mt5_live_".length());
-            } else if (clean.startsWith("mt4_live_")) {
-                clean = clean.substring("mt4_live_".length());
+            String hex = clean.replace("-", "");
+            if (hex.length() == 32 && hex.matches("[0-9a-fA-F]{32}")) {
+                return UUID.fromString(hex.replaceFirst(
+                        "([0-9a-fA-F]{8})([0-9a-fA-F]{4})([0-9a-fA-F]{4})([0-9a-fA-F]{4})([0-9a-fA-F]{12})",
+                        "$1-$2-$3-$4-$5"));
             }
-            try {
-                return UUID.fromString(clean);
-            } catch (Exception e2) {
-                return UUID.randomUUID();
-            }
+            return UUID.randomUUID();
         }
     }
 
@@ -282,6 +302,11 @@ public class MT5Account {
                         Thread.sleep(500);
                         reconnect();
                         continue; // Retry after reconnect
+                    } catch (ApiExceptionMT5 reconnectEx) {
+                        if (isTerminalLoginError(reconnectEx) || attempt == maxRetries - 1) {
+                            throw new ApiExceptionMT5("gRPC unavailable and reconnection failed: " + reconnectEx.getMessage());
+                        }
+                        continue;
                     } catch (Exception reconnectEx) {
                         if (attempt == maxRetries - 1) {
                             throw new ApiExceptionMT5("gRPC unavailable and reconnection failed: " + reconnectEx.getMessage());
@@ -304,6 +329,11 @@ public class MT5Account {
                         Thread.sleep(500);
                         reconnect();
                         continue; // Retry after reconnect
+                    } catch (ApiExceptionMT5 reconnectEx) {
+                        if (isTerminalLoginError(reconnectEx) || attempt == maxRetries - 1) {
+                            throw new ApiExceptionMT5("Terminal instance lost and reconnection failed: " + reconnectEx.getMessage());
+                        }
+                        continue;
                     } catch (Exception reconnectEx) {
                         if (attempt == maxRetries - 1) {
                             throw new ApiExceptionMT5("Terminal instance lost and reconnection failed: " + reconnectEx.getMessage());
@@ -324,15 +354,31 @@ public class MT5Account {
     }
 
     /**
+     * True for gateway errors that must never be retried (wrong login/password, account locked):
+     * retrying them only gets the account locked by the broker.
+     */
+    public static boolean isTerminalLoginError(ApiExceptionMT5 e) {
+        String code = e.getErrorCode() == null ? "" : e.getErrorCode().toUpperCase();
+        String msg = e.getMessage() == null ? "" : e.getMessage().toUpperCase();
+        return code.contains("INVALID_LOGIN") || code.contains("WRONG_PASSWORD") || code.contains("INVALID_PASSWORD")
+                || msg.contains("INVALID_LOGIN") || msg.contains("INVALID ACCOUNT") || msg.contains("WRONG PASSWORD");
+    }
+
+    /**
      * Execute streaming gRPC call with automatic reconnection.
      * For server-streaming RPCs (subscriptions).
      * Used for all streaming (server→client) RPC calls.
      *
+     * <p>The stream is started inside a cancellable gRPC {@link Context}; cancelling the returned
+     * context ends the server stream cleanly (the observer receives {@code onError} with
+     * status CANCELLED).</p>
+     *
      * @param responseObserver Observer to receive streaming responses
      * @param streamCall The streaming call to execute
+     * @return the cancellable context the stream runs in; call {@code cancel(null)} to unsubscribe
      * @throws ApiExceptionMT5 if stream fails
      */
-    private <T> void executeStreamWithReconnect(
+    private <T> Context.CancellableContext executeStreamWithReconnect(
             StreamObserver<T> responseObserver,
             java.util.function.Consumer<Metadata> streamCall) throws ApiExceptionMT5 {
 
@@ -340,20 +386,23 @@ public class MT5Account {
             throw new ApiExceptionMT5("Please call connect() method first");
         }
 
+        Context.CancellableContext ctx = Context.current().withCancellation();
         Metadata headers = getMetadataHeaders();
 
         try {
-            streamCall.accept(headers);
+            ctx.run(() -> streamCall.accept(headers));
         } catch (StatusRuntimeException e) {
             // Try reconnect and retry once
             try {
                 reconnect();
-                headers = getMetadataHeaders();
-                streamCall.accept(headers);
+                Metadata headers2 = getMetadataHeaders();
+                ctx.run(() -> streamCall.accept(headers2));
             } catch (Exception reconnectEx) {
+                ctx.cancel(null);
                 throw new ApiExceptionMT5("Stream call failed and reconnection failed: " + e.getMessage());
             }
         }
+        return ctx;
     }
 
 
@@ -382,27 +431,43 @@ public class MT5Account {
             String baseChartSymbol,
             boolean waitForTerminalIsAlive,
             int timeoutSeconds) throws ApiExceptionMT5 {
+        return connect(host, port, baseChartSymbol, waitForTerminalIsAlive, timeoutSeconds, this.terminalName);
+    }
 
-        Mt5TermApiConnection.ConnectRequest request = Mt5TermApiConnection.ConnectRequest.newBuilder()
+    /**
+     * Connect to MT5 terminal by host and port, labelling the terminal with {@code name}.
+     *
+     * <p>Note: the current gateway protocol has no base chart symbol and always waits for the
+     * terminal to be alive; {@code baseChartSymbol} and {@code waitForTerminalIsAlive} are kept
+     * for source compatibility and are only remembered locally.</p>
+     *
+     * @param name Terminal label shown in the portal / {@code Accounts} listing (optional, may be null)
+     */
+    public Mt5TermApiConnection.ConnectReply connect(
+            String host,
+            int port,
+            String baseChartSymbol,
+            boolean waitForTerminalIsAlive,
+            int timeoutSeconds,
+            String name) throws ApiExceptionMT5 {
+
+        Mt5TermApiConnection.ConnectRequest.Builder builder = Mt5TermApiConnection.ConnectRequest.newBuilder()
                 .setUser(user)
                 .setPassword(password)
                 .setHost(host)
-                .setPort(port)
-                .setBaseChartSymbol(baseChartSymbol)
-                .setWaitForTerminalIsAlive(waitForTerminalIsAlive)
-                .setTerminalReadinessWaitingTimeoutSeconds(timeoutSeconds)
-                .build();
-
-        // Only send headers if we have an existing connection ID
-        Mt5TermApiConnection.ConnectReply response;
-        if (id != null) {
-            Metadata headers = getMetadataHeaders();
-            response = connectionClient
-                    .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
-                    .connect(request);
-        } else {
-            response = connectionClient.connect(request);
+                .setPort(port);
+        if (timeoutSeconds > 0) {
+            builder.setTimeoutSeconds(timeoutSeconds);
         }
+        if (name != null && !name.isEmpty()) {
+            builder.setName(name);
+        }
+        Mt5TermApiConnection.ConnectRequest request = builder.build();
+
+        // Always send headers: apikey is mandatory on prod, id (when set) pins the terminal instance
+        Mt5TermApiConnection.ConnectReply response = connectionClient
+                .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(getMetadataHeaders()))
+                .connect(request);
 
         if (response.hasError()) {
             throw new ApiExceptionMT5(response.getError());
@@ -413,6 +478,7 @@ public class MT5Account {
         this.port = port;
         this.baseChartSymbol = baseChartSymbol;
         this.connectTimeoutSeconds = timeoutSeconds;
+        this.terminalName = name;
         this.terminalInstanceGuid = response.getData().getTerminalInstanceGuid();
         this.id = parseGuidSafe(this.terminalInstanceGuid);
 
@@ -423,15 +489,15 @@ public class MT5Account {
      * Simplified connect method with default parameters
      */
     public Mt5TermApiConnection.ConnectReply connect(String host, int port, String baseChartSymbol) throws ApiExceptionMT5 {
-        return connect(host, port, baseChartSymbol, true, 30);
+        return connect(host, port, baseChartSymbol, true, 120);
     }
 
     /**
      * Connect to MT5 terminal by server name (MT cluster name)
      *
      * @param serverName MT5 server name from terminal
-     * @param baseChartSymbol Base chart symbol (e.g. "EURUSD")
-     * @param timeoutSeconds Timeout in seconds
+     * @param baseChartSymbol Base chart symbol (kept for compatibility; not sent to the gateway any more)
+     * @param timeoutSeconds Timeout in seconds (gateway default 120)
      * @return Connection response with terminal instance GUID
      * @throws ApiExceptionMT5 if connection fails
      */
@@ -439,25 +505,42 @@ public class MT5Account {
             String serverName,
             String baseChartSymbol,
             int timeoutSeconds) throws ApiExceptionMT5 {
+        return connectByServerName(serverName, baseChartSymbol, timeoutSeconds, this.terminalName);
+    }
 
-        Mt5TermApiConnection.ConnectExRequest request = Mt5TermApiConnection.ConnectExRequest.newBuilder()
+    /**
+     * Connect to MT5 terminal by server name (MT cluster name), labelling the terminal with {@code name}.
+     *
+     * <p>Pass a stable instance {@link UUID} to the constructor so re-runs re-attach to the same
+     * gateway terminal instead of creating a new one each time.</p>
+     *
+     * @param serverName MT5 server name (e.g. "MetaQuotes-Demo")
+     * @param baseChartSymbol Kept for compatibility; not sent to the gateway
+     * @param timeoutSeconds Readiness timeout in seconds (0 = gateway default, 120)
+     * @param name Terminal label shown in the portal / {@code Accounts} listing (optional, may be null)
+     */
+    public Mt5TermApiConnection.ConnectExReply connectByServerName(
+            String serverName,
+            String baseChartSymbol,
+            int timeoutSeconds,
+            String name) throws ApiExceptionMT5 {
+
+        Mt5TermApiConnection.ConnectExRequest.Builder builder = Mt5TermApiConnection.ConnectExRequest.newBuilder()
                 .setUser(user)
                 .setPassword(password)
-                .setMtClusterName(serverName)
-                .setBaseChartSymbol(baseChartSymbol)
-                .setTerminalReadinessWaitingTimeoutSeconds(timeoutSeconds)
-                .build();
-
-        // Only send headers if we have an existing connection ID
-        Mt5TermApiConnection.ConnectExReply response;
-        if (id != null) {
-            Metadata headers = getMetadataHeaders();
-            response = connectionClient
-                    .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
-                    .connectEx(request);
-        } else {
-            response = connectionClient.connectEx(request);
+                .setMtClusterName(serverName);
+        if (timeoutSeconds > 0) {
+            builder.setTimeoutSeconds(timeoutSeconds);
         }
+        if (name != null && !name.isEmpty()) {
+            builder.setName(name);
+        }
+        Mt5TermApiConnection.ConnectExRequest request = builder.build();
+
+        // Always send headers: apikey is mandatory on prod, id (when set) pins the terminal instance
+        Mt5TermApiConnection.ConnectExReply response = connectionClient
+                .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(getMetadataHeaders()))
+                .connectEx(request);
 
         if (response.hasError()) {
             throw new ApiExceptionMT5(response.getError());
@@ -467,6 +550,7 @@ public class MT5Account {
         this.serverName = serverName;
         this.baseChartSymbol = baseChartSymbol;
         this.connectTimeoutSeconds = timeoutSeconds;
+        this.terminalName = name;
         this.terminalInstanceGuid = response.getData().getTerminalInstanceGuid();
         this.id = parseGuidSafe(this.terminalInstanceGuid);
 
@@ -477,7 +561,7 @@ public class MT5Account {
      * Simplified connectByServerName with default timeout
      */
     public Mt5TermApiConnection.ConnectExReply connectByServerName(String serverName, String baseChartSymbol) throws ApiExceptionMT5 {
-        return connectByServerName(serverName, baseChartSymbol, 30);
+        return connectByServerName(serverName, baseChartSymbol, 120);
     }
 
     /**
@@ -613,11 +697,12 @@ public class MT5Account {
                         .setProxyPort(proxyPort)
                         .setProxyType(proxyType);
 
-        if (baseChartSymbol != null) {
-            builder.setBaseChartSymbol(baseChartSymbol);
+        if (timeoutSeconds > 0) {
+            builder.setTimeoutSeconds(timeoutSeconds);
         }
-        builder.setWaitForTerminalIsAlive(waitForTerminalIsAlive);
-        builder.setTerminalReadinessWaitingTimeoutSeconds(timeoutSeconds);
+        if (terminalName != null && !terminalName.isEmpty()) {
+            builder.setName(terminalName);
+        }
 
         Mt5TermApiConnection.ConnectProxyRequest request = builder.build();
         Metadata headers = getMetadataHeaders();
@@ -651,10 +736,10 @@ public class MT5Account {
             boolean forceReconnection,
             int timeoutSeconds) throws ApiExceptionMT5 {
 
+        // timeoutSeconds is no longer part of the gateway protocol (kept for source compatibility)
         Mt5TermApiConnection.ReconnectRequest request =
                 Mt5TermApiConnection.ReconnectRequest.newBuilder()
                         .setForceReconnection(forceReconnection)
-                        .setTerminalReadinessWaitingTimeoutSeconds(timeoutSeconds)
                         .build();
 
         Metadata headers = getMetadataHeaders();
@@ -1277,6 +1362,82 @@ public class MT5Account {
     }
 
     /**
+     * Order + deal history in a UTC time range with stable cursor paging.
+     * Each {@code HistoryData} row carries either {@code history_order} or {@code history_deal}
+     * (check {@code hasHistoryDeal()}); deals carry profit/commission/swap and {@code position_id}.
+     *
+     * @param fromUtc Lower bound (UTC)
+     * @param toUtc Upper bound (UTC)
+     * @param sortType Sort order
+     * @param pageToken {@code next_page_token} of the previous page, or null/empty for the first page
+     * @param pageSize Rows per page, 1..5000 (0 = 1000)
+     * @throws ApiExceptionMT5 if the call fails or connection is lost
+     */
+    public Mt5TermApiAccountHelper.OrderHistoryReply orderHistoryUtc(
+            com.google.protobuf.Timestamp fromUtc,
+            com.google.protobuf.Timestamp toUtc,
+            Mt5TermApiAccountHelper.BMT5_ENUM_ORDER_HISTORY_SORT_TYPE sortType,
+            String pageToken,
+            int pageSize) throws ApiExceptionMT5 {
+        return executeWithReconnect(
+                headers -> {
+                    Mt5TermApiAccountHelper.OrderHistoryRequest.Builder b =
+                            Mt5TermApiAccountHelper.OrderHistoryRequest.newBuilder()
+                                    .setInputFromUtc(fromUtc)
+                                    .setInputToUtc(toUtc)
+                                    .setInputSortMode(sortType)
+                                    .setPageSize(pageSize);
+                    if (pageToken != null && !pageToken.isEmpty()) {
+                        b.setPageToken(pageToken);
+                    }
+                    return accountClient
+                            .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                            .orderHistory(b.build());
+                },
+                response -> response.hasError() ? response.getError() : null
+        );
+    }
+
+    /**
+     * Closed positions whose open time is in a UTC range, with stable cursor paging.
+     *
+     * @param sortType Sort order
+     * @param openTimeFromUtc Lower bound on position open time (UTC), or null
+     * @param openTimeToUtc Upper bound on position open time (UTC), or null
+     * @param pageToken {@code next_page_token} of the previous page, or null/empty for the first page
+     * @param pageSize Positions per page, 1..5000 (0 = 1000)
+     * @throws ApiExceptionMT5 if the call fails or connection is lost
+     */
+    public Mt5TermApiAccountHelper.PositionsHistoryReply positionsHistoryUtc(
+            Mt5TermApiAccountHelper.AH_ENUM_POSITIONS_HISTORY_SORT_TYPE sortType,
+            com.google.protobuf.Timestamp openTimeFromUtc,
+            com.google.protobuf.Timestamp openTimeToUtc,
+            String pageToken,
+            int pageSize) throws ApiExceptionMT5 {
+        return executeWithReconnect(
+                headers -> {
+                    Mt5TermApiAccountHelper.PositionsHistoryRequest.Builder b =
+                            Mt5TermApiAccountHelper.PositionsHistoryRequest.newBuilder()
+                                    .setSortType(sortType)
+                                    .setPageSize(pageSize);
+                    if (openTimeFromUtc != null) {
+                        b.setPositionOpenTimeFromUtc(openTimeFromUtc);
+                    }
+                    if (openTimeToUtc != null) {
+                        b.setPositionOpenTimeToUtc(openTimeToUtc);
+                    }
+                    if (pageToken != null && !pageToken.isEmpty()) {
+                        b.setPageToken(pageToken);
+                    }
+                    return accountClient
+                            .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                            .positionsHistory(b.build());
+                },
+                response -> response.hasError() ? response.getError() : null
+        );
+    }
+
+    /**
      * Gets historical position data with optional time filtering and pagination.
      * Returns all closed positions with complete details including entry/exit prices, profits, and durations.
      * Use this for performance analysis, reporting, or tracking past trading results.
@@ -1436,12 +1597,200 @@ public class MT5Account {
     }
 
 
+    /**
+     * Historical OHLC bars (candles) of one symbol, oldest first, one page.
+     * This is the non-deprecated bars call ({@code QuoteHistory.Bars}).
+     *
+     * <p>History lives in the terminal and is fetched from the broker on demand: the first request for a
+     * symbol/period can answer with error code {@code QUOTE_HISTORY_NOT_READY}; wait a moment and ask again.</p>
+     *
+     * @param symbol Symbol name (e.g. "EURUSD")
+     * @param timeframe Bar length ({@code QH_PERIOD_M1}, {@code QH_PERIOD_H1}, {@code QH_PERIOD_D1}, ...)
+     * @param fromTimeUtc Unix seconds (UTC) of the oldest bar wanted, inclusive
+     * @param toTimeUtc Unix seconds (UTC) of the newest bar wanted, inclusive; 0 = now
+     * @param pageSize Bars per page, 1..5000 (0 = 1000)
+     * @param pageToken {@code next_page_token} of the previous page, or null/empty for the first page
+     * @return bars (oldest first), next page token and the broker's first bar time
+     * @throws ApiExceptionMT5 if the call fails or connection is lost
+     */
+    public Mt5TermApiQuoteHistory.QuoteHistoryBarsReply quoteHistoryBars(
+            String symbol,
+            Mt5TermApiQuoteHistory.QUOTE_HISTORY_TIMEFRAME timeframe,
+            long fromTimeUtc,
+            long toTimeUtc,
+            int pageSize,
+            String pageToken) throws ApiExceptionMT5 {
+        return executeWithReconnect(
+                headers -> {
+                    Mt5TermApiQuoteHistory.QuoteHistoryBarsRequest.Builder b =
+                            Mt5TermApiQuoteHistory.QuoteHistoryBarsRequest.newBuilder()
+                                    .setSymbol(symbol)
+                                    .setTimeframe(timeframe)
+                                    .setFromTimeUtc(fromTimeUtc)
+                                    .setToTimeUtc(toTimeUtc)
+                                    .setPageSize(pageSize);
+                    if (pageToken != null && !pageToken.isEmpty()) {
+                        b.setPageToken(pageToken);
+                    }
+                    return quoteHistoryClient
+                            .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                            .bars(b.build());
+                },
+                response -> response.hasError() ? response.getError() : null
+        );
+    }
+
+    /**
+     * Historical ticks of one symbol, oldest first, one page ({@code QuoteHistory.Ticks}).
+     *
+     * @param symbol Symbol name
+     * @param fromTimeMscUtc Unix milliseconds (UTC) of the oldest tick wanted, inclusive
+     * @param toTimeMscUtc Unix milliseconds (UTC) of the newest tick wanted, inclusive; 0 = now
+     * @param flags which ticks ({@code QH_TICKS_ALL}, {@code QH_TICKS_INFO}, {@code QH_TICKS_TRADE})
+     * @param pageSize Ticks per page, 1..20000 (0 = 5000)
+     * @param pageToken {@code next_page_token} of the previous page, or null/empty for the first page
+     * @throws ApiExceptionMT5 if the call fails or connection is lost
+     */
+    public Mt5TermApiQuoteHistory.QuoteHistoryTicksReply quoteHistoryTicks(
+            String symbol,
+            long fromTimeMscUtc,
+            long toTimeMscUtc,
+            Mt5TermApiQuoteHistory.QUOTE_HISTORY_TICK_FLAGS flags,
+            int pageSize,
+            String pageToken) throws ApiExceptionMT5 {
+        return executeWithReconnect(
+                headers -> {
+                    Mt5TermApiQuoteHistory.QuoteHistoryTicksRequest.Builder b =
+                            Mt5TermApiQuoteHistory.QuoteHistoryTicksRequest.newBuilder()
+                                    .setSymbol(symbol)
+                                    .setFromTimeMscUtc(fromTimeMscUtc)
+                                    .setToTimeMscUtc(toTimeMscUtc)
+                                    .setFlags(flags)
+                                    .setPageSize(pageSize);
+                    if (pageToken != null && !pageToken.isEmpty()) {
+                        b.setPageToken(pageToken);
+                    }
+                    return quoteHistoryClient
+                            .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                            .ticks(b.build());
+                },
+                response -> response.hasError() ? response.getError() : null
+        );
+    }
+
+    /**
+     * Newest {@code maxBars} bars of a symbol via the legacy {@code PriceHistory} call (deprecated on the
+     * gateway in favour of {@link #quoteHistoryBars}; still served). Bars come newest-last.
+     *
+     * @param symbol Symbol name
+     * @param mqlTimeframe MQL5 ENUM_TIMEFRAMES value: M1=1, M5=5, M15=15, M30=30, H1=16385, H4=16388, D1=16408, W1=32769, MN1=49153
+     * @param fromTimeUtc Unix seconds (UTC) or 0
+     * @param toTimeUtc Unix seconds (UTC) or 0 (both 0 = newest {@code maxBars} bars)
+     * @param maxBars Upper bound on the number of bars (gateway default 500)
+     * @throws ApiExceptionMT5 if the call fails or connection is lost
+     */
+    @SuppressWarnings("deprecation")
+    public Mt5TermApiMarketInfo.PriceHistoryReply priceHistory(
+            String symbol,
+            int mqlTimeframe,
+            long fromTimeUtc,
+            long toTimeUtc,
+            int maxBars) throws ApiExceptionMT5 {
+        return executeWithReconnect(
+                headers -> {
+                    Mt5TermApiMarketInfo.PriceHistoryRequest request =
+                            Mt5TermApiMarketInfo.PriceHistoryRequest.newBuilder()
+                                    .setSymbol(symbol)
+                                    .setTimeframe(mqlTimeframe)
+                                    .setFromTimeUtc(fromTimeUtc)
+                                    .setToTimeUtc(toTimeUtc)
+                                    .setMaxBars(maxBars)
+                                    .build();
+                    return marketInfoClient
+                            .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                            .priceHistory(request);
+                },
+                response -> response.hasError() ? response.getError() : null
+        );
+    }
+
+    /**
+     * Names of every symbol the broker offers (not only Market Watch).
+     *
+     * @throws ApiExceptionMT5 if the call fails or connection is lost
+     */
+    public Mt5TermApiMarketInfo.SymbolListReply symbolList() throws ApiExceptionMT5 {
+        return executeWithReconnect(
+                headers -> marketInfoClient
+                        .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                        .symbolList(Mt5TermApiMarketInfo.SymbolListRequest.newBuilder().build()),
+                response -> response.hasError() ? response.getError() : null
+        );
+    }
+
+    /**
+     * Historical orders only (no deals), with magic/position id, over an optional time range.
+     *
+     * @param fromUtc Optional lower bound (UTC); null = no bound
+     * @param toUtc Optional upper bound (UTC); null = no bound
+     * @param sortType Sort order
+     * @param pageToken Cursor of the previous page (null/empty for the first page)
+     * @param pageSize Orders per page, 1..5000 (0 = 1000)
+     * @throws ApiExceptionMT5 if the call fails or connection is lost
+     */
+    public Mt5TermApiAccountHelper.AllHistoryOrdersReply allHistoryOrders(
+            com.google.protobuf.Timestamp fromUtc,
+            com.google.protobuf.Timestamp toUtc,
+            Mt5TermApiAccountHelper.BMT5_ENUM_ORDER_HISTORY_SORT_TYPE sortType,
+            String pageToken,
+            int pageSize) throws ApiExceptionMT5 {
+        return executeWithReconnect(
+                headers -> {
+                    Mt5TermApiAccountHelper.AllHistoryOrdersRequest.Builder b =
+                            Mt5TermApiAccountHelper.AllHistoryOrdersRequest.newBuilder()
+                                    .setInputSortMode(sortType)
+                                    .setPageSize(pageSize);
+                    if (fromUtc != null) {
+                        b.setInputFromUtc(fromUtc);
+                    }
+                    if (toUtc != null) {
+                        b.setInputToUtc(toUtc);
+                    }
+                    if (pageToken != null && !pageToken.isEmpty()) {
+                        b.setPageToken(pageToken);
+                    }
+                    return accountClient
+                            .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                            .allHistoryOrders(b.build());
+                },
+                response -> response.hasError() ? response.getError() : null
+        );
+    }
+
+
     //endregion
 
 
     //=============================================================
     //region TRADING OPERATIONS (3 methods)
     //=============================================================
+
+    /**
+     * Sends a market or pending order immediately, with no Market Watch / quote preparation.
+     * Same request and reply as {@link #orderSend}; use only for a symbol already streaming,
+     * otherwise the trade server rejects the order (4304 "no ticks").
+     *
+     * @throws ApiExceptionMT5 if the order fails or connection is lost
+     */
+    public Mt5TermApiTradingHelper.OrderSendReply orderSendWithoutChecks(
+            Mt5TermApiTradingHelper.OrderSendRequest request) throws ApiExceptionMT5 {
+        return executeWithReconnect(
+                headers -> tradeClient
+                        .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
+                        .orderSendWithoutChecks(request),
+                response -> response.hasError() ? response.getError() : null
+        );
+    }
 
 
     /**
@@ -1811,8 +2160,8 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming tick updates
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onSymbolTick(String[] symbolNames, StreamObserver<Mt5TermApiSubscriptions.OnSymbolTickReply> responseObserver) throws ApiExceptionMT5 {
-        executeStreamWithReconnect(
+    public Context.CancellableContext onSymbolTick(String[] symbolNames, StreamObserver<Mt5TermApiSubscriptions.OnSymbolTickReply> responseObserver) throws ApiExceptionMT5 {
+        return executeStreamWithReconnect(
                 responseObserver,
                 headers -> {
                     Mt5TermApiSubscriptions.OnSymbolTickRequest request =
@@ -1834,8 +2183,8 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming trade event notifications
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onTrade(StreamObserver<Mt5TermApiSubscriptions.OnTradeReply> responseObserver) throws ApiExceptionMT5 {
-        executeStreamWithReconnect(
+    public Context.CancellableContext onTrade(StreamObserver<Mt5TermApiSubscriptions.OnTradeReply> responseObserver) throws ApiExceptionMT5 {
+        return executeStreamWithReconnect(
                 responseObserver,
                 headers -> {
                     Mt5TermApiSubscriptions.OnTradeRequest request =
@@ -1857,8 +2206,8 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming position profit updates
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onPositionProfit(int timerPeriodMilliseconds, boolean ignoreEmptyData, StreamObserver<Mt5TermApiSubscriptions.OnPositionProfitReply> responseObserver) throws ApiExceptionMT5 {
-        executeStreamWithReconnect(
+    public Context.CancellableContext onPositionProfit(int timerPeriodMilliseconds, boolean ignoreEmptyData, StreamObserver<Mt5TermApiSubscriptions.OnPositionProfitReply> responseObserver) throws ApiExceptionMT5 {
+        return executeStreamWithReconnect(
                 responseObserver,
                 headers -> {
                     Mt5TermApiSubscriptions.OnPositionProfitRequest request =
@@ -1882,8 +2231,8 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming ticket lists
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onPositionsAndPendingOrdersTickets(int timerPeriodMilliseconds, StreamObserver<Mt5TermApiSubscriptions.OnPositionsAndPendingOrdersTicketsReply> responseObserver) throws ApiExceptionMT5 {
-        executeStreamWithReconnect(
+    public Context.CancellableContext onPositionsAndPendingOrdersTickets(int timerPeriodMilliseconds, StreamObserver<Mt5TermApiSubscriptions.OnPositionsAndPendingOrdersTicketsReply> responseObserver) throws ApiExceptionMT5 {
+        return executeStreamWithReconnect(
                 responseObserver,
                 headers -> {
                     Mt5TermApiSubscriptions.OnPositionsAndPendingOrdersTicketsRequest request =
@@ -1905,8 +2254,8 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming trade transaction details
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onTradeTransaction(StreamObserver<Mt5TermApiSubscriptions.OnTradeTransactionReply> responseObserver) throws ApiExceptionMT5 {
-        executeStreamWithReconnect(
+    public Context.CancellableContext onTradeTransaction(StreamObserver<Mt5TermApiSubscriptions.OnTradeTransactionReply> responseObserver) throws ApiExceptionMT5 {
+        return executeStreamWithReconnect(
                 responseObserver,
                 headers -> {
                     Mt5TermApiSubscriptions.OnTradeTransactionRequest request =

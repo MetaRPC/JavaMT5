@@ -1,0 +1,13 @@
+syntax = "proto3";
+option csharp_namespace = "mt5_term_api";
+package mt5_term_api;
+option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
+
+service VncService {
+  // Bidirectional stream: raw VNC (RFB) binary data flows in both directions
+  rpc VncStream (stream VncData) returns (stream VncData);
+}
+
+message VncData {
+  bytes payload = 1;
+}

@@ -1,0 +1,33 @@
+syntax = "proto3";
+option csharp_namespace = "mt5_term_api";
+import "google/api/annotations.proto";
+import "mt5/mt5-term-api-gui.proto";
+
+package mt5_term_api;
+option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
+
+// Demo account creation service.
+// Automates the MT5 "Open an Account" wizard via Win32 GUI automation.
+// Does NOT require 'id' header — auto-picks any available terminal.
+service DemoAccount {
+    // Open a demo account. Full wizard flow: search → select → fill form → register.
+    // Returns login, password, and investor password for the new demo account.
+    // [DefaultValues]
+    // {
+    //   "company": "MetaQuotes Ltd.",
+    //   "firstName": "Test",
+    //   "lastName": "User",
+    //   "email": "test@test.com",
+    //   "phone": "+1234567890",
+    //   "timeoutSeconds": "60"
+    // }
+    rpc OpenDemoAccount (GuiDemoOpenAccountRequest) returns (GuiDemoOpenAccountReply) {
+        option (google.api.http) = {
+            get: "/DemoAccount/Open"
+        };
+    }
+
+    // Interactive step-by-step demo account opening wizard.
+    // Bidirectional streaming session: search company -> select -> form schema -> submit -> 2FA (if any) -> completed.
+    rpc DemoOpenAccountInteractive (stream GuiDemoInteractiveClientMessage) returns (stream GuiDemoInteractiveServerMessage);
+}

@@ -1,7 +1,8 @@
-﻿syntax = "proto3";
+syntax = "proto3";
 option csharp_namespace = "mt5_term_api";
 package mt5_term_api;
 option go_package = "git.mtapi.io/root/mrpc-proto.git/mt5/libraries/go";
+import "mt5/mt5-term-api-connection.proto";
 
 service Health
 {
@@ -21,4 +22,5 @@ message HealthCheckRequest {
 message HealthCheckReply {
   bool is_connected_to_server = 1;
   int64 server_time_seconds = 2;
+  int64 server_time_seconds_utc = 3;  // server_time_seconds in UTC (the same moment; server_time_seconds is in the broker server's time zone).
 }
