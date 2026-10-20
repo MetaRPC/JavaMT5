@@ -46,6 +46,35 @@ public final class Mt5TermApiTradeStats {
      */
     com.google.protobuf.ByteString
         getFromBytes();
+
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return Whether the fromUtc field is set.
+     */
+    boolean hasFromUtc();
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return The fromUtc.
+     */
+    java.lang.String getFromUtc();
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return The bytes for fromUtc.
+     */
+    com.google.protobuf.ByteString
+        getFromUtcBytes();
   }
   /**
    * Protobuf type {@code mt5_term_api.TradeStatsRequest}
@@ -61,6 +90,7 @@ public final class Mt5TermApiTradeStats {
     }
     private TradeStatsRequest() {
       from_ = "";
+      fromUtc_ = "";
     }
 
     @java.lang.Override
@@ -98,6 +128,12 @@ public final class Mt5TermApiTradeStats {
               java.lang.String s = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               from_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              fromUtc_ = s;
               break;
             }
             default: {
@@ -193,6 +229,64 @@ public final class Mt5TermApiTradeStats {
       }
     }
 
+    public static final int FROM_UTC_FIELD_NUMBER = 2;
+    private volatile java.lang.Object fromUtc_;
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return Whether the fromUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasFromUtc() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return The fromUtc.
+     */
+    @java.lang.Override
+    public java.lang.String getFromUtc() {
+      java.lang.Object ref = fromUtc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fromUtc_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return The bytes for fromUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFromUtcBytes() {
+      java.lang.Object ref = fromUtc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fromUtc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -210,6 +304,9 @@ public final class Mt5TermApiTradeStats {
       if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, from_);
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fromUtc_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -221,6 +318,9 @@ public final class Mt5TermApiTradeStats {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, from_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fromUtc_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -242,6 +342,11 @@ public final class Mt5TermApiTradeStats {
         if (!getFrom()
             .equals(other.getFrom())) return false;
       }
+      if (hasFromUtc() != other.hasFromUtc()) return false;
+      if (hasFromUtc()) {
+        if (!getFromUtc()
+            .equals(other.getFromUtc())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -256,6 +361,10 @@ public final class Mt5TermApiTradeStats {
       if (hasFrom()) {
         hash = (37 * hash) + FROM_FIELD_NUMBER;
         hash = (53 * hash) + getFrom().hashCode();
+      }
+      if (hasFromUtc()) {
+        hash = (37 * hash) + FROM_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getFromUtc().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -392,6 +501,8 @@ public final class Mt5TermApiTradeStats {
         super.clear();
         from_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        fromUtc_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -424,6 +535,10 @@ public final class Mt5TermApiTradeStats {
           to_bitField0_ |= 0x00000001;
         }
         result.from_ = from_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.fromUtc_ = fromUtc_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -476,6 +591,11 @@ public final class Mt5TermApiTradeStats {
         if (other.hasFrom()) {
           bitField0_ |= 0x00000001;
           from_ = other.from_;
+          onChanged();
+        }
+        if (other.hasFromUtc()) {
+          bitField0_ |= 0x00000002;
+          fromUtc_ = other.fromUtc_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -611,6 +731,113 @@ public final class Mt5TermApiTradeStats {
   checkByteStringIsUtf8(value);
         bitField0_ |= 0x00000001;
         from_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fromUtc_ = "";
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @return Whether the fromUtc field is set.
+       */
+      public boolean hasFromUtc() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @return The fromUtc.
+       */
+      public java.lang.String getFromUtc() {
+        java.lang.Object ref = fromUtc_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fromUtc_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @return The bytes for fromUtc.
+       */
+      public com.google.protobuf.ByteString
+          getFromUtcBytes() {
+        java.lang.Object ref = fromUtc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fromUtc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @param value The fromUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromUtc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        fromUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFromUtc() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        fromUtc_ = getDefaultInstance().getFromUtc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @param value The bytes for fromUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromUtcBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000002;
+        fromUtc_ = value;
         onChanged();
         return this;
       }
@@ -1653,6 +1880,35 @@ public final class Mt5TermApiTradeStats {
 
     /**
      * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return Whether the fromUtc field is set.
+     */
+    boolean hasFromUtc();
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return The fromUtc.
+     */
+    java.lang.String getFromUtc();
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return The bytes for fromUtc.
+     */
+    com.google.protobuf.ByteString
+        getFromUtcBytes();
+
+    /**
+     * <pre>
      * Return short version without equal bars
      * </pre>
      *
@@ -1684,6 +1940,7 @@ public final class Mt5TermApiTradeStats {
     }
     private TradeStatsEquityHistoryRequest() {
       from_ = "";
+      fromUtc_ = "";
     }
 
     @java.lang.Override
@@ -1724,8 +1981,14 @@ public final class Mt5TermApiTradeStats {
               break;
             }
             case 16: {
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               excludeSameBars_ = input.readBool();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              fromUtc_ = s;
               break;
             }
             default: {
@@ -1821,6 +2084,64 @@ public final class Mt5TermApiTradeStats {
       }
     }
 
+    public static final int FROM_UTC_FIELD_NUMBER = 3;
+    private volatile java.lang.Object fromUtc_;
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return Whether the fromUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasFromUtc() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return The fromUtc.
+     */
+    @java.lang.Override
+    public java.lang.String getFromUtc() {
+      java.lang.Object ref = fromUtc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fromUtc_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return The bytes for fromUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFromUtcBytes() {
+      java.lang.Object ref = fromUtc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fromUtc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int EXCLUDE_SAME_BARS_FIELD_NUMBER = 2;
     private boolean excludeSameBars_;
     /**
@@ -1833,7 +2154,7 @@ public final class Mt5TermApiTradeStats {
      */
     @java.lang.Override
     public boolean hasExcludeSameBars() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1865,8 +2186,11 @@ public final class Mt5TermApiTradeStats {
       if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, from_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeBool(2, excludeSameBars_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fromUtc_);
       }
       unknownFields.writeTo(output);
     }
@@ -1880,9 +2204,12 @@ public final class Mt5TermApiTradeStats {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, from_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, excludeSameBars_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fromUtc_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1904,6 +2231,11 @@ public final class Mt5TermApiTradeStats {
         if (!getFrom()
             .equals(other.getFrom())) return false;
       }
+      if (hasFromUtc() != other.hasFromUtc()) return false;
+      if (hasFromUtc()) {
+        if (!getFromUtc()
+            .equals(other.getFromUtc())) return false;
+      }
       if (hasExcludeSameBars() != other.hasExcludeSameBars()) return false;
       if (hasExcludeSameBars()) {
         if (getExcludeSameBars()
@@ -1923,6 +2255,10 @@ public final class Mt5TermApiTradeStats {
       if (hasFrom()) {
         hash = (37 * hash) + FROM_FIELD_NUMBER;
         hash = (53 * hash) + getFrom().hashCode();
+      }
+      if (hasFromUtc()) {
+        hash = (37 * hash) + FROM_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getFromUtc().hashCode();
       }
       if (hasExcludeSameBars()) {
         hash = (37 * hash) + EXCLUDE_SAME_BARS_FIELD_NUMBER;
@@ -2064,8 +2400,10 @@ public final class Mt5TermApiTradeStats {
         super.clear();
         from_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        excludeSameBars_ = false;
+        fromUtc_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        excludeSameBars_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -2099,8 +2437,12 @@ public final class Mt5TermApiTradeStats {
         }
         result.from_ = from_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.excludeSameBars_ = excludeSameBars_;
           to_bitField0_ |= 0x00000002;
+        }
+        result.fromUtc_ = fromUtc_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.excludeSameBars_ = excludeSameBars_;
+          to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -2154,6 +2496,11 @@ public final class Mt5TermApiTradeStats {
         if (other.hasFrom()) {
           bitField0_ |= 0x00000001;
           from_ = other.from_;
+          onChanged();
+        }
+        if (other.hasFromUtc()) {
+          bitField0_ |= 0x00000002;
+          fromUtc_ = other.fromUtc_;
           onChanged();
         }
         if (other.hasExcludeSameBars()) {
@@ -2296,6 +2643,113 @@ public final class Mt5TermApiTradeStats {
         return this;
       }
 
+      private java.lang.Object fromUtc_ = "";
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @return Whether the fromUtc field is set.
+       */
+      public boolean hasFromUtc() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @return The fromUtc.
+       */
+      public java.lang.String getFromUtc() {
+        java.lang.Object ref = fromUtc_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fromUtc_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @return The bytes for fromUtc.
+       */
+      public com.google.protobuf.ByteString
+          getFromUtcBytes() {
+        java.lang.Object ref = fromUtc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fromUtc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @param value The fromUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromUtc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        fromUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFromUtc() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        fromUtc_ = getDefaultInstance().getFromUtc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @param value The bytes for fromUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromUtcBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000002;
+        fromUtc_ = value;
+        onChanged();
+        return this;
+      }
+
       private boolean excludeSameBars_ ;
       /**
        * <pre>
@@ -2307,7 +2761,7 @@ public final class Mt5TermApiTradeStats {
        */
       @java.lang.Override
       public boolean hasExcludeSameBars() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2331,7 +2785,7 @@ public final class Mt5TermApiTradeStats {
        * @return This builder for chaining.
        */
       public Builder setExcludeSameBars(boolean value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         excludeSameBars_ = value;
         onChanged();
         return this;
@@ -2345,7 +2799,7 @@ public final class Mt5TermApiTradeStats {
        * @return This builder for chaining.
        */
       public Builder clearExcludeSameBars() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         excludeSameBars_ = false;
         onChanged();
         return this;
@@ -3389,6 +3843,35 @@ public final class Mt5TermApiTradeStats {
 
     /**
      * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return Whether the fromUtc field is set.
+     */
+    boolean hasFromUtc();
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return The fromUtc.
+     */
+    java.lang.String getFromUtc();
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return The bytes for fromUtc.
+     */
+    com.google.protobuf.ByteString
+        getFromUtcBytes();
+
+    /**
+     * <pre>
      * Return short version without equal bars
      * </pre>
      *
@@ -3420,6 +3903,7 @@ public final class Mt5TermApiTradeStats {
     }
     private EquityHistoryRequest() {
       from_ = "";
+      fromUtc_ = "";
     }
 
     @java.lang.Override
@@ -3460,8 +3944,14 @@ public final class Mt5TermApiTradeStats {
               break;
             }
             case 16: {
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               excludeSameBars_ = input.readBool();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              fromUtc_ = s;
               break;
             }
             default: {
@@ -3557,6 +4047,64 @@ public final class Mt5TermApiTradeStats {
       }
     }
 
+    public static final int FROM_UTC_FIELD_NUMBER = 3;
+    private volatile java.lang.Object fromUtc_;
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return Whether the fromUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasFromUtc() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return The fromUtc.
+     */
+    @java.lang.Override
+    public java.lang.String getFromUtc() {
+      java.lang.Object ref = fromUtc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fromUtc_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 3;</code>
+     * @return The bytes for fromUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFromUtcBytes() {
+      java.lang.Object ref = fromUtc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fromUtc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int EXCLUDE_SAME_BARS_FIELD_NUMBER = 2;
     private boolean excludeSameBars_;
     /**
@@ -3569,7 +4117,7 @@ public final class Mt5TermApiTradeStats {
      */
     @java.lang.Override
     public boolean hasExcludeSameBars() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -3601,8 +4149,11 @@ public final class Mt5TermApiTradeStats {
       if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, from_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeBool(2, excludeSameBars_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fromUtc_);
       }
       unknownFields.writeTo(output);
     }
@@ -3616,9 +4167,12 @@ public final class Mt5TermApiTradeStats {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, from_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, excludeSameBars_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fromUtc_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3640,6 +4194,11 @@ public final class Mt5TermApiTradeStats {
         if (!getFrom()
             .equals(other.getFrom())) return false;
       }
+      if (hasFromUtc() != other.hasFromUtc()) return false;
+      if (hasFromUtc()) {
+        if (!getFromUtc()
+            .equals(other.getFromUtc())) return false;
+      }
       if (hasExcludeSameBars() != other.hasExcludeSameBars()) return false;
       if (hasExcludeSameBars()) {
         if (getExcludeSameBars()
@@ -3659,6 +4218,10 @@ public final class Mt5TermApiTradeStats {
       if (hasFrom()) {
         hash = (37 * hash) + FROM_FIELD_NUMBER;
         hash = (53 * hash) + getFrom().hashCode();
+      }
+      if (hasFromUtc()) {
+        hash = (37 * hash) + FROM_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getFromUtc().hashCode();
       }
       if (hasExcludeSameBars()) {
         hash = (37 * hash) + EXCLUDE_SAME_BARS_FIELD_NUMBER;
@@ -3800,8 +4363,10 @@ public final class Mt5TermApiTradeStats {
         super.clear();
         from_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        excludeSameBars_ = false;
+        fromUtc_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        excludeSameBars_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3835,8 +4400,12 @@ public final class Mt5TermApiTradeStats {
         }
         result.from_ = from_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.excludeSameBars_ = excludeSameBars_;
           to_bitField0_ |= 0x00000002;
+        }
+        result.fromUtc_ = fromUtc_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.excludeSameBars_ = excludeSameBars_;
+          to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3890,6 +4459,11 @@ public final class Mt5TermApiTradeStats {
         if (other.hasFrom()) {
           bitField0_ |= 0x00000001;
           from_ = other.from_;
+          onChanged();
+        }
+        if (other.hasFromUtc()) {
+          bitField0_ |= 0x00000002;
+          fromUtc_ = other.fromUtc_;
           onChanged();
         }
         if (other.hasExcludeSameBars()) {
@@ -4032,6 +4606,113 @@ public final class Mt5TermApiTradeStats {
         return this;
       }
 
+      private java.lang.Object fromUtc_ = "";
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @return Whether the fromUtc field is set.
+       */
+      public boolean hasFromUtc() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @return The fromUtc.
+       */
+      public java.lang.String getFromUtc() {
+        java.lang.Object ref = fromUtc_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fromUtc_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @return The bytes for fromUtc.
+       */
+      public com.google.protobuf.ByteString
+          getFromUtcBytes() {
+        java.lang.Object ref = fromUtc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fromUtc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @param value The fromUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromUtc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        fromUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFromUtc() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        fromUtc_ = getDefaultInstance().getFromUtc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 3;</code>
+       * @param value The bytes for fromUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromUtcBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000002;
+        fromUtc_ = value;
+        onChanged();
+        return this;
+      }
+
       private boolean excludeSameBars_ ;
       /**
        * <pre>
@@ -4043,7 +4724,7 @@ public final class Mt5TermApiTradeStats {
        */
       @java.lang.Override
       public boolean hasExcludeSameBars() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -4067,7 +4748,7 @@ public final class Mt5TermApiTradeStats {
        * @return This builder for chaining.
        */
       public Builder setExcludeSameBars(boolean value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         excludeSameBars_ = value;
         onChanged();
         return this;
@@ -4081,7 +4762,7 @@ public final class Mt5TermApiTradeStats {
        * @return This builder for chaining.
        */
       public Builder clearExcludeSameBars() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         excludeSameBars_ = false;
         onChanged();
         return this;
@@ -5122,6 +5803,35 @@ public final class Mt5TermApiTradeStats {
      */
     com.google.protobuf.ByteString
         getFromBytes();
+
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return Whether the fromUtc field is set.
+     */
+    boolean hasFromUtc();
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return The fromUtc.
+     */
+    java.lang.String getFromUtc();
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return The bytes for fromUtc.
+     */
+    com.google.protobuf.ByteString
+        getFromUtcBytes();
   }
   /**
    * Protobuf type {@code mt5_term_api.TradeUnrealizedPLRequest}
@@ -5137,6 +5847,7 @@ public final class Mt5TermApiTradeStats {
     }
     private TradeUnrealizedPLRequest() {
       from_ = "";
+      fromUtc_ = "";
     }
 
     @java.lang.Override
@@ -5174,6 +5885,12 @@ public final class Mt5TermApiTradeStats {
               java.lang.String s = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               from_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              fromUtc_ = s;
               break;
             }
             default: {
@@ -5269,6 +5986,64 @@ public final class Mt5TermApiTradeStats {
       }
     }
 
+    public static final int FROM_UTC_FIELD_NUMBER = 2;
+    private volatile java.lang.Object fromUtc_;
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return Whether the fromUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasFromUtc() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return The fromUtc.
+     */
+    @java.lang.Override
+    public java.lang.String getFromUtc() {
+      java.lang.Object ref = fromUtc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fromUtc_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * from in UTC: send either from or from_utc, not both.
+     * </pre>
+     *
+     * <code>optional string from_utc = 2;</code>
+     * @return The bytes for fromUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFromUtcBytes() {
+      java.lang.Object ref = fromUtc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fromUtc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5286,6 +6061,9 @@ public final class Mt5TermApiTradeStats {
       if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, from_);
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fromUtc_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5297,6 +6075,9 @@ public final class Mt5TermApiTradeStats {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, from_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fromUtc_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5318,6 +6099,11 @@ public final class Mt5TermApiTradeStats {
         if (!getFrom()
             .equals(other.getFrom())) return false;
       }
+      if (hasFromUtc() != other.hasFromUtc()) return false;
+      if (hasFromUtc()) {
+        if (!getFromUtc()
+            .equals(other.getFromUtc())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5332,6 +6118,10 @@ public final class Mt5TermApiTradeStats {
       if (hasFrom()) {
         hash = (37 * hash) + FROM_FIELD_NUMBER;
         hash = (53 * hash) + getFrom().hashCode();
+      }
+      if (hasFromUtc()) {
+        hash = (37 * hash) + FROM_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getFromUtc().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5468,6 +6258,8 @@ public final class Mt5TermApiTradeStats {
         super.clear();
         from_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        fromUtc_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -5500,6 +6292,10 @@ public final class Mt5TermApiTradeStats {
           to_bitField0_ |= 0x00000001;
         }
         result.from_ = from_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.fromUtc_ = fromUtc_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5552,6 +6348,11 @@ public final class Mt5TermApiTradeStats {
         if (other.hasFrom()) {
           bitField0_ |= 0x00000001;
           from_ = other.from_;
+          onChanged();
+        }
+        if (other.hasFromUtc()) {
+          bitField0_ |= 0x00000002;
+          fromUtc_ = other.fromUtc_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -5687,6 +6488,113 @@ public final class Mt5TermApiTradeStats {
   checkByteStringIsUtf8(value);
         bitField0_ |= 0x00000001;
         from_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fromUtc_ = "";
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @return Whether the fromUtc field is set.
+       */
+      public boolean hasFromUtc() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @return The fromUtc.
+       */
+      public java.lang.String getFromUtc() {
+        java.lang.Object ref = fromUtc_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fromUtc_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @return The bytes for fromUtc.
+       */
+      public com.google.protobuf.ByteString
+          getFromUtcBytes() {
+        java.lang.Object ref = fromUtc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fromUtc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @param value The fromUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromUtc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        fromUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFromUtc() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        fromUtc_ = getDefaultInstance().getFromUtc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from in UTC: send either from or from_utc, not both.
+       * </pre>
+       *
+       * <code>optional string from_utc = 2;</code>
+       * @param value The bytes for fromUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromUtcBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000002;
+        fromUtc_ = value;
         onChanged();
         return this;
       }
@@ -11809,6 +12717,36 @@ public final class Mt5TermApiTradeStats {
      * @return The count.
      */
     int getCount();
+
+    /**
+     * <code>double lots = 3;</code>
+     * @return The lots.
+     */
+    double getLots();
+
+    /**
+     * <code>double profit = 4;</code>
+     * @return The profit.
+     */
+    double getProfit();
+
+    /**
+     * <code>double win_rate = 5;</code>
+     * @return The winRate.
+     */
+    double getWinRate();
+
+    /**
+     * <code>int32 won_count = 6;</code>
+     * @return The wonCount.
+     */
+    int getWonCount();
+
+    /**
+     * <code>int32 lost_count = 7;</code>
+     * @return The lostCount.
+     */
+    int getLostCount();
   }
   /**
    * Protobuf type {@code mt5_term_api.MarketTradeCountData}
@@ -11865,6 +12803,31 @@ public final class Mt5TermApiTradeStats {
             case 16: {
 
               count_ = input.readInt32();
+              break;
+            }
+            case 25: {
+
+              lots_ = input.readDouble();
+              break;
+            }
+            case 33: {
+
+              profit_ = input.readDouble();
+              break;
+            }
+            case 41: {
+
+              winRate_ = input.readDouble();
+              break;
+            }
+            case 48: {
+
+              wonCount_ = input.readInt32();
+              break;
+            }
+            case 56: {
+
+              lostCount_ = input.readInt32();
               break;
             }
             default: {
@@ -11950,6 +12913,61 @@ public final class Mt5TermApiTradeStats {
       return count_;
     }
 
+    public static final int LOTS_FIELD_NUMBER = 3;
+    private double lots_;
+    /**
+     * <code>double lots = 3;</code>
+     * @return The lots.
+     */
+    @java.lang.Override
+    public double getLots() {
+      return lots_;
+    }
+
+    public static final int PROFIT_FIELD_NUMBER = 4;
+    private double profit_;
+    /**
+     * <code>double profit = 4;</code>
+     * @return The profit.
+     */
+    @java.lang.Override
+    public double getProfit() {
+      return profit_;
+    }
+
+    public static final int WIN_RATE_FIELD_NUMBER = 5;
+    private double winRate_;
+    /**
+     * <code>double win_rate = 5;</code>
+     * @return The winRate.
+     */
+    @java.lang.Override
+    public double getWinRate() {
+      return winRate_;
+    }
+
+    public static final int WON_COUNT_FIELD_NUMBER = 6;
+    private int wonCount_;
+    /**
+     * <code>int32 won_count = 6;</code>
+     * @return The wonCount.
+     */
+    @java.lang.Override
+    public int getWonCount() {
+      return wonCount_;
+    }
+
+    public static final int LOST_COUNT_FIELD_NUMBER = 7;
+    private int lostCount_;
+    /**
+     * <code>int32 lost_count = 7;</code>
+     * @return The lostCount.
+     */
+    @java.lang.Override
+    public int getLostCount() {
+      return lostCount_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -11970,6 +12988,21 @@ public final class Mt5TermApiTradeStats {
       if (count_ != 0) {
         output.writeInt32(2, count_);
       }
+      if (java.lang.Double.doubleToRawLongBits(lots_) != 0) {
+        output.writeDouble(3, lots_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(profit_) != 0) {
+        output.writeDouble(4, profit_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(winRate_) != 0) {
+        output.writeDouble(5, winRate_);
+      }
+      if (wonCount_ != 0) {
+        output.writeInt32(6, wonCount_);
+      }
+      if (lostCount_ != 0) {
+        output.writeInt32(7, lostCount_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -11985,6 +13018,26 @@ public final class Mt5TermApiTradeStats {
       if (count_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, count_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(lots_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, lots_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(profit_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, profit_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(winRate_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(5, winRate_);
+      }
+      if (wonCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, wonCount_);
+      }
+      if (lostCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, lostCount_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12005,6 +13058,19 @@ public final class Mt5TermApiTradeStats {
           .equals(other.getMarketName())) return false;
       if (getCount()
           != other.getCount()) return false;
+      if (java.lang.Double.doubleToLongBits(getLots())
+          != java.lang.Double.doubleToLongBits(
+              other.getLots())) return false;
+      if (java.lang.Double.doubleToLongBits(getProfit())
+          != java.lang.Double.doubleToLongBits(
+              other.getProfit())) return false;
+      if (java.lang.Double.doubleToLongBits(getWinRate())
+          != java.lang.Double.doubleToLongBits(
+              other.getWinRate())) return false;
+      if (getWonCount()
+          != other.getWonCount()) return false;
+      if (getLostCount()
+          != other.getLostCount()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12020,6 +13086,19 @@ public final class Mt5TermApiTradeStats {
       hash = (53 * hash) + getMarketName().hashCode();
       hash = (37 * hash) + COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getCount();
+      hash = (37 * hash) + LOTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getLots()));
+      hash = (37 * hash) + PROFIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getProfit()));
+      hash = (37 * hash) + WIN_RATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getWinRate()));
+      hash = (37 * hash) + WON_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getWonCount();
+      hash = (37 * hash) + LOST_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getLostCount();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12157,6 +13236,16 @@ public final class Mt5TermApiTradeStats {
 
         count_ = 0;
 
+        lots_ = 0D;
+
+        profit_ = 0D;
+
+        winRate_ = 0D;
+
+        wonCount_ = 0;
+
+        lostCount_ = 0;
+
         return this;
       }
 
@@ -12185,6 +13274,11 @@ public final class Mt5TermApiTradeStats {
         mt5_term_api.Mt5TermApiTradeStats.MarketTradeCountData result = new mt5_term_api.Mt5TermApiTradeStats.MarketTradeCountData(this);
         result.marketName_ = marketName_;
         result.count_ = count_;
+        result.lots_ = lots_;
+        result.profit_ = profit_;
+        result.winRate_ = winRate_;
+        result.wonCount_ = wonCount_;
+        result.lostCount_ = lostCount_;
         onBuilt();
         return result;
       }
@@ -12239,6 +13333,21 @@ public final class Mt5TermApiTradeStats {
         }
         if (other.getCount() != 0) {
           setCount(other.getCount());
+        }
+        if (other.getLots() != 0D) {
+          setLots(other.getLots());
+        }
+        if (other.getProfit() != 0D) {
+          setProfit(other.getProfit());
+        }
+        if (other.getWinRate() != 0D) {
+          setWinRate(other.getWinRate());
+        }
+        if (other.getWonCount() != 0) {
+          setWonCount(other.getWonCount());
+        }
+        if (other.getLostCount() != 0) {
+          setLostCount(other.getLostCount());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -12372,6 +13481,161 @@ public final class Mt5TermApiTradeStats {
       public Builder clearCount() {
         
         count_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double lots_ ;
+      /**
+       * <code>double lots = 3;</code>
+       * @return The lots.
+       */
+      @java.lang.Override
+      public double getLots() {
+        return lots_;
+      }
+      /**
+       * <code>double lots = 3;</code>
+       * @param value The lots to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLots(double value) {
+        
+        lots_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double lots = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLots() {
+        
+        lots_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double profit_ ;
+      /**
+       * <code>double profit = 4;</code>
+       * @return The profit.
+       */
+      @java.lang.Override
+      public double getProfit() {
+        return profit_;
+      }
+      /**
+       * <code>double profit = 4;</code>
+       * @param value The profit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfit(double value) {
+        
+        profit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double profit = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProfit() {
+        
+        profit_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double winRate_ ;
+      /**
+       * <code>double win_rate = 5;</code>
+       * @return The winRate.
+       */
+      @java.lang.Override
+      public double getWinRate() {
+        return winRate_;
+      }
+      /**
+       * <code>double win_rate = 5;</code>
+       * @param value The winRate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWinRate(double value) {
+        
+        winRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double win_rate = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWinRate() {
+        
+        winRate_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private int wonCount_ ;
+      /**
+       * <code>int32 won_count = 6;</code>
+       * @return The wonCount.
+       */
+      @java.lang.Override
+      public int getWonCount() {
+        return wonCount_;
+      }
+      /**
+       * <code>int32 won_count = 6;</code>
+       * @param value The wonCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWonCount(int value) {
+        
+        wonCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 won_count = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWonCount() {
+        
+        wonCount_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int lostCount_ ;
+      /**
+       * <code>int32 lost_count = 7;</code>
+       * @return The lostCount.
+       */
+      @java.lang.Override
+      public int getLostCount() {
+        return lostCount_;
+      }
+      /**
+       * <code>int32 lost_count = 7;</code>
+       * @param value The lostCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLostCount(int value) {
+        
+        lostCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 lost_count = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLostCount() {
+        
+        lostCount_ = 0;
         onChanged();
         return this;
       }
@@ -14356,6 +15620,33 @@ public final class Mt5TermApiTradeStats {
     com.google.protobuf.TimestampOrBuilder getDateOrBuilder();
 
     /**
+     * <pre>
+     * date in UTC (the same moment; date is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+     * @return Whether the dateUtc field is set.
+     */
+    boolean hasDateUtc();
+    /**
+     * <pre>
+     * date in UTC (the same moment; date is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+     * @return The dateUtc.
+     */
+    com.google.protobuf.Timestamp getDateUtc();
+    /**
+     * <pre>
+     * date in UTC (the same moment; date is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getDateUtcOrBuilder();
+
+    /**
      * <code>double profit = 3;</code>
      * @return The profit.
      */
@@ -14429,6 +15720,19 @@ public final class Mt5TermApiTradeStats {
               profit_ = input.readDouble();
               break;
             }
+            case 34: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (dateUtc_ != null) {
+                subBuilder = dateUtc_.toBuilder();
+              }
+              dateUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(dateUtc_);
+                dateUtc_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -14500,6 +15804,44 @@ public final class Mt5TermApiTradeStats {
       return getDate();
     }
 
+    public static final int DATE_UTC_FIELD_NUMBER = 4;
+    private com.google.protobuf.Timestamp dateUtc_;
+    /**
+     * <pre>
+     * date in UTC (the same moment; date is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+     * @return Whether the dateUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasDateUtc() {
+      return dateUtc_ != null;
+    }
+    /**
+     * <pre>
+     * date in UTC (the same moment; date is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+     * @return The dateUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getDateUtc() {
+      return dateUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : dateUtc_;
+    }
+    /**
+     * <pre>
+     * date in UTC (the same moment; date is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getDateUtcOrBuilder() {
+      return getDateUtc();
+    }
+
     public static final int PROFIT_FIELD_NUMBER = 3;
     private double profit_;
     /**
@@ -14534,6 +15876,9 @@ public final class Mt5TermApiTradeStats {
       if (java.lang.Double.doubleToRawLongBits(profit_) != 0) {
         output.writeDouble(3, profit_);
       }
+      if (dateUtc_ != null) {
+        output.writeMessage(4, getDateUtc());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -14554,6 +15899,10 @@ public final class Mt5TermApiTradeStats {
       if (java.lang.Double.doubleToRawLongBits(profit_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, profit_);
+      }
+      if (dateUtc_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getDateUtc());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14577,6 +15926,11 @@ public final class Mt5TermApiTradeStats {
         if (!getDate()
             .equals(other.getDate())) return false;
       }
+      if (hasDateUtc() != other.hasDateUtc()) return false;
+      if (hasDateUtc()) {
+        if (!getDateUtc()
+            .equals(other.getDateUtc())) return false;
+      }
       if (java.lang.Double.doubleToLongBits(getProfit())
           != java.lang.Double.doubleToLongBits(
               other.getProfit())) return false;
@@ -14597,6 +15951,10 @@ public final class Mt5TermApiTradeStats {
       if (hasDate()) {
         hash = (37 * hash) + DATE_FIELD_NUMBER;
         hash = (53 * hash) + getDate().hashCode();
+      }
+      if (hasDateUtc()) {
+        hash = (37 * hash) + DATE_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getDateUtc().hashCode();
       }
       hash = (37 * hash) + PROFIT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -14742,6 +16100,12 @@ public final class Mt5TermApiTradeStats {
           date_ = null;
           dateBuilder_ = null;
         }
+        if (dateUtcBuilder_ == null) {
+          dateUtc_ = null;
+        } else {
+          dateUtc_ = null;
+          dateUtcBuilder_ = null;
+        }
         profit_ = 0D;
 
         return this;
@@ -14775,6 +16139,11 @@ public final class Mt5TermApiTradeStats {
           result.date_ = date_;
         } else {
           result.date_ = dateBuilder_.build();
+        }
+        if (dateUtcBuilder_ == null) {
+          result.dateUtc_ = dateUtc_;
+        } else {
+          result.dateUtc_ = dateUtcBuilder_.build();
         }
         result.profit_ = profit_;
         onBuilt();
@@ -14830,6 +16199,9 @@ public final class Mt5TermApiTradeStats {
         }
         if (other.hasDate()) {
           mergeDate(other.getDate());
+        }
+        if (other.hasDateUtc()) {
+          mergeDateUtc(other.getDateUtc());
         }
         if (other.getProfit() != 0D) {
           setProfit(other.getProfit());
@@ -15011,6 +16383,161 @@ public final class Mt5TermApiTradeStats {
           date_ = null;
         }
         return dateBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp dateUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> dateUtcBuilder_;
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       * @return Whether the dateUtc field is set.
+       */
+      public boolean hasDateUtc() {
+        return dateUtcBuilder_ != null || dateUtc_ != null;
+      }
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       * @return The dateUtc.
+       */
+      public com.google.protobuf.Timestamp getDateUtc() {
+        if (dateUtcBuilder_ == null) {
+          return dateUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : dateUtc_;
+        } else {
+          return dateUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       */
+      public Builder setDateUtc(com.google.protobuf.Timestamp value) {
+        if (dateUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          dateUtc_ = value;
+          onChanged();
+        } else {
+          dateUtcBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       */
+      public Builder setDateUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (dateUtcBuilder_ == null) {
+          dateUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          dateUtcBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       */
+      public Builder mergeDateUtc(com.google.protobuf.Timestamp value) {
+        if (dateUtcBuilder_ == null) {
+          if (dateUtc_ != null) {
+            dateUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(dateUtc_).mergeFrom(value).buildPartial();
+          } else {
+            dateUtc_ = value;
+          }
+          onChanged();
+        } else {
+          dateUtcBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       */
+      public Builder clearDateUtc() {
+        if (dateUtcBuilder_ == null) {
+          dateUtc_ = null;
+          onChanged();
+        } else {
+          dateUtc_ = null;
+          dateUtcBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getDateUtcBuilder() {
+        
+        onChanged();
+        return getDateUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getDateUtcOrBuilder() {
+        if (dateUtcBuilder_ != null) {
+          return dateUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return dateUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : dateUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * date in UTC (the same moment; date is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp date_utc = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getDateUtcFieldBuilder() {
+        if (dateUtcBuilder_ == null) {
+          dateUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getDateUtc(),
+                  getParentForChildren(),
+                  isClean());
+          dateUtc_ = null;
+        }
+        return dateUtcBuilder_;
       }
 
       private double profit_ ;
@@ -16266,6 +17793,54 @@ public final class Mt5TermApiTradeStats {
      */
     mt5_term_api.Mt5TermApiTradeStats.EquityPointDataOrBuilder getChartsOrBuilder(
         int index);
+
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> 
+        getTradesList();
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getTrades(int index);
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    int getTradesCount();
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    java.util.List<? extends mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> 
+        getTradesOrBuilderList();
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder getTradesOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> 
+        getOpenTradesList();
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getOpenTrades(int index);
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    int getOpenTradesCount();
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    java.util.List<? extends mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> 
+        getOpenTradesOrBuilderList();
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder getOpenTradesOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code mt5_term_api.StatsWithChartsData}
@@ -16281,6 +17856,8 @@ public final class Mt5TermApiTradeStats {
     }
     private StatsWithChartsData() {
       charts_ = java.util.Collections.emptyList();
+      trades_ = java.util.Collections.emptyList();
+      openTrades_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -16336,6 +17913,24 @@ public final class Mt5TermApiTradeStats {
                   input.readMessage(mt5_term_api.Mt5TermApiTradeStats.EquityPointData.parser(), extensionRegistry));
               break;
             }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                trades_ = new java.util.ArrayList<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              trades_.add(
+                  input.readMessage(mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.parser(), extensionRegistry));
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                openTrades_ = new java.util.ArrayList<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              openTrades_.add(
+                  input.readMessage(mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -16355,6 +17950,12 @@ public final class Mt5TermApiTradeStats {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           charts_ = java.util.Collections.unmodifiableList(charts_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          trades_ = java.util.Collections.unmodifiableList(trades_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          openTrades_ = java.util.Collections.unmodifiableList(openTrades_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -16439,6 +18040,86 @@ public final class Mt5TermApiTradeStats {
       return charts_.get(index);
     }
 
+    public static final int TRADES_FIELD_NUMBER = 3;
+    private java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> trades_;
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> getTradesList() {
+      return trades_;
+    }
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> 
+        getTradesOrBuilderList() {
+      return trades_;
+    }
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    @java.lang.Override
+    public int getTradesCount() {
+      return trades_.size();
+    }
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getTrades(int index) {
+      return trades_.get(index);
+    }
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder getTradesOrBuilder(
+        int index) {
+      return trades_.get(index);
+    }
+
+    public static final int OPEN_TRADES_FIELD_NUMBER = 4;
+    private java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> openTrades_;
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> getOpenTradesList() {
+      return openTrades_;
+    }
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> 
+        getOpenTradesOrBuilderList() {
+      return openTrades_;
+    }
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    @java.lang.Override
+    public int getOpenTradesCount() {
+      return openTrades_.size();
+    }
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getOpenTrades(int index) {
+      return openTrades_.get(index);
+    }
+    /**
+     * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder getOpenTradesOrBuilder(
+        int index) {
+      return openTrades_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -16459,6 +18140,12 @@ public final class Mt5TermApiTradeStats {
       for (int i = 0; i < charts_.size(); i++) {
         output.writeMessage(2, charts_.get(i));
       }
+      for (int i = 0; i < trades_.size(); i++) {
+        output.writeMessage(3, trades_.get(i));
+      }
+      for (int i = 0; i < openTrades_.size(); i++) {
+        output.writeMessage(4, openTrades_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -16475,6 +18162,14 @@ public final class Mt5TermApiTradeStats {
       for (int i = 0; i < charts_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, charts_.get(i));
+      }
+      for (int i = 0; i < trades_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, trades_.get(i));
+      }
+      for (int i = 0; i < openTrades_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, openTrades_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -16498,6 +18193,10 @@ public final class Mt5TermApiTradeStats {
       }
       if (!getChartsList()
           .equals(other.getChartsList())) return false;
+      if (!getTradesList()
+          .equals(other.getTradesList())) return false;
+      if (!getOpenTradesList()
+          .equals(other.getOpenTradesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -16516,6 +18215,14 @@ public final class Mt5TermApiTradeStats {
       if (getChartsCount() > 0) {
         hash = (37 * hash) + CHARTS_FIELD_NUMBER;
         hash = (53 * hash) + getChartsList().hashCode();
+      }
+      if (getTradesCount() > 0) {
+        hash = (37 * hash) + TRADES_FIELD_NUMBER;
+        hash = (53 * hash) + getTradesList().hashCode();
+      }
+      if (getOpenTradesCount() > 0) {
+        hash = (37 * hash) + OPEN_TRADES_FIELD_NUMBER;
+        hash = (53 * hash) + getOpenTradesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -16646,6 +18353,8 @@ public final class Mt5TermApiTradeStats {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getChartsFieldBuilder();
+          getTradesFieldBuilder();
+          getOpenTradesFieldBuilder();
         }
       }
       @java.lang.Override
@@ -16662,6 +18371,18 @@ public final class Mt5TermApiTradeStats {
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           chartsBuilder_.clear();
+        }
+        if (tradesBuilder_ == null) {
+          trades_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          tradesBuilder_.clear();
+        }
+        if (openTradesBuilder_ == null) {
+          openTrades_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          openTradesBuilder_.clear();
         }
         return this;
       }
@@ -16703,6 +18424,24 @@ public final class Mt5TermApiTradeStats {
           result.charts_ = charts_;
         } else {
           result.charts_ = chartsBuilder_.build();
+        }
+        if (tradesBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            trades_ = java.util.Collections.unmodifiableList(trades_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.trades_ = trades_;
+        } else {
+          result.trades_ = tradesBuilder_.build();
+        }
+        if (openTradesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            openTrades_ = java.util.Collections.unmodifiableList(openTrades_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.openTrades_ = openTrades_;
+        } else {
+          result.openTrades_ = openTradesBuilder_.build();
         }
         onBuilt();
         return result;
@@ -16778,6 +18517,58 @@ public final class Mt5TermApiTradeStats {
                    getChartsFieldBuilder() : null;
             } else {
               chartsBuilder_.addAllMessages(other.charts_);
+            }
+          }
+        }
+        if (tradesBuilder_ == null) {
+          if (!other.trades_.isEmpty()) {
+            if (trades_.isEmpty()) {
+              trades_ = other.trades_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureTradesIsMutable();
+              trades_.addAll(other.trades_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.trades_.isEmpty()) {
+            if (tradesBuilder_.isEmpty()) {
+              tradesBuilder_.dispose();
+              tradesBuilder_ = null;
+              trades_ = other.trades_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              tradesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTradesFieldBuilder() : null;
+            } else {
+              tradesBuilder_.addAllMessages(other.trades_);
+            }
+          }
+        }
+        if (openTradesBuilder_ == null) {
+          if (!other.openTrades_.isEmpty()) {
+            if (openTrades_.isEmpty()) {
+              openTrades_ = other.openTrades_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureOpenTradesIsMutable();
+              openTrades_.addAll(other.openTrades_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.openTrades_.isEmpty()) {
+            if (openTradesBuilder_.isEmpty()) {
+              openTradesBuilder_.dispose();
+              openTradesBuilder_ = null;
+              openTrades_ = other.openTrades_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              openTradesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getOpenTradesFieldBuilder() : null;
+            } else {
+              openTradesBuilder_.addAllMessages(other.openTrades_);
             }
           }
         }
@@ -17169,6 +18960,486 @@ public final class Mt5TermApiTradeStats {
         }
         return chartsBuilder_;
       }
+
+      private java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> trades_ =
+        java.util.Collections.emptyList();
+      private void ensureTradesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          trades_ = new java.util.ArrayList<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData>(trades_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> tradesBuilder_;
+
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> getTradesList() {
+        if (tradesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(trades_);
+        } else {
+          return tradesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public int getTradesCount() {
+        if (tradesBuilder_ == null) {
+          return trades_.size();
+        } else {
+          return tradesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getTrades(int index) {
+        if (tradesBuilder_ == null) {
+          return trades_.get(index);
+        } else {
+          return tradesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder setTrades(
+          int index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData value) {
+        if (tradesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTradesIsMutable();
+          trades_.set(index, value);
+          onChanged();
+        } else {
+          tradesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder setTrades(
+          int index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder builderForValue) {
+        if (tradesBuilder_ == null) {
+          ensureTradesIsMutable();
+          trades_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tradesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder addTrades(mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData value) {
+        if (tradesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTradesIsMutable();
+          trades_.add(value);
+          onChanged();
+        } else {
+          tradesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder addTrades(
+          int index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData value) {
+        if (tradesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTradesIsMutable();
+          trades_.add(index, value);
+          onChanged();
+        } else {
+          tradesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder addTrades(
+          mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder builderForValue) {
+        if (tradesBuilder_ == null) {
+          ensureTradesIsMutable();
+          trades_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tradesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder addTrades(
+          int index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder builderForValue) {
+        if (tradesBuilder_ == null) {
+          ensureTradesIsMutable();
+          trades_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tradesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder addAllTrades(
+          java.lang.Iterable<? extends mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> values) {
+        if (tradesBuilder_ == null) {
+          ensureTradesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, trades_);
+          onChanged();
+        } else {
+          tradesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder clearTrades() {
+        if (tradesBuilder_ == null) {
+          trades_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          tradesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public Builder removeTrades(int index) {
+        if (tradesBuilder_ == null) {
+          ensureTradesIsMutable();
+          trades_.remove(index);
+          onChanged();
+        } else {
+          tradesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder getTradesBuilder(
+          int index) {
+        return getTradesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder getTradesOrBuilder(
+          int index) {
+        if (tradesBuilder_ == null) {
+          return trades_.get(index);  } else {
+          return tradesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public java.util.List<? extends mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> 
+           getTradesOrBuilderList() {
+        if (tradesBuilder_ != null) {
+          return tradesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(trades_);
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder addTradesBuilder() {
+        return getTradesFieldBuilder().addBuilder(
+            mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder addTradesBuilder(
+          int index) {
+        return getTradesFieldBuilder().addBuilder(
+            index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData trades = 3;</code>
+       */
+      public java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder> 
+           getTradesBuilderList() {
+        return getTradesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> 
+          getTradesFieldBuilder() {
+        if (tradesBuilder_ == null) {
+          tradesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder>(
+                  trades_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          trades_ = null;
+        }
+        return tradesBuilder_;
+      }
+
+      private java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> openTrades_ =
+        java.util.Collections.emptyList();
+      private void ensureOpenTradesIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          openTrades_ = new java.util.ArrayList<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData>(openTrades_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> openTradesBuilder_;
+
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> getOpenTradesList() {
+        if (openTradesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(openTrades_);
+        } else {
+          return openTradesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public int getOpenTradesCount() {
+        if (openTradesBuilder_ == null) {
+          return openTrades_.size();
+        } else {
+          return openTradesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getOpenTrades(int index) {
+        if (openTradesBuilder_ == null) {
+          return openTrades_.get(index);
+        } else {
+          return openTradesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder setOpenTrades(
+          int index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData value) {
+        if (openTradesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOpenTradesIsMutable();
+          openTrades_.set(index, value);
+          onChanged();
+        } else {
+          openTradesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder setOpenTrades(
+          int index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder builderForValue) {
+        if (openTradesBuilder_ == null) {
+          ensureOpenTradesIsMutable();
+          openTrades_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          openTradesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder addOpenTrades(mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData value) {
+        if (openTradesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOpenTradesIsMutable();
+          openTrades_.add(value);
+          onChanged();
+        } else {
+          openTradesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder addOpenTrades(
+          int index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData value) {
+        if (openTradesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOpenTradesIsMutable();
+          openTrades_.add(index, value);
+          onChanged();
+        } else {
+          openTradesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder addOpenTrades(
+          mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder builderForValue) {
+        if (openTradesBuilder_ == null) {
+          ensureOpenTradesIsMutable();
+          openTrades_.add(builderForValue.build());
+          onChanged();
+        } else {
+          openTradesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder addOpenTrades(
+          int index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder builderForValue) {
+        if (openTradesBuilder_ == null) {
+          ensureOpenTradesIsMutable();
+          openTrades_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          openTradesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder addAllOpenTrades(
+          java.lang.Iterable<? extends mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData> values) {
+        if (openTradesBuilder_ == null) {
+          ensureOpenTradesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, openTrades_);
+          onChanged();
+        } else {
+          openTradesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder clearOpenTrades() {
+        if (openTradesBuilder_ == null) {
+          openTrades_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          openTradesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public Builder removeOpenTrades(int index) {
+        if (openTradesBuilder_ == null) {
+          ensureOpenTradesIsMutable();
+          openTrades_.remove(index);
+          onChanged();
+        } else {
+          openTradesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder getOpenTradesBuilder(
+          int index) {
+        return getOpenTradesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder getOpenTradesOrBuilder(
+          int index) {
+        if (openTradesBuilder_ == null) {
+          return openTrades_.get(index);  } else {
+          return openTradesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public java.util.List<? extends mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> 
+           getOpenTradesOrBuilderList() {
+        if (openTradesBuilder_ != null) {
+          return openTradesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(openTrades_);
+        }
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder addOpenTradesBuilder() {
+        return getOpenTradesFieldBuilder().addBuilder(
+            mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder addOpenTradesBuilder(
+          int index) {
+        return getOpenTradesFieldBuilder().addBuilder(
+            index, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .mt5_term_api.TradeHistoryItemData open_trades = 4;</code>
+       */
+      public java.util.List<mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder> 
+           getOpenTradesBuilderList() {
+        return getOpenTradesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder> 
+          getOpenTradesFieldBuilder() {
+        if (openTradesBuilder_ == null) {
+          openTradesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder>(
+                  openTrades_,
+                  ((bitField0_ & 0x00000004) != 0),
+                  getParentForChildren(),
+                  isClean());
+          openTrades_ = null;
+        }
+        return openTradesBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -17217,6 +19488,2232 @@ public final class Mt5TermApiTradeStats {
 
     @java.lang.Override
     public mt5_term_api.Mt5TermApiTradeStats.StatsWithChartsData getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TradeHistoryItemDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:mt5_term_api.TradeHistoryItemData)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 ticket = 1;</code>
+     * @return The ticket.
+     */
+    long getTicket();
+
+    /**
+     * <code>string symbol = 2;</code>
+     * @return The symbol.
+     */
+    java.lang.String getSymbol();
+    /**
+     * <code>string symbol = 2;</code>
+     * @return The bytes for symbol.
+     */
+    com.google.protobuf.ByteString
+        getSymbolBytes();
+
+    /**
+     * <code>bool is_buy = 3;</code>
+     * @return The isBuy.
+     */
+    boolean getIsBuy();
+
+    /**
+     * <code>double lots = 4;</code>
+     * @return The lots.
+     */
+    double getLots();
+
+    /**
+     * <code>double open_price = 5;</code>
+     * @return The openPrice.
+     */
+    double getOpenPrice();
+
+    /**
+     * <code>double close_price = 6;</code>
+     * @return The closePrice.
+     */
+    double getClosePrice();
+
+    /**
+     * <code>.google.protobuf.Timestamp open_time = 7;</code>
+     * @return Whether the openTime field is set.
+     */
+    boolean hasOpenTime();
+    /**
+     * <code>.google.protobuf.Timestamp open_time = 7;</code>
+     * @return The openTime.
+     */
+    com.google.protobuf.Timestamp getOpenTime();
+    /**
+     * <code>.google.protobuf.Timestamp open_time = 7;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getOpenTimeOrBuilder();
+
+    /**
+     * <pre>
+     * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+     * @return Whether the openTimeUtc field is set.
+     */
+    boolean hasOpenTimeUtc();
+    /**
+     * <pre>
+     * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+     * @return The openTimeUtc.
+     */
+    com.google.protobuf.Timestamp getOpenTimeUtc();
+    /**
+     * <pre>
+     * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getOpenTimeUtcOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp close_time = 8;</code>
+     * @return Whether the closeTime field is set.
+     */
+    boolean hasCloseTime();
+    /**
+     * <code>.google.protobuf.Timestamp close_time = 8;</code>
+     * @return The closeTime.
+     */
+    com.google.protobuf.Timestamp getCloseTime();
+    /**
+     * <code>.google.protobuf.Timestamp close_time = 8;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getCloseTimeOrBuilder();
+
+    /**
+     * <pre>
+     * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+     * @return Whether the closeTimeUtc field is set.
+     */
+    boolean hasCloseTimeUtc();
+    /**
+     * <pre>
+     * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+     * @return The closeTimeUtc.
+     */
+    com.google.protobuf.Timestamp getCloseTimeUtc();
+    /**
+     * <pre>
+     * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getCloseTimeUtcOrBuilder();
+
+    /**
+     * <code>double profit = 9;</code>
+     * @return The profit.
+     */
+    double getProfit();
+
+    /**
+     * <code>double commission = 10;</code>
+     * @return The commission.
+     */
+    double getCommission();
+
+    /**
+     * <code>double swap = 11;</code>
+     * @return The swap.
+     */
+    double getSwap();
+
+    /**
+     * <code>string comment = 12;</code>
+     * @return The comment.
+     */
+    java.lang.String getComment();
+    /**
+     * <code>string comment = 12;</code>
+     * @return The bytes for comment.
+     */
+    com.google.protobuf.ByteString
+        getCommentBytes();
+  }
+  /**
+   * Protobuf type {@code mt5_term_api.TradeHistoryItemData}
+   */
+  public static final class TradeHistoryItemData extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:mt5_term_api.TradeHistoryItemData)
+      TradeHistoryItemDataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TradeHistoryItemData.newBuilder() to construct.
+    private TradeHistoryItemData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TradeHistoryItemData() {
+      symbol_ = "";
+      comment_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TradeHistoryItemData();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TradeHistoryItemData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              ticket_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              symbol_ = s;
+              break;
+            }
+            case 24: {
+
+              isBuy_ = input.readBool();
+              break;
+            }
+            case 33: {
+
+              lots_ = input.readDouble();
+              break;
+            }
+            case 41: {
+
+              openPrice_ = input.readDouble();
+              break;
+            }
+            case 49: {
+
+              closePrice_ = input.readDouble();
+              break;
+            }
+            case 58: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (openTime_ != null) {
+                subBuilder = openTime_.toBuilder();
+              }
+              openTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(openTime_);
+                openTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 66: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (closeTime_ != null) {
+                subBuilder = closeTime_.toBuilder();
+              }
+              closeTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(closeTime_);
+                closeTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 73: {
+
+              profit_ = input.readDouble();
+              break;
+            }
+            case 81: {
+
+              commission_ = input.readDouble();
+              break;
+            }
+            case 89: {
+
+              swap_ = input.readDouble();
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              comment_ = s;
+              break;
+            }
+            case 106: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (openTimeUtc_ != null) {
+                subBuilder = openTimeUtc_.toBuilder();
+              }
+              openTimeUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(openTimeUtc_);
+                openTimeUtc_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 114: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (closeTimeUtc_ != null) {
+                subBuilder = closeTimeUtc_.toBuilder();
+              }
+              closeTimeUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(closeTimeUtc_);
+                closeTimeUtc_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return mt5_term_api.Mt5TermApiTradeStats.internal_static_mt5_term_api_TradeHistoryItemData_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return mt5_term_api.Mt5TermApiTradeStats.internal_static_mt5_term_api_TradeHistoryItemData_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.class, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder.class);
+    }
+
+    public static final int TICKET_FIELD_NUMBER = 1;
+    private long ticket_;
+    /**
+     * <code>int64 ticket = 1;</code>
+     * @return The ticket.
+     */
+    @java.lang.Override
+    public long getTicket() {
+      return ticket_;
+    }
+
+    public static final int SYMBOL_FIELD_NUMBER = 2;
+    private volatile java.lang.Object symbol_;
+    /**
+     * <code>string symbol = 2;</code>
+     * @return The symbol.
+     */
+    @java.lang.Override
+    public java.lang.String getSymbol() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        symbol_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string symbol = 2;</code>
+     * @return The bytes for symbol.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSymbolBytes() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        symbol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IS_BUY_FIELD_NUMBER = 3;
+    private boolean isBuy_;
+    /**
+     * <code>bool is_buy = 3;</code>
+     * @return The isBuy.
+     */
+    @java.lang.Override
+    public boolean getIsBuy() {
+      return isBuy_;
+    }
+
+    public static final int LOTS_FIELD_NUMBER = 4;
+    private double lots_;
+    /**
+     * <code>double lots = 4;</code>
+     * @return The lots.
+     */
+    @java.lang.Override
+    public double getLots() {
+      return lots_;
+    }
+
+    public static final int OPEN_PRICE_FIELD_NUMBER = 5;
+    private double openPrice_;
+    /**
+     * <code>double open_price = 5;</code>
+     * @return The openPrice.
+     */
+    @java.lang.Override
+    public double getOpenPrice() {
+      return openPrice_;
+    }
+
+    public static final int CLOSE_PRICE_FIELD_NUMBER = 6;
+    private double closePrice_;
+    /**
+     * <code>double close_price = 6;</code>
+     * @return The closePrice.
+     */
+    @java.lang.Override
+    public double getClosePrice() {
+      return closePrice_;
+    }
+
+    public static final int OPEN_TIME_FIELD_NUMBER = 7;
+    private com.google.protobuf.Timestamp openTime_;
+    /**
+     * <code>.google.protobuf.Timestamp open_time = 7;</code>
+     * @return Whether the openTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasOpenTime() {
+      return openTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp open_time = 7;</code>
+     * @return The openTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getOpenTime() {
+      return openTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : openTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp open_time = 7;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getOpenTimeOrBuilder() {
+      return getOpenTime();
+    }
+
+    public static final int OPEN_TIME_UTC_FIELD_NUMBER = 13;
+    private com.google.protobuf.Timestamp openTimeUtc_;
+    /**
+     * <pre>
+     * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+     * @return Whether the openTimeUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasOpenTimeUtc() {
+      return openTimeUtc_ != null;
+    }
+    /**
+     * <pre>
+     * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+     * @return The openTimeUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getOpenTimeUtc() {
+      return openTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : openTimeUtc_;
+    }
+    /**
+     * <pre>
+     * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getOpenTimeUtcOrBuilder() {
+      return getOpenTimeUtc();
+    }
+
+    public static final int CLOSE_TIME_FIELD_NUMBER = 8;
+    private com.google.protobuf.Timestamp closeTime_;
+    /**
+     * <code>.google.protobuf.Timestamp close_time = 8;</code>
+     * @return Whether the closeTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasCloseTime() {
+      return closeTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp close_time = 8;</code>
+     * @return The closeTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getCloseTime() {
+      return closeTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : closeTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp close_time = 8;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getCloseTimeOrBuilder() {
+      return getCloseTime();
+    }
+
+    public static final int CLOSE_TIME_UTC_FIELD_NUMBER = 14;
+    private com.google.protobuf.Timestamp closeTimeUtc_;
+    /**
+     * <pre>
+     * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+     * @return Whether the closeTimeUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasCloseTimeUtc() {
+      return closeTimeUtc_ != null;
+    }
+    /**
+     * <pre>
+     * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+     * @return The closeTimeUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getCloseTimeUtc() {
+      return closeTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : closeTimeUtc_;
+    }
+    /**
+     * <pre>
+     * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getCloseTimeUtcOrBuilder() {
+      return getCloseTimeUtc();
+    }
+
+    public static final int PROFIT_FIELD_NUMBER = 9;
+    private double profit_;
+    /**
+     * <code>double profit = 9;</code>
+     * @return The profit.
+     */
+    @java.lang.Override
+    public double getProfit() {
+      return profit_;
+    }
+
+    public static final int COMMISSION_FIELD_NUMBER = 10;
+    private double commission_;
+    /**
+     * <code>double commission = 10;</code>
+     * @return The commission.
+     */
+    @java.lang.Override
+    public double getCommission() {
+      return commission_;
+    }
+
+    public static final int SWAP_FIELD_NUMBER = 11;
+    private double swap_;
+    /**
+     * <code>double swap = 11;</code>
+     * @return The swap.
+     */
+    @java.lang.Override
+    public double getSwap() {
+      return swap_;
+    }
+
+    public static final int COMMENT_FIELD_NUMBER = 12;
+    private volatile java.lang.Object comment_;
+    /**
+     * <code>string comment = 12;</code>
+     * @return The comment.
+     */
+    @java.lang.Override
+    public java.lang.String getComment() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        comment_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string comment = 12;</code>
+     * @return The bytes for comment.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCommentBytes() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        comment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (ticket_ != 0L) {
+        output.writeInt64(1, ticket_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(symbol_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, symbol_);
+      }
+      if (isBuy_ != false) {
+        output.writeBool(3, isBuy_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(lots_) != 0) {
+        output.writeDouble(4, lots_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(openPrice_) != 0) {
+        output.writeDouble(5, openPrice_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(closePrice_) != 0) {
+        output.writeDouble(6, closePrice_);
+      }
+      if (openTime_ != null) {
+        output.writeMessage(7, getOpenTime());
+      }
+      if (closeTime_ != null) {
+        output.writeMessage(8, getCloseTime());
+      }
+      if (java.lang.Double.doubleToRawLongBits(profit_) != 0) {
+        output.writeDouble(9, profit_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(commission_) != 0) {
+        output.writeDouble(10, commission_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(swap_) != 0) {
+        output.writeDouble(11, swap_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, comment_);
+      }
+      if (openTimeUtc_ != null) {
+        output.writeMessage(13, getOpenTimeUtc());
+      }
+      if (closeTimeUtc_ != null) {
+        output.writeMessage(14, getCloseTimeUtc());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (ticket_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, ticket_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(symbol_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, symbol_);
+      }
+      if (isBuy_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, isBuy_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(lots_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, lots_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(openPrice_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(5, openPrice_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(closePrice_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(6, closePrice_);
+      }
+      if (openTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getOpenTime());
+      }
+      if (closeTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getCloseTime());
+      }
+      if (java.lang.Double.doubleToRawLongBits(profit_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(9, profit_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(commission_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(10, commission_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(swap_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(11, swap_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, comment_);
+      }
+      if (openTimeUtc_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, getOpenTimeUtc());
+      }
+      if (closeTimeUtc_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(14, getCloseTimeUtc());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData)) {
+        return super.equals(obj);
+      }
+      mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData other = (mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData) obj;
+
+      if (getTicket()
+          != other.getTicket()) return false;
+      if (!getSymbol()
+          .equals(other.getSymbol())) return false;
+      if (getIsBuy()
+          != other.getIsBuy()) return false;
+      if (java.lang.Double.doubleToLongBits(getLots())
+          != java.lang.Double.doubleToLongBits(
+              other.getLots())) return false;
+      if (java.lang.Double.doubleToLongBits(getOpenPrice())
+          != java.lang.Double.doubleToLongBits(
+              other.getOpenPrice())) return false;
+      if (java.lang.Double.doubleToLongBits(getClosePrice())
+          != java.lang.Double.doubleToLongBits(
+              other.getClosePrice())) return false;
+      if (hasOpenTime() != other.hasOpenTime()) return false;
+      if (hasOpenTime()) {
+        if (!getOpenTime()
+            .equals(other.getOpenTime())) return false;
+      }
+      if (hasOpenTimeUtc() != other.hasOpenTimeUtc()) return false;
+      if (hasOpenTimeUtc()) {
+        if (!getOpenTimeUtc()
+            .equals(other.getOpenTimeUtc())) return false;
+      }
+      if (hasCloseTime() != other.hasCloseTime()) return false;
+      if (hasCloseTime()) {
+        if (!getCloseTime()
+            .equals(other.getCloseTime())) return false;
+      }
+      if (hasCloseTimeUtc() != other.hasCloseTimeUtc()) return false;
+      if (hasCloseTimeUtc()) {
+        if (!getCloseTimeUtc()
+            .equals(other.getCloseTimeUtc())) return false;
+      }
+      if (java.lang.Double.doubleToLongBits(getProfit())
+          != java.lang.Double.doubleToLongBits(
+              other.getProfit())) return false;
+      if (java.lang.Double.doubleToLongBits(getCommission())
+          != java.lang.Double.doubleToLongBits(
+              other.getCommission())) return false;
+      if (java.lang.Double.doubleToLongBits(getSwap())
+          != java.lang.Double.doubleToLongBits(
+              other.getSwap())) return false;
+      if (!getComment()
+          .equals(other.getComment())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TICKET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTicket());
+      hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
+      hash = (53 * hash) + getSymbol().hashCode();
+      hash = (37 * hash) + IS_BUY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsBuy());
+      hash = (37 * hash) + LOTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getLots()));
+      hash = (37 * hash) + OPEN_PRICE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getOpenPrice()));
+      hash = (37 * hash) + CLOSE_PRICE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getClosePrice()));
+      if (hasOpenTime()) {
+        hash = (37 * hash) + OPEN_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getOpenTime().hashCode();
+      }
+      if (hasOpenTimeUtc()) {
+        hash = (37 * hash) + OPEN_TIME_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getOpenTimeUtc().hashCode();
+      }
+      if (hasCloseTime()) {
+        hash = (37 * hash) + CLOSE_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getCloseTime().hashCode();
+      }
+      if (hasCloseTimeUtc()) {
+        hash = (37 * hash) + CLOSE_TIME_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getCloseTimeUtc().hashCode();
+      }
+      hash = (37 * hash) + PROFIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getProfit()));
+      hash = (37 * hash) + COMMISSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getCommission()));
+      hash = (37 * hash) + SWAP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getSwap()));
+      hash = (37 * hash) + COMMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getComment().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code mt5_term_api.TradeHistoryItemData}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:mt5_term_api.TradeHistoryItemData)
+        mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemDataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return mt5_term_api.Mt5TermApiTradeStats.internal_static_mt5_term_api_TradeHistoryItemData_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return mt5_term_api.Mt5TermApiTradeStats.internal_static_mt5_term_api_TradeHistoryItemData_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.class, mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.Builder.class);
+      }
+
+      // Construct using mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        ticket_ = 0L;
+
+        symbol_ = "";
+
+        isBuy_ = false;
+
+        lots_ = 0D;
+
+        openPrice_ = 0D;
+
+        closePrice_ = 0D;
+
+        if (openTimeBuilder_ == null) {
+          openTime_ = null;
+        } else {
+          openTime_ = null;
+          openTimeBuilder_ = null;
+        }
+        if (openTimeUtcBuilder_ == null) {
+          openTimeUtc_ = null;
+        } else {
+          openTimeUtc_ = null;
+          openTimeUtcBuilder_ = null;
+        }
+        if (closeTimeBuilder_ == null) {
+          closeTime_ = null;
+        } else {
+          closeTime_ = null;
+          closeTimeBuilder_ = null;
+        }
+        if (closeTimeUtcBuilder_ == null) {
+          closeTimeUtc_ = null;
+        } else {
+          closeTimeUtc_ = null;
+          closeTimeUtcBuilder_ = null;
+        }
+        profit_ = 0D;
+
+        commission_ = 0D;
+
+        swap_ = 0D;
+
+        comment_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return mt5_term_api.Mt5TermApiTradeStats.internal_static_mt5_term_api_TradeHistoryItemData_descriptor;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getDefaultInstanceForType() {
+        return mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData build() {
+        mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData buildPartial() {
+        mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData result = new mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData(this);
+        result.ticket_ = ticket_;
+        result.symbol_ = symbol_;
+        result.isBuy_ = isBuy_;
+        result.lots_ = lots_;
+        result.openPrice_ = openPrice_;
+        result.closePrice_ = closePrice_;
+        if (openTimeBuilder_ == null) {
+          result.openTime_ = openTime_;
+        } else {
+          result.openTime_ = openTimeBuilder_.build();
+        }
+        if (openTimeUtcBuilder_ == null) {
+          result.openTimeUtc_ = openTimeUtc_;
+        } else {
+          result.openTimeUtc_ = openTimeUtcBuilder_.build();
+        }
+        if (closeTimeBuilder_ == null) {
+          result.closeTime_ = closeTime_;
+        } else {
+          result.closeTime_ = closeTimeBuilder_.build();
+        }
+        if (closeTimeUtcBuilder_ == null) {
+          result.closeTimeUtc_ = closeTimeUtc_;
+        } else {
+          result.closeTimeUtc_ = closeTimeUtcBuilder_.build();
+        }
+        result.profit_ = profit_;
+        result.commission_ = commission_;
+        result.swap_ = swap_;
+        result.comment_ = comment_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData) {
+          return mergeFrom((mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData other) {
+        if (other == mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData.getDefaultInstance()) return this;
+        if (other.getTicket() != 0L) {
+          setTicket(other.getTicket());
+        }
+        if (!other.getSymbol().isEmpty()) {
+          symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.getIsBuy() != false) {
+          setIsBuy(other.getIsBuy());
+        }
+        if (other.getLots() != 0D) {
+          setLots(other.getLots());
+        }
+        if (other.getOpenPrice() != 0D) {
+          setOpenPrice(other.getOpenPrice());
+        }
+        if (other.getClosePrice() != 0D) {
+          setClosePrice(other.getClosePrice());
+        }
+        if (other.hasOpenTime()) {
+          mergeOpenTime(other.getOpenTime());
+        }
+        if (other.hasOpenTimeUtc()) {
+          mergeOpenTimeUtc(other.getOpenTimeUtc());
+        }
+        if (other.hasCloseTime()) {
+          mergeCloseTime(other.getCloseTime());
+        }
+        if (other.hasCloseTimeUtc()) {
+          mergeCloseTimeUtc(other.getCloseTimeUtc());
+        }
+        if (other.getProfit() != 0D) {
+          setProfit(other.getProfit());
+        }
+        if (other.getCommission() != 0D) {
+          setCommission(other.getCommission());
+        }
+        if (other.getSwap() != 0D) {
+          setSwap(other.getSwap());
+        }
+        if (!other.getComment().isEmpty()) {
+          comment_ = other.comment_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long ticket_ ;
+      /**
+       * <code>int64 ticket = 1;</code>
+       * @return The ticket.
+       */
+      @java.lang.Override
+      public long getTicket() {
+        return ticket_;
+      }
+      /**
+       * <code>int64 ticket = 1;</code>
+       * @param value The ticket to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTicket(long value) {
+        
+        ticket_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 ticket = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTicket() {
+        
+        ticket_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object symbol_ = "";
+      /**
+       * <code>string symbol = 2;</code>
+       * @return The symbol.
+       */
+      public java.lang.String getSymbol() {
+        java.lang.Object ref = symbol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          symbol_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string symbol = 2;</code>
+       * @return The bytes for symbol.
+       */
+      public com.google.protobuf.ByteString
+          getSymbolBytes() {
+        java.lang.Object ref = symbol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          symbol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string symbol = 2;</code>
+       * @param value The symbol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSymbol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string symbol = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSymbol() {
+        
+        symbol_ = getDefaultInstance().getSymbol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string symbol = 2;</code>
+       * @param value The bytes for symbol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSymbolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean isBuy_ ;
+      /**
+       * <code>bool is_buy = 3;</code>
+       * @return The isBuy.
+       */
+      @java.lang.Override
+      public boolean getIsBuy() {
+        return isBuy_;
+      }
+      /**
+       * <code>bool is_buy = 3;</code>
+       * @param value The isBuy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsBuy(boolean value) {
+        
+        isBuy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_buy = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsBuy() {
+        
+        isBuy_ = false;
+        onChanged();
+        return this;
+      }
+
+      private double lots_ ;
+      /**
+       * <code>double lots = 4;</code>
+       * @return The lots.
+       */
+      @java.lang.Override
+      public double getLots() {
+        return lots_;
+      }
+      /**
+       * <code>double lots = 4;</code>
+       * @param value The lots to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLots(double value) {
+        
+        lots_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double lots = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLots() {
+        
+        lots_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double openPrice_ ;
+      /**
+       * <code>double open_price = 5;</code>
+       * @return The openPrice.
+       */
+      @java.lang.Override
+      public double getOpenPrice() {
+        return openPrice_;
+      }
+      /**
+       * <code>double open_price = 5;</code>
+       * @param value The openPrice to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOpenPrice(double value) {
+        
+        openPrice_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double open_price = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOpenPrice() {
+        
+        openPrice_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double closePrice_ ;
+      /**
+       * <code>double close_price = 6;</code>
+       * @return The closePrice.
+       */
+      @java.lang.Override
+      public double getClosePrice() {
+        return closePrice_;
+      }
+      /**
+       * <code>double close_price = 6;</code>
+       * @param value The closePrice to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClosePrice(double value) {
+        
+        closePrice_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double close_price = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClosePrice() {
+        
+        closePrice_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp openTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> openTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       * @return Whether the openTime field is set.
+       */
+      public boolean hasOpenTime() {
+        return openTimeBuilder_ != null || openTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       * @return The openTime.
+       */
+      public com.google.protobuf.Timestamp getOpenTime() {
+        if (openTimeBuilder_ == null) {
+          return openTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : openTime_;
+        } else {
+          return openTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       */
+      public Builder setOpenTime(com.google.protobuf.Timestamp value) {
+        if (openTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          openTime_ = value;
+          onChanged();
+        } else {
+          openTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       */
+      public Builder setOpenTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (openTimeBuilder_ == null) {
+          openTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          openTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       */
+      public Builder mergeOpenTime(com.google.protobuf.Timestamp value) {
+        if (openTimeBuilder_ == null) {
+          if (openTime_ != null) {
+            openTime_ =
+              com.google.protobuf.Timestamp.newBuilder(openTime_).mergeFrom(value).buildPartial();
+          } else {
+            openTime_ = value;
+          }
+          onChanged();
+        } else {
+          openTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       */
+      public Builder clearOpenTime() {
+        if (openTimeBuilder_ == null) {
+          openTime_ = null;
+          onChanged();
+        } else {
+          openTime_ = null;
+          openTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getOpenTimeBuilder() {
+        
+        onChanged();
+        return getOpenTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getOpenTimeOrBuilder() {
+        if (openTimeBuilder_ != null) {
+          return openTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return openTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : openTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp open_time = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getOpenTimeFieldBuilder() {
+        if (openTimeBuilder_ == null) {
+          openTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getOpenTime(),
+                  getParentForChildren(),
+                  isClean());
+          openTime_ = null;
+        }
+        return openTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp openTimeUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> openTimeUtcBuilder_;
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       * @return Whether the openTimeUtc field is set.
+       */
+      public boolean hasOpenTimeUtc() {
+        return openTimeUtcBuilder_ != null || openTimeUtc_ != null;
+      }
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       * @return The openTimeUtc.
+       */
+      public com.google.protobuf.Timestamp getOpenTimeUtc() {
+        if (openTimeUtcBuilder_ == null) {
+          return openTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : openTimeUtc_;
+        } else {
+          return openTimeUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       */
+      public Builder setOpenTimeUtc(com.google.protobuf.Timestamp value) {
+        if (openTimeUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          openTimeUtc_ = value;
+          onChanged();
+        } else {
+          openTimeUtcBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       */
+      public Builder setOpenTimeUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (openTimeUtcBuilder_ == null) {
+          openTimeUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          openTimeUtcBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       */
+      public Builder mergeOpenTimeUtc(com.google.protobuf.Timestamp value) {
+        if (openTimeUtcBuilder_ == null) {
+          if (openTimeUtc_ != null) {
+            openTimeUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(openTimeUtc_).mergeFrom(value).buildPartial();
+          } else {
+            openTimeUtc_ = value;
+          }
+          onChanged();
+        } else {
+          openTimeUtcBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       */
+      public Builder clearOpenTimeUtc() {
+        if (openTimeUtcBuilder_ == null) {
+          openTimeUtc_ = null;
+          onChanged();
+        } else {
+          openTimeUtc_ = null;
+          openTimeUtcBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getOpenTimeUtcBuilder() {
+        
+        onChanged();
+        return getOpenTimeUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getOpenTimeUtcOrBuilder() {
+        if (openTimeUtcBuilder_ != null) {
+          return openTimeUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return openTimeUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : openTimeUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * open_time in UTC (the same moment; open_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp open_time_utc = 13;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getOpenTimeUtcFieldBuilder() {
+        if (openTimeUtcBuilder_ == null) {
+          openTimeUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getOpenTimeUtc(),
+                  getParentForChildren(),
+                  isClean());
+          openTimeUtc_ = null;
+        }
+        return openTimeUtcBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp closeTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> closeTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       * @return Whether the closeTime field is set.
+       */
+      public boolean hasCloseTime() {
+        return closeTimeBuilder_ != null || closeTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       * @return The closeTime.
+       */
+      public com.google.protobuf.Timestamp getCloseTime() {
+        if (closeTimeBuilder_ == null) {
+          return closeTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : closeTime_;
+        } else {
+          return closeTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       */
+      public Builder setCloseTime(com.google.protobuf.Timestamp value) {
+        if (closeTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          closeTime_ = value;
+          onChanged();
+        } else {
+          closeTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       */
+      public Builder setCloseTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (closeTimeBuilder_ == null) {
+          closeTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          closeTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       */
+      public Builder mergeCloseTime(com.google.protobuf.Timestamp value) {
+        if (closeTimeBuilder_ == null) {
+          if (closeTime_ != null) {
+            closeTime_ =
+              com.google.protobuf.Timestamp.newBuilder(closeTime_).mergeFrom(value).buildPartial();
+          } else {
+            closeTime_ = value;
+          }
+          onChanged();
+        } else {
+          closeTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       */
+      public Builder clearCloseTime() {
+        if (closeTimeBuilder_ == null) {
+          closeTime_ = null;
+          onChanged();
+        } else {
+          closeTime_ = null;
+          closeTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getCloseTimeBuilder() {
+        
+        onChanged();
+        return getCloseTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getCloseTimeOrBuilder() {
+        if (closeTimeBuilder_ != null) {
+          return closeTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return closeTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : closeTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp close_time = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getCloseTimeFieldBuilder() {
+        if (closeTimeBuilder_ == null) {
+          closeTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getCloseTime(),
+                  getParentForChildren(),
+                  isClean());
+          closeTime_ = null;
+        }
+        return closeTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp closeTimeUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> closeTimeUtcBuilder_;
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       * @return Whether the closeTimeUtc field is set.
+       */
+      public boolean hasCloseTimeUtc() {
+        return closeTimeUtcBuilder_ != null || closeTimeUtc_ != null;
+      }
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       * @return The closeTimeUtc.
+       */
+      public com.google.protobuf.Timestamp getCloseTimeUtc() {
+        if (closeTimeUtcBuilder_ == null) {
+          return closeTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : closeTimeUtc_;
+        } else {
+          return closeTimeUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       */
+      public Builder setCloseTimeUtc(com.google.protobuf.Timestamp value) {
+        if (closeTimeUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          closeTimeUtc_ = value;
+          onChanged();
+        } else {
+          closeTimeUtcBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       */
+      public Builder setCloseTimeUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (closeTimeUtcBuilder_ == null) {
+          closeTimeUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          closeTimeUtcBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       */
+      public Builder mergeCloseTimeUtc(com.google.protobuf.Timestamp value) {
+        if (closeTimeUtcBuilder_ == null) {
+          if (closeTimeUtc_ != null) {
+            closeTimeUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(closeTimeUtc_).mergeFrom(value).buildPartial();
+          } else {
+            closeTimeUtc_ = value;
+          }
+          onChanged();
+        } else {
+          closeTimeUtcBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       */
+      public Builder clearCloseTimeUtc() {
+        if (closeTimeUtcBuilder_ == null) {
+          closeTimeUtc_ = null;
+          onChanged();
+        } else {
+          closeTimeUtc_ = null;
+          closeTimeUtcBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getCloseTimeUtcBuilder() {
+        
+        onChanged();
+        return getCloseTimeUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getCloseTimeUtcOrBuilder() {
+        if (closeTimeUtcBuilder_ != null) {
+          return closeTimeUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return closeTimeUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : closeTimeUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * close_time in UTC (the same moment; close_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp close_time_utc = 14;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getCloseTimeUtcFieldBuilder() {
+        if (closeTimeUtcBuilder_ == null) {
+          closeTimeUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getCloseTimeUtc(),
+                  getParentForChildren(),
+                  isClean());
+          closeTimeUtc_ = null;
+        }
+        return closeTimeUtcBuilder_;
+      }
+
+      private double profit_ ;
+      /**
+       * <code>double profit = 9;</code>
+       * @return The profit.
+       */
+      @java.lang.Override
+      public double getProfit() {
+        return profit_;
+      }
+      /**
+       * <code>double profit = 9;</code>
+       * @param value The profit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProfit(double value) {
+        
+        profit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double profit = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProfit() {
+        
+        profit_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double commission_ ;
+      /**
+       * <code>double commission = 10;</code>
+       * @return The commission.
+       */
+      @java.lang.Override
+      public double getCommission() {
+        return commission_;
+      }
+      /**
+       * <code>double commission = 10;</code>
+       * @param value The commission to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCommission(double value) {
+        
+        commission_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double commission = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCommission() {
+        
+        commission_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double swap_ ;
+      /**
+       * <code>double swap = 11;</code>
+       * @return The swap.
+       */
+      @java.lang.Override
+      public double getSwap() {
+        return swap_;
+      }
+      /**
+       * <code>double swap = 11;</code>
+       * @param value The swap to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSwap(double value) {
+        
+        swap_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double swap = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSwap() {
+        
+        swap_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object comment_ = "";
+      /**
+       * <code>string comment = 12;</code>
+       * @return The comment.
+       */
+      public java.lang.String getComment() {
+        java.lang.Object ref = comment_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          comment_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string comment = 12;</code>
+       * @return The bytes for comment.
+       */
+      public com.google.protobuf.ByteString
+          getCommentBytes() {
+        java.lang.Object ref = comment_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          comment_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string comment = 12;</code>
+       * @param value The comment to set.
+       * @return This builder for chaining.
+       */
+      public Builder setComment(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        comment_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string comment = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearComment() {
+        
+        comment_ = getDefaultInstance().getComment();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string comment = 12;</code>
+       * @param value The bytes for comment to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCommentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        comment_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:mt5_term_api.TradeHistoryItemData)
+    }
+
+    // @@protoc_insertion_point(class_scope:mt5_term_api.TradeHistoryItemData)
+    private static final mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData();
+    }
+
+    public static mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TradeHistoryItemData>
+        PARSER = new com.google.protobuf.AbstractParser<TradeHistoryItemData>() {
+      @java.lang.Override
+      public TradeHistoryItemData parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TradeHistoryItemData(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TradeHistoryItemData> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TradeHistoryItemData> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiTradeStats.TradeHistoryItemData getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18037,6 +22534,33 @@ public final class Mt5TermApiTradeStats {
     com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
 
     /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+     * @return Whether the timeUtc field is set.
+     */
+    boolean hasTimeUtc();
+    /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+     * @return The timeUtc.
+     */
+    com.google.protobuf.Timestamp getTimeUtc();
+    /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getTimeUtcOrBuilder();
+
+    /**
      * <code>double balance = 2;</code>
      * @return The balance.
      */
@@ -18182,6 +22706,19 @@ public final class Mt5TermApiTradeStats {
               unrealizedPl_ = input.readDouble();
               break;
             }
+            case 82: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (timeUtc_ != null) {
+                subBuilder = timeUtc_.toBuilder();
+              }
+              timeUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timeUtc_);
+                timeUtc_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -18240,6 +22777,44 @@ public final class Mt5TermApiTradeStats {
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
       return getTime();
+    }
+
+    public static final int TIME_UTC_FIELD_NUMBER = 10;
+    private com.google.protobuf.Timestamp timeUtc_;
+    /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+     * @return Whether the timeUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimeUtc() {
+      return timeUtc_ != null;
+    }
+    /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+     * @return The timeUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getTimeUtc() {
+      return timeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timeUtc_;
+    }
+    /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getTimeUtcOrBuilder() {
+      return getTimeUtc();
     }
 
     public static final int BALANCE_FIELD_NUMBER = 2;
@@ -18371,6 +22946,9 @@ public final class Mt5TermApiTradeStats {
       if (java.lang.Double.doubleToRawLongBits(unrealizedPl_) != 0) {
         output.writeDouble(9, unrealizedPl_);
       }
+      if (timeUtc_ != null) {
+        output.writeMessage(10, getTimeUtc());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -18416,6 +22994,10 @@ public final class Mt5TermApiTradeStats {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(9, unrealizedPl_);
       }
+      if (timeUtc_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getTimeUtc());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -18435,6 +23017,11 @@ public final class Mt5TermApiTradeStats {
       if (hasTime()) {
         if (!getTime()
             .equals(other.getTime())) return false;
+      }
+      if (hasTimeUtc() != other.hasTimeUtc()) return false;
+      if (hasTimeUtc()) {
+        if (!getTimeUtc()
+            .equals(other.getTimeUtc())) return false;
       }
       if (java.lang.Double.doubleToLongBits(getBalance())
           != java.lang.Double.doubleToLongBits(
@@ -18474,6 +23061,10 @@ public final class Mt5TermApiTradeStats {
       if (hasTime()) {
         hash = (37 * hash) + TIME_FIELD_NUMBER;
         hash = (53 * hash) + getTime().hashCode();
+      }
+      if (hasTimeUtc()) {
+        hash = (37 * hash) + TIME_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getTimeUtc().hashCode();
       }
       hash = (37 * hash) + BALANCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -18638,6 +23229,12 @@ public final class Mt5TermApiTradeStats {
           time_ = null;
           timeBuilder_ = null;
         }
+        if (timeUtcBuilder_ == null) {
+          timeUtc_ = null;
+        } else {
+          timeUtc_ = null;
+          timeUtcBuilder_ = null;
+        }
         balance_ = 0D;
 
         equity_ = 0D;
@@ -18684,6 +23281,11 @@ public final class Mt5TermApiTradeStats {
           result.time_ = time_;
         } else {
           result.time_ = timeBuilder_.build();
+        }
+        if (timeUtcBuilder_ == null) {
+          result.timeUtc_ = timeUtc_;
+        } else {
+          result.timeUtc_ = timeUtcBuilder_.build();
         }
         result.balance_ = balance_;
         result.equity_ = equity_;
@@ -18743,6 +23345,9 @@ public final class Mt5TermApiTradeStats {
         if (other == mt5_term_api.Mt5TermApiTradeStats.EquityPointData.getDefaultInstance()) return this;
         if (other.hasTime()) {
           mergeTime(other.getTime());
+        }
+        if (other.hasTimeUtc()) {
+          mergeTimeUtc(other.getTimeUtc());
         }
         if (other.getBalance() != 0D) {
           setBalance(other.getBalance());
@@ -18914,6 +23519,161 @@ public final class Mt5TermApiTradeStats {
           time_ = null;
         }
         return timeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp timeUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeUtcBuilder_;
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       * @return Whether the timeUtc field is set.
+       */
+      public boolean hasTimeUtc() {
+        return timeUtcBuilder_ != null || timeUtc_ != null;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       * @return The timeUtc.
+       */
+      public com.google.protobuf.Timestamp getTimeUtc() {
+        if (timeUtcBuilder_ == null) {
+          return timeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timeUtc_;
+        } else {
+          return timeUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       */
+      public Builder setTimeUtc(com.google.protobuf.Timestamp value) {
+        if (timeUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          timeUtc_ = value;
+          onChanged();
+        } else {
+          timeUtcBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       */
+      public Builder setTimeUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (timeUtcBuilder_ == null) {
+          timeUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          timeUtcBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       */
+      public Builder mergeTimeUtc(com.google.protobuf.Timestamp value) {
+        if (timeUtcBuilder_ == null) {
+          if (timeUtc_ != null) {
+            timeUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(timeUtc_).mergeFrom(value).buildPartial();
+          } else {
+            timeUtc_ = value;
+          }
+          onChanged();
+        } else {
+          timeUtcBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       */
+      public Builder clearTimeUtc() {
+        if (timeUtcBuilder_ == null) {
+          timeUtc_ = null;
+          onChanged();
+        } else {
+          timeUtc_ = null;
+          timeUtcBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getTimeUtcBuilder() {
+        
+        onChanged();
+        return getTimeUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getTimeUtcOrBuilder() {
+        if (timeUtcBuilder_ != null) {
+          return timeUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return timeUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : timeUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp time_utc = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getTimeUtcFieldBuilder() {
+        if (timeUtcBuilder_ == null) {
+          timeUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getTimeUtc(),
+                  getParentForChildren(),
+                  isClean());
+          timeUtc_ = null;
+        }
+        return timeUtcBuilder_;
       }
 
       private double balance_ ;
@@ -20049,6 +24809,33 @@ public final class Mt5TermApiTradeStats {
     com.google.protobuf.TimestampOrBuilder getMaxUnrealizedTimeOrBuilder();
 
     /**
+     * <pre>
+     * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+     * @return Whether the maxUnrealizedTimeUtc field is set.
+     */
+    boolean hasMaxUnrealizedTimeUtc();
+    /**
+     * <pre>
+     * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+     * @return The maxUnrealizedTimeUtc.
+     */
+    com.google.protobuf.Timestamp getMaxUnrealizedTimeUtc();
+    /**
+     * <pre>
+     * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getMaxUnrealizedTimeUtcOrBuilder();
+
+    /**
      * <code>double max_unrealized_pl = 4;</code>
      * @return The maxUnrealizedPl.
      */
@@ -20068,6 +24855,33 @@ public final class Mt5TermApiTradeStats {
      * <code>.google.protobuf.Timestamp min_unrealized_time = 5;</code>
      */
     com.google.protobuf.TimestampOrBuilder getMinUnrealizedTimeOrBuilder();
+
+    /**
+     * <pre>
+     * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+     * @return Whether the minUnrealizedTimeUtc field is set.
+     */
+    boolean hasMinUnrealizedTimeUtc();
+    /**
+     * <pre>
+     * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+     * @return The minUnrealizedTimeUtc.
+     */
+    com.google.protobuf.Timestamp getMinUnrealizedTimeUtc();
+    /**
+     * <pre>
+     * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getMinUnrealizedTimeUtcOrBuilder();
 
     /**
      * <code>double min_unrealized_pl = 6;</code>
@@ -20166,6 +24980,32 @@ public final class Mt5TermApiTradeStats {
             case 49: {
 
               minUnrealizedPl_ = input.readDouble();
+              break;
+            }
+            case 58: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (maxUnrealizedTimeUtc_ != null) {
+                subBuilder = maxUnrealizedTimeUtc_.toBuilder();
+              }
+              maxUnrealizedTimeUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(maxUnrealizedTimeUtc_);
+                maxUnrealizedTimeUtc_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 66: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (minUnrealizedTimeUtc_ != null) {
+                subBuilder = minUnrealizedTimeUtc_.toBuilder();
+              }
+              minUnrealizedTimeUtc_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(minUnrealizedTimeUtc_);
+                minUnrealizedTimeUtc_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -20277,6 +25117,44 @@ public final class Mt5TermApiTradeStats {
       return getMaxUnrealizedTime();
     }
 
+    public static final int MAX_UNREALIZED_TIME_UTC_FIELD_NUMBER = 7;
+    private com.google.protobuf.Timestamp maxUnrealizedTimeUtc_;
+    /**
+     * <pre>
+     * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+     * @return Whether the maxUnrealizedTimeUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasMaxUnrealizedTimeUtc() {
+      return maxUnrealizedTimeUtc_ != null;
+    }
+    /**
+     * <pre>
+     * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+     * @return The maxUnrealizedTimeUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getMaxUnrealizedTimeUtc() {
+      return maxUnrealizedTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : maxUnrealizedTimeUtc_;
+    }
+    /**
+     * <pre>
+     * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getMaxUnrealizedTimeUtcOrBuilder() {
+      return getMaxUnrealizedTimeUtc();
+    }
+
     public static final int MAX_UNREALIZED_PL_FIELD_NUMBER = 4;
     private double maxUnrealizedPl_;
     /**
@@ -20312,6 +25190,44 @@ public final class Mt5TermApiTradeStats {
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getMinUnrealizedTimeOrBuilder() {
       return getMinUnrealizedTime();
+    }
+
+    public static final int MIN_UNREALIZED_TIME_UTC_FIELD_NUMBER = 8;
+    private com.google.protobuf.Timestamp minUnrealizedTimeUtc_;
+    /**
+     * <pre>
+     * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+     * @return Whether the minUnrealizedTimeUtc field is set.
+     */
+    @java.lang.Override
+    public boolean hasMinUnrealizedTimeUtc() {
+      return minUnrealizedTimeUtc_ != null;
+    }
+    /**
+     * <pre>
+     * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+     * @return The minUnrealizedTimeUtc.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getMinUnrealizedTimeUtc() {
+      return minUnrealizedTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : minUnrealizedTimeUtc_;
+    }
+    /**
+     * <pre>
+     * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getMinUnrealizedTimeUtcOrBuilder() {
+      return getMinUnrealizedTimeUtc();
     }
 
     public static final int MIN_UNREALIZED_PL_FIELD_NUMBER = 6;
@@ -20357,6 +25273,12 @@ public final class Mt5TermApiTradeStats {
       if (java.lang.Double.doubleToRawLongBits(minUnrealizedPl_) != 0) {
         output.writeDouble(6, minUnrealizedPl_);
       }
+      if (maxUnrealizedTimeUtc_ != null) {
+        output.writeMessage(7, getMaxUnrealizedTimeUtc());
+      }
+      if (minUnrealizedTimeUtc_ != null) {
+        output.writeMessage(8, getMinUnrealizedTimeUtc());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -20389,6 +25311,14 @@ public final class Mt5TermApiTradeStats {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(6, minUnrealizedPl_);
       }
+      if (maxUnrealizedTimeUtc_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getMaxUnrealizedTimeUtc());
+      }
+      if (minUnrealizedTimeUtc_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getMinUnrealizedTimeUtc());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -20413,6 +25343,11 @@ public final class Mt5TermApiTradeStats {
         if (!getMaxUnrealizedTime()
             .equals(other.getMaxUnrealizedTime())) return false;
       }
+      if (hasMaxUnrealizedTimeUtc() != other.hasMaxUnrealizedTimeUtc()) return false;
+      if (hasMaxUnrealizedTimeUtc()) {
+        if (!getMaxUnrealizedTimeUtc()
+            .equals(other.getMaxUnrealizedTimeUtc())) return false;
+      }
       if (java.lang.Double.doubleToLongBits(getMaxUnrealizedPl())
           != java.lang.Double.doubleToLongBits(
               other.getMaxUnrealizedPl())) return false;
@@ -20420,6 +25355,11 @@ public final class Mt5TermApiTradeStats {
       if (hasMinUnrealizedTime()) {
         if (!getMinUnrealizedTime()
             .equals(other.getMinUnrealizedTime())) return false;
+      }
+      if (hasMinUnrealizedTimeUtc() != other.hasMinUnrealizedTimeUtc()) return false;
+      if (hasMinUnrealizedTimeUtc()) {
+        if (!getMinUnrealizedTimeUtc()
+            .equals(other.getMinUnrealizedTimeUtc())) return false;
       }
       if (java.lang.Double.doubleToLongBits(getMinUnrealizedPl())
           != java.lang.Double.doubleToLongBits(
@@ -20444,12 +25384,20 @@ public final class Mt5TermApiTradeStats {
         hash = (37 * hash) + MAX_UNREALIZED_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getMaxUnrealizedTime().hashCode();
       }
+      if (hasMaxUnrealizedTimeUtc()) {
+        hash = (37 * hash) + MAX_UNREALIZED_TIME_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxUnrealizedTimeUtc().hashCode();
+      }
       hash = (37 * hash) + MAX_UNREALIZED_PL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getMaxUnrealizedPl()));
       if (hasMinUnrealizedTime()) {
         hash = (37 * hash) + MIN_UNREALIZED_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getMinUnrealizedTime().hashCode();
+      }
+      if (hasMinUnrealizedTimeUtc()) {
+        hash = (37 * hash) + MIN_UNREALIZED_TIME_UTC_FIELD_NUMBER;
+        hash = (53 * hash) + getMinUnrealizedTimeUtc().hashCode();
       }
       hash = (37 * hash) + MIN_UNREALIZED_PL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -20597,6 +25545,12 @@ public final class Mt5TermApiTradeStats {
           maxUnrealizedTime_ = null;
           maxUnrealizedTimeBuilder_ = null;
         }
+        if (maxUnrealizedTimeUtcBuilder_ == null) {
+          maxUnrealizedTimeUtc_ = null;
+        } else {
+          maxUnrealizedTimeUtc_ = null;
+          maxUnrealizedTimeUtcBuilder_ = null;
+        }
         maxUnrealizedPl_ = 0D;
 
         if (minUnrealizedTimeBuilder_ == null) {
@@ -20604,6 +25558,12 @@ public final class Mt5TermApiTradeStats {
         } else {
           minUnrealizedTime_ = null;
           minUnrealizedTimeBuilder_ = null;
+        }
+        if (minUnrealizedTimeUtcBuilder_ == null) {
+          minUnrealizedTimeUtc_ = null;
+        } else {
+          minUnrealizedTimeUtc_ = null;
+          minUnrealizedTimeUtcBuilder_ = null;
         }
         minUnrealizedPl_ = 0D;
 
@@ -20640,11 +25600,21 @@ public final class Mt5TermApiTradeStats {
         } else {
           result.maxUnrealizedTime_ = maxUnrealizedTimeBuilder_.build();
         }
+        if (maxUnrealizedTimeUtcBuilder_ == null) {
+          result.maxUnrealizedTimeUtc_ = maxUnrealizedTimeUtc_;
+        } else {
+          result.maxUnrealizedTimeUtc_ = maxUnrealizedTimeUtcBuilder_.build();
+        }
         result.maxUnrealizedPl_ = maxUnrealizedPl_;
         if (minUnrealizedTimeBuilder_ == null) {
           result.minUnrealizedTime_ = minUnrealizedTime_;
         } else {
           result.minUnrealizedTime_ = minUnrealizedTimeBuilder_.build();
+        }
+        if (minUnrealizedTimeUtcBuilder_ == null) {
+          result.minUnrealizedTimeUtc_ = minUnrealizedTimeUtc_;
+        } else {
+          result.minUnrealizedTimeUtc_ = minUnrealizedTimeUtcBuilder_.build();
         }
         result.minUnrealizedPl_ = minUnrealizedPl_;
         onBuilt();
@@ -20705,11 +25675,17 @@ public final class Mt5TermApiTradeStats {
         if (other.hasMaxUnrealizedTime()) {
           mergeMaxUnrealizedTime(other.getMaxUnrealizedTime());
         }
+        if (other.hasMaxUnrealizedTimeUtc()) {
+          mergeMaxUnrealizedTimeUtc(other.getMaxUnrealizedTimeUtc());
+        }
         if (other.getMaxUnrealizedPl() != 0D) {
           setMaxUnrealizedPl(other.getMaxUnrealizedPl());
         }
         if (other.hasMinUnrealizedTime()) {
           mergeMinUnrealizedTime(other.getMinUnrealizedTime());
+        }
+        if (other.hasMinUnrealizedTimeUtc()) {
+          mergeMinUnrealizedTimeUtc(other.getMinUnrealizedTimeUtc());
         }
         if (other.getMinUnrealizedPl() != 0D) {
           setMinUnrealizedPl(other.getMinUnrealizedPl());
@@ -20969,6 +25945,161 @@ public final class Mt5TermApiTradeStats {
         return maxUnrealizedTimeBuilder_;
       }
 
+      private com.google.protobuf.Timestamp maxUnrealizedTimeUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> maxUnrealizedTimeUtcBuilder_;
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       * @return Whether the maxUnrealizedTimeUtc field is set.
+       */
+      public boolean hasMaxUnrealizedTimeUtc() {
+        return maxUnrealizedTimeUtcBuilder_ != null || maxUnrealizedTimeUtc_ != null;
+      }
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       * @return The maxUnrealizedTimeUtc.
+       */
+      public com.google.protobuf.Timestamp getMaxUnrealizedTimeUtc() {
+        if (maxUnrealizedTimeUtcBuilder_ == null) {
+          return maxUnrealizedTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : maxUnrealizedTimeUtc_;
+        } else {
+          return maxUnrealizedTimeUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       */
+      public Builder setMaxUnrealizedTimeUtc(com.google.protobuf.Timestamp value) {
+        if (maxUnrealizedTimeUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          maxUnrealizedTimeUtc_ = value;
+          onChanged();
+        } else {
+          maxUnrealizedTimeUtcBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       */
+      public Builder setMaxUnrealizedTimeUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (maxUnrealizedTimeUtcBuilder_ == null) {
+          maxUnrealizedTimeUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          maxUnrealizedTimeUtcBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       */
+      public Builder mergeMaxUnrealizedTimeUtc(com.google.protobuf.Timestamp value) {
+        if (maxUnrealizedTimeUtcBuilder_ == null) {
+          if (maxUnrealizedTimeUtc_ != null) {
+            maxUnrealizedTimeUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(maxUnrealizedTimeUtc_).mergeFrom(value).buildPartial();
+          } else {
+            maxUnrealizedTimeUtc_ = value;
+          }
+          onChanged();
+        } else {
+          maxUnrealizedTimeUtcBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       */
+      public Builder clearMaxUnrealizedTimeUtc() {
+        if (maxUnrealizedTimeUtcBuilder_ == null) {
+          maxUnrealizedTimeUtc_ = null;
+          onChanged();
+        } else {
+          maxUnrealizedTimeUtc_ = null;
+          maxUnrealizedTimeUtcBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getMaxUnrealizedTimeUtcBuilder() {
+        
+        onChanged();
+        return getMaxUnrealizedTimeUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getMaxUnrealizedTimeUtcOrBuilder() {
+        if (maxUnrealizedTimeUtcBuilder_ != null) {
+          return maxUnrealizedTimeUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return maxUnrealizedTimeUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : maxUnrealizedTimeUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * max_unrealized_time in UTC (the same moment; max_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp max_unrealized_time_utc = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getMaxUnrealizedTimeUtcFieldBuilder() {
+        if (maxUnrealizedTimeUtcBuilder_ == null) {
+          maxUnrealizedTimeUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getMaxUnrealizedTimeUtc(),
+                  getParentForChildren(),
+                  isClean());
+          maxUnrealizedTimeUtc_ = null;
+        }
+        return maxUnrealizedTimeUtcBuilder_;
+      }
+
       private double maxUnrealizedPl_ ;
       /**
        * <code>double max_unrealized_pl = 4;</code>
@@ -21117,6 +26248,161 @@ public final class Mt5TermApiTradeStats {
           minUnrealizedTime_ = null;
         }
         return minUnrealizedTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp minUnrealizedTimeUtc_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> minUnrealizedTimeUtcBuilder_;
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       * @return Whether the minUnrealizedTimeUtc field is set.
+       */
+      public boolean hasMinUnrealizedTimeUtc() {
+        return minUnrealizedTimeUtcBuilder_ != null || minUnrealizedTimeUtc_ != null;
+      }
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       * @return The minUnrealizedTimeUtc.
+       */
+      public com.google.protobuf.Timestamp getMinUnrealizedTimeUtc() {
+        if (minUnrealizedTimeUtcBuilder_ == null) {
+          return minUnrealizedTimeUtc_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : minUnrealizedTimeUtc_;
+        } else {
+          return minUnrealizedTimeUtcBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       */
+      public Builder setMinUnrealizedTimeUtc(com.google.protobuf.Timestamp value) {
+        if (minUnrealizedTimeUtcBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          minUnrealizedTimeUtc_ = value;
+          onChanged();
+        } else {
+          minUnrealizedTimeUtcBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       */
+      public Builder setMinUnrealizedTimeUtc(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (minUnrealizedTimeUtcBuilder_ == null) {
+          minUnrealizedTimeUtc_ = builderForValue.build();
+          onChanged();
+        } else {
+          minUnrealizedTimeUtcBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       */
+      public Builder mergeMinUnrealizedTimeUtc(com.google.protobuf.Timestamp value) {
+        if (minUnrealizedTimeUtcBuilder_ == null) {
+          if (minUnrealizedTimeUtc_ != null) {
+            minUnrealizedTimeUtc_ =
+              com.google.protobuf.Timestamp.newBuilder(minUnrealizedTimeUtc_).mergeFrom(value).buildPartial();
+          } else {
+            minUnrealizedTimeUtc_ = value;
+          }
+          onChanged();
+        } else {
+          minUnrealizedTimeUtcBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       */
+      public Builder clearMinUnrealizedTimeUtc() {
+        if (minUnrealizedTimeUtcBuilder_ == null) {
+          minUnrealizedTimeUtc_ = null;
+          onChanged();
+        } else {
+          minUnrealizedTimeUtc_ = null;
+          minUnrealizedTimeUtcBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getMinUnrealizedTimeUtcBuilder() {
+        
+        onChanged();
+        return getMinUnrealizedTimeUtcFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getMinUnrealizedTimeUtcOrBuilder() {
+        if (minUnrealizedTimeUtcBuilder_ != null) {
+          return minUnrealizedTimeUtcBuilder_.getMessageOrBuilder();
+        } else {
+          return minUnrealizedTimeUtc_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : minUnrealizedTimeUtc_;
+        }
+      }
+      /**
+       * <pre>
+       * min_unrealized_time in UTC (the same moment; min_unrealized_time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp min_unrealized_time_utc = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getMinUnrealizedTimeUtcFieldBuilder() {
+        if (minUnrealizedTimeUtcBuilder_ == null) {
+          minUnrealizedTimeUtcBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getMinUnrealizedTimeUtc(),
+                  getParentForChildren(),
+                  isClean());
+          minUnrealizedTimeUtc_ = null;
+        }
+        return minUnrealizedTimeUtcBuilder_;
       }
 
       private double minUnrealizedPl_ ;
@@ -21293,6 +26579,11 @@ public final class Mt5TermApiTradeStats {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mt5_term_api_StatsWithChartsData_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mt5_term_api_TradeHistoryItemData_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mt5_term_api_TradeHistoryItemData_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mt5_term_api_EquityHistoryData_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -21324,102 +26615,126 @@ public final class Mt5TermApiTradeStats {
       "\n\036mt5-term-api-trade-stats.proto\022\014mt5_te" +
       "rm_api\032\037google/protobuf/timestamp.proto\032" +
       "\034google/api/annotations.proto\032\024mrpc-mt5-" +
-      "error.proto\"/\n\021TradeStatsRequest\022\021\n\004from" +
-      "\030\001 \001(\tH\000\210\001\001B\007\n\005_from\"l\n\017TradeStatsReply\022" +
-      "\'\n\004data\030\001 \001(\0132\027.mt5_term_api.StatsDataH\000" +
-      "\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n" +
-      "\n\010response\"r\n\036TradeStatsEquityHistoryReq" +
-      "uest\022\021\n\004from\030\001 \001(\tH\000\210\001\001\022\036\n\021exclude_same_" +
-      "bars\030\002 \001(\010H\001\210\001\001B\007\n\005_fromB\024\n\022_exclude_sam" +
-      "e_bars\"\203\001\n\034TradeStatsEquityHistoryReply\022" +
-      "1\n\004data\030\001 \001(\0132!.mt5_term_api.StatsWithCh" +
-      "artsDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api" +
-      ".ErrorH\000B\n\n\010response\"h\n\024EquityHistoryReq" +
-      "uest\022\021\n\004from\030\001 \001(\tH\000\210\001\001\022\036\n\021exclude_same_" +
-      "bars\030\002 \001(\010H\001\210\001\001B\007\n\005_fromB\024\n\022_exclude_sam" +
-      "e_bars\"w\n\022EquityHistoryReply\022/\n\004data\030\001 \001" +
-      "(\0132\037.mt5_term_api.EquityHistoryDataH\000\022$\n" +
-      "\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010r" +
-      "esponse\"6\n\030TradeUnrealizedPLRequest\022\021\n\004f" +
-      "rom\030\001 \001(\tH\000\210\001\001B\007\n\005_from\"\177\n\026TradeUnrealiz" +
-      "edPLReply\0223\n\004data\030\001 \001(\0132#.mt5_term_api.T" +
-      "radeUnrealizedPLDataH\000\022$\n\005error\030\002 \001(\0132\023." +
-      "mt5_term_api.ErrorH\000B\n\n\010response\"\323\007\n\tSta" +
-      "tsData\022/\n\007summary\030\001 \001(\0132\036.mt5_term_api.T" +
-      "radeSummaryData\022 \n\030max_balance_drawdown_" +
-      "raw\030\002 \001(\001\022%\n\035max_balance_drawdown_relati" +
-      "ve\030\003 \001(\001\022\037\n\027max_equity_drawdown_raw\030\004 \001(" +
-      "\001\022$\n\034max_equity_drawdown_relative\030\005 \001(\001\022" +
-      "3\n\007markets\030\006 \003(\0132\".mt5_term_api.MarketTr" +
-      "adeCountData\0226\n\rprofitability\030\007 \001(\0132\037.mt" +
-      "5_term_api.ProfitabilityData\022\014\n\004pips\030\010 \001" +
-      "(\001\022\014\n\004lots\030\t \001(\001\022\022\n\ncomissions\030\n \001(\001\0225\n\013" +
-      "average_win\030\013 \001(\0132 .mt5_term_api.Average" +
-      "PipsUsdData\0226\n\014average_lost\030\014 \001(\0132 .mt5_" +
-      "term_api.AveragePipsUsdData\022(\n\tlongs_won" +
-      "\030\r \001(\0132\025.mt5_term_api.WonData\022)\n\nshorts_" +
-      "won\030\016 \001(\0132\025.mt5_term_api.WonData\022,\n\nbest" +
-      "_trade\030\017 \001(\0132\030.mt5_term_api.ProfitData\022-" +
-      "\n\013worst_trade\030\020 \001(\0132\030.mt5_term_api.Profi" +
-      "tData\0221\n\017best_trade_pips\030\021 \001(\0132\030.mt5_ter" +
-      "m_api.ProfitData\0222\n\020worst_trade_pips\030\022 \001" +
-      "(\0132\030.mt5_term_api.ProfitData\022\034\n\024average_" +
-      "trade_length\030\023 \001(\t\022\025\n\rprofit_factor\030\024 \001(" +
-      "\001\022\032\n\022standard_deviation\030\025 \001(\001\022\024\n\014sharpe_" +
-      "ratio\030\026 \001(\001\022)\n\007z_score\030\027 \001(\0132\030.mt5_term_" +
-      "api.ZScoreData\0220\n\nexpectancy\030\030 \001(\0132\034.mt5" +
-      "_term_api.ExpectancyData\022\014\n\004ghpr\030\031 \001(\001\022\016" +
-      "\n\006trades\030\032 \001(\003\"\221\001\n\020TradeSummaryData\022\023\n\013o" +
-      "pen_trades\030\001 \001(\005\022\023\n\013open_profit\030\002 \001(\001\022\022\n" +
-      "\nday_profit\030\003 \001(\001\022\023\n\013week_profit\030\004 \001(\001\022\024" +
-      "\n\014month_profit\030\005 \001(\001\022\024\n\014total_profit\030\006 \001" +
-      "(\001\":\n\024MarketTradeCountData\022\023\n\013market_nam" +
-      "e\030\001 \001(\t\022\r\n\005count\030\002 \001(\005\"u\n\021ProfitabilityD" +
-      "ata\022\022\n\nwon_trades\030\001 \001(\003\022\032\n\022won_trades_pe" +
-      "rcent\030\002 \001(\001\022\023\n\013lost_trades\030\003 \001(\003\022\033\n\023lost" +
-      "_trades_percent\030\004 \001(\001\"?\n\022AveragePipsUsdD" +
-      "ata\022\024\n\014average_pips\030\001 \001(\001\022\023\n\013average_usd" +
-      "\030\002 \001(\001\">\n\007WonData\022\021\n\twon_count\030\001 \001(\005\022\013\n\003" +
-      "all\030\002 \001(\005\022\023\n\013won_persent\030\003 \001(\001\"U\n\nProfit" +
-      "Data\022\r\n\005tiket\030\001 \001(\003\022(\n\004date\030\002 \001(\0132\032.goog" +
-      "le.protobuf.Timestamp\022\016\n\006profit\030\003 \001(\001\"B\n" +
-      "\nZScoreData\022\027\n\017z_score_decimal\030\001 \001(\001\022\033\n\023" +
-      "z_score_probability\030\002 \001(\001\".\n\016ExpectancyD" +
-      "ata\022\014\n\004pips\030\001 \001(\001\022\016\n\006dollar\030\002 \001(\001\"l\n\023Sta" +
-      "tsWithChartsData\022&\n\005stats\030\001 \001(\0132\027.mt5_te" +
-      "rm_api.StatsData\022-\n\006charts\030\002 \003(\0132\035.mt5_t" +
-      "erm_api.EquityPointData\"B\n\021EquityHistory" +
-      "Data\022-\n\006points\030\001 \003(\0132\035.mt5_term_api.Equi" +
-      "tyPointData\"\210\002\n\017EquityPointData\022(\n\004time\030" +
-      "\001 \001(\0132\032.google.protobuf.Timestamp\022\017\n\007bal" +
-      "ance\030\002 \001(\001\022\016\n\006equity\030\003 \001(\001\022\034\n\024balance_dr" +
-      "awdown_raw\030\004 \001(\001\022!\n\031balance_drawdown_rel" +
-      "ative\030\005 \001(\001\022\033\n\023equity_drawdown_raw\030\006 \001(\001" +
-      "\022 \n\030equity_drawdown_relative\030\007 \001(\001\022\023\n\013re" +
-      "alized_pl\030\010 \001(\001\022\025\n\runrealized_pl\030\t \001(\001\"R" +
-      "\n\025TradeUnrealizedPLData\0229\n\007extrema\030\001 \003(\013" +
-      "2(.mt5_term_api.TradeUnrealizedExtremaDa" +
-      "ta\"\344\001\n\032TradeUnrealizedExtremaData\022\016\n\006tic" +
-      "ket\030\001 \001(\003\022\016\n\006symbol\030\002 \001(\t\0227\n\023max_unreali" +
-      "zed_time\030\003 \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022\031\n\021max_unrealized_pl\030\004 \001(\001\0227\n\023min_unr" +
-      "ealized_time\030\005 \001(\0132\032.google.protobuf.Tim" +
-      "estamp\022\031\n\021min_unrealized_pl\030\006 \001(\0012\365\003\n\nTr" +
-      "adeStats\022a\n\nTradeStats\022\037.mt5_term_api.Tr" +
-      "adeStatsRequest\032\035.mt5_term_api.TradeStat" +
-      "sReply\"\023\202\323\344\223\002\r\022\013/TradeStats\022\225\001\n\027TradeSta" +
-      "tsEquityHistory\022,.mt5_term_api.TradeStat" +
-      "sEquityHistoryRequest\032*.mt5_term_api.Tra" +
-      "deStatsEquityHistoryReply\" \202\323\344\223\002\032\022\030/Trad" +
-      "eStatsEquityHistory\022m\n\rEquityHistory\022\".m" +
-      "t5_term_api.EquityHistoryRequest\032 .mt5_t" +
-      "erm_api.EquityHistoryReply\"\026\202\323\344\223\002\020\022\016/Equ" +
-      "ityHistory\022}\n\021TradeUnrealizedPL\022&.mt5_te" +
-      "rm_api.TradeUnrealizedPLRequest\032$.mt5_te" +
-      "rm_api.TradeUnrealizedPLReply\"\032\202\323\344\223\002\024\022\022/" +
-      "TradeUnrealizedPLBBZ1git.mtapi.io/root/m" +
-      "rpc-proto.git/mt5/libraries/go\252\002\014mt5_ter" +
-      "m_apib\006proto3"
+      "error.proto\"S\n\021TradeStatsRequest\022\021\n\004from" +
+      "\030\001 \001(\tH\000\210\001\001\022\025\n\010from_utc\030\002 \001(\tH\001\210\001\001B\007\n\005_f" +
+      "romB\013\n\t_from_utc\"l\n\017TradeStatsReply\022\'\n\004d" +
+      "ata\030\001 \001(\0132\027.mt5_term_api.StatsDataH\000\022$\n\005" +
+      "error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010re" +
+      "sponse\"\226\001\n\036TradeStatsEquityHistoryReques" +
+      "t\022\021\n\004from\030\001 \001(\tH\000\210\001\001\022\025\n\010from_utc\030\003 \001(\tH\001" +
+      "\210\001\001\022\036\n\021exclude_same_bars\030\002 \001(\010H\002\210\001\001B\007\n\005_" +
+      "fromB\013\n\t_from_utcB\024\n\022_exclude_same_bars\"" +
+      "\203\001\n\034TradeStatsEquityHistoryReply\0221\n\004data" +
+      "\030\001 \001(\0132!.mt5_term_api.StatsWithChartsDat" +
+      "aH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH" +
+      "\000B\n\n\010response\"\214\001\n\024EquityHistoryRequest\022\021" +
+      "\n\004from\030\001 \001(\tH\000\210\001\001\022\025\n\010from_utc\030\003 \001(\tH\001\210\001\001" +
+      "\022\036\n\021exclude_same_bars\030\002 \001(\010H\002\210\001\001B\007\n\005_fro" +
+      "mB\013\n\t_from_utcB\024\n\022_exclude_same_bars\"w\n\022" +
+      "EquityHistoryReply\022/\n\004data\030\001 \001(\0132\037.mt5_t" +
+      "erm_api.EquityHistoryDataH\000\022$\n\005error\030\002 \001" +
+      "(\0132\023.mt5_term_api.ErrorH\000B\n\n\010response\"Z\n" +
+      "\030TradeUnrealizedPLRequest\022\021\n\004from\030\001 \001(\tH" +
+      "\000\210\001\001\022\025\n\010from_utc\030\002 \001(\tH\001\210\001\001B\007\n\005_fromB\013\n\t" +
+      "_from_utc\"\177\n\026TradeUnrealizedPLReply\0223\n\004d" +
+      "ata\030\001 \001(\0132#.mt5_term_api.TradeUnrealized" +
+      "PLDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.E" +
+      "rrorH\000B\n\n\010response\"\323\007\n\tStatsData\022/\n\007summ" +
+      "ary\030\001 \001(\0132\036.mt5_term_api.TradeSummaryDat" +
+      "a\022 \n\030max_balance_drawdown_raw\030\002 \001(\001\022%\n\035m" +
+      "ax_balance_drawdown_relative\030\003 \001(\001\022\037\n\027ma" +
+      "x_equity_drawdown_raw\030\004 \001(\001\022$\n\034max_equit" +
+      "y_drawdown_relative\030\005 \001(\001\0223\n\007markets\030\006 \003" +
+      "(\0132\".mt5_term_api.MarketTradeCountData\0226" +
+      "\n\rprofitability\030\007 \001(\0132\037.mt5_term_api.Pro" +
+      "fitabilityData\022\014\n\004pips\030\010 \001(\001\022\014\n\004lots\030\t \001" +
+      "(\001\022\022\n\ncomissions\030\n \001(\001\0225\n\013average_win\030\013 " +
+      "\001(\0132 .mt5_term_api.AveragePipsUsdData\0226\n" +
+      "\014average_lost\030\014 \001(\0132 .mt5_term_api.Avera" +
+      "gePipsUsdData\022(\n\tlongs_won\030\r \001(\0132\025.mt5_t" +
+      "erm_api.WonData\022)\n\nshorts_won\030\016 \001(\0132\025.mt" +
+      "5_term_api.WonData\022,\n\nbest_trade\030\017 \001(\0132\030" +
+      ".mt5_term_api.ProfitData\022-\n\013worst_trade\030" +
+      "\020 \001(\0132\030.mt5_term_api.ProfitData\0221\n\017best_" +
+      "trade_pips\030\021 \001(\0132\030.mt5_term_api.ProfitDa" +
+      "ta\0222\n\020worst_trade_pips\030\022 \001(\0132\030.mt5_term_" +
+      "api.ProfitData\022\034\n\024average_trade_length\030\023" +
+      " \001(\t\022\025\n\rprofit_factor\030\024 \001(\001\022\032\n\022standard_" +
+      "deviation\030\025 \001(\001\022\024\n\014sharpe_ratio\030\026 \001(\001\022)\n" +
+      "\007z_score\030\027 \001(\0132\030.mt5_term_api.ZScoreData" +
+      "\0220\n\nexpectancy\030\030 \001(\0132\034.mt5_term_api.Expe" +
+      "ctancyData\022\014\n\004ghpr\030\031 \001(\001\022\016\n\006trades\030\032 \001(\003" +
+      "\"\221\001\n\020TradeSummaryData\022\023\n\013open_trades\030\001 \001" +
+      "(\005\022\023\n\013open_profit\030\002 \001(\001\022\022\n\nday_profit\030\003 " +
+      "\001(\001\022\023\n\013week_profit\030\004 \001(\001\022\024\n\014month_profit" +
+      "\030\005 \001(\001\022\024\n\014total_profit\030\006 \001(\001\"\221\001\n\024MarketT" +
+      "radeCountData\022\023\n\013market_name\030\001 \001(\t\022\r\n\005co" +
+      "unt\030\002 \001(\005\022\014\n\004lots\030\003 \001(\001\022\016\n\006profit\030\004 \001(\001\022" +
+      "\020\n\010win_rate\030\005 \001(\001\022\021\n\twon_count\030\006 \001(\005\022\022\n\n" +
+      "lost_count\030\007 \001(\005\"u\n\021ProfitabilityData\022\022\n" +
+      "\nwon_trades\030\001 \001(\003\022\032\n\022won_trades_percent\030" +
+      "\002 \001(\001\022\023\n\013lost_trades\030\003 \001(\003\022\033\n\023lost_trade" +
+      "s_percent\030\004 \001(\001\"?\n\022AveragePipsUsdData\022\024\n" +
+      "\014average_pips\030\001 \001(\001\022\023\n\013average_usd\030\002 \001(\001" +
+      "\">\n\007WonData\022\021\n\twon_count\030\001 \001(\005\022\013\n\003all\030\002 " +
+      "\001(\005\022\023\n\013won_persent\030\003 \001(\001\"\203\001\n\nProfitData\022" +
+      "\r\n\005tiket\030\001 \001(\003\022(\n\004date\030\002 \001(\0132\032.google.pr" +
+      "otobuf.Timestamp\022,\n\010date_utc\030\004 \001(\0132\032.goo" +
+      "gle.protobuf.Timestamp\022\016\n\006profit\030\003 \001(\001\"B" +
+      "\n\nZScoreData\022\027\n\017z_score_decimal\030\001 \001(\001\022\033\n" +
+      "\023z_score_probability\030\002 \001(\001\".\n\016Expectancy" +
+      "Data\022\014\n\004pips\030\001 \001(\001\022\016\n\006dollar\030\002 \001(\001\"\331\001\n\023S" +
+      "tatsWithChartsData\022&\n\005stats\030\001 \001(\0132\027.mt5_" +
+      "term_api.StatsData\022-\n\006charts\030\002 \003(\0132\035.mt5" +
+      "_term_api.EquityPointData\0222\n\006trades\030\003 \003(" +
+      "\0132\".mt5_term_api.TradeHistoryItemData\0227\n" +
+      "\013open_trades\030\004 \003(\0132\".mt5_term_api.TradeH" +
+      "istoryItemData\"\206\003\n\024TradeHistoryItemData\022" +
+      "\016\n\006ticket\030\001 \001(\003\022\016\n\006symbol\030\002 \001(\t\022\016\n\006is_bu" +
+      "y\030\003 \001(\010\022\014\n\004lots\030\004 \001(\001\022\022\n\nopen_price\030\005 \001(" +
+      "\001\022\023\n\013close_price\030\006 \001(\001\022-\n\topen_time\030\007 \001(" +
+      "\0132\032.google.protobuf.Timestamp\0221\n\ropen_ti" +
+      "me_utc\030\r \001(\0132\032.google.protobuf.Timestamp" +
+      "\022.\n\nclose_time\030\010 \001(\0132\032.google.protobuf.T" +
+      "imestamp\0222\n\016close_time_utc\030\016 \001(\0132\032.googl" +
+      "e.protobuf.Timestamp\022\016\n\006profit\030\t \001(\001\022\022\n\n" +
+      "commission\030\n \001(\001\022\014\n\004swap\030\013 \001(\001\022\017\n\007commen" +
+      "t\030\014 \001(\t\"B\n\021EquityHistoryData\022-\n\006points\030\001" +
+      " \003(\0132\035.mt5_term_api.EquityPointData\"\266\002\n\017" +
+      "EquityPointData\022(\n\004time\030\001 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022,\n\010time_utc\030\n \001(\0132\032.go" +
+      "ogle.protobuf.Timestamp\022\017\n\007balance\030\002 \001(\001" +
+      "\022\016\n\006equity\030\003 \001(\001\022\034\n\024balance_drawdown_raw" +
+      "\030\004 \001(\001\022!\n\031balance_drawdown_relative\030\005 \001(" +
+      "\001\022\033\n\023equity_drawdown_raw\030\006 \001(\001\022 \n\030equity" +
+      "_drawdown_relative\030\007 \001(\001\022\023\n\013realized_pl\030" +
+      "\010 \001(\001\022\025\n\runrealized_pl\030\t \001(\001\"R\n\025TradeUnr" +
+      "ealizedPLData\0229\n\007extrema\030\001 \003(\0132(.mt5_ter" +
+      "m_api.TradeUnrealizedExtremaData\"\336\002\n\032Tra" +
+      "deUnrealizedExtremaData\022\016\n\006ticket\030\001 \001(\003\022" +
+      "\016\n\006symbol\030\002 \001(\t\0227\n\023max_unrealized_time\030\003" +
+      " \001(\0132\032.google.protobuf.Timestamp\022;\n\027max_" +
+      "unrealized_time_utc\030\007 \001(\0132\032.google.proto" +
+      "buf.Timestamp\022\031\n\021max_unrealized_pl\030\004 \001(\001" +
+      "\0227\n\023min_unrealized_time\030\005 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022;\n\027min_unrealized_time" +
+      "_utc\030\010 \001(\0132\032.google.protobuf.Timestamp\022\031" +
+      "\n\021min_unrealized_pl\030\006 \001(\0012\365\003\n\nTradeStats" +
+      "\022a\n\nTradeStats\022\037.mt5_term_api.TradeStats" +
+      "Request\032\035.mt5_term_api.TradeStatsReply\"\023" +
+      "\202\323\344\223\002\r\022\013/TradeStats\022\225\001\n\027TradeStatsEquity" +
+      "History\022,.mt5_term_api.TradeStatsEquityH" +
+      "istoryRequest\032*.mt5_term_api.TradeStatsE" +
+      "quityHistoryReply\" \202\323\344\223\002\032\022\030/TradeStatsEq" +
+      "uityHistory\022m\n\rEquityHistory\022\".mt5_term_" +
+      "api.EquityHistoryRequest\032 .mt5_term_api." +
+      "EquityHistoryReply\"\026\202\323\344\223\002\020\022\016/EquityHisto" +
+      "ry\022}\n\021TradeUnrealizedPL\022&.mt5_term_api.T" +
+      "radeUnrealizedPLRequest\032$.mt5_term_api.T" +
+      "radeUnrealizedPLReply\"\032\202\323\344\223\002\024\022\022/TradeUnr" +
+      "ealizedPLBBZ1git.mtapi.io/root/mrpc-prot" +
+      "o.git/mt5/libraries/go\252\002\014mt5_term_apib\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -21433,7 +26748,7 @@ public final class Mt5TermApiTradeStats {
     internal_static_mt5_term_api_TradeStatsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TradeStatsRequest_descriptor,
-        new java.lang.String[] { "From", "From", });
+        new java.lang.String[] { "From", "FromUtc", "From", "FromUtc", });
     internal_static_mt5_term_api_TradeStatsReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_mt5_term_api_TradeStatsReply_fieldAccessorTable = new
@@ -21445,7 +26760,7 @@ public final class Mt5TermApiTradeStats {
     internal_static_mt5_term_api_TradeStatsEquityHistoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TradeStatsEquityHistoryRequest_descriptor,
-        new java.lang.String[] { "From", "ExcludeSameBars", "From", "ExcludeSameBars", });
+        new java.lang.String[] { "From", "FromUtc", "ExcludeSameBars", "From", "FromUtc", "ExcludeSameBars", });
     internal_static_mt5_term_api_TradeStatsEquityHistoryReply_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_mt5_term_api_TradeStatsEquityHistoryReply_fieldAccessorTable = new
@@ -21457,7 +26772,7 @@ public final class Mt5TermApiTradeStats {
     internal_static_mt5_term_api_EquityHistoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_EquityHistoryRequest_descriptor,
-        new java.lang.String[] { "From", "ExcludeSameBars", "From", "ExcludeSameBars", });
+        new java.lang.String[] { "From", "FromUtc", "ExcludeSameBars", "From", "FromUtc", "ExcludeSameBars", });
     internal_static_mt5_term_api_EquityHistoryReply_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_mt5_term_api_EquityHistoryReply_fieldAccessorTable = new
@@ -21469,7 +26784,7 @@ public final class Mt5TermApiTradeStats {
     internal_static_mt5_term_api_TradeUnrealizedPLRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TradeUnrealizedPLRequest_descriptor,
-        new java.lang.String[] { "From", "From", });
+        new java.lang.String[] { "From", "FromUtc", "From", "FromUtc", });
     internal_static_mt5_term_api_TradeUnrealizedPLReply_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_mt5_term_api_TradeUnrealizedPLReply_fieldAccessorTable = new
@@ -21493,7 +26808,7 @@ public final class Mt5TermApiTradeStats {
     internal_static_mt5_term_api_MarketTradeCountData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_MarketTradeCountData_descriptor,
-        new java.lang.String[] { "MarketName", "Count", });
+        new java.lang.String[] { "MarketName", "Count", "Lots", "Profit", "WinRate", "WonCount", "LostCount", });
     internal_static_mt5_term_api_ProfitabilityData_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_mt5_term_api_ProfitabilityData_fieldAccessorTable = new
@@ -21517,7 +26832,7 @@ public final class Mt5TermApiTradeStats {
     internal_static_mt5_term_api_ProfitData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_ProfitData_descriptor,
-        new java.lang.String[] { "Tiket", "Date", "Profit", });
+        new java.lang.String[] { "Tiket", "Date", "DateUtc", "Profit", });
     internal_static_mt5_term_api_ZScoreData_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_mt5_term_api_ZScoreData_fieldAccessorTable = new
@@ -21535,31 +26850,37 @@ public final class Mt5TermApiTradeStats {
     internal_static_mt5_term_api_StatsWithChartsData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_StatsWithChartsData_descriptor,
-        new java.lang.String[] { "Stats", "Charts", });
-    internal_static_mt5_term_api_EquityHistoryData_descriptor =
+        new java.lang.String[] { "Stats", "Charts", "Trades", "OpenTrades", });
+    internal_static_mt5_term_api_TradeHistoryItemData_descriptor =
       getDescriptor().getMessageTypes().get(18);
+    internal_static_mt5_term_api_TradeHistoryItemData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mt5_term_api_TradeHistoryItemData_descriptor,
+        new java.lang.String[] { "Ticket", "Symbol", "IsBuy", "Lots", "OpenPrice", "ClosePrice", "OpenTime", "OpenTimeUtc", "CloseTime", "CloseTimeUtc", "Profit", "Commission", "Swap", "Comment", });
+    internal_static_mt5_term_api_EquityHistoryData_descriptor =
+      getDescriptor().getMessageTypes().get(19);
     internal_static_mt5_term_api_EquityHistoryData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_EquityHistoryData_descriptor,
         new java.lang.String[] { "Points", });
     internal_static_mt5_term_api_EquityPointData_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_mt5_term_api_EquityPointData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_EquityPointData_descriptor,
-        new java.lang.String[] { "Time", "Balance", "Equity", "BalanceDrawdownRaw", "BalanceDrawdownRelative", "EquityDrawdownRaw", "EquityDrawdownRelative", "RealizedPl", "UnrealizedPl", });
+        new java.lang.String[] { "Time", "TimeUtc", "Balance", "Equity", "BalanceDrawdownRaw", "BalanceDrawdownRelative", "EquityDrawdownRaw", "EquityDrawdownRelative", "RealizedPl", "UnrealizedPl", });
     internal_static_mt5_term_api_TradeUnrealizedPLData_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_mt5_term_api_TradeUnrealizedPLData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TradeUnrealizedPLData_descriptor,
         new java.lang.String[] { "Extrema", });
     internal_static_mt5_term_api_TradeUnrealizedExtremaData_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_mt5_term_api_TradeUnrealizedExtremaData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_TradeUnrealizedExtremaData_descriptor,
-        new java.lang.String[] { "Ticket", "Symbol", "MaxUnrealizedTime", "MaxUnrealizedPl", "MinUnrealizedTime", "MinUnrealizedPl", });
+        new java.lang.String[] { "Ticket", "Symbol", "MaxUnrealizedTime", "MaxUnrealizedTimeUtc", "MaxUnrealizedPl", "MinUnrealizedTime", "MinUnrealizedTimeUtc", "MinUnrealizedPl", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);

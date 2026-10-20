@@ -68,11 +68,11 @@ JavaMT5 connects to MT5 terminal via the **MetaRPC gRPC gateway** - a cloud serv
 
 **What is MetaRPC?**
 
-- GitHub package: `com.github.MetaRPC.metarpcmt5`
-- Provides gRPC communication with MT5 terminal
-- Already included in `pom.xml` dependencies
-- Connects via default gateway: `mt5.mrpc.pro:443`
-- See: [MetaRPC on GitHub Packages](https://github.com/MetaRPC/JavaMT5/packages/2470968)
+- The gRPC API of MT5 accounts: `mt5.mrpc.pro:443`
+- Its generated Java stubs (`mt5_term_api`) are in this repository's `package/` folder and are compiled with the project
+  (`pom.xml`); nothing to install separately
+- To use JavaMT5 as a library in your own project instead, see [Your First Project](All_Guides/Your_First_Project.md)
+  (JitPack)
 
 **Configure your MT5 account:**
 
@@ -85,7 +85,8 @@ Edit `appsettings.json` with your MT5 account credentials:
       "user": 123456,
       "password": "your_password",
       "serverName": "YourBroker-MT5 Demo",
-      "baseSymbol": "EURUSD"
+      "baseSymbol": "EURUSD",
+      "apiKey": "your-api-key"
     }
   },
   "DefaultConnection": "FxProDemo"
@@ -98,6 +99,8 @@ Edit `appsettings.json` with your MT5 account credentials:
 - `password` - Your MT5 account password
 - `serverName` - Your broker's MT5 server name (e.g., "FxPro-MT5 Demo")
 - `baseSymbol` - Default trading symbol (e.g., "EURUSD")
+- `apiKey` - Your MetaRPC API key from [https://mrpc.pro/my](https://mrpc.pro/my) (`TRIAL` without one)
+- `grpcServer` - optional, the API address (default `mt5.mrpc.pro:443`)
 
 The library automatically connects through `mt5.mrpc.pro:443` gateway, which routes to your broker's server based on `serverName`.
 
@@ -636,4 +639,3 @@ MetaRPC endpoints require authentication and session management:
 2. **`id`**: A terminal session GUID returned by `Connect` / `ConnectEx` (`terminalInstanceGuid`).
 
 > 💡 **Seamless Automation**: You do not need to call `GetId` or provide an `id` header when connecting. The server automatically generates a session GUID upon connection and returns it to the caller. The SDK automatically captures this session ID and attaches it alongside your `APIKey` to all subsequent requests and streaming subscriptions.
-

@@ -462,6 +462,14 @@ public final class Mt5TermApiInternalCharts {
      * <code>ON_TRADE_TRANSACTION = 4;</code>
      */
     ON_TRADE_TRANSACTION(4),
+    /**
+     * <pre>
+     * every trade stream of the terminal on one chart (mt5-term-ea-events)
+     * </pre>
+     *
+     * <code>EVENTS = 5;</code>
+     */
+    EVENTS(5),
     UNRECOGNIZED(-1),
     ;
 
@@ -485,6 +493,14 @@ public final class Mt5TermApiInternalCharts {
      * <code>ON_TRADE_TRANSACTION = 4;</code>
      */
     public static final int ON_TRADE_TRANSACTION_VALUE = 4;
+    /**
+     * <pre>
+     * every trade stream of the terminal on one chart (mt5-term-ea-events)
+     * </pre>
+     *
+     * <code>EVENTS = 5;</code>
+     */
+    public static final int EVENTS_VALUE = 5;
 
 
     public final int getNumber() {
@@ -516,6 +532,7 @@ public final class Mt5TermApiInternalCharts {
         case 2: return ON_ORDER_PROFIT;
         case 3: return ON_OPENED_ORDERS_TICKETS;
         case 4: return ON_TRADE_TRANSACTION;
+        case 5: return EVENTS;
         default: return null;
       }
     }
@@ -6890,23 +6907,23 @@ public final class Mt5TermApiInternalCharts {
       "IOD_H4\020\017\022\026\n\022EA_CHART_PERIOD_H6\020\020\022\026\n\022EA_C" +
       "HART_PERIOD_H8\020\021\022\027\n\023EA_CHART_PERIOD_H12\020" +
       "\022\022\026\n\022EA_CHART_PERIOD_D1\020\023\022\026\n\022EA_CHART_PE" +
-      "RIOD_W1\020\024\022\027\n\023EA_CHART_PERIOD_MN1\020\025*y\n\017Ch" +
-      "artExpertMode\022\013\n\007ON_TICK\020\000\022\014\n\010ON_TRADE\020\001" +
-      "\022\023\n\017ON_ORDER_PROFIT\020\002\022\034\n\030ON_OPENED_ORDER" +
-      "S_TICKETS\020\003\022\030\n\024ON_TRADE_TRANSACTION\020\0042\237\003" +
-      "\n\016InternalCharts\022d\n\022OpenChartForSymbol\022\'" +
-      ".mt5_term_api.OpenChartForSymbolRequest\032" +
-      "%.mt5_term_api.OpenChartForSymbolReply\022g" +
-      "\n\023CloseChartForSymbol\022(.mt5_term_api.Clo" +
-      "seChartForSymbolRequest\032&.mt5_term_api.C" +
-      "loseChartForSymbolReply\022[\n\017OpenChartWith" +
-      "Ea\022$.mt5_term_api.OpenChartWithEaRequest" +
-      "\032\".mt5_term_api.OpenChartWithEaReply\022a\n\021" +
-      "SaveChartTemplate\022&.mt5_term_api.SaveCha" +
-      "rtTemplateRequest\032$.mt5_term_api.SaveCha" +
-      "rtTemplateReplyBBZ1git.mtapi.io/root/mrp" +
-      "c-proto.git/mt5/libraries/go\252\002\014mt5_term_" +
-      "apib\006proto3"
+      "RIOD_W1\020\024\022\027\n\023EA_CHART_PERIOD_MN1\020\025*\205\001\n\017C" +
+      "hartExpertMode\022\013\n\007ON_TICK\020\000\022\014\n\010ON_TRADE\020" +
+      "\001\022\023\n\017ON_ORDER_PROFIT\020\002\022\034\n\030ON_OPENED_ORDE" +
+      "RS_TICKETS\020\003\022\030\n\024ON_TRADE_TRANSACTION\020\004\022\n" +
+      "\n\006EVENTS\020\0052\237\003\n\016InternalCharts\022d\n\022OpenCha" +
+      "rtForSymbol\022\'.mt5_term_api.OpenChartForS" +
+      "ymbolRequest\032%.mt5_term_api.OpenChartFor" +
+      "SymbolReply\022g\n\023CloseChartForSymbol\022(.mt5" +
+      "_term_api.CloseChartForSymbolRequest\032&.m" +
+      "t5_term_api.CloseChartForSymbolReply\022[\n\017" +
+      "OpenChartWithEa\022$.mt5_term_api.OpenChart" +
+      "WithEaRequest\032\".mt5_term_api.OpenChartWi" +
+      "thEaReply\022a\n\021SaveChartTemplate\022&.mt5_ter" +
+      "m_api.SaveChartTemplateRequest\032$.mt5_ter" +
+      "m_api.SaveChartTemplateReplyBBZ1git.mtap" +
+      "i.io/root/mrpc-proto.git/mt5/libraries/g" +
+      "o\252\002\014mt5_term_apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

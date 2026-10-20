@@ -519,6 +519,68 @@ public final class AdminApiGrpc {
     return getKillAllTrialTerminalsLocalMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.DrainRequest,
+      mrpc_admin.Mt5TermApiAdmin.DrainReply> getDrainMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Drain",
+      requestType = mrpc_admin.Mt5TermApiAdmin.DrainRequest.class,
+      responseType = mrpc_admin.Mt5TermApiAdmin.DrainReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.DrainRequest,
+      mrpc_admin.Mt5TermApiAdmin.DrainReply> getDrainMethod() {
+    io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.DrainRequest, mrpc_admin.Mt5TermApiAdmin.DrainReply> getDrainMethod;
+    if ((getDrainMethod = AdminApiGrpc.getDrainMethod) == null) {
+      synchronized (AdminApiGrpc.class) {
+        if ((getDrainMethod = AdminApiGrpc.getDrainMethod) == null) {
+          AdminApiGrpc.getDrainMethod = getDrainMethod =
+              io.grpc.MethodDescriptor.<mrpc_admin.Mt5TermApiAdmin.DrainRequest, mrpc_admin.Mt5TermApiAdmin.DrainReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Drain"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mrpc_admin.Mt5TermApiAdmin.DrainRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mrpc_admin.Mt5TermApiAdmin.DrainReply.getDefaultInstance()))
+              .setSchemaDescriptor(new AdminApiMethodDescriptorSupplier("Drain"))
+              .build();
+        }
+      }
+    }
+    return getDrainMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest,
+      mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply> getStopTerminalLocalMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "StopTerminalLocal",
+      requestType = mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest.class,
+      responseType = mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest,
+      mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply> getStopTerminalLocalMethod() {
+    io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest, mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply> getStopTerminalLocalMethod;
+    if ((getStopTerminalLocalMethod = AdminApiGrpc.getStopTerminalLocalMethod) == null) {
+      synchronized (AdminApiGrpc.class) {
+        if ((getStopTerminalLocalMethod = AdminApiGrpc.getStopTerminalLocalMethod) == null) {
+          AdminApiGrpc.getStopTerminalLocalMethod = getStopTerminalLocalMethod =
+              io.grpc.MethodDescriptor.<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest, mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "StopTerminalLocal"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply.getDefaultInstance()))
+              .setSchemaDescriptor(new AdminApiMethodDescriptorSupplier("StopTerminalLocal"))
+              .build();
+        }
+      }
+    }
+    return getStopTerminalLocalMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -762,6 +824,32 @@ public final class AdminApiGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getKillAllTrialTerminalsLocalMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * Puts THIS pod into the draining state ahead of shutdown (StatefulSet preStop hook). While draining the
+     * pod stops renewing its terminal ownership leases, suppresses crash persistence for terminals ending with
+     * the VM, and starts no new work; peers restore its terminals once the leases expire. One-way for the
+     * lifetime of the process; calling it again reports already_draining.
+     * </pre>
+     */
+    public void drain(mrpc_admin.Mt5TermApiAdmin.DrainRequest request,
+        io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.DrainReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDrainMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Stops THIS pod's local copy of one terminal (pod-to-pod: user-stop fan-out, duplicate prune, rebalance
+     * migration). Local only: never forwarded to another pod and never persisted to UserTerminals (the caller
+     * records any stop intent). cause is a StopCause name; only customer/API/admin/delete/test stops and
+     * InternalReap are accepted. Callers must check reply.error.
+     * </pre>
+     */
+    public void stopTerminalLocal(mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest request,
+        io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getStopTerminalLocalMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -876,6 +964,20 @@ public final class AdminApiGrpc {
                 mrpc_admin.Mt5TermApiAdmin.ActiveTerminalsRequest,
                 mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply>(
                   this, METHODID_KILL_ALL_TRIAL_TERMINALS_LOCAL)))
+          .addMethod(
+            getDrainMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                mrpc_admin.Mt5TermApiAdmin.DrainRequest,
+                mrpc_admin.Mt5TermApiAdmin.DrainReply>(
+                  this, METHODID_DRAIN)))
+          .addMethod(
+            getStopTerminalLocalMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest,
+                mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply>(
+                  this, METHODID_STOP_TERMINAL_LOCAL)))
           .build();
     }
   }
@@ -1104,6 +1206,34 @@ public final class AdminApiGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getKillAllTrialTerminalsLocalMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * Puts THIS pod into the draining state ahead of shutdown (StatefulSet preStop hook). While draining the
+     * pod stops renewing its terminal ownership leases, suppresses crash persistence for terminals ending with
+     * the VM, and starts no new work; peers restore its terminals once the leases expire. One-way for the
+     * lifetime of the process; calling it again reports already_draining.
+     * </pre>
+     */
+    public void drain(mrpc_admin.Mt5TermApiAdmin.DrainRequest request,
+        io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.DrainReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDrainMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Stops THIS pod's local copy of one terminal (pod-to-pod: user-stop fan-out, duplicate prune, rebalance
+     * migration). Local only: never forwarded to another pod and never persisted to UserTerminals (the caller
+     * records any stop intent). cause is a StopCause name; only customer/API/admin/delete/test stops and
+     * InternalReap are accepted. Callers must check reply.error.
+     * </pre>
+     */
+    public void stopTerminalLocal(mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest request,
+        io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getStopTerminalLocalMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -1313,6 +1443,32 @@ public final class AdminApiGrpc {
     public mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply killAllTrialTerminalsLocal(mrpc_admin.Mt5TermApiAdmin.ActiveTerminalsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getKillAllTrialTerminalsLocalMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Puts THIS pod into the draining state ahead of shutdown (StatefulSet preStop hook). While draining the
+     * pod stops renewing its terminal ownership leases, suppresses crash persistence for terminals ending with
+     * the VM, and starts no new work; peers restore its terminals once the leases expire. One-way for the
+     * lifetime of the process; calling it again reports already_draining.
+     * </pre>
+     */
+    public mrpc_admin.Mt5TermApiAdmin.DrainReply drain(mrpc_admin.Mt5TermApiAdmin.DrainRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDrainMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Stops THIS pod's local copy of one terminal (pod-to-pod: user-stop fan-out, duplicate prune, rebalance
+     * migration). Local only: never forwarded to another pod and never persisted to UserTerminals (the caller
+     * records any stop intent). cause is a StopCause name; only customer/API/admin/delete/test stops and
+     * InternalReap are accepted. Callers must check reply.error.
+     * </pre>
+     */
+    public mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply stopTerminalLocal(mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getStopTerminalLocalMethod(), getCallOptions(), request);
     }
   }
 
@@ -1540,6 +1696,34 @@ public final class AdminApiGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getKillAllTrialTerminalsLocalMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * Puts THIS pod into the draining state ahead of shutdown (StatefulSet preStop hook). While draining the
+     * pod stops renewing its terminal ownership leases, suppresses crash persistence for terminals ending with
+     * the VM, and starts no new work; peers restore its terminals once the leases expire. One-way for the
+     * lifetime of the process; calling it again reports already_draining.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<mrpc_admin.Mt5TermApiAdmin.DrainReply> drain(
+        mrpc_admin.Mt5TermApiAdmin.DrainRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDrainMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * Stops THIS pod's local copy of one terminal (pod-to-pod: user-stop fan-out, duplicate prune, rebalance
+     * migration). Local only: never forwarded to another pod and never persisted to UserTerminals (the caller
+     * records any stop intent). cause is a StopCause name; only customer/API/admin/delete/test stops and
+     * InternalReap are accepted. Callers must check reply.error.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply> stopTerminalLocal(
+        mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getStopTerminalLocalMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ACTIVE_TERMINALS = 0;
@@ -1558,6 +1742,8 @@ public final class AdminApiGrpc {
   private static final int METHODID_GET_SESSION_RESTORE_STATUS = 13;
   private static final int METHODID_KILL_ALL_TRIAL_TERMINALS = 14;
   private static final int METHODID_KILL_ALL_TRIAL_TERMINALS_LOCAL = 15;
+  private static final int METHODID_DRAIN = 16;
+  private static final int METHODID_STOP_TERMINAL_LOCAL = 17;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1640,6 +1826,14 @@ public final class AdminApiGrpc {
           serviceImpl.killAllTrialTerminalsLocal((mrpc_admin.Mt5TermApiAdmin.ActiveTerminalsRequest) request,
               (io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.KillAllTrialTerminalsReply>) responseObserver);
           break;
+        case METHODID_DRAIN:
+          serviceImpl.drain((mrpc_admin.Mt5TermApiAdmin.DrainRequest) request,
+              (io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.DrainReply>) responseObserver);
+          break;
+        case METHODID_STOP_TERMINAL_LOCAL:
+          serviceImpl.stopTerminalLocal((mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest) request,
+              (io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -1717,6 +1911,8 @@ public final class AdminApiGrpc {
               .addMethod(getGetSessionRestoreStatusMethod())
               .addMethod(getKillAllTrialTerminalsMethod())
               .addMethod(getKillAllTrialTerminalsLocalMethod())
+              .addMethod(getDrainMethod())
+              .addMethod(getStopTerminalLocalMethod())
               .build();
         }
       }

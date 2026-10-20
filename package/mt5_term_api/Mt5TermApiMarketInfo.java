@@ -19272,6 +19272,16 @@ public final class Mt5TermApiMarketInfo {
      * @return The value.
      */
     long getValue();
+
+    /**
+     * <pre>
+     * UTC of value when the requested property is a time (SYMBOL_TIME, SYMBOL_TIME_MSC, SYMBOL_START_TIME, SYMBOL_EXPIRATION_TIME); 0 for any other property.
+     * </pre>
+     *
+     * <code>int64 value_utc = 2;</code>
+     * @return The valueUtc.
+     */
+    long getValueUtc();
   }
   /**
    * Protobuf type {@code mt5_term_api.SymbolInfoIntegerData}
@@ -19323,6 +19333,11 @@ public final class Mt5TermApiMarketInfo {
               value_ = input.readInt64();
               break;
             }
+            case 16: {
+
+              valueUtc_ = input.readInt64();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -19372,6 +19387,21 @@ public final class Mt5TermApiMarketInfo {
       return value_;
     }
 
+    public static final int VALUE_UTC_FIELD_NUMBER = 2;
+    private long valueUtc_;
+    /**
+     * <pre>
+     * UTC of value when the requested property is a time (SYMBOL_TIME, SYMBOL_TIME_MSC, SYMBOL_START_TIME, SYMBOL_EXPIRATION_TIME); 0 for any other property.
+     * </pre>
+     *
+     * <code>int64 value_utc = 2;</code>
+     * @return The valueUtc.
+     */
+    @java.lang.Override
+    public long getValueUtc() {
+      return valueUtc_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -19389,6 +19419,9 @@ public final class Mt5TermApiMarketInfo {
       if (value_ != 0L) {
         output.writeInt64(1, value_);
       }
+      if (valueUtc_ != 0L) {
+        output.writeInt64(2, valueUtc_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -19401,6 +19434,10 @@ public final class Mt5TermApiMarketInfo {
       if (value_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, value_);
+      }
+      if (valueUtc_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, valueUtc_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -19419,6 +19456,8 @@ public final class Mt5TermApiMarketInfo {
 
       if (getValue()
           != other.getValue()) return false;
+      if (getValueUtc()
+          != other.getValueUtc()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -19433,6 +19472,9 @@ public final class Mt5TermApiMarketInfo {
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getValue());
+      hash = (37 * hash) + VALUE_UTC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getValueUtc());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -19568,6 +19610,8 @@ public final class Mt5TermApiMarketInfo {
         super.clear();
         value_ = 0L;
 
+        valueUtc_ = 0L;
+
         return this;
       }
 
@@ -19595,6 +19639,7 @@ public final class Mt5TermApiMarketInfo {
       public mt5_term_api.Mt5TermApiMarketInfo.SymbolInfoIntegerData buildPartial() {
         mt5_term_api.Mt5TermApiMarketInfo.SymbolInfoIntegerData result = new mt5_term_api.Mt5TermApiMarketInfo.SymbolInfoIntegerData(this);
         result.value_ = value_;
+        result.valueUtc_ = valueUtc_;
         onBuilt();
         return result;
       }
@@ -19645,6 +19690,9 @@ public final class Mt5TermApiMarketInfo {
         if (other == mt5_term_api.Mt5TermApiMarketInfo.SymbolInfoIntegerData.getDefaultInstance()) return this;
         if (other.getValue() != 0L) {
           setValue(other.getValue());
+        }
+        if (other.getValueUtc() != 0L) {
+          setValueUtc(other.getValueUtc());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -19714,6 +19762,49 @@ public final class Mt5TermApiMarketInfo {
       public Builder clearValue() {
         
         value_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long valueUtc_ ;
+      /**
+       * <pre>
+       * UTC of value when the requested property is a time (SYMBOL_TIME, SYMBOL_TIME_MSC, SYMBOL_START_TIME, SYMBOL_EXPIRATION_TIME); 0 for any other property.
+       * </pre>
+       *
+       * <code>int64 value_utc = 2;</code>
+       * @return The valueUtc.
+       */
+      @java.lang.Override
+      public long getValueUtc() {
+        return valueUtc_;
+      }
+      /**
+       * <pre>
+       * UTC of value when the requested property is a time (SYMBOL_TIME, SYMBOL_TIME_MSC, SYMBOL_START_TIME, SYMBOL_EXPIRATION_TIME); 0 for any other property.
+       * </pre>
+       *
+       * <code>int64 value_utc = 2;</code>
+       * @param value The valueUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValueUtc(long value) {
+        
+        valueUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * UTC of value when the requested property is a time (SYMBOL_TIME, SYMBOL_TIME_MSC, SYMBOL_START_TIME, SYMBOL_EXPIRATION_TIME); 0 for any other property.
+       * </pre>
+       *
+       * <code>int64 value_utc = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValueUtc() {
+        
+        valueUtc_ = 0L;
         onChanged();
         return this;
       }
@@ -25977,6 +26068,16 @@ public final class Mt5TermApiMarketInfo {
 
     /**
      * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>int64 time_utc = 9;</code>
+     * @return The timeUtc.
+     */
+    long getTimeUtc();
+
+    /**
+     * <pre>
      * Current Bid price
      * </pre>
      *
@@ -26024,6 +26125,16 @@ public final class Mt5TermApiMarketInfo {
      * @return The timeMsc.
      */
     long getTimeMsc();
+
+    /**
+     * <pre>
+     * time_msc in UTC (the same moment; time_msc is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>int64 time_msc_utc = 10;</code>
+     * @return The timeMscUtc.
+     */
+    long getTimeMscUtc();
 
     /**
      * <pre>
@@ -26130,6 +26241,16 @@ public final class Mt5TermApiMarketInfo {
               volumeReal_ = input.readDouble();
               break;
             }
+            case 72: {
+
+              timeUtc_ = input.readInt64();
+              break;
+            }
+            case 80: {
+
+              timeMscUtc_ = input.readInt64();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -26177,6 +26298,21 @@ public final class Mt5TermApiMarketInfo {
     @java.lang.Override
     public long getTime() {
       return time_;
+    }
+
+    public static final int TIME_UTC_FIELD_NUMBER = 9;
+    private long timeUtc_;
+    /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>int64 time_utc = 9;</code>
+     * @return The timeUtc.
+     */
+    @java.lang.Override
+    public long getTimeUtc() {
+      return timeUtc_;
     }
 
     public static final int BID_FIELD_NUMBER = 2;
@@ -26254,6 +26390,21 @@ public final class Mt5TermApiMarketInfo {
       return timeMsc_;
     }
 
+    public static final int TIME_MSC_UTC_FIELD_NUMBER = 10;
+    private long timeMscUtc_;
+    /**
+     * <pre>
+     * time_msc in UTC (the same moment; time_msc is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>int64 time_msc_utc = 10;</code>
+     * @return The timeMscUtc.
+     */
+    @java.lang.Override
+    public long getTimeMscUtc() {
+      return timeMscUtc_;
+    }
+
     public static final int FLAGS_FIELD_NUMBER = 7;
     private int flags_;
     /**
@@ -26322,6 +26473,12 @@ public final class Mt5TermApiMarketInfo {
       if (java.lang.Double.doubleToRawLongBits(volumeReal_) != 0) {
         output.writeDouble(8, volumeReal_);
       }
+      if (timeUtc_ != 0L) {
+        output.writeInt64(9, timeUtc_);
+      }
+      if (timeMscUtc_ != 0L) {
+        output.writeInt64(10, timeMscUtc_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -26363,6 +26520,14 @@ public final class Mt5TermApiMarketInfo {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(8, volumeReal_);
       }
+      if (timeUtc_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, timeUtc_);
+      }
+      if (timeMscUtc_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(10, timeMscUtc_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -26380,6 +26545,8 @@ public final class Mt5TermApiMarketInfo {
 
       if (getTime()
           != other.getTime()) return false;
+      if (getTimeUtc()
+          != other.getTimeUtc()) return false;
       if (java.lang.Double.doubleToLongBits(getBid())
           != java.lang.Double.doubleToLongBits(
               other.getBid())) return false;
@@ -26393,6 +26560,8 @@ public final class Mt5TermApiMarketInfo {
           != other.getVolume()) return false;
       if (getTimeMsc()
           != other.getTimeMsc()) return false;
+      if (getTimeMscUtc()
+          != other.getTimeMscUtc()) return false;
       if (getFlags()
           != other.getFlags()) return false;
       if (java.lang.Double.doubleToLongBits(getVolumeReal())
@@ -26412,6 +26581,9 @@ public final class Mt5TermApiMarketInfo {
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTime());
+      hash = (37 * hash) + TIME_UTC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeUtc());
       hash = (37 * hash) + BID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getBid()));
@@ -26427,6 +26599,9 @@ public final class Mt5TermApiMarketInfo {
       hash = (37 * hash) + TIME_MSC_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimeMsc());
+      hash = (37 * hash) + TIME_MSC_UTC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeMscUtc());
       hash = (37 * hash) + FLAGS_FIELD_NUMBER;
       hash = (53 * hash) + getFlags();
       hash = (37 * hash) + VOLUME_REAL_FIELD_NUMBER;
@@ -26567,6 +26742,8 @@ public final class Mt5TermApiMarketInfo {
         super.clear();
         time_ = 0L;
 
+        timeUtc_ = 0L;
+
         bid_ = 0D;
 
         ask_ = 0D;
@@ -26576,6 +26753,8 @@ public final class Mt5TermApiMarketInfo {
         volume_ = 0L;
 
         timeMsc_ = 0L;
+
+        timeMscUtc_ = 0L;
 
         flags_ = 0;
 
@@ -26608,11 +26787,13 @@ public final class Mt5TermApiMarketInfo {
       public mt5_term_api.Mt5TermApiMarketInfo.MrpcMqlTick buildPartial() {
         mt5_term_api.Mt5TermApiMarketInfo.MrpcMqlTick result = new mt5_term_api.Mt5TermApiMarketInfo.MrpcMqlTick(this);
         result.time_ = time_;
+        result.timeUtc_ = timeUtc_;
         result.bid_ = bid_;
         result.ask_ = ask_;
         result.last_ = last_;
         result.volume_ = volume_;
         result.timeMsc_ = timeMsc_;
+        result.timeMscUtc_ = timeMscUtc_;
         result.flags_ = flags_;
         result.volumeReal_ = volumeReal_;
         onBuilt();
@@ -26666,6 +26847,9 @@ public final class Mt5TermApiMarketInfo {
         if (other.getTime() != 0L) {
           setTime(other.getTime());
         }
+        if (other.getTimeUtc() != 0L) {
+          setTimeUtc(other.getTimeUtc());
+        }
         if (other.getBid() != 0D) {
           setBid(other.getBid());
         }
@@ -26680,6 +26864,9 @@ public final class Mt5TermApiMarketInfo {
         }
         if (other.getTimeMsc() != 0L) {
           setTimeMsc(other.getTimeMsc());
+        }
+        if (other.getTimeMscUtc() != 0L) {
+          setTimeMscUtc(other.getTimeMscUtc());
         }
         if (other.getFlags() != 0) {
           setFlags(other.getFlags());
@@ -26755,6 +26942,49 @@ public final class Mt5TermApiMarketInfo {
       public Builder clearTime() {
         
         time_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long timeUtc_ ;
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_utc = 9;</code>
+       * @return The timeUtc.
+       */
+      @java.lang.Override
+      public long getTimeUtc() {
+        return timeUtc_;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_utc = 9;</code>
+       * @param value The timeUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeUtc(long value) {
+        
+        timeUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_utc = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeUtc() {
+        
+        timeUtc_ = 0L;
         onChanged();
         return this;
       }
@@ -26970,6 +27200,49 @@ public final class Mt5TermApiMarketInfo {
       public Builder clearTimeMsc() {
         
         timeMsc_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long timeMscUtc_ ;
+      /**
+       * <pre>
+       * time_msc in UTC (the same moment; time_msc is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_msc_utc = 10;</code>
+       * @return The timeMscUtc.
+       */
+      @java.lang.Override
+      public long getTimeMscUtc() {
+        return timeMscUtc_;
+      }
+      /**
+       * <pre>
+       * time_msc in UTC (the same moment; time_msc is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_msc_utc = 10;</code>
+       * @param value The timeMscUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeMscUtc(long value) {
+        
+        timeMscUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * time_msc in UTC (the same moment; time_msc is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_msc_utc = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeMscUtc() {
+        
+        timeMscUtc_ = 0L;
         onChanged();
         return this;
       }
@@ -40012,10 +40285,30 @@ public final class Mt5TermApiMarketInfo {
     long getFromTime();
 
     /**
+     * <pre>
+     * from_time in UTC: send either from_time or from_time_utc, not both.
+     * </pre>
+     *
+     * <code>int64 from_time_utc = 6;</code>
+     * @return The fromTimeUtc.
+     */
+    long getFromTimeUtc();
+
+    /**
      * <code>int64 to_time = 4;</code>
      * @return The toTime.
      */
     long getToTime();
+
+    /**
+     * <pre>
+     * to_time in UTC: send either to_time or to_time_utc, not both.
+     * </pre>
+     *
+     * <code>int64 to_time_utc = 7;</code>
+     * @return The toTimeUtc.
+     */
+    long getToTimeUtc();
 
     /**
      * <pre>
@@ -40098,6 +40391,16 @@ public final class Mt5TermApiMarketInfo {
             case 40: {
 
               maxBars_ = input.readInt32();
+              break;
+            }
+            case 48: {
+
+              fromTimeUtc_ = input.readInt64();
+              break;
+            }
+            case 56: {
+
+              toTimeUtc_ = input.readInt64();
               break;
             }
             default: {
@@ -40211,6 +40514,21 @@ public final class Mt5TermApiMarketInfo {
       return fromTime_;
     }
 
+    public static final int FROM_TIME_UTC_FIELD_NUMBER = 6;
+    private long fromTimeUtc_;
+    /**
+     * <pre>
+     * from_time in UTC: send either from_time or from_time_utc, not both.
+     * </pre>
+     *
+     * <code>int64 from_time_utc = 6;</code>
+     * @return The fromTimeUtc.
+     */
+    @java.lang.Override
+    public long getFromTimeUtc() {
+      return fromTimeUtc_;
+    }
+
     public static final int TO_TIME_FIELD_NUMBER = 4;
     private long toTime_;
     /**
@@ -40220,6 +40538,21 @@ public final class Mt5TermApiMarketInfo {
     @java.lang.Override
     public long getToTime() {
       return toTime_;
+    }
+
+    public static final int TO_TIME_UTC_FIELD_NUMBER = 7;
+    private long toTimeUtc_;
+    /**
+     * <pre>
+     * to_time in UTC: send either to_time or to_time_utc, not both.
+     * </pre>
+     *
+     * <code>int64 to_time_utc = 7;</code>
+     * @return The toTimeUtc.
+     */
+    @java.lang.Override
+    public long getToTimeUtc() {
+      return toTimeUtc_;
     }
 
     public static final int MAX_BARS_FIELD_NUMBER = 5;
@@ -40267,6 +40600,12 @@ public final class Mt5TermApiMarketInfo {
       if (maxBars_ != 0) {
         output.writeInt32(5, maxBars_);
       }
+      if (fromTimeUtc_ != 0L) {
+        output.writeInt64(6, fromTimeUtc_);
+      }
+      if (toTimeUtc_ != 0L) {
+        output.writeInt64(7, toTimeUtc_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -40295,6 +40634,14 @@ public final class Mt5TermApiMarketInfo {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, maxBars_);
       }
+      if (fromTimeUtc_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, fromTimeUtc_);
+      }
+      if (toTimeUtc_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, toTimeUtc_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -40316,8 +40663,12 @@ public final class Mt5TermApiMarketInfo {
           != other.getTimeframe()) return false;
       if (getFromTime()
           != other.getFromTime()) return false;
+      if (getFromTimeUtc()
+          != other.getFromTimeUtc()) return false;
       if (getToTime()
           != other.getToTime()) return false;
+      if (getToTimeUtc()
+          != other.getToTimeUtc()) return false;
       if (getMaxBars()
           != other.getMaxBars()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -40338,9 +40689,15 @@ public final class Mt5TermApiMarketInfo {
       hash = (37 * hash) + FROM_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getFromTime());
+      hash = (37 * hash) + FROM_TIME_UTC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFromTimeUtc());
       hash = (37 * hash) + TO_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getToTime());
+      hash = (37 * hash) + TO_TIME_UTC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getToTimeUtc());
       hash = (37 * hash) + MAX_BARS_FIELD_NUMBER;
       hash = (53 * hash) + getMaxBars();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -40482,7 +40839,11 @@ public final class Mt5TermApiMarketInfo {
 
         fromTime_ = 0L;
 
+        fromTimeUtc_ = 0L;
+
         toTime_ = 0L;
+
+        toTimeUtc_ = 0L;
 
         maxBars_ = 0;
 
@@ -40515,7 +40876,9 @@ public final class Mt5TermApiMarketInfo {
         result.symbol_ = symbol_;
         result.timeframe_ = timeframe_;
         result.fromTime_ = fromTime_;
+        result.fromTimeUtc_ = fromTimeUtc_;
         result.toTime_ = toTime_;
+        result.toTimeUtc_ = toTimeUtc_;
         result.maxBars_ = maxBars_;
         onBuilt();
         return result;
@@ -40575,8 +40938,14 @@ public final class Mt5TermApiMarketInfo {
         if (other.getFromTime() != 0L) {
           setFromTime(other.getFromTime());
         }
+        if (other.getFromTimeUtc() != 0L) {
+          setFromTimeUtc(other.getFromTimeUtc());
+        }
         if (other.getToTime() != 0L) {
           setToTime(other.getToTime());
+        }
+        if (other.getToTimeUtc() != 0L) {
+          setToTimeUtc(other.getToTimeUtc());
         }
         if (other.getMaxBars() != 0) {
           setMaxBars(other.getMaxBars());
@@ -40795,6 +41164,49 @@ public final class Mt5TermApiMarketInfo {
         return this;
       }
 
+      private long fromTimeUtc_ ;
+      /**
+       * <pre>
+       * from_time in UTC: send either from_time or from_time_utc, not both.
+       * </pre>
+       *
+       * <code>int64 from_time_utc = 6;</code>
+       * @return The fromTimeUtc.
+       */
+      @java.lang.Override
+      public long getFromTimeUtc() {
+        return fromTimeUtc_;
+      }
+      /**
+       * <pre>
+       * from_time in UTC: send either from_time or from_time_utc, not both.
+       * </pre>
+       *
+       * <code>int64 from_time_utc = 6;</code>
+       * @param value The fromTimeUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromTimeUtc(long value) {
+        
+        fromTimeUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * from_time in UTC: send either from_time or from_time_utc, not both.
+       * </pre>
+       *
+       * <code>int64 from_time_utc = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFromTimeUtc() {
+        
+        fromTimeUtc_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private long toTime_ ;
       /**
        * <code>int64 to_time = 4;</code>
@@ -40822,6 +41234,49 @@ public final class Mt5TermApiMarketInfo {
       public Builder clearToTime() {
         
         toTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long toTimeUtc_ ;
+      /**
+       * <pre>
+       * to_time in UTC: send either to_time or to_time_utc, not both.
+       * </pre>
+       *
+       * <code>int64 to_time_utc = 7;</code>
+       * @return The toTimeUtc.
+       */
+      @java.lang.Override
+      public long getToTimeUtc() {
+        return toTimeUtc_;
+      }
+      /**
+       * <pre>
+       * to_time in UTC: send either to_time or to_time_utc, not both.
+       * </pre>
+       *
+       * <code>int64 to_time_utc = 7;</code>
+       * @param value The toTimeUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToTimeUtc(long value) {
+        
+        toTimeUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * to_time in UTC: send either to_time or to_time_utc, not both.
+       * </pre>
+       *
+       * <code>int64 to_time_utc = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToTimeUtc() {
+        
+        toTimeUtc_ = 0L;
         onChanged();
         return this;
       }
@@ -42685,6 +43140,16 @@ public final class Mt5TermApiMarketInfo {
     long getTime();
 
     /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>int64 time_utc = 9;</code>
+     * @return The timeUtc.
+     */
+    long getTimeUtc();
+
+    /**
      * <code>double open = 2;</code>
      * @return The open.
      */
@@ -42815,6 +43280,11 @@ public final class Mt5TermApiMarketInfo {
               realVolume_ = input.readInt64();
               break;
             }
+            case 72: {
+
+              timeUtc_ = input.readInt64();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -42862,6 +43332,21 @@ public final class Mt5TermApiMarketInfo {
     @java.lang.Override
     public long getTime() {
       return time_;
+    }
+
+    public static final int TIME_UTC_FIELD_NUMBER = 9;
+    private long timeUtc_;
+    /**
+     * <pre>
+     * time in UTC (the same moment; time is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>int64 time_utc = 9;</code>
+     * @return The timeUtc.
+     */
+    @java.lang.Override
+    public long getTimeUtc() {
+      return timeUtc_;
     }
 
     public static final int OPEN_FIELD_NUMBER = 2;
@@ -42979,6 +43464,9 @@ public final class Mt5TermApiMarketInfo {
       if (realVolume_ != 0L) {
         output.writeInt64(8, realVolume_);
       }
+      if (timeUtc_ != 0L) {
+        output.writeInt64(9, timeUtc_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -43020,6 +43508,10 @@ public final class Mt5TermApiMarketInfo {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(8, realVolume_);
       }
+      if (timeUtc_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, timeUtc_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -43037,6 +43529,8 @@ public final class Mt5TermApiMarketInfo {
 
       if (getTime()
           != other.getTime()) return false;
+      if (getTimeUtc()
+          != other.getTimeUtc()) return false;
       if (java.lang.Double.doubleToLongBits(getOpen())
           != java.lang.Double.doubleToLongBits(
               other.getOpen())) return false;
@@ -43069,6 +43563,9 @@ public final class Mt5TermApiMarketInfo {
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTime());
+      hash = (37 * hash) + TIME_UTC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeUtc());
       hash = (37 * hash) + OPEN_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getOpen()));
@@ -43228,6 +43725,8 @@ public final class Mt5TermApiMarketInfo {
         super.clear();
         time_ = 0L;
 
+        timeUtc_ = 0L;
+
         open_ = 0D;
 
         high_ = 0D;
@@ -43269,6 +43768,7 @@ public final class Mt5TermApiMarketInfo {
       public mt5_term_api.Mt5TermApiMarketInfo.PriceBar buildPartial() {
         mt5_term_api.Mt5TermApiMarketInfo.PriceBar result = new mt5_term_api.Mt5TermApiMarketInfo.PriceBar(this);
         result.time_ = time_;
+        result.timeUtc_ = timeUtc_;
         result.open_ = open_;
         result.high_ = high_;
         result.low_ = low_;
@@ -43326,6 +43826,9 @@ public final class Mt5TermApiMarketInfo {
         if (other == mt5_term_api.Mt5TermApiMarketInfo.PriceBar.getDefaultInstance()) return this;
         if (other.getTime() != 0L) {
           setTime(other.getTime());
+        }
+        if (other.getTimeUtc() != 0L) {
+          setTimeUtc(other.getTimeUtc());
         }
         if (other.getOpen() != 0D) {
           setOpen(other.getOpen());
@@ -43416,6 +43919,49 @@ public final class Mt5TermApiMarketInfo {
       public Builder clearTime() {
         
         time_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long timeUtc_ ;
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_utc = 9;</code>
+       * @return The timeUtc.
+       */
+      @java.lang.Override
+      public long getTimeUtc() {
+        return timeUtc_;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_utc = 9;</code>
+       * @param value The timeUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeUtc(long value) {
+        
+        timeUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * time in UTC (the same moment; time is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 time_utc = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeUtc() {
+        
+        timeUtc_ = 0L;
         onChanged();
         return this;
       }
@@ -44008,217 +44554,220 @@ public final class Mt5TermApiMarketInfo {
       "i.SymbolInfoIntegerProperty\"\177\n\026SymbolInf" +
       "oIntegerReply\0223\n\004data\030\001 \001(\0132#.mt5_term_a" +
       "pi.SymbolInfoIntegerDataH\000\022$\n\005error\030\002 \001(" +
-      "\0132\023.mt5_term_api.ErrorH\000B\n\n\010response\"&\n\025" +
-      "SymbolInfoIntegerData\022\r\n\005value\030\001 \001(\003\"_\n\027" +
-      "SymbolInfoStringRequest\022\016\n\006symbol\030\001 \001(\t\022" +
-      "4\n\004type\030\002 \001(\0162&.mt5_term_api.SymbolInfoS" +
-      "tringProperty\"}\n\025SymbolInfoStringReply\0222" +
-      "\n\004data\030\001 \001(\0132\".mt5_term_api.SymbolInfoSt" +
-      "ringDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api" +
-      ".ErrorH\000B\n\n\010response\"%\n\024SymbolInfoString" +
-      "Data\022\r\n\005value\030\001 \001(\t\"`\n\033SymbolInfoMarginR" +
-      "ateRequest\022\016\n\006symbol\030\001 \001(\t\0221\n\norder_type" +
-      "\030\002 \001(\0162\035.mt5_term_api.ENUM_ORDER_TYPE\"\205\001" +
-      "\n\031SymbolInfoMarginRateReply\0226\n\004data\030\001 \001(" +
-      "\0132&.mt5_term_api.SymbolInfoMarginRateDat" +
-      "aH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH" +
-      "\000B\n\n\010response\"X\n\030SymbolInfoMarginRateDat" +
-      "a\022\037\n\027maintenance_margin_rate\030\001 \001(\001\022\033\n\023in" +
-      "itial_margin_rate\030\002 \001(\001\"\'\n\025SymbolInfoTic" +
-      "kRequest\022\016\n\006symbol\030\001 \001(\t\"y\n\032SymbolInfoTi" +
-      "ckRequestReply\022)\n\004data\030\001 \001(\0132\031.mt5_term_" +
-      "api.MrpcMqlTickH\000\022$\n\005error\030\002 \001(\0132\023.mt5_t" +
-      "erm_api.ErrorH\000B\n\n\010response\"\211\001\n\013MrpcMqlT" +
-      "ick\022\014\n\004time\030\001 \001(\003\022\013\n\003bid\030\002 \001(\001\022\013\n\003ask\030\003 " +
-      "\001(\001\022\014\n\004last\030\004 \001(\001\022\016\n\006volume\030\005 \001(\004\022\020\n\010tim" +
-      "e_msc\030\006 \001(\003\022\r\n\005flags\030\007 \001(\r\022\023\n\013volume_rea" +
-      "l\030\010 \001(\001\"t\n\035SymbolInfoSessionQuoteRequest" +
-      "\022\016\n\006symbol\030\001 \001(\t\022,\n\013day_of_week\030\002 \001(\0162\027." +
-      "mt5_term_api.DayOfWeek\022\025\n\rsession_index\030" +
-      "\003 \001(\r\"\211\001\n\033SymbolInfoSessionQuoteReply\0228\n" +
-      "\004data\030\001 \001(\0132(.mt5_term_api.SymbolInfoSes" +
-      "sionQuoteDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_ter" +
-      "m_api.ErrorH\000B\n\n\010response\"n\n\032SymbolInfoS" +
-      "essionQuoteData\022(\n\004from\030\001 \001(\0132\032.google.p" +
-      "rotobuf.Timestamp\022&\n\002to\030\002 \001(\0132\032.google.p" +
-      "rotobuf.Timestamp\"t\n\035SymbolInfoSessionTr" +
-      "adeRequest\022\016\n\006symbol\030\001 \001(\t\022,\n\013day_of_wee" +
-      "k\030\002 \001(\0162\027.mt5_term_api.DayOfWeek\022\025\n\rsess" +
-      "ion_index\030\003 \001(\r\"\211\001\n\033SymbolInfoSessionTra" +
-      "deReply\0228\n\004data\030\001 \001(\0132(.mt5_term_api.Sym" +
-      "bolInfoSessionTradeDataH\000\022$\n\005error\030\002 \001(\013" +
-      "2\023.mt5_term_api.ErrorH\000B\n\n\010response\"n\n\032S" +
-      "ymbolInfoSessionTradeData\022(\n\004from\030\001 \001(\0132" +
-      "\032.google.protobuf.Timestamp\022&\n\002to\030\002 \001(\0132" +
-      "\032.google.protobuf.Timestamp\"&\n\024MarketBoo" +
-      "kAddRequest\022\016\n\006symbol\030\001 \001(\t\"w\n\022MarketBoo" +
-      "kAddReply\022/\n\004data\030\001 \001(\0132\037.mt5_term_api.M" +
-      "arketBookAddDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_" +
-      "term_api.ErrorH\000B\n\n\010response\"0\n\021MarketBo" +
-      "okAddData\022\033\n\023opened_successfully\030\001 \001(\010\"*" +
-      "\n\030MarketBookReleaseRequest\022\016\n\006symbol\030\001 \001" +
-      "(\t\"\177\n\026MarketBookReleaseReply\0223\n\004data\030\001 \001" +
-      "(\0132#.mt5_term_api.MarketBookReleaseDataH" +
-      "\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B" +
-      "\n\n\010response\"4\n\025MarketBookReleaseData\022\033\n\023" +
-      "closed_successfully\030\001 \001(\010\"&\n\024MarketBookG" +
-      "etRequest\022\016\n\006symbol\030\001 \001(\t\"w\n\022MarketBookG" +
-      "etReply\022/\n\004data\030\001 \001(\0132\037.mt5_term_api.Mar" +
-      "ketBookGetDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_te" +
-      "rm_api.ErrorH\000B\n\n\010response\"J\n\021MarketBook" +
-      "GetData\0225\n\016mql_book_infos\030\001 \003(\0132\035.mt5_te" +
-      "rm_api.MrpcMqlBookInfo\"k\n\017MrpcMqlBookInf" +
-      "o\022$\n\004type\030\001 \001(\0162\026.mt5_term_api.BookType\022" +
-      "\r\n\005price\030\002 \001(\001\022\016\n\006volume\030\003 \001(\003\022\023\n\013volume" +
-      "_real\030\004 \001(\001\"n\n\023PriceHistoryRequest\022\016\n\006sy" +
-      "mbol\030\001 \001(\t\022\021\n\ttimeframe\030\002 \001(\005\022\021\n\tfrom_ti" +
-      "me\030\003 \001(\003\022\017\n\007to_time\030\004 \001(\003\022\020\n\010max_bars\030\005 " +
-      "\001(\005\"u\n\021PriceHistoryReply\022.\n\004data\030\001 \001(\0132\036" +
-      ".mt5_term_api.PriceHistoryDataH\000\022$\n\005erro" +
-      "r\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010respon" +
-      "se\"8\n\020PriceHistoryData\022$\n\004bars\030\001 \003(\0132\026.m" +
-      "t5_term_api.PriceBar\"\212\001\n\010PriceBar\022\014\n\004tim" +
-      "e\030\001 \001(\003\022\014\n\004open\030\002 \001(\001\022\014\n\004high\030\003 \001(\001\022\013\n\003l" +
-      "ow\030\004 \001(\001\022\r\n\005close\030\005 \001(\001\022\023\n\013tick_volume\030\006" +
-      " \001(\003\022\016\n\006spread\030\007 \001(\005\022\023\n\013real_volume\030\010 \001(" +
-      "\003*\267\014\n\030SymbolInfoDoubleProperty\022\016\n\nSYMBOL" +
-      "_BID\020\000\022\022\n\016SYMBOL_BIDHIGH\020\001\022\021\n\rSYMBOL_BID" +
-      "LOW\020\002\022\016\n\nSYMBOL_ASK\020\003\022\022\n\016SYMBOL_ASKHIGH\020" +
-      "\004\022\021\n\rSYMBOL_ASKLOW\020\005\022\017\n\013SYMBOL_LAST\020\006\022\023\n" +
-      "\017SYMBOL_LASTHIGH\020\007\022\022\n\016SYMBOL_LASTLOW\020\010\022\026" +
-      "\n\022SYMBOL_VOLUME_REAL\020\t\022\032\n\026SYMBOL_VOLUMEH" +
-      "IGH_REAL\020\n\022\031\n\025SYMBOL_VOLUMELOW_REAL\020\013\022\030\n" +
-      "\024SYMBOL_OPTION_STRIKE\020\014\022\020\n\014SYMBOL_POINT\020" +
-      "\r\022\033\n\027SYMBOL_TRADE_TICK_VALUE\020\016\022\"\n\036SYMBOL" +
-      "_TRADE_TICK_VALUE_PROFIT\020\017\022 \n\034SYMBOL_TRA" +
-      "DE_TICK_VALUE_LOSS\020\020\022\032\n\026SYMBOL_TRADE_TIC" +
-      "K_SIZE\020\021\022\036\n\032SYMBOL_TRADE_CONTRACT_SIZE\020\022" +
-      "\022!\n\035SYMBOL_TRADE_ACCRUED_INTEREST\020\023\022\033\n\027S" +
-      "YMBOL_TRADE_FACE_VALUE\020\024\022\037\n\033SYMBOL_TRADE" +
-      "_LIQUIDITY_RATE\020\025\022\025\n\021SYMBOL_VOLUME_MIN\020\026" +
-      "\022\025\n\021SYMBOL_VOLUME_MAX\020\027\022\026\n\022SYMBOL_VOLUME" +
-      "_STEP\020\030\022\027\n\023SYMBOL_VOLUME_LIMIT\020\031\022\024\n\020SYMB" +
-      "OL_SWAP_LONG\020\032\022\025\n\021SYMBOL_SWAP_SHORT\020\033\022\026\n" +
-      "\022SYMBOL_SWAP_SUNDAY\020\034\022\026\n\022SYMBOL_SWAP_MON" +
-      "DAY\020\035\022\027\n\023SYMBOL_SWAP_TUESDAY\020\036\022\031\n\025SYMBOL" +
-      "_SWAP_WEDNESDAY\020\037\022\030\n\024SYMBOL_SWAP_THURSDA" +
-      "Y\020 \022\026\n\022SYMBOL_SWAP_FRIDAY\020!\022\030\n\024SYMBOL_SW" +
-      "AP_SATURDAY\020\"\022\031\n\025SYMBOL_MARGIN_INITIAL\020#" +
-      "\022\035\n\031SYMBOL_MARGIN_MAINTENANCE\020$\022\031\n\025SYMBO" +
-      "L_SESSION_VOLUME\020%\022\033\n\027SYMBOL_SESSION_TUR" +
-      "NOVER\020&\022\033\n\027SYMBOL_SESSION_INTEREST\020\'\022$\n " +
-      "SYMBOL_SESSION_BUY_ORDERS_VOLUME\020(\022%\n!SY" +
-      "MBOL_SESSION_SELL_ORDERS_VOLUME\020)\022\027\n\023SYM" +
-      "BOL_SESSION_OPEN\020*\022\030\n\024SYMBOL_SESSION_CLO" +
-      "SE\020+\022\025\n\021SYMBOL_SESSION_AW\020,\022#\n\037SYMBOL_SE" +
-      "SSION_PRICE_SETTLEMENT\020-\022\"\n\036SYMBOL_SESSI" +
-      "ON_PRICE_LIMIT_MIN\020.\022\"\n\036SYMBOL_SESSION_P" +
-      "RICE_LIMIT_MAX\020/\022\030\n\024SYMBOL_MARGIN_HEDGED" +
-      "\0200\022\027\n\023SYMBOL_PRICE_CHANGE\0201\022\033\n\027SYMBOL_PR" +
-      "ICE_VOLATILITY\0202\022\034\n\030SYMBOL_PRICE_THEORET" +
-      "ICAL\0203\022\026\n\022SYMBOL_PRICE_DELTA\0204\022\026\n\022SYMBOL" +
-      "_PRICE_THETA\0205\022\026\n\022SYMBOL_PRICE_GAMMA\0206\022\025" +
-      "\n\021SYMBOL_PRICE_VEGA\0207\022\024\n\020SYMBOL_PRICE_RH" +
-      "O\0208\022\026\n\022SYMBOL_PRICE_OMEGA\0209\022\034\n\030SYMBOL_PR" +
-      "ICE_SENSITIVITY\020:\022\020\n\014SYMBOL_COUNT\020;*\250\007\n\031" +
-      "SymbolInfoIntegerProperty\022\035\n\031SYMBOL_SUBS" +
-      "CRIPTION_DELAY\020\000\022\021\n\rSYMBOL_SECTOR\020\001\022\023\n\017S" +
-      "YMBOL_INDUSTRY\020\002\022\021\n\rSYMBOL_CUSTOM\020\003\022\033\n\027S" +
-      "YMBOL_BACKGROUND_COLOR\020\004\022\025\n\021SYMBOL_CHART" +
-      "_MODE\020\005\022\020\n\014SYMBOL_EXIST\020\006\022\021\n\rSYMBOL_SELE" +
-      "CT\020\007\022\022\n\016SYMBOL_VISIBLE\020\010\022\030\n\024SYMBOL_SESSI" +
-      "ON_DEALS\020\t\022\035\n\031SYMBOL_SESSION_BUY_ORDERS\020" +
-      "\n\022\036\n\032SYMBOL_SESSION_SELL_ORDERS\020\013\022\021\n\rSYM" +
-      "BOL_VOLUME\020\014\022\025\n\021SYMBOL_VOLUMEHIGH\020\r\022\024\n\020S" +
-      "YMBOL_VOLUMELOW\020\016\022\017\n\013SYMBOL_TIME\020\017\022\023\n\017SY" +
-      "MBOL_TIME_MSC\020\020\022\021\n\rSYMBOL_DIGITS\020\021\022\027\n\023SY" +
-      "MBOL_SPREAD_FLOAT\020\022\022\021\n\rSYMBOL_SPREAD\020\023\022\032" +
-      "\n\026SYMBOL_TICKS_BOOKDEPTH\020\024\022\032\n\026SYMBOL_TRA" +
-      "DE_CALC_MODE\020\025\022\025\n\021SYMBOL_TRADE_MODE\020\026\022\025\n" +
-      "\021SYMBOL_START_TIME\020\027\022\032\n\026SYMBOL_EXPIRATIO" +
-      "N_TIME\020\030\022\034\n\030SYMBOL_TRADE_STOPS_LEVEL\020\031\022\035" +
-      "\n\031SYMBOL_TRADE_FREEZE_LEVEL\020\032\022\030\n\024SYMBOL_" +
-      "TRADE_EXEMODE\020\033\022\024\n\020SYMBOL_SWAP_MODE\020\034\022\035\n" +
-      "\031SYMBOL_SWAP_ROLLOVER3DAYS\020\035\022 \n\034SYMBOL_M" +
-      "ARGIN_HEDGED_USE_LEG\020\036\022\032\n\026SYMBOL_EXPIRAT" +
-      "ION_MODE\020\037\022\027\n\023SYMBOL_FILLING_MODE\020 \022\025\n\021S" +
-      "YMBOL_ORDER_MODE\020!\022\031\n\025SYMBOL_ORDER_GTC_M" +
-      "ODE\020\"\022\026\n\022SYMBOL_OPTION_MODE\020#\022\027\n\023SYMBOL_" +
-      "OPTION_RIGHT\020$*\336\002\n\030SymbolInfoStringPrope" +
-      "rty\022\020\n\014SYMBOL_BASIS\020\000\022\023\n\017SYMBOL_CATEGORY" +
-      "\020\001\022\022\n\016SYMBOL_COUNTRY\020\002\022\026\n\022SYMBOL_SECTOR_" +
-      "NAME\020\003\022\030\n\024SYMBOL_INDUSTRY_NAME\020\004\022\030\n\024SYMB" +
-      "OL_CURRENCY_BASE\020\005\022\032\n\026SYMBOL_CURRENCY_PR" +
-      "OFIT\020\006\022\032\n\026SYMBOL_CURRENCY_MARGIN\020\007\022\017\n\013SY" +
-      "MBOL_BANK\020\010\022\026\n\022SYMBOL_DESCRIPTION\020\t\022\023\n\017S" +
-      "YMBOL_EXCHANGE\020\n\022\022\n\016SYMBOL_FORMULA\020\013\022\017\n\013" +
-      "SYMBOL_ISIN\020\014\022\017\n\013SYMBOL_PAGE\020\r\022\017\n\013SYMBOL" +
-      "_PATH\020\016*\372\001\n\017ENUM_ORDER_TYPE\022\022\n\016ORDER_TYP" +
-      "E_BUY\020\000\022\023\n\017ORDER_TYPE_SELL\020\001\022\030\n\024ORDER_TY" +
-      "PE_BUY_LIMIT\020\002\022\031\n\025ORDER_TYPE_SELL_LIMIT\020" +
-      "\003\022\027\n\023ORDER_TYPE_BUY_STOP\020\004\022\030\n\024ORDER_TYPE" +
-      "_SELL_STOP\020\005\022\035\n\031ORDER_TYPE_BUY_STOP_LIMI" +
-      "T\020\006\022\036\n\032ORDER_TYPE_SELL_STOP_LIMIT\020\007\022\027\n\023O" +
-      "RDER_TYPE_CLOSE_BY\020\010*g\n\tDayOfWeek\022\n\n\006SUN" +
-      "DAY\020\000\022\n\n\006MONDAY\020\001\022\013\n\007TUESDAY\020\002\022\r\n\tWEDNES" +
-      "DAY\020\003\022\014\n\010THURSDAY\020\004\022\n\n\006FRIDAY\020\005\022\014\n\010SATUR" +
-      "DAY\020\006*f\n\010BookType\022\022\n\016BOOK_TYPE_SELL\020\000\022\021\n" +
-      "\rBOOK_TYPE_BUY\020\001\022\031\n\025BOOK_TYPE_SELL_MARKE" +
-      "T\020\002\022\030\n\024BOOK_TYPE_BUY_MARKET\020\0032\206\020\n\nMarket" +
-      "Info\022i\n\014SymbolsTotal\022!.mt5_term_api.Symb" +
-      "olsTotalRequest\032\037.mt5_term_api.SymbolsTo" +
-      "talReply\"\025\202\323\344\223\002\017\022\r/SymbolsTotal\022e\n\013Symbo" +
-      "lExist\022 .mt5_term_api.SymbolExistRequest" +
-      "\032\036.mt5_term_api.SymbolExistReply\"\024\202\323\344\223\002\016" +
-      "\022\014/SymbolExist\022a\n\nSymbolName\022\037.mt5_term_" +
-      "api.SymbolNameRequest\032\035.mt5_term_api.Sym" +
-      "bolNameReply\"\023\202\323\344\223\002\r\022\013/SymbolName\022i\n\014Sym" +
-      "bolSelect\022!.mt5_term_api.SymbolSelectReq" +
-      "uest\032\037.mt5_term_api.SymbolSelectReply\"\025\202" +
-      "\323\344\223\002\017\022\r/SymbolSelect\022\211\001\n\024SymbolIsSynchro" +
-      "nized\022).mt5_term_api.SymbolIsSynchronize" +
-      "dRequest\032\'.mt5_term_api.SymbolIsSynchron" +
-      "izedReply\"\035\202\323\344\223\002\027\022\025/SymbolIsSynchronized" +
-      "\022y\n\020SymbolInfoDouble\022%.mt5_term_api.Symb" +
-      "olInfoDoubleRequest\032#.mt5_term_api.Symbo" +
-      "lInfoDoubleReply\"\031\202\323\344\223\002\023\022\021/SymbolInfoDou" +
-      "ble\022}\n\021SymbolInfoInteger\022&.mt5_term_api." +
-      "SymbolInfoIntegerRequest\032$.mt5_term_api." +
-      "SymbolInfoIntegerReply\"\032\202\323\344\223\002\024\022\022/SymbolI" +
-      "nfoInteger\022y\n\020SymbolInfoString\022%.mt5_ter" +
-      "m_api.SymbolInfoStringRequest\032#.mt5_term" +
-      "_api.SymbolInfoStringReply\"\031\202\323\344\223\002\023\022\021/Sym" +
-      "bolInfoString\022\211\001\n\024SymbolInfoMarginRate\022)" +
-      ".mt5_term_api.SymbolInfoMarginRateReques" +
-      "t\032\'.mt5_term_api.SymbolInfoMarginRateRep" +
-      "ly\"\035\202\323\344\223\002\027\022\025/SymbolInfoMarginRate\022x\n\016Sym" +
-      "bolInfoTick\022#.mt5_term_api.SymbolInfoTic" +
-      "kRequest\032(.mt5_term_api.SymbolInfoTickRe" +
-      "questReply\"\027\202\323\344\223\002\021\022\017/SymbolInfoTick\022\221\001\n\026" +
-      "SymbolInfoSessionQuote\022+.mt5_term_api.Sy" +
-      "mbolInfoSessionQuoteRequest\032).mt5_term_a" +
-      "pi.SymbolInfoSessionQuoteReply\"\037\202\323\344\223\002\031\022\027" +
-      "/SymbolInfoSessionQuote\022\221\001\n\026SymbolInfoSe" +
-      "ssionTrade\022+.mt5_term_api.SymbolInfoSess" +
-      "ionTradeRequest\032).mt5_term_api.SymbolInf" +
-      "oSessionTradeReply\"\037\202\323\344\223\002\031\022\027/SymbolInfoS" +
-      "essionTrade\022m\n\rMarketBookAdd\022\".mt5_term_" +
-      "api.MarketBookAddRequest\032 .mt5_term_api." +
-      "MarketBookAddReply\"\026\202\323\344\223\002\020\022\016/MarketBookA" +
-      "dd\022}\n\021MarketBookRelease\022&.mt5_term_api.M" +
-      "arketBookReleaseRequest\032$.mt5_term_api.M" +
-      "arketBookReleaseReply\"\032\202\323\344\223\002\024\022\022/MarketBo" +
-      "okRelease\022m\n\rMarketBookGet\022\".mt5_term_ap" +
-      "i.MarketBookGetRequest\032 .mt5_term_api.Ma" +
-      "rketBookGetReply\"\026\202\323\344\223\002\020\022\016/MarketBookGet" +
-      "\022a\n\nSymbolList\022\037.mt5_term_api.SymbolList" +
-      "Request\032\035.mt5_term_api.SymbolListReply\"\023" +
-      "\202\323\344\223\002\r\022\013/SymbolList\022i\n\014PriceHistory\022!.mt" +
-      "5_term_api.PriceHistoryRequest\032\037.mt5_ter" +
-      "m_api.PriceHistoryReply\"\025\202\323\344\223\002\017\022\r/PriceH" +
-      "istoryBBZ1git.mtapi.io/root/mrpc-proto.g" +
-      "it/mt5/libraries/go\252\002\014mt5_term_apib\006prot" +
-      "o3"
+      "\0132\023.mt5_term_api.ErrorH\000B\n\n\010response\"9\n\025" +
+      "SymbolInfoIntegerData\022\r\n\005value\030\001 \001(\003\022\021\n\t" +
+      "value_utc\030\002 \001(\003\"_\n\027SymbolInfoStringReque" +
+      "st\022\016\n\006symbol\030\001 \001(\t\0224\n\004type\030\002 \001(\0162&.mt5_t" +
+      "erm_api.SymbolInfoStringProperty\"}\n\025Symb" +
+      "olInfoStringReply\0222\n\004data\030\001 \001(\0132\".mt5_te" +
+      "rm_api.SymbolInfoStringDataH\000\022$\n\005error\030\002" +
+      " \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010response\"" +
+      "%\n\024SymbolInfoStringData\022\r\n\005value\030\001 \001(\t\"`" +
+      "\n\033SymbolInfoMarginRateRequest\022\016\n\006symbol\030" +
+      "\001 \001(\t\0221\n\norder_type\030\002 \001(\0162\035.mt5_term_api" +
+      ".ENUM_ORDER_TYPE\"\205\001\n\031SymbolInfoMarginRat" +
+      "eReply\0226\n\004data\030\001 \001(\0132&.mt5_term_api.Symb" +
+      "olInfoMarginRateDataH\000\022$\n\005error\030\002 \001(\0132\023." +
+      "mt5_term_api.ErrorH\000B\n\n\010response\"X\n\030Symb" +
+      "olInfoMarginRateData\022\037\n\027maintenance_marg" +
+      "in_rate\030\001 \001(\001\022\033\n\023initial_margin_rate\030\002 \001" +
+      "(\001\"\'\n\025SymbolInfoTickRequest\022\016\n\006symbol\030\001 " +
+      "\001(\t\"y\n\032SymbolInfoTickRequestReply\022)\n\004dat" +
+      "a\030\001 \001(\0132\031.mt5_term_api.MrpcMqlTickH\000\022$\n\005" +
+      "error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010re" +
+      "sponse\"\261\001\n\013MrpcMqlTick\022\014\n\004time\030\001 \001(\003\022\020\n\010" +
+      "time_utc\030\t \001(\003\022\013\n\003bid\030\002 \001(\001\022\013\n\003ask\030\003 \001(\001" +
+      "\022\014\n\004last\030\004 \001(\001\022\016\n\006volume\030\005 \001(\004\022\020\n\010time_m" +
+      "sc\030\006 \001(\003\022\024\n\014time_msc_utc\030\n \001(\003\022\r\n\005flags\030" +
+      "\007 \001(\r\022\023\n\013volume_real\030\010 \001(\001\"t\n\035SymbolInfo" +
+      "SessionQuoteRequest\022\016\n\006symbol\030\001 \001(\t\022,\n\013d" +
+      "ay_of_week\030\002 \001(\0162\027.mt5_term_api.DayOfWee" +
+      "k\022\025\n\rsession_index\030\003 \001(\r\"\211\001\n\033SymbolInfoS" +
+      "essionQuoteReply\0228\n\004data\030\001 \001(\0132(.mt5_ter" +
+      "m_api.SymbolInfoSessionQuoteDataH\000\022$\n\005er" +
+      "ror\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010resp" +
+      "onse\"n\n\032SymbolInfoSessionQuoteData\022(\n\004fr" +
+      "om\030\001 \001(\0132\032.google.protobuf.Timestamp\022&\n\002" +
+      "to\030\002 \001(\0132\032.google.protobuf.Timestamp\"t\n\035" +
+      "SymbolInfoSessionTradeRequest\022\016\n\006symbol\030" +
+      "\001 \001(\t\022,\n\013day_of_week\030\002 \001(\0162\027.mt5_term_ap" +
+      "i.DayOfWeek\022\025\n\rsession_index\030\003 \001(\r\"\211\001\n\033S" +
+      "ymbolInfoSessionTradeReply\0228\n\004data\030\001 \001(\013" +
+      "2(.mt5_term_api.SymbolInfoSessionTradeDa" +
+      "taH\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.Error" +
+      "H\000B\n\n\010response\"n\n\032SymbolInfoSessionTrade" +
+      "Data\022(\n\004from\030\001 \001(\0132\032.google.protobuf.Tim" +
+      "estamp\022&\n\002to\030\002 \001(\0132\032.google.protobuf.Tim" +
+      "estamp\"&\n\024MarketBookAddRequest\022\016\n\006symbol" +
+      "\030\001 \001(\t\"w\n\022MarketBookAddReply\022/\n\004data\030\001 \001" +
+      "(\0132\037.mt5_term_api.MarketBookAddDataH\000\022$\n" +
+      "\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010r" +
+      "esponse\"0\n\021MarketBookAddData\022\033\n\023opened_s" +
+      "uccessfully\030\001 \001(\010\"*\n\030MarketBookReleaseRe" +
+      "quest\022\016\n\006symbol\030\001 \001(\t\"\177\n\026MarketBookRelea" +
+      "seReply\0223\n\004data\030\001 \001(\0132#.mt5_term_api.Mar" +
+      "ketBookReleaseDataH\000\022$\n\005error\030\002 \001(\0132\023.mt" +
+      "5_term_api.ErrorH\000B\n\n\010response\"4\n\025Market" +
+      "BookReleaseData\022\033\n\023closed_successfully\030\001" +
+      " \001(\010\"&\n\024MarketBookGetRequest\022\016\n\006symbol\030\001" +
+      " \001(\t\"w\n\022MarketBookGetReply\022/\n\004data\030\001 \001(\013" +
+      "2\037.mt5_term_api.MarketBookGetDataH\000\022$\n\005e" +
+      "rror\030\002 \001(\0132\023.mt5_term_api.ErrorH\000B\n\n\010res" +
+      "ponse\"J\n\021MarketBookGetData\0225\n\016mql_book_i" +
+      "nfos\030\001 \003(\0132\035.mt5_term_api.MrpcMqlBookInf" +
+      "o\"k\n\017MrpcMqlBookInfo\022$\n\004type\030\001 \001(\0162\026.mt5" +
+      "_term_api.BookType\022\r\n\005price\030\002 \001(\001\022\016\n\006vol" +
+      "ume\030\003 \001(\003\022\023\n\013volume_real\030\004 \001(\001\"\232\001\n\023Price" +
+      "HistoryRequest\022\016\n\006symbol\030\001 \001(\t\022\021\n\ttimefr" +
+      "ame\030\002 \001(\005\022\021\n\tfrom_time\030\003 \001(\003\022\025\n\rfrom_tim" +
+      "e_utc\030\006 \001(\003\022\017\n\007to_time\030\004 \001(\003\022\023\n\013to_time_" +
+      "utc\030\007 \001(\003\022\020\n\010max_bars\030\005 \001(\005\"u\n\021PriceHist" +
+      "oryReply\022.\n\004data\030\001 \001(\0132\036.mt5_term_api.Pr" +
+      "iceHistoryDataH\000\022$\n\005error\030\002 \001(\0132\023.mt5_te" +
+      "rm_api.ErrorH\000B\n\n\010response\"8\n\020PriceHisto" +
+      "ryData\022$\n\004bars\030\001 \003(\0132\026.mt5_term_api.Pric" +
+      "eBar\"\234\001\n\010PriceBar\022\014\n\004time\030\001 \001(\003\022\020\n\010time_" +
+      "utc\030\t \001(\003\022\014\n\004open\030\002 \001(\001\022\014\n\004high\030\003 \001(\001\022\013\n" +
+      "\003low\030\004 \001(\001\022\r\n\005close\030\005 \001(\001\022\023\n\013tick_volume" +
+      "\030\006 \001(\003\022\016\n\006spread\030\007 \001(\005\022\023\n\013real_volume\030\010 " +
+      "\001(\003*\267\014\n\030SymbolInfoDoubleProperty\022\016\n\nSYMB" +
+      "OL_BID\020\000\022\022\n\016SYMBOL_BIDHIGH\020\001\022\021\n\rSYMBOL_B" +
+      "IDLOW\020\002\022\016\n\nSYMBOL_ASK\020\003\022\022\n\016SYMBOL_ASKHIG" +
+      "H\020\004\022\021\n\rSYMBOL_ASKLOW\020\005\022\017\n\013SYMBOL_LAST\020\006\022" +
+      "\023\n\017SYMBOL_LASTHIGH\020\007\022\022\n\016SYMBOL_LASTLOW\020\010" +
+      "\022\026\n\022SYMBOL_VOLUME_REAL\020\t\022\032\n\026SYMBOL_VOLUM" +
+      "EHIGH_REAL\020\n\022\031\n\025SYMBOL_VOLUMELOW_REAL\020\013\022" +
+      "\030\n\024SYMBOL_OPTION_STRIKE\020\014\022\020\n\014SYMBOL_POIN" +
+      "T\020\r\022\033\n\027SYMBOL_TRADE_TICK_VALUE\020\016\022\"\n\036SYMB" +
+      "OL_TRADE_TICK_VALUE_PROFIT\020\017\022 \n\034SYMBOL_T" +
+      "RADE_TICK_VALUE_LOSS\020\020\022\032\n\026SYMBOL_TRADE_T" +
+      "ICK_SIZE\020\021\022\036\n\032SYMBOL_TRADE_CONTRACT_SIZE" +
+      "\020\022\022!\n\035SYMBOL_TRADE_ACCRUED_INTEREST\020\023\022\033\n" +
+      "\027SYMBOL_TRADE_FACE_VALUE\020\024\022\037\n\033SYMBOL_TRA" +
+      "DE_LIQUIDITY_RATE\020\025\022\025\n\021SYMBOL_VOLUME_MIN" +
+      "\020\026\022\025\n\021SYMBOL_VOLUME_MAX\020\027\022\026\n\022SYMBOL_VOLU" +
+      "ME_STEP\020\030\022\027\n\023SYMBOL_VOLUME_LIMIT\020\031\022\024\n\020SY" +
+      "MBOL_SWAP_LONG\020\032\022\025\n\021SYMBOL_SWAP_SHORT\020\033\022" +
+      "\026\n\022SYMBOL_SWAP_SUNDAY\020\034\022\026\n\022SYMBOL_SWAP_M" +
+      "ONDAY\020\035\022\027\n\023SYMBOL_SWAP_TUESDAY\020\036\022\031\n\025SYMB" +
+      "OL_SWAP_WEDNESDAY\020\037\022\030\n\024SYMBOL_SWAP_THURS" +
+      "DAY\020 \022\026\n\022SYMBOL_SWAP_FRIDAY\020!\022\030\n\024SYMBOL_" +
+      "SWAP_SATURDAY\020\"\022\031\n\025SYMBOL_MARGIN_INITIAL" +
+      "\020#\022\035\n\031SYMBOL_MARGIN_MAINTENANCE\020$\022\031\n\025SYM" +
+      "BOL_SESSION_VOLUME\020%\022\033\n\027SYMBOL_SESSION_T" +
+      "URNOVER\020&\022\033\n\027SYMBOL_SESSION_INTEREST\020\'\022$" +
+      "\n SYMBOL_SESSION_BUY_ORDERS_VOLUME\020(\022%\n!" +
+      "SYMBOL_SESSION_SELL_ORDERS_VOLUME\020)\022\027\n\023S" +
+      "YMBOL_SESSION_OPEN\020*\022\030\n\024SYMBOL_SESSION_C" +
+      "LOSE\020+\022\025\n\021SYMBOL_SESSION_AW\020,\022#\n\037SYMBOL_" +
+      "SESSION_PRICE_SETTLEMENT\020-\022\"\n\036SYMBOL_SES" +
+      "SION_PRICE_LIMIT_MIN\020.\022\"\n\036SYMBOL_SESSION" +
+      "_PRICE_LIMIT_MAX\020/\022\030\n\024SYMBOL_MARGIN_HEDG" +
+      "ED\0200\022\027\n\023SYMBOL_PRICE_CHANGE\0201\022\033\n\027SYMBOL_" +
+      "PRICE_VOLATILITY\0202\022\034\n\030SYMBOL_PRICE_THEOR" +
+      "ETICAL\0203\022\026\n\022SYMBOL_PRICE_DELTA\0204\022\026\n\022SYMB" +
+      "OL_PRICE_THETA\0205\022\026\n\022SYMBOL_PRICE_GAMMA\0206" +
+      "\022\025\n\021SYMBOL_PRICE_VEGA\0207\022\024\n\020SYMBOL_PRICE_" +
+      "RHO\0208\022\026\n\022SYMBOL_PRICE_OMEGA\0209\022\034\n\030SYMBOL_" +
+      "PRICE_SENSITIVITY\020:\022\020\n\014SYMBOL_COUNT\020;*\250\007" +
+      "\n\031SymbolInfoIntegerProperty\022\035\n\031SYMBOL_SU" +
+      "BSCRIPTION_DELAY\020\000\022\021\n\rSYMBOL_SECTOR\020\001\022\023\n" +
+      "\017SYMBOL_INDUSTRY\020\002\022\021\n\rSYMBOL_CUSTOM\020\003\022\033\n" +
+      "\027SYMBOL_BACKGROUND_COLOR\020\004\022\025\n\021SYMBOL_CHA" +
+      "RT_MODE\020\005\022\020\n\014SYMBOL_EXIST\020\006\022\021\n\rSYMBOL_SE" +
+      "LECT\020\007\022\022\n\016SYMBOL_VISIBLE\020\010\022\030\n\024SYMBOL_SES" +
+      "SION_DEALS\020\t\022\035\n\031SYMBOL_SESSION_BUY_ORDER" +
+      "S\020\n\022\036\n\032SYMBOL_SESSION_SELL_ORDERS\020\013\022\021\n\rS" +
+      "YMBOL_VOLUME\020\014\022\025\n\021SYMBOL_VOLUMEHIGH\020\r\022\024\n" +
+      "\020SYMBOL_VOLUMELOW\020\016\022\017\n\013SYMBOL_TIME\020\017\022\023\n\017" +
+      "SYMBOL_TIME_MSC\020\020\022\021\n\rSYMBOL_DIGITS\020\021\022\027\n\023" +
+      "SYMBOL_SPREAD_FLOAT\020\022\022\021\n\rSYMBOL_SPREAD\020\023" +
+      "\022\032\n\026SYMBOL_TICKS_BOOKDEPTH\020\024\022\032\n\026SYMBOL_T" +
+      "RADE_CALC_MODE\020\025\022\025\n\021SYMBOL_TRADE_MODE\020\026\022" +
+      "\025\n\021SYMBOL_START_TIME\020\027\022\032\n\026SYMBOL_EXPIRAT" +
+      "ION_TIME\020\030\022\034\n\030SYMBOL_TRADE_STOPS_LEVEL\020\031" +
+      "\022\035\n\031SYMBOL_TRADE_FREEZE_LEVEL\020\032\022\030\n\024SYMBO" +
+      "L_TRADE_EXEMODE\020\033\022\024\n\020SYMBOL_SWAP_MODE\020\034\022" +
+      "\035\n\031SYMBOL_SWAP_ROLLOVER3DAYS\020\035\022 \n\034SYMBOL" +
+      "_MARGIN_HEDGED_USE_LEG\020\036\022\032\n\026SYMBOL_EXPIR" +
+      "ATION_MODE\020\037\022\027\n\023SYMBOL_FILLING_MODE\020 \022\025\n" +
+      "\021SYMBOL_ORDER_MODE\020!\022\031\n\025SYMBOL_ORDER_GTC" +
+      "_MODE\020\"\022\026\n\022SYMBOL_OPTION_MODE\020#\022\027\n\023SYMBO" +
+      "L_OPTION_RIGHT\020$*\336\002\n\030SymbolInfoStringPro" +
+      "perty\022\020\n\014SYMBOL_BASIS\020\000\022\023\n\017SYMBOL_CATEGO" +
+      "RY\020\001\022\022\n\016SYMBOL_COUNTRY\020\002\022\026\n\022SYMBOL_SECTO" +
+      "R_NAME\020\003\022\030\n\024SYMBOL_INDUSTRY_NAME\020\004\022\030\n\024SY" +
+      "MBOL_CURRENCY_BASE\020\005\022\032\n\026SYMBOL_CURRENCY_" +
+      "PROFIT\020\006\022\032\n\026SYMBOL_CURRENCY_MARGIN\020\007\022\017\n\013" +
+      "SYMBOL_BANK\020\010\022\026\n\022SYMBOL_DESCRIPTION\020\t\022\023\n" +
+      "\017SYMBOL_EXCHANGE\020\n\022\022\n\016SYMBOL_FORMULA\020\013\022\017" +
+      "\n\013SYMBOL_ISIN\020\014\022\017\n\013SYMBOL_PAGE\020\r\022\017\n\013SYMB" +
+      "OL_PATH\020\016*\372\001\n\017ENUM_ORDER_TYPE\022\022\n\016ORDER_T" +
+      "YPE_BUY\020\000\022\023\n\017ORDER_TYPE_SELL\020\001\022\030\n\024ORDER_" +
+      "TYPE_BUY_LIMIT\020\002\022\031\n\025ORDER_TYPE_SELL_LIMI" +
+      "T\020\003\022\027\n\023ORDER_TYPE_BUY_STOP\020\004\022\030\n\024ORDER_TY" +
+      "PE_SELL_STOP\020\005\022\035\n\031ORDER_TYPE_BUY_STOP_LI" +
+      "MIT\020\006\022\036\n\032ORDER_TYPE_SELL_STOP_LIMIT\020\007\022\027\n" +
+      "\023ORDER_TYPE_CLOSE_BY\020\010*g\n\tDayOfWeek\022\n\n\006S" +
+      "UNDAY\020\000\022\n\n\006MONDAY\020\001\022\013\n\007TUESDAY\020\002\022\r\n\tWEDN" +
+      "ESDAY\020\003\022\014\n\010THURSDAY\020\004\022\n\n\006FRIDAY\020\005\022\014\n\010SAT" +
+      "URDAY\020\006*f\n\010BookType\022\022\n\016BOOK_TYPE_SELL\020\000\022" +
+      "\021\n\rBOOK_TYPE_BUY\020\001\022\031\n\025BOOK_TYPE_SELL_MAR" +
+      "KET\020\002\022\030\n\024BOOK_TYPE_BUY_MARKET\020\0032\211\020\n\nMark" +
+      "etInfo\022i\n\014SymbolsTotal\022!.mt5_term_api.Sy" +
+      "mbolsTotalRequest\032\037.mt5_term_api.Symbols" +
+      "TotalReply\"\025\202\323\344\223\002\017\022\r/SymbolsTotal\022e\n\013Sym" +
+      "bolExist\022 .mt5_term_api.SymbolExistReque" +
+      "st\032\036.mt5_term_api.SymbolExistReply\"\024\202\323\344\223" +
+      "\002\016\022\014/SymbolExist\022a\n\nSymbolName\022\037.mt5_ter" +
+      "m_api.SymbolNameRequest\032\035.mt5_term_api.S" +
+      "ymbolNameReply\"\023\202\323\344\223\002\r\022\013/SymbolName\022i\n\014S" +
+      "ymbolSelect\022!.mt5_term_api.SymbolSelectR" +
+      "equest\032\037.mt5_term_api.SymbolSelectReply\"" +
+      "\025\202\323\344\223\002\017\022\r/SymbolSelect\022\211\001\n\024SymbolIsSynch" +
+      "ronized\022).mt5_term_api.SymbolIsSynchroni" +
+      "zedRequest\032\'.mt5_term_api.SymbolIsSynchr" +
+      "onizedReply\"\035\202\323\344\223\002\027\022\025/SymbolIsSynchroniz" +
+      "ed\022y\n\020SymbolInfoDouble\022%.mt5_term_api.Sy" +
+      "mbolInfoDoubleRequest\032#.mt5_term_api.Sym" +
+      "bolInfoDoubleReply\"\031\202\323\344\223\002\023\022\021/SymbolInfoD" +
+      "ouble\022}\n\021SymbolInfoInteger\022&.mt5_term_ap" +
+      "i.SymbolInfoIntegerRequest\032$.mt5_term_ap" +
+      "i.SymbolInfoIntegerReply\"\032\202\323\344\223\002\024\022\022/Symbo" +
+      "lInfoInteger\022y\n\020SymbolInfoString\022%.mt5_t" +
+      "erm_api.SymbolInfoStringRequest\032#.mt5_te" +
+      "rm_api.SymbolInfoStringReply\"\031\202\323\344\223\002\023\022\021/S" +
+      "ymbolInfoString\022\211\001\n\024SymbolInfoMarginRate" +
+      "\022).mt5_term_api.SymbolInfoMarginRateRequ" +
+      "est\032\'.mt5_term_api.SymbolInfoMarginRateR" +
+      "eply\"\035\202\323\344\223\002\027\022\025/SymbolInfoMarginRate\022x\n\016S" +
+      "ymbolInfoTick\022#.mt5_term_api.SymbolInfoT" +
+      "ickRequest\032(.mt5_term_api.SymbolInfoTick" +
+      "RequestReply\"\027\202\323\344\223\002\021\022\017/SymbolInfoTick\022\221\001" +
+      "\n\026SymbolInfoSessionQuote\022+.mt5_term_api." +
+      "SymbolInfoSessionQuoteRequest\032).mt5_term" +
+      "_api.SymbolInfoSessionQuoteReply\"\037\202\323\344\223\002\031" +
+      "\022\027/SymbolInfoSessionQuote\022\221\001\n\026SymbolInfo" +
+      "SessionTrade\022+.mt5_term_api.SymbolInfoSe" +
+      "ssionTradeRequest\032).mt5_term_api.SymbolI" +
+      "nfoSessionTradeReply\"\037\202\323\344\223\002\031\022\027/SymbolInf" +
+      "oSessionTrade\022m\n\rMarketBookAdd\022\".mt5_ter" +
+      "m_api.MarketBookAddRequest\032 .mt5_term_ap" +
+      "i.MarketBookAddReply\"\026\202\323\344\223\002\020\022\016/MarketBoo" +
+      "kAdd\022}\n\021MarketBookRelease\022&.mt5_term_api" +
+      ".MarketBookReleaseRequest\032$.mt5_term_api" +
+      ".MarketBookReleaseReply\"\032\202\323\344\223\002\024\022\022/Market" +
+      "BookRelease\022m\n\rMarketBookGet\022\".mt5_term_" +
+      "api.MarketBookGetRequest\032 .mt5_term_api." +
+      "MarketBookGetReply\"\026\202\323\344\223\002\020\022\016/MarketBookG" +
+      "et\022a\n\nSymbolList\022\037.mt5_term_api.SymbolLi" +
+      "stRequest\032\035.mt5_term_api.SymbolListReply" +
+      "\"\023\202\323\344\223\002\r\022\013/SymbolList\022l\n\014PriceHistory\022!." +
+      "mt5_term_api.PriceHistoryRequest\032\037.mt5_t" +
+      "erm_api.PriceHistoryReply\"\030\210\002\001\202\323\344\223\002\017\022\r/P" +
+      "riceHistoryBBZ1git.mtapi.io/root/mrpc-pr" +
+      "oto.git/mt5/libraries/go\252\002\014mt5_term_apib" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -44370,7 +44919,7 @@ public final class Mt5TermApiMarketInfo {
     internal_static_mt5_term_api_SymbolInfoIntegerData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_SymbolInfoIntegerData_descriptor,
-        new java.lang.String[] { "Value", });
+        new java.lang.String[] { "Value", "ValueUtc", });
     internal_static_mt5_term_api_SymbolInfoStringRequest_descriptor =
       getDescriptor().getMessageTypes().get(24);
     internal_static_mt5_term_api_SymbolInfoStringRequest_fieldAccessorTable = new
@@ -44424,7 +44973,7 @@ public final class Mt5TermApiMarketInfo {
     internal_static_mt5_term_api_MrpcMqlTick_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_MrpcMqlTick_descriptor,
-        new java.lang.String[] { "Time", "Bid", "Ask", "Last", "Volume", "TimeMsc", "Flags", "VolumeReal", });
+        new java.lang.String[] { "Time", "TimeUtc", "Bid", "Ask", "Last", "Volume", "TimeMsc", "TimeMscUtc", "Flags", "VolumeReal", });
     internal_static_mt5_term_api_SymbolInfoSessionQuoteRequest_descriptor =
       getDescriptor().getMessageTypes().get(33);
     internal_static_mt5_term_api_SymbolInfoSessionQuoteRequest_fieldAccessorTable = new
@@ -44526,7 +45075,7 @@ public final class Mt5TermApiMarketInfo {
     internal_static_mt5_term_api_PriceHistoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_PriceHistoryRequest_descriptor,
-        new java.lang.String[] { "Symbol", "Timeframe", "FromTime", "ToTime", "MaxBars", });
+        new java.lang.String[] { "Symbol", "Timeframe", "FromTime", "FromTimeUtc", "ToTime", "ToTimeUtc", "MaxBars", });
     internal_static_mt5_term_api_PriceHistoryReply_descriptor =
       getDescriptor().getMessageTypes().get(50);
     internal_static_mt5_term_api_PriceHistoryReply_fieldAccessorTable = new
@@ -44544,7 +45093,7 @@ public final class Mt5TermApiMarketInfo {
     internal_static_mt5_term_api_PriceBar_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_PriceBar_descriptor,
-        new java.lang.String[] { "Time", "Open", "High", "Low", "Close", "TickVolume", "Spread", "RealVolume", });
+        new java.lang.String[] { "Time", "TimeUtc", "Open", "High", "Low", "Close", "TickVolume", "Spread", "RealVolume", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);

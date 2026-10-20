@@ -23,7 +23,7 @@
 
         <!-- Library versions -->
         <grpc.version>1.70.0</grpc.version>
-        <protobuf.version>4.29.2</protobuf.version>
+        <protobuf.version>3.25.5</protobuf.version>
         <protoc.version>4.29.2</protoc.version>
     </properties>
 
@@ -118,26 +118,31 @@
                 <version>3.13.0</version>
                 <configuration>
                     <release>11</release>
+                    <excludes>
+                        <!-- package/MetaRpcMT5 is a second, partial copy of the same stubs; package/mt5_term_api is the full one -->
+                        <exclude>MetaRpcMT5/**</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
 
-            <!-- Protobuf compiler plugin -->
+            <!-- The gRPC stubs: package/mt5_term_api, generated from the MT5 protos and synced into package/ by the
+                 MetaRPC CI on every release, so the jar always matches the server API. -->
             <plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.6.1</version>
-                <configuration>
-                    <protocArtifact>com.google.protobuf:protoc:${protoc.version}:exe:${os.detected.classifier}</protocArtifact>
-                    <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
-                    <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
-                </configuration>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
+                        <id>add-generated-stubs</id>
+                        <phase>generate-sources</phase>
                         <goals>
-                            <goal>compile</goal>
-                            <goal>compile-custom</goal>
+                            <goal>add-source</goal>
                         </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/package</source>
+                            </sources>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -182,6 +187,7 @@
                     <noqualifier>all</noqualifier>
                     <sourceFileExcludes>
                         <exclude>**/package-info.java</exclude>
+                        <exclude>**/MetaRpcMT5/**</exclude>
                         <exclude>**/examples/**</exclude>
                         <exclude>**/orchestrators/**</exclude>
                         <exclude>**/presets/**</exclude>

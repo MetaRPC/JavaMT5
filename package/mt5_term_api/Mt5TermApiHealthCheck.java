@@ -1289,6 +1289,16 @@ public final class Mt5TermApiHealthCheck {
      * @return The serverTimeSeconds.
      */
     long getServerTimeSeconds();
+
+    /**
+     * <pre>
+     * server_time_seconds in UTC (the same moment; server_time_seconds is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>int64 server_time_seconds_utc = 3;</code>
+     * @return The serverTimeSecondsUtc.
+     */
+    long getServerTimeSecondsUtc();
   }
   /**
    * Protobuf type {@code mt5_term_api.HealthCheckReply}
@@ -1343,6 +1353,11 @@ public final class Mt5TermApiHealthCheck {
             case 16: {
 
               serverTimeSeconds_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              serverTimeSecondsUtc_ = input.readInt64();
               break;
             }
             default: {
@@ -1401,6 +1416,21 @@ public final class Mt5TermApiHealthCheck {
       return serverTimeSeconds_;
     }
 
+    public static final int SERVER_TIME_SECONDS_UTC_FIELD_NUMBER = 3;
+    private long serverTimeSecondsUtc_;
+    /**
+     * <pre>
+     * server_time_seconds in UTC (the same moment; server_time_seconds is in the broker server's time zone).
+     * </pre>
+     *
+     * <code>int64 server_time_seconds_utc = 3;</code>
+     * @return The serverTimeSecondsUtc.
+     */
+    @java.lang.Override
+    public long getServerTimeSecondsUtc() {
+      return serverTimeSecondsUtc_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1421,6 +1451,9 @@ public final class Mt5TermApiHealthCheck {
       if (serverTimeSeconds_ != 0L) {
         output.writeInt64(2, serverTimeSeconds_);
       }
+      if (serverTimeSecondsUtc_ != 0L) {
+        output.writeInt64(3, serverTimeSecondsUtc_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1437,6 +1470,10 @@ public final class Mt5TermApiHealthCheck {
       if (serverTimeSeconds_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, serverTimeSeconds_);
+      }
+      if (serverTimeSecondsUtc_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, serverTimeSecondsUtc_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1457,6 +1494,8 @@ public final class Mt5TermApiHealthCheck {
           != other.getIsConnectedToServer()) return false;
       if (getServerTimeSeconds()
           != other.getServerTimeSeconds()) return false;
+      if (getServerTimeSecondsUtc()
+          != other.getServerTimeSecondsUtc()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1474,6 +1513,9 @@ public final class Mt5TermApiHealthCheck {
       hash = (37 * hash) + SERVER_TIME_SECONDS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getServerTimeSeconds());
+      hash = (37 * hash) + SERVER_TIME_SECONDS_UTC_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getServerTimeSecondsUtc());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1611,6 +1653,8 @@ public final class Mt5TermApiHealthCheck {
 
         serverTimeSeconds_ = 0L;
 
+        serverTimeSecondsUtc_ = 0L;
+
         return this;
       }
 
@@ -1639,6 +1683,7 @@ public final class Mt5TermApiHealthCheck {
         mt5_term_api.Mt5TermApiHealthCheck.HealthCheckReply result = new mt5_term_api.Mt5TermApiHealthCheck.HealthCheckReply(this);
         result.isConnectedToServer_ = isConnectedToServer_;
         result.serverTimeSeconds_ = serverTimeSeconds_;
+        result.serverTimeSecondsUtc_ = serverTimeSecondsUtc_;
         onBuilt();
         return result;
       }
@@ -1692,6 +1737,9 @@ public final class Mt5TermApiHealthCheck {
         }
         if (other.getServerTimeSeconds() != 0L) {
           setServerTimeSeconds(other.getServerTimeSeconds());
+        }
+        if (other.getServerTimeSecondsUtc() != 0L) {
+          setServerTimeSecondsUtc(other.getServerTimeSecondsUtc());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1783,6 +1831,49 @@ public final class Mt5TermApiHealthCheck {
         onChanged();
         return this;
       }
+
+      private long serverTimeSecondsUtc_ ;
+      /**
+       * <pre>
+       * server_time_seconds in UTC (the same moment; server_time_seconds is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 server_time_seconds_utc = 3;</code>
+       * @return The serverTimeSecondsUtc.
+       */
+      @java.lang.Override
+      public long getServerTimeSecondsUtc() {
+        return serverTimeSecondsUtc_;
+      }
+      /**
+       * <pre>
+       * server_time_seconds in UTC (the same moment; server_time_seconds is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 server_time_seconds_utc = 3;</code>
+       * @param value The serverTimeSecondsUtc to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerTimeSecondsUtc(long value) {
+        
+        serverTimeSecondsUtc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * server_time_seconds in UTC (the same moment; server_time_seconds is in the broker server's time zone).
+       * </pre>
+       *
+       * <code>int64 server_time_seconds_utc = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearServerTimeSecondsUtc() {
+        
+        serverTimeSecondsUtc_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1868,15 +1959,16 @@ public final class Mt5TermApiHealthCheck {
       "\n\037mt5-term-api-health-check.proto\022\014mt5_t" +
       "erm_api\032\035mt5-term-api-connection.proto\"\026" +
       "\n\024StopListeningRequest\"\024\n\022StopListeningR" +
-      "eply\"\024\n\022HealthCheckRequest\"O\n\020HealthChec" +
+      "eply\"\024\n\022HealthCheckRequest\"p\n\020HealthChec" +
       "kReply\022\036\n\026is_connected_to_server\030\001 \001(\010\022\033" +
-      "\n\023server_time_seconds\030\002 \001(\0032\252\001\n\006Health\022I" +
-      "\n\005Check\022 .mt5_term_api.HealthCheckReques" +
-      "t\032\036.mt5_term_api.HealthCheckReply\022U\n\rSto" +
-      "pListening\022\".mt5_term_api.StopListeningR" +
-      "equest\032 .mt5_term_api.StopListeningReply" +
-      "BBZ1git.mtapi.io/root/mrpc-proto.git/mt5" +
-      "/libraries/go\252\002\014mt5_term_apib\006proto3"
+      "\n\023server_time_seconds\030\002 \001(\003\022\037\n\027server_ti" +
+      "me_seconds_utc\030\003 \001(\0032\252\001\n\006Health\022I\n\005Check" +
+      "\022 .mt5_term_api.HealthCheckRequest\032\036.mt5" +
+      "_term_api.HealthCheckReply\022U\n\rStopListen" +
+      "ing\022\".mt5_term_api.StopListeningRequest\032" +
+      " .mt5_term_api.StopListeningReplyBBZ1git" +
+      ".mtapi.io/root/mrpc-proto.git/mt5/librar" +
+      "ies/go\252\002\014mt5_term_apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1906,7 +1998,7 @@ public final class Mt5TermApiHealthCheck {
     internal_static_mt5_term_api_HealthCheckReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_HealthCheckReply_descriptor,
-        new java.lang.String[] { "IsConnectedToServer", "ServerTimeSeconds", });
+        new java.lang.String[] { "IsConnectedToServer", "ServerTimeSeconds", "ServerTimeSecondsUtc", });
     mt5_term_api.Mt5TermApiConnection.getDescriptor();
   }
 

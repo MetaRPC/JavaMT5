@@ -776,8 +776,10 @@ public final class MarketInfoGrpc {
      * Historical bars for a symbol - what a chart is drawn from.
      * This API had no such call, so a client holding a terminal id could list symbols, read a live
      * price and trade, and still not draw a chart. Ticks are not candles.
+     * DEPRECATED: use QuoteHistory.Bars (mt5-term-api-quote-history.proto): paged, bounded, oldest first.
      * </pre>
      */
+    @java.lang.Deprecated
     public void priceHistory(mt5_term_api.Mt5TermApiMarketInfo.PriceHistoryRequest request,
         io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiMarketInfo.PriceHistoryReply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPriceHistoryMethod(), responseObserver);
@@ -1121,8 +1123,10 @@ public final class MarketInfoGrpc {
      * Historical bars for a symbol - what a chart is drawn from.
      * This API had no such call, so a client holding a terminal id could list symbols, read a live
      * price and trade, and still not draw a chart. Ticks are not candles.
+     * DEPRECATED: use QuoteHistory.Bars (mt5-term-api-quote-history.proto): paged, bounded, oldest first.
      * </pre>
      */
+    @java.lang.Deprecated
     public void priceHistory(mt5_term_api.Mt5TermApiMarketInfo.PriceHistoryRequest request,
         io.grpc.stub.StreamObserver<mt5_term_api.Mt5TermApiMarketInfo.PriceHistoryReply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -1327,8 +1331,10 @@ public final class MarketInfoGrpc {
      * Historical bars for a symbol - what a chart is drawn from.
      * This API had no such call, so a client holding a terminal id could list symbols, read a live
      * price and trade, and still not draw a chart. Ticks are not candles.
+     * DEPRECATED: use QuoteHistory.Bars (mt5-term-api-quote-history.proto): paged, bounded, oldest first.
      * </pre>
      */
+    @java.lang.Deprecated
     public mt5_term_api.Mt5TermApiMarketInfo.PriceHistoryReply priceHistory(mt5_term_api.Mt5TermApiMarketInfo.PriceHistoryRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getPriceHistoryMethod(), getCallOptions(), request);
@@ -1548,8 +1554,10 @@ public final class MarketInfoGrpc {
      * Historical bars for a symbol - what a chart is drawn from.
      * This API had no such call, so a client holding a terminal id could list symbols, read a live
      * price and trade, and still not draw a chart. Ticks are not candles.
+     * DEPRECATED: use QuoteHistory.Bars (mt5-term-api-quote-history.proto): paged, bounded, oldest first.
      * </pre>
      */
+    @java.lang.Deprecated
     public com.google.common.util.concurrent.ListenableFuture<mt5_term_api.Mt5TermApiMarketInfo.PriceHistoryReply> priceHistory(
         mt5_term_api.Mt5TermApiMarketInfo.PriceHistoryRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(

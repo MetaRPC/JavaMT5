@@ -283,8 +283,8 @@ public class MaxLotSizeCalculator {
             double marginUsagePercent) throws ApiExceptionMT5 {
 
         // Get account info
-        var accInfo = account.accountInformation();
-        double freeMargin = accInfo.getData().getMargin();
+        double freeMargin = account.accountInfoDouble(
+                Mt5TermApiAccountInformation.AccountInfoDoublePropertyType.ACCOUNT_MARGIN_FREE).getData().getRequestedValue();
         double maxMargin = freeMargin * (marginUsagePercent / 100.0);
 
         System.out.printf("\nCalculating max lot size for %s:%n", symbol);

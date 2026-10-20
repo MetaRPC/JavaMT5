@@ -2,6 +2,7 @@ package pro.mrpc.mt5;
 
 import io.grpc.*;
 import io.grpc.netty.shaded.io.grpc.netty.NettyChannelBuilder;
+import io.grpc.stub.AbstractStub;
 import io.grpc.stub.MetadataUtils;
 import io.grpc.stub.StreamObserver;
 import pro.mrpc.mt5.exceptions.ApiExceptionMT5;
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * High-level Java client for MetaTrader 5 terminal via gRPC.
  * Provides convenient methods for trading, market data, and account management.
  */
-public class MT5Account {
+public class MT5Account implements AutoCloseable {
 
     //==============================================
     // region FIELDS
@@ -64,39 +65,13 @@ public class MT5Account {
     //==============================================
 
     /**
-     * Computes deterministic instance UUID matching .NET Guid byte layout.
-     */
-    public static UUID computeDeterministicId(long user, String password) {
-        try {
-            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
-            byte[] hash = md.digest((user + ":" + password).getBytes(java.nio.charset.StandardCharsets.UTF_8));
-            byte[] le = new byte[16];
-            le[0] = hash[3];
-            le[1] = hash[2];
-            le[2] = hash[1];
-            le[3] = hash[0];
-            le[4] = hash[5];
-            le[5] = hash[4];
-            le[6] = hash[7];
-            le[7] = hash[6];
-            System.arraycopy(hash, 8, le, 8, 8);
-            java.nio.ByteBuffer bb = java.nio.ByteBuffer.wrap(le);
-            long high = bb.getLong();
-            long low = bb.getLong();
-            return new UUID(high, low);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to compute deterministic account ID", e);
-        }
-    }
-
-    /**
      * Create MT5 account connection
      *
      * @param user MT5 account number
      * @param password MT5 account password
      * @param grpcServer gRPC server address (default: "mt5.mrpc.pro:443")
      * @param apiKey MetaRPC API key
-     * @param id Optional instance ID (auto-computed deterministically if null)
+     * @param id Optional id of a terminal that is already connected (null: connect() gets one from the server)
      */
     public MT5Account(long user, String password, String grpcServer, String apiKey, UUID id) {
         this.user = user;
@@ -173,6 +148,19 @@ public class MT5Account {
 
     public String getTerminalInstanceGuid() {
         return terminalInstanceGuid;
+    }
+
+    /** The gRPC channel of this account (to the API, e.g. mt5.mrpc.pro:443). */
+    public ManagedChannel getChannel() {
+        return grpcChannel;
+    }
+
+    /**
+     * The stub with the API key and the terminal id (once connected) in the metadata of every call: for the generated stubs
+     * of methods this class has no method for, e.g. {@code account.authorized(TradeStatsGrpc.newBlockingStub(account.getChannel()))}.
+     */
+    public <S extends AbstractStub<S>> S authorized(S stub) {
+        return stub.withInterceptors(MetadataUtils.newAttachHeadersInterceptor(getMetadataHeaders()));
     }
 
     /** Terminal label sent with Connect/ConnectEx (null if none). */
@@ -419,8 +407,8 @@ public class MT5Account {
      *
      * @param host MT5 server host (IP or domain)
      * @param port MT5 server port (default 443)
-     * @param baseChartSymbol Base chart symbol (e.g. "EURUSD")
-     * @param waitForTerminalIsAlive Wait for terminal to be ready
+     * @param baseChartSymbol Ignored: the server picks the terminal's base chart itself (kept for source compatibility)
+     * @param waitForTerminalIsAlive Ignored: the server always waits until the terminal is connected, up to timeoutSeconds
      * @param timeoutSeconds Timeout in seconds
      * @return Connection response with terminal instance GUID
      * @throws ApiExceptionMT5 if connection fails
@@ -496,8 +484,8 @@ public class MT5Account {
      * Connect to MT5 terminal by server name (MT cluster name)
      *
      * @param serverName MT5 server name from terminal
-     * @param baseChartSymbol Base chart symbol (kept for compatibility; not sent to the gateway any more)
-     * @param timeoutSeconds Timeout in seconds (gateway default 120)
+     * @param baseChartSymbol Ignored: the server picks the terminal's base chart itself (kept for source compatibility)
+     * @param timeoutSeconds Timeout in seconds (gateway default 120 when 0)
      * @return Connection response with terminal instance GUID
      * @throws ApiExceptionMT5 if connection fails
      */
@@ -643,8 +631,12 @@ public class MT5Account {
             response = connectionClient
                     .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
                     .disconnect(request);
-        } catch (Exception e) {
-            response = Mt5TermApiConnection.DisconnectReply.getDefaultInstance();
+        } catch (StatusRuntimeException e) {
+            // The terminal may still run: keep the id so disconnect() can be called again
+            throw new ApiExceptionMT5("Disconnect failed: " + e.getStatus());
+        }
+        if (response.hasError()) {
+            throw new ApiExceptionMT5(response.getError());
         }
 
         // Clear connection parameters
@@ -2359,8 +2351,9 @@ public class MT5Account {
     //=============================================================
 
     /**
-     * Close gRPC channel and release resources
+     * Close gRPC channel and release resources (the terminal keeps running unless disconnect() was called)
      */
+    @Override
     public void close() {
         try {
             grpcChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
