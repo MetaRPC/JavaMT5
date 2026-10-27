@@ -787,62 +787,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../MT5Account.Master.Overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MT5Account — Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../MT5Sugar/MT5Sugar.Overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MT5Sugar — Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../GLOSSARY/" class="md-nav__link">
         
   
@@ -1279,6 +1223,10 @@
 <li><strong><a href="../SymbolInfoInteger/">SymbolInfoInteger</a></strong> - <strong>single integer property</strong> (digits, spread, stops level, etc.).</li>
 <li><strong><a href="../SymbolInfoString/">SymbolInfoString</a></strong> - <strong>single string property</strong> (description, base/profit currency, path).</li>
 <li><strong><a href="../TickValueWithSize/">TickValueWithSize</a></strong> - <strong>batch tick values</strong> for multiple symbols at once.</li>
+<li><strong><a href="../SymbolParamsMany/">SymbolParamsMany</a></strong> - <strong>all 112 parameters</strong> for one or many symbols in a single paginated call.</li>
+<li><strong><a href="../SymbolInfoMarginRate/">SymbolInfoMarginRate</a></strong> - <strong>margin rate multipliers</strong> (initial/maintenance) per order type.</li>
+<li><strong><a href="../SymbolInfoSessionQuote/">SymbolInfoSessionQuote</a></strong> - <strong>quote session</strong> start/end times for a symbol on a weekday.</li>
+<li><strong><a href="../SymbolInfoSessionTrade/">SymbolInfoSessionTrade</a></strong> - <strong>trade session</strong> start/end times for a symbol on a weekday.</li>
 </ul>
 <hr />
 <h2 id="plain-english">🧭 Plain English<a class="headerlink" href="#plain-english" title="Permanent link">¶</a></h2>
@@ -1289,6 +1237,9 @@
 <li><strong>SymbolExist / SymbolIsSynchronized</strong> → <strong>validate</strong> symbol before trading.</li>
 <li><strong>SymbolInfo</strong>* (Double/Integer/String) → <strong>symbol properties</strong> one at a time.</li>
 <li><strong>TickValueWithSize</strong> → <strong>efficient batch</strong> retrieval for multiple symbols.</li>
+<li><strong>SymbolParamsMany</strong> → <strong>everything about a symbol</strong> (112 fields) in one call; best for many symbols.</li>
+<li><strong>SymbolInfoMarginRate</strong> → <strong>how much margin</strong> an order type reserves.</li>
+<li><strong>SymbolInfoSessionQuote / SymbolInfoSessionTrade</strong> → <strong>when quotes/trading</strong> are available per weekday.</li>
 </ul>
 <blockquote>
 <p>Rule of thumb: need <strong>price</strong> → <code>SymbolInfoTick</code>; need <strong>trading rules</strong> → <code>SymbolInfo*</code> (digits, point, min volume); need <strong>list</strong> → <code>SymbolsTotal</code> + <code>SymbolName</code>.</p>
@@ -1364,6 +1315,30 @@
 <td><code>TickValueWithSize</code></td>
 <td>Batch tick values</td>
 <td><code>symbols: String[]</code></td>
+</tr>
+<tr>
+<td>All parameters for one/many symbols</td>
+<td><code>SymbolParamsMany</code></td>
+<td>112 fields per symbol</td>
+<td><code>symbolName</code>, <code>sortType</code>, paging</td>
+</tr>
+<tr>
+<td>Margin rate multipliers per order type</td>
+<td><code>SymbolInfoMarginRate</code></td>
+<td>Initial/maintenance rates</td>
+<td><code>symbol</code>, <code>orderType</code> enum</td>
+</tr>
+<tr>
+<td>Quote session times (per weekday)</td>
+<td><code>SymbolInfoSessionQuote</code></td>
+<td>Session from/to</td>
+<td><code>symbol</code>, <code>dayOfWeek</code>, <code>sessionIndex</code></td>
+</tr>
+<tr>
+<td>Trade session times (per weekday)</td>
+<td><code>SymbolInfoSessionTrade</code></td>
+<td>Session from/to</td>
+<td><code>symbol</code>, <code>dayOfWeek</code>, <code>sessionIndex</code></td>
 </tr>
 </tbody>
 </table>

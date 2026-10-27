@@ -1,0 +1,3139 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete Java SDK for MetaTrader 5 trading automation via gRPC">
+      
+      
+      
+        <link rel="canonical" href="https://metarpc.github.io/JavaMT5/MT5Account/2.%20Symbol_information/SymbolParamsMany/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>✅ Getting Comprehensive Symbol Parameters - JavaMT5 SDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-comprehensive-symbol-parameters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="JavaMT5 SDK Documentation" class="md-header__button md-logo" aria-label="JavaMT5 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaMT5 SDK Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ✅ Getting Comprehensive Symbol Parameters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MetaRPC/JavaMT5" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/JavaMT5
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="JavaMT5 SDK Documentation" class="md-nav__button md-logo" aria-label="JavaMT5 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg>
+
+    </a>
+    JavaMT5 SDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MetaRPC/JavaMT5" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/JavaMT5
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Access
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quick Access
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Account_information/Account_Information.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Account Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Symbol_Information.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symbol Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20Positions_and_orders/Positions_And_Orders.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Positions & Orders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%20Market_depth_DOM/Market_Depth_DOM.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Depth (DOM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.%20Trading/Trading.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6.%20Subscriptions/Subscriptions.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subscriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GETTING_STARTED/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/Your_First_Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your First Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RUNNING_EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PROJECT_MAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GLOSSARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Orchestrators.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrators — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Channel Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/MT5Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/MT5Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/MT5Sugar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT5Sugar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../API_Reference/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../API_Reference/messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../API_Reference/enums/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enums
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔽 Input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-symbolparamsmanydata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⬆️ Output - SymbolParamsManyData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⬆️ Output - SymbolParamsManyData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symbolparameters-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SymbolParameters structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-enums-from-proto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 Related enums (from proto)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧱 Related enums (from proto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ah_symbol_params_many_sort_type-request-parameter-sorttype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AH_SYMBOL_PARAMS_MANY_SORT_TYPE (request parameter sortType)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_sector-field-sector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_SECTOR (field sector)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_industry-field-industry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_INDUSTRY (field industry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_chart_mode-field-chart_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_CHART_MODE (field chart_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_calc_mode-field-trade_calc_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_CALC_MODE (field trade_calc_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_trade_mode-field-trade_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_TRADE_MODE (field trade_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_trade_execution-field-trade_exe_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_TRADE_EXECUTION (field trade_exe_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_swap_mode-field-swap_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_SWAP_MODE (field swap_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_day_of_week-field-swap_rollover_3days" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_DAY_OF_WEEK (field swap_rollover_3days)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_order_type_filling-field-filling_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_ORDER_TYPE_FILLING (field filling_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_order_type-field-order_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_ORDER_TYPE (field order_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_order_gtc_mode-field-order_gtc_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_ORDER_GTC_MODE (field order_gtc_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_option_mode-field-option_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_OPTION_MODE (field option_mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_symbol_option_right-field-option_right" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_SYMBOL_OPTION_RIGHT (field option_right)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#just-the-essentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💬 Just the essentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 Notes &amp; Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Usage Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Usage Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-all-parameters-for-one-symbol-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) All parameters for one symbol (RECOMMENDED)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-first-page-of-all-symbols-sorted-by-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) First page of all symbols, sorted by name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-iterate-through-all-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Iterate through all pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-compare-spreads-across-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Compare spreads across symbols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-classify-symbols-by-calc-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Classify symbols by calc mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-grpc-call-for-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Low-level gRPC call (for reference)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="getting-comprehensive-symbol-parameters">✅ Getting Comprehensive Symbol Parameters<a class="headerlink" href="#getting-comprehensive-symbol-parameters" title="Permanent link">¶</a></h1>
+<blockquote>
+<p><strong>Request:</strong> retrieve all parameters for one or many symbols in a single call (RECOMMENDED for reading many properties efficiently). Each symbol is returned as a 112-field <code>SymbolParameters</code> record.</p>
+</blockquote>
+<p><strong>API Information:</strong></p>
+<ul>
+<li><strong>SDK wrapper:</strong> <code>MT5Account.symbolParamsMany(...)</code> (from package <code>pro.mrpc.mt5</code>)</li>
+<li><strong>gRPC service:</strong> <code>mt5_term_api.AccountHelper</code></li>
+<li><strong>Proto definition:</strong> <code>SymbolParamsMany</code> (defined in <code>mt5-term-api-account-helper.proto</code>)</li>
+</ul>
+<h3 id="rpc">RPC<a class="headerlink" href="#rpc" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Service:</strong> <code>mt5_term_api.AccountHelper</code></li>
+<li><strong>Method:</strong> <code>SymbolParamsMany(SymbolParamsManyRequest) → SymbolParamsManyReply</code></li>
+<li><strong>Low‑level client (generated):</strong> <code>AccountHelperGrpc.AccountHelperBlockingStub.symbolParamsMany(request)</code></li>
+<li><strong>SDK wrapper (high-level):</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">pro.mrpc.mt5</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MT5Account</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="cm">/**</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cm">     * Gets comprehensive parameter details for one or more symbols with pagination support.</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="cm">     * Returns extensive symbol information including contract specifications, trading conditions, and current state.</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="cm">     * Use this when you need complete symbol details beyond basic tick data, especially for multiple symbols.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cm">     *</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cm">     * @param symbolName Symbol name to filter (null to retrieve all symbols)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="cm">     * @param sortType Sort order for results (by name, MQL index, etc.)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="cm">     * @param pageNumber Page number for pagination (0-based index)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="cm">     * @param itemsPerPage Number of symbols per page (0 to retrieve all without pagination)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="cm">     * @return Detailed symbol parameters including specs, margins, session times, and current state</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="cm">     * @throws ApiExceptionMT5 if the call fails or connection is lost</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="cm">     */</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">SymbolParamsManyReply</span><span class="w"> </span><span class="nf">symbolParamsMany</span><span class="p">(</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">symbolName</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">AH_SYMBOL_PARAMS_MANY_SORT_TYPE</span><span class="w"> </span><span class="n">sortType</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">pageNumber</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">itemsPerPage</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ApiExceptionMT5</span><span class="p">;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Request message:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">message</span><span class="w"> </span><span class="nc">SymbolParamsManyRequest</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="k">optional</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">symbol_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">optional</span><span class="w"> </span><span class="n">AH_SYMBOL_PARAMS_MANY_SORT_TYPE</span><span class="w"> </span><span class="na">sort_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="k">optional</span><span class="w"> </span><span class="kt">int32</span><span class="w"> </span><span class="na">page_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">optional</span><span class="w"> </span><span class="kt">int32</span><span class="w"> </span><span class="na">items_per_page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Reply message:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">message</span><span class="w"> </span><span class="nc">SymbolParamsManyReply</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="k">oneof</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">SymbolParamsManyData</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Error</span><span class="w"> </span><span class="na">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kd">message</span><span class="w"> </span><span class="nc">SymbolParamsManyData</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="n">SymbolParameters</span><span class="w"> </span><span class="na">symbol_infos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="kt">int32</span><span class="w"> </span><span class="na">symbols_total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="k">optional</span><span class="w"> </span><span class="kt">int32</span><span class="w"> </span><span class="na">page_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="k">optional</span><span class="w"> </span><span class="kt">int32</span><span class="w"> </span><span class="na">items_per_page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="input">🔽 Input<a class="headerlink" href="#input" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>symbolName</code></td>
+<td><code>String</code></td>
+<td>optional</td>
+<td>Filter by symbol name. Pass <code>null</code> to retrieve <strong>all</strong> symbols.</td>
+</tr>
+<tr>
+<td><code>sortType</code></td>
+<td><code>AH_SYMBOL_PARAMS_MANY_SORT_TYPE</code></td>
+<td>optional</td>
+<td>Sort order for results. Pass <code>null</code> for server default.</td>
+</tr>
+<tr>
+<td><code>pageNumber</code></td>
+<td><code>int</code></td>
+<td>✅</td>
+<td>Page number for pagination (0-based).</td>
+</tr>
+<tr>
+<td><code>itemsPerPage</code></td>
+<td><code>int</code></td>
+<td>✅</td>
+<td>Items per page. Pass <code>0</code> to retrieve all items without paging.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="output-symbolparamsmanydata">⬆️ Output - <code>SymbolParamsManyData</code><a class="headerlink" href="#output-symbolparamsmanydata" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Java Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>symbol_infos</code></td>
+<td><code>repeated SymbolParameters</code></td>
+<td><code>List&lt;SymbolParameters&gt;</code></td>
+<td>List of symbol parameter records</td>
+</tr>
+<tr>
+<td><code>symbols_total</code></td>
+<td><code>int32</code></td>
+<td><code>int</code></td>
+<td>Total number of symbols</td>
+</tr>
+<tr>
+<td><code>page_number</code></td>
+<td><code>int32</code> (optional)</td>
+<td><code>int</code></td>
+<td>Current page number</td>
+</tr>
+<tr>
+<td><code>items_per_page</code></td>
+<td><code>int32</code> (optional)</td>
+<td><code>int</code></td>
+<td>Items per page</td>
+</tr>
+</tbody>
+</table>
+<p>Access using <code>reply.getData().getSymbolInfosList()</code>, <code>reply.getData().getSymbolsTotal()</code>, etc.</p>
+<h3 id="symbolparameters-structure"><code>SymbolParameters</code> structure<a class="headerlink" href="#symbolparameters-structure" title="Permanent link">¶</a></h3>
+<p>Each record contains <strong>112 fields</strong> — prices, volumes, spreads, contract specs, margins, swaps, session statistics, option data, Greeks, timestamps, trading modes, identifiers and classification. Access any field with its generated getter (e.g. <code>info.getBid()</code>, <code>info.getSpread()</code>, <code>info.getTradeContractSize()</code>).</p>
+<p><strong>Enum-typed fields (13):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field (getter)</th>
+<th>Enum type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sector</code> (<code>getSector()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_SECTOR</code></td>
+</tr>
+<tr>
+<td><code>industry</code> (<code>getIndustry()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_INDUSTRY</code></td>
+</tr>
+<tr>
+<td><code>chart_mode</code> (<code>getChartMode()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_CHART_MODE</code></td>
+</tr>
+<tr>
+<td><code>trade_calc_mode</code> (<code>getTradeCalcMode()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_CALC_MODE</code></td>
+</tr>
+<tr>
+<td><code>trade_mode</code> (<code>getTradeMode()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_TRADE_MODE</code></td>
+</tr>
+<tr>
+<td><code>trade_exe_mode</code> (<code>getTradeExeMode()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_TRADE_EXECUTION</code></td>
+</tr>
+<tr>
+<td><code>swap_mode</code> (<code>getSwapMode()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_SWAP_MODE</code></td>
+</tr>
+<tr>
+<td><code>swap_rollover_3days</code> (<code>getSwapRollover3Days()</code>)</td>
+<td><code>BMT5_ENUM_DAY_OF_WEEK</code></td>
+</tr>
+<tr>
+<td><code>filling_mode</code> (<code>getFillingModeList()</code>)</td>
+<td><code>repeated BMT5_ENUM_ORDER_TYPE_FILLING</code></td>
+</tr>
+<tr>
+<td><code>order_mode</code> (<code>getOrderMode()</code>)</td>
+<td><code>BMT5_ENUM_ORDER_TYPE</code></td>
+</tr>
+<tr>
+<td><code>order_gtc_mode</code> (<code>getOrderGtcMode()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_ORDER_GTC_MODE</code></td>
+</tr>
+<tr>
+<td><code>option_mode</code> (<code>getOptionMode()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_OPTION_MODE</code></td>
+</tr>
+<tr>
+<td><code>option_right</code> (<code>getOptionRight()</code>)</td>
+<td><code>BMT5_ENUM_SYMBOL_OPTION_RIGHT</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="related-enums-from-proto">🧱 Related enums (from proto)<a class="headerlink" href="#related-enums-from-proto" title="Permanent link">¶</a></h2>
+<blockquote>
+<p>This method uses <strong>14 enums</strong> with <strong>231 total constants</strong> — 1 request-parameter enum plus 13 enum-typed fields on <code>SymbolParameters</code>. All are accessed as nested types on <code>Mt5TermApiAccountHelper</code> (e.g. <code>Mt5TermApiAccountHelper.BMT5_ENUM_SYMBOL_SECTOR.BMT5_SECTOR_ENERGY</code>).</p>
+</blockquote>
+<h3 id="ah_symbol_params_many_sort_type-request-parameter-sorttype"><code>AH_SYMBOL_PARAMS_MANY_SORT_TYPE</code> (request parameter <code>sortType</code>)<a class="headerlink" href="#ah_symbol_params_many_sort_type-request-parameter-sorttype" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AH_PARAMS_MANY_SORT_TYPE_SYMBOL_NAME_ASC</code></td>
+<td>0</td>
+<td>Symbol name ascending (A→Z)</td>
+</tr>
+<tr>
+<td><code>AH_PARAMS_MANY_SORT_TYPE_SYMBOL_NAME_DESC</code></td>
+<td>1</td>
+<td>Symbol name descending (Z→A)</td>
+</tr>
+<tr>
+<td><code>AH_PARAMS_MANY_SORT_TYPE_MQL_INDEX_ASC</code></td>
+<td>2</td>
+<td>MQL index ascending</td>
+</tr>
+<tr>
+<td><code>AH_PARAMS_MANY_SORT_TYPE_MQL_INDEX_DESC</code></td>
+<td>3</td>
+<td>MQL index descending</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_sector-field-sector"><code>BMT5_ENUM_SYMBOL_SECTOR</code> (field <code>sector</code>)<a class="headerlink" href="#bmt5_enum_symbol_sector-field-sector" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SECTOR_UNDEFINED</code></td>
+<td>0</td>
+<td>Undefined</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_BASIC_MATERIALS</code></td>
+<td>1</td>
+<td>Basic materials</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_COMMUNICATION_SERVICES</code></td>
+<td>2</td>
+<td>Communication services</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_CONSUMER_CYCLICAL</code></td>
+<td>3</td>
+<td>Consumer cyclical</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_CONSUMER_DEFENSIVE</code></td>
+<td>4</td>
+<td>Consumer defensive</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_CURRENCY</code></td>
+<td>5</td>
+<td>Currencies</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_CURRENCY_CRYPTO</code></td>
+<td>6</td>
+<td>Cryptocurrencies</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_ENERGY</code></td>
+<td>7</td>
+<td>Energy</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_FINANCIAL</code></td>
+<td>8</td>
+<td>Finance</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_HEALTHCARE</code></td>
+<td>9</td>
+<td>Healthcare</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_INDUSTRIALS</code></td>
+<td>10</td>
+<td>Industrials</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_REAL_ESTATE</code></td>
+<td>11</td>
+<td>Real estate</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_TECHNOLOGY</code></td>
+<td>12</td>
+<td>Technology</td>
+</tr>
+<tr>
+<td><code>BMT5_SECTOR_UTILITIES</code></td>
+<td>13</td>
+<td>Utilities</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_industry-field-industry"><code>BMT5_ENUM_SYMBOL_INDUSTRY</code> (field <code>industry</code>)<a class="headerlink" href="#bmt5_enum_symbol_industry-field-industry" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_INDUSTRY_UNDEFINED</code></td>
+<td>0</td>
+<td>Undefined</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_AGRICULTURAL_INPUTS</code></td>
+<td>1</td>
+<td>Agricultural inputs</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_ALUMINIUM</code></td>
+<td>2</td>
+<td>Aluminium</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BUILDING_MATERIALS</code></td>
+<td>3</td>
+<td>Building materials</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CHEMICALS</code></td>
+<td>4</td>
+<td>Chemicals</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_COKING_COAL</code></td>
+<td>5</td>
+<td>Coking coal</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_COPPER</code></td>
+<td>6</td>
+<td>Copper</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_GOLD</code></td>
+<td>7</td>
+<td>Gold</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_LUMBER_WOOD</code></td>
+<td>8</td>
+<td>Lumber and wood production</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INDUSTRIAL_METALS</code></td>
+<td>9</td>
+<td>Other industrial metals and mining</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_PRECIOUS_METALS</code></td>
+<td>10</td>
+<td>Other precious metals and mining</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_PAPER</code></td>
+<td>11</td>
+<td>Paper and paper products</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SILVER</code></td>
+<td>12</td>
+<td>Silver</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SPECIALTY_CHEMICALS</code></td>
+<td>13</td>
+<td>Specialty chemicals</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_STEEL</code></td>
+<td>14</td>
+<td>Steel</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_ADVERTISING</code></td>
+<td>15</td>
+<td>Advertising agencies</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BROADCASTING</code></td>
+<td>16</td>
+<td>Broadcasting</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_GAMING_MULTIMEDIA</code></td>
+<td>17</td>
+<td>Electronic gaming and multimedia</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_ENTERTAINMENT</code></td>
+<td>18</td>
+<td>Entertainment</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INTERNET_CONTENT</code></td>
+<td>19</td>
+<td>Internet content and information</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_PUBLISHING</code></td>
+<td>20</td>
+<td>Publishing</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_TELECOM</code></td>
+<td>21</td>
+<td>Telecom services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_APPAREL_MANUFACTURING</code></td>
+<td>22</td>
+<td>Apparel manufacturing</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_APPAREL_RETAIL</code></td>
+<td>23</td>
+<td>Apparel retail</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_AUTO_MANUFACTURERS</code></td>
+<td>24</td>
+<td>Auto manufacturers</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_AUTO_PARTS</code></td>
+<td>25</td>
+<td>Auto parts</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_AUTO_DEALERSHIP</code></td>
+<td>26</td>
+<td>Auto and truck dealerships</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_DEPARTMENT_STORES</code></td>
+<td>27</td>
+<td>Department stores</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_FOOTWEAR_ACCESSORIES</code></td>
+<td>28</td>
+<td>Footwear and accessories</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_FURNISHINGS</code></td>
+<td>29</td>
+<td>Furnishing, fixtures and appliances</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_GAMBLING</code></td>
+<td>30</td>
+<td>Gambling</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_HOME_IMPROV_RETAIL</code></td>
+<td>31</td>
+<td>Home improvement retail</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INTERNET_RETAIL</code></td>
+<td>32</td>
+<td>Internet retail</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_LEISURE</code></td>
+<td>33</td>
+<td>Leisure</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_LODGING</code></td>
+<td>34</td>
+<td>Lodging</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_LUXURY_GOODS</code></td>
+<td>35</td>
+<td>Luxury goods</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_PACKAGING_CONTAINERS</code></td>
+<td>36</td>
+<td>Packaging and containers</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_PERSONAL_SERVICES</code></td>
+<td>37</td>
+<td>Personal services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_RECREATIONAL_VEHICLES</code></td>
+<td>38</td>
+<td>Recreational vehicles</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_RESIDENT_CONSTRUCTION</code></td>
+<td>39</td>
+<td>Residential construction</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_RESORTS_CASINOS</code></td>
+<td>40</td>
+<td>Resorts and casinos</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_RESTAURANTS</code></td>
+<td>41</td>
+<td>Restaurants</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SPECIALTY_RETAIL</code></td>
+<td>42</td>
+<td>Specialty retail</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_TEXTILE_MANUFACTURING</code></td>
+<td>43</td>
+<td>Textile manufacturing</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_TRAVEL_SERVICES</code></td>
+<td>44</td>
+<td>Travel services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BEVERAGES_BREWERS</code></td>
+<td>45</td>
+<td>Beverages - Brewers</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BEVERAGES_NON_ALCO</code></td>
+<td>46</td>
+<td>Beverages - Non-alcoholic</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BEVERAGES_WINERIES</code></td>
+<td>47</td>
+<td>Beverages - Wineries and distilleries</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CONFECTIONERS</code></td>
+<td>48</td>
+<td>Confectioners</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_DISCOUNT_STORES</code></td>
+<td>49</td>
+<td>Discount stores</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_EDUCATION_TRAINIG</code></td>
+<td>50</td>
+<td>Education and training services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_FARM_PRODUCTS</code></td>
+<td>51</td>
+<td>Farm products</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_FOOD_DISTRIBUTION</code></td>
+<td>52</td>
+<td>Food distribution</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_GROCERY_STORES</code></td>
+<td>53</td>
+<td>Grocery stores</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_HOUSEHOLD_PRODUCTS</code></td>
+<td>54</td>
+<td>Household and personal products</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_PACKAGED_FOODS</code></td>
+<td>55</td>
+<td>Packaged foods</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_TOBACCO</code></td>
+<td>56</td>
+<td>Tobacco</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_OIL_GAS_DRILLING</code></td>
+<td>57</td>
+<td>Oil and gas drilling</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_OIL_GAS_EP</code></td>
+<td>58</td>
+<td>Oil and gas extraction and processing</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_OIL_GAS_EQUIPMENT</code></td>
+<td>59</td>
+<td>Oil and gas equipment and services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_OIL_GAS_INTEGRATED</code></td>
+<td>60</td>
+<td>Oil and gas integrated</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_OIL_GAS_MIDSTREAM</code></td>
+<td>61</td>
+<td>Oil and gas midstream</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_OIL_GAS_REFINING</code></td>
+<td>62</td>
+<td>Oil and gas refining and marketing</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_THERMAL_COAL</code></td>
+<td>63</td>
+<td>Thermal coal</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_URANIUM</code></td>
+<td>64</td>
+<td>Uranium</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_EXCHANGE_TRADED_FUND</code></td>
+<td>65</td>
+<td>Exchange traded fund</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_ASSETS_MANAGEMENT</code></td>
+<td>66</td>
+<td>Assets management</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BANKS_DIVERSIFIED</code></td>
+<td>67</td>
+<td>Banks - Diversified</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BANKS_REGIONAL</code></td>
+<td>68</td>
+<td>Banks - Regional</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CAPITAL_MARKETS</code></td>
+<td>69</td>
+<td>Capital markets</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CLOSE_END_FUND_DEBT</code></td>
+<td>70</td>
+<td>Closed-End fund - Debt</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CLOSE_END_FUND_EQUITY</code></td>
+<td>71</td>
+<td>Closed-end fund - Equity</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CLOSE_END_FUND_FOREIGN</code></td>
+<td>72</td>
+<td>Closed-end fund - Foreign</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CREDIT_SERVICES</code></td>
+<td>73</td>
+<td>Credit services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_FINANCIAL_CONGLOMERATE</code></td>
+<td>74</td>
+<td>Financial conglomerates</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_FINANCIAL_DATA_EXCHANGE</code></td>
+<td>75</td>
+<td>Financial data and stock exchange</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INSURANCE_BROKERS</code></td>
+<td>76</td>
+<td>Insurance brokers</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INSURANCE_DIVERSIFIED</code></td>
+<td>77</td>
+<td>Insurance - Diversified</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INSURANCE_LIFE</code></td>
+<td>78</td>
+<td>Insurance - Life</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INSURANCE_PROPERTY</code></td>
+<td>79</td>
+<td>Insurance - Property and casualty</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INSURANCE_REINSURANCE</code></td>
+<td>80</td>
+<td>Insurance - Reinsurance</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INSURANCE_SPECIALTY</code></td>
+<td>81</td>
+<td>Insurance - Specialty</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_MORTGAGE_FINANCE</code></td>
+<td>82</td>
+<td>Mortgage finance</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SHELL_COMPANIES</code></td>
+<td>83</td>
+<td>Shell companies</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BIOTECHNOLOGY</code></td>
+<td>84</td>
+<td>Biotechnology</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_DIAGNOSTICS_RESEARCH</code></td>
+<td>85</td>
+<td>Diagnostics and research</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_DRUGS_MANUFACTURERS</code></td>
+<td>86</td>
+<td>Drugs manufacturers - general</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_DRUGS_MANUFACTURERS_SPEC</code></td>
+<td>87</td>
+<td>Drugs manufacturers - Specialty and generic</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_HEALTHCARE_PLANS</code></td>
+<td>88</td>
+<td>Healthcare plans</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_HEALTH_INFORMATION</code></td>
+<td>89</td>
+<td>Health information services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_MEDICAL_FACILITIES</code></td>
+<td>90</td>
+<td>Medical care facilities</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_MEDICAL_DEVICES</code></td>
+<td>91</td>
+<td>Medical devices</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_MEDICAL_DISTRIBUTION</code></td>
+<td>92</td>
+<td>Medical distribution</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_MEDICAL_INSTRUMENTS</code></td>
+<td>93</td>
+<td>Medical instruments and supplies</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_PHARM_RETAILERS</code></td>
+<td>94</td>
+<td>Pharmaceutical retailers</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_AEROSPACE_DEFENSE</code></td>
+<td>95</td>
+<td>Aerospace and defense</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_AIRLINES</code></td>
+<td>96</td>
+<td>Airlines</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_AIRPORTS_SERVICES</code></td>
+<td>97</td>
+<td>Airports and air services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BUILDING_PRODUCTS</code></td>
+<td>98</td>
+<td>Building products and equipment</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_BUSINESS_EQUIPMENT</code></td>
+<td>99</td>
+<td>Business equipment and supplies</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CONGLOMERATES</code></td>
+<td>100</td>
+<td>Conglomerates</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CONSULTING_SERVICES</code></td>
+<td>101</td>
+<td>Consulting services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_ELECTRICAL_EQUIPMENT</code></td>
+<td>102</td>
+<td>Electrical equipment and parts</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_ENGINEERING_CONSTRUCTION</code></td>
+<td>103</td>
+<td>Engineering and construction</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_FARM_HEAVY_MACHINERY</code></td>
+<td>104</td>
+<td>Farm and heavy construction machinery</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INDUSTRIAL_DISTRIBUTION</code></td>
+<td>105</td>
+<td>Industrial distribution</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_INFRASTRUCTURE_OPERATIONS</code></td>
+<td>106</td>
+<td>Infrastructure operations</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_FREIGHT_LOGISTICS</code></td>
+<td>107</td>
+<td>Integrated freight and logistics</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_MARINE_SHIPPING</code></td>
+<td>108</td>
+<td>Marine shipping</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_METAL_FABRICATION</code></td>
+<td>109</td>
+<td>Metal fabrication</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_POLLUTION_CONTROL</code></td>
+<td>110</td>
+<td>Pollution and treatment controls</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_RAILROADS</code></td>
+<td>111</td>
+<td>Railroads</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_RENTAL_LEASING</code></td>
+<td>112</td>
+<td>Rental and leasing services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SECURITY_PROTECTION</code></td>
+<td>113</td>
+<td>Security and protection services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SPEALITY_BUSINESS_SERVICES</code></td>
+<td>114</td>
+<td>Specialty business services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SPEALITY_MACHINERY</code></td>
+<td>115</td>
+<td>Specialty industrial machinery</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_STUFFING_EMPLOYMENT</code></td>
+<td>116</td>
+<td>Staffing and employment services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_TOOLS_ACCESSORIES</code></td>
+<td>117</td>
+<td>Tools and accessories</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_TRUCKING</code></td>
+<td>118</td>
+<td>Trucking</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_WASTE_MANAGEMENT</code></td>
+<td>119</td>
+<td>Waste management</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REAL_ESTATE_DEVELOPMENT</code></td>
+<td>120</td>
+<td>Real estate - Development</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REAL_ESTATE_DIVERSIFIED</code></td>
+<td>121</td>
+<td>Real estate - Diversified</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REAL_ESTATE_SERVICES</code></td>
+<td>122</td>
+<td>Real estate services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_DIVERSIFIED</code></td>
+<td>123</td>
+<td>REIT - Diversified</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_HEALTCARE</code></td>
+<td>124</td>
+<td>REIT - Healthcare facilities</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_HOTEL_MOTEL</code></td>
+<td>125</td>
+<td>REIT - Hotel and motel</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_INDUSTRIAL</code></td>
+<td>126</td>
+<td>REIT - Industrial</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_MORTAGE</code></td>
+<td>127</td>
+<td>REIT - Mortgage</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_OFFICE</code></td>
+<td>128</td>
+<td>REIT - Office</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_RESIDENTAL</code></td>
+<td>129</td>
+<td>REIT - Residential</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_RETAIL</code></td>
+<td>130</td>
+<td>REIT - Retail</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_REIT_SPECIALITY</code></td>
+<td>131</td>
+<td>REIT - Specialty</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_COMMUNICATION_EQUIPMENT</code></td>
+<td>132</td>
+<td>Communication equipment</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_COMPUTER_HARDWARE</code></td>
+<td>133</td>
+<td>Computer hardware</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_CONSUMER_ELECTRONICS</code></td>
+<td>134</td>
+<td>Consumer electronics</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_ELECTRONIC_COMPONENTS</code></td>
+<td>135</td>
+<td>Electronic components</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_ELECTRONIC_DISTRIBUTION</code></td>
+<td>136</td>
+<td>Electronics and computer distribution</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_IT_SERVICES</code></td>
+<td>137</td>
+<td>Information technology services</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SCIENTIFIC_INSTRUMENTS</code></td>
+<td>138</td>
+<td>Scientific and technical instruments</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SEMICONDUCTOR_EQUIPMENT</code></td>
+<td>139</td>
+<td>Semiconductor equipment and materials</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SEMICONDUCTORS</code></td>
+<td>140</td>
+<td>Semiconductors</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SOFTWARE_APPLICATION</code></td>
+<td>141</td>
+<td>Software - Application</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SOFTWARE_INFRASTRUCTURE</code></td>
+<td>142</td>
+<td>Software - Infrastructure</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_SOLAR</code></td>
+<td>143</td>
+<td>Solar</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_UTILITIES_DIVERSIFIED</code></td>
+<td>144</td>
+<td>Utilities - Diversified</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_UTILITIES_POWERPRODUCERS</code></td>
+<td>145</td>
+<td>Utilities - Independent power producers</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_UTILITIES_RENEWABLE</code></td>
+<td>146</td>
+<td>Utilities - Renewable</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_UTILITIES_REGULATED_ELECTRIC</code></td>
+<td>147</td>
+<td>Utilities - Regulated electric</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_UTILITIES_REGULATED_GAS</code></td>
+<td>148</td>
+<td>Utilities - Regulated gas</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_UTILITIES_REGULATED_WATER</code></td>
+<td>149</td>
+<td>Utilities - Regulated water</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_UTILITIES_FIRST</code></td>
+<td>150</td>
+<td>Start of the utilities services types enumeration. Corresponds to INDUSTRY_UTILITIES_DIVERSIFIED.</td>
+</tr>
+<tr>
+<td><code>BMT5_INDUSTRY_UTILITIES_LAST</code></td>
+<td>151</td>
+<td>End of the utilities services types enumeration. Corresponds to INDUSTRY_UTILITIES_REGULATED_WATER.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_chart_mode-field-chart_mode"><code>BMT5_ENUM_SYMBOL_CHART_MODE</code> (field <code>chart_mode</code>)<a class="headerlink" href="#bmt5_enum_symbol_chart_mode-field-chart_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SYMBOL_CHART_MODE_BID</code></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CHART_MODE_LAST</code></td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_calc_mode-field-trade_calc_mode"><code>BMT5_ENUM_SYMBOL_CALC_MODE</code> (field <code>trade_calc_mode</code>)<a class="headerlink" href="#bmt5_enum_symbol_calc_mode-field-trade_calc_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_FOREX</code></td>
+<td>0</td>
+<td>Forex mode - calculation of profit and margin for Forex // Margin:  Lots * Contract_Size / Leverage * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_FOREX_NO_LEVERAGE</code></td>
+<td>1</td>
+<td>Forex No Leverage mode – calculation of profit and margin for Forex symbols without taking into account the leverage // Margin:  Lots * Contract_Size * Margin_Rate // Profit:  (close_price - open_price) * Contract_Size * Lots</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_FUTURES</code></td>
+<td>2</td>
+<td>Futures mode - calculation of margin and profit for futures   // Margin: Lots * InitialMargin * Margin_Rate  // Profit:  (close_price - open_price) * TickPrice / TickSize * Lots</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_CFD</code></td>
+<td>3</td>
+<td>CFD mode - calculation of margin and profit for CFD    // Margin: Lots * ContractSize * MarketPrice * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_CFDINDEX</code></td>
+<td>4</td>
+<td>CFD index mode - calculation of margin and profit for CFD by indexes    // Margin: (Lots * ContractSize * MarketPrice) * TickPrice / TickSize * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_CFDLEVERAGE</code></td>
+<td>5</td>
+<td>CFD Leverage mode - calculation of margin and profit for CFD at leverage trading   // Margin: (Lots * ContractSize * MarketPrice) / Leverage * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_EXCH_STOCKS</code></td>
+<td>6</td>
+<td>Exchange mode – calculation of margin and profit for trading securities on a stock exchange  // Margin: Lots * ContractSize * LastPrice * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_EXCH_FUTURES</code></td>
+<td>7</td>
+<td>Futures mode – calculation of margin and profit for trading futures contracts on a stock exchange // Margin: Lots * InitialMargin * Margin_Rate or Lots * MaintenanceMargin * Margin_Rate // Profit:  (close_price - open_price) * Lots * TickPrice / TickSize</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_EXCH_FUTURES_FORTS</code></td>
+<td>8</td>
+<td>FORTS Futures mode – calculation of margin and profit for trading futures contracts on FORTS. The margin may be reduced by the amount of MarginDiscount deviation according to the following rules:  // 1. If the price of a long position (buy order) is less than the estimated price, MarginDiscount = Lots * ((PriceSettle - PriceOrder) * TickPrice / TickSize) // 2. If the price of a short position (sell order) exceeds the estimated price, MarginDiscount = Lots * ((PriceOrder - PriceSettle) * TickPrice / TickSize) // where: // PriceSettle – estimated (clearing) price of the previous session; // PriceOrder – average weighted position price or open price set in the order (request); // TickPrice – tick price (cost of the price change by one point) // TickSize – tick size (minimum price change step) // Margin: Lots * InitialMargin * Margin_Rate or Lots * MaintenanceMargin * Margin_Rate // Profit:  (close_price - open_price) * Lots * TickPrice / TickSize</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_EXCH_BONDS</code></td>
+<td>9</td>
+<td>Exchange Bonds mode – calculation of margin and profit for trading bonds on a stock exchange  // Margin: Lots * ContractSize * FaceValue * open_price / 100  // Profit:  Lots * close_price * FaceValue * Contract_Size + AccruedInterest * Lots * ContractSize</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_EXCH_STOCKS_MOEX</code></td>
+<td>10</td>
+<td>Exchange MOEX Stocks mode – calculation of margin and profit for trading securities on MOEX  // Margin: Lots * ContractSize * LastPrice * Margin_Rate  // Profit:  (close_price - open_price) * Contract_Size * Lots</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_EXCH_BONDS_MOEX</code></td>
+<td>11</td>
+<td>Exchange MOEX Bonds mode – calculation of margin and profit for trading bonds on MOEX  // Margin: Lots * ContractSize * FaceValue * open_price / 100 // Profit:  Lots * close_price * FaceValue * Contract_Size + AccruedInterest * Lots * ContractSize</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_CALC_MODE_SERV_COLLATERAL</code></td>
+<td>12</td>
+<td>Collateral mode - a symbol is used as a non-tradable asset on a trading account. The market value of an open position is calculated based on the volume, current market price, contract size and liquidity ratio. The value is included into Assets, which are added to Equity. Open positions of such symbols increase the Free Margin amount and are used as additional margin (collateral) for open positions of tradable instruments. // Margin: no  // Profit: no  // Market Value: Lots * ContractSize * MarketPrice * LiquidityRate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_trade_mode-field-trade_mode"><code>BMT5_ENUM_SYMBOL_TRADE_MODE</code> (field <code>trade_mode</code>)<a class="headerlink" href="#bmt5_enum_symbol_trade_mode-field-trade_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_MODE_DISABLED</code></td>
+<td>0</td>
+<td>Trade is disabled for the symbol</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_MODE_LONGONLY</code></td>
+<td>1</td>
+<td>Allowed only long positions</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_MODE_SHORTONLY</code></td>
+<td>2</td>
+<td>Allowed only short positions</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_MODE_CLOSEONLY</code></td>
+<td>3</td>
+<td>Allowed only position close operations</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_MODE_FULL</code></td>
+<td>4</td>
+<td>No trade restrictions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_trade_execution-field-trade_exe_mode"><code>BMT5_ENUM_SYMBOL_TRADE_EXECUTION</code> (field <code>trade_exe_mode</code>)<a class="headerlink" href="#bmt5_enum_symbol_trade_execution-field-trade_exe_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_EXECUTION_REQUEST</code></td>
+<td>0</td>
+<td>Execution by request</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_EXECUTION_INSTANT</code></td>
+<td>1</td>
+<td>Instant execution</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_EXECUTION_MARKET</code></td>
+<td>2</td>
+<td>Market execution</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_TRADE_EXECUTION_EXCHANGE</code></td>
+<td>3</td>
+<td>Exchange execution</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_swap_mode-field-swap_mode"><code>BMT5_ENUM_SYMBOL_SWAP_MODE</code> (field <code>swap_mode</code>)<a class="headerlink" href="#bmt5_enum_symbol_swap_mode-field-swap_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_DISABLED</code></td>
+<td>0</td>
+<td>Swaps disabled (no swaps)</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_POINTS</code></td>
+<td>1</td>
+<td>Swaps are charged in points</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_CURRENCY_SYMBOL</code></td>
+<td>2</td>
+<td>Swaps are charged in money in base currency of the symbol</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_CURRENCY_MARGIN</code></td>
+<td>3</td>
+<td>Swaps are charged in money in margin currency of the symbol</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_CURRENCY_DEPOSIT</code></td>
+<td>4</td>
+<td>Swaps are charged in money, in client deposit currency</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_CURRENCY_PROFIT</code></td>
+<td>5</td>
+<td>Swaps are charged in money in profit calculation currency</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_INTEREST_CURRENT</code></td>
+<td>6</td>
+<td>Swaps are charged as the specified annual interest from the instrument price at calculation of swap (standard bank year is 360 days)</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_INTEREST_OPEN</code></td>
+<td>7</td>
+<td>Swaps are charged as the specified annual interest from the open price of position (standard bank year is 360 days)</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_REOPEN_CURRENT</code></td>
+<td>8</td>
+<td>Swaps are charged by reopening positions. At the end of a trading day the position is closed. Next day it is reopened by the close price +/- specified number of points (parameters SYMBOL_SWAP_LONG and SYMBOL_SWAP_SHORT)</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_SWAP_MODE_REOPEN_BID</code></td>
+<td>9</td>
+<td>Swaps are charged by reopening positions. At the end of a trading day the position is closed. Next day it is reopened by the current Bid price +/- specified number of points (parameters SYMBOL_SWAP_LONG and SYMBOL_SWAP_SHORT)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_day_of_week-field-swap_rollover_3days"><code>BMT5_ENUM_DAY_OF_WEEK</code> (field <code>swap_rollover_3days</code>)<a class="headerlink" href="#bmt5_enum_day_of_week-field-swap_rollover_3days" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SUNDAY</code></td>
+<td>0</td>
+<td>Sunday</td>
+</tr>
+<tr>
+<td><code>BMT5_MONDAY</code></td>
+<td>1</td>
+<td>Monday</td>
+</tr>
+<tr>
+<td><code>BMT5_TUESDAY</code></td>
+<td>2</td>
+<td>Tuesday</td>
+</tr>
+<tr>
+<td><code>BMT5_WEDNESDAY</code></td>
+<td>3</td>
+<td>Wednesday</td>
+</tr>
+<tr>
+<td><code>BMT5_THURSDAY</code></td>
+<td>4</td>
+<td>Thursday</td>
+</tr>
+<tr>
+<td><code>BMT5_FRIDAY</code></td>
+<td>5</td>
+<td>Friday</td>
+</tr>
+<tr>
+<td><code>BMT5_SATURDAY</code></td>
+<td>6</td>
+<td>Saturday</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_order_type_filling-field-filling_mode"><code>BMT5_ENUM_ORDER_TYPE_FILLING</code> (field <code>filling_mode</code>)<a class="headerlink" href="#bmt5_enum_order_type_filling-field-filling_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_ORDER_FILLING_FOK</code></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_FILLING_IOC</code></td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_FILLING_BOC</code></td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_FILLING_RETURN</code></td>
+<td>2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_order_type-field-order_mode"><code>BMT5_ENUM_ORDER_TYPE</code> (field <code>order_mode</code>)<a class="headerlink" href="#bmt5_enum_order_type-field-order_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_ORDER_TYPE_BUY</code></td>
+<td>0</td>
+<td>Market Buy order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_SELL</code></td>
+<td>1</td>
+<td>Market Sell order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_BUY_LIMIT</code></td>
+<td>2</td>
+<td>Buy Limit pending order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_SELL_LIMIT</code></td>
+<td>3</td>
+<td>Sell Limit pending order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_BUY_STOP</code></td>
+<td>4</td>
+<td>Buy Stop pending order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_SELL_STOP</code></td>
+<td>5</td>
+<td>Sell Stop pending order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_BUY_STOP_LIMIT</code></td>
+<td>6</td>
+<td>Upon reaching the order price, a pending Buy Limit order is placed at the StopLimit price</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_SELL_STOP_LIMIT</code></td>
+<td>7</td>
+<td>Upon reaching the order price, a pending Sell Limit order is placed at the StopLimit price</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_CLOSE_BY</code></td>
+<td>8</td>
+<td>Order to close a position by an opposite one</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_order_gtc_mode-field-order_gtc_mode"><code>BMT5_ENUM_SYMBOL_ORDER_GTC_MODE</code> (field <code>order_gtc_mode</code>)<a class="headerlink" href="#bmt5_enum_symbol_order_gtc_mode-field-order_gtc_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SYMBOL_ORDERS_GTC</code></td>
+<td>0</td>
+<td>Pending orders and Stop Loss/Take Profit levels are valid for an unlimited period until their explicit cancellation</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_ORDERS_DAILY</code></td>
+<td>1</td>
+<td>Orders are valid during one trading day. At the end of the day, all Stop Loss and Take Profit levels, as well as pending orders are deleted.</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_ORDERS_DAILY_EXCLUDING_STOPS</code></td>
+<td>2</td>
+<td>When a trade day changes, only pending orders are deleted, while Stop Loss and Take Profit levels are preserved.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_option_mode-field-option_mode"><code>BMT5_ENUM_SYMBOL_OPTION_MODE</code> (field <code>option_mode</code>)<a class="headerlink" href="#bmt5_enum_symbol_option_mode-field-option_mode" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SYMBOL_OPTION_MODE_EUROPEAN</code></td>
+<td>0</td>
+<td>European option may only be exercised on a specified date (expiration, execution date, delivery date)</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_OPTION_MODE_AMERICAN</code></td>
+<td>1</td>
+<td>American option may be exercised on any trading day or before expiry. The period within which a buyer can exercise the option is specified for it</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_symbol_option_right-field-option_right"><code>BMT5_ENUM_SYMBOL_OPTION_RIGHT</code> (field <code>option_right</code>)<a class="headerlink" href="#bmt5_enum_symbol_option_right-field-option_right" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_SYMBOL_OPTION_RIGHT_CALL</code></td>
+<td>0</td>
+<td>A call option gives you the right to buy an asset at a specified price</td>
+</tr>
+<tr>
+<td><code>BMT5_SYMBOL_OPTION_RIGHT_PUT</code></td>
+<td>1</td>
+<td>A put option gives you the right to sell an asset at a specified price</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="just-the-essentials">💬 Just the essentials<a class="headerlink" href="#just-the-essentials" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>What it is.</strong> One RPC returning 112 fields per symbol for one symbol or the whole Market Watch.</li>
+<li><strong>Why you need it.</strong> The most efficient way to read many symbol properties — a single call instead of dozens of <code>symbolInfo*</code> calls.</li>
+<li><strong>When to use.</strong> Use this for complete symbol data; use <code>symbolInfoDouble/Integer/String</code> only for a single specific property.</li>
+</ul>
+<hr />
+<h2 id="purpose">🎯 Purpose<a class="headerlink" href="#purpose" title="Permanent link">¶</a></h2>
+<ul>
+<li>Get all parameters for one symbol in a single call.</li>
+<li>Retrieve and paginate the full symbol list.</li>
+<li>Build comparison tables (spreads, margins, contract sizes).</li>
+<li>Classify symbols by sector/industry/calc mode.</li>
+</ul>
+<hr />
+<h2 id="notes-tips">🧩 Notes &amp; Tips<a class="headerlink" href="#notes-tips" title="Permanent link">¶</a></h2>
+<ul>
+<li>The method uses automatic reconnection via <code>executeWithReconnect()</code> to handle transient errors.</li>
+<li>All gRPC exceptions are converted to <code>ApiExceptionMT5</code> for consistent error handling.</li>
+<li><strong>Single symbol:</strong> pass <code>symbolName</code> to fetch just that symbol.</li>
+<li><strong>All symbols:</strong> pass <code>null</code> for <code>symbolName</code>.</li>
+<li><strong>Pagination:</strong> use <code>pageNumber</code> + <code>itemsPerPage</code> for large lists; <code>itemsPerPage = 0</code> returns everything.</li>
+<li><code>filling_mode</code> is a <strong>repeated</strong> enum — read it with <code>getFillingModeList()</code>.</li>
+<li>Some fields are zero/empty when not applicable to the symbol type.</li>
+</ul>
+<hr />
+<h2 id="usage-examples">🔗 Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link">¶</a></h2>
+<h3 id="1-all-parameters-for-one-symbol-recommended">1) All parameters for one symbol (RECOMMENDED)<a class="headerlink" href="#1-all-parameters-for-one-symbol-recommended" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pro.mrpc.mt5.MT5Account</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pro.mrpc.mt5.exceptions.ApiExceptionMT5</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">mt5_term_api.Mt5TermApiAccountHelper</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">MT5Account</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MT5Account</span><span class="p">(</span><span class="mi">12345678</span><span class="p">,</span><span class="w"> </span><span class="s">"password"</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="s">"demo.mt5server.com"</span><span class="p">,</span><span class="w"> </span><span class="mi">443</span><span class="p">,</span><span class="w"> </span><span class="s">"EURUSD"</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">            </span><span class="c1">// symbolName="EURUSD", no sort, page 0, all items</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="n">reply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="na">symbolParamsMany</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="n">list</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">reply</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">getSymbolInfosList</span><span class="p">();</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">                </span><span class="kd">var</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Symbol:        %s%n"</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Description:   %s%n"</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getSymDescription</span><span class="p">());</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Bid / Ask:     %.5f / %.5f%n"</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getBid</span><span class="p">(),</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getAsk</span><span class="p">());</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Spread:        %d points%n"</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getSpread</span><span class="p">());</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Digits:        %d%n"</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getDigits</span><span class="p">());</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Contract size: %.2f%n"</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getTradeContractSize</span><span class="p">());</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Volume min/max/step: %.2f / %.2f / %.2f%n"</span><span class="p">,</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">                    </span><span class="n">info</span><span class="p">.</span><span class="na">getVolumeMin</span><span class="p">(),</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getVolumeMax</span><span class="p">(),</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getVolumeStep</span><span class="p">());</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Trade mode:    %s%n"</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getTradeMode</span><span class="p">().</span><span class="na">name</span><span class="p">());</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Calc mode:     %s%n"</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getTradeCalcMode</span><span class="p">().</span><span class="na">name</span><span class="p">());</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ApiExceptionMT5</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Error: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">            </span><span class="n">account</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="2-first-page-of-all-symbols-sorted-by-name">2) First page of all symbols, sorted by name<a class="headerlink" href="#2-first-page-of-all-symbols-sorted-by-name" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">reply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="na">symbolParamsMany</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">AH_SYMBOL_PARAMS_MANY_SORT_TYPE</span><span class="p">.</span><span class="na">AH_PARAMS_MANY_SORT_TYPE_SYMBOL_NAME_ASC</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="mi">0</span><span class="p">,</span><span class="w">    </span><span class="c1">// page number</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// items per page</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kd">var</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reply</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Total symbols: %d%n"</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">getSymbolsTotal</span><span class="p">());</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"On this page:  %d%n"</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">getSymbolInfosList</span><span class="p">().</span><span class="na">size</span><span class="p">());</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">getSymbolInfosList</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"%-12s bid=%.5f ask=%.5f spread=%d%n"</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="n">info</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getBid</span><span class="p">(),</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getAsk</span><span class="p">(),</span><span class="w"> </span><span class="n">info</span><span class="p">.</span><span class="na">getSpread</span><span class="p">());</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="3-iterate-through-all-pages">3) Iterate through all pages<a class="headerlink" href="#3-iterate-through-all-pages" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">SymbolParameters</span><span class="o">&gt;</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">perPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="na">symbolParamsMany</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">perPage</span><span class="p">).</span><span class="na">getData</span><span class="p">();</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">all</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">getSymbolInfosList</span><span class="p">());</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">getSymbolInfosList</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">all</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">getSymbolsTotal</span><span class="p">())</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="n">page</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Total retrieved: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">all</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+</code></pre></div>
+<h3 id="4-compare-spreads-across-symbols">4) Compare spreads across symbols<a class="headerlink" href="#4-compare-spreads-across-symbols" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="na">symbolParamsMany</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="na">getData</span><span class="p">().</span><span class="na">getSymbolInfosList</span><span class="p">();</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Comparator</span><span class="p">.</span><span class="na">comparingInt</span><span class="p">(</span><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">SymbolParameters</span><span class="p">::</span><span class="n">getSpread</span><span class="p">))</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"%-12s spread=%d bid=%.5f ask=%.5f%n"</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="na">getSpread</span><span class="p">(),</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="na">getBid</span><span class="p">(),</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="na">getAsk</span><span class="p">()));</span>
+</code></pre></div>
+<h3 id="5-classify-symbols-by-calc-mode">5) Classify symbols by calc mode<a class="headerlink" href="#5-classify-symbols-by-calc-mode" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="na">symbolParamsMany</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="na">getData</span><span class="p">().</span><span class="na">getSymbolInfosList</span><span class="p">();</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">byCalcMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">stream</span><span class="p">.</span><span class="na">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="na">getTradeCalcMode</span><span class="p">().</span><span class="na">name</span><span class="p">(),</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">stream</span><span class="p">.</span><span class="na">Collectors</span><span class="p">.</span><span class="na">counting</span><span class="p">()));</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">byCalcMode</span><span class="p">.</span><span class="na">forEach</span><span class="p">((</span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"%-40s %d%n"</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">));</span>
+</code></pre></div>
+<hr />
+<h2 id="low-level-grpc-call-for-reference">🔄 Low-level gRPC call (for reference)<a class="headerlink" href="#low-level-grpc-call-for-reference" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.grpc.*</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.grpc.stub.MetadataUtils</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">mt5_term_api.*</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1">// Create request (single symbol)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">SymbolParamsManyRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">SymbolParamsManyRequest</span><span class="p">.</span><span class="na">newBuilder</span><span class="p">()</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="p">.</span><span class="na">setSymbolName</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="p">.</span><span class="na">setPageNumber</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="p">.</span><span class="na">setItemsPerPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="n">Metadata</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Metadata</span><span class="p">();</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="n">Metadata</span><span class="p">.</span><span class="na">Key</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">idKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Metadata</span><span class="p">.</span><span class="na">Key</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"id"</span><span class="p">,</span><span class="w"> </span><span class="n">Metadata</span><span class="p">.</span><span class="na">ASCII_STRING_MARSHALLER</span><span class="p">);</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="n">headers</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">idKey</span><span class="p">,</span><span class="w"> </span><span class="n">instanceId</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">SymbolParamsManyReply</span><span class="w"> </span><span class="n">reply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accountClient</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="p">.</span><span class="na">withInterceptors</span><span class="p">(</span><span class="n">MetadataUtils</span><span class="p">.</span><span class="na">newAttachHeadersInterceptor</span><span class="p">(</span><span class="n">headers</span><span class="p">))</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="p">.</span><span class="na">symbolParamsMany</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reply</span><span class="p">.</span><span class="na">hasError</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiExceptionMT5</span><span class="p">(</span><span class="n">reply</span><span class="p">.</span><span class="na">getError</span><span class="p">());</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="p">}</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="n">Mt5TermApiAccountHelper</span><span class="p">.</span><span class="na">SymbolParamsManyData</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reply</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+</code></pre></div>
+<hr />
+<h2 id="see-also">📚 See also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../SymbolInfoDouble/">SymbolInfoDouble.md</a> - Get a single double property</li>
+<li><a href="../SymbolInfoInteger/">SymbolInfoInteger.md</a> - Get a single integer property</li>
+<li><a href="../SymbolInfoString/">SymbolInfoString.md</a> - Get a single string property</li>
+<li><a href="../SymbolInfoTick/">SymbolInfoTick.md</a> - Get current tick data</li>
+<li><a href="../SymbolInfoMarginRate/">SymbolInfoMarginRate.md</a> - Margin rate multipliers per order type</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024–2025 MetaRPC. MT5 is a trademark of MetaQuotes Software Corp. This documentation is community-maintained and not affiliated with MetaQuotes.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/MetaRPC/JavaMT5" target="_blank" rel="noopener" title="JavaMT5 on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/ux.js"></script>
+      
+    
+  </body>
+</html>
