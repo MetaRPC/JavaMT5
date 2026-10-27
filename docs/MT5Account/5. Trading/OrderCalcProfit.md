@@ -67,6 +67,28 @@ Access using `reply.getData().getProfit()`.
 
 ---
 
+## 🧱 Related enums (from the generated stubs)
+
+### Enum: `ENUM_ORDER_TYPE_TF`
+
+| Value                           | Number | Description                                                                |
+| ------------------------------- | ------ | -------------------------------------------------------------------------- |
+| `ORDER_TYPE_TF_BUY`             | 0      | Market Buy order                                                           |
+| `ORDER_TYPE_TF_SELL`            | 1      | Market Sell order                                                          |
+| `ORDER_TYPE_TF_BUY_LIMIT`       | 2      | Buy Limit pending order                                                    |
+| `ORDER_TYPE_TF_SELL_LIMIT`      | 3      | Sell Limit pending order                                                   |
+| `ORDER_TYPE_TF_BUY_STOP`        | 4      | Buy Stop pending order                                                     |
+| `ORDER_TYPE_TF_SELL_STOP`       | 5      | Sell Stop pending order                                                    |
+| `ORDER_TYPE_TF_BUY_STOP_LIMIT`  | 6      | On reaching the order price, a Buy Limit is placed at the StopLimit price  |
+| `ORDER_TYPE_TF_SELL_STOP_LIMIT` | 7      | On reaching the order price, a Sell Limit is placed at the StopLimit price |
+| `ORDER_TYPE_TF_CLOSE_BY`        | 8      | Order to close a position by an opposite one                               |
+
+Accessed in Java as `Mt5TermApiTradeFunctions.ENUM_ORDER_TYPE_TF.ORDER_TYPE_TF_BUY`.
+
+> **Note:** for profit calculation only `ORDER_TYPE_TF_BUY` / `ORDER_TYPE_TF_SELL` are meaningful; other order types are accepted by the enum but calculated as their market direction.
+
+---
+
 ## 💬 Just the essentials
 
 * **What it is.** Calculate P&L for a trade scenario.

@@ -119,6 +119,142 @@ Access using `reply.getData().getEventData().<field>`.
 
 ---
 
+## 🧱 Related enums (from the generated stubs)
+
+> All enums below come straight from `mt5-term-api-subscriptions.proto`. In Java they are nested on `Mt5TermApiSubscriptions` (e.g. `Mt5TermApiSubscriptions.SUB_ENUM_ORDER_TYPE.SUB_ORDER_TYPE_BUY`).
+
+### `MT5_SUB_ENUM_EVENT_GROUP_TYPE` — field `OnTradeData.type`
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `OrderProfit` | 0 |  |
+| `OrderUpdate` | 1 |  |
+
+### `SUB_ENUM_POSITION_TYPE` — PositionInfo.type
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_POSITION_TYPE_BUY` | 0 | Buy |
+| `SUB_POSITION_TYPE_SELL` | 1 | Sell |
+
+### `SUB_ENUM_POSITION_REASON` — PositionInfo.reason
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_POSITION_REASON_CLIENT` | 0 |  |
+| `SUB_POSITION_REASON_MOBILE` | 2 |  |
+| `SUB_POSITION_REASON_WEB` | 3 |  |
+| `SUB_POSITION_REASON_EXPERT` | 4 |  |
+
+### `SUB_ENUM_ORDER_TYPE` — OrderInfo.order_type
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_TYPE_BUY` | 0 |  |
+| `SUB_ORDER_TYPE_SELL` | 1 |  |
+| `SUB_ORDER_TYPE_BUY_LIMIT` | 2 |  |
+| `SUB_ORDER_TYPE_SELL_LIMIT` | 3 |  |
+| `SUB_ORDER_TYPE_BUY_STOP` | 4 |  |
+| `SUB_ORDER_TYPE_SELL_STOP` | 5 |  |
+| `SUB_ORDER_TYPE_BUY_STOP_LIMIT` | 6 |  |
+| `SUB_ORDER_TYPE_SELL_STOP_LIMIT` | 7 |  |
+| `SUB_ORDER_TYPE_CLOSE_BY` | 8 |  |
+
+### `SUB_ENUM_ORDER_STATE` — OrderInfo.state
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_STATE_STARTED` | 0 | Order checked, but not yet accepted by broker |
+| `SUB_ORDER_STATE_PLACED` | 1 | Order accepted |
+| `SUB_ORDER_STATE_CANCELED` | 2 | Order canceled by client |
+| `SUB_ORDER_STATE_PARTIAL` | 3 | Order partially executed |
+| `SUB_ORDER_STATE_FILLED` | 4 | Order fully executed |
+| `SUB_ORDER_STATE_REJECTED` | 5 | Order rejected |
+| `SUB_ORDER_STATE_EXPIRED` | 6 | Order expired |
+| `SUB_ORDER_STATE_REQUEST_ADD` | 7 | Order is being registered (placing to the trading system) |
+| `SUB_ORDER_STATE_REQUEST_MODIFY` | 8 | Order is being modified (changing its parameters) |
+| `SUB_ORDER_STATE_REQUEST_CANCEL` | 9 | Order is being deleted (deleting from the trading system) |
+
+### `SUB_ENUM_DEAL_TYPE` — DealInfo.type
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_DEAL_TYPE_BUY` | 0 | Buy |
+| `SUB_DEAL_TYPE_SELL` | 1 | Sell |
+| `SUB_DEAL_TYPE_BALANCE` | 2 | Balance |
+| `SUB_DEAL_TYPE_CREDIT` | 3 | Credit |
+| `SUB_DEAL_TYPE_CHARGE` | 4 | Additional charge |
+| `SUB_DEAL_TYPE_CORRECTION` | 5 | Correction |
+| `SUB_DEAL_TYPE_BONUS` | 6 | Bonus |
+| `SUB_DEAL_TYPE_COMMISSION` | 7 | Additional commission |
+| `SUB_DEAL_TYPE_COMMISSION_DAILY` | 8 | Daily commission |
+| `SUB_DEAL_TYPE_COMMISSION_MONTHLY` | 9 | Monthly commission |
+| `SUB_DEAL_TYPE_COMMISSION_AGENT_DAILY` | 10 | Daily agent commission |
+| `SUB_DEAL_TYPE_COMMISSION_AGENT_MONTHLY` | 11 | Monthly agent commission |
+| `SUB_DEAL_TYPE_INTEREST` | 12 | Interest rate |
+| `SUB_DEAL_TYPE_BUY_CANCELED` | 13 | Canceled buy deal |
+| `SUB_DEAL_TYPE_SELL_CANCELED` | 14 | Canceled sell deal |
+| `SUB_DEAL_DIVIDEND` | 15 | Dividend operations |
+| `SUB_DEAL_DIVIDEND_FRANKED` | 16 | Franked (non-taxable) dividend operations |
+| `SUB_DEAL_TAX` | 17 | Tax charges |
+
+### `SUB_ENUM_ORDER_TYPE_TIME` — OrderInfo.type_time
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_TIME_GTC` | 0 | Good till cancel order |
+| `SUB_ORDER_TIME_DAY` | 1 | Good till current trade day order |
+| `SUB_ORDER_TIME_SPECIFIED` | 2 | Good till expired order |
+| `SUB_ORDER_TIME_SPECIFIED_DAY` | 3 | The order will be effective till 23:59:59 of the specified day. |
+
+### `SUB_ENUM_ORDER_TYPE_FILLING` — OrderInfo.type_filling
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_FILLING_FOK` | 0 |  |
+| `SUB_ORDER_FILLING_IOC` | 1 |  |
+| `SUB_ORDER_FILLING_BOC` | 2 |  |
+| `SUB_ORDER_FILLING_RETURN` | 3 |  |
+
+### `SUB_ENUM_ORDER_REASON` — OrderInfo.reason
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_REASON_CLIENT` | 0 |  |
+| `SUB_ORDER_REASON_MOBILE` | 2 |  |
+| `SUB_ORDER_REASON_WEB` | 3 |  |
+| `SUB_ORDER_REASON_EXPERT` | 4 |  |
+| `SUB_ORDER_REASON_SL` | 5 |  |
+| `SUB_ORDER_REASON_TP` | 6 |  |
+| `SUB_ORDER_REASON_SO` | 7 |  |
+
+### `SUB_ENUM_DEAL_ENTRY` — DealInfo.entry
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_DEAL_ENTRY_IN` | 0 | Entry in |
+| `SUB_DEAL_ENTRY_OUT` | 1 | Entry out |
+| `SUB_DEAL_ENTRY_INOUT` | 2 | Reverse |
+| `SUB_DEAL_ENTRY_OUT_BY` | 3 | Close a position by an opposite one |
+
+### `SUB_ENUM_DEAL_REASON` — DealInfo.reason
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_DEAL_REASON_CLIENT` | 0 |  |
+| `SUB_DEAL_REASON_MOBILE` | 1 |  |
+| `SUB_DEAL_REASON_WEB` | 2 |  |
+| `SUB_DEAL_REASON_EXPERT` | 3 |  |
+| `SUB_DEAL_REASON_SL` | 4 |  |
+| `SUB_DEAL_REASON_TP` | 5 |  |
+| `SUB_DEAL_REASON_SO` | 6 |  |
+| `SUB_DEAL_REASON_ROLLOVER` | 7 |  |
+| `SUB_DEAL_REASON_VMARGIN` | 8 |  |
+| `SUB_DEAL_REASON_SPLIT` | 9 |  |
+| `SUB_DEAL_REASON_CORPORATE_ACTION` | 10 |  |
+
+---
+
 ## 💬 Just the essentials
 
 * **What it is.** Real-time notifications of all trading activity.

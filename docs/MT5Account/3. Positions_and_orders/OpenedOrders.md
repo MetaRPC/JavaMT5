@@ -140,6 +140,53 @@ public class MT5Account {
 | `ORDER_REASON_TP`              | 5     | Closed by Take Profit             |
 | `ORDER_REASON_SO`              | 6     | Closed by Stop Out (margin call)  |
 
+### `BMT5_ENUM_ORDER_TYPE`
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `BMT5_ORDER_TYPE_BUY` | 0 | Market Buy order |
+| `BMT5_ORDER_TYPE_SELL` | 1 | Market Sell order |
+| `BMT5_ORDER_TYPE_BUY_LIMIT` | 2 | Buy Limit pending order |
+| `BMT5_ORDER_TYPE_SELL_LIMIT` | 3 | Sell Limit pending order |
+| `BMT5_ORDER_TYPE_BUY_STOP` | 4 | Buy Stop pending order |
+| `BMT5_ORDER_TYPE_SELL_STOP` | 5 | Sell Stop pending order |
+| `BMT5_ORDER_TYPE_BUY_STOP_LIMIT` | 6 | On reaching the order price, a Buy Limit is placed at the StopLimit price |
+| `BMT5_ORDER_TYPE_SELL_STOP_LIMIT` | 7 | On reaching the order price, a Sell Limit is placed at the StopLimit price |
+| `BMT5_ORDER_TYPE_CLOSE_BY` | 8 | Order to close a position by an opposite one |
+
+### `BMT5_ENUM_ORDER_STATE`
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `BMT5_ORDER_STATE_STARTED` | 0 | Order checked, but not yet accepted by broker |
+| `BMT5_ORDER_STATE_PLACED` | 1 | Order accepted |
+| `BMT5_ORDER_STATE_CANCELED` | 2 | Order canceled by client |
+| `BMT5_ORDER_STATE_PARTIAL` | 3 | Order partially executed |
+| `BMT5_ORDER_STATE_FILLED` | 4 | Order fully executed |
+| `BMT5_ORDER_STATE_REJECTED` | 5 | Order rejected |
+| `BMT5_ORDER_STATE_EXPIRED` | 6 | Order expired |
+| `BMT5_ORDER_STATE_REQUEST_ADD` | 7 | Order is being registered (placing to the trading system) |
+| `BMT5_ORDER_STATE_REQUEST_MODIFY` | 8 | Order is being modified (changing its parameters) |
+| `BMT5_ORDER_STATE_REQUEST_CANCEL` | 9 | Order is being deleted (deleting from the trading system) |
+
+### `BMT5_ENUM_ORDER_TYPE_FILLING`
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `BMT5_ORDER_FILLING_FOK` | 0 | Fill or Kill — fill completely or cancel |
+| `BMT5_ORDER_FILLING_IOC` | 1 | Immediate or Cancel — fill available volume, cancel the rest |
+| `BMT5_ORDER_FILLING_RETURN` | 2 | Return — partial fill allowed, remainder stays as an order |
+| `BMT5_ORDER_FILLING_BOC` | 3 | Book or Cancel — passive order placed only into the book |
+
+### `BMT5_ENUM_ORDER_TYPE_TIME`
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `BMT5_ORDER_TIME_GTC` | 0 | Good Till Cancel |
+| `BMT5_ORDER_TIME_DAY` | 1 | Good Till end of the trading day |
+| `BMT5_ORDER_TIME_SPECIFIED` | 2 | Good Till a specified time |
+| `BMT5_ORDER_TIME_SPECIFIED_DAY` | 3 | Good Till 23:59:59 of a specified day |
+
 ---
 
 ## 💬 Just the essentials

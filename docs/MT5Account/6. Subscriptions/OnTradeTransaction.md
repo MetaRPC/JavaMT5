@@ -128,6 +128,164 @@ Access using `reply.getData().<field>`.
 
 ---
 
+## 🧱 Related enums (from the generated stubs)
+
+> All enums below come straight from `mt5-term-api-subscriptions.proto`. In Java they are nested on `Mt5TermApiSubscriptions` (e.g. `Mt5TermApiSubscriptions.SUB_ENUM_ORDER_TYPE.SUB_ORDER_TYPE_BUY`).
+
+### `MT5_SUB_ENUM_EVENT_GROUP_TYPE` — field `OnTradeTransactionData.type`
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `OrderProfit` | 0 |  |
+| `OrderUpdate` | 1 |  |
+
+### `SUB_ENUM_TRADE_TRANSACTION_TYPE` — MqlTradeTransaction.type
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_TRADE_TRANSACTION_ORDER_ADD` | 0 | Adding a new open order. |
+| `SUB_TRADE_TRANSACTION_ORDER_UPDATE` | 1 | Updating an open order. The updates include not only evident changes from the client terminal or a trade server sides but also changes of an order state when setting it (for example, transition from ORDER_STATE_STARTED to ORDER_STATE_PLACED or from ORDER_STATE_PLACED to ORDER_STATE_PARTIAL, etc.). |
+| `SUB_TRADE_TRANSACTION_ORDER_DELETE` | 2 | Removing an order from the list of the open ones. An order can be deleted from the open ones as a result of setting an appropriate request or execution (filling) and moving to the history. |
+| `SUB_TRADE_TRANSACTION_DEAL_ADD` | 3 | Adding a deal to the history. The action is performed as a result of an order execution or performing operations with an account balance. |
+| `SUB_TRADE_TRANSACTION_DEAL_UPDATE` | 4 | Updating a deal in the history. There may be cases when a previously executed deal is changed on a server. For example, a deal has been changed in an external trading system (exchange) where it was previously transferred by a broker. |
+| `SUB_TRADE_TRANSACTION_DEAL_DELETE` | 5 | Deleting a deal from the history. There may be cases when a previously executed deal is deleted from a server. For example, a deal has been deleted in an external trading system (exchange) where it was previously transferred by a broker. |
+| `SUB_TRADE_TRANSACTION_HISTORY_ADD` | 6 | Adding an order to the history as a result of execution or cancellation. |
+| `SUB_TRADE_TRANSACTION_HISTORY_UPDATE` | 7 | Changing an order located in the orders history. This type is provided for enhancing functionality on a trade server side. |
+| `SUB_TRADE_TRANSACTION_HISTORY_DELETE` | 8 | Deleting an order from the orders history. This type is provided for enhancing functionality on a trade server side. |
+| `SUB_TRADE_TRANSACTION_POSITION` | 9 | Changing a position not related to a deal execution. This type of transaction shows that a position has been changed on a trade server side. Position volume, open price, Stop Loss and Take Profit levels can be changed. Data on changes are submitted in MqlTradeTransaction structure via OnTradeTransaction handler. Position change (adding, changing or closing), as a result of a deal execution, does not lead to the occurrence of TRADE_TRANSACTION_POSITION transaction. |
+| `SUB_TRADE_TRANSACTION_REQUEST` | 10 | Notification of the fact that a trade request has been processed by a server and processing result has been received. Only type field (trade transaction type) must be analyzed for such transactions in MqlTradeTransaction structure. The second and third parameters of OnTradeTransaction (request and result) must be analyzed for additional data. |
+
+### `SUB_ENUM_ORDER_TYPE` — MqlTradeTransaction / MqlTradeRequest.order_type
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_TYPE_BUY` | 0 |  |
+| `SUB_ORDER_TYPE_SELL` | 1 |  |
+| `SUB_ORDER_TYPE_BUY_LIMIT` | 2 |  |
+| `SUB_ORDER_TYPE_SELL_LIMIT` | 3 |  |
+| `SUB_ORDER_TYPE_BUY_STOP` | 4 |  |
+| `SUB_ORDER_TYPE_SELL_STOP` | 5 |  |
+| `SUB_ORDER_TYPE_BUY_STOP_LIMIT` | 6 |  |
+| `SUB_ORDER_TYPE_SELL_STOP_LIMIT` | 7 |  |
+| `SUB_ORDER_TYPE_CLOSE_BY` | 8 |  |
+
+### `SUB_ENUM_ORDER_STATE` — MqlTradeTransaction.order_state
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_STATE_STARTED` | 0 | Order checked, but not yet accepted by broker |
+| `SUB_ORDER_STATE_PLACED` | 1 | Order accepted |
+| `SUB_ORDER_STATE_CANCELED` | 2 | Order canceled by client |
+| `SUB_ORDER_STATE_PARTIAL` | 3 | Order partially executed |
+| `SUB_ORDER_STATE_FILLED` | 4 | Order fully executed |
+| `SUB_ORDER_STATE_REJECTED` | 5 | Order rejected |
+| `SUB_ORDER_STATE_EXPIRED` | 6 | Order expired |
+| `SUB_ORDER_STATE_REQUEST_ADD` | 7 | Order is being registered (placing to the trading system) |
+| `SUB_ORDER_STATE_REQUEST_MODIFY` | 8 | Order is being modified (changing its parameters) |
+| `SUB_ORDER_STATE_REQUEST_CANCEL` | 9 | Order is being deleted (deleting from the trading system) |
+
+### `SUB_ENUM_DEAL_TYPE` — MqlTradeTransaction.deal_type
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_DEAL_TYPE_BUY` | 0 | Buy |
+| `SUB_DEAL_TYPE_SELL` | 1 | Sell |
+| `SUB_DEAL_TYPE_BALANCE` | 2 | Balance |
+| `SUB_DEAL_TYPE_CREDIT` | 3 | Credit |
+| `SUB_DEAL_TYPE_CHARGE` | 4 | Additional charge |
+| `SUB_DEAL_TYPE_CORRECTION` | 5 | Correction |
+| `SUB_DEAL_TYPE_BONUS` | 6 | Bonus |
+| `SUB_DEAL_TYPE_COMMISSION` | 7 | Additional commission |
+| `SUB_DEAL_TYPE_COMMISSION_DAILY` | 8 | Daily commission |
+| `SUB_DEAL_TYPE_COMMISSION_MONTHLY` | 9 | Monthly commission |
+| `SUB_DEAL_TYPE_COMMISSION_AGENT_DAILY` | 10 | Daily agent commission |
+| `SUB_DEAL_TYPE_COMMISSION_AGENT_MONTHLY` | 11 | Monthly agent commission |
+| `SUB_DEAL_TYPE_INTEREST` | 12 | Interest rate |
+| `SUB_DEAL_TYPE_BUY_CANCELED` | 13 | Canceled buy deal |
+| `SUB_DEAL_TYPE_SELL_CANCELED` | 14 | Canceled sell deal |
+| `SUB_DEAL_DIVIDEND` | 15 | Dividend operations |
+| `SUB_DEAL_DIVIDEND_FRANKED` | 16 | Franked (non-taxable) dividend operations |
+| `SUB_DEAL_TAX` | 17 | Tax charges |
+
+### `SUB_ENUM_ORDER_TYPE_TIME` — MqlTradeTransaction / MqlTradeRequest.type_time
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_TIME_GTC` | 0 | Good till cancel order |
+| `SUB_ORDER_TIME_DAY` | 1 | Good till current trade day order |
+| `SUB_ORDER_TIME_SPECIFIED` | 2 | Good till expired order |
+| `SUB_ORDER_TIME_SPECIFIED_DAY` | 3 | The order will be effective till 23:59:59 of the specified day. |
+
+### `SUB_ENUM_TRADE_REQUEST_ACTIONS` — MqlTradeRequest.action
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_TRADE_ACTION_UNDEFINED` | 0 |  |
+| `SUB_TRADE_ACTION_DEAL` | 1 | Place a trade order for an immediate execution with the specified parameters (market order) |
+| `SUB_TRADE_ACTION_PENDING` | 2 | Place a trade order for the execution under specified conditions (pending order) |
+| `SUB_TRADE_ACTION_SLTP` | 3 | Modify Stop Loss and Take Profit values of an opened position |
+| `SUB_TRADE_ACTION_MODIFY` | 4 | Modify the parameters of the order placed previously |
+| `SUB_TRADE_ACTION_REMOVE` | 5 | Delete the pending order placed previously |
+| `SUB_TRADE_ACTION_CLOSE_BY` | 6 | Close a position by an opposite one |
+
+### `SUB_ENUM_ORDER_TYPE_FILLING` — MqlTradeRequest.type_filling
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `SUB_ORDER_FILLING_FOK` | 0 |  |
+| `SUB_ORDER_FILLING_IOC` | 1 |  |
+| `SUB_ORDER_FILLING_BOC` | 2 |  |
+| `SUB_ORDER_FILLING_RETURN` | 3 |  |
+
+### `MqlErrorTradeCode` — MqlTradeResult.retcode
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `TRADE_RETCODE_SUCCESS` | 0 |  |
+| `TRADE_RETCODE_REQUOTE` | 10004 | Requote |
+| `TRADE_RETCODE_REJECT` | 10006 | Request rejected |
+| `TRADE_RETCODE_CANCEL` | 10007 | Request canceled by trader |
+| `TRADE_RETCODE_PLACED` | 10008 | Order placed |
+| `TRADE_RETCODE_DONE` | 10009 | Request completed |
+| `TRADE_RETCODE_DONE_PARTIAL` | 10010 | Only part of the request was completed |
+| `TRADE_RETCODE_ERROR` | 10011 | Request processing error |
+| `TRADE_RETCODE_TIMEOUT` | 10012 | Request canceled by timeout |
+| `TRADE_RETCODE_INVALID` | 10013 | Invalid request |
+| `TRADE_RETCODE_INVALID_VOLUME` | 10014 | Invalid volume in the request |
+| `TRADE_RETCODE_INVALID_PRICE` | 10015 | Invalid price in the request |
+| `TRADE_RETCODE_INVALID_STOPS` | 10016 | Invalid stops in the request |
+| `TRADE_RETCODE_TRADE_DISABLED` | 10017 | Trade is disabled |
+| `TRADE_RETCODE_MARKET_CLOSED` | 10018 | Market is closed |
+| `TRADE_RETCODE_NO_MONEY` | 10019 | Not enough money to complete the request |
+| `TRADE_RETCODE_PRICE_CHANGED` | 10020 | Prices changed |
+| `TRADE_RETCODE_PRICE_OFF` | 10021 | No quotes to process the request |
+| `TRADE_RETCODE_INVALID_EXPIRATION` | 10022 | Invalid order expiration date |
+| `TRADE_RETCODE_ORDER_CHANGED` | 10023 | Order state changed |
+| `TRADE_RETCODE_TOO_MANY_REQUESTS` | 10024 | Too frequent requests |
+| `TRADE_RETCODE_NO_CHANGES` | 10025 | No changes in request |
+| `TRADE_RETCODE_SERVER_DISABLES_AT` | 10026 | Autotrading disabled by server |
+| `TRADE_RETCODE_CLIENT_DISABLES_AT` | 10027 | Autotrading disabled by client terminal |
+| `TRADE_RETCODE_LOCKED` | 10028 | Request locked for processing |
+| `TRADE_RETCODE_FROZEN` | 10029 | Order or position frozen |
+| `TRADE_RETCODE_INVALID_FILL` | 10030 | Invalid order filling type |
+| `TRADE_RETCODE_CONNECTION` | 10031 | No connection with trade server |
+| `TRADE_RETCODE_ONLY_REAL` | 10032 | Operation allowed only for live accounts |
+| `TRADE_RETCODE_LIMIT_ORDERS` | 10033 | Limit of pending orders reached |
+| `TRADE_RETCODE_LIMIT_VOLUME` | 10034 | Volume of orders and positions reached the limit |
+| `TRADE_RETCODE_INVALID_ORDER` | 10035 | Incorrect or prohibited order type |
+| `TRADE_RETCODE_POSITION_CLOSED` | 10036 | Position already closed |
+| `TRADE_RETCODE_INVALID_CLOSE_VOLUME` | 10038 | Close volume exceeds position volume |
+| `TRADE_RETCODE_CLOSE_ORDER_EXIST` | 10039 | Close order already exists |
+| `TRADE_RETCODE_LIMIT_POSITIONS` | 10040 | Limit of open positions reached |
+| `TRADE_RETCODE_REJECT_CANCEL` | 10041 | Pending order activation request rejected |
+| `TRADE_RETCODE_LONG_ONLY` | 10042 | Only long positions allowed |
+| `TRADE_RETCODE_SHORT_ONLY` | 10043 | Only short positions allowed |
+| `TRADE_RETCODE_CLOSE_ONLY` | 10044 | Only position closing allowed |
+| `TRADE_RETCODE_FIFO_CLOSE` | 10045 | Closing allowed only by FIFO rule |
+| `TRADE_RETCODE_HEDGE_PROHIBITED` | 10046 | Opposite positions disabled |
+
+---
+
 ## 💬 Just the essentials
 
 * **What it is.** Most detailed stream of all trading actions.

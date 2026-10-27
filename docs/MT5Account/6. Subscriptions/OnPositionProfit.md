@@ -85,6 +85,19 @@ Access using `reply.getData().<field>`.
 
 ---
 
+## 🧱 Related enums (from the generated stubs)
+
+> All enums below come straight from `mt5-term-api-subscriptions.proto`. In Java they are nested on `Mt5TermApiSubscriptions` (e.g. `Mt5TermApiSubscriptions.SUB_ENUM_ORDER_TYPE.SUB_ORDER_TYPE_BUY`).
+
+### `MT5_SUB_ENUM_EVENT_GROUP_TYPE` — field `OnPositionProfitData.type`
+
+| Enum Value | Value | Description |
+|------------|-------|-------------|
+| `OrderProfit` | 0 |  |
+| `OrderUpdate` | 1 |  |
+
+---
+
 ## 💬 Just the essentials
 
 * **What it is.** Periodic updates of position P/L values.

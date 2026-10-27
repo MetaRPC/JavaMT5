@@ -158,6 +158,7 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_PRICE_RHO` | 56 | Option rho |
 | `SYMBOL_PRICE_OMEGA` | 57 | Option omega (elasticity) |
 | `SYMBOL_PRICE_SENSITIVITY` | 58 | Option sensitivity |
+| `SYMBOL_COUNT` | 59 | Number of symbol properties (enum size marker) |
 
 **Other Properties:**
 
