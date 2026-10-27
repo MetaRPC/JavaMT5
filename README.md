@@ -36,22 +36,37 @@ The jar holds the gRPC stubs generated from the current MT5 protos (`mt5_term_ap
 
 ## 🏃 How to Run Examples
 
-Clone the repository and run the examples out-of-the-box:
+Clone the repository and run the examples out-of-the-box. The runner compiles the
+project once, then launches examples directly via `java`:
 
 ```bash
 git clone https://github.com/MetaRPC/JavaMT5.git
 cd JavaMT5
-mvn compile
 
-# 1. Run with default TRIAL key:
-./run.bat 1                                    # Or: mvn compile exec:java -Dexec.args="1"
+# Windows:
+run.bat 1
 
-# 2. Or pass your MetaRPC API key directly as an argument:
-./run.bat 1 --api-key=your_api_key_here        # Or: mvn compile exec:java -Dexec.args="1 --api-key=your_api_key_here"
+# Linux / macOS / Git-Bash:
+./run.sh 1
+
+# Run without an example number to open the interactive menu:
+run.bat            # Linux/macOS: ./run.sh
+```
+
+### Passing your API key
+
+```bash
+# 1. Default TRIAL key (nothing to pass):
+run.bat 1                                 # Linux/macOS: ./run.sh 1
+
+# 2. Pass your MetaRPC API key as an argument:
+run.bat 1 --api-key=your_api_key_here     # Linux/macOS: ./run.sh 1 --api-key=your_api_key_here
 
 # 3. Or use the MRPC_API_KEY environment variable:
-export MRPC_API_KEY="your_api_key_here"        # Windows CMD: set MRPC_API_KEY=your_api_key_here
-./run.bat 1                                    # Windows PowerShell: $env:MRPC_API_KEY="your_api_key_here"
+set MRPC_API_KEY=your_api_key_here        # Windows CMD
+$env:MRPC_API_KEY="your_api_key_here"     # Windows PowerShell
+export MRPC_API_KEY=your_api_key_here     # Linux / macOS
+run.bat 1
 ```
 
 ---
