@@ -1,50 +1,101 @@
+---
+hide:
+  - navigation
+  - toc
+---
 
 # JavaMT5 SDK Documentation
 
-**The Java client of the MRPC MetaTrader 5 API (`mt5.mrpc.pro:443`, gRPC): MT5Account, MT5Service, MT5Sugar, orchestrators.**
+> ℹ️ **Account ID / Session ID**: When connecting via `Connect` / `ConnectEx`, MetaRPC automatically generates a terminal session GUID and returns it in `terminalInstanceGuid`. There is no need to call `GetId` or supply an `id` header prior to connecting. Subsequent calls (such as subscriptions or order requests) use this session ID automatically.
 
-<div class="home-grid">
+<div class="hx-wrap" markdown="0">
 
-<a href="All_Guides/Your_First_Project/" class="card card-0">
-  <span class="material-symbols-rounded">rocket_launch</span>
-  <h3>Your First Project</h3>
-  <p>JavaMT5 as a library, in 10 minutes</p>
-</a>
+<div class="hx-hero">
+  <p class="hx-sub">Complete Java SDK for MetaTrader 5 trading automation via gRPC &amp; REST — connect, stream live ticks, and execute trades from any Java application.</p>
+  <div class="hx-stats">
+    <div class="hx-stat"><span class="hx-statV">3</span><span class="hx-statL">API Layers</span></div>
+    <div class="hx-stat"><span class="hx-statV">gRPC</span><span class="hx-statL">+ REST Protocol</span></div>
+    <div class="hx-stat"><span class="hx-statV">MT5</span><span class="hx-statL">Cloud Terminal</span></div>
+    <div class="hx-stat"><span class="hx-statV">Java 11+</span><span class="hx-statL">Runtime</span></div>
+  </div>
+</div>
 
-<a href="GETTING_STARTED/" class="card card-1 card-wide">
-  <span class="material-symbols-rounded">bolt</span>
-  <h3>Getting Started</h3>
-  <p>Clone, configure, run the examples</p>
-</a>
+<div class="hx-cards hx-cards-4">
 
-<a href="MT5Account/MT5Account.Master.Overview/" class="card card-2">
-  <span class="material-symbols-rounded">settings</span>
-  <h3>MT5Account</h3>
-  <p>Every API call, one method each</p>
-</a>
+  <a href="All_Guides/Your_First_Project/" class="hx-gc hx-orange">
+    <div class="hx-gcTop"></div>
+    <div class="hx-gcBody">
+      <div class="hx-gcTag">Get Started</div>
+      <div class="hx-gcTitle">Quick Start</div>
+      <p class="hx-gcDesc">Your first project from scratch in 10 minutes. Connect, read your balance, place a trade.</p>
+      <div class="hx-gcCount">10 min · hands-on</div>
+    </div>
+  </a>
 
-<a href="MT5Sugar/MT5Sugar.Overview/" class="card card-3">
-  <span class="material-symbols-rounded">auto_awesome</span>
-  <h3>MT5Sugar</h3>
-  <p>Orders by points and risk, helpers</p>
-</a>
+  <a href="GETTING_STARTED/" class="hx-gc hx-blue">
+    <div class="hx-gcTop"></div>
+    <div class="hx-gcBody">
+      <div class="hx-gcTag">Learn</div>
+      <div class="hx-gcTitle">Getting Started</div>
+      <p class="hx-gcDesc">New here? Start with setup, configuration and an overview of how the SDK is organized.</p>
+      <div class="hx-gcCount">setup · overview</div>
+    </div>
+  </a>
 
-<a href="Orchestrators.Overview/" class="card card-4">
-  <span class="material-symbols-rounded">smart_toy</span>
-  <h3>Orchestrators</h3>
-  <p>Example strategies (demo accounts)</p>
-</a>
+  <a href="PROJECT_MAP/" class="hx-gc hx-purple">
+    <div class="hx-gcTop"></div>
+    <div class="hx-gcBody">
+      <div class="hx-gcTag">Architecture</div>
+      <div class="hx-gcTitle">Project Map</div>
+      <p class="hx-gcDesc">Architecture overview — how low-level, mid-level and sugar layers fit together.</p>
+      <div class="hx-gcCount">structure · layers</div>
+    </div>
+  </a>
 
-<a href="GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN/" class="card card-5">
-  <span class="material-symbols-rounded">stream</span>
-  <h3>Streams & channels</h3>
-  <p>Stopping streams, closing cleanly</p>
-</a>
+  <a href="GLOSSARY/" class="hx-gc hx-pink">
+    <div class="hx-gcTop"></div>
+    <div class="hx-gcBody">
+      <div class="hx-gcTag">Reference</div>
+      <div class="hx-gcTitle">Glossary</div>
+      <p class="hx-gcDesc">MT5 terms, return codes, enums and concepts — a reference while you build.</p>
+      <div class="hx-gcCount">terms · concepts</div>
+    </div>
+  </a>
 
-<a href="API_Reference/methods/" class="card card-6">
-  <span class="material-symbols-rounded">list</span>
-  <h3>API methods</h3>
-  <p>Every method, generated from the protos</p>
-</a>
+</div>
+
+<div class="hx-cards">
+
+  <a href="MT5Account/MT5Account.Master.Overview/" class="hx-gc hx-teal">
+    <div class="hx-gcTop"></div>
+    <div class="hx-gcBody">
+      <div class="hx-gcTag">Reference · Low-level</div>
+      <div class="hx-gcTitle">MT5Account</div>
+      <p class="hx-gcDesc">Direct gRPC / protobuf layer. Maximum control over every request and response.</p>
+      <div class="hx-gcCount">raw gRPC · full control</div>
+    </div>
+  </a>
+
+  <a href="api/MT5Service/" class="hx-gc hx-rose">
+    <div class="hx-gcTop"></div>
+    <div class="hx-gcBody">
+      <div class="hx-gcTag">Reference · Mid-level</div>
+      <div class="hx-gcTitle">MT5Service</div>
+      <p class="hx-gcDesc">Clean wrapper over MT5Account with native Java types and convenience methods.</p>
+      <div class="hx-gcCount">30–50% less code</div>
+    </div>
+  </a>
+
+  <a href="MT5Sugar/MT5Sugar.Overview/" class="hx-gc hx-green">
+    <div class="hx-gcTop"></div>
+    <div class="hx-gcBody">
+      <div class="hx-gcTag">Reference · High-level</div>
+      <div class="hx-gcTitle">MT5Sugar</div>
+      <p class="hx-gcDesc">One-liner operations, risk-based sizing and smart defaults for fast strategies.</p>
+      <div class="hx-gcCount">one-liners · risk sizing</div>
+    </div>
+  </a>
+
+</div>
 
 </div>

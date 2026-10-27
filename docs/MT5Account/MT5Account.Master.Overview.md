@@ -95,10 +95,17 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 * [SymbolInfoDouble.md](./2.%20Symbol_information/SymbolInfoDouble.md) - Single double property (bid, ask, point, volume min/max, etc.)
 * [SymbolInfoInteger.md](./2.%20Symbol_information/SymbolInfoInteger.md) - Single integer property (digits, spread, stops level, etc.)
 * [SymbolInfoString.md](./2.%20Symbol_information/SymbolInfoString.md) - Single string property (description, currency, path)
+* [SymbolParamsMany.md](./2.%20Symbol_information/SymbolParamsMany.md) - All 112 symbol parameters at once, for one or many symbols (paginated)
+
+### Session Schedule
+
+* [SymbolInfoSessionQuote.md](./2.%20Symbol_information/SymbolInfoSessionQuote.md) - Quote (pricing) session times for a symbol on a weekday
+* [SymbolInfoSessionTrade.md](./2.%20Symbol_information/SymbolInfoSessionTrade.md) - Trading session times for a symbol on a weekday
 
 ### Trading Calculations
 
 * [TickValueWithSize.md](./2.%20Symbol_information/TickValueWithSize.md) - Batch tick values for multiple symbols
+* [SymbolInfoMarginRate.md](./2.%20Symbol_information/SymbolInfoMarginRate.md) - Initial/maintenance margin rate multipliers per order type
 
 ---
 

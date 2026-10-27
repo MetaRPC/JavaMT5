@@ -14,6 +14,10 @@
 * **[SymbolInfoInteger](./SymbolInfoInteger.md)** - **single integer property** (digits, spread, stops level, etc.).
 * **[SymbolInfoString](./SymbolInfoString.md)** - **single string property** (description, base/profit currency, path).
 * **[TickValueWithSize](./TickValueWithSize.md)** - **batch tick values** for multiple symbols at once.
+* **[SymbolParamsMany](./SymbolParamsMany.md)** - **all 112 parameters** for one or many symbols in a single paginated call.
+* **[SymbolInfoMarginRate](./SymbolInfoMarginRate.md)** - **margin rate multipliers** (initial/maintenance) per order type.
+* **[SymbolInfoSessionQuote](./SymbolInfoSessionQuote.md)** - **quote session** start/end times for a symbol on a weekday.
+* **[SymbolInfoSessionTrade](./SymbolInfoSessionTrade.md)** - **trade session** start/end times for a symbol on a weekday.
 
 ---
 
@@ -25,6 +29,9 @@
 * **SymbolExist / SymbolIsSynchronized** → **validate** symbol before trading.
 * **SymbolInfo*** (Double/Integer/String) → **symbol properties** one at a time.
 * **TickValueWithSize** → **efficient batch** retrieval for multiple symbols.
+* **SymbolParamsMany** → **everything about a symbol** (112 fields) in one call; best for many symbols.
+* **SymbolInfoMarginRate** → **how much margin** an order type reserves.
+* **SymbolInfoSessionQuote / SymbolInfoSessionTrade** → **when quotes/trading** are available per weekday.
 
 > Rule of thumb: need **price** → `SymbolInfoTick`; need **trading rules** → `SymbolInfo*` (digits, point, min volume); need **list** → `SymbolsTotal` + `SymbolName`.
 
@@ -44,6 +51,10 @@
 | Single integer property (digits, spread, etc.)   | `SymbolInfoInteger`    | Single `long`              | `symbol`, property enum             |
 | Single string property (description, currency)   | `SymbolInfoString`     | Single `String`            | `symbol`, property enum             |
 | Tick values for multiple symbols                 | `TickValueWithSize`    | Batch tick values          | `symbols: String[]`                 |
+| All parameters for one/many symbols              | `SymbolParamsMany`     | 112 fields per symbol      | `symbolName`, `sortType`, paging    |
+| Margin rate multipliers per order type           | `SymbolInfoMarginRate` | Initial/maintenance rates  | `symbol`, `orderType` enum          |
+| Quote session times (per weekday)                | `SymbolInfoSessionQuote`| Session from/to            | `symbol`, `dayOfWeek`, `sessionIndex` |
+| Trade session times (per weekday)                | `SymbolInfoSessionTrade`| Session from/to            | `symbol`, `dayOfWeek`, `sessionIndex` |
 
 ---
 

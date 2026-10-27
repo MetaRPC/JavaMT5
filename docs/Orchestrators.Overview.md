@@ -6,11 +6,11 @@
 
 ## 📁 What lives here
 
-* **TrendFollowingOrchestrator.java** - trend following with trailing stops
-* **ScalpingOrchestrator.java** - quick in/out trades with tight SL/TP
-* **HedgingOrchestrator.java** - defensive hedging on adverse moves
-* **BreakoutOrchestrator.java** - breakout trading with pending orders
-* **MartingaleOrchestrator.java** - doubling volume after losses ⚠️ HIGH RISK
+* **[TrendFollowingOrchestrator](#1-trendfollowingorchestrator)** - trend following with trailing stops
+* **[ScalpingOrchestrator](#2-scalpingorchestrator)** - quick in/out trades with tight SL/TP
+* **[HedgingOrchestrator](#3-hedgingorchestrator)** - defensive hedging on adverse moves
+* **[BreakoutOrchestrator](#4-breakoutorchestrator)** - breakout trading with pending orders
+* **[MartingaleOrchestrator](#5-martingaleorchestrator)** - doubling volume after losses ⚠️ HIGH RISK
 
 ---
 

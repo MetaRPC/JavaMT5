@@ -108,6 +108,8 @@
  ══════════════════════════════════════════════════════════════════════════════
  SPECIAL COMMANDS
  ══════════════════════════════════════════════════════════════════════════════
+   run.bat 0        →  User code sandbox (examples/usercode/UserCode.java)
+   run.bat usercode →  Same sandbox (aliases: user, sandbox)
    run.bat          →  Show help menu
    run.bat stop     →  Stop Maven daemon
 
@@ -303,6 +305,14 @@ public class Program {
                     break;
                 case "11":
                     runPreset(subArgs);
+                    break;
+
+                // SANDBOX: your own code (examples/usercode/UserCode.java)
+                case "0":
+                case "usercode":
+                case "user":
+                case "sandbox":
+                    runDemo("examples.usercode.UserCode", subArgs);
                     break;
 
                 default:
@@ -811,6 +821,11 @@ public class Program {
         System.out.println();
         System.out.println("  run.bat 11 0");
         System.out.println("    → Run both presets");
+        System.out.println();
+        System.out.println("──────────────────────────────────────────────────────────────────");
+        System.out.println("SANDBOX:");
+        System.out.println("  run.bat 0   (aliases: usercode, user, sandbox)");
+        System.out.println("    → Your own code — examples/usercode/UserCode.java");
         System.out.println();
         System.out.println("──────────────────────────────────────────────────────────────────");
         System.out.println("LEARNING PATH:");

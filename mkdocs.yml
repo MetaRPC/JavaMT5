@@ -89,8 +89,6 @@ nav:
     - Your First Project: All_Guides/Your_First_Project.md
     - Running Examples: RUNNING_EXAMPLES.md
     - Project Map: PROJECT_MAP.md
-    - MT5Account — Overview: MT5Account/MT5Account.Master.Overview.md
-    - MT5Sugar — Overview: MT5Sugar/MT5Sugar.Overview.md
     - Glossary: GLOSSARY.md
     - Orchestrators — Overview: Orchestrators.Overview.md
     - gRPC Channel Management: GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN.md
