@@ -1038,6 +1038,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#related-enums-from-the-generated-stubs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 Related enums (from the generated stubs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧱 Related enums (from the generated stubs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-enum_order_type_tf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enum: ENUM_ORDER_TYPE_TF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#just-the-essentials" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1278,6 +1306,69 @@
 </table>
 <p>Access using <code>reply.getData().getProfit()</code>.</p>
 <p><strong>Note:</strong> Positive value = profit, negative value = loss.</p>
+<hr />
+<h2 id="related-enums-from-the-generated-stubs">🧱 Related enums (from the generated stubs)<a class="headerlink" href="#related-enums-from-the-generated-stubs" title="Permanent link">¶</a></h2>
+<h3 id="enum-enum_order_type_tf">Enum: <code>ENUM_ORDER_TYPE_TF</code><a class="headerlink" href="#enum-enum_order_type_tf" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ORDER_TYPE_TF_BUY</code></td>
+<td>0</td>
+<td>Market Buy order</td>
+</tr>
+<tr>
+<td><code>ORDER_TYPE_TF_SELL</code></td>
+<td>1</td>
+<td>Market Sell order</td>
+</tr>
+<tr>
+<td><code>ORDER_TYPE_TF_BUY_LIMIT</code></td>
+<td>2</td>
+<td>Buy Limit pending order</td>
+</tr>
+<tr>
+<td><code>ORDER_TYPE_TF_SELL_LIMIT</code></td>
+<td>3</td>
+<td>Sell Limit pending order</td>
+</tr>
+<tr>
+<td><code>ORDER_TYPE_TF_BUY_STOP</code></td>
+<td>4</td>
+<td>Buy Stop pending order</td>
+</tr>
+<tr>
+<td><code>ORDER_TYPE_TF_SELL_STOP</code></td>
+<td>5</td>
+<td>Sell Stop pending order</td>
+</tr>
+<tr>
+<td><code>ORDER_TYPE_TF_BUY_STOP_LIMIT</code></td>
+<td>6</td>
+<td>On reaching the order price, a Buy Limit is placed at the StopLimit price</td>
+</tr>
+<tr>
+<td><code>ORDER_TYPE_TF_SELL_STOP_LIMIT</code></td>
+<td>7</td>
+<td>On reaching the order price, a Sell Limit is placed at the StopLimit price</td>
+</tr>
+<tr>
+<td><code>ORDER_TYPE_TF_CLOSE_BY</code></td>
+<td>8</td>
+<td>Order to close a position by an opposite one</td>
+</tr>
+</tbody>
+</table>
+<p>Accessed in Java as <code>Mt5TermApiTradeFunctions.ENUM_ORDER_TYPE_TF.ORDER_TYPE_TF_BUY</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> for profit calculation only <code>ORDER_TYPE_TF_BUY</code> / <code>ORDER_TYPE_TF_SELL</code> are meaningful; other order types are accepted by the enum but calculated as their market direction.</p>
+</blockquote>
 <hr />
 <h2 id="just-the-essentials">💬 Just the essentials<a class="headerlink" href="#just-the-essentials" title="Permanent link">¶</a></h2>
 <ul>

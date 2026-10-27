@@ -1110,6 +1110,50 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_order_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_ORDER_TYPE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_order_state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_ORDER_STATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_order_type_filling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_ORDER_TYPE_FILLING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmt5_enum_order_type_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMT5_ENUM_ORDER_TYPE_TIME
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1706,6 +1750,189 @@
 <td><code>ORDER_REASON_SO</code></td>
 <td>6</td>
 <td>Closed by Stop Out (margin call)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_order_type"><code>BMT5_ENUM_ORDER_TYPE</code><a class="headerlink" href="#bmt5_enum_order_type" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_ORDER_TYPE_BUY</code></td>
+<td>0</td>
+<td>Market Buy order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_SELL</code></td>
+<td>1</td>
+<td>Market Sell order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_BUY_LIMIT</code></td>
+<td>2</td>
+<td>Buy Limit pending order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_SELL_LIMIT</code></td>
+<td>3</td>
+<td>Sell Limit pending order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_BUY_STOP</code></td>
+<td>4</td>
+<td>Buy Stop pending order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_SELL_STOP</code></td>
+<td>5</td>
+<td>Sell Stop pending order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_BUY_STOP_LIMIT</code></td>
+<td>6</td>
+<td>On reaching the order price, a Buy Limit is placed at the StopLimit price</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_SELL_STOP_LIMIT</code></td>
+<td>7</td>
+<td>On reaching the order price, a Sell Limit is placed at the StopLimit price</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TYPE_CLOSE_BY</code></td>
+<td>8</td>
+<td>Order to close a position by an opposite one</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_order_state"><code>BMT5_ENUM_ORDER_STATE</code><a class="headerlink" href="#bmt5_enum_order_state" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_ORDER_STATE_STARTED</code></td>
+<td>0</td>
+<td>Order checked, but not yet accepted by broker</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_PLACED</code></td>
+<td>1</td>
+<td>Order accepted</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_CANCELED</code></td>
+<td>2</td>
+<td>Order canceled by client</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_PARTIAL</code></td>
+<td>3</td>
+<td>Order partially executed</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_FILLED</code></td>
+<td>4</td>
+<td>Order fully executed</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_REJECTED</code></td>
+<td>5</td>
+<td>Order rejected</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_EXPIRED</code></td>
+<td>6</td>
+<td>Order expired</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_REQUEST_ADD</code></td>
+<td>7</td>
+<td>Order is being registered (placing to the trading system)</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_REQUEST_MODIFY</code></td>
+<td>8</td>
+<td>Order is being modified (changing its parameters)</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_STATE_REQUEST_CANCEL</code></td>
+<td>9</td>
+<td>Order is being deleted (deleting from the trading system)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_order_type_filling"><code>BMT5_ENUM_ORDER_TYPE_FILLING</code><a class="headerlink" href="#bmt5_enum_order_type_filling" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_ORDER_FILLING_FOK</code></td>
+<td>0</td>
+<td>Fill or Kill — fill completely or cancel</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_FILLING_IOC</code></td>
+<td>1</td>
+<td>Immediate or Cancel — fill available volume, cancel the rest</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_FILLING_RETURN</code></td>
+<td>2</td>
+<td>Return — partial fill allowed, remainder stays as an order</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_FILLING_BOC</code></td>
+<td>3</td>
+<td>Book or Cancel — passive order placed only into the book</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmt5_enum_order_type_time"><code>BMT5_ENUM_ORDER_TYPE_TIME</code><a class="headerlink" href="#bmt5_enum_order_type_time" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BMT5_ORDER_TIME_GTC</code></td>
+<td>0</td>
+<td>Good Till Cancel</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TIME_DAY</code></td>
+<td>1</td>
+<td>Good Till end of the trading day</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TIME_SPECIFIED</code></td>
+<td>2</td>
+<td>Good Till a specified time</td>
+</tr>
+<tr>
+<td><code>BMT5_ORDER_TIME_SPECIFIED_DAY</code></td>
+<td>3</td>
+<td>Good Till 23:59:59 of a specified day</td>
 </tr>
 </tbody>
 </table>
