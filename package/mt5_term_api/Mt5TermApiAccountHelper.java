@@ -53904,6 +53904,46 @@ public final class Mt5TermApiAccountHelper {
      * @return The accountTradeExpert.
      */
     boolean getAccountTradeExpert();
+
+    /**
+     * <pre>
+     * The terminal's live connection. MT5 keeps the account data (account_leverage too) after the broker connection drops, so only
+     * terminal_connected tells a disconnected terminal from a connected one. Unset from a terminal that does not report it yet.
+     * </pre>
+     *
+     * <code>optional bool terminal_connected = 20;</code>
+     * @return Whether the terminalConnected field is set.
+     */
+    boolean hasTerminalConnected();
+    /**
+     * <pre>
+     * The terminal's live connection. MT5 keeps the account data (account_leverage too) after the broker connection drops, so only
+     * terminal_connected tells a disconnected terminal from a connected one. Unset from a terminal that does not report it yet.
+     * </pre>
+     *
+     * <code>optional bool terminal_connected = 20;</code>
+     * @return The terminalConnected.
+     */
+    boolean getTerminalConnected();
+
+    /**
+     * <pre>
+     * Algo trading is on in the terminal (TERMINAL_TRADE_ALLOWED and MQL_TRADE_ALLOWED).
+     * </pre>
+     *
+     * <code>optional bool terminal_trade_allowed = 21;</code>
+     * @return Whether the terminalTradeAllowed field is set.
+     */
+    boolean hasTerminalTradeAllowed();
+    /**
+     * <pre>
+     * Algo trading is on in the terminal (TERMINAL_TRADE_ALLOWED and MQL_TRADE_ALLOWED).
+     * </pre>
+     *
+     * <code>optional bool terminal_trade_allowed = 21;</code>
+     * @return The terminalTradeAllowed.
+     */
+    boolean getTerminalTradeAllowed();
   }
   /**
    * Protobuf type {@code mt5_term_api.AccountSummaryData}
@@ -53945,6 +53985,7 @@ public final class Mt5TermApiAccountHelper {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -54071,6 +54112,16 @@ public final class Mt5TermApiAccountHelper {
               accountTradeExpert_ = input.readBool();
               break;
             }
+            case 160: {
+              bitField0_ |= 0x00000001;
+              terminalConnected_ = input.readBool();
+              break;
+            }
+            case 168: {
+              bitField0_ |= 0x00000002;
+              terminalTradeAllowed_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -54105,6 +54156,7 @@ public final class Mt5TermApiAccountHelper {
               mt5_term_api.Mt5TermApiAccountHelper.AccountSummaryData.class, mt5_term_api.Mt5TermApiAccountHelper.AccountSummaryData.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ACCOUNT_LOGIN_FIELD_NUMBER = 1;
     private long accountLogin_;
     /**
@@ -54492,6 +54544,62 @@ public final class Mt5TermApiAccountHelper {
       return accountTradeExpert_;
     }
 
+    public static final int TERMINAL_CONNECTED_FIELD_NUMBER = 20;
+    private boolean terminalConnected_;
+    /**
+     * <pre>
+     * The terminal's live connection. MT5 keeps the account data (account_leverage too) after the broker connection drops, so only
+     * terminal_connected tells a disconnected terminal from a connected one. Unset from a terminal that does not report it yet.
+     * </pre>
+     *
+     * <code>optional bool terminal_connected = 20;</code>
+     * @return Whether the terminalConnected field is set.
+     */
+    @java.lang.Override
+    public boolean hasTerminalConnected() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * The terminal's live connection. MT5 keeps the account data (account_leverage too) after the broker connection drops, so only
+     * terminal_connected tells a disconnected terminal from a connected one. Unset from a terminal that does not report it yet.
+     * </pre>
+     *
+     * <code>optional bool terminal_connected = 20;</code>
+     * @return The terminalConnected.
+     */
+    @java.lang.Override
+    public boolean getTerminalConnected() {
+      return terminalConnected_;
+    }
+
+    public static final int TERMINAL_TRADE_ALLOWED_FIELD_NUMBER = 21;
+    private boolean terminalTradeAllowed_;
+    /**
+     * <pre>
+     * Algo trading is on in the terminal (TERMINAL_TRADE_ALLOWED and MQL_TRADE_ALLOWED).
+     * </pre>
+     *
+     * <code>optional bool terminal_trade_allowed = 21;</code>
+     * @return Whether the terminalTradeAllowed field is set.
+     */
+    @java.lang.Override
+    public boolean hasTerminalTradeAllowed() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Algo trading is on in the terminal (TERMINAL_TRADE_ALLOWED and MQL_TRADE_ALLOWED).
+     * </pre>
+     *
+     * <code>optional bool terminal_trade_allowed = 21;</code>
+     * @return The terminalTradeAllowed.
+     */
+    @java.lang.Override
+    public boolean getTerminalTradeAllowed() {
+      return terminalTradeAllowed_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -54562,6 +54670,12 @@ public final class Mt5TermApiAccountHelper {
       }
       if (accountTradeExpert_ != false) {
         output.writeBool(19, accountTradeExpert_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeBool(20, terminalConnected_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeBool(21, terminalTradeAllowed_);
       }
       unknownFields.writeTo(output);
     }
@@ -54645,6 +54759,14 @@ public final class Mt5TermApiAccountHelper {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(19, accountTradeExpert_);
       }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(20, terminalConnected_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(21, terminalTradeAllowed_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -54708,6 +54830,16 @@ public final class Mt5TermApiAccountHelper {
           != other.getAccountTradeAllowed()) return false;
       if (getAccountTradeExpert()
           != other.getAccountTradeExpert()) return false;
+      if (hasTerminalConnected() != other.hasTerminalConnected()) return false;
+      if (hasTerminalConnected()) {
+        if (getTerminalConnected()
+            != other.getTerminalConnected()) return false;
+      }
+      if (hasTerminalTradeAllowed() != other.hasTerminalTradeAllowed()) return false;
+      if (hasTerminalTradeAllowed()) {
+        if (getTerminalTradeAllowed()
+            != other.getTerminalTradeAllowed()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -54772,6 +54904,16 @@ public final class Mt5TermApiAccountHelper {
       hash = (37 * hash) + ACCOUNT_TRADE_EXPERT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAccountTradeExpert());
+      if (hasTerminalConnected()) {
+        hash = (37 * hash) + TERMINAL_CONNECTED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getTerminalConnected());
+      }
+      if (hasTerminalTradeAllowed()) {
+        hash = (37 * hash) + TERMINAL_TRADE_ALLOWED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getTerminalTradeAllowed());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -54951,6 +55093,10 @@ public final class Mt5TermApiAccountHelper {
 
         accountTradeExpert_ = false;
 
+        terminalConnected_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        terminalTradeAllowed_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -54977,6 +55123,8 @@ public final class Mt5TermApiAccountHelper {
       @java.lang.Override
       public mt5_term_api.Mt5TermApiAccountHelper.AccountSummaryData buildPartial() {
         mt5_term_api.Mt5TermApiAccountHelper.AccountSummaryData result = new mt5_term_api.Mt5TermApiAccountHelper.AccountSummaryData(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.accountLogin_ = accountLogin_;
         result.accountBalance_ = accountBalance_;
         result.accountEquity_ = accountEquity_;
@@ -55004,6 +55152,15 @@ public final class Mt5TermApiAccountHelper {
         result.accountMarginMode_ = accountMarginMode_;
         result.accountTradeAllowed_ = accountTradeAllowed_;
         result.accountTradeExpert_ = accountTradeExpert_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.terminalConnected_ = terminalConnected_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.terminalTradeAllowed_ = terminalTradeAllowed_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -55112,6 +55269,12 @@ public final class Mt5TermApiAccountHelper {
         if (other.getAccountTradeExpert() != false) {
           setAccountTradeExpert(other.getAccountTradeExpert());
         }
+        if (other.hasTerminalConnected()) {
+          setTerminalConnected(other.getTerminalConnected());
+        }
+        if (other.hasTerminalTradeAllowed()) {
+          setTerminalTradeAllowed(other.getTerminalTradeAllowed());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -55140,6 +55303,7 @@ public final class Mt5TermApiAccountHelper {
         }
         return this;
       }
+      private int bitField0_;
 
       private long accountLogin_ ;
       /**
@@ -56232,6 +56396,120 @@ public final class Mt5TermApiAccountHelper {
       public Builder clearAccountTradeExpert() {
         
         accountTradeExpert_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean terminalConnected_ ;
+      /**
+       * <pre>
+       * The terminal's live connection. MT5 keeps the account data (account_leverage too) after the broker connection drops, so only
+       * terminal_connected tells a disconnected terminal from a connected one. Unset from a terminal that does not report it yet.
+       * </pre>
+       *
+       * <code>optional bool terminal_connected = 20;</code>
+       * @return Whether the terminalConnected field is set.
+       */
+      @java.lang.Override
+      public boolean hasTerminalConnected() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * The terminal's live connection. MT5 keeps the account data (account_leverage too) after the broker connection drops, so only
+       * terminal_connected tells a disconnected terminal from a connected one. Unset from a terminal that does not report it yet.
+       * </pre>
+       *
+       * <code>optional bool terminal_connected = 20;</code>
+       * @return The terminalConnected.
+       */
+      @java.lang.Override
+      public boolean getTerminalConnected() {
+        return terminalConnected_;
+      }
+      /**
+       * <pre>
+       * The terminal's live connection. MT5 keeps the account data (account_leverage too) after the broker connection drops, so only
+       * terminal_connected tells a disconnected terminal from a connected one. Unset from a terminal that does not report it yet.
+       * </pre>
+       *
+       * <code>optional bool terminal_connected = 20;</code>
+       * @param value The terminalConnected to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTerminalConnected(boolean value) {
+        bitField0_ |= 0x00000001;
+        terminalConnected_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The terminal's live connection. MT5 keeps the account data (account_leverage too) after the broker connection drops, so only
+       * terminal_connected tells a disconnected terminal from a connected one. Unset from a terminal that does not report it yet.
+       * </pre>
+       *
+       * <code>optional bool terminal_connected = 20;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTerminalConnected() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        terminalConnected_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean terminalTradeAllowed_ ;
+      /**
+       * <pre>
+       * Algo trading is on in the terminal (TERMINAL_TRADE_ALLOWED and MQL_TRADE_ALLOWED).
+       * </pre>
+       *
+       * <code>optional bool terminal_trade_allowed = 21;</code>
+       * @return Whether the terminalTradeAllowed field is set.
+       */
+      @java.lang.Override
+      public boolean hasTerminalTradeAllowed() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * Algo trading is on in the terminal (TERMINAL_TRADE_ALLOWED and MQL_TRADE_ALLOWED).
+       * </pre>
+       *
+       * <code>optional bool terminal_trade_allowed = 21;</code>
+       * @return The terminalTradeAllowed.
+       */
+      @java.lang.Override
+      public boolean getTerminalTradeAllowed() {
+        return terminalTradeAllowed_;
+      }
+      /**
+       * <pre>
+       * Algo trading is on in the terminal (TERMINAL_TRADE_ALLOWED and MQL_TRADE_ALLOWED).
+       * </pre>
+       *
+       * <code>optional bool terminal_trade_allowed = 21;</code>
+       * @param value The terminalTradeAllowed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTerminalTradeAllowed(boolean value) {
+        bitField0_ |= 0x00000002;
+        terminalTradeAllowed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Algo trading is on in the terminal (TERMINAL_TRADE_ALLOWED and MQL_TRADE_ALLOWED).
+       * </pre>
+       *
+       * <code>optional bool terminal_trade_allowed = 21;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTerminalTradeAllowed() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        terminalTradeAllowed_ = false;
         onChanged();
         return this;
       }
@@ -71351,7 +71629,7 @@ public final class Mt5TermApiAccountHelper {
       "ryRequest\"y\n\023AccountSummaryReply\0220\n\004data" +
       "\030\001 \001(\0132 .mt5_term_api.AccountSummaryData" +
       "H\000\022$\n\005error\030\002 \001(\0132\023.mt5_term_api.ErrorH\000" +
-      "B\n\n\010response\"\264\005\n\022AccountSummaryData\022\025\n\ra" +
+      "B\n\n\010response\"\254\006\n\022AccountSummaryData\022\025\n\ra" +
       "ccount_login\030\001 \001(\003\022\027\n\017account_balance\030\002 " +
       "\001(\001\022\026\n\016account_equity\030\003 \001(\001\022\031\n\021account_u" +
       "ser_name\030\004 \001(\t\022\030\n\020account_leverage\030\005 \001(\003" +
@@ -71368,7 +71646,10 @@ public final class Mt5TermApiAccountHelper {
       "rgin_level\030\020 \001(\001\022D\n\023account_margin_mode\030" +
       "\021 \001(\0162\'.mt5_term_api.MrpcEnumAccountMarg" +
       "inMode\022\035\n\025account_trade_allowed\030\022 \001(\010\022\034\n" +
-      "\024account_trade_expert\030\023 \001(\010\"\362\001\n\027SymbolPa" +
+      "\024account_trade_expert\030\023 \001(\010\022\037\n\022terminal_" +
+      "connected\030\024 \001(\010H\000\210\001\001\022#\n\026terminal_trade_a" +
+      "llowed\030\025 \001(\010H\001\210\001\001B\025\n\023_terminal_connected" +
+      "B\031\n\027_terminal_trade_allowed\"\362\001\n\027SymbolPa" +
       "ramsManyRequest\022\030\n\013symbol_name\030\001 \001(\tH\000\210\001" +
       "\001\022E\n\tsort_type\030\002 \001(\0162-.mt5_term_api.AH_S" +
       "YMBOL_PARAMS_MANY_SORT_TYPEH\001\210\001\001\022\030\n\013page" +
@@ -71530,10 +71811,10 @@ public final class Mt5TermApiAccountHelper {
       "AGENT_DAILY\020\n\022+\n\'BMT5_DEAL_TYPE_COMMISSI" +
       "ON_AGENT_MONTHLY\020\013\022\033\n\027BMT5_DEAL_TYPE_INT" +
       "EREST\020\014\022\037\n\033BMT5_DEAL_TYPE_BUY_CANCELED\020\r" +
-      "\022 \n\034BMT5_DEAL_TYPE_SELL_CANCELED\020\016\022\026\n\022BM" +
+      "\022 \n\034BMT5_DEAL_TYPE_SELL_CANCELED\020\016\022\026\n\022BM",
       "T5_DEAL_DIVIDEND\020\017\022\036\n\032BMT5_DEAL_DIVIDEND" +
       "_FRANKED\020\020\022\021\n\rBMT5_DEAL_TAX\020\021*\203\001\n\031BMT5_E" +
-      "NUM_DEAL_ENTRY_TYPE\022\026\n\022BMT5_DEAL_ENTRY_I",
+      "NUM_DEAL_ENTRY_TYPE\022\026\n\022BMT5_DEAL_ENTRY_I" +
       "N\020\000\022\027\n\023BMT5_DEAL_ENTRY_OUT\020\001\022\031\n\025BMT5_DEA" +
       "L_ENTRY_INOUT\020\002\022\032\n\026BMT5_DEAL_ENTRY_OUT_B" +
       "Y\020\003*\364\001\n!BMT5_ENUM_ORDER_HISTORY_SORT_TYP" +
@@ -71992,7 +72273,7 @@ public final class Mt5TermApiAccountHelper {
     internal_static_mt5_term_api_AccountSummaryData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_AccountSummaryData_descriptor,
-        new java.lang.String[] { "AccountLogin", "AccountBalance", "AccountEquity", "AccountUserName", "AccountLeverage", "AccountTradeMode", "AccountCompanyName", "AccountCurrency", "ServerTime", "ServerTimeUtc", "UtcTimezoneServerTimeShiftMinutes", "AccountCredit", "ServerUtcOffsetSeconds", "AccountMargin", "AccountMarginFree", "AccountMarginLevel", "AccountMarginMode", "AccountTradeAllowed", "AccountTradeExpert", });
+        new java.lang.String[] { "AccountLogin", "AccountBalance", "AccountEquity", "AccountUserName", "AccountLeverage", "AccountTradeMode", "AccountCompanyName", "AccountCurrency", "ServerTime", "ServerTimeUtc", "UtcTimezoneServerTimeShiftMinutes", "AccountCredit", "ServerUtcOffsetSeconds", "AccountMargin", "AccountMarginFree", "AccountMarginLevel", "AccountMarginMode", "AccountTradeAllowed", "AccountTradeExpert", "TerminalConnected", "TerminalTradeAllowed", "TerminalConnected", "TerminalTradeAllowed", });
     internal_static_mt5_term_api_SymbolParamsManyRequest_descriptor =
       getDescriptor().getMessageTypes().get(32);
     internal_static_mt5_term_api_SymbolParamsManyRequest_fieldAccessorTable = new

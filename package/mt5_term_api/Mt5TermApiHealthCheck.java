@@ -1299,6 +1299,50 @@ public final class Mt5TermApiHealthCheck {
      * @return The serverTimeSecondsUtc.
      */
     long getServerTimeSecondsUtc();
+
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    java.util.List<mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState> 
+        getWorkersList();
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState getWorkers(int index);
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    int getWorkersCount();
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    java.util.List<? extends mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder> 
+        getWorkersOrBuilderList();
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder getWorkersOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code mt5_term_api.HealthCheckReply}
@@ -1313,6 +1357,7 @@ public final class Mt5TermApiHealthCheck {
       super(builder);
     }
     private HealthCheckReply() {
+      workers_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -1335,6 +1380,7 @@ public final class Mt5TermApiHealthCheck {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1360,6 +1406,15 @@ public final class Mt5TermApiHealthCheck {
               serverTimeSecondsUtc_ = input.readInt64();
               break;
             }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                workers_ = new java.util.ArrayList<mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              workers_.add(
+                  input.readMessage(mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1377,6 +1432,9 @@ public final class Mt5TermApiHealthCheck {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          workers_ = java.util.Collections.unmodifiableList(workers_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1431,6 +1489,66 @@ public final class Mt5TermApiHealthCheck {
       return serverTimeSecondsUtc_;
     }
 
+    public static final int WORKERS_FIELD_NUMBER = 4;
+    private java.util.List<mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState> workers_;
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState> getWorkersList() {
+      return workers_;
+    }
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder> 
+        getWorkersOrBuilderList() {
+      return workers_;
+    }
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    @java.lang.Override
+    public int getWorkersCount() {
+      return workers_.size();
+    }
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState getWorkers(int index) {
+      return workers_.get(index);
+    }
+    /**
+     * <pre>
+     * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+     * </pre>
+     *
+     * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+     */
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder getWorkersOrBuilder(
+        int index) {
+      return workers_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1454,6 +1572,9 @@ public final class Mt5TermApiHealthCheck {
       if (serverTimeSecondsUtc_ != 0L) {
         output.writeInt64(3, serverTimeSecondsUtc_);
       }
+      for (int i = 0; i < workers_.size(); i++) {
+        output.writeMessage(4, workers_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1474,6 +1595,10 @@ public final class Mt5TermApiHealthCheck {
       if (serverTimeSecondsUtc_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, serverTimeSecondsUtc_);
+      }
+      for (int i = 0; i < workers_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, workers_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1496,6 +1621,8 @@ public final class Mt5TermApiHealthCheck {
           != other.getServerTimeSeconds()) return false;
       if (getServerTimeSecondsUtc()
           != other.getServerTimeSecondsUtc()) return false;
+      if (!getWorkersList()
+          .equals(other.getWorkersList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1516,6 +1643,10 @@ public final class Mt5TermApiHealthCheck {
       hash = (37 * hash) + SERVER_TIME_SECONDS_UTC_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getServerTimeSecondsUtc());
+      if (getWorkersCount() > 0) {
+        hash = (37 * hash) + WORKERS_FIELD_NUMBER;
+        hash = (53 * hash) + getWorkersList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1644,6 +1775,7 @@ public final class Mt5TermApiHealthCheck {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getWorkersFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1655,6 +1787,12 @@ public final class Mt5TermApiHealthCheck {
 
         serverTimeSecondsUtc_ = 0L;
 
+        if (workersBuilder_ == null) {
+          workers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          workersBuilder_.clear();
+        }
         return this;
       }
 
@@ -1681,9 +1819,19 @@ public final class Mt5TermApiHealthCheck {
       @java.lang.Override
       public mt5_term_api.Mt5TermApiHealthCheck.HealthCheckReply buildPartial() {
         mt5_term_api.Mt5TermApiHealthCheck.HealthCheckReply result = new mt5_term_api.Mt5TermApiHealthCheck.HealthCheckReply(this);
+        int from_bitField0_ = bitField0_;
         result.isConnectedToServer_ = isConnectedToServer_;
         result.serverTimeSeconds_ = serverTimeSeconds_;
         result.serverTimeSecondsUtc_ = serverTimeSecondsUtc_;
+        if (workersBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            workers_ = java.util.Collections.unmodifiableList(workers_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.workers_ = workers_;
+        } else {
+          result.workers_ = workersBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1741,6 +1889,32 @@ public final class Mt5TermApiHealthCheck {
         if (other.getServerTimeSecondsUtc() != 0L) {
           setServerTimeSecondsUtc(other.getServerTimeSecondsUtc());
         }
+        if (workersBuilder_ == null) {
+          if (!other.workers_.isEmpty()) {
+            if (workers_.isEmpty()) {
+              workers_ = other.workers_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureWorkersIsMutable();
+              workers_.addAll(other.workers_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.workers_.isEmpty()) {
+            if (workersBuilder_.isEmpty()) {
+              workersBuilder_.dispose();
+              workersBuilder_ = null;
+              workers_ = other.workers_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              workersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getWorkersFieldBuilder() : null;
+            } else {
+              workersBuilder_.addAllMessages(other.workers_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1769,6 +1943,7 @@ public final class Mt5TermApiHealthCheck {
         }
         return this;
       }
+      private int bitField0_;
 
       private boolean isConnectedToServer_ ;
       /**
@@ -1874,6 +2049,318 @@ public final class Mt5TermApiHealthCheck {
         onChanged();
         return this;
       }
+
+      private java.util.List<mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState> workers_ =
+        java.util.Collections.emptyList();
+      private void ensureWorkersIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          workers_ = new java.util.ArrayList<mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState>(workers_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder> workersBuilder_;
+
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public java.util.List<mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState> getWorkersList() {
+        if (workersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(workers_);
+        } else {
+          return workersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public int getWorkersCount() {
+        if (workersBuilder_ == null) {
+          return workers_.size();
+        } else {
+          return workersBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState getWorkers(int index) {
+        if (workersBuilder_ == null) {
+          return workers_.get(index);
+        } else {
+          return workersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder setWorkers(
+          int index, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState value) {
+        if (workersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorkersIsMutable();
+          workers_.set(index, value);
+          onChanged();
+        } else {
+          workersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder setWorkers(
+          int index, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder builderForValue) {
+        if (workersBuilder_ == null) {
+          ensureWorkersIsMutable();
+          workers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          workersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder addWorkers(mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState value) {
+        if (workersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorkersIsMutable();
+          workers_.add(value);
+          onChanged();
+        } else {
+          workersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder addWorkers(
+          int index, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState value) {
+        if (workersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorkersIsMutable();
+          workers_.add(index, value);
+          onChanged();
+        } else {
+          workersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder addWorkers(
+          mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder builderForValue) {
+        if (workersBuilder_ == null) {
+          ensureWorkersIsMutable();
+          workers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          workersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder addWorkers(
+          int index, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder builderForValue) {
+        if (workersBuilder_ == null) {
+          ensureWorkersIsMutable();
+          workers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          workersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder addAllWorkers(
+          java.lang.Iterable<? extends mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState> values) {
+        if (workersBuilder_ == null) {
+          ensureWorkersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, workers_);
+          onChanged();
+        } else {
+          workersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder clearWorkers() {
+        if (workersBuilder_ == null) {
+          workers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          workersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public Builder removeWorkers(int index) {
+        if (workersBuilder_ == null) {
+          ensureWorkersIsMutable();
+          workers_.remove(index);
+          onChanged();
+        } else {
+          workersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder getWorkersBuilder(
+          int index) {
+        return getWorkersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder getWorkersOrBuilder(
+          int index) {
+        if (workersBuilder_ == null) {
+          return workers_.get(index);  } else {
+          return workersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public java.util.List<? extends mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder> 
+           getWorkersOrBuilderList() {
+        if (workersBuilder_ != null) {
+          return workersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(workers_);
+        }
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder addWorkersBuilder() {
+        return getWorkersFieldBuilder().addBuilder(
+            mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder addWorkersBuilder(
+          int index) {
+        return getWorkersFieldBuilder().addBuilder(
+            index, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * the terminal's MQL workers that ever asked for a command (0 = the API script, 1 = the API worker EA)
+       * </pre>
+       *
+       * <code>repeated .mt5_term_api.MqlWorkerState workers = 4;</code>
+       */
+      public java.util.List<mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder> 
+           getWorkersBuilderList() {
+        return getWorkersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder> 
+          getWorkersFieldBuilder() {
+        if (workersBuilder_ == null) {
+          workersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder>(
+                  workers_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          workers_ = null;
+        }
+        return workersBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1927,6 +2414,1125 @@ public final class Mt5TermApiHealthCheck {
 
   }
 
+  public interface MqlWorkerStateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:mt5_term_api.MqlWorkerState)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 worker = 1;</code>
+     * @return The worker.
+     */
+    int getWorker();
+
+    /**
+     * <pre>
+     * its last poll said it may trade
+     * </pre>
+     *
+     * <code>bool can_trade = 2;</code>
+     * @return The canTrade.
+     */
+    boolean getCanTrade();
+
+    /**
+     * <pre>
+     * waiting for a command now
+     * </pre>
+     *
+     * <code>bool waiting = 3;</code>
+     * @return The waiting.
+     */
+    boolean getWaiting();
+
+    /**
+     * <pre>
+     * since it last asked for a command
+     * </pre>
+     *
+     * <code>int64 ms_since_last_poll = 4;</code>
+     * @return The msSinceLastPoll.
+     */
+    long getMsSinceLastPoll();
+
+    /**
+     * <pre>
+     * the command it is executing (empty while it waits)
+     * </pre>
+     *
+     * <code>string running_command = 5;</code>
+     * @return The runningCommand.
+     */
+    java.lang.String getRunningCommand();
+    /**
+     * <pre>
+     * the command it is executing (empty while it waits)
+     * </pre>
+     *
+     * <code>string running_command = 5;</code>
+     * @return The bytes for runningCommand.
+     */
+    com.google.protobuf.ByteString
+        getRunningCommandBytes();
+
+    /**
+     * <code>int64 running_command_id = 6;</code>
+     * @return The runningCommandId.
+     */
+    long getRunningCommandId();
+
+    /**
+     * <pre>
+     * how long it has been executing running_command
+     * </pre>
+     *
+     * <code>int64 running_ms = 7;</code>
+     * @return The runningMs.
+     */
+    long getRunningMs();
+  }
+  /**
+   * <pre>
+   * One MQL worker of the terminal as its command dispatcher sees it.
+   * </pre>
+   *
+   * Protobuf type {@code mt5_term_api.MqlWorkerState}
+   */
+  public static final class MqlWorkerState extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:mt5_term_api.MqlWorkerState)
+      MqlWorkerStateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MqlWorkerState.newBuilder() to construct.
+    private MqlWorkerState(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MqlWorkerState() {
+      runningCommand_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MqlWorkerState();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MqlWorkerState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              worker_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              canTrade_ = input.readBool();
+              break;
+            }
+            case 24: {
+
+              waiting_ = input.readBool();
+              break;
+            }
+            case 32: {
+
+              msSinceLastPoll_ = input.readInt64();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              runningCommand_ = s;
+              break;
+            }
+            case 48: {
+
+              runningCommandId_ = input.readInt64();
+              break;
+            }
+            case 56: {
+
+              runningMs_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return mt5_term_api.Mt5TermApiHealthCheck.internal_static_mt5_term_api_MqlWorkerState_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return mt5_term_api.Mt5TermApiHealthCheck.internal_static_mt5_term_api_MqlWorkerState_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.class, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder.class);
+    }
+
+    public static final int WORKER_FIELD_NUMBER = 1;
+    private int worker_;
+    /**
+     * <code>int32 worker = 1;</code>
+     * @return The worker.
+     */
+    @java.lang.Override
+    public int getWorker() {
+      return worker_;
+    }
+
+    public static final int CAN_TRADE_FIELD_NUMBER = 2;
+    private boolean canTrade_;
+    /**
+     * <pre>
+     * its last poll said it may trade
+     * </pre>
+     *
+     * <code>bool can_trade = 2;</code>
+     * @return The canTrade.
+     */
+    @java.lang.Override
+    public boolean getCanTrade() {
+      return canTrade_;
+    }
+
+    public static final int WAITING_FIELD_NUMBER = 3;
+    private boolean waiting_;
+    /**
+     * <pre>
+     * waiting for a command now
+     * </pre>
+     *
+     * <code>bool waiting = 3;</code>
+     * @return The waiting.
+     */
+    @java.lang.Override
+    public boolean getWaiting() {
+      return waiting_;
+    }
+
+    public static final int MS_SINCE_LAST_POLL_FIELD_NUMBER = 4;
+    private long msSinceLastPoll_;
+    /**
+     * <pre>
+     * since it last asked for a command
+     * </pre>
+     *
+     * <code>int64 ms_since_last_poll = 4;</code>
+     * @return The msSinceLastPoll.
+     */
+    @java.lang.Override
+    public long getMsSinceLastPoll() {
+      return msSinceLastPoll_;
+    }
+
+    public static final int RUNNING_COMMAND_FIELD_NUMBER = 5;
+    private volatile java.lang.Object runningCommand_;
+    /**
+     * <pre>
+     * the command it is executing (empty while it waits)
+     * </pre>
+     *
+     * <code>string running_command = 5;</code>
+     * @return The runningCommand.
+     */
+    @java.lang.Override
+    public java.lang.String getRunningCommand() {
+      java.lang.Object ref = runningCommand_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        runningCommand_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * the command it is executing (empty while it waits)
+     * </pre>
+     *
+     * <code>string running_command = 5;</code>
+     * @return The bytes for runningCommand.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRunningCommandBytes() {
+      java.lang.Object ref = runningCommand_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        runningCommand_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RUNNING_COMMAND_ID_FIELD_NUMBER = 6;
+    private long runningCommandId_;
+    /**
+     * <code>int64 running_command_id = 6;</code>
+     * @return The runningCommandId.
+     */
+    @java.lang.Override
+    public long getRunningCommandId() {
+      return runningCommandId_;
+    }
+
+    public static final int RUNNING_MS_FIELD_NUMBER = 7;
+    private long runningMs_;
+    /**
+     * <pre>
+     * how long it has been executing running_command
+     * </pre>
+     *
+     * <code>int64 running_ms = 7;</code>
+     * @return The runningMs.
+     */
+    @java.lang.Override
+    public long getRunningMs() {
+      return runningMs_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (worker_ != 0) {
+        output.writeInt32(1, worker_);
+      }
+      if (canTrade_ != false) {
+        output.writeBool(2, canTrade_);
+      }
+      if (waiting_ != false) {
+        output.writeBool(3, waiting_);
+      }
+      if (msSinceLastPoll_ != 0L) {
+        output.writeInt64(4, msSinceLastPoll_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(runningCommand_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, runningCommand_);
+      }
+      if (runningCommandId_ != 0L) {
+        output.writeInt64(6, runningCommandId_);
+      }
+      if (runningMs_ != 0L) {
+        output.writeInt64(7, runningMs_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (worker_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, worker_);
+      }
+      if (canTrade_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, canTrade_);
+      }
+      if (waiting_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, waiting_);
+      }
+      if (msSinceLastPoll_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, msSinceLastPoll_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(runningCommand_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, runningCommand_);
+      }
+      if (runningCommandId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, runningCommandId_);
+      }
+      if (runningMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, runningMs_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState)) {
+        return super.equals(obj);
+      }
+      mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState other = (mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState) obj;
+
+      if (getWorker()
+          != other.getWorker()) return false;
+      if (getCanTrade()
+          != other.getCanTrade()) return false;
+      if (getWaiting()
+          != other.getWaiting()) return false;
+      if (getMsSinceLastPoll()
+          != other.getMsSinceLastPoll()) return false;
+      if (!getRunningCommand()
+          .equals(other.getRunningCommand())) return false;
+      if (getRunningCommandId()
+          != other.getRunningCommandId()) return false;
+      if (getRunningMs()
+          != other.getRunningMs()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + WORKER_FIELD_NUMBER;
+      hash = (53 * hash) + getWorker();
+      hash = (37 * hash) + CAN_TRADE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getCanTrade());
+      hash = (37 * hash) + WAITING_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getWaiting());
+      hash = (37 * hash) + MS_SINCE_LAST_POLL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMsSinceLastPoll());
+      hash = (37 * hash) + RUNNING_COMMAND_FIELD_NUMBER;
+      hash = (53 * hash) + getRunningCommand().hashCode();
+      hash = (37 * hash) + RUNNING_COMMAND_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRunningCommandId());
+      hash = (37 * hash) + RUNNING_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRunningMs());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * One MQL worker of the terminal as its command dispatcher sees it.
+     * </pre>
+     *
+     * Protobuf type {@code mt5_term_api.MqlWorkerState}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:mt5_term_api.MqlWorkerState)
+        mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerStateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return mt5_term_api.Mt5TermApiHealthCheck.internal_static_mt5_term_api_MqlWorkerState_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return mt5_term_api.Mt5TermApiHealthCheck.internal_static_mt5_term_api_MqlWorkerState_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.class, mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.Builder.class);
+      }
+
+      // Construct using mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        worker_ = 0;
+
+        canTrade_ = false;
+
+        waiting_ = false;
+
+        msSinceLastPoll_ = 0L;
+
+        runningCommand_ = "";
+
+        runningCommandId_ = 0L;
+
+        runningMs_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return mt5_term_api.Mt5TermApiHealthCheck.internal_static_mt5_term_api_MqlWorkerState_descriptor;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState getDefaultInstanceForType() {
+        return mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState build() {
+        mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState buildPartial() {
+        mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState result = new mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState(this);
+        result.worker_ = worker_;
+        result.canTrade_ = canTrade_;
+        result.waiting_ = waiting_;
+        result.msSinceLastPoll_ = msSinceLastPoll_;
+        result.runningCommand_ = runningCommand_;
+        result.runningCommandId_ = runningCommandId_;
+        result.runningMs_ = runningMs_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState) {
+          return mergeFrom((mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState other) {
+        if (other == mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState.getDefaultInstance()) return this;
+        if (other.getWorker() != 0) {
+          setWorker(other.getWorker());
+        }
+        if (other.getCanTrade() != false) {
+          setCanTrade(other.getCanTrade());
+        }
+        if (other.getWaiting() != false) {
+          setWaiting(other.getWaiting());
+        }
+        if (other.getMsSinceLastPoll() != 0L) {
+          setMsSinceLastPoll(other.getMsSinceLastPoll());
+        }
+        if (!other.getRunningCommand().isEmpty()) {
+          runningCommand_ = other.runningCommand_;
+          onChanged();
+        }
+        if (other.getRunningCommandId() != 0L) {
+          setRunningCommandId(other.getRunningCommandId());
+        }
+        if (other.getRunningMs() != 0L) {
+          setRunningMs(other.getRunningMs());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int worker_ ;
+      /**
+       * <code>int32 worker = 1;</code>
+       * @return The worker.
+       */
+      @java.lang.Override
+      public int getWorker() {
+        return worker_;
+      }
+      /**
+       * <code>int32 worker = 1;</code>
+       * @param value The worker to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorker(int value) {
+        
+        worker_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 worker = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWorker() {
+        
+        worker_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean canTrade_ ;
+      /**
+       * <pre>
+       * its last poll said it may trade
+       * </pre>
+       *
+       * <code>bool can_trade = 2;</code>
+       * @return The canTrade.
+       */
+      @java.lang.Override
+      public boolean getCanTrade() {
+        return canTrade_;
+      }
+      /**
+       * <pre>
+       * its last poll said it may trade
+       * </pre>
+       *
+       * <code>bool can_trade = 2;</code>
+       * @param value The canTrade to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCanTrade(boolean value) {
+        
+        canTrade_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * its last poll said it may trade
+       * </pre>
+       *
+       * <code>bool can_trade = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCanTrade() {
+        
+        canTrade_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean waiting_ ;
+      /**
+       * <pre>
+       * waiting for a command now
+       * </pre>
+       *
+       * <code>bool waiting = 3;</code>
+       * @return The waiting.
+       */
+      @java.lang.Override
+      public boolean getWaiting() {
+        return waiting_;
+      }
+      /**
+       * <pre>
+       * waiting for a command now
+       * </pre>
+       *
+       * <code>bool waiting = 3;</code>
+       * @param value The waiting to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWaiting(boolean value) {
+        
+        waiting_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * waiting for a command now
+       * </pre>
+       *
+       * <code>bool waiting = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWaiting() {
+        
+        waiting_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long msSinceLastPoll_ ;
+      /**
+       * <pre>
+       * since it last asked for a command
+       * </pre>
+       *
+       * <code>int64 ms_since_last_poll = 4;</code>
+       * @return The msSinceLastPoll.
+       */
+      @java.lang.Override
+      public long getMsSinceLastPoll() {
+        return msSinceLastPoll_;
+      }
+      /**
+       * <pre>
+       * since it last asked for a command
+       * </pre>
+       *
+       * <code>int64 ms_since_last_poll = 4;</code>
+       * @param value The msSinceLastPoll to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsSinceLastPoll(long value) {
+        
+        msSinceLastPoll_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * since it last asked for a command
+       * </pre>
+       *
+       * <code>int64 ms_since_last_poll = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMsSinceLastPoll() {
+        
+        msSinceLastPoll_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object runningCommand_ = "";
+      /**
+       * <pre>
+       * the command it is executing (empty while it waits)
+       * </pre>
+       *
+       * <code>string running_command = 5;</code>
+       * @return The runningCommand.
+       */
+      public java.lang.String getRunningCommand() {
+        java.lang.Object ref = runningCommand_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          runningCommand_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * the command it is executing (empty while it waits)
+       * </pre>
+       *
+       * <code>string running_command = 5;</code>
+       * @return The bytes for runningCommand.
+       */
+      public com.google.protobuf.ByteString
+          getRunningCommandBytes() {
+        java.lang.Object ref = runningCommand_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          runningCommand_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * the command it is executing (empty while it waits)
+       * </pre>
+       *
+       * <code>string running_command = 5;</code>
+       * @param value The runningCommand to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRunningCommand(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        runningCommand_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * the command it is executing (empty while it waits)
+       * </pre>
+       *
+       * <code>string running_command = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRunningCommand() {
+        
+        runningCommand_ = getDefaultInstance().getRunningCommand();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * the command it is executing (empty while it waits)
+       * </pre>
+       *
+       * <code>string running_command = 5;</code>
+       * @param value The bytes for runningCommand to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRunningCommandBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        runningCommand_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long runningCommandId_ ;
+      /**
+       * <code>int64 running_command_id = 6;</code>
+       * @return The runningCommandId.
+       */
+      @java.lang.Override
+      public long getRunningCommandId() {
+        return runningCommandId_;
+      }
+      /**
+       * <code>int64 running_command_id = 6;</code>
+       * @param value The runningCommandId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRunningCommandId(long value) {
+        
+        runningCommandId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 running_command_id = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRunningCommandId() {
+        
+        runningCommandId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long runningMs_ ;
+      /**
+       * <pre>
+       * how long it has been executing running_command
+       * </pre>
+       *
+       * <code>int64 running_ms = 7;</code>
+       * @return The runningMs.
+       */
+      @java.lang.Override
+      public long getRunningMs() {
+        return runningMs_;
+      }
+      /**
+       * <pre>
+       * how long it has been executing running_command
+       * </pre>
+       *
+       * <code>int64 running_ms = 7;</code>
+       * @param value The runningMs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRunningMs(long value) {
+        
+        runningMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * how long it has been executing running_command
+       * </pre>
+       *
+       * <code>int64 running_ms = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRunningMs() {
+        
+        runningMs_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:mt5_term_api.MqlWorkerState)
+    }
+
+    // @@protoc_insertion_point(class_scope:mt5_term_api.MqlWorkerState)
+    private static final mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState();
+    }
+
+    public static mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MqlWorkerState>
+        PARSER = new com.google.protobuf.AbstractParser<MqlWorkerState>() {
+      @java.lang.Override
+      public MqlWorkerState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MqlWorkerState(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MqlWorkerState> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MqlWorkerState> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public mt5_term_api.Mt5TermApiHealthCheck.MqlWorkerState getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mt5_term_api_StopListeningRequest_descriptor;
   private static final 
@@ -1947,6 +3553,11 @@ public final class Mt5TermApiHealthCheck {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mt5_term_api_HealthCheckReply_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mt5_term_api_MqlWorkerState_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mt5_term_api_MqlWorkerState_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1959,16 +3570,22 @@ public final class Mt5TermApiHealthCheck {
       "\n\037mt5-term-api-health-check.proto\022\014mt5_t" +
       "erm_api\032\035mt5-term-api-connection.proto\"\026" +
       "\n\024StopListeningRequest\"\024\n\022StopListeningR" +
-      "eply\"\024\n\022HealthCheckRequest\"p\n\020HealthChec" +
-      "kReply\022\036\n\026is_connected_to_server\030\001 \001(\010\022\033" +
-      "\n\023server_time_seconds\030\002 \001(\003\022\037\n\027server_ti" +
-      "me_seconds_utc\030\003 \001(\0032\252\001\n\006Health\022I\n\005Check" +
-      "\022 .mt5_term_api.HealthCheckRequest\032\036.mt5" +
-      "_term_api.HealthCheckReply\022U\n\rStopListen" +
-      "ing\022\".mt5_term_api.StopListeningRequest\032" +
-      " .mt5_term_api.StopListeningReplyBBZ1git" +
-      ".mtapi.io/root/mrpc-proto.git/mt5/librar" +
-      "ies/go\252\002\014mt5_term_apib\006proto3"
+      "eply\"\024\n\022HealthCheckRequest\"\237\001\n\020HealthChe" +
+      "ckReply\022\036\n\026is_connected_to_server\030\001 \001(\010\022" +
+      "\033\n\023server_time_seconds\030\002 \001(\003\022\037\n\027server_t" +
+      "ime_seconds_utc\030\003 \001(\003\022-\n\007workers\030\004 \003(\0132\034" +
+      ".mt5_term_api.MqlWorkerState\"\251\001\n\016MqlWork" +
+      "erState\022\016\n\006worker\030\001 \001(\005\022\021\n\tcan_trade\030\002 \001" +
+      "(\010\022\017\n\007waiting\030\003 \001(\010\022\032\n\022ms_since_last_pol" +
+      "l\030\004 \001(\003\022\027\n\017running_command\030\005 \001(\t\022\032\n\022runn" +
+      "ing_command_id\030\006 \001(\003\022\022\n\nrunning_ms\030\007 \001(\003" +
+      "2\252\001\n\006Health\022I\n\005Check\022 .mt5_term_api.Heal" +
+      "thCheckRequest\032\036.mt5_term_api.HealthChec" +
+      "kReply\022U\n\rStopListening\022\".mt5_term_api.S" +
+      "topListeningRequest\032 .mt5_term_api.StopL" +
+      "isteningReplyBBZ1git.mtapi.io/root/mrpc-" +
+      "proto.git/mt5/libraries/go\252\002\014mt5_term_ap" +
+      "ib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1998,7 +3615,13 @@ public final class Mt5TermApiHealthCheck {
     internal_static_mt5_term_api_HealthCheckReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mt5_term_api_HealthCheckReply_descriptor,
-        new java.lang.String[] { "IsConnectedToServer", "ServerTimeSeconds", "ServerTimeSecondsUtc", });
+        new java.lang.String[] { "IsConnectedToServer", "ServerTimeSeconds", "ServerTimeSecondsUtc", "Workers", });
+    internal_static_mt5_term_api_MqlWorkerState_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_mt5_term_api_MqlWorkerState_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mt5_term_api_MqlWorkerState_descriptor,
+        new java.lang.String[] { "Worker", "CanTrade", "Waiting", "MsSinceLastPoll", "RunningCommand", "RunningCommandId", "RunningMs", });
     mt5_term_api.Mt5TermApiConnection.getDescriptor();
   }
 
