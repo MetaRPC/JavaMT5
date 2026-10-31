@@ -581,6 +581,37 @@ public final class AdminApiGrpc {
     return getStopTerminalLocalMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest,
+      mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply> getSetDedicatedIpEntitlementMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SetDedicatedIpEntitlement",
+      requestType = mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest.class,
+      responseType = mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest,
+      mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply> getSetDedicatedIpEntitlementMethod() {
+    io.grpc.MethodDescriptor<mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest, mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply> getSetDedicatedIpEntitlementMethod;
+    if ((getSetDedicatedIpEntitlementMethod = AdminApiGrpc.getSetDedicatedIpEntitlementMethod) == null) {
+      synchronized (AdminApiGrpc.class) {
+        if ((getSetDedicatedIpEntitlementMethod = AdminApiGrpc.getSetDedicatedIpEntitlementMethod) == null) {
+          AdminApiGrpc.getSetDedicatedIpEntitlementMethod = getSetDedicatedIpEntitlementMethod =
+              io.grpc.MethodDescriptor.<mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest, mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SetDedicatedIpEntitlement"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply.getDefaultInstance()))
+              .setSchemaDescriptor(new AdminApiMethodDescriptorSupplier("SetDedicatedIpEntitlement"))
+              .build();
+        }
+      }
+    }
+    return getSetDedicatedIpEntitlementMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -850,6 +881,21 @@ public final class AdminApiGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getStopTerminalLocalMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * Grants or revokes the dedicated-IP add-on entitlement for ONE terminal (UserTerminals.DedicatedIpEntitled).
+     * The trusted write path for the add-on: the dedicated-IP connect header assigns an IP and bills the 6 USD per 720 h only
+     * when the terminal is entitled (default deny), so this gate must be set first. Called with the ADMIN_KEY (the
+     * mrpc-rest gateway maps its X-Admin-Key header onto admin_key), or by mrpc-back after a confirmed purchase.
+     * Persisted in Mongo; any pod honours it. Set entitled=false to revoke (a running terminal keeps its current IP
+     * until it is stopped/released).
+     * </pre>
+     */
+    public void setDedicatedIpEntitlement(mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest request,
+        io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetDedicatedIpEntitlementMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -978,6 +1024,13 @@ public final class AdminApiGrpc {
                 mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest,
                 mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply>(
                   this, METHODID_STOP_TERMINAL_LOCAL)))
+          .addMethod(
+            getSetDedicatedIpEntitlementMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest,
+                mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply>(
+                  this, METHODID_SET_DEDICATED_IP_ENTITLEMENT)))
           .build();
     }
   }
@@ -1234,6 +1287,22 @@ public final class AdminApiGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getStopTerminalLocalMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * Grants or revokes the dedicated-IP add-on entitlement for ONE terminal (UserTerminals.DedicatedIpEntitled).
+     * The trusted write path for the add-on: the dedicated-IP connect header assigns an IP and bills the 6 USD per 720 h only
+     * when the terminal is entitled (default deny), so this gate must be set first. Called with the ADMIN_KEY (the
+     * mrpc-rest gateway maps its X-Admin-Key header onto admin_key), or by mrpc-back after a confirmed purchase.
+     * Persisted in Mongo; any pod honours it. Set entitled=false to revoke (a running terminal keeps its current IP
+     * until it is stopped/released).
+     * </pre>
+     */
+    public void setDedicatedIpEntitlement(mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest request,
+        io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSetDedicatedIpEntitlementMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -1469,6 +1538,21 @@ public final class AdminApiGrpc {
     public mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply stopTerminalLocal(mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getStopTerminalLocalMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Grants or revokes the dedicated-IP add-on entitlement for ONE terminal (UserTerminals.DedicatedIpEntitled).
+     * The trusted write path for the add-on: the dedicated-IP connect header assigns an IP and bills the 6 USD per 720 h only
+     * when the terminal is entitled (default deny), so this gate must be set first. Called with the ADMIN_KEY (the
+     * mrpc-rest gateway maps its X-Admin-Key header onto admin_key), or by mrpc-back after a confirmed purchase.
+     * Persisted in Mongo; any pod honours it. Set entitled=false to revoke (a running terminal keeps its current IP
+     * until it is stopped/released).
+     * </pre>
+     */
+    public mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply setDedicatedIpEntitlement(mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSetDedicatedIpEntitlementMethod(), getCallOptions(), request);
     }
   }
 
@@ -1724,6 +1808,22 @@ public final class AdminApiGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getStopTerminalLocalMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * Grants or revokes the dedicated-IP add-on entitlement for ONE terminal (UserTerminals.DedicatedIpEntitled).
+     * The trusted write path for the add-on: the dedicated-IP connect header assigns an IP and bills the 6 USD per 720 h only
+     * when the terminal is entitled (default deny), so this gate must be set first. Called with the ADMIN_KEY (the
+     * mrpc-rest gateway maps its X-Admin-Key header onto admin_key), or by mrpc-back after a confirmed purchase.
+     * Persisted in Mongo; any pod honours it. Set entitled=false to revoke (a running terminal keeps its current IP
+     * until it is stopped/released).
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply> setDedicatedIpEntitlement(
+        mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSetDedicatedIpEntitlementMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ACTIVE_TERMINALS = 0;
@@ -1744,6 +1844,7 @@ public final class AdminApiGrpc {
   private static final int METHODID_KILL_ALL_TRIAL_TERMINALS_LOCAL = 15;
   private static final int METHODID_DRAIN = 16;
   private static final int METHODID_STOP_TERMINAL_LOCAL = 17;
+  private static final int METHODID_SET_DEDICATED_IP_ENTITLEMENT = 18;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1834,6 +1935,10 @@ public final class AdminApiGrpc {
           serviceImpl.stopTerminalLocal((mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalRequest) request,
               (io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.StopTerminalLocalReply>) responseObserver);
           break;
+        case METHODID_SET_DEDICATED_IP_ENTITLEMENT:
+          serviceImpl.setDedicatedIpEntitlement((mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementRequest) request,
+              (io.grpc.stub.StreamObserver<mrpc_admin.Mt5TermApiAdmin.SetDedicatedIpEntitlementReply>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -1913,6 +2018,7 @@ public final class AdminApiGrpc {
               .addMethod(getKillAllTrialTerminalsLocalMethod())
               .addMethod(getDrainMethod())
               .addMethod(getStopTerminalLocalMethod())
+              .addMethod(getSetDedicatedIpEntitlementMethod())
               .build();
         }
       }
