@@ -118,10 +118,6 @@
                 <version>3.13.0</version>
                 <configuration>
                     <release>11</release>
-                    <excludes>
-                        <!-- package/MetaRpcMT5 is a second, partial copy of the same stubs; package/mt5_term_api is the full one -->
-                        <exclude>MetaRpcMT5/**</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
 
@@ -187,7 +183,6 @@
                     <noqualifier>all</noqualifier>
                     <sourceFileExcludes>
                         <exclude>**/package-info.java</exclude>
-                        <exclude>**/MetaRpcMT5/**</exclude>
                         <exclude>**/examples/**</exclude>
                         <exclude>**/orchestrators/**</exclude>
                         <exclude>**/presets/**</exclude>
