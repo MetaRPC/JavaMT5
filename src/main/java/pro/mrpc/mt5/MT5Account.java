@@ -48,7 +48,6 @@ public class MT5Account implements AutoCloseable {
     public final TradingHelperGrpc.TradingHelperBlockingStub tradeClient;
     public final TradeFunctionsGrpc.TradeFunctionsBlockingStub tradeFunctionsClient;
     public final MarketInfoGrpc.MarketInfoBlockingStub marketInfoClient;
-    public final ChartsGrpc.ChartsBlockingStub chartsClient;
     public final InternalChartsGrpc.InternalChartsBlockingStub internalChartsClient;
     public final HealthGrpc.HealthBlockingStub healthClient;
     public final QuoteHistoryGrpc.QuoteHistoryBlockingStub quoteHistoryClient;
@@ -101,7 +100,6 @@ public class MT5Account implements AutoCloseable {
         this.tradeClient = TradingHelperGrpc.newBlockingStub(grpcChannel);
         this.tradeFunctionsClient = TradeFunctionsGrpc.newBlockingStub(grpcChannel);
         this.marketInfoClient = MarketInfoGrpc.newBlockingStub(grpcChannel);
-        this.chartsClient = ChartsGrpc.newBlockingStub(grpcChannel);
         this.internalChartsClient = InternalChartsGrpc.newBlockingStub(grpcChannel);
         this.healthClient = HealthGrpc.newBlockingStub(grpcChannel);
         this.quoteHistoryClient = QuoteHistoryGrpc.newBlockingStub(grpcChannel);
@@ -1962,67 +1960,9 @@ public class MT5Account implements AutoCloseable {
 
 
     //=============================================================
-    //region CHARTS MANAGEMENT (4 methods)
+    //region CHARTS MANAGEMENT (2 methods)
     //=============================================================
 
-
-    /**
-     * Opens a chart in the MT5 terminal with an Expert Advisor (EA) attached.
-     * Creates a new chart for the specified symbol with the given timeframe and automatically attaches an EA with parameters.
-     * Use this to programmatically deploy trading robots on specific symbols and timeframes.
-     *
-     * @param symbolName Symbol name for the chart (e.g., "EURUSD")
-     * @param eaFileName Name of the Expert Advisor file (without .ex5 extension)
-     * @param chartPeriod Timeframe for the chart (M1, M5, H1, D1, etc.)
-     * @param eaParameters List of parameters to pass to the EA (index, type, and value for each parameter)
-     * @return Chart ID and EA attachment status
-     * @throws ApiExceptionMT5 if the call fails or connection is lost
-     */
-    public Mt5TermApiCharts.OpenTerminalChartWithEaReply openTerminalChartWithEa(
-            String symbolName,
-            String eaFileName,
-            Mt5TermApiCharts.EnumOpenTerminalChartWithEaChatPeriod chartPeriod,
-            java.util.List<Mt5TermApiCharts.OpenTerminalChartWithEaParameter> eaParameters) throws ApiExceptionMT5 {
-        return executeWithReconnect(
-                headers -> {
-                    Mt5TermApiCharts.OpenTerminalChartWithEaRequest request =
-                            Mt5TermApiCharts.OpenTerminalChartWithEaRequest.newBuilder()
-                                    .setSymbolName(symbolName)
-                                    .setEaFileName(eaFileName)
-                                    .setChartPeriod(chartPeriod)
-                                    .addAllEaParameters(eaParameters)
-                                    .build();
-                    return chartsClient
-                            .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
-                            .openTerminalChartWithEa(request);
-                },
-                response -> response.hasError() ? response.getError() : null
-        );
-    }
-
-    /**
-     * Retrieves the input parameters defined in an Expert Advisor.
-     * Returns metadata about all configurable parameters including their names and types.
-     * Use this to discover which parameters an EA accepts before attaching it to a chart.
-     *
-     * @param eaFileName Name of the Expert Advisor file (without .ex5 extension)
-     * @return EA parameter information including names, types, and whether the EA was found
-     * @throws ApiExceptionMT5 if the call fails or connection is lost
-     */
-    public Mt5TermApiCharts.GetEaParamsReply getEaParams(String eaFileName) throws ApiExceptionMT5 {
-        return executeWithReconnect(
-                headers -> {
-                    Mt5TermApiCharts.GetEaParamsRequest request =
-                            Mt5TermApiCharts.GetEaParamsRequest.newBuilder()
-                                    .setEaFileName(eaFileName)
-                                    .build();
-                    return chartsClient
-                            .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
-                            .getEaParams(request);
-                },
-                response -> response.hasError() ? response.getError() : null
-        );
-    }
 
     /**
      * Opens an internal chart for a symbol with a specified expert mode for receiving trading events.
@@ -2323,9 +2263,7 @@ public class MT5Account implements AutoCloseable {
      *   - orderCalcProfit()      : Calculate potential profit/loss
      *   - orderCheck()           : Validate order and check funds
      *
-     * CHARTS MANAGEMENT (4 methods):
-     *   - openTerminalChartWithEa() : Open chart with Expert Advisor
-     *   - getEaParams()          : Get EA input parameters
+     * CHARTS MANAGEMENT (2 methods):
      *   - openChartForSymbol()   : Open internal chart for events
      *   - closeChartForSymbol()  : Close internal chart
      *

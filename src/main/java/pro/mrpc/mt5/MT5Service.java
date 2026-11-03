@@ -665,24 +665,6 @@ public class MT5Service {
 
 
     /**
-     * Open terminal chart with EA
-     */
-    public long openTerminalChartWithEa(
-            String symbolName,
-            String eaFileName,
-            Mt5TermApiCharts.EnumOpenTerminalChartWithEaChatPeriod chartPeriod,
-            java.util.List<Mt5TermApiCharts.OpenTerminalChartWithEaParameter> eaParameters) throws ApiExceptionMT5 {
-        return account.openTerminalChartWithEa(symbolName, eaFileName, chartPeriod, eaParameters).getData().getChartId();
-    }
-
-    /**
-     * Get EA parameters
-     */
-    public Mt5TermApiCharts.GetEaParamsData getEaParams(String eaFileName) throws ApiExceptionMT5 {
-        return account.getEaParams(eaFileName).getData();
-    }
-
-    /**
      * Open internal chart for symbol
      */
     public long openChartForSymbol(
