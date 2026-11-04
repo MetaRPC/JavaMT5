@@ -233,7 +233,7 @@ Thread.sleep(60000); // Run for 1 minute
 * **Unsubscribe when done**: Close connections to free resources.
 * **Proper cleanup sequence**: Always call `disconnect()` then `close()` in finally block.
 
-> ⚠️ **Critical:** Streams don't stop automatically! See [**gRPC Channel and Stream Management Guide**](../../GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN.md) for proper cleanup patterns and troubleshooting hanging programs.
+> ⚠️ **Critical:** Streams don't stop automatically! See [**gRPC Channel and Stream Management Guide**](../../All_Guides/GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN.md) for proper cleanup patterns and troubleshooting hanging programs.
 
 ---
 

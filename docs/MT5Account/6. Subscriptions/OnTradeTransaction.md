@@ -28,7 +28,7 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming trade transaction events
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onTradeTransaction(
+    public Context.CancellableContext onTradeTransaction(
         StreamObserver<Mt5TermApiSubscriptions.OnTradeTransactionReply> responseObserver
     ) throws ApiExceptionMT5;
 }

@@ -193,7 +193,7 @@ System.out.printf("  Reward: %.2f points%n", rewardPoints);
   - ✅ Placing pending orders with point offsets
   - ❌ Not needed if you already have absolute prices
 
-* **Alternative:** [`priceFromOffsetPoints()`](./priceFromOffsetPoints.md) - similar but different offset logic
+* **Alternative:** [`priceFromOffsetPoints()`](../8.%20Advanced_helpers/priceFromOffsetPoints.md) - similar but different offset logic
 
 ---
 
@@ -201,6 +201,6 @@ System.out.printf("  Reward: %.2f points%n", rewardPoints);
 
 * **Low-level method:** [`SymbolInfoTick`](../../MT5Account/2.%20Symbol_information/SymbolInfoTick.md) - gets current prices
 * **Related:** [`getPoint()`](./getPoint.md) - get point size
-* **Related:** [`priceFromOffsetPoints()`](./priceFromOffsetPoints.md) - alternative offset calculation
+* **Related:** [`priceFromOffsetPoints()`](../8.%20Advanced_helpers/priceFromOffsetPoints.md) - alternative offset calculation
 * **Related:** [`getBid()`](./getBid.md) / [`getAsk()`](./getAsk.md) - get current prices
 * **Trading:** [`buyMarket()`](../2.%20Market_orders/buyMarket.md), [`sellMarket()`](../2.%20Market_orders/sellMarket.md)

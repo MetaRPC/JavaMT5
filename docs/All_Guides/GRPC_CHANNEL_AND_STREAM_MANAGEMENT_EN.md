@@ -37,7 +37,7 @@ try {
 The `MT5Account` class has a `close()` method that properly closes the gRPC channel:
 
 ```java
-// In pro.mrpc.mt5.MT5Account.java (lines 1901-1908)
+// In pro.mrpc.mt5.MT5Account.java (the close() method)
 public void close() {
     try {
         grpcChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
@@ -53,7 +53,7 @@ public void close() {
 ```java
 MT5Account account = null;
 try {
-    account = new MT5Account(user, password, grpcServer, null);
+    account = new MT5Account(user, password, grpcServer, apiKey, null);
     account.connectByServerName(serverName, baseSymbol, 30);
 
     // Your code...
@@ -86,21 +86,29 @@ finally {
 
 ## Solution 2: Stopping Streams (StreamObserver)
 
-### The Problem
+### The current API already returns a cancellation handle
 
-In the current implementation, gRPC streaming methods (`onSymbolTick`, `onTrade`, `onPositionProfit`, etc.) **don't return an object for managing the subscription**.
+Every streaming method (`onSymbolTick`, `onTrade`, `onPositionProfit`,
+`onPositionsAndPendingOrdersTickets`, `onTradeTransaction`) returns an
+**`io.grpc.Context.CancellableContext`** — call `.close()` on it to stop that one stream:
 
 ```java
-// ❌ No way to stop the stream
-public void onSymbolTick(String[] symbolNames,
-                         StreamObserver<OnSymbolTickReply> responseObserver) {
-    // Stream starts, but no management object returned
-}
+import io.grpc.Context;
+
+// ✓ Returns a handle you can cancel
+Context.CancellableContext sub = account.onSymbolTick(
+    new String[]{"EURUSD"}, observer);
+
+// ... later, stop just this stream:
+sub.close();
 ```
 
-### Solution: Using ClientCall for Stream Management
+> The same handle is returned by the `MT5Service` wrappers (they delegate to `MT5Account`).
 
-For full control over streams, you need to store a reference to `ClientCall`:
+### Alternative: Using ClientCall for lower-level stream management
+
+If you need finer control (e.g., a custom cancellation message), you can also hold a
+reference to the underlying `ClientCall`:
 
 ```java
 import io.grpc.ClientCall;
@@ -188,163 +196,74 @@ private static void runSymbolTickDemo(MT5Account acc, String[] symbols)
         }
     };
 
-    // Start stream
-    acc.onSymbolTick(symbols, observer);
+    // Start stream (keep the returned handle)
+    io.grpc.Context.CancellableContext sub = acc.onSymbolTick(symbols, observer);
 
     // ✓ Wait for completion or timeout
     boolean completed = latch.await(TIMEOUT_SECONDS, TimeUnit.SECONDS);
 
     if (!completed) {
-        System.out.println("Timeout - stream still active!");
-        // ❌ Problem: stream continues running in background
+        System.out.println("Timeout - cancelling the stream");
+        sub.close();   // ✓ Stop this stream explicitly
     }
 }
 ```
 
-**Problem:** After timeout, the stream continues running in the background because there's no way to stop it.
+**Tip:** Closing the returned `CancellableContext` stops that stream without tearing down the
+whole channel; `account.close()` (or `disconnect()`) cancels everything at once.
 
 ---
 
-## Solution 4: Improved Architecture with Managed Streams
+## Solution 4: Managing Streams with the Built-in Handle
 
-### Proposed Improvement for MT5Account:
-
-```java
-public class MT5Account {
-
-    // List of active streams
-    private final List<ClientCall<?, ?>> activeStreams =
-        new CopyOnWriteArrayList<>();
-
-    /**
-     * Subscribe to ticks with management capability
-     */
-    public StreamSubscription onSymbolTick(
-            String[] symbolNames,
-            StreamObserver<OnSymbolTickReply> responseObserver) {
-
-        // Create request
-        OnSymbolTickRequest request = OnSymbolTickRequest.newBuilder()
-            .addAllSymbolNames(Arrays.asList(symbolNames))
-            .build();
-
-        // Start stream
-        ClientCall<OnSymbolTickRequest, OnSymbolTickReply> call =
-            channel.newCall(
-                SubscriptionsGrpc.getOnSymbolTickMethod(),
-                CallOptions.DEFAULT
-            );
-
-        // Save for management
-        activeStreams.add(call);
-
-        // Start stream
-        ClientCalls.asyncServerStreamingCall(call, request, responseObserver);
-
-        // Return management object
-        return new StreamSubscription(call, () -> activeStreams.remove(call));
-    }
-
-    /**
-     * Stop all active streams
-     */
-    public void stopAllStreams() {
-        for (ClientCall<?, ?> stream : activeStreams) {
-            stream.cancel("Stopping all streams", null);
-        }
-        activeStreams.clear();
-    }
-
-    @Override
-    public void close() {
-        stopAllStreams();  // ✓ Stop streams first
-
-        try {
-            grpcChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            grpcChannel.shutdownNow();
-            Thread.currentThread().interrupt();
-        }
-    }
-}
-
-/**
- * Class for managing stream subscription
- */
-public class StreamSubscription {
-    private final ClientCall<?, ?> call;
-    private final Runnable onCancel;
-    private volatile boolean cancelled = false;
-
-    public StreamSubscription(ClientCall<?, ?> call, Runnable onCancel) {
-        this.call = call;
-        this.onCancel = onCancel;
-    }
-
-    /**
-     * Stop the stream
-     */
-    public void cancel() {
-        if (!cancelled) {
-            cancelled = true;
-            call.cancel("User cancelled subscription", null);
-            if (onCancel != null) {
-                onCancel.run();
-            }
-        }
-    }
-
-    public boolean isCancelled() {
-        return cancelled;
-    }
-}
-```
-
-### Example Usage of Improved API:
+You don't need to build a custom subscription manager — each `on…` method already hands you a
+`io.grpc.Context.CancellableContext`. Keep the handles you care about and close them to stop
+individual streams; use `disconnect()` / `close()` to stop everything.
 
 ```java
-MT5Account account = new MT5Account(user, password, grpcServer, null);
+import io.grpc.Context;
+
+MT5Account account = new MT5Account(user, password, grpcServer, apiKey, null);
 account.connectByServerName(serverName, baseSymbol, 30);
 
-// Subscribe to ticks
-StreamSubscription tickSubscription = account.onSymbolTick(
-    new String[]{"EURUSD", "GBPUSD"},
-    new StreamObserver<OnSymbolTickReply>() {
-        @Override
-        public void onNext(OnSymbolTickReply reply) {
-            // Process tick
-        }
+StreamObserver<OnSymbolTickReply> observer = new StreamObserver<>() {
+    @Override public void onNext(OnSymbolTickReply reply) { /* process tick */ }
+    @Override public void onError(Throwable t) { System.err.println("Error: " + t.getMessage()); }
+    @Override public void onCompleted() { System.out.println("Stream completed"); }
+};
 
-        @Override
-        public void onError(Throwable t) {
-            System.err.println("Error: " + t.getMessage());
-        }
+// ✓ Subscribe — keep the returned handle
+Context.CancellableContext tickSub = account.onSymbolTick(
+    new String[]{"EURUSD", "GBPUSD"}, observer);
 
-        @Override
-        public void onCompleted() {
-            System.out.println("Stream completed");
-        }
-    }
-);
-
-// Work with stream...
+// Work with the stream...
 Thread.sleep(5000);
 
-// ✓ Stop stream when needed
-tickSubscription.cancel();
+// ✓ Stop just this stream
+tickSub.close();
 
-// Or stop all streams at once
-account.stopAllStreams();
+// ✓ Or stop every subscription and the connection at once
+account.disconnect();   // cancels all subscriptions on the server
+account.close();        // frees the gRPC channel
+```
 
-// Close connection
-account.close();
+**Managing several streams:** collect the handles in a list and close them together.
+
+```java
+List<Context.CancellableContext> subs = new ArrayList<>();
+subs.add(account.onSymbolTick(new String[]{"EURUSD"}, tickObserver));
+subs.add(account.onTrade(tradeObserver));
+
+// Later — stop all tracked streams:
+subs.forEach(Context.CancellableContext::close);
+subs.clear();
 ```
 
 ---
 
-## Current Workarounds (Temporary Solutions)
+## Extra Safety Nets
 
-Until the improved architecture is implemented, use:
+On top of closing streams explicitly, these patterns help guarantee a clean exit:
 
 ### 1. Force JVM Termination
 
@@ -462,7 +381,7 @@ mvnd compile
 ```java
 MT5Service service = null;
 try {
-    service = new MT5Service(user, password, grpcServer, null);
+    service = new MT5Service(user, password, grpcServer, apiKey, null);
     service.connectByServerName(serverName, baseSymbol, 30);
 
     // Your code...
@@ -497,7 +416,7 @@ try {
 ```java
 MT5Account account = null;
 try {
-    account = new MT5Account(user, password, grpcServer, null);
+    account = new MT5Account(user, password, grpcServer, apiKey, null);
     account.connectByServerName(serverName, baseSymbol, 30);
 
     // Your code...
@@ -578,5 +497,5 @@ All orchestrators and presets in JavaMT5 follow the correct cleanup pattern thro
 
 ## See Also
 
-- **[RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md)** - How to run examples + troubleshooting
-- **[GLOSSARY.md](./GLOSSARY.md)** - See "target/ Folder" for build troubleshooting
+- **[RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md)** - How to run examples + troubleshooting
+- **[GLOSSARY.md](GLOSSARY.md)** - See "target/ Folder" for build troubleshooting

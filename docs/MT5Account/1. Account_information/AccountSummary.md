@@ -57,9 +57,19 @@ The method automatically uses connection metadata (instance ID) established duri
 | `account_trade_mode`                 | `MrpcEnumAccountTradeMode`   | Account type: DEMO, CONTEST, or REAL              |
 | `account_company_name`               | `String`                     | Broker/company display name                       |
 | `account_currency`                   | `String`                     | Deposit currency (e.g., `USD`, `EUR`)             |
-| `server_time`                        | `Timestamp`                  | Server time (UTC) at response                     |
+| `server_time`                        | `Timestamp`                  | Server time at response                           |
 | `utc_timezone_server_time_shift_minutes` | `long`                   | Server offset relative to UTC (minutes)           |
 | `account_credit`                     | `double`                     | Credit amount                                     |
+| `account_margin`                     | `double`                     | Margin currently used by open positions           |
+| `server_utc_offset_seconds`          | `int`                        | Server offset relative to UTC (seconds)           |
+| `server_time_utc`                    | `Timestamp`                  | Server time expressed in UTC                       |
+| `account_margin_free`                | `double`                     | Free margin available for new positions            |
+| `account_margin_level`               | `double`                     | Margin level (%) = equity / margin × 100           |
+| `account_margin_mode`                | `MrpcEnumAccountMarginMode`  | Margin model: RETAIL_NETTING, EXCHANGE, or RETAIL_HEDGING |
+| `account_trade_allowed`              | `boolean`                    | Trading allowed for this account                   |
+| `account_trade_expert`               | `boolean`                    | Expert Advisors (automated trading) allowed        |
+| `terminal_connected`                 | `boolean`                    | Terminal is connected to the trade server          |
+| `terminal_trade_allowed`             | `boolean`                    | Trading allowed in the terminal                    |
 
 ---
 
@@ -72,6 +82,14 @@ The method automatically uses connection metadata (instance ID) established duri
 | `MRPC_ACCOUNT_TRADE_MODE_DEMO`    | 0     | Demo/practice account |
 | `MRPC_ACCOUNT_TRADE_MODE_CONTEST` | 1     | Contest account       |
 | `MRPC_ACCOUNT_TRADE_MODE_REAL`    | 2     | Real trading account  |
+
+### `MrpcEnumAccountMarginMode`
+
+| Enum Value                               | Value | Description                                |
+| ---------------------------------------- | ----- | ------------------------------------------ |
+| `MRPC_ACCOUNT_MARGIN_MODE_RETAIL_NETTING`| 0     | Netting: one net position per symbol       |
+| `MRPC_ACCOUNT_MARGIN_MODE_EXCHANGE`      | 1     | Exchange margin model                      |
+| `MRPC_ACCOUNT_MARGIN_MODE_RETAIL_HEDGING`| 2     | Hedging: multiple positions per symbol     |
 
 ---
 

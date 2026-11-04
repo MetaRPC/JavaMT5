@@ -34,31 +34,31 @@ java -version
 
 ---
 
-### Step 2: Install Maven Daemon (mvnd)
+### Step 2: Install Maven
 
-JavaMT5 uses Maven Daemon for fast builds and execution.
+JavaMT5 builds and runs with **Apache Maven** (`mvn`). `run.bat` auto-detects the launcher:
+it uses plain `mvn` from your `PATH` by default, falls back to `C:\tools\apache-maven-3.9.9`,
+and will use **Maven Daemon (`mvnd`)** instead if it finds it — `mvnd` is an optional
+accelerator, not a requirement.
 
-**Download:**
+**Install Maven:**
 
-- Visit [Maven Daemon releases](https://github.com/apache/maven-mvnd/releases)
-- Download the latest version for Windows (e.g., `maven-mvnd-1.0.3-windows-amd64.zip`)
+- Download [Apache Maven](https://maven.apache.org/download.cgi) (3.9+), extract it, and add its
+  `bin` folder to your `PATH`.
+- Verify:
+  ```bash
+  mvn --version
+  # Should show Apache Maven 3.9.x and your Java 11+
+  ```
 
-**Install:**
+**Optional — Maven Daemon for faster builds:**
 
-1. Extract to a permanent location (e.g., `C:\Users\<your-username>\maven-mvnd-1.0.3-windows-amd64`)
-2. Add to PATH or update `run.bat` with your path
-3. Verify installation:
-   ```bash
-   mvnd --version
-   # Should show Maven Daemon version
-   ```
+- Download [Maven Daemon releases](https://github.com/apache/maven-mvnd/releases)
+  (e.g., `maven-mvnd-1.0.3-windows-amd64.zip`), extract it, and add its `bin` folder to `PATH`.
+- `run.bat` picks it up automatically; no edits to `run.bat` are needed.
 
-**Configure run.bat:**
-
-Edit `run.bat` and update the MVND path if needed:
-```batch
-set "MVND=C:\Users\<your-username>\maven-mvnd-1.0.3-windows-amd64\bin\mvnd.cmd"
-```
+> ℹ️ `run.bat` chooses the launcher via its internal `MVN_EXEC` variable — you don't normally
+> need to edit it. To pin a specific Maven, edit that line in `run.bat`.
 
 ---
 
@@ -71,7 +71,7 @@ JavaMT5 connects to MT5 terminal via the **MetaRPC gRPC gateway** - a cloud serv
 - The gRPC API of MT5 accounts: `mt5.mrpc.pro:443`
 - Its generated Java stubs (`mt5_term_api`) are in this repository's `package/` folder and are compiled with the project
   (`pom.xml`); nothing to install separately
-- To use JavaMT5 as a library in your own project instead, see [Your First Project](All_Guides/Your_First_Project.md)
+- To use JavaMT5 as a library in your own project instead, see [Your First Project](Your_First_Project.md)
   (JitPack)
 
 **Configure your MT5 account:**
@@ -119,21 +119,20 @@ The `run.bat` script is the central command that manages the entire JavaMT5 proj
 - **Runs examples** from the `examples/` folder (commands 1-9)
 - **Runs orchestrators** - trading strategies (commands 10 1-5)
 - **Runs presets** - multi-strategy systems (commands 11 1-2)
-- **Auto-checks generated files** on every execution
-- **Uses pre-compiled MetaRPC library** (no protobuf generation needed)
+- **Compiles the bundled proto stubs** from `package/` together with your code (no `protoc` run)
 - **Compiles the project** before running
 
 **What happens when you run `.\run.bat 7`:**
 ```
-1. Maven downloads MetaRPC library (if not cached)
-2. Compiles all Java source files
+1. Maven downloads runtime dependencies — gRPC, Protobuf, Gson (if not cached)
+2. Compiles all Java source files (your code + the `package/` stubs)
 3. Launches SimpleTradingScenario example
 ```
 
 This ensures every run starts with a fresh, complete build.
 
 **For complete command reference and troubleshooting:**
-See [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for:
+See [RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md) for:
 - All available commands (1-11)
 - How to fix compilation errors
 - How to handle hanging processes
@@ -153,7 +152,7 @@ See [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for:
 ```
 
 **If you get errors:**
-- See [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for troubleshooting
+- See [RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md) for troubleshooting
 - Common fix: Delete `target/` folder and try again
   ```bash
   rmdir /s /q target
@@ -189,9 +188,9 @@ Configuration loaded: user=123456
 Now that your environment is set up, continue below to learn about JavaMT5 architecture and start your learning journey!
 
 **Quick links:**
-- [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) - All commands and troubleshooting
-- [PROJECT_MAP.md](./PROJECT_MAP.md) - Project structure overview
-- [GLOSSARY.md](./GLOSSARY.md) - Terms and definitions
+- [RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md) - All commands and troubleshooting
+- [PROJECT_MAP.md](PROJECT_MAP.md) - Project structure overview
+- [GLOSSARY.md](GLOSSARY.md) - Terms and definitions
 
 ---
 
@@ -219,7 +218,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 
 **API:** `MT5Account` (Layer 1)
 
-**Documentation:** [MT5Account/](MT5Account/MT5Account.Master.Overview.md)
+**Documentation:** [MT5Account/](../MT5Account/MT5Account.Master.Overview.md)
 
 **Why this matters:** Understanding the low-level foundation gives you complete control and deep knowledge of how everything works under the hood.
 
@@ -256,7 +255,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 
 **API:** `MT5Sugar` (Layer 3)
 
-**Documentation:** [MT5Sugar/MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)
+**Documentation:** [MT5Sugar/MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)
 
 **Why this matters:** Shows how to build production-ready convenience APIs that handle edge cases automatically.
 
@@ -285,7 +284,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 
 **Location:** `src/main/java/orchestrators/`
 
-**Documentation:** [docs/Orchestrators.Overview.md](./Orchestrators.Overview.md)
+**Documentation:** [docs/Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)
 
 **Why this matters:** Real-world strategy implementation patterns you can adapt for your own trading ideas.
 
@@ -310,7 +309,7 @@ This project was initially created to **learn low-level methods** of MT5 termina
 
 **Location:** `src/main/java/presets/`
 
-**Documentation:** [docs/Orchestrators.Overview.md](./Orchestrators.Overview.md)
+**Documentation:** [docs/Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)
 
 **Why this matters:** Advanced strategy composition - how to build complex trading systems from simple building blocks.
 
@@ -328,7 +327,7 @@ MT5 Terminal ←→ gRPC ←→ Proto Messages ←→ MT5Account.java
 
 **What you'll do:**
 
-1. Read [MT5Account documentation](MT5Account/MT5Account.Master.Overview.md)
+1. Read [MT5Account documentation](../MT5Account/MT5Account.Master.Overview.md)
 2. Study MetaRPC library structure (proto-generated classes in JAR)
 3. Run examples in `src/main/java/examples/lowlevel/`
 4. Explore `MT5Account.java` source code
@@ -387,7 +386,7 @@ MT5Service → MT5Sugar → Auto-everything convenience methods
 
 **What you'll do:**
 
-1. Read [MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)
+1. Read [MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)
 2. Run examples in `src/main/java/examples/sugar/`
 3. Study individual method docs in `MT5Sugar/` folder
 
@@ -418,7 +417,7 @@ MT5Sugar → Orchestrator → Complete trading strategy workflow
 
 **What you'll do:**
 
-1. Read [docs/Orchestrators.Overview.md](./Orchestrators.Overview.md)
+1. Read [docs/Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)
 2. Run `run.bat 10` - interactive orchestrator menu
 3. Study orchestrator source code in `src/main/java/orchestrators/`
 4. Copy and modify for your own strategies
@@ -452,7 +451,7 @@ Orchestrators → Preset → Multi-strategy adaptive system
 
 **What you'll do:**
 
-1. Read presets section in [Orchestrators.Overview.md](./Orchestrators.Overview.md)
+1. Read presets section in [Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)
 2. Run `run.bat 11` - interactive preset menu
 3. Study preset source code in `src/main/java/presets/`
 4. Design your own multi-strategy systems
@@ -553,8 +552,8 @@ examples/
 
 1. **[PROJECT_MAP.md](PROJECT_MAP.md)** - Understand project structure
 2. **[GLOSSARY.md](GLOSSARY.md)** - Learn project terminology
-3. **[MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)** - Quick start with trading
-4. **[Orchestrators.Overview.md](Orchestrators.Overview.md)** - Learn strategy patterns
+3. **[MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)** - Quick start with trading
+4. **[Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)** - Learn strategy patterns
 
 ---
 
@@ -588,10 +587,10 @@ examples/
 
 ### Documentation
 
-- **Project structure:** [PROJECT_MAP.md](./PROJECT_MAP.md)
+- **Project structure:** [PROJECT_MAP.md](PROJECT_MAP.md)
 - **API reference:** `docs/MT5Account/` and `docs/MT5Sugar/`
-- **Strategy guide:** [Orchestrators.Overview.md](./Orchestrators.Overview.md)
-- **Terminology:** [GLOSSARY.md](./GLOSSARY.md)
+- **Strategy guide:** [Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)
+- **Terminology:** [GLOSSARY.md](GLOSSARY.md)
 
 ### Code examples
 
@@ -625,7 +624,7 @@ Proto/gRPC → Wrappers → Convenience → Strategies → Your Ideas
 
 ---
 
-> 💡 **Ready to begin?** Start with [PROJECT_MAP.md](./PROJECT_MAP.md) to understand the project structure, then choose your learning path above and dive in!
+> 💡 **Ready to begin?** Start with [PROJECT_MAP.md](PROJECT_MAP.md) to understand the project structure, then choose your learning path above and dive in!
 
 > 🎓 **Remember:** This project was created to learn low-level methods - everything else is built on that foundation. Understanding the base gives you power to build anything on top.
 
@@ -635,6 +634,7 @@ Proto/gRPC → Wrappers → Convenience → Strategies → Your Ideas
 ## 🆔 Automatic Account ID & Authentication
 
 MetaRPC endpoints require authentication and session management:
+
 1. **`APIKey`**: Your personal authentication token from [https://mrpc.pro/my](https://mrpc.pro/my) (obtained by registering at [https://mrpc.pro/signup](https://mrpc.pro/signup)). Sent in the `APIKey` header.
 2. **`id`**: A terminal session GUID returned by `Connect` / `ConnectEx` (`terminalInstanceGuid`).
 

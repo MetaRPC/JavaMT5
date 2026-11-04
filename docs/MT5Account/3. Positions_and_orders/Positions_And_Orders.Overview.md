@@ -29,7 +29,7 @@
 | If you need…                                     | Use                      | Returns                    | Key inputs                          |
 | ------------------------------------------------ | ------------------------ | -------------------------- | ----------------------------------- |
 | Number of open positions                         | `PositionsTotal`         | Position count             | *(none)*                            |
-| Full details of all open positions/orders        | `OpenedOrders`           | Complete position/order data | `with_history_orders` (bool)      |
+| Full details of all open positions/orders        | `OpenedOrders`           | Complete position/order data | `sortType` (enum)                 |
 | Just ticket numbers (lightweight)                | `OpenedOrdersTickets`    | Ticket arrays              | *(none)*                            |
 | Historical orders (time range)                   | `OrderHistory`           | Order history list         | `from_time`, `to_time`              |
 | Historical deals/trades (time range)             | `PositionsHistory`       | Deal history list          | `from_time`, `to_time`              |
@@ -54,14 +54,14 @@
 ```java
 // Count open positions
 var total = account.positionsTotal();
-int count = total.getData().getTotal();
+int count = total.getData().getTotalPositions();
 System.out.printf("Open positions: %d%n", count);
 ```
 
 ```java
 // Get all open positions and orders
 var reply = account.openedOrders(
-    Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+    Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
 );
 var data = reply.getData();
 
@@ -82,7 +82,7 @@ for (int i = 0; i < data.getOpenedOrdersCount(); i++) {
         order.getTicket(),
         order.getSymbol(),
         order.getType(),
-        order.getPrice());
+        order.getPriceOpen());
 }
 ```
 
@@ -114,17 +114,19 @@ Instant from = to.minus(7, ChronoUnit.DAYS);
 Timestamp fromTs = Timestamp.newBuilder().setSeconds(from.getEpochSecond()).build();
 Timestamp toTs = Timestamp.newBuilder().setSeconds(to.getEpochSecond()).build();
 
-var reply = account.positionsHistory(fromTs, toTs);
-var deals = reply.getData().getDealsList();
+var reply = account.positionsHistory(
+    Mt5TermApiAccountHelper.AH_ENUM_POSITIONS_HISTORY_SORT_TYPE.AH_POSITION_OPEN_TIME_ASC,
+    fromTs, toTs, 0, 0);
+var positions = reply.getData().getHistoryPositionsList();
 
-System.out.printf("Historical deals (last 7 days): %d%n", deals.size());
-for (var deal : deals) {
+System.out.printf("Historical positions (last 7 days): %d%n", positions.size());
+for (var pos : positions) {
     System.out.printf("  #%d %s %.2f @ %.5f = $%.2f%n",
-        deal.getDealTicket(),
-        deal.getSymbol(),
-        deal.getVolume(),
-        deal.getPrice(),
-        deal.getProfit());
+        pos.getPositionTicket(),
+        pos.getSymbol(),
+        pos.getVolume(),
+        pos.getClosePrice(),
+        pos.getProfit());
 }
 ```
 
@@ -136,11 +138,15 @@ Instant from = to.minus(30, ChronoUnit.DAYS);
 Timestamp fromTs = Timestamp.newBuilder().setSeconds(from.getEpochSecond()).build();
 Timestamp toTs = Timestamp.newBuilder().setSeconds(to.getEpochSecond()).build();
 
-var reply = account.orderHistory(fromTs, toTs);
-var orders = reply.getData().getOrdersList();
+var reply = account.orderHistory(
+    fromTs, toTs,
+    Mt5TermApiAccountHelper.BMT5_ENUM_ORDER_HISTORY_SORT_TYPE.BMT5_SORT_BY_OPEN_TIME_ASC,
+    0, 0);
+var items = reply.getData().getHistoryDataList();
 
-System.out.printf("Order history (last 30 days): %d%n", orders.size());
-for (var order : orders) {
+System.out.printf("Order history (last 30 days): %d%n", items.size());
+for (var item : items) {
+    var order = item.getHistoryOrder();
     System.out.printf("  #%d %s %s: %s%n",
         order.getTicket(),
         order.getSymbol(),

@@ -156,7 +156,7 @@ public class PositionCloser {
 
         // Get position volume
         var positions = account.openedOrders(
-            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
         ).getData().getPositionInfosList();
 
         var position = positions.stream()
@@ -200,7 +200,7 @@ public class PartialCloser {
 
         // Get current position
         var positions = account.openedOrders(
-            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
         ).getData().getPositionInfosList();
 
         var position = positions.stream()
@@ -288,7 +288,7 @@ public class SymbolCloser {
             String symbol) throws ApiExceptionMT5 {
 
         var positions = account.openedOrders(
-            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
         ).getData().getPositionInfosList();
 
         var symbolPositions = positions.stream()
@@ -350,7 +350,7 @@ public class LossCloser {
      */
     public static int closeAllLosing(MT5Account account) throws ApiExceptionMT5 {
         var positions = account.openedOrders(
-            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
         ).getData().getPositionInfosList();
 
         var losingPositions = positions.stream()
@@ -413,7 +413,7 @@ public class ScaleOutCloser {
 
         // Get position
         var positions = account.openedOrders(
-            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
         ).getData().getPositionInfosList();
 
         var position = positions.stream()
@@ -482,7 +482,7 @@ public class EmergencyCloser {
 
         try {
             var data = account.openedOrders(
-                Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+                Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
             ).getData();
 
             int positionsCount = data.getPositionInfosCount();

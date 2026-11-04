@@ -120,7 +120,7 @@ System.out.printf("Min volume: %.2f lots%n", minVolume);
 // Validate symbol before trading
 var exists = account.symbolExist("EURUSD");
 var synced = account.symbolIsSynchronized("EURUSD");
-if (exists.getData().getValue() && synced.getData().getValue()) {
+if (exists.getData().getExists() && synced.getData().getSynchronized()) {
     System.out.println("✅ Symbol ready for trading");
 }
 ```
@@ -129,9 +129,9 @@ if (exists.getData().getValue() && synced.getData().getValue()) {
 // Get tick values for multiple symbols
 String[] symbols = {"EURUSD", "GBPUSD", "USDJPY"};
 var reply = account.tickValueWithSize(symbols);
-for (var tickValue : reply.getData().getTickValuesList()) {
-    System.out.printf("%s: $%.2f per lot%n",
-        tickValue.getSymbol(), tickValue.getTickValue());
+for (var info : reply.getData().getSymbolTickSizeInfosList()) {
+    System.out.printf("%s: $%.2f per tick%n",
+        info.getName(), info.getTradeTickValue());
 }
 ```
 

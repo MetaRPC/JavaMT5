@@ -20,13 +20,17 @@ const DOC_STRUCTURE = {
   'guides': {
     name: 'Guides',
     pages: [
+      'All_Guides/MT5_For_Beginners',
+      'All_Guides/GETTING_STARTED',
       'All_Guides/Your_First_Project',
-      'GETTING_STARTED',
-      'GLOSSARY',
-      'GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN',
-      'Orchestrators.Overview',
-      'PROJECT_MAP',
-      'RUNNING_EXAMPLES'
+      'All_Guides/RUNNING_EXAMPLES',
+      'All_Guides/USERCODE_SANDBOX_GUIDE',
+      'All_Guides/RETURN_CODES_REFERENCE',
+      'All_Guides/ENUMS_USAGE_REFERENCE',
+      'All_Guides/PROTOBUF_INSPECTOR_GUIDE',
+      'All_Guides/PROJECT_MAP',
+      'All_Guides/GLOSSARY',
+      'All_Guides/GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN'
     ]
   },
   'mt5account': {
@@ -91,9 +95,7 @@ const DOC_STRUCTURE = {
       'MT5Sugar/1. Symbol_helpers/getSpreadPrice',
       'MT5Sugar/1. Symbol_helpers/normalizePrice',
       'MT5Sugar/1. Symbol_helpers/normalizeVolume',
-      'MT5Sugar/1. Symbol_helpers/pointsToPips',
       'MT5Sugar/1. Symbol_helpers/pointsToPrice',
-      'MT5Sugar/1. Symbol_helpers/priceFromOffsetPoints',
       'MT5Sugar/10. Snapshot_helpers/getAccountSnapshot',
       'MT5Sugar/10. Snapshot_helpers/getSymbolSnapshot',
       'MT5Sugar/11. History_helpers/getOrdersHistoryLastDays',
@@ -136,16 +138,32 @@ const DOC_STRUCTURE = {
       'MT5Sugar/MT5Sugar.Overview'
     ]
   },
-  'apiref': {
-    name: 'API Reference',
+  'mt5service': {
+    name: 'MT5Service',
     pages: [
-      'API_Reference/enums',
-      'API_Reference/messages',
-      'API_Reference/methods',
-      'api/MT5Account',
-      'api/MT5Service',
-      'api/MT5Sugar',
-      'api/README'
+      'MT5Service/MT5Service.Overview',
+      'MT5Service/1. Connection',
+      'MT5Service/2. Account_Information',
+      'MT5Service/3. Symbol_Information',
+      'MT5Service/4. Positions_Orders',
+      'MT5Service/5. Market_Depth',
+      'MT5Service/6. Market_Data',
+      'MT5Service/7. Trading_Operations',
+      'MT5Service/8. Charts_and_Health',
+      'MT5Service/9. Streaming_Methods'
+    ]
+  },
+  'strategies': {
+    name: 'Strategies',
+    pages: [
+      'Strategies/Strategies.Master.Overview',
+      'Strategies/ScalpingOrchestrator',
+      'Strategies/TrendFollowingOrchestrator',
+      'Strategies/HedgingOrchestrator',
+      'Strategies/BreakoutOrchestrator',
+      'Strategies/MartingaleOrchestrator',
+      'Strategies/AggressiveGrowthPreset',
+      'Strategies/DefensivePreset'
     ]
   }
 };

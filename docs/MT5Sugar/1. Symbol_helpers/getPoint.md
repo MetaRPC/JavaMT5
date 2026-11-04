@@ -118,5 +118,5 @@ Example: 50 points on EURUSD = 50 × 0.00001 = 0.0005
 
 * **Low-level method:** [`SymbolInfoDouble`](../../MT5Account/2.%20Symbol_information/SymbolInfoDouble.md) - underlying implementation
 * **Related:** [`getDigits()`](./getDigits.md) - decimal places for formatting
-* **Related:** [`pointsToPips()`](./pointsToPips.md) - convert points to pips
+* **Related:** [`pointsToPips()`](../8.%20Advanced_helpers/pointsToPips.md) - convert points to pips
 * **Related:** [`normalizePrice()`](./normalizePrice.md) - normalize price to symbol's precision

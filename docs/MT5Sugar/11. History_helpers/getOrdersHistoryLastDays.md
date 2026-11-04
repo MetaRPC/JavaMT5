@@ -15,7 +15,7 @@
 | Parameter | Type     | Required | Description                                |
 | --------- | -------- | -------- | ------------------------------------------ |
 | `days`    | `int`    | ✅       | Number of days back to retrieve            |
-| `symbol`  | `String` | ⚪       | Symbol filter (null = all symbols)         |
+| `symbol`  | `String` | ⚪       | ⚠️ Currently **not applied** — the call always returns orders for all symbols. Filter the returned list client-side by symbol if needed. |
 
 ---
 
@@ -47,26 +47,33 @@
 ```java
 var history = sugar.getOrdersHistoryLastDays(7, null);
 
-System.out.printf("Orders from last 7 days: %d%n",
-    history.getOpenedOrderHistoriesCount());
+System.out.printf("History entries from last 7 days: %d%n",
+    history.getHistoryDataCount());
 
-for (var order : history.getOpenedOrderHistoriesList()) {
-    System.out.printf("  #%d %s %.2f lots @ %.5f%n",
+for (var item : history.getHistoryDataList()) {
+    var order = item.getHistoryOrder();   // OrderHistoryData
+    System.out.printf("  #%d %s vol=%.2f @ %.5f%n",
         order.getTicket(),
         order.getSymbol(),
-        order.getVolume(),
-        order.getClosePrice());
+        order.getVolumeInitial(),
+        order.getPriceOpen());
 }
 ```
 
-### 2) Today's orders for symbol
+### 2) Count entries (the `symbol` argument is ignored)
 
 ```java
-String symbol = "EURUSD";
-var history = sugar.getOrdersHistoryLastDays(1, symbol);
+// NOTE: getOrdersHistoryLastDays(days, symbol) does NOT apply the symbol —
+// it always returns entries for all symbols. Filter client-side if needed.
+var history = sugar.getOrdersHistoryLastDays(1, "EURUSD");
 
-System.out.printf("Today's %s orders: %d%n",
-    symbol, history.getOpenedOrderHistoriesCount());
+System.out.printf("Today's history entries (all symbols): %d%n",
+    history.getHistoryDataCount());
+
+long eurusd = history.getHistoryDataList().stream()
+    .filter(h -> h.getHistoryOrder().getSymbol().equals("EURUSD"))
+    .count();
+System.out.printf("EURUSD entries: %d%n", eurusd);
 ```
 
 ### 3) Last 30 days performance
@@ -78,8 +85,8 @@ double totalProfit = 0.0;
 int wins = 0;
 int losses = 0;
 
-for (var order : history.getOpenedOrderHistoriesList()) {
-    double profit = order.getProfit();
+for (var item : history.getHistoryDataList()) {
+    double profit = item.getHistoryDeal().getProfit();   // profit lives on the deal
     totalProfit += profit;
 
     if (profit > 0) wins++;
@@ -97,7 +104,7 @@ System.out.printf("  Win rate: %.1f%%%n", (wins * 100.0) / (wins + losses));
 ## 📌 Important Notes
 
 * **Time range:** From (now - days) to now
-* **Symbol filter:** Pass null for all symbols
+* **Symbol filter:** ⚠️ the `symbol` argument is currently **ignored** — all symbols are always returned; filter the result list client-side if you need one symbol
 * **Sort order:** Newest first (close time descending)
 * **All results:** No pagination applied
 

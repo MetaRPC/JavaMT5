@@ -14,8 +14,8 @@
 * **[getBid](./getBid.md)** - get current Bid (SELL) price in one call.
 * **[getAsk](./getAsk.md)** - get current Ask (BUY) price in one call.
 * **[pointsToPrice](./pointsToPrice.md)** - convert points offset to price (direction-aware).
-* **[priceFromOffsetPoints](./priceFromOffsetPoints.md)** - calculate price from current with offset (simple addition).
-* **[pointsToPips](./pointsToPips.md)** - convert points to pips (handles 5-digit vs 3-digit brokers).
+* **[priceFromOffsetPoints](../8.%20Advanced_helpers/priceFromOffsetPoints.md)** - calculate price from current with offset (simple addition).
+* **[pointsToPips](../8.%20Advanced_helpers/pointsToPips.md)** - convert points to pips (handles 5-digit vs 3-digit brokers).
 
 ---
 
