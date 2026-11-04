@@ -1,6 +1,6 @@
 # ✅ Getting Comprehensive Symbol Parameters
 
-> **Request:** retrieve all parameters for one or many symbols in a single call (RECOMMENDED for reading many properties efficiently). Each symbol is returned as a 112-field `SymbolParameters` record.
+> **Request:** retrieve all parameters for one or many symbols in a single call (RECOMMENDED for reading many properties efficiently). Each symbol is returned as a 116-field `SymbolParameters` record.
 
 **API Information:**
 
@@ -94,7 +94,7 @@ Access using `reply.getData().getSymbolInfosList()`, `reply.getData().getSymbols
 
 ### `SymbolParameters` structure
 
-Each record contains **112 fields** — prices, volumes, spreads, contract specs, margins, swaps, session statistics, option data, Greeks, timestamps, trading modes, identifiers and classification. Access any field with its generated getter (e.g. `info.getBid()`, `info.getSpread()`, `info.getTradeContractSize()`).
+Each record contains **116 fields** — prices, volumes, spreads, contract specs, margins, swaps, session statistics, option data, Greeks, timestamps, trading modes, identifiers and classification. Access any field with its generated getter (e.g. `info.getBid()`, `info.getSpread()`, `info.getTradeContractSize()`).
 
 **Enum-typed fields (13):**
 
@@ -425,7 +425,7 @@ Each record contains **112 fields** — prices, volumes, spreads, contract specs
 
 ## 💬 Just the essentials
 
-* **What it is.** One RPC returning 112 fields per symbol for one symbol or the whole Market Watch.
+* **What it is.** One RPC returning 116 fields per symbol for one symbol or the whole Market Watch.
 * **Why you need it.** The most efficient way to read many symbol properties — a single call instead of dozens of `symbolInfo*` calls.
 * **When to use.** Use this for complete symbol data; use `symbolInfoDouble/Integer/String` only for a single specific property.
 

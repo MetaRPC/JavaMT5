@@ -32,7 +32,7 @@ hide:
     </div>
   </a>
 
-  <a href="GETTING_STARTED/" class="hx-gc hx-blue">
+  <a href="All_Guides/GETTING_STARTED/" class="hx-gc hx-blue">
     <div class="hx-gcTop"></div>
     <div class="hx-gcBody">
       <div class="hx-gcTag">Learn</div>
@@ -42,7 +42,7 @@ hide:
     </div>
   </a>
 
-  <a href="PROJECT_MAP/" class="hx-gc hx-purple">
+  <a href="All_Guides/PROJECT_MAP/" class="hx-gc hx-purple">
     <div class="hx-gcTop"></div>
     <div class="hx-gcBody">
       <div class="hx-gcTag">Architecture</div>
@@ -52,7 +52,7 @@ hide:
     </div>
   </a>
 
-  <a href="GLOSSARY/" class="hx-gc hx-pink">
+  <a href="All_Guides/GLOSSARY/" class="hx-gc hx-pink">
     <div class="hx-gcTop"></div>
     <div class="hx-gcBody">
       <div class="hx-gcTag">Reference</div>
@@ -76,7 +76,7 @@ hide:
     </div>
   </a>
 
-  <a href="api/MT5Service/" class="hx-gc hx-rose">
+  <a href="MT5Service/MT5Service.Overview/" class="hx-gc hx-rose">
     <div class="hx-gcTop"></div>
     <div class="hx-gcBody">
       <div class="hx-gcTag">Reference · Mid-level</div>

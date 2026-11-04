@@ -28,7 +28,7 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming ticket lists
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onPositionsAndPendingOrdersTickets(
+    public Context.CancellableContext onPositionsAndPendingOrdersTickets(
         int timerPeriodMilliseconds,
         StreamObserver<Mt5TermApiSubscriptions.OnPositionsAndPendingOrdersTicketsReply> responseObserver
     ) throws ApiExceptionMT5;

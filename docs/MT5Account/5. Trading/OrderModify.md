@@ -239,7 +239,7 @@ public class TrailingStop {
 
         // Get current position info
         var positions = account.openedOrders(
-            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
         ).getData().getPositionInfosList();
 
         var position = positions.stream()
@@ -312,7 +312,7 @@ public class BreakevenStop {
 
         // Get position
         var positions = account.openedOrders(
-            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
         ).getData().getPositionInfosList();
 
         var position = positions.stream()
@@ -615,7 +615,7 @@ public class SmartStopModifier {
 
         // Get current position info
         var positions = account.openedOrders(
-            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_SORT_BY_TICKET_ASC
+            Mt5TermApiAccountHelper.BMT5_ENUM_OPENED_ORDER_SORT_TYPE.BMT5_OPENED_ORDER_SORT_BY_ORDER_TICKET_ID_ASC
         ).getData().getPositionInfosList();
 
         var position = positions.stream()
@@ -628,12 +628,12 @@ public class SmartStopModifier {
         boolean isBuy = position.getType() ==
             Mt5TermApiAccountHelper.BMT5_ENUM_POSITION_TYPE.BMT5_POSITION_TYPE_BUY;
 
-        // Get symbol info for validation
-        var symbolInfo = account.symbolInfoDouble(
+        // Get symbol info for validation (SYMBOL_TRADE_STOPS_LEVEL is an integer property, in points)
+        var symbolInfo = account.symbolInfoInteger(
             symbol,
-            Mt5TermApiMarketInfo.SymbolInfoDoubleProperty.SYMBOL_TRADE_STOPS_LEVEL
+            Mt5TermApiMarketInfo.SymbolInfoIntegerProperty.SYMBOL_TRADE_STOPS_LEVEL
         );
-        double stopLevel = symbolInfo.getData().getRequestedValue() * 0.00001;  // Convert to price
+        double stopLevel = symbolInfo.getData().getValue() * 0.00001;  // points → price (approx)
 
         System.out.printf("Modifying position #%d (%s %s)%n",
             ticket, isBuy ? "BUY" : "SELL", symbol);

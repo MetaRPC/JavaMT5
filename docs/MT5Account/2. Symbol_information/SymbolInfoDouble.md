@@ -120,45 +120,12 @@ Access using `reply.getData().getValue()`.
 |------------|-------|-------------|
 | `SYMBOL_MARGIN_INITIAL` | 35 | Initial margin for 1 lot |
 | `SYMBOL_MARGIN_MAINTENANCE` | 36 | Maintenance margin |
-| `SYMBOL_MARGIN_HEDGED` | 48 | Margin for hedged positions |
-
-**Session Properties:**
-
-| Enum Value | Value | Description |
-|------------|-------|-------------|
-| `SYMBOL_SESSION_VOLUME` | 37 | Session total volume |
-| `SYMBOL_SESSION_TURNOVER` | 38 | Session turnover |
-| `SYMBOL_SESSION_INTEREST` | 39 | Open interest |
-| `SYMBOL_SESSION_BUY_ORDERS_VOLUME` | 40 | Buy orders volume |
-| `SYMBOL_SESSION_SELL_ORDERS_VOLUME` | 41 | Sell orders volume |
-| `SYMBOL_SESSION_OPEN` | 42 | Session open price |
-| `SYMBOL_SESSION_CLOSE` | 43 | Session close price |
-| `SYMBOL_SESSION_AW` | 44 | Average weighted price |
-| `SYMBOL_SESSION_PRICE_SETTLEMENT` | 45 | Settlement price |
-| `SYMBOL_SESSION_PRICE_LIMIT_MIN` | 46 | Session minimum price limit |
-| `SYMBOL_SESSION_PRICE_LIMIT_MAX` | 47 | Session maximum price limit |
-
-**Price Change Properties:**
-
-| Enum Value | Value | Description |
-|------------|-------|-------------|
-| `SYMBOL_PRICE_CHANGE` | 49 | Price change % from previous day close |
-| `SYMBOL_PRICE_VOLATILITY` | 50 | Price volatility % |
 
 **Options Properties:**
 
 | Enum Value | Value | Description |
 |------------|-------|-------------|
 | `SYMBOL_OPTION_STRIKE` | 12 | Option strike price |
-| `SYMBOL_PRICE_THEORETICAL` | 51 | Theoretical option price |
-| `SYMBOL_PRICE_DELTA` | 52 | Option delta |
-| `SYMBOL_PRICE_THETA` | 53 | Option theta |
-| `SYMBOL_PRICE_GAMMA` | 54 | Option gamma |
-| `SYMBOL_PRICE_VEGA` | 55 | Option vega |
-| `SYMBOL_PRICE_RHO` | 56 | Option rho |
-| `SYMBOL_PRICE_OMEGA` | 57 | Option omega (elasticity) |
-| `SYMBOL_PRICE_SENSITIVITY` | 58 | Option sensitivity |
-| `SYMBOL_COUNT` | 59 | Number of symbol properties (enum size marker) |
 
 **Other Properties:**
 

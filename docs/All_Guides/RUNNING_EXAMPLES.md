@@ -131,14 +131,13 @@ Runs the orchestrator!
 Every `run.bat` command does:
 
 ```bash
-mvnd compile exec:java -Dexec.args="<your arguments>"
+mvn compile exec:java -Dexec.args="<your arguments>"
 ```
 
 ### This means:
 
-1. **`mvnd compile`** - Compile all Java files
-   - Generate protobuf files (if needed)
-   - Compile all `.java` files to `.class` files
+1. **`mvn compile`** - Compile all Java files
+   - Compile all `.java` files (your code + the bundled `package/` stubs) to `.class` files
    - Put everything in `target/classes/`
 
 2. **`exec:java`** - Execute `Program.java` main method
@@ -217,11 +216,10 @@ rm -rf target
 
 **What Happens When You Delete `target/`:**
 
-1. **You delete:** All compiled `.class` files, generated protobuf files, Maven caches
+1. **You delete:** All compiled `.class` files and Maven build metadata in `target/`
 2. **Next `run.bat` automatically:**
    - Recreates `target/` folder
-   - Regenerates all protobuf files from `.proto` sources
-   - Recompiles all `.java` files to `.class` files
+   - Recompiles all `.java` files (your code **and** the bundled `package/` stubs) to `.class` files
    - Starts with a clean slate!
 
 **This works 99% of the time!** It's the standard way to fix weird Java compilation issues.
@@ -253,52 +251,43 @@ rm -rf target
 
 ### What is `target/` Folder?
 
-The `target/` folder is where Maven puts **your** compiled files:
+The `target/` folder is where Maven puts all compiled `.class` files:
 
 ```
 target/
-├── classes/                          # Only YOUR compiled code
+├── classes/                          # All compiled code
 │   ├── Program.class
-│   ├── pro/mrpc/mt5/              # YOUR wrappers (MT5Account, MT5Service, MT5Sugar)
+│   ├── pro/mrpc/mt5/                 # Wrappers (MT5Account, MT5Service, MT5Sugar)
 │   │   ├── MT5Account.class
 │   │   ├── MT5Service.class
 │   │   └── MT5Sugar.class
-│   ├── examples/                     # YOUR examples
-│   ├── orchestrators/                # YOUR orchestrators
-│   └── presets/                      # YOUR presets
+│   ├── mt5_term_api/                 # gRPC proto stubs (compiled from package/)
+│   │   ├── Mt5TermApiConnection$...class
+│   │   ├── Mt5TermApiTradeFunctions$...class
+│   │   └── ...
+│   ├── examples/                     # Examples
+│   ├── orchestrators/                # Orchestrators
+│   ├── presets/                      # Presets
+│   └── appsettings.json             # Copied resource
 └── maven-status/                     # Maven build metadata
 ```
 
-**Important:** This shows ONLY your local code that gets compiled from `src/main/java/`.
+**Where do the proto classes come from?** They are **not** downloaded from a JitPack JAR.
+The gRPC stubs (`mt5_term_api.*`, `mrpc.*`) are committed **Java source** in the repo's
+`package/mt5_term_api/` folder. `pom.xml` adds `package/` as an extra source root
+(`build-helper-maven-plugin`), so those stubs compile **into `target/classes/mt5_term_api/`**
+right alongside your code — no separate dependency, no local `protoc` run.
 
-**Proto classes are NOT here!** The gRPC proto classes (`mt5_term_api.*`, `mrpc.*`) come from the pre-compiled MetaRPC JAR downloaded from JitPack and stored in your Maven cache:
-
-```
-~/.m2/repository/com/github/MetaRPC/JavaMT5/-SNAPSHOT/
-└── JavaMT5--SNAPSHOT.jar            # Contains all proto-generated classes
-    ├── mt5_term_api/                # Proto classes (NOT in your target/)
-    │   ├── AccountInformation$...class
-    │   ├── Connection$...class
-    │   ├── TradeFunctions$...class
-    │   └── ...
-    └── mrpc/
-        └── ...
-```
-
-Your code (`MT5Account`, `MT5Service`, `MT5Sugar`) imports these proto classes from the JAR, not from `target/`.
-
-### Build Steps (What `mvnd compile` Does)
+### Build Steps (What `mvn compile` Does)
 
 1. **Download dependencies** (first run only)
-   - MetaRPC JAR from JitPack (contains all proto classes)
    - gRPC runtime, Protobuf runtime, Gson
    - All cached in `~/.m2/repository/`
-   - **Your code does NOT compile proto files** - they're already compiled in the JAR!
+   - **No `protoc` runs** — the proto stubs ship as ready Java source in `package/`
 
-2. **Compile only YOUR local code**
-   - `src/main/java/**/*.java` → `target/classes/**/*.class`
-   - This includes: MT5Account, MT5Service, MT5Sugar, examples, orchestrators, presets
-   - Proto classes are imported from the MetaRPC JAR, not compiled locally
+2. **Compile all local code**
+   - `src/main/java/**/*.java` **and** `package/mt5_term_api/**/*.java` → `target/classes/**/*.class`
+   - This includes: the proto stubs, MT5Account, MT5Service, MT5Sugar, examples, orchestrators, presets
 
 3. **Copy resources**
    - `appsettings.json` → `target/classes/`
@@ -320,20 +309,20 @@ When you run `run.bat 7`:
 
 ```bash
 # 1. run.bat calls:
-mvnd compile exec:java -Dexec.args="7"
+mvn compile exec:java -Dexec.args="7"
 
 # 2. This does:
-- Compile: Build all Java files in src/main/java/
+- Compile: Build all Java files in src/main/java/ and package/
 - exec:java: Run Program.java with argument "7"
 
 # 3. Program.java routes to SimpleTradingScenario
 # 4. Your code executes
 ```
 
-**That's it!** Maven handles all dependencies automatically:
-- Downloads MetaRPC library from JitPack (first run only)
+**That's it!** Maven handles everything automatically:
+- Downloads runtime dependencies (gRPC, Protobuf, Gson) on the first run only
 - Sets up classpath with all required JARs
-- Compiles and runs your code
+- Compiles (your code + the bundled stubs) and runs your code
 
 ---
 

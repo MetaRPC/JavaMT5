@@ -174,5 +174,5 @@ System.out.printf("  Cost: $%.2f per lot%n", spreadCost);
 
 * **Low-level method:** [`SymbolInfoInteger`](../../MT5Account/2.%20Symbol_information/SymbolInfoInteger.md) - underlying implementation
 * **Related:** [`getSpreadPrice()`](./getSpreadPrice.md) - spread in price units (Ask - Bid)
-* **Related:** [`pointsToPips()`](./pointsToPips.md) - convert points to pips
+* **Related:** [`pointsToPips()`](../8.%20Advanced_helpers/pointsToPips.md) - convert points to pips
 * **Related:** [`getBid()`](./getBid.md), [`getAsk()`](./getAsk.md) - get current prices

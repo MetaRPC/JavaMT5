@@ -28,10 +28,10 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming tick updates
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onSymbolTick(
+    public Context.CancellableContext onSymbolTick(
         String[] symbolNames,
         StreamObserver<Mt5TermApiSubscriptions.OnSymbolTickReply> responseObserver
-    ) throws ApiExceptionMT5;
+    ) throws ApiExceptionMT5;  // returns a CancellableContext — call ctx.close()/cancel(...) to stop the stream
 }
 ```
 

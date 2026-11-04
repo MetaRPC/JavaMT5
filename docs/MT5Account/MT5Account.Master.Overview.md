@@ -332,11 +332,11 @@ Timestamps = **UTC** (`google.protobuf.Timestamp`). For streaming subscriptions,
 
 ## 🔗 Related Documentation
 
-* **[PROJECT_MAP.md](../PROJECT_MAP.md)** - Complete project structure
+* **[PROJECT_MAP.md](../All_Guides/PROJECT_MAP.md)** - Complete project structure
 * **[MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)** - High-level convenience API (Layer 3)
-* **[Orchestrators.Overview.md](../Orchestrators.Overview.md)** - Trading strategy implementations
-* **[GLOSSARY.md](../GLOSSARY.md)** - Project terminology
-* **[GETTING_STARTED.md](../GETTING_STARTED.md)** - Complete learning guide
+* **[Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)** - Trading strategy implementations
+* **[GLOSSARY.md](../All_Guides/GLOSSARY.md)** - Project terminology
+* **[GETTING_STARTED.md](../All_Guides/GETTING_STARTED.md)** - Complete learning guide
 
 ---
 

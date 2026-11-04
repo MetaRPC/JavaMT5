@@ -30,7 +30,7 @@
 
 **Examples:**
 - Input: `0.05`, Symbol: EURUSD (min=0.01, step=0.01) → Output: `0.05`
-- Input: `0.03`, Symbol: XAUUSD (min=0.01, step=0.10) → Output: `0.10`
+- Input: `0.13`, Symbol: XAUUSD (min=0.01, step=0.10) → Output: `0.10`
 - Input: `100.0`, Symbol: EURUSD (max=50.0) → Output: `50.0`
 
 ---

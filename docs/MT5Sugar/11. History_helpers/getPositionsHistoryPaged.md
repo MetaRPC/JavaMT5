@@ -51,11 +51,11 @@ int itemsPerPage = 50;
 var history = sugar.getPositionsHistoryPaged(page, itemsPerPage);
 
 System.out.printf("Page 1: %d positions%n",
-    history.getPositionsCount());
+    history.getHistoryPositionsCount());
 
-for (var pos : history.getPositionsList()) {
+for (var pos : history.getHistoryPositionsList()) {
     System.out.printf("  #%d %s: $%.2f profit%n",
-        pos.getTicket(),
+        pos.getPositionTicket(),
         pos.getSymbol(),
         pos.getProfit());
 }
@@ -70,12 +70,12 @@ int page = 0;
 while (true) {
     var history = sugar.getPositionsHistoryPaged(page, itemsPerPage);
 
-    if (history.getPositionsCount() == 0) {
+    if (history.getHistoryPositionsCount() == 0) {
         break; // No more data
     }
 
     System.out.printf("Page %d: %d positions%n",
-        page + 1, history.getPositionsCount());
+        page + 1, history.getHistoryPositionsCount());
 
     // Process positions...
 
@@ -96,9 +96,9 @@ int totalTrades = 0;
 while (true) {
     var history = sugar.getPositionsHistoryPaged(page, itemsPerPage);
 
-    if (history.getPositionsCount() == 0) break;
+    if (history.getHistoryPositionsCount() == 0) break;
 
-    for (var pos : history.getPositionsList()) {
+    for (var pos : history.getHistoryPositionsList()) {
         totalProfit += pos.getProfit();
         totalTrades++;
     }
@@ -125,4 +125,4 @@ System.out.printf("  Profit: $%.2f%n", totalProfit);
 ## See also
 
 * **Orders history:** [`getOrdersHistoryLastDays()`](./getOrdersHistoryLastDays.md)
-* **Low-level:** [`positionsHistory()`](../../MT5Account/3.%20Positions_and_orders/PositionsHistory.md) (if exists)
+* **Low-level:** [`positionsHistory()`](../../MT5Account/3.%20Positions_and_orders/PositionsHistory.md)

@@ -68,7 +68,7 @@ Highest-level API with ~50 convenience methods for common trading operations.
 
 **Location:** `src/main/java/pro/mrpc/mt5/MT5Sugar.java`
 
-**Documentation:** [MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)
+**Documentation:** [MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)
 
 ---
 
@@ -93,7 +93,7 @@ Pre-built trading strategy implementation that automates complete trading workfl
 
 **Location:** `src/main/java/orchestrators/`
 
-**Documentation:** [Orchestrators.Overview.md](Orchestrators.Overview.md)
+**Documentation:** [Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)
 
 ---
 
@@ -113,7 +113,7 @@ Multi-orchestrator combination with adaptive decision-making logic.
 
 **Location:** `src/main/java/presets/`
 
-**Documentation:** [Orchestrators.Overview.md](Orchestrators.Overview.md)
+**Documentation:** [Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)
 
 ---
 
@@ -153,7 +153,7 @@ Position sizing based on dollar risk rather than fixed lot size.
 - `buyByRisk(symbol, slPoints, riskAmount, tp)` - Buy with risk sizing
 - `sellByRisk(symbol, slPoints, riskAmount, tp)` - Sell with risk sizing
 
-**Documentation:** [calculateVolume.md](MT5Sugar/7. Risk_management/calculateVolume.md)
+**Documentation:** [calculateVolume.md](../MT5Sugar/7. Risk_management/calculateVolume.md)
 
 ---
 
@@ -250,11 +250,12 @@ Google's language-neutral data serialization format used for gRPC communication.
 
 **In JavaMT5:**
 - MT5 terminal communicates via gRPC protocol
-- Proto files define message structures (`.proto` files)
-- Compiled into Java classes by Maven
+- The proto message/service definitions ship as **pre-generated Java stubs** (no `.proto`
+  files are compiled at build time)
+- The stubs are added as a source root and compiled with the project
 - Used in MT5Account layer
 
-**Location:** `src/main/proto/`
+**Location:** `package/mt5_term_api/` (e.g., `Mt5TermApiTradeFunctions`, `TradeFunctionsGrpc`)
 
 ---
 
@@ -268,8 +269,9 @@ High-performance RPC (Remote Procedure Call) framework using HTTP/2.
 
 **Connection setup:**
 ```java
-MT5Account account = new MT5Account(login, password);
-account.connect(host, port, symbol, useSSL, timeout);
+MT5Account account = new MT5Account(login, password, "mt5.mrpc.pro:443", apiKey);
+// Connect by broker server name (the gateway routes to the right server):
+account.connectByServerName("MetaQuotes-Demo", "EURUSD", 120);
 ```
 
 ---
@@ -336,7 +338,7 @@ Trade 4: 0.08 lots → WIN  → +$10 total ✓
 
 **Used in:** `MartingaleOrchestrator` (demo only!)
 
-**Documentation:** [Orchestrators.Overview.md](./Orchestrators.Overview.md)
+**Documentation:** [Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)
 
 ---
 
@@ -345,10 +347,10 @@ Broker-specific constraints on position sizing.
 
 **Retrieved via:**
 ```java
-var limits = sugar.getVolumeLimits(symbol);
-double minVolume = limits.getMinVolume();  // e.g., 0.01
-double maxVolume = limits.getMaxVolume();  // e.g., 100.0
-double stepVolume = limits.getStepVolume(); // e.g., 0.01
+double[] limits = sugar.getVolumeLimits(symbol);  // [min, max, step]
+double minVolume = limits[0];   // e.g., 0.01
+double maxVolume = limits[1];   // e.g., 100.0
+double stepVolume = limits[2];  // e.g., 0.01
 ```
 
 **Used for:** Auto-normalization in MT5Sugar.
@@ -376,7 +378,7 @@ run.bat 11 1-2 # Specific preset
 
 **Location:** `src/main/java/examples/`
 
-**See:** [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for complete command list.
+**See:** [RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md) for complete command list.
 
 ---
 
@@ -417,7 +419,7 @@ Calls: SimpleTradingScenario.main()
 
 **Location:** `src/main/java/Program.java`
 
-**See:** [PROJECT_MAP.md](./PROJECT_MAP.md#programjava-srcmainjavaprogramjava) for details.
+**See:** [PROJECT_MAP.md](PROJECT_MAP.md#programjava-srcmainjavaprogramjava) for details.
 
 ---
 
@@ -426,14 +428,29 @@ Calls: SimpleTradingScenario.main()
 ### appsettings.json
 Central configuration file for MT5 connection settings.
 
+**Structure:**
+```json
+{
+  "MT5Connections": {
+    "FxProDemo": {
+      "user": 123456,
+      "password": "your_password",
+      "serverName": "MetaQuotes-Demo",
+      "baseSymbol": "EURUSD",
+      "apiKey": "TRIAL"
+    }
+  },
+  "DefaultConnection": "FxProDemo"
+}
+```
+
 **Key settings:**
-- `Host` - MT5 terminal host (e.g., mt5.mrpc.pro)
-- `Port` - gRPC server port (default 5555)
-- `Login` - MT5 account number
-- `Password` - MT5 account password
-- `Symbol` - Default trading symbol (e.g., "EURUSD")
-- `UseSSL` - SSL/TLS encryption (true/false)
-- `TimeoutSeconds` - Request timeout (default 30)
+- `user` - MT5 account number
+- `password` - MT5 account password
+- `serverName` - broker's MT5 server name (routed via the `mt5.mrpc.pro:443` gateway)
+- `baseSymbol` - default trading symbol (e.g., "EURUSD")
+- `apiKey` - MetaRPC API key from [mrpc.pro/my](https://mrpc.pro/my) (`TRIAL` without one)
+- `grpcServer` - optional, overrides the default gateway address
 
 **Location:** `./appsettings.json`
 
@@ -457,21 +474,22 @@ run.bat stop   # Stop Maven daemon
 ```
 
 **What it does:**
-- Compiles project: `mvnd compile`
-- Runs Program.java: `mvnd exec:java -Dexec.args="<numbers>"`
-- Uses Maven Daemon (mvnd) for fast execution
-- Handles Java environment setup
+- Compiles and runs in one step: `mvn compile exec:java -Dexec.args="<numbers>"`
+- Auto-detects the Maven launcher: plain `mvn` by default, or `mvnd` (Maven Daemon) if present
+- Sets `JAVA_HOME` if not already defined
+- Routes arguments to `Program.java`
 
 **Location:** `./run.bat`
 
 **Note:** If `run.bat` doesn't work, try `.\run.bat` (PowerShell/Git Bash).
 
-**See:** [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) for troubleshooting.
+**See:** [RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md) for troubleshooting.
 
 ---
 
 ### Maven Daemon (mvnd)
-Fast Maven build tool that reuses JVM between builds.
+Fast Maven build tool that reuses JVM between builds. **Optional** — `run.bat` works with
+plain `mvn` and only uses `mvnd` if it finds it.
 
 **Benefits:**
 - Much faster than standard `mvn`
@@ -503,9 +521,9 @@ target/
 
 **Purpose:**
 - Maven puts all compiled classes here
-- Auto-generated during `mvnd compile`
+- Auto-generated during `mvn compile`
 - Can be safely deleted for clean rebuild
-- MetaRPC library classes come from JAR dependency (not generated locally)
+- The proto stubs in `package/mt5_term_api/` are compiled here too (not downloaded from a JAR)
 
 **Troubleshooting:**
 ```bash
@@ -520,7 +538,7 @@ run.bat 7
 
 **⚠️ Java is finicky!** Deleting `target/` fixes 99% of weird compilation errors.
 
-**See:** [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md#problem-2-compilation-errors-unresolved-compilation-problem) for details.
+**See:** [RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md#problem-2-compilation-errors-unresolved-compilation-problem) for details.
 
 ---
 
@@ -614,7 +632,7 @@ JavaMT5 orchestrators and presets are learning materials, not production systems
 - Proto definitions
 - Generated classes
 
-**See:** [PROJECT_MAP.md](./PROJECT_MAP.md#what-to-modify-vs-what-to-leave-alone)
+**See:** [PROJECT_MAP.md](PROJECT_MAP.md#what-to-modify-vs-what-to-leave-alone)
 
 ---
 
@@ -622,9 +640,9 @@ JavaMT5 orchestrators and presets are learning materials, not production systems
 
 - **[RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md)** - How to run examples + troubleshooting
 - **[PROJECT_MAP.md](PROJECT_MAP.md)** - Complete project structure guide
-- **[MT5Sugar.Overview.md](MT5Sugar/MT5Sugar.Overview.md)** - All 50+ convenience methods
-- **[Orchestrators.Overview.md](Orchestrators.Overview.md)** - Strategy implementations
-- **API Documentation** - [MT5Account](MT5Account/MT5Account.Master.Overview.md) and [MT5Sugar](MT5Sugar/MT5Sugar.Overview.md)
+- **[MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md)** - All 50+ convenience methods
+- **[Strategies.Master.Overview.md](../Strategies/Strategies.Master.Overview.md)** - Strategy implementations
+- **API Documentation** - [MT5Account](../MT5Account/MT5Account.Master.Overview.md) and [MT5Sugar](../MT5Sugar/MT5Sugar.Overview.md)
 
 ---
 
@@ -657,6 +675,6 @@ JavaMT5 orchestrators and presets are learning materials, not production systems
 ---
 
 > 💡 **New to JavaMT5?**
-> 1. Read [RUNNING_EXAMPLES.md](./RUNNING_EXAMPLES.md) to learn how to run examples and troubleshoot issues
-> 2. Check [PROJECT_MAP.md](./PROJECT_MAP.md) to understand the project structure
-> 3. Explore [MT5Sugar.Overview.md](./MT5Sugar/MT5Sugar.Overview.md) for the convenience API
+> 1. Read [RUNNING_EXAMPLES.md](RUNNING_EXAMPLES.md) to learn how to run examples and troubleshoot issues
+> 2. Check [PROJECT_MAP.md](PROJECT_MAP.md) to understand the project structure
+> 3. Explore [MT5Sugar.Overview.md](../MT5Sugar/MT5Sugar.Overview.md) for the convenience API

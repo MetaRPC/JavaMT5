@@ -45,11 +45,11 @@ No parameters required. The method automatically uses connection metadata (insta
 
 ## ⬆️ Output - `PositionsTotalData`
 
-| Field   | Type  | Description                              |
-| ------- | ----- | ---------------------------------------- |
-| `total` | `int` | Total number of currently open positions |
+| Field             | Type  | Description                              |
+| ----------------- | ----- | ---------------------------------------- |
+| `total_positions` | `int` | Total number of currently open positions |
 
-Access the count using `reply.getData().getTotal()`.
+Access the count using `reply.getData().getTotalPositions()`.
 
 ---
 
@@ -102,7 +102,7 @@ public class Example {
 
             // Get position count
             Mt5TermApiTradeFunctions.PositionsTotalReply reply = account.positionsTotal();
-            int total = reply.getData().getTotal();
+            int total = reply.getData().getTotalPositions();
 
             System.out.printf("Open positions: %d%n", total);
 
@@ -120,7 +120,7 @@ public class Example {
 ```java
 // Quick check before querying details
 var reply = account.positionsTotal();
-int count = reply.getData().getTotal();
+int count = reply.getData().getTotalPositions();
 
 if (count == 0) {
     System.out.println("No open positions");
@@ -153,7 +153,7 @@ public class PositionWaiter {
         while (System.currentTimeMillis() - startTime < timeoutMillis) {
             try {
                 var reply = account.positionsTotal();
-                int count = reply.getData().getTotal();
+                int count = reply.getData().getTotalPositions();
 
                 if (count == 0) {
                     System.out.println("✅ All positions closed");
@@ -201,7 +201,7 @@ public class PositionMonitor {
         while (System.currentTimeMillis() < endTime) {
             try {
                 var reply = account.positionsTotal();
-                int count = reply.getData().getTotal();
+                int count = reply.getData().getTotalPositions();
 
                 if (count != lastCount) {
                     System.out.printf("[%s] Position count: %d%n",
@@ -239,7 +239,7 @@ public class PositionLimitChecker {
             int maxPositions) throws ApiExceptionMT5 {
 
         var reply = account.positionsTotal();
-        int current = reply.getData().getTotal();
+        int current = reply.getData().getTotalPositions();
 
         boolean allowed = current < maxPositions;
 
@@ -270,7 +270,7 @@ public class TradingDashboard {
         try {
             // Get position count
             var posReply = account.positionsTotal();
-            int positions = posReply.getData().getTotal();
+            int positions = posReply.getData().getTotalPositions();
 
             // Get account summary
             var accReply = account.accountSummary();
@@ -320,7 +320,7 @@ public class PositionTracker {
      */
     public void takeSnapshot(MT5Account account) throws ApiExceptionMT5 {
         var reply = account.positionsTotal();
-        int count = reply.getData().getTotal();
+        int count = reply.getData().getTotalPositions();
 
         snapshots.add(new PositionSnapshot(
             java.time.Instant.now(),
@@ -382,7 +382,7 @@ public class PositionAlertSystem {
         while (System.currentTimeMillis() < endTime) {
             try {
                 var reply = account.positionsTotal();
-                int count = reply.getData().getTotal();
+                int count = reply.getData().getTotalPositions();
 
                 if (count >= warningThreshold && !alerted) {
                     System.out.printf("🚨 ALERT: %d positions (threshold: %d)%n",
@@ -423,7 +423,7 @@ public class TradeValidator {
 
         // Check position count
         var posReply = account.positionsTotal();
-        int positions = posReply.getData().getTotal();
+        int positions = posReply.getData().getTotalPositions();
 
         if (positions >= maxPositions) {
             System.out.printf("❌ Too many positions: %d/%d%n", positions, maxPositions);
@@ -484,5 +484,5 @@ if (reply.hasError()) {
 }
 
 // Use data
-int total = reply.getData().getTotal();
+int total = reply.getData().getTotalPositions();
 ```

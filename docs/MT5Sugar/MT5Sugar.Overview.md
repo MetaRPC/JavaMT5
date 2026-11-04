@@ -20,8 +20,6 @@ Essential symbol information and normalization utilities.
 * **[getBid](./1.%20Symbol_helpers/getBid.md)** - current Bid
 * **[getAsk](./1.%20Symbol_helpers/getAsk.md)** - current Ask
 * **[getSpreadPrice](./1.%20Symbol_helpers/getSpreadPrice.md)** - spread in price units
-* **[pointsToPips](./1.%20Symbol_helpers/pointsToPips.md)** - points → pips conversion
-* **[priceFromOffsetPoints](./1.%20Symbol_helpers/priceFromOffsetPoints.md)** - price + offset
 
 ### 2. Market Orders (2 methods)
 

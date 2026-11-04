@@ -23,7 +23,7 @@ System.out.println("EURUSD " + reply.getData().getBid() + " / " + reply.getData(
 
 Field `foo_bar` is `getFooBar()` / `setFooBar(value)` on the builder (the exact getter of every field is in the tables
 below); a repeated field is `get...List()` / `add...(value)` / `addAll...(list)`. A server stream is an async stub
-(`newStub`) with a `StreamObserver`: see [Streams](../GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN.md).
+(`newStub`) with a `StreamObserver`: see [Streams](../All_Guides/GRPC_CHANNEL_AND_STREAM_MANAGEMENT_EN.md).
 
 ## AccountHelper
 

@@ -59,7 +59,8 @@ var data = reply.getData();
 System.out.printf("Market Depth for EURUSD (%d levels):%n", data.getMqlBookInfosCount());
 for (int i = 0; i < data.getMqlBookInfosCount(); i++) {
     var entry = data.getMqlBookInfos(i);
-    String type = entry.getType().getNumber() == 1 ? "SELL" : "BUY ";
+    // BookType: 0 = SELL (ask side), 1 = BUY (bid side)
+    String type = entry.getType().getNumber() == 1 ? "BUY " : "SELL";
     System.out.printf("  %s %.5f: %.2f lots%n",
         type, entry.getPrice(), entry.getVolumeReal());
 }
@@ -103,13 +104,14 @@ try {
     var reply = account.marketBookGet("XAUUSD");
     var data = reply.getData();
 
-    // 3. Process order book
-    System.out.printf("Best bid: %.2f (%.2f lots)%n",
-        data.getBookListBid(0).getPrice(),
-        data.getBookListBid(0).getVolume());
-    System.out.printf("Best ask: %.2f (%.2f lots)%n",
-        data.getBookListAsk(0).getPrice(),
-        data.getBookListAsk(0).getVolume());
+    // 3. Process order book (single flat list of levels, both sides)
+    System.out.printf("Market Depth for XAUUSD (%d levels):%n",
+        data.getMqlBookInfosCount());
+    for (var entry : data.getMqlBookInfosList()) {
+        String side = entry.getType().getNumber() == 1 ? "BID" : "ASK";
+        System.out.printf("  %s %.2f: %d%n",
+            side, entry.getPrice(), entry.getVolume());
+    }
 
 } finally {
     // 4. Always unsubscribe

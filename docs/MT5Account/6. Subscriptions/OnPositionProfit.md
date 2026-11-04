@@ -29,7 +29,7 @@ public class MT5Account {
      * @param responseObserver Observer to receive streaming position profit updates
      * @throws ApiExceptionMT5 if the subscription fails or connection is lost
      */
-    public void onPositionProfit(
+    public Context.CancellableContext onPositionProfit(
         int timerPeriodMilliseconds,
         boolean ignoreEmptyData,
         StreamObserver<Mt5TermApiSubscriptions.OnPositionProfitReply> responseObserver
