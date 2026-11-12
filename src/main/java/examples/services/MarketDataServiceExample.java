@@ -181,22 +181,35 @@ public class MarketDataServiceExample {
             String symbol = baseSymbol;
 
             demo("quote(symbol)", "Get current tick (auto .getData())");
-            Mt5TermApiMarketInfo.MrpcMqlTick tick = service.quote(symbol);
-            result("Bid", String.format("%.5f", tick.getBid()));
-            result("Ask", String.format("%.5f", tick.getAsk()));
-            result("Spread", String.format("%.5f", tick.getAsk() - tick.getBid()));
-            result("Time", String.valueOf(tick.getTime()));
+            // A symbol can momentarily have no ticks (market closed / illiquid),
+            // which the server reports as error 4304. Treat that as non-fatal so
+            // the rest of the demo keeps running.
+            try {
+                Mt5TermApiMarketInfo.MrpcMqlTick tick = service.quote(symbol);
+                result("Bid", String.format("%.5f", tick.getBid()));
+                result("Ask", String.format("%.5f", tick.getAsk()));
+                result("Spread", String.format("%.5f", tick.getAsk() - tick.getBid()));
+                result("Time", String.valueOf(tick.getTime()));
+            } catch (ApiExceptionMT5 e) {
+                result(symbol, "(no ticks right now - market closed or illiquid)");
+            }
 
             demo("quoteMany(symbols)", "Get multiple quotes at once");
             String[] symbols = {baseSymbol, "GBPUSD", "USDJPY"};
-            Mt5TermApiMarketInfo.SymbolInfoTickRequestReply[] quotes = service.quoteMany(symbols);
-            for (int i = 0; i < quotes.length; i++) {
-                if (quotes[i].getData() != null && quotes[i].getData().getBid() > 0) {
-                    result(symbols[i],
-                           String.format("Bid: %.5f | Ask: %.5f",
-                                       quotes[i].getData().getBid(),
-                                       quotes[i].getData().getAsk()));
+            // quoteMany fails as a whole if ANY requested symbol has no ticks (4304),
+            // so guard it too and just skip the batch when that happens.
+            try {
+                Mt5TermApiMarketInfo.SymbolInfoTickRequestReply[] quotes = service.quoteMany(symbols);
+                for (int i = 0; i < quotes.length; i++) {
+                    if (quotes[i].getData() != null && quotes[i].getData().getBid() > 0) {
+                        result(symbols[i],
+                               String.format("Bid: %.5f | Ask: %.5f",
+                                           quotes[i].getData().getBid(),
+                                           quotes[i].getData().getAsk()));
+                    }
                 }
+            } catch (ApiExceptionMT5 e) {
+                result("quoteMany", "(one or more symbols have no ticks - skipped)");
             }
 
             demo("symbolsTotal(selected)", "Count symbols (auto .getData().getTotal())");

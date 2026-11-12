@@ -709,32 +709,43 @@ public class TradingCalculationsExample {
             return;
         }
 
-        Mt5TermApiAccountHelper.PositionInfo position = ordersReply.getData().getPositionInfos(0);
-        long ticket = position.getTicket();
-        double volume = position.getVolume();
-        String positionType = position.getType() == Mt5TermApiAccountHelper.BMT5_ENUM_POSITION_TYPE.BMT5_POSITION_TYPE_BUY ? "BUY" : "SELL";
-
-        System.out.println("  [7.1] orderClose() - Close position:");
-        System.out.println("        Ticket: " + ticket);
-        System.out.println("        Type: " + positionType);
-        System.out.println("        Volume: " + volume);
+        // Section 5 opens BOTH a BUY and a SELL position, so close every open
+        // position for this symbol (not just the first) to avoid leaving one behind.
+        int positionCount = ordersReply.getData().getPositionInfosCount();
+        System.out.println("  [7.1] orderClose() - Close all open position(s) on " + symbol + ": " + positionCount);
         System.out.println();
 
-        try {
-            Mt5TermApiTradingHelper.OrderCloseReply closeReply = acc.orderClose(ticket, volume, 10);
-
-            if (closeReply.hasData()) {
-                Mt5TermApiTradingHelper.OrderCloseData result = closeReply.getData();
-                System.out.println("        [OK] Position closed successfully!");
-                System.out.println("        Return code: " + result.getReturnedCode());
-                System.out.println("        Close mode: " + result.getCloseMode());
-                System.out.println("        Description: " + result.getReturnedCodeDescription());
+        int closedCount = 0;
+        int attempted = 0;
+        for (int i = 0; i < positionCount; i++) {
+            Mt5TermApiAccountHelper.PositionInfo position = ordersReply.getData().getPositionInfos(i);
+            if (!position.getSymbol().equals(symbol)) {
+                continue; // leave positions on other symbols untouched
             }
+            attempted++;
+            long ticket = position.getTicket();
+            double volume = position.getVolume();
+            String positionType = position.getType() == Mt5TermApiAccountHelper.BMT5_ENUM_POSITION_TYPE.BMT5_POSITION_TYPE_BUY ? "BUY" : "SELL";
 
-        } catch (ApiExceptionMT5 e) {
-            System.out.println("        [X] Close failed: " + e.getMessage());
+            System.out.println("        Closing #" + ticket + "  Type: " + positionType + "  Volume: " + volume);
+
+            try {
+                Mt5TermApiTradingHelper.OrderCloseReply closeReply = acc.orderClose(ticket, volume, 10);
+
+                if (closeReply.hasData()) {
+                    Mt5TermApiTradingHelper.OrderCloseData result = closeReply.getData();
+                    System.out.println("        [OK] Closed. Return code: " + result.getReturnedCode()
+                            + " (" + result.getReturnedCodeDescription() + ")");
+                    closedCount++;
+                }
+
+            } catch (ApiExceptionMT5 e) {
+                System.out.println("        [X] Close failed: " + e.getMessage());
+            }
         }
 
+        System.out.println();
+        System.out.println("        Closed " + closedCount + " / " + attempted + " position(s) on " + symbol);
         System.out.println();
     }
 

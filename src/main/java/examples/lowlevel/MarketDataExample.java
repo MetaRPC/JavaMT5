@@ -490,7 +490,14 @@ public class MarketDataExample {
                 break; // Found working DOM, stop testing
 
             } catch (Exception ex) {
-                System.out.println("    [X] Error: " + ex.getMessage().substring(0, Math.min(60, ex.getMessage().length())));
+                // DOM (order book) is typically NOT available for forex symbols on
+                // demo accounts, and some test symbols may not exist on every broker;
+                // both surface here (including low-level deserialization errors on an
+                // empty/odd book). These are expected — keep testing the next symbol.
+                String msg = ex.getMessage() == null ? ex.toString() : ex.getMessage();
+                System.out.println("    [X] DOM not available for " + symbol
+                        + " (expected for forex / demo): "
+                        + msg.substring(0, Math.min(70, msg.length())));
             }
         }
 
