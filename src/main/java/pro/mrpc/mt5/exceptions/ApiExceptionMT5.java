@@ -14,6 +14,15 @@ public class ApiExceptionMT5 extends Exception {
     }
 
     /**
+     * Exception for an API error that keeps the underlying cause (e.g. the gRPC
+     * {@link io.grpc.StatusRuntimeException} or the failed reconnect).
+     */
+    public ApiExceptionMT5(MrpcMt5Error.Error error, Throwable cause) {
+        super(error.getErrorMessage(), cause);
+        this.error = error;
+    }
+
+    /**
      * Constructor for creating exception with custom message
      */
     public ApiExceptionMT5(String message) {

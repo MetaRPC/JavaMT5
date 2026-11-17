@@ -6,6 +6,7 @@ import io.grpc.stub.AbstractStub;
 import io.grpc.stub.MetadataUtils;
 import io.grpc.stub.StreamObserver;
 import pro.mrpc.mt5.exceptions.ApiExceptionMT5;
+import pro.mrpc.mt5.exceptions.TradeOutcomeUnknownExceptionMT5;
 import mt5_term_api.*;
 
 import java.util.UUID;
@@ -73,9 +74,17 @@ public class MT5Account implements AutoCloseable {
      * @param id Optional id of a terminal that is already connected (null: connect() gets one from the server)
      */
     public MT5Account(long user, String password, String grpcServer, String apiKey, UUID id) {
+        this(user, password, grpcServer != null ? grpcServer : "mt5.mrpc.pro:443", apiKey, id, null);
+    }
+
+    /**
+     * Account on a given channel (tests: an in-process channel). {@code channel == null} builds the
+     * default TLS channel to {@code grpcServer}.
+     */
+    MT5Account(long user, String password, String grpcServer, String apiKey, UUID id, ManagedChannel channel) {
         this.user = user;
         this.password = password;
-        this.grpcServer = grpcServer != null ? grpcServer : "mt5.mrpc.pro:443";
+        this.grpcServer = grpcServer;
         String envKey = System.getenv("MRPC_API_KEY");
         if (apiKey != null && !apiKey.trim().isEmpty() && !apiKey.equalsIgnoreCase("TRIAL")) {
             this.apiKey = apiKey.trim();
@@ -87,7 +96,7 @@ public class MT5Account implements AutoCloseable {
             this.apiKey = "TRIAL";
         }
         // Create gRPC channel with SSL/TLS
-        this.grpcChannel = NettyChannelBuilder
+        this.grpcChannel = channel != null ? channel : NettyChannelBuilder
                 .forTarget(this.grpcServer)
                 .useTransportSecurity() // Use TLS instead of plaintext
                 .maxInboundMessageSize(100 * 1024 * 1024) // 100 MB
@@ -269,6 +278,20 @@ public class MT5Account implements AutoCloseable {
     private <T> T executeWithReconnect(
             GrpcCall<T> call,
             ErrorExtractor<T> errorExtractor) throws ApiExceptionMT5 {
+        return executeWithReconnect(null, call, errorExtractor);
+    }
+
+    /**
+     * Same as {@link #executeWithReconnect(GrpcCall, ErrorExtractor)}; a non-null {@code tradeOperation}
+     * marks a trade call (OrderSend / OrderModify / OrderClose) that is never re-sent after a transport
+     * failure that may have reached the terminal: it throws {@link TradeOutcomeUnknownExceptionMT5} instead.
+     * Trades answered in-band with TERMINAL_INSTANCE_NOT_FOUND (the gateway answers before any terminal)
+     * are still reconnected and re-sent.
+     */
+    private <T> T executeWithReconnect(
+            String tradeOperation,
+            GrpcCall<T> call,
+            ErrorExtractor<T> errorExtractor) throws ApiExceptionMT5 {
 
         if (id == null) {
             throw new ApiExceptionMT5("Please call connect() method first");
@@ -282,20 +305,28 @@ public class MT5Account implements AutoCloseable {
             try {
                 response = call.execute(headers);
             } catch (StatusRuntimeException e) {
-                if (e.getStatus().getCode() == io.grpc.Status.Code.UNAVAILABLE) {
+                Status.Code code = e.getStatus().getCode();
+                String apiKeyCode = apiKeyErrorCode(e.getStatus().getDescription());
+                if (apiKeyCode != null) {
+                    // Refused API key: never reconnect / retry, keep the code
+                    throw new ApiExceptionMT5(MrpcMt5Error.Error.newBuilder()
+                            .setErrorCode(apiKeyCode)
+                            .setErrorMessage("gRPC call failed: " + e.getMessage())
+                            .build(), e);
+                }
+                if (tradeOperation != null && isTradeOutcomeUnknownStatus(code)) {
+                    // The trade may already have been executed: never re-send it automatically
+                    throw new TradeOutcomeUnknownExceptionMT5(tradeOperation, e);
+                }
+                if (code == Status.Code.UNAVAILABLE) {
                     // Server unavailable - wait and reconnect
                     try {
                         Thread.sleep(500);
                         reconnect();
                         continue; // Retry after reconnect
-                    } catch (ApiExceptionMT5 reconnectEx) {
-                        if (isTerminalLoginError(reconnectEx) || attempt == maxRetries - 1) {
-                            throw new ApiExceptionMT5("gRPC unavailable and reconnection failed: " + reconnectEx.getMessage());
-                        }
-                        continue;
                     } catch (Exception reconnectEx) {
-                        if (attempt == maxRetries - 1) {
-                            throw new ApiExceptionMT5("gRPC unavailable and reconnection failed: " + reconnectEx.getMessage());
+                        if (isNonRetryableReconnectError(reconnectEx) || attempt == maxRetries - 1) {
+                            throw reconnectFailed("gRPC unavailable and reconnection failed: ", reconnectEx);
                         }
                         continue;
                     }
@@ -315,14 +346,9 @@ public class MT5Account implements AutoCloseable {
                         Thread.sleep(500);
                         reconnect();
                         continue; // Retry after reconnect
-                    } catch (ApiExceptionMT5 reconnectEx) {
-                        if (isTerminalLoginError(reconnectEx) || attempt == maxRetries - 1) {
-                            throw new ApiExceptionMT5("Terminal instance lost and reconnection failed: " + reconnectEx.getMessage());
-                        }
-                        continue;
                     } catch (Exception reconnectEx) {
-                        if (attempt == maxRetries - 1) {
-                            throw new ApiExceptionMT5("Terminal instance lost and reconnection failed: " + reconnectEx.getMessage());
+                        if (isNonRetryableReconnectError(reconnectEx) || attempt == maxRetries - 1) {
+                            throw reconnectFailed("Terminal instance lost and reconnection failed: ", reconnectEx);
                         }
                         continue;
                     }
@@ -347,7 +373,65 @@ public class MT5Account implements AutoCloseable {
         String code = e.getErrorCode() == null ? "" : e.getErrorCode().toUpperCase();
         String msg = e.getMessage() == null ? "" : e.getMessage().toUpperCase();
         return code.contains("INVALID_LOGIN") || code.contains("WRONG_PASSWORD") || code.contains("INVALID_PASSWORD")
-                || msg.contains("INVALID_LOGIN") || msg.contains("INVALID ACCOUNT") || msg.contains("WRONG PASSWORD");
+                || msg.contains("INVALID_LOGIN") || msg.contains("INVALID ACCOUNT") || msg.contains("WRONG PASSWORD")
+                || apiKeyErrorCode(code) != null || apiKeyErrorCode(msg) != null;
+    }
+
+    /** API_KEY_INVALID / API_KEY_REQUIRED if {@code text} names one of them, else null. */
+    private static String apiKeyErrorCode(String text) {
+        if (text == null) {
+            return null;
+        }
+        String upper = text.toUpperCase();
+        if (upper.contains("API_KEY_INVALID")) {
+            return "API_KEY_INVALID";
+        }
+        if (upper.contains("API_KEY_REQUIRED")) {
+            return "API_KEY_REQUIRED";
+        }
+        return null;
+    }
+
+    /** Transport failures after which a trade request may already have reached the terminal. */
+    private static boolean isTradeOutcomeUnknownStatus(Status.Code code) {
+        return code == Status.Code.UNAVAILABLE || code == Status.Code.DEADLINE_EXCEEDED
+                || code == Status.Code.UNKNOWN || code == Status.Code.INTERNAL;
+    }
+
+    /** A reconnect failure that must not be retried (wrong login/password, refused API key). */
+    private static boolean isNonRetryableReconnectError(Exception reconnectEx) {
+        if (reconnectEx instanceof ApiExceptionMT5) {
+            return isTerminalLoginError((ApiExceptionMT5) reconnectEx);
+        }
+        if (reconnectEx instanceof StatusRuntimeException) {
+            return apiKeyErrorCode(((StatusRuntimeException) reconnectEx).getStatus().getDescription()) != null;
+        }
+        return false;
+    }
+
+    /** The error for a failed reconnect: keeps the reconnect error's code (e.g. API_KEY_INVALID) and cause. */
+    private static ApiExceptionMT5 reconnectFailed(String prefix, Exception reconnectEx) {
+        if (reconnectEx instanceof InterruptedException) {
+            Thread.currentThread().interrupt();
+        }
+        String message = prefix + reconnectEx.getMessage();
+        if (reconnectEx instanceof ApiExceptionMT5 && ((ApiExceptionMT5) reconnectEx).getError() != null) {
+            return new ApiExceptionMT5(((ApiExceptionMT5) reconnectEx).getError().toBuilder()
+                    .setErrorMessage(message)
+                    .build(), reconnectEx);
+        }
+        String code = reconnectEx instanceof StatusRuntimeException
+                ? apiKeyErrorCode(((StatusRuntimeException) reconnectEx).getStatus().getDescription())
+                : null;
+        if (code != null) {
+            return new ApiExceptionMT5(MrpcMt5Error.Error.newBuilder()
+                    .setErrorCode(code)
+                    .setErrorMessage(message)
+                    .build(), reconnectEx);
+        }
+        ApiExceptionMT5 ex = new ApiExceptionMT5(message);
+        ex.initCause(reconnectEx);
+        return ex;
     }
 
     /**
@@ -1775,6 +1859,7 @@ public class MT5Account implements AutoCloseable {
     public Mt5TermApiTradingHelper.OrderSendReply orderSendWithoutChecks(
             Mt5TermApiTradingHelper.OrderSendRequest request) throws ApiExceptionMT5 {
         return executeWithReconnect(
+                "OrderSendWithoutChecks",
                 headers -> tradeClient
                         .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
                         .orderSendWithoutChecks(request),
@@ -1795,6 +1880,7 @@ public class MT5Account implements AutoCloseable {
     public Mt5TermApiTradingHelper.OrderSendReply orderSend(
             Mt5TermApiTradingHelper.OrderSendRequest request) throws ApiExceptionMT5 {
         return executeWithReconnect(
+                "OrderSend",
                 headers -> tradeClient
                         .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
                         .orderSend(request),
@@ -1813,6 +1899,7 @@ public class MT5Account implements AutoCloseable {
     public Mt5TermApiTradingHelper.OrderModifyReply orderModify(
             Mt5TermApiTradingHelper.OrderModifyRequest request) throws ApiExceptionMT5 {
         return executeWithReconnect(
+                "OrderModify",
                 headers -> tradeClient
                         .withInterceptors(MetadataUtils.newAttachHeadersInterceptor(headers))
                         .orderModify(request),
@@ -1835,6 +1922,7 @@ public class MT5Account implements AutoCloseable {
             double volume,
             int slippage) throws ApiExceptionMT5 {
         return executeWithReconnect(
+                "OrderClose",
                 headers -> {
                     Mt5TermApiTradingHelper.OrderCloseRequest request =
                             Mt5TermApiTradingHelper.OrderCloseRequest.newBuilder()
