@@ -1170,7 +1170,7 @@ Timeframe of a bar. The value is the bar length in MINUTES, which is also what M
 | `SYMBOL_SPREAD` | 19 | Spread value in points |
 | `SYMBOL_TICKS_BOOKDEPTH` | 20 | Maximal number of requests shown in Depth of Market. For symbols that have no queue of requests, the value is equal to zero. |
 | `SYMBOL_TRADE_CALC_MODE` | 21 | Contract price calculation mode |
-| `SYMBOL_TRADE_MODE` | 22 | Order execution type |
+| `SYMBOL_TRADE_MODE` | 22 | Allowed trading mode |
 | `SYMBOL_START_TIME` | 23 | Date of the symbol trade beginning (usually used for futures) |
 | `SYMBOL_EXPIRATION_TIME` | 24 | Date of the symbol trade end (usually used for futures) |
 | `SYMBOL_TRADE_STOPS_LEVEL` | 25 | Minimal indention in points from the current close price to place Stop orders |

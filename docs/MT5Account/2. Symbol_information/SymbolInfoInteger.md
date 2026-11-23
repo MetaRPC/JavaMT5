@@ -89,7 +89,7 @@ Access using `reply.getData().getValue()`.
 | `SYMBOL_SPREAD` | 19 | `int` | Spread value in points |
 | `SYMBOL_TICKS_BOOKDEPTH` | 20 | `int` | Market Depth levels (0=not available) |
 | `SYMBOL_TRADE_CALC_MODE` | 21 | `enum` | Contract price calculation mode |
-| `SYMBOL_TRADE_MODE` | 22 | `enum` | Order execution type |
+| `SYMBOL_TRADE_MODE` | 22 | `enum` | Allowed trading mode |
 | `SYMBOL_START_TIME` | 23 | `datetime` | Symbol trade start date (futures) |
 | `SYMBOL_EXPIRATION_TIME` | 24 | `datetime` | Symbol trade end date (futures) |
 | `SYMBOL_TRADE_STOPS_LEVEL` | 25 | `int` | Minimum distance for stop orders (points) |

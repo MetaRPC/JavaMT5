@@ -60,12 +60,14 @@ public class MT5Account {
 
 | Field         | Type     | Description                                                  |
 | ------------- | -------- | ------------------------------------------------------------ |
-| `time`        | `long`   | Time of the last prices update (Unix timestamp in seconds)   |
+| `time`        | `long`   | Time of the last prices update, Unix seconds - **broker server time zone** |
+| `time_utc`    | `long`   | `time` in UTC (same instant)                                 |
 | `bid`         | `double` | Current Bid price (sell price)                               |
 | `ask`         | `double` | Current Ask price (buy price)                                |
 | `last`        | `double` | Price of the last deal (Last)                                |
 | `volume`      | `long`   | Volume for the current Last price                            |
-| `time_msc`    | `long`   | Time of a price last update in milliseconds since 1970.01.01 |
+| `time_msc`    | `long`   | Time of a price last update in ms - **broker server time zone** |
+| `time_msc_utc`| `long`   | `time_msc` in UTC (same instant)                             |
 | `flags`       | `int`    | Tick flags (see MQL5 documentation)                          |
 | `volume_real` | `double` | Volume for the current Last price with greater accuracy      |
 
@@ -179,8 +181,8 @@ var reply = account.symbolInfoTick("XAUUSD");
 var tick = reply.getData();
 
 // Convert Unix timestamp to Java Instant
-java.time.Instant tickTime = java.time.Instant.ofEpochSecond(tick.getTime());
-java.time.Instant tickTimeMsc = java.time.Instant.ofEpochMilli(tick.getTimeMsc());
+java.time.Instant tickTime = java.time.Instant.ofEpochSecond(tick.getTimeUtc());
+java.time.Instant tickTimeMsc = java.time.Instant.ofEpochMilli(tick.getTimeMscUtc());
 
 System.out.printf("Gold price at %s:%n", tickTime);
 System.out.printf("Bid: %.2f | Ask: %.2f%n", tick.getBid(), tick.getAsk());
@@ -262,7 +264,7 @@ public class MarketChecker {
 
         // Get current time
         long currentTime = System.currentTimeMillis();
-        long tickTime = tick.getTimeMsc();
+        long tickTime = tick.getTimeMscUtc();
 
         // Check if tick is fresh (within last 5 seconds)
         long ageMillis = currentTime - tickTime;
@@ -298,7 +300,7 @@ public record TickData(
             tick.getAsk(),
             tick.getLast(),
             tick.getAsk() - tick.getBid(),
-            java.time.Instant.ofEpochMilli(tick.getTimeMsc())
+            java.time.Instant.ofEpochMilli(tick.getTimeMscUtc())
         );
     }
 

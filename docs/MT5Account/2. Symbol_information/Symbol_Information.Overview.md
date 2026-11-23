@@ -29,7 +29,7 @@
 * **SymbolExist / SymbolIsSynchronized** → **validate** symbol before trading.
 * **SymbolInfo*** (Double/Integer/String) → **symbol properties** one at a time.
 * **TickValueWithSize** → **efficient batch** retrieval for multiple symbols.
-* **SymbolParamsMany** → **everything about a symbol** (112 fields) in one call; best for many symbols.
+* **SymbolParamsMany** → **everything about a symbol** (116 fields) in one call; best for many symbols.
 * **SymbolInfoMarginRate** → **how much margin** an order type reserves.
 * **SymbolInfoSessionQuote / SymbolInfoSessionTrade** → **when quotes/trading** are available per weekday.
 
@@ -51,7 +51,7 @@
 | Single integer property (digits, spread, etc.)   | `SymbolInfoInteger`    | Single `long`              | `symbol`, property enum             |
 | Single string property (description, currency)   | `SymbolInfoString`     | Single `String`            | `symbol`, property enum             |
 | Tick values for multiple symbols                 | `TickValueWithSize`    | Batch tick values          | `symbols: String[]`                 |
-| All parameters for one/many symbols              | `SymbolParamsMany`     | 112 fields per symbol      | `symbolName`, `sortType`, paging    |
+| All parameters for one/many symbols              | `SymbolParamsMany`     | 116 fields per symbol      | `symbolName`, `sortType`, paging    |
 | Margin rate multipliers per order type           | `SymbolInfoMarginRate` | Initial/maintenance rates  | `symbol`, `orderType` enum          |
 | Quote session times (per weekday)                | `SymbolInfoSessionQuote`| Session from/to            | `symbol`, `dayOfWeek`, `sessionIndex` |
 | Trade session times (per weekday)                | `SymbolInfoSessionTrade`| Session from/to            | `symbol`, `dayOfWeek`, `sessionIndex` |
